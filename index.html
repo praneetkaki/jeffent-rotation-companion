@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JeffENT Rotation Companion</title>
+  <meta name="description" content="An open, active-recall study tool for the Otolaryngology clinical rotation — built by and for JeffENT.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="topbar">
+    <div class="brand" id="brandHome" role="button" tabindex="0" aria-label="Go to home">
+      <span class="mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 21c-2.2 0-3.5-1.6-3.5-3.7 0-2 1.2-3 1.2-5.3A6.3 6.3 0 0 1 18 9.5c0 2.3-2 3-2 4.7 0 1.1.8 1.6.8 2.6"></path>
+          <path d="M9 9.2A3 3 0 0 1 14.6 10"></path>
+        </svg>
+      </span>
+      <div>
+        <div class="brand-name">JeffENT Rotation Companion</div>
+        <div class="brand-sub mono">active recall · spaced repetition</div>
+      </div>
+    </div>
+    <div class="tb-right">
+      <div class="search mono" aria-hidden="true">⌕&nbsp; Search topics…</div>
+      <button class="icon-btn" id="themeToggle" title="Toggle light/dark" aria-label="Toggle theme">◑</button>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <!-- screens injected by app.js -->
+    <section id="screen-home" class="screen"></section>
+    <section id="screen-track" class="screen" hidden></section>
+    <section id="screen-module" class="screen" hidden></section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">
+      <p class="mono">JeffENT Rotation Companion · <span id="moduleStamp"></span></p>
+      <p class="disclaimer">Draft educational content pending faculty review. Not a clinical decision-making tool. For teaching use only.</p>
+    </div>
+  </footer>
+
+  <!-- content modules register onto window.JEFFENT -->
+  <script src="content/registry.js"></script>
+  <script src="content/tracks.js"></script>
+  <script src="content/ent-exam-clinic-complaints.js"></script>
+  <script src="content/otology.js"></script>
+  <script src="content/anatomy-atlas.js"></script>
+  <!-- engine + app -->
+  <script src="js/srs.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
