@@ -636,9 +636,16 @@
     if (mods.length > 1) crumb.textContent = "← " + (mod.trackName || mod.track);
     pageHead.appendChild(crumb);
     pageHead.appendChild(h('<span class="crumb-sep">/</span>'));
-    pageHead.appendChild(h('<div class="ph-eyebrow">' + trackBadge(modTrack, "eyebrow-icon", 11) + '<span class="eyebrow">' + esc(mod.trackName || mod.track) + '</span></div>'));
+    var phEyebrow = h('<button type="button" class="ph-eyebrow">' + trackBadge(modTrack, "eyebrow-icon", 11) + '<span class="eyebrow">' + esc(mod.trackName || mod.track) + '</span></button>');
+    phEyebrow.addEventListener("click", function () { goTrack(mod.track); });
+    pageHead.appendChild(phEyebrow);
     pageHead.appendChild(h('<span class="crumb-sep">/</span>'));
-    pageHead.appendChild(h('<span class="ph-current" id="phCurrent">' + esc(mod.title) + '</span>'));
+    var phCurrent = h('<button type="button" class="ph-current" id="phCurrent">' + esc(mod.title) + '</button>');
+    phCurrent.addEventListener("click", function () {
+      state.anatomyTopic = null;
+      renderModule(mod.id);
+    });
+    pageHead.appendChild(phCurrent);
     root.appendChild(pageHead);
 
     root.appendChild(h(
@@ -826,41 +833,117 @@
     showScreen("study");
   }
 
+  /* First real image src referenced inside a note's HTML, if any -- used
+     as the card's media-slot thumbnail. Notes with no figure yet fall back
+     to a tinted icon tile instead of a broken/missing image. */
+  function firstImageSrc(html) {
+    var m = /<img[^>]*\ssrc=['"]([^'"]+)['"]/.exec(html || "");
+    return m ? m[1] : null;
+  }
+  function teaserOf(html, max) {
+    var t = stripHtml(html);
+    if (t.length > max) t = t.slice(0, max).replace(/\s+\S*$/, "") + "…";
+    return t;
+  }
+
   function buildAnatomyTopicList(mod, pane, notes, diagrams) {
     var wrap = h('<div class="anatomy-topics"></div>');
-    if (notes.length) {
-      wrap.appendChild(h('<div class="section-head anatomy-section-head"><h2>Anatomy notes</h2></div>'));
-      var grid = h('<div class="anatomy-topic-grid"></div>');
-      notes.forEach(function (n, i) {
-        var teaser = stripHtml(n.html);
-        if (teaser.length > 120) teaser = teaser.slice(0, 120).replace(/\s+\S*$/, "") + "…";
-        var card = h('<button type="button" class="anatomy-topic-card"><h3>' + esc(n.title) + '</h3><p>' + esc(teaser) + '</p></button>');
-        card.addEventListener("click", function () {
-          state.anatomyTopic = { kind: "note", index: i };
-          renderAnatomyPane(pane, mod);
-        });
-        grid.appendChild(card);
-      });
-      wrap.appendChild(grid);
-    } else {
-      wrap.appendChild(h('<div class="panel">' + emptyNote("No anatomy notes yet.").outerHTML + '</div>'));
+    var modTrack = trackById(mod.track);
+    var trackStyle = modTrack && modTrack.color ? ' style="--track-color:' + modTrack.color + '"' : "";
+
+    wrap.appendChild(h(
+      '<div class="tg-hero"' + trackStyle + '>' +
+        '<div><h2 class="tg-hero-title">Anatomy</h2>' +
+        '<p class="tg-hero-sub">Every anatomy note and labeled diagram for ' + esc(mod.trackName || mod.track) + '.</p></div>' +
+        '<div class="tg-hero-tags">' +
+          (notes.length ? '<span class="tg-tag">' + notes.length + ' note' + (notes.length === 1 ? '' : 's') + '</span>' : '') +
+          (diagrams.length ? '<span class="tg-tag">' + diagrams.length + ' diagram' + (diagrams.length === 1 ? '' : 's') + '</span>' : '') +
+        '</div>' +
+      '</div>'
+    ));
+
+    if (!notes.length && !diagrams.length) {
+      wrap.appendChild(h('<div class="panel">' + emptyNote("Anatomy content for this module is in progress.").outerHTML + '</div>'));
+      return wrap;
     }
 
-    if (diagrams.length) {
-      wrap.appendChild(h('<div class="section-head anatomy-section-head"><h2>Labeled diagrams</h2></div>'));
-      var dgrid = h('<div class="anatomy-topic-grid"></div>');
-      diagrams.forEach(function (dg, i) {
-        var teaser = dg.note ? stripHtml(dg.note) : "";
-        if (teaser.length > 120) teaser = teaser.slice(0, 120).replace(/\s+\S*$/, "") + "…";
-        var card = h('<button type="button" class="anatomy-topic-card diagram"><span class="atc-kind">Diagram</span><h3>' + esc(dg.title) + '</h3>' + (teaser ? '<p>' + esc(teaser) + '</p>' : '') + '</button>');
-        card.addEventListener("click", function () {
-          state.anatomyTopic = { kind: "diagram", index: i };
-          renderAnatomyPane(pane, mod);
-        });
-        dgrid.appendChild(card);
+    var filterBar = h(
+      '<div class="tg-filter-bar">' +
+        '<button type="button" class="tg-filter active" data-kind="all">All</button>' +
+        (notes.length ? '<button type="button" class="tg-filter" data-kind="note">Notes</button>' : '') +
+        (diagrams.length ? '<button type="button" class="tg-filter" data-kind="diagram">Diagrams</button>' : '') +
+      '</div>'
+    );
+    wrap.appendChild(filterBar);
+
+    var grid = h('<div class="tg-grid"></div>');
+
+    notes.forEach(function (n, i) {
+      var src = firstImageSrc(n.html);
+      var media = src
+        ? '<img src="' + esc(src) + '" alt="" loading="lazy">'
+        : trackBadge(modTrack, "tg-placeholder-icon", 26);
+      var card = h(
+        '<button type="button" class="tg-card' + (src ? '' : ' no-img') + '" data-kind="note"' + trackStyle + '>' +
+          '<div class="tg-media">' + media + '</div>' +
+          '<div class="tg-body"><h3>' + esc(n.title) + '</h3><p>' + esc(teaserOf(n.html, 110)) + '</p>' +
+          '<span class="tg-chip">Note</span></div>' +
+        '</button>'
+      );
+      card.addEventListener("click", function () {
+        state.anatomyTopic = { kind: "note", index: i };
+        renderAnatomyPane(pane, mod);
       });
-      wrap.appendChild(dgrid);
+      grid.appendChild(card);
+    });
+
+    diagrams.forEach(function (dg, i) {
+      var src = dg.kind === "image" ? dg.src : null;
+      var media = src
+        ? '<img src="' + esc(src) + '" alt="" loading="lazy">'
+        : trackBadge(modTrack, "tg-placeholder-icon", 26);
+      var teaser = dg.note ? teaserOf(dg.note, 110) : "";
+      var card = h(
+        '<button type="button" class="tg-card' + (src ? '' : ' no-img') + '" data-kind="diagram"' + trackStyle + '>' +
+          '<div class="tg-media">' + media + '</div>' +
+          '<div class="tg-body"><h3>' + esc(dg.title) + '</h3>' + (teaser ? '<p>' + esc(teaser) + '</p>' : '<p>&nbsp;</p>') +
+          '<span class="tg-chip diagram">Diagram</span></div>' +
+        '</button>'
+      );
+      card.addEventListener("click", function () {
+        state.anatomyTopic = { kind: "diagram", index: i };
+        renderAnatomyPane(pane, mod);
+      });
+      grid.appendChild(card);
+    });
+
+    wrap.appendChild(grid);
+
+    /* filter pills: animated sliding underline + fade transition on the grid */
+    var indicator = h('<span class="tg-filter-indicator"></span>');
+    filterBar.appendChild(indicator);
+    function positionIndicator() {
+      var active = filterBar.querySelector(".tg-filter.active");
+      if (!active) return;
+      indicator.style.left = active.offsetLeft + "px";
+      indicator.style.width = active.offsetWidth + "px";
     }
+    setTimeout(positionIndicator, 0);
+    filterBar.querySelectorAll(".tg-filter").forEach(function (pill) {
+      pill.addEventListener("click", function () {
+        filterBar.querySelectorAll(".tg-filter").forEach(function (p) { p.classList.toggle("active", p === pill); });
+        positionIndicator();
+        var kind = pill.dataset.kind;
+        grid.classList.add("tg-grid-fade");
+        setTimeout(function () {
+          grid.querySelectorAll(".tg-card").forEach(function (card) {
+            card.style.display = (kind === "all" || card.dataset.kind === kind) ? "" : "none";
+          });
+          grid.classList.remove("tg-grid-fade");
+        }, 140);
+      });
+    });
+
     return wrap;
   }
 
@@ -2187,7 +2270,7 @@
     if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     if (!("IntersectionObserver" in window)) return;
     document.body.classList.add("js-motion");
-    var SEL = ".note-fig, .callout, .case, .tbl-scroll, .anatomy-topic-card, .study-cta, .pcard, .hero-mini, .rm-row, .mod-row, .panel, .feature-row";
+    var SEL = ".note-fig, .callout, .case, .tbl-scroll, .tg-card, .study-cta, .pcard, .hero-mini, .rm-row, .mod-row, .panel, .feature-row";
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
     }, { rootMargin: "0px 0px -6% 0px", threshold: 0.04 });
