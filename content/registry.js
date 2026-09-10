@@ -1,4 +1,4 @@
-/* registry.js — the content registry.
+/* registry.js, the content registry.
  *
  * Each module file (e.g. ent-exam-clinic-complaints.js) calls
  * window.JEFFENT.register(moduleObject) when it loads. app.js reads the

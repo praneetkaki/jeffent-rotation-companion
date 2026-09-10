@@ -1,1 +1,19 @@
 .DS_Store
+.Rhistory
+.fuse_hidden*
+.agents/
+.claude/
+skills-lock.json
+_to_delete/
+images/
+OpenStax Chapter PDFs/
+js/*.bak.*
+*.bak.*
+
+# Large working exports already consumed into content/*.js; kept locally as
+# source material for figure-sourcing passes, not part of the deployed site.
+ENT_Anatomy_Consolidated_Atlas.md
+MODULE-CONTENT-FULL.md
+MODULECONTENTFULL_TAGGED_FOR_CLAUDE.md
+IMAGE_MANIFEST_FOR_CLAUDE.md
+rename_unzipped_images.py.md
