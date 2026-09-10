@@ -933,6 +933,22 @@ body.js-motion .reveal-init.in { opacity: 1; transform: none;
 .feature-list .feature-row:nth-child(4) { transition-delay: 120ms; }
 .feature-list .feature-row:nth-child(n+5) { transition-delay: 160ms; }
 
+/* ---- Home background icon field: a faint, scattered set of hand-drawn
+   ENT line-icons behind the Home screen's content, fading in one by one
+   as the page scrolls (see buildBgIconLayer() in app.js). Purely
+   decorative -- aria-hidden, no pointer events, sits behind every normal-
+   flow child via a negative z-index within #screen-home's own stacking
+   context, so it never competes with content or its contrast. ---- */
+#screen-home { position: relative; }
+.bg-icon-layer { position: absolute; inset: 0; overflow: hidden; z-index: -1; pointer-events: none; }
+.bg-icon { position: absolute; display: block; opacity: var(--bgi-op, .1);
+  transform: rotate(var(--bgi-rot, 0deg)); will-change: opacity, transform; }
+.bg-icon svg { width: 100%; height: 100%; display: block; }
+body.js-motion .bg-icon.bgi-init { opacity: 0; transform: translateY(28px) scale(.82) rotate(var(--bgi-rot, 0deg)); }
+body.js-motion .bg-icon.bgi-init.in { opacity: var(--bgi-op, .1); transform: translateY(0) scale(1) rotate(var(--bgi-rot, 0deg));
+  transition: opacity 1s var(--ease-out), transform 1s var(--ease-out); }
+@media (prefers-reduced-motion: reduce) { .bg-icon { transition: none !important; transform: rotate(var(--bgi-rot, 0deg)) !important; } }
+
 /* ---- curriculum roadmap ---- */
 .roadmap-list { display: flex; flex-direction: column; gap: 12px; margin-top: 22px; }
 .rm-row { display: flex; gap: 16px; align-items: flex-start; background: var(--surface);

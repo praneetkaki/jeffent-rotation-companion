@@ -80,6 +80,65 @@
     if (!track) return "";
     return '<span class="track-badge' + (extraClass ? " " + extraClass : "") + '">' + trackSymbol(track, size) + '</span>';
   }
+
+  /* ---------- decorative background icons (Home screen only) ----------
+   * A faint, scattered field of hand-drawn ENT line-icons that sits behind
+   * the Home screen's content and fades in per-icon as the page scrolls,
+   * purely decorative texture (never clinical content -- CLAUDE.md keeps
+   * that separation, so this lives here in js/, not content/). Reuses the
+   * exact icon stroke/viewBox convention as trackSymbol() above, and three
+   * of the six glyphs are the same paths as the Otology/Rhinology/
+   * Laryngology track icons so the motif reads as "this app", not generic
+   * clip-art. aria-hidden + pointer-events:none keep it out of the a11y
+   * tree and off the hit-testing path entirely. */
+  var BG_DECOR_ICONS = [
+    /* ear (matches Otology track icon) */
+    '<path d="M12 3a6 6 0 0 0-6 6c0 2 1 3 1 5a3 3 0 0 0 3 3"></path><path d="M12 3a6 6 0 0 1 6 6c0 3-2 4-2 7a3 3 0 0 1-3 3 3 3 0 0 1-3-3v-1"></path>',
+    /* nose (matches Rhinology track icon) */
+    '<path d="M9 3c-1 4-3 6-3 10a6 6 0 0 0 12 0c0-1-.5-2-1-3"></path><path d="M9 13c0 2 1.5 3 3 3s3-1 3-3"></path>',
+    /* throat / voice waveform (matches Laryngology track icon) */
+    '<path d="M4 12v.5"></path><path d="M8 8v8"></path><path d="M12 5v14"></path><path d="M16 8v8"></path><path d="M20 12v.5"></path>',
+    /* tympanic membrane: eardrum circle + malleus/light-reflex */
+    '<circle cx="12" cy="12" r="8"></circle><path d="M12 6v6l-4 4"></path>',
+    /* cochlea: three nested spiral arcs */
+    '<path d="M12 16a4 4 0 1 1 4-4"></path><path d="M12 16a7 7 0 1 1 7-7"></path><path d="M9 12a1 1 0 1 1 1-1"></path>',
+    /* hearing / sound waves */
+    '<circle cx="5" cy="12" r="1.6" fill="currentColor" stroke="none"></circle><path d="M9 8a6 6 0 0 1 0 8"></path><path d="M13 5a10 10 0 0 1 0 14"></path>'
+  ];
+  /* Deterministic PRNG (mulberry32) so the scatter is stable within a page
+   * load's re-renders instead of jumping around every time goHome() runs. */
+  function mulberry32(seed) {
+    return function () {
+      seed |= 0; seed = (seed + 0x6D2B79F5) | 0;
+      var t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+  function buildBgIconLayer() {
+    var rng = mulberry32(20260910);
+    var colors = TRACKS.filter(function (t) { return t.color; }).map(function (t) { return t.color; });
+    var layer = document.createElement("div");
+    layer.className = "bg-icon-layer";
+    layer.setAttribute("aria-hidden", "true");
+    var COUNT = 22;
+    for (var i = 0; i < COUNT; i++) {
+      var icon = BG_DECOR_ICONS[i % BG_DECOR_ICONS.length];
+      var size = 26 + Math.round(rng() * 46);          /* 26-72px */
+      var top = rng() * 96;                             /* spread across full scroll height */
+      var left = rng() * 94;
+      var rot = Math.round(rng() * 50 - 25);             /* -25..25deg */
+      var op = (0.05 + rng() * 0.09).toFixed(3);          /* faint: .05-.14 */
+      var color = colors.length ? colors[i % colors.length] : "var(--ink-faint)";
+      var wrap = document.createElement("span");
+      wrap.className = "bg-icon";
+      wrap.style.cssText = "top:" + top.toFixed(2) + "%; left:" + left.toFixed(2) + "%; width:" + size + "px; height:" + size + "px; color:" + color + ";" +
+        " --bgi-op:" + op + "; --bgi-rot:" + rot + "deg;";
+      wrap.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">' + icon + '</svg>';
+      layer.appendChild(wrap);
+    }
+    return layer;
+  }
   function aggregateStats(mods) {
     var total = 0, due = 0, mastered = 0;
     mods.forEach(function (m) {
@@ -314,6 +373,7 @@
 
     var root = el("screen-home");
     root.innerHTML = "";
+    root.appendChild(buildBgIconLayer());
     root.appendChild(h('<div class="eyebrow">Your ENT rotation, topic by topic</div>'));
 
     var stripEl = h(
@@ -2295,6 +2355,45 @@
           m.addedNodes.forEach(function (n) { if (n.nodeType === 1) scan(n); });
         });
       }).observe(app, { childList: true, subtree: true });
+    }
+    if (document.readyState !== "loading") boot();
+    else document.addEventListener("DOMContentLoaded", boot);
+  } catch (e) { /* motion is non-essential; never block the app */ }
+})();
+
+
+/* ===== Background-icon reveal: the faint Home-screen ENT icon field fades
+ * in icon-by-icon as it scrolls into view, so the page visually "fills up"
+ * top to bottom. Deliberately has NO fail-safe timer (unlike the reveal
+ * pass above) -- these are pure decoration, so an icon that never scrolls
+ * into view should simply stay invisible rather than pop in on its own.
+ * Falls back to fully-visible (no motion) with no JS/IO/reduced-motion,
+ * since .bg-icon's base CSS already renders at its target opacity. ===== */
+(function () {
+  try {
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!("IntersectionObserver" in window)) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+    }, { rootMargin: "0px 0px -10% 0px", threshold: 0.01 });
+    function mark(node) {
+      if (node.classList.contains("bgi-init")) return;
+      node.classList.add("bgi-init");
+      io.observe(node);
+    }
+    function scan(root) {
+      var r = (root && root.querySelectorAll) ? root : document;
+      r.querySelectorAll(".bg-icon").forEach(mark);
+    }
+    function boot() {
+      scan(document);
+      var main = document.getElementById("main") || document.body;
+      new MutationObserver(function (muts) {
+        muts.forEach(function (m) {
+          if (!m.addedNodes) return;
+          m.addedNodes.forEach(function (n) { if (n.nodeType === 1) scan(n); });
+        });
+      }).observe(main, { childList: true, subtree: true });
     }
     if (document.readyState !== "loading") boot();
     else document.addEventListener("DOMContentLoaded", boot);
