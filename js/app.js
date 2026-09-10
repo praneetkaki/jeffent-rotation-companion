@@ -21,6 +21,90 @@
   function h(html) { var d = document.createElement("div"); d.innerHTML = html.trim(); return d.firstChild; }
   function esc(s) { return String(s).replace(/[&<>]/g, function (c) { return { "&":"&amp;","<":"&lt;",">":"&gt;" }[c]; }); }
   function on(node, evt, fn) { node.addEventListener(evt, fn); return node; }
+  /* A styled dropdown that replaces the browser's native <select> (whose
+   * open list is drawn by the OS, not the page -- it can't be themed and
+   * looks jarring next to the app's own surfaces). Same role/keyboard
+   * behavior as a listbox: click or Enter/Space opens it, arrow keys move
+   * through options, Enter/Space picks one, Escape or an outside click
+   * closes it. `opts`: { value, options:[{value,label}], ariaLabel,
+   * className, onChange(value) }. Returns the wrapper node with
+   * .getValue()/.setValue(v) for callers that need to read/drive it
+   * imperatively (mirrors el(id).value on a real <select>). */
+  function buildCustomSelect(opts) {
+    var current = opts.value;
+    var wrap = document.createElement("div");
+    wrap.className = "csel" + (opts.className ? " " + opts.className : "");
+    var btn = document.createElement("button");
+    btn.type = "button"; btn.className = "csel-trigger mono";
+    btn.setAttribute("aria-haspopup", "listbox");
+    btn.setAttribute("aria-expanded", "false");
+    if (opts.ariaLabel) btn.setAttribute("aria-label", opts.ariaLabel);
+    var labelSpan = document.createElement("span");
+    labelSpan.className = "csel-value";
+    btn.appendChild(labelSpan);
+    btn.appendChild(h('<span class="csel-chev" aria-hidden="true">&#9662;</span>'));
+    var list = document.createElement("ul");
+    list.className = "csel-list"; list.setAttribute("role", "listbox"); list.hidden = true;
+    if (opts.ariaLabel) list.setAttribute("aria-label", opts.ariaLabel);
+
+    function findOpt(v) {
+      var found = null;
+      opts.options.forEach(function (o) { if (String(o.value) === String(v)) found = o; });
+      return found;
+    }
+    function renderLabel() {
+      var o = findOpt(current);
+      labelSpan.textContent = o ? o.label : "";
+    }
+    function renderOptions() {
+      list.innerHTML = "";
+      opts.options.forEach(function (o) {
+        var isActive = String(o.value) === String(current);
+        var li = document.createElement("li");
+        li.className = "csel-opt" + (isActive ? " active" : "");
+        li.setAttribute("role", "option");
+        li.setAttribute("aria-selected", isActive ? "true" : "false");
+        li.tabIndex = -1;
+        li.textContent = o.label;
+        li.addEventListener("click", function () { select(o.value); close(); btn.focus(); });
+        list.appendChild(li);
+      });
+    }
+    function select(v) {
+      if (String(v) === String(current)) return;
+      current = v;
+      renderLabel(); renderOptions();
+      if (opts.onChange) opts.onChange(v);
+    }
+    function open() {
+      renderOptions();
+      list.hidden = false; btn.setAttribute("aria-expanded", "true"); wrap.classList.add("open");
+      var activeLi = list.querySelector(".active") || list.querySelector(".csel-opt");
+      if (activeLi) activeLi.focus();
+    }
+    function close() {
+      list.hidden = true; btn.setAttribute("aria-expanded", "false"); wrap.classList.remove("open");
+    }
+    on(btn, "click", function (e) { e.stopPropagation(); if (list.hidden) open(); else close(); });
+    on(list, "keydown", function (e) {
+      var items = Array.prototype.slice.call(list.querySelectorAll(".csel-opt"));
+      var idx = items.indexOf(document.activeElement);
+      if (e.key === "ArrowDown") { e.preventDefault(); (items[idx + 1] || items[0]).focus(); }
+      else if (e.key === "ArrowUp") { e.preventDefault(); (items[idx - 1] || items[items.length - 1]).focus(); }
+      else if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        var it = document.activeElement, i = items.indexOf(it);
+        if (i > -1) { select(opts.options[i].value); close(); btn.focus(); }
+      } else if (e.key === "Escape") { close(); btn.focus(); }
+    });
+    document.addEventListener("click", function (e) { if (!wrap.contains(e.target)) close(); });
+    renderLabel(); renderOptions();
+    wrap.appendChild(btn);
+    wrap.appendChild(list);
+    wrap.getValue = function () { return current; };
+    wrap.setValue = function (v) { current = v; renderLabel(); renderOptions(); };
+    return wrap;
+  }
   function stripHtml(html) { var d = document.createElement("div"); d.innerHTML = html || ""; return (d.textContent || "").trim(); }
   /* Wraps every case-insensitive occurrence of `q` in `text` with a highlight
    * mark, escaping everything else. Used to show the searched phrase inside
@@ -81,72 +165,6 @@
     return '<span class="track-badge' + (extraClass ? " " + extraClass : "") + '">' + trackSymbol(track, size) + '</span>';
   }
 
-  /* ---------- decorative background icons (Home screen only) ----------
-   * A faint, scattered field of hand-drawn ENT line-icons that sits behind
-   * the Home screen's content and fades in per-icon as the page scrolls,
-   * purely decorative texture (never clinical content -- CLAUDE.md keeps
-   * that separation, so this lives here in js/, not content/). Reuses the
-   * exact icon stroke/viewBox convention as trackSymbol() above, and three
-   * of the six glyphs are the same paths as the Otology/Rhinology/
-   * Laryngology track icons so the motif reads as "this app", not generic
-   * clip-art. aria-hidden + pointer-events:none keep it out of the a11y
-   * tree and off the hit-testing path entirely. */
-  var BG_DECOR_ICONS = [
-    /* ear (matches Otology track icon) */
-    '<path d="M12 3a6 6 0 0 0-6 6c0 2 1 3 1 5a3 3 0 0 0 3 3"></path><path d="M12 3a6 6 0 0 1 6 6c0 3-2 4-2 7a3 3 0 0 1-3 3 3 3 0 0 1-3-3v-1"></path>',
-    /* nose (matches Rhinology track icon) */
-    '<path d="M9 3c-1 4-3 6-3 10a6 6 0 0 0 12 0c0-1-.5-2-1-3"></path><path d="M9 13c0 2 1.5 3 3 3s3-1 3-3"></path>',
-    /* throat / voice waveform (matches Laryngology track icon) */
-    '<path d="M4 12v.5"></path><path d="M8 8v8"></path><path d="M12 5v14"></path><path d="M16 8v8"></path><path d="M20 12v.5"></path>',
-    /* tympanic membrane: eardrum circle + malleus/light-reflex */
-    '<circle cx="12" cy="12" r="8"></circle><path d="M12 6v6l-4 4"></path>',
-    /* cochlea: three nested spiral arcs */
-    '<path d="M12 16a4 4 0 1 1 4-4"></path><path d="M12 16a7 7 0 1 1 7-7"></path><path d="M9 12a1 1 0 1 1 1-1"></path>',
-    /* hearing / sound waves */
-    '<circle cx="5" cy="12" r="1.6" fill="currentColor" stroke="none"></circle><path d="M9 8a6 6 0 0 1 0 8"></path><path d="M13 5a10 10 0 0 1 0 14"></path>'
-  ];
-  /* Deterministic PRNG (mulberry32) so the scatter is stable within a page
-   * load's re-renders instead of jumping around every time goHome() runs. */
-  function mulberry32(seed) {
-    return function () {
-      seed |= 0; seed = (seed + 0x6D2B79F5) | 0;
-      var t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
-      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
-      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-    };
-  }
-  function buildBgIconLayer() {
-    var rng = mulberry32(20260910);
-    var colors = TRACKS.filter(function (t) { return t.color; }).map(function (t) { return t.color; });
-    var layer = document.createElement("div");
-    layer.className = "bg-icon-layer";
-    layer.setAttribute("aria-hidden", "true");
-    var COUNT = 30;
-    for (var i = 0; i < COUNT; i++) {
-      var icon = BG_DECOR_ICONS[i % BG_DECOR_ICONS.length];
-      var size = 30 + Math.round(rng() * 54);          /* 30-84px */
-      var top = rng() * 97;                             /* spread across full scroll height */
-      /* .bg-icon-layer now bleeds to 100vw (see CSS), so "left" here is a
-         percent of the *whole viewport*, not just the centered content
-         column. Bias two-thirds of icons into the open side margins
-         (0-22% / 78-100vw) where they're guaranteed clear of every card;
-         the rest scatter anywhere, filling the gaps between sections. */
-      var zone = rng();
-      var left = zone < 0.35 ? rng() * 22
-        : zone < 0.70 ? 78 + rng() * 22
-        : rng() * 100;
-      var rot = Math.round(rng() * 50 - 25);             /* -25..25deg */
-      var op = (0.12 + rng() * 0.12).toFixed(3);          /* .12-.24: visible, still background */
-      var color = colors.length ? colors[i % colors.length] : "var(--ink-faint)";
-      var wrap = document.createElement("span");
-      wrap.className = "bg-icon";
-      wrap.style.cssText = "top:" + top.toFixed(2) + "%; left:" + left.toFixed(2) + "%; width:" + size + "px; height:" + size + "px; color:" + color + ";" +
-        " --bgi-op:" + op + "; --bgi-rot:" + rot + "deg;";
-      wrap.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">' + icon + '</svg>';
-      layer.appendChild(wrap);
-    }
-    return layer;
-  }
   function aggregateStats(mods) {
     var total = 0, due = 0, mastered = 0;
     mods.forEach(function (m) {
@@ -176,6 +194,14 @@
   }
   function saveLastTab(moduleId, tab) {
     try { localStorage.setItem("jeffent.tab." + moduleId, tab); } catch (e) {}
+  }
+
+  /* ---------- home dashboard minimize state ---------- */
+  function getDashCollapsed() {
+    try { return localStorage.getItem("jeffent.dashCollapsed") === "1"; } catch (e) { return false; }
+  }
+  function setDashCollapsed(v) {
+    try { localStorage.setItem("jeffent.dashCollapsed", v ? "1" : "0"); } catch (e) {}
   }
 
   /* ---------- navigation ---------- */
@@ -381,19 +407,65 @@
 
     var root = el("screen-home");
     root.innerHTML = "";
-    root.appendChild(buildBgIconLayer());
     root.appendChild(h('<div class="eyebrow">Your ENT rotation, topic by topic</div>'));
 
-    var stripEl = h(
-      '<div class="progress-strip">' +
-        '<div class="pcard"><div class="lbl">Overall mastery</div><div class="big" data-count="' + pct + '" data-suffix="%">0%</div><div class="bar"><i style="width:' + pct + '%"></i></div></div>' +
-        '<div class="pcard"><div class="lbl">Due today</div><div class="big" data-count="' + agg.due + '" data-suffix="">0</div></div>' +
-        '<div class="pcard"><div class="lbl">Modules reviewed</div><div class="big" data-count="' + reviewedCount + '" data-suffix="' + esc(' / ' + allMods.length) + '">0</div></div>' +
-        '<div class="pcard"><div class="lbl">Study streak</div><div class="big" data-count="' + streak + '" data-suffix="' + esc(streak === 1 ? ' day' : ' days') + '">0</div></div>' +
+    var dashCollapsed = getDashCollapsed();
+    var dashSummary = pct + "% mastered · " + agg.due + " due today · " + reviewedCount + " / " + allMods.length +
+      " modules reviewed · " + streak + (streak === 1 ? " day" : " days") + " streak";
+    var dashPanel = h(
+      '<div class="dash-panel' + (dashCollapsed ? " collapsed" : "") + '" id="dashPanel">' +
+        '<div class="dash-head">' +
+          '<span class="dash-title">Your progress</span>' +
+          '<button type="button" class="dash-toggle" id="dashToggle" aria-expanded="' + (!dashCollapsed) + '" aria-controls="dashBody">' +
+            '<span class="dash-toggle-label">' + (dashCollapsed ? "Expand" : "Minimize") + '</span>' +
+            '<span class="dash-chev" aria-hidden="true">&#9652;</span>' +
+          '</button>' +
+        '</div>' +
+        '<div class="progress-strip" id="dashBody">' +
+          '<button type="button" class="pcard" data-dash="mastery" aria-label="Overall mastery: ' + pct + ' percent. Open curriculum roadmap.">' +
+            '<div class="lbl">Overall mastery</div><div class="big" data-count="' + pct + '" data-suffix="%">0%</div>' +
+            '<div class="bar"><i style="width:' + pct + '%"></i></div><div class="cta-hint">View roadmap &rarr;</div>' +
+          '</button>' +
+          '<button type="button" class="pcard" data-dash="due" aria-label="' + agg.due + ' cards due today. Start due queue.">' +
+            '<div class="lbl">Due today</div><div class="big" data-count="' + agg.due + '" data-suffix="">0</div>' +
+            '<div class="cta-hint">Start queue &rarr;</div>' +
+          '</button>' +
+          '<button type="button" class="pcard" data-dash="reviewed" aria-label="' + reviewedCount + ' of ' + allMods.length + ' modules reviewed. Open curriculum roadmap.">' +
+            '<div class="lbl">Modules reviewed</div><div class="big" data-count="' + reviewedCount + '" data-suffix="' + esc(' / ' + allMods.length) + '">0</div>' +
+            '<div class="cta-hint">View roadmap &rarr;</div>' +
+          '</button>' +
+          '<button type="button" class="pcard" data-dash="streak" aria-label="' + streak + (streak === 1 ? " day" : " days") + ' study streak. Open study settings.">' +
+            '<div class="lbl">Study streak</div><div class="big" data-count="' + streak + '" data-suffix="' + esc(streak === 1 ? ' day' : ' days') + '">0</div>' +
+            '<div class="cta-hint">Settings &rarr;</div>' +
+          '</button>' +
+        '</div>' +
+        '<div class="dash-summary mono" id="dashSummary">' + esc(dashSummary) + '</div>' +
       '</div>'
     );
-    root.appendChild(stripEl);
-    animateStatCounts(stripEl);
+    root.appendChild(dashPanel);
+    animateStatCounts(dashPanel);
+
+    dashPanel.querySelector('[data-dash="mastery"]').addEventListener("click", goRoadmap);
+    dashPanel.querySelector('[data-dash="reviewed"]').addEventListener("click", goRoadmap);
+    dashPanel.querySelector('[data-dash="due"]').addEventListener("click", goStudyAll);
+    dashPanel.querySelector('[data-dash="streak"]').addEventListener("click", function (e) {
+      /* Simulating a click on the real settingsToggle opens the panel
+       * synchronously, but the *original* click event is still bubbling
+       * -- without stopping it here, it reaches initSettings()'s
+       * outside-click listener on document and immediately closes the
+       * panel it just opened. */
+      e.stopPropagation();
+      var t = el("settingsToggle");
+      if (t) t.click();
+    });
+    on(el("dashToggle"), "click", function () {
+      var next = !dashPanel.classList.contains("collapsed");
+      dashPanel.classList.toggle("collapsed", next);
+      setDashCollapsed(next);
+      var toggleBtn = el("dashToggle");
+      toggleBtn.setAttribute("aria-expanded", String(!next));
+      toggleBtn.querySelector(".dash-toggle-label").textContent = next ? "Expand" : "Minimize";
+    });
 
     /* hero: spaced-repetition queue, deep-midnight card + every track's mini
        card, horizontally scrollable (was the top-3-by-due-count only). */
@@ -1540,13 +1612,10 @@
     var toggle = el("settingsToggle");
     var panel = el("settingsPanel");
 
-    function moduleOptionsHtml(selectedId) {
-      var mods = window.JEFFENT.modules.slice().sort(function (a, b) {
+    function moduleOptions() {
+      return window.JEFFENT.modules.slice().sort(function (a, b) {
         return (a.title || "").localeCompare(b.title || "");
-      });
-      return mods.map(function (m) {
-        return '<option value="' + m.id + '"' + (m.id === selectedId ? " selected" : "") + '>' + m.title + '</option>';
-      }).join("");
+      }).map(function (m) { return { value: m.id, label: m.title }; });
     }
 
     function renderPanel() {
@@ -1568,23 +1637,37 @@
           '<input type="number" id="easyInput" min="1" max="365" step="1" value="' + s.easyDays + '">' +
         '</div>' +
         '<div class="settings-row">' +
-          '<label for="newCardsSelect">New cards / day</label>' +
-          '<select id="newCardsSelect">' +
-            newCapOptions.map(function (n) {
-              var label = n === 0 ? "Unlimited" : String(n);
-              return '<option value="' + n + '"' + (n === s.newCardsPerDay ? " selected" : "") + '>' + label + '</option>';
-            }).join("") +
-          '</select>' +
+          '<span class="settings-label" id="newCardsLabel">New cards / day</span>' +
+          '<div id="newCardsSelectMount"></div>' +
         '</div>' +
         '<button type="button" class="settings-reset mono" id="settingsReset">Reset intervals to defaults</button>' +
         '<div class="settings-divider"></div>' +
         '<div class="settings-row">' +
-          '<label for="resetModuleSelect">Reset one module&rsquo;s cards</label>' +
-          '<select id="resetModuleSelect">' + moduleOptionsHtml(lastModuleId) + '</select>' +
+          '<span class="settings-label" id="resetModuleLabel">Reset one module&rsquo;s cards</span>' +
+          '<div id="resetModuleSelectMount"></div>' +
           '<button type="button" class="settings-danger mono" id="resetModuleBtn">Reset this module&rsquo;s progress</button>' +
         '</div>' +
         '<button type="button" class="settings-danger mono" id="resetAllBtn">Reset ALL progress</button>' +
         '<div class="settings-note" id="settingsNote" hidden></div>';
+
+      var newCardsSel = buildCustomSelect({
+        value: s.newCardsPerDay,
+        options: newCapOptions.map(function (n) { return { value: n, label: n === 0 ? "Unlimited" : String(n) }; }),
+        ariaLabel: "New cards per day",
+        onChange: function (v) {
+          window.SRS.setSettings({ newCardsPerDay: Number(v) });
+          refreshHomeIfNeeded();
+        }
+      });
+      el("newCardsSelectMount").appendChild(newCardsSel);
+
+      var resetModuleSel = buildCustomSelect({
+        value: lastModuleId,
+        options: moduleOptions(),
+        ariaLabel: "Module to reset",
+        onChange: function () {}
+      });
+      el("resetModuleSelectMount").appendChild(resetModuleSel);
 
       function flash(msg) {
         var note = el("settingsNote");
@@ -1605,11 +1688,6 @@
       on(el("goodInput"), "change", commitIntervals);
       on(el("easyInput"), "change", commitIntervals);
 
-      on(el("newCardsSelect"), "change", function (e) {
-        window.SRS.setSettings({ newCardsPerDay: Number(e.target.value) });
-        refreshHomeIfNeeded();
-      });
-
       on(el("settingsReset"), "click", function () {
         window.SRS.setSettings(window.SRS.defaultSettings());
         renderPanel();
@@ -1617,7 +1695,7 @@
       });
 
       on(el("resetModuleBtn"), "click", function () {
-        var moduleId = el("resetModuleSelect").value;
+        var moduleId = resetModuleSel.getValue();
         var mod = window.JEFFENT.get(moduleId);
         var label = mod ? mod.title : moduleId;
         if (!window.confirm('Reset all progress for "' + label + '"? This clears every card you\'ve rated in that module.')) return;
@@ -2175,15 +2253,18 @@
    * so the learner can re-scope at any point without leaving. */
   function buildFlashControls() {
     var wrap = h('<div class="fp-controlbar"></div>');
-    var sel = document.createElement("select");
-    sel.className = "fp-scope mono"; sel.setAttribute("aria-label", "Flashcard scope");
-    var optAll = document.createElement("option"); optAll.value = "all"; optAll.textContent = "All modules"; sel.appendChild(optAll);
+    var scopeOptions = [{ value: "all", label: "All modules" }];
     TRACKS.forEach(function (t) {
       if (!modulesFor(t.id).length) return;
-      var o = document.createElement("option"); o.value = t.id; o.textContent = t.name; sel.appendChild(o);
+      scopeOptions.push({ value: t.id, label: t.name });
     });
-    sel.value = fp.scope || "all";
-    sel.addEventListener("change", function () { setFlashQueue(sel.value, fp.mode); renderFlash(); });
+    var sel = buildCustomSelect({
+      value: fp.scope || "all",
+      options: scopeOptions,
+      className: "fp-scope",
+      ariaLabel: "Flashcard scope",
+      onChange: function (v) { setFlashQueue(v, fp.mode); renderFlash(); }
+    });
     wrap.appendChild(sel);
     var seg = h('<div class="fp-mode" role="group" aria-label="Card set"></div>');
     [["due", "Due"], ["all", "All"]].forEach(function (pair) {
@@ -2363,45 +2444,6 @@
           m.addedNodes.forEach(function (n) { if (n.nodeType === 1) scan(n); });
         });
       }).observe(app, { childList: true, subtree: true });
-    }
-    if (document.readyState !== "loading") boot();
-    else document.addEventListener("DOMContentLoaded", boot);
-  } catch (e) { /* motion is non-essential; never block the app */ }
-})();
-
-
-/* ===== Background-icon reveal: the faint Home-screen ENT icon field fades
- * in icon-by-icon as it scrolls into view, so the page visually "fills up"
- * top to bottom. Deliberately has NO fail-safe timer (unlike the reveal
- * pass above) -- these are pure decoration, so an icon that never scrolls
- * into view should simply stay invisible rather than pop in on its own.
- * Falls back to fully-visible (no motion) with no JS/IO/reduced-motion,
- * since .bg-icon's base CSS already renders at its target opacity. ===== */
-(function () {
-  try {
-    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    if (!("IntersectionObserver" in window)) return;
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
-    }, { rootMargin: "0px 0px -10% 0px", threshold: 0.01 });
-    function mark(node) {
-      if (node.classList.contains("bgi-init")) return;
-      node.classList.add("bgi-init");
-      io.observe(node);
-    }
-    function scan(root) {
-      var r = (root && root.querySelectorAll) ? root : document;
-      r.querySelectorAll(".bg-icon").forEach(mark);
-    }
-    function boot() {
-      scan(document);
-      var main = document.getElementById("main") || document.body;
-      new MutationObserver(function (muts) {
-        muts.forEach(function (m) {
-          if (!m.addedNodes) return;
-          m.addedNodes.forEach(function (n) { if (n.nodeType === 1) scan(n); });
-        });
-      }).observe(main, { childList: true, subtree: true });
     }
     if (document.readyState !== "loading") boot();
     else document.addEventListener("DOMContentLoaded", boot);

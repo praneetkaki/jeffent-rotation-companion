@@ -161,18 +161,40 @@ main.wrap { padding-top: 48px; padding-bottom: 60px; min-height: 60vh; }
 
 /* ---- home: segmented statistics widget ---- */
 /* One unified card, divided into segments by a vertical hairline, instead of
-   three separate boxes -- reads as a single instrument panel. */
-.progress-strip { display: grid; grid-template-columns: repeat(4, 1fr);
-  margin: 26px 0 8px; background: var(--surface); border: 1px solid var(--line);
+   three separate boxes -- reads as a single instrument panel. Each segment
+   is a real button (jumps to the roadmap / due queue / settings), and the
+   whole panel can be minimized to a one-line summary via .dash-toggle. */
+.dash-panel { margin: 26px 0 8px; background: var(--surface); border: 1px solid var(--line);
   border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
+.dash-head { display: flex; align-items: center; justify-content: space-between;
+  padding: 9px 16px; border-bottom: 1px solid var(--line-soft); }
+.dash-panel.collapsed .dash-head { border-bottom: 0; }
+.dash-title { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--ink-faint); font-weight: 600; }
+.dash-toggle { display: flex; align-items: center; gap: 6px; border: 0; background: none;
+  color: var(--ink-soft); font-size: 12px; font-weight: 500; padding: 4px 8px; margin: -4px -8px;
+  border-radius: 7px; cursor: pointer; transition: background-color .15s var(--ease-out), color .15s var(--ease-out); }
+.dash-toggle:hover { color: var(--ink); background: var(--surface-2); }
+.dash-chev { font-size: 9px; transition: transform .2s var(--ease-out); }
+.dash-panel.collapsed .dash-chev { transform: rotate(180deg); }
+.progress-strip { display: grid; grid-template-columns: repeat(4, 1fr); }
+.dash-panel.collapsed .progress-strip { display: none; }
 @media (max-width: 760px) { .progress-strip { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 420px) { .progress-strip { grid-template-columns: 1fr; } }
-.pcard { padding: 18px 22px; border-left: 1px solid var(--line-soft); }
+.dash-summary { display: none; padding: 13px 18px; font-size: 13px; color: var(--ink-soft); }
+.dash-panel.collapsed .dash-summary { display: block; }
+.pcard { padding: 18px 22px; border-left: 1px solid var(--line-soft); border-top: 0; border-right: 0; border-bottom: 0;
+  background: none; width: 100%; text-align: left; font: inherit; color: inherit; cursor: pointer;
+  transition: background-color .15s var(--ease-out), transform .1s var(--ease-out); }
+.pcard:hover { background: var(--surface-2); }
+.pcard:active { transform: translateY(1px); }
 .pcard:first-child { border-left: 0; }
 @media (max-width: 760px) { .pcard:nth-child(2n+1) { border-left: 0; } .pcard:nth-child(n+3) { border-top: 1px solid var(--line-soft); } }
 @media (max-width: 420px) { .pcard { border-left: 0 !important; } .pcard:not(:first-child) { border-top: 1px solid var(--line-soft); } }
 .pcard .lbl { font-size: 11.5px; text-transform: uppercase; letter-spacing: .08em; color: var(--ink-faint); }
 .pcard .big { font-family: "Source Serif 4", serif; font-size: 1.7rem; color: var(--ink); font-variant-numeric: tabular-nums; margin-top: 2px; }
+.pcard .cta-hint { font-size: 11px; color: var(--primary); margin-top: 6px; opacity: 0; transform: translateY(-2px);
+  transition: opacity .15s var(--ease-out), transform .15s var(--ease-out); }
+.pcard:hover .cta-hint, .pcard:focus-visible .cta-hint { opacity: 1; transform: none; }
 .bar { height: 6px; background: var(--surface-2); overflow: hidden; margin-top: 10px; border-radius: 99px; }
 .bar > i { display: block; height: 100%; background: var(--primary); transition: width .5s var(--ease-out); border-radius: 99px; }
 @media (prefers-reduced-motion: reduce) { .bar > i { transition: none; } }
@@ -604,12 +626,10 @@ td.flag { color: var(--flag); font-weight: 600; }
 .settings-panel:not([hidden]) { display: flex; flex-direction: column; gap: 14px; }
 .settings-title { font-size: 13px; font-weight: 700; color: var(--ink); }
 .settings-row { display: flex; flex-direction: column; gap: 8px; }
-.settings-row label { display: flex; align-items: center; justify-content: space-between;
+.settings-row label, .settings-row .settings-label { display: flex; align-items: center; justify-content: space-between;
   font-size: 12.5px; font-weight: 500; color: var(--ink-soft); }
 .settings-row input[type="range"] { width: 100%; accent-color: var(--accent); }
 .settings-row input[type="number"] { width: 100%; background: var(--surface-2); border: 1px solid var(--line);
-  border-radius: 8px; padding: 7px 10px; color: var(--ink); font-size: 13.5px; }
-.settings-row select { width: 100%; background: var(--surface-2); border: 1px solid var(--line);
   border-radius: 8px; padding: 7px 10px; color: var(--ink); font-size: 13.5px; }
 .settings-preview { font-family: "JetBrains Mono", monospace; font-size: 11.5px; color: var(--ink-faint); }
 .settings-reset { align-self: flex-start; border: 0; background: none; color: var(--accent);
@@ -620,6 +640,32 @@ td.flag { color: var(--flag); font-weight: 600; }
   border-radius: 8px; padding: 8px 10px; font-size: 12.5px; font-weight: 600; cursor: pointer; }
 .settings-danger:hover { background: var(--flag); color: var(--ground); }
 .settings-note { font-size: 12px; color: var(--good); }
+
+/* ---- custom dropdown (replaces native <select>, whose open list is
+   drawn by the OS and can't be themed): a trigger button + our own
+   floating listbox, styled like the rest of the app's popovers
+   (search results, settings panel itself). Used in Study settings and
+   the flashcards scope picker. ---- */
+.csel { position: relative; width: 100%; }
+.csel-trigger { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  background: var(--surface-2); border: 1px solid var(--line); border-radius: 8px; padding: 7px 10px;
+  color: var(--ink); font-size: 13.5px; text-align: left;
+  transition: border-color .15s var(--ease-out); }
+.csel-trigger:hover, .csel-trigger:focus-visible { border-color: var(--primary); outline: none; }
+.csel.open .csel-trigger { border-color: var(--primary); }
+.csel-value { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.csel-chev { flex: 0 0 auto; color: var(--ink-faint); font-size: 11px; transition: transform .15s var(--ease-out); }
+.csel.open .csel-chev { transform: rotate(180deg); }
+.csel-list { position: absolute; top: calc(100% + 6px); left: 0; right: 0; max-height: 260px; overflow-y: auto;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 10px; box-shadow: var(--shadow);
+  padding: 6px; z-index: 40; list-style: none; margin: 0; }
+.csel-opt { padding: 8px 10px; border-radius: 7px; font-size: 13.5px; color: var(--ink-soft); cursor: pointer; }
+.csel-opt:hover, .csel-opt:focus-visible { background: var(--surface-2); color: var(--ink); outline: none; }
+.csel-opt.active { background: var(--primary-tint); color: var(--primary-deep); font-weight: 600; }
+/* Flashcards scope picker sits inline next to the Due/All toggle. */
+.fp-scope.csel { flex: 1 1 auto; min-width: 0; }
+.fp-scope .csel-trigger { font-size: 12px; padding: 7px 9px; border-radius: 6px; background: var(--surface); }
+.fp-scope .csel-list { font-size: 12.5px; }
 
 /* ---- all-due-cards CTA + cross-module card origin pill ---- */
 .study-cta.all-due-cta { margin: 14px 0 4px; }
@@ -799,13 +845,8 @@ body.flash-open .flashpanel { transform: none; }
    toggle, pinned above the card stage inside the panel.
    ============================================================ */
 .fp-controlbar { display: flex; gap: 8px; align-items: center; margin-bottom: 14px; }
-.fp-scope {
-  flex: 1 1 auto; min-width: 0; font-size: 12px; padding: 7px 9px;
-  border: 1px solid var(--line); border-radius: 6px;
-  background: var(--surface); color: var(--ink); cursor: pointer;
-}
-.fp-scope:hover { border-color: var(--primary); }
-.fp-scope:focus-visible { outline: 2px solid var(--primary); outline-offset: 1px; }
+/* .fp-scope's own control styling lives with the .csel component above,
+   since the flashcards scope picker is a custom dropdown, not a <select>. */
 .fp-mode { display: inline-flex; flex: 0 0 auto; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
 .fp-mode-btn {
   font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: .04em;
@@ -932,26 +973,6 @@ body.js-motion .reveal-init.in { opacity: 1; transform: none;
 .feature-list .feature-row:nth-child(3) { transition-delay: 80ms; }
 .feature-list .feature-row:nth-child(4) { transition-delay: 120ms; }
 .feature-list .feature-row:nth-child(n+5) { transition-delay: 160ms; }
-
-/* ---- Home background icon field: a faint, scattered set of hand-drawn
-   ENT line-icons behind the Home screen's content, fading in one by one
-   as the page scrolls (see buildBgIconLayer() in app.js). Purely
-   decorative -- aria-hidden, no pointer events, sits behind every normal-
-   flow child via a negative z-index within #screen-home's own stacking
-   context, so it never competes with content or its contrast. ---- */
-#screen-home { position: relative; }
-/* Full viewport-width bleed (not just the centered .wrap column) so most
-   icons land in the open page margins on wide screens, guaranteed clear
-   of any card, instead of mostly hiding behind opaque content. */
-.bg-icon-layer { position: absolute; top: 0; bottom: 0; left: 50%; width: 100vw;
-  transform: translateX(-50%); overflow: hidden; z-index: -1; pointer-events: none; }
-.bg-icon { position: absolute; display: block; opacity: var(--bgi-op, .18);
-  transform: rotate(var(--bgi-rot, 0deg)); will-change: opacity, transform; }
-.bg-icon svg { width: 100%; height: 100%; display: block; }
-body.js-motion .bg-icon.bgi-init { opacity: 0; transform: translateY(28px) scale(.82) rotate(var(--bgi-rot, 0deg)); }
-body.js-motion .bg-icon.bgi-init.in { opacity: var(--bgi-op, .18); transform: translateY(0) scale(1) rotate(var(--bgi-rot, 0deg));
-  transition: opacity 1s var(--ease-out), transform 1s var(--ease-out); }
-@media (prefers-reduced-motion: reduce) { .bg-icon { transition: none !important; transform: rotate(var(--bgi-rot, 0deg)) !important; } }
 
 /* ---- curriculum roadmap ---- */
 .roadmap-list { display: flex; flex-direction: column; gap: 12px; margin-top: 22px; }
