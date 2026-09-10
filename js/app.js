@@ -114,6 +114,7 @@
   /* ---------- navigation ---------- */
   function showScreen(id) {
     SCREENS.forEach(function (s) { el("screen-" + s).hidden = (s !== id); });
+    document.body.classList.toggle("on-home", id === "home");
     window.scrollTo(0, 0);
     if (typeof refreshSideNav === "function") refreshSideNav();
   }
