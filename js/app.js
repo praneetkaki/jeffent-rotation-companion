@@ -324,13 +324,13 @@
     root.appendChild(stripEl);
     animateStatCounts(stripEl);
 
-    /* hero: spaced-repetition queue, deep-midnight card + top due tracks */
+    /* hero: spaced-repetition queue, deep-midnight card + every track's mini
+       card, horizontally scrollable (was the top-3-by-due-count only). */
     var dueTracks = TRACKS.map(function (t) {
       var mods = modulesFor(t.id);
       return { track: t, mods: mods, due: aggregateStats(mods).due };
-    }).filter(function (x) { return x.mods.length && x.due > 0; })
-      .sort(function (a, b) { return b.due - a.due; })
-      .slice(0, 3);
+    }).filter(function (x) { return x.mods.length; })
+      .sort(function (a, b) { return b.due - a.due; });
 
     var hero = h(
       '<div class="study-cta all-due-cta">' +
@@ -2048,7 +2048,7 @@
     if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     if (!("IntersectionObserver" in window)) return;
     document.body.classList.add("js-motion");
-    var SEL = ".note-fig, .callout, .case, .tbl-scroll, .anatomy-topic-card, .study-cta, .pcard, .hero-mini, .rm-row, .mod-row";
+    var SEL = ".note-fig, .callout, .case, .tbl-scroll, .anatomy-topic-card, .study-cta, .pcard, .hero-mini, .rm-row, .mod-row, .panel";
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
     }, { rootMargin: "0px 0px -6% 0px", threshold: 0.04 });
