@@ -625,13 +625,22 @@
     var root = el("screen-module");
     root.innerHTML = "";
 
+    var modTrack = trackById(mod.track);
+    var modHeadStyle = modTrack && modTrack.color ? ' style="--track-color:' + modTrack.color + '"' : "";
+
+    /* slim sticky wayfinding strip: back link + track + current section,
+       pinned under the topbar; the big title/tabs below scroll away normally */
+    var pageHead = h('<div class="page-head" id="modPageHead"></div>');
     var crumb = h('<button class="crumb">&larr; All topics</button>');
     crumb.addEventListener("click", mods.length > 1 ? function () { goTrack(mod.track); } : goHome);
     if (mods.length > 1) crumb.textContent = "← " + (mod.trackName || mod.track);
-    root.appendChild(crumb);
+    pageHead.appendChild(crumb);
+    pageHead.appendChild(h('<span class="crumb-sep">/</span>'));
+    pageHead.appendChild(h('<div class="ph-eyebrow">' + trackBadge(modTrack, "eyebrow-icon", 11) + '<span class="eyebrow">' + esc(mod.trackName || mod.track) + '</span></div>'));
+    pageHead.appendChild(h('<span class="crumb-sep">/</span>'));
+    pageHead.appendChild(h('<span class="ph-current" id="phCurrent">' + esc(mod.title) + '</span>'));
+    root.appendChild(pageHead);
 
-    var modTrack = trackById(mod.track);
-    var modHeadStyle = modTrack && modTrack.color ? ' style="--track-color:' + modTrack.color + '"' : "";
     root.appendChild(h(
       '<div class="mod-head"' + modHeadStyle + '>' +
         '<div>' +
@@ -729,11 +738,22 @@
   function buildAnatomyDetail(mod, pane, title, buildBody, skipTitle) {
     var wrap = h('<div class="anatomy-detail"></div>');
     var back = h('<button type="button" class="crumb anatomy-back">← Back to anatomy overview</button>');
-    back.addEventListener("click", function () { state.anatomyTopic = null; renderAnatomyPane(pane, mod); });
+    back.addEventListener("click", function () {
+      state.anatomyTopic = null;
+      renderAnatomyPane(pane, mod);
+      setStickyCurrent(mod.title);
+    });
     wrap.appendChild(back);
     if (!skipTitle) wrap.appendChild(h('<h2 class="anatomy-detail-title">' + esc(title) + '</h2>'));
     wrap.appendChild(buildBody());
+    setStickyCurrent(title);
     return wrap;
+  }
+
+  /* Updates the slim sticky strip's current-section label, when present. */
+  function setStickyCurrent(text) {
+    var node = el("phCurrent");
+    if (node) node.textContent = text;
   }
 
   /* ---- "Test yourself" -- link an anatomy note/diagram to flashcards that
@@ -1530,6 +1550,48 @@
     document.addEventListener("keydown", function(e){ if(e.key==="Escape") close(); });
   }
 
+  /* Sets --topbar-h so the sticky .page-head strip can pin itself exactly
+     below the (also sticky) topbar, on any screen width. */
+  function initTopbarHeightVar() {
+    function measure() {
+      var tb = document.querySelector(".topbar");
+      if (tb) document.documentElement.style.setProperty("--topbar-h", tb.offsetHeight + "px");
+    }
+    measure();
+    window.addEventListener("resize", measure);
+  }
+
+  /* Click any table (wrapped in .tbl-scroll) to read it enlarged. A second,
+     simpler lightbox alongside the figure one -- no pan/zoom needed, just
+     bigger type and roomier cells. Escape/backdrop/× all close it. */
+  function initTableLightbox() {
+    var box = null, panel = null;
+    function ensure() {
+      if (box) return;
+      box = h('<div class="table-lightbox" hidden role="dialog" aria-modal="true">' +
+        '<button class="tl-close" aria-label="Close table">×</button>' +
+        '<div class="tl-panel"></div></div>');
+      panel = box.querySelector(".tl-panel");
+      box.querySelector(".tl-close").addEventListener("click", function (e) { e.stopPropagation(); close(); });
+      box.addEventListener("click", function (e) { if (e.target === box) close(); });
+      document.body.appendChild(box);
+    }
+    function open(tableEl) {
+      ensure();
+      panel.innerHTML = "";
+      panel.appendChild(tableEl.cloneNode(true));
+      box.hidden = false;
+    }
+    function close() { if (box) box.hidden = true; }
+    document.addEventListener("click", function (e) {
+      var wrap = e.target.closest && e.target.closest(".tbl-scroll");
+      if (!wrap) return;
+      var table = wrap.querySelector("table");
+      if (table) open(table);
+    });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") close(); });
+  }
+
   /* ---------- SIDE NAVIGATION ---------- */
   function initSideNav() {
     var main = el("main");
@@ -2098,6 +2160,8 @@
     initSettings();
     initSearch();
     initLightbox();
+    initTableLightbox();
+    initTopbarHeightVar();
     initSideNav();
     initFlashPanel();
     initQuizKeys();
