@@ -294,11 +294,13 @@
   ];
   var homeFilter = "all";
 
-  function applyHomeFilter(list) {
-    if (!list) return;
-    list.querySelectorAll(".feature-row").forEach(function (row) {
-      var show = homeFilter === "all" || row.dataset.category === homeFilter;
-      row.style.display = show ? "" : "none";
+  function applyHomeFilter(grid, list) {
+    [grid, list].forEach(function (container) {
+      if (!container) return;
+      container.querySelectorAll(".tile, .feature-row").forEach(function (el) {
+        var show = homeFilter === "all" || el.dataset.category === homeFilter;
+        el.style.display = show ? "" : "none";
+      });
     });
   }
 
@@ -371,17 +373,46 @@
     root.appendChild(h('<div class="section-head"><h2>Browse by subspecialty</h2></div>'));
 
     var filterBar = h('<div class="filter-bar"></div>');
+    var grid = h('<div class="tile-grid"></div>');
     var list = h('<div class="feature-list"></div>');
     HOME_FILTERS.forEach(function (f) {
       var pill = h('<button type="button" class="filter-pill' + (f.id === homeFilter ? ' active' : '') + '" data-filter="' + f.id + '">' + esc(f.label) + '</button>');
       pill.addEventListener("click", function () {
         homeFilter = f.id;
         filterBar.querySelectorAll(".filter-pill").forEach(function (p) { p.classList.toggle("active", p.getAttribute("data-filter") === homeFilter); });
-        applyHomeFilter(list);
+        applyHomeFilter(grid, list);
       });
       filterBar.appendChild(pill);
     });
     root.appendChild(filterBar);
+
+    TRACKS.forEach(function (t) {
+      var mods = modulesFor(t.id);
+      var cardCount = mods.reduce(function (n, m) { return n + (m.cards || []).length; }, 0);
+      var s = aggregateStats(mods);
+      var tpct = s.total ? Math.round((s.mastered / s.total) * 100) : 0;
+      var disabled = mods.length === 0;
+      var category = t.category || "subspecialty";
+      var chipLabel = category === "core" ? "core" : category === "atlas" ? "tool" : "specialty";
+      var chip = disabled ? '<span class="chip">coming soon</span>' : '<span class="chip">' + chipLabel + '</span>';
+      var meta = disabled ? 'No modules yet' : (mods.length + ' module' + (mods.length === 1 ? '' : 's') + ' · ' + cardCount + ' cards');
+      var tileStyle = t.color ? ' style="--track-color:' + t.color + '"' : "";
+      var tile = h(
+        '<button class="tile" type="button" data-category="' + category + '"' + tileStyle + (disabled ? ' disabled aria-disabled="true"' : '') + '>' +
+          '<div class="tile-banner">' + trackBadge(t, "tile-icon", 21) + chip + '</div>' +
+          '<div class="tile-body">' +
+            '<h3>' + esc(t.name) + '</h3>' +
+            '<div class="meta">' + meta + '</div>' +
+            '<div class="bar"><i style="width:' + tpct + '%"></i></div>' +
+          '</div>' +
+        '</button>'
+      );
+      if (!disabled) tile.addEventListener("click", function () { goTrack(t.id); });
+      grid.appendChild(tile);
+    });
+    root.appendChild(grid);
+
+    root.appendChild(h('<div class="section-head feed-head"><h2>Every subspecialty, in one scroll</h2><span class="hint">Same tracks, laid out for a longer read</span></div>'));
 
     TRACKS.forEach(function (t) {
       var mods = modulesFor(t.id);
@@ -414,7 +445,7 @@
       list.appendChild(row);
     });
     root.appendChild(list);
-    applyHomeFilter(list);
+    applyHomeFilter(grid, list);
     initHomeScrollspy(list, filterBar);
   }
 
