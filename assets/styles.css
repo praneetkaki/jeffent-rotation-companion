@@ -83,15 +83,16 @@ button { font-family: inherit; cursor: pointer; }
 .topbar {
   position: sticky; top: 0; z-index: 10;
   display: flex; align-items: center; justify-content: space-between; gap: 16px;
-  padding: 12px 20px; background: color-mix(in srgb, var(--surface) 88%, transparent);
+  padding: 16px 24px; background: color-mix(in srgb, var(--surface) 88%, transparent);
   backdrop-filter: blur(8px); border-bottom: 1px solid var(--line);
 }
-.brand { display: flex; align-items: center; gap: 11px; cursor: pointer; padding: 2px; border-radius: 8px; }
+.brand { display: flex; align-items: center; gap: 13px; cursor: pointer; padding: 2px; border-radius: 8px; }
 .brand:hover { background: var(--surface-2); }
-.mark { color: var(--primary); display: grid; place-items: center; width: 34px; height: 34px;
-  background: var(--primary-tint); border-radius: 8px; }
-.brand-name { font-family: "Source Serif 4", serif; font-weight: 600; font-size: 1.02rem; line-height: 1.1; color: var(--ink); }
-.brand-sub { font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-faint); }
+.mark { color: var(--primary); display: grid; place-items: center; width: 46px; height: 46px;
+  background: var(--primary-tint); border-radius: 10px; overflow: hidden; }
+.mark img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.brand-name { font-family: "Source Serif 4", serif; font-weight: 600; font-size: 1.32rem; line-height: 1.1; color: var(--ink); }
+.brand-sub { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-faint); }
 .tb-right { display: flex; align-items: center; gap: 10px; }
 .search { display: flex; align-items: center; gap: 8px; background: var(--surface-2); border: 1px solid var(--line);
   border-radius: 6px; padding: 7px 12px; color: var(--ink-faint); font-size: 13.5px; min-width: 190px; }
@@ -478,15 +479,15 @@ td.flag { color: var(--flag); font-weight: 600; }
 .pill.ms{background:var(--primary-tint);color:var(--primary-deep);border-color:transparent;font-weight:500;}
 
 /* ---- functional search (topbar) ---- */
-.search-wrap { position: relative; min-width: 220px; }
+.search-wrap { position: relative; min-width: 220px; flex: 1 1 420px; max-width: 460px; }
 @media (max-width: 640px) { .search-wrap { display: none; } }
 .search-input { width: 100%; background: var(--surface-2); border: 1px solid var(--line);
-  border-radius: 999px; padding: 8px 40px 8px 14px; color: var(--ink); font-size: 13.5px; }
+  border-radius: 999px; padding: 13px 48px 13px 18px; color: var(--ink); font-size: 15px; }
 .search-input::placeholder { color: var(--ink-faint); }
 .search-input:focus { outline: none; border-color: var(--primary); background: var(--surface); }
-.search-kbd { position: absolute; top: 50%; right: 10px; transform: translateY(-50%);
-  font-size: 10.5px; color: var(--ink-faint); background: var(--surface); border: 1px solid var(--line);
-  border-radius: 5px; padding: 2px 6px; pointer-events: none; }
+.search-kbd { position: absolute; top: 50%; right: 12px; transform: translateY(-50%);
+  font-size: 11px; color: var(--ink-faint); background: var(--surface); border: 1px solid var(--line);
+  border-radius: 5px; padding: 3px 7px; pointer-events: none; }
 .search-results { position: absolute; top: calc(100% + 8px); right: 0; width: 360px; max-width: 80vw;
   max-height: 70vh; overflow-y: auto; background: var(--surface); border: 1px solid var(--line);
   border-radius: 12px; box-shadow: var(--shadow); padding: 8px; z-index: 30; }
@@ -655,7 +656,21 @@ body.flash-open .flashpanel { transform: none; }
   padding: 7px 10px 7px 40px; border-radius: 8px; font-size: 13px; }
 .sn-subitem { transition: background-color .15s var(--ease-out), color .15s var(--ease-out); }
 .sn-subitem:hover { background: var(--surface-2); color: var(--ink); }
-.sn-subitem.active { background: var(--primary-tint); color: var(--primary-deep); font-weight: 600; }
+.sn-subitem.active { background: color-mix(in srgb, var(--track-color, var(--primary)) 14%, transparent);
+  color: var(--track-color, var(--primary)); font-weight: 600; }
+
+/* ---- sidebar: each subspecialty row/badge picks up its own track color
+   (set as --track-color on .sn-group) instead of one flat neutral gray,
+   matching the tiles/feature-rows/roadmap elsewhere on the site. ---- */
+.sn-trackrow .sn-badge { width: 25px; height: 25px; border-radius: 7px; flex: 0 0 auto;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: color-mix(in srgb, var(--track-color, var(--primary)) 16%, transparent);
+  color: var(--track-color, var(--primary)); }
+.sn-trackrow .sn-badge .track-symbol svg { width: 15px; height: 15px; }
+.sn-trackrow:hover { background: color-mix(in srgb, var(--track-color, var(--primary)) 8%, transparent); }
+.sn-trackrow.active { background: color-mix(in srgb, var(--track-color, var(--primary)) 13%, transparent);
+  color: var(--track-color, var(--primary)); border-left: 3px solid var(--track-color, var(--primary));
+  padding-left: 7px; }
 
 /* ---- hover tooltips (small label under any [data-tip] control) ---- */
 [data-tip] { position: relative; }

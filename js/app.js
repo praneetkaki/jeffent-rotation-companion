@@ -1562,7 +1562,8 @@
       var mods = modulesFor(t.id);
       if (mods.length === 0) return;
       var modId = mods[0].id;
-      var group = h('<div class="sn-group" data-track="' + t.id + '"></div>');
+      var groupStyle = t.color ? ' style="--track-color:' + t.color + '"' : "";
+      var group = h('<div class="sn-group" data-track="' + t.id + '"' + groupStyle + '></div>');
       var row = h('<button type="button" class="sn-item sn-trackrow" data-track="' + t.id + '"><span class="sn-ic">' + trackBadge(t, "sn-badge", 16) + '</span><span class="sn-name">' + esc(t.name) + '</span><span class="sn-caret" aria-hidden="true">\u25B8</span></button>');
       row.addEventListener("click", function () { group.classList.toggle("open"); });
       var sub = h('<div class="sn-sub"></div>');
