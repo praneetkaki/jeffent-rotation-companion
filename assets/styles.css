@@ -548,6 +548,14 @@ td.flag { color: var(--flag); font-weight: 600; }
 }
 .note-fig img:hover, .note-fig img:focus-visible { box-shadow: 0 0 0 2px var(--primary); outline: none; }
 .note-fig figcaption { font-size: 12.5px; color: var(--ink-soft); margin-top: 6px; line-height: 1.35; }
+
+/* A note's figures as a row at the top: centered, evenly spaced, wrapping
+   to their own line each rather than packing tight against the left edge
+   the way bare inline-block siblings do. */
+.fig-row { display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start;
+  gap: 20px; margin: 4px 0 20px; }
+.fig-row .note-fig { flex: 0 1 300px; margin: 0; }
+.fig-row .note-fig img { max-height: 240px; }
 .img-frame img { cursor: zoom-in; }
 
 /* Figure sources, collected at the bottom of an anatomy topic */
