@@ -29,7 +29,7 @@
   --shadow-lift: 0 4px 10px rgba(15,23,42,.06), 0 22px 40px -20px rgba(15,23,42,.18);
   --radius: 14px;
   --radius-lg: 18px;
-  --sidenav-w: 252px;
+  --sidenav-w: 288px;
   --flashpanel-w: min(380px, 33vw); /* neither rail may exceed 1/3 of the viewport */
   --tb-l: 0px; --tb-r: 0px;
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
@@ -671,7 +671,7 @@ td.flag { color: var(--flag); font-weight: 600; }
 body { overflow-x: clip; }
 
 /* ---- left side navigation ---- */
-.sidenav { position: fixed; top: var(--topbar-h, 73px); left: 0; bottom: 0; width: 25vw; min-width: 232px; max-width: 360px; background: var(--surface);
+.sidenav { position: fixed; top: var(--topbar-h, 73px); left: 0; bottom: 0; width: 30vw; min-width: 264px; max-width: 400px; background: var(--surface);
   border-right: 1px solid var(--line); overflow-y: auto; padding: 16px 12px; z-index: 9;
   transform: translateX(-100%); transition: transform .32s var(--ease-drawer); }
 body.nav-open .sidenav { transform: none; }
@@ -940,12 +940,16 @@ body.js-motion .reveal-init.in { opacity: 1; transform: none;
    flow child via a negative z-index within #screen-home's own stacking
    context, so it never competes with content or its contrast. ---- */
 #screen-home { position: relative; }
-.bg-icon-layer { position: absolute; inset: 0; overflow: hidden; z-index: -1; pointer-events: none; }
-.bg-icon { position: absolute; display: block; opacity: var(--bgi-op, .1);
+/* Full viewport-width bleed (not just the centered .wrap column) so most
+   icons land in the open page margins on wide screens, guaranteed clear
+   of any card, instead of mostly hiding behind opaque content. */
+.bg-icon-layer { position: absolute; top: 0; bottom: 0; left: 50%; width: 100vw;
+  transform: translateX(-50%); overflow: hidden; z-index: -1; pointer-events: none; }
+.bg-icon { position: absolute; display: block; opacity: var(--bgi-op, .18);
   transform: rotate(var(--bgi-rot, 0deg)); will-change: opacity, transform; }
 .bg-icon svg { width: 100%; height: 100%; display: block; }
 body.js-motion .bg-icon.bgi-init { opacity: 0; transform: translateY(28px) scale(.82) rotate(var(--bgi-rot, 0deg)); }
-body.js-motion .bg-icon.bgi-init.in { opacity: var(--bgi-op, .1); transform: translateY(0) scale(1) rotate(var(--bgi-rot, 0deg));
+body.js-motion .bg-icon.bgi-init.in { opacity: var(--bgi-op, .18); transform: translateY(0) scale(1) rotate(var(--bgi-rot, 0deg));
   transition: opacity 1s var(--ease-out), transform 1s var(--ease-out); }
 @media (prefers-reduced-motion: reduce) { .bg-icon { transition: none !important; transform: rotate(var(--bgi-rot, 0deg)) !important; } }
 

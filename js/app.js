@@ -121,14 +121,22 @@
     var layer = document.createElement("div");
     layer.className = "bg-icon-layer";
     layer.setAttribute("aria-hidden", "true");
-    var COUNT = 22;
+    var COUNT = 30;
     for (var i = 0; i < COUNT; i++) {
       var icon = BG_DECOR_ICONS[i % BG_DECOR_ICONS.length];
-      var size = 26 + Math.round(rng() * 46);          /* 26-72px */
-      var top = rng() * 96;                             /* spread across full scroll height */
-      var left = rng() * 94;
+      var size = 30 + Math.round(rng() * 54);          /* 30-84px */
+      var top = rng() * 97;                             /* spread across full scroll height */
+      /* .bg-icon-layer now bleeds to 100vw (see CSS), so "left" here is a
+         percent of the *whole viewport*, not just the centered content
+         column. Bias two-thirds of icons into the open side margins
+         (0-22% / 78-100vw) where they're guaranteed clear of every card;
+         the rest scatter anywhere, filling the gaps between sections. */
+      var zone = rng();
+      var left = zone < 0.35 ? rng() * 22
+        : zone < 0.70 ? 78 + rng() * 22
+        : rng() * 100;
       var rot = Math.round(rng() * 50 - 25);             /* -25..25deg */
-      var op = (0.05 + rng() * 0.09).toFixed(3);          /* faint: .05-.14 */
+      var op = (0.12 + rng() * 0.12).toFixed(3);          /* .12-.24: visible, still background */
       var color = colors.length ? colors[i % colors.length] : "var(--ink-faint)";
       var wrap = document.createElement("span");
       wrap.className = "bg-icon";
