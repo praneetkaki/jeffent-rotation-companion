@@ -294,11 +294,11 @@
   ];
   var homeFilter = "all";
 
-  function applyHomeFilter(grid) {
-    if (!grid) return;
-    grid.querySelectorAll(".tile").forEach(function (tile) {
-      var show = homeFilter === "all" || tile.dataset.category === homeFilter;
-      tile.style.display = show ? "" : "none";
+  function applyHomeFilter(list) {
+    if (!list) return;
+    list.querySelectorAll(".feature-row").forEach(function (row) {
+      var show = homeFilter === "all" || row.dataset.category === homeFilter;
+      row.style.display = show ? "" : "none";
     });
   }
 
@@ -371,13 +371,13 @@
     root.appendChild(h('<div class="section-head"><h2>Browse by subspecialty</h2></div>'));
 
     var filterBar = h('<div class="filter-bar"></div>');
-    var grid = h('<div class="tile-grid"></div>');
+    var list = h('<div class="feature-list"></div>');
     HOME_FILTERS.forEach(function (f) {
       var pill = h('<button type="button" class="filter-pill' + (f.id === homeFilter ? ' active' : '') + '" data-filter="' + f.id + '">' + esc(f.label) + '</button>');
       pill.addEventListener("click", function () {
         homeFilter = f.id;
         filterBar.querySelectorAll(".filter-pill").forEach(function (p) { p.classList.toggle("active", p.getAttribute("data-filter") === homeFilter); });
-        applyHomeFilter(grid);
+        applyHomeFilter(list);
       });
       filterBar.appendChild(pill);
     });
@@ -390,25 +390,68 @@
       var tpct = s.total ? Math.round((s.mastered / s.total) * 100) : 0;
       var disabled = mods.length === 0;
       var category = t.category || "subspecialty";
-      var chipLabel = category === "core" ? "core" : category === "atlas" ? "tool" : "specialty";
-      var chip = disabled ? '<span class="chip">coming soon</span>' : '<span class="chip">' + chipLabel + '</span>';
-      var meta = disabled ? 'No modules yet' : (mods.length + ' module' + (mods.length === 1 ? '' : 's') + ' · ' + cardCount + ' cards');
-      var tileStyle = t.color ? ' style="--track-color:' + t.color + '"' : "";
-      var tile = h(
-        '<button class="tile" type="button" data-category="' + category + '"' + tileStyle + (disabled ? ' disabled aria-disabled="true"' : '') + '>' +
-          '<div class="tile-banner">' + trackBadge(t, "tile-icon", 21) + chip + '</div>' +
-          '<div class="tile-body">' +
+      var rowStyle = t.color ? ' style="--track-color:' + t.color + '"' : "";
+      var anchors = topicAnchors(mods[0]);
+      var emergency = hasEmergency(mods[0]);
+      var row = h(
+        '<button class="feature-row" type="button" data-category="' + category + '" data-track="' + t.id + '"' + rowStyle + (disabled ? ' disabled aria-disabled="true"' : '') + '>' +
+          trackBadge(t, "fr-icon", 24) +
+          '<div class="fr-body">' +
             '<h3>' + esc(t.name) + '</h3>' +
-            '<div class="meta">' + meta + '</div>' +
-            '<div class="bar"><i style="width:' + tpct + '%"></i></div>' +
+            (disabled ? '<div class="fr-anchors">Coming soon</div>' : '<div class="fr-anchors">' + esc(anchors || (mods.length + ' module' + (mods.length === 1 ? '' : 's') + ' · ' + cardCount + ' cards')) + '</div>') +
           '</div>' +
+          (disabled ? '' :
+            '<div class="fr-stats">' +
+              '<div class="fr-progress"><div class="fr-pct">' + tpct + '% mastered</div><div class="bar"><i style="width:' + tpct + '%"></i></div></div>' +
+              '<span class="fr-pill">' + s.due + ' due</span>' +
+              (emergency ? '<span class="fr-emergency">Red flags</span>' : '') +
+              '<span class="fr-cta">Study module &rarr;</span>' +
+            '</div>'
+          ) +
         '</button>'
       );
-      if (!disabled) tile.addEventListener("click", function () { goTrack(t.id); });
-      grid.appendChild(tile);
+      if (!disabled) row.addEventListener("click", function () { goTrack(t.id); });
+      list.appendChild(row);
     });
-    root.appendChild(grid);
-    applyHomeFilter(grid);
+    root.appendChild(list);
+    applyHomeFilter(list);
+    initHomeScrollspy(list, filterBar);
+  }
+
+  /* First 3-4 anatomy note titles as a compact "high-yield anchors" line,
+     e.g. "Three compartments, one organ - The clinically dangerous...".
+     Never fabricated -- empty if the module has no anatomy notes yet. */
+  function topicAnchors(mod) {
+    if (!mod || !mod.anatomy || !mod.anatomy.notes) return "";
+    return mod.anatomy.notes.slice(0, 4).map(function (n) { return n.title; }).filter(Boolean).join(" • ");
+  }
+  function hasEmergency(mod) {
+    if (!mod) return false;
+    if ((mod.cards || []).some(function (c) { return c.redFlag; })) return true;
+    if (mod.clinical && mod.clinical.redFlags && mod.clinical.redFlags.length) return true;
+    return false;
+  }
+
+  /* Scrollspy: as feature-rows cross a band near the top of the viewport,
+     highlight the filter pill matching that row's category. Visual sync
+     only -- it never changes the actual filter, just where the eye already
+     is, so clicking a pill still explicitly filters as before. */
+  var homeScrollspyIO = null;
+  function initHomeScrollspy(list, filterBar) {
+    if (homeScrollspyIO) { homeScrollspyIO.disconnect(); homeScrollspyIO = null; }
+    if (!("IntersectionObserver" in window)) return;
+    var rows = Array.prototype.slice.call(list.querySelectorAll(".feature-row:not(:disabled)"));
+    if (!rows.length) return;
+    homeScrollspyIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var cat = entry.target.getAttribute("data-category");
+        filterBar.querySelectorAll(".filter-pill").forEach(function (p) {
+          p.classList.toggle("spy-active", p.getAttribute("data-filter") === cat);
+        });
+      });
+    }, { rootMargin: "-35% 0px -55% 0px", threshold: 0 });
+    rows.forEach(function (r) { homeScrollspyIO.observe(r); });
   }
 
   /* ---------- TRACK (module list, when a track has >1 module) ---------- */
@@ -2048,7 +2091,7 @@
     if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     if (!("IntersectionObserver" in window)) return;
     document.body.classList.add("js-motion");
-    var SEL = ".note-fig, .callout, .case, .tbl-scroll, .anatomy-topic-card, .study-cta, .pcard, .hero-mini, .rm-row, .mod-row, .panel";
+    var SEL = ".note-fig, .callout, .case, .tbl-scroll, .anatomy-topic-card, .study-cta, .pcard, .hero-mini, .rm-row, .mod-row, .panel, .feature-row";
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
     }, { rootMargin: "0px 0px -6% 0px", threshold: 0.04 });

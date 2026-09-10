@@ -206,6 +206,45 @@ main.wrap { padding-top: 48px; padding-bottom: 60px; min-height: 60vh; }
 .tile .meta { font-size: 12.5px; color: var(--ink-faint); font-family: "JetBrains Mono", monospace; }
 .tile .bar > i { background: var(--track-color, var(--primary)); }
 
+/* ---- home: vertical feature-row feed (replaces the tile grid below the
+   filter pills) -- one wide horizontal card per subspecialty, a continuous
+   scroll feed instead of a grid. Flatter and denser than the rest of the
+   site's card language on purpose, per spec: 8px radius cap, flat elevation,
+   4px left accent border keyed to the track's own color. ---- */
+.feature-list { display: flex; flex-direction: column; gap: 24px; margin-top: 20px; }
+.feature-row { display: flex; align-items: center; gap: 20px; width: 100%; text-align: left;
+  background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--track-color, var(--primary));
+  border-radius: 8px; padding: 22px 24px; cursor: pointer;
+  transition: border-color .16s var(--ease-out), background-color .16s var(--ease-out); }
+.feature-row:hover { background: color-mix(in srgb, var(--track-color, var(--primary)) 4%, var(--surface));
+  border-color: var(--line); border-left-color: var(--track-color, var(--primary)); }
+.feature-row:disabled { cursor: default; opacity: .55; }
+.fr-icon { flex: 0 0 auto; width: 48px; height: 48px; border-radius: 12px; display: grid; place-items: center;
+  background: color-mix(in srgb, var(--track-color, var(--primary)) 14%, var(--surface));
+  color: var(--track-color, var(--primary)); }
+.fr-icon .track-symbol { display: block; font-size: 24px; }
+.fr-body { flex: 1 1 auto; min-width: 0; }
+.fr-body h3 { font-size: 1.15rem; color: var(--ink); }
+.fr-anchors { font-size: 12.5px; color: var(--ink-faint); margin-top: 5px; font-family: "JetBrains Mono", monospace;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.fr-stats { flex: 0 0 auto; display: flex; align-items: center; gap: 14px; }
+.fr-progress { width: 110px; }
+.fr-progress .fr-pct { font-size: 12px; color: var(--ink-soft); font-family: "JetBrains Mono", monospace; margin-bottom: 5px; }
+.fr-pill { font-family: "JetBrains Mono", monospace; font-size: 11px; font-weight: 600; white-space: nowrap;
+  padding: 5px 11px; border-radius: 999px; background: var(--primary-tint); color: var(--primary-deep); }
+.fr-emergency { font-family: "JetBrains Mono", monospace; font-size: 10.5px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .04em; white-space: nowrap; padding: 5px 10px; border-radius: 999px;
+  background: var(--flag-tint); color: var(--flag); }
+.fr-cta { flex: 0 0 auto; font-size: 13.5px; font-weight: 600; color: var(--ink-soft); white-space: nowrap;
+  padding: 9px 16px; border-radius: 999px; border: 1px solid var(--line);
+  transition: color .16s var(--ease-out), border-color .16s var(--ease-out), background-color .16s var(--ease-out); }
+.feature-row:hover .fr-cta { color: #fff; background: var(--primary); border-color: var(--primary); }
+@media (max-width: 760px) {
+  .feature-row { flex-wrap: wrap; }
+  .fr-stats { width: 100%; justify-content: space-between; }
+  .fr-cta { margin-left: auto; }
+}
+
 /* ---- home: filter bar (pill category filters above the tile grid) ---- */
 .filter-bar { display: flex; gap: 8px; flex-wrap: wrap; margin: 18px 0 4px; }
 .filter-pill { font-size: 13px; font-weight: 500; color: var(--ink-soft); background: var(--surface);
@@ -213,6 +252,9 @@ main.wrap { padding-top: 48px; padding-bottom: 60px; min-height: 60vh; }
   transition: background-color .15s var(--ease-out), color .15s var(--ease-out), border-color .15s var(--ease-out); }
 .filter-pill:hover { border-color: var(--ink-faint); color: var(--ink); }
 .filter-pill.active { background: var(--hero-bg); border-color: var(--hero-bg); color: #fff; }
+/* Scrollspy: a soft ring, not a solid fill, so it never reads as "this is
+   the applied filter" -- only .active (an actual click) does that. */
+.filter-pill.spy-active:not(.active) { border-color: var(--track-color, var(--primary)); color: var(--ink); box-shadow: 0 0 0 1px var(--track-color, var(--primary)); }
 
 /* ---- module / track view ---- */
 .crumb { background: none; border: 0; color: var(--primary); font-size: 14px; padding: 0; margin-bottom: 14px; font-weight: 500; }
@@ -771,6 +813,10 @@ body.js-motion .reveal-init.in { opacity: 1; transform: none;
 .tabpane .panel:nth-of-type(2) { transition-delay: 60ms; }
 .tabpane .panel:nth-of-type(3) { transition-delay: 120ms; }
 .tabpane .panel:nth-of-type(n+4) { transition-delay: 180ms; }
+.feature-list .feature-row:nth-child(2) { transition-delay: 40ms; }
+.feature-list .feature-row:nth-child(3) { transition-delay: 80ms; }
+.feature-list .feature-row:nth-child(4) { transition-delay: 120ms; }
+.feature-list .feature-row:nth-child(n+5) { transition-delay: 160ms; }
 
 /* ---- curriculum roadmap ---- */
 .roadmap-list { display: flex; flex-direction: column; gap: 12px; margin-top: 22px; }
