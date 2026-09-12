@@ -358,6 +358,17 @@
     });
   }
 
+  /* Cmd/Ctrl+Shift+F toggles the flashcards panel from anywhere in the app. */
+  function initFlashShortcut() {
+    document.addEventListener("keydown", function (e) {
+      var mod = e.metaKey || e.ctrlKey;
+      if (mod && e.shiftKey && (e.key === "f" || e.key === "F")) {
+        e.preventDefault();
+        toggleFlash();
+      }
+    });
+  }
+
   /* One deliberate load moment for the Home stat row: numbers count up from
      zero instead of appearing static. Respects prefers-reduced-motion. */
   function animateStatCounts(scope) {
@@ -643,7 +654,7 @@
       '</div>'
     ));
 
-    var list = h('<div class="mod-list"></div>');
+    var list = h('<div class="mod-list"' + trackStyle + '></div>');
     mods.forEach(function (m) {
       var s = window.SRS.stats(m.id, m.cards || []);
       var pct = s.total ? Math.round((s.mastered / s.total) * 100) : 0;
@@ -715,8 +726,10 @@
     allMods.forEach(function (m) {
       var s = window.SRS.stats(m.id, m.cards || []);
       if (s.total === 0) return;
+      var mTrack = trackById(m.track);
+      var mRowStyle = mTrack && mTrack.color ? ' style="--track-color:' + mTrack.color + '"' : "";
       var row = h(
-        '<button class="mod-row" type="button">' +
+        '<button class="mod-row" type="button"' + mRowStyle + '>' +
           '<div class="row-top"><h3>' + esc(m.title) + '</h3><span class="status-chip">' + s.due + ' due</span></div>' +
           '<p>' + esc(m.trackName || m.track) + ' · ' + s.total + ' cards</p>' +
         '</button>'
@@ -768,6 +781,12 @@
 
     var modTrack = trackById(mod.track);
     var modHeadStyle = modTrack && modTrack.color ? ' style="--track-color:' + modTrack.color + '"' : "";
+    /* Set --track-color on the whole screen (not just .mod-head) so every
+       descendant -- case cards, the anatomy hero/grid, roadmap-style rows --
+       can pick up this module's track color via var(--track-color, ...)
+       fallbacks without each needing its own inline style. */
+    if (modTrack && modTrack.color) root.style.setProperty("--track-color", modTrack.color);
+    else root.style.removeProperty("--track-color");
 
     /* slim sticky wayfinding strip: back link + track + current section,
        pinned under the topbar; the big title/tabs below scroll away normally */
@@ -2098,7 +2117,7 @@
           '<h2>' + (gTrack ? trackBadge(gTrack, "pq-groupbadge", 16) : "") + esc(group) + '</h2>' +
         '</div>'
       ));
-      var list = h('<div class="mod-list"></div>');
+      var list = h('<div class="mod-list"' + headStyle + '></div>');
       /* "whole subspecialty" row first */
       var allRow = h(
         '<button class="mod-row pq-allrow" type="button">' +
@@ -2426,6 +2445,7 @@
     initQuizKeys();
     initXrefs();
     initSearchShortcut();
+    initFlashShortcut();
     bumpStreak();
     var brand = el("brandHome");
     on(brand, "click", goHome);
