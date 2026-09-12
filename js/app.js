@@ -12,7 +12,7 @@
   var TRACKS = window.JEFFENT.tracks || [];
   var TABS = ["anatomy", "clinical", "cases", "cards"];
   var TAB_LABELS = { anatomy: "Anatomy", clinical: "Clinical", cases: "Cases", cards: "Cards" };
-  var SCREENS = ["home", "track", "module", "study", "pimp", "roadmap", "about"];
+  var SCREENS = ["home", "track", "module", "study", "pimp", "roadmap", "about", "library"];
 
   var state = { screen: "home", trackId: null, moduleId: null, tab: "anatomy", session: null, anatomyTopic: null, caseSession: null };
 
@@ -204,6 +204,56 @@
     try { localStorage.setItem("jeffent.dashCollapsed", v ? "1" : "0"); } catch (e) {}
   }
 
+  /* ---------- personal card edits + notes (this browser only) ----------
+   * Cards are shared curriculum content (content/*.js, faculty-reviewed --
+   * see CLAUDE.md), so a learner's own edits and notes are never written
+   * back into that data. They live as a patch layered on top, keyed by
+   * "<moduleId>::<cardId>", and every place a card is displayed reads the
+   * effective front/back/note through the helpers below instead of the
+   * raw card fields. Clearing an override just removes the patch --
+   * the original content/*.js content is always still there underneath. */
+  function getCardOverrides() {
+    try { return JSON.parse(localStorage.getItem("jeffent.cardOverrides") || "{}"); } catch (e) { return {}; }
+  }
+  function cardOverrideKey(moduleId, cardId) { return moduleId + "::" + cardId; }
+  function getCardOverride(moduleId, cardId) {
+    return getCardOverrides()[cardOverrideKey(moduleId, cardId)] || null;
+  }
+  function saveCardOverride(moduleId, cardId, patch) {
+    var all = getCardOverrides();
+    var key = cardOverrideKey(moduleId, cardId);
+    var merged = {}; var existing = all[key] || {};
+    for (var k in existing) merged[k] = existing[k];
+    for (var k2 in patch) merged[k2] = patch[k2];
+    all[key] = merged;
+    try { localStorage.setItem("jeffent.cardOverrides", JSON.stringify(all)); } catch (e) {}
+  }
+  function clearCardEditOverride(moduleId, cardId) {
+    var all = getCardOverrides();
+    var key = cardOverrideKey(moduleId, cardId);
+    if (!all[key]) return;
+    delete all[key].front; delete all[key].back;
+    if (!all[key].note) delete all[key];
+    try { localStorage.setItem("jeffent.cardOverrides", JSON.stringify(all)); } catch (e) {}
+  }
+  function cardOwnerId(card, fallbackModId) { return card._owner || fallbackModId; }
+  function effectiveFront(moduleId, card) {
+    var ov = getCardOverride(moduleId, card.id);
+    return (ov && ov.front != null) ? ov.front : card.front;
+  }
+  function effectiveBack(moduleId, card) {
+    var ov = getCardOverride(moduleId, card.id);
+    return (ov && ov.back != null) ? ov.back : card.back;
+  }
+  function cardNote(moduleId, card) {
+    var ov = getCardOverride(moduleId, card.id);
+    return (ov && ov.note) || "";
+  }
+  function cardIsEdited(moduleId, card) {
+    var ov = getCardOverride(moduleId, card.id);
+    return !!(ov && (ov.front != null || ov.back != null));
+  }
+
   /* ---------- navigation ---------- */
   function showScreen(id) {
     SCREENS.forEach(function (s) { el("screen-" + s).hidden = (s !== id); });
@@ -259,6 +309,187 @@
     state.screen = "roadmap"; state.session = null;
     renderRoadmap();
     showScreen("roadmap");
+  }
+
+  function goCardLibrary() {
+    state.screen = "library"; state.session = null;
+    renderCardLibrary();
+    showScreen("library");
+  }
+
+  /* ---------- CARD LIBRARY ----------
+   * Every flashcard, individually, grouped by module/specialty, searchable,
+   * with a personal note field and an inline editor. Edits and notes are
+   * per-browser overrides (see the card-override helpers above) -- they
+   * never touch content/*.js, so the shared curriculum data stays intact
+   * for every other student. */
+  var libraryState = { filter: "all", query: "", openKey: null, editingKey: null };
+
+  function renderCardLibrary() {
+    var root = el("screen-library");
+    root.innerHTML = "";
+    var crumb = h('<button class="crumb">&larr; Home</button>');
+    crumb.addEventListener("click", goHome);
+    root.appendChild(crumb);
+    root.appendChild(h('<div class="eyebrow">Every flashcard, in one place</div>'));
+    root.appendChild(h('<h1 class="h-lead">Card Library</h1>'));
+    root.appendChild(h(
+      '<p class="sub">Browse every card by specialty, or search across all of them. ' +
+      'Add a personal note or edit a card’s wording for your own review — saved to this browser only, ' +
+      'the shared card is never changed.</p>'
+    ));
+
+    var controls = h('<div class="lib-controls"></div>');
+    var searchInput = h('<input type="text" class="lib-search" placeholder="Search all cards…" aria-label="Search all cards">');
+    searchInput.value = libraryState.query;
+    controls.appendChild(searchInput);
+    root.appendChild(controls);
+
+    var filterBar = h('<div class="filter-bar lib-filter-bar"></div>');
+    var allPill = h('<button type="button" class="filter-pill' + (libraryState.filter === "all" ? " active" : "") + '" data-filter="all">All specialties</button>');
+    filterBar.appendChild(allPill);
+    TRACKS.forEach(function (t) {
+      var hasCards = modulesFor(t.id).some(function (m) { return (m.cards || []).length; });
+      if (!hasCards) return;
+      var pill = h('<button type="button" class="filter-pill' + (libraryState.filter === t.id ? " active" : "") + '" data-filter="' + t.id + '">' + esc(t.name) + '</button>');
+      filterBar.appendChild(pill);
+    });
+    root.appendChild(filterBar);
+
+    var listWrap = h('<div class="lib-groups"></div>');
+    root.appendChild(listWrap);
+
+    searchInput.addEventListener("input", function () {
+      libraryState.query = searchInput.value;
+      renderLibraryList(listWrap);
+    });
+    filterBar.querySelectorAll(".filter-pill").forEach(function (p) {
+      p.addEventListener("click", function () {
+        filterBar.querySelectorAll(".filter-pill").forEach(function (x) { x.classList.toggle("active", x === p); });
+        libraryState.filter = p.dataset.filter;
+        libraryState.openKey = null; libraryState.editingKey = null;
+        renderLibraryList(listWrap);
+      });
+    });
+
+    renderLibraryList(listWrap);
+  }
+
+  function renderLibraryList(listWrap) {
+    listWrap.innerHTML = "";
+    var q = libraryState.query.trim().toLowerCase();
+    var groups = [];
+    window.JEFFENT.modules.forEach(function (m) {
+      if (libraryState.filter !== "all" && m.track !== libraryState.filter) return;
+      var cards = (m.cards || []).filter(function (c) {
+        if (!q) return true;
+        var hay = (stripHtml(effectiveFront(m.id, c)) + " " + stripHtml(effectiveBack(m.id, c)) + " " + (c.tags || []).join(" ")).toLowerCase();
+        return hay.indexOf(q) !== -1;
+      });
+      if (cards.length) groups.push({ mod: m, cards: cards });
+    });
+
+    if (!groups.length) {
+      listWrap.appendChild(emptyNote(q ? "No cards match “" + libraryState.query + "”." : "No cards in this specialty yet."));
+      return;
+    }
+
+    groups.forEach(function (g) {
+      var t = trackById(g.mod.track);
+      var style = t && t.color ? ' style="--track-color:' + t.color + '"' : "";
+      var section = h(
+        '<section class="lib-group"' + style + '>' +
+          '<div class="lib-group-head"><span class="lib-group-dot"></span>' +
+            '<h3 class="lib-group-title">' + esc(g.mod.title) + '</h3>' +
+            '<span class="lib-group-rule" aria-hidden="true"></span>' +
+            '<span class="lib-group-count mono">' + g.cards.length + '</span></div>' +
+          '<div class="lib-rows"></div>' +
+        '</section>'
+      );
+      var rows = section.querySelector(".lib-rows");
+      g.cards.forEach(function (c) { rows.appendChild(buildLibraryRow(g.mod, c, listWrap)); });
+      listWrap.appendChild(section);
+    });
+  }
+
+  function buildLibraryRow(mod, card, listWrap) {
+    var key = cardOverrideKey(mod.id, card.id);
+    var isOpen = libraryState.openKey === key;
+    var row = h('<div class="lib-row' + (isOpen ? " open" : "") + '"></div>');
+
+    var head = h(
+      '<button type="button" class="lib-row-head">' +
+        '<span class="lib-row-front">' + esc(teaserOf(effectiveFront(mod.id, card), 130)) + '</span>' +
+        '<span class="lib-row-flags">' +
+          (cardIsEdited(mod.id, card) ? '<span class="pill edited">Edited</span>' : "") +
+          (cardNote(mod.id, card) ? '<span class="pill noted">Note</span>' : "") +
+        '</span>' +
+        '<span class="lib-row-chev" aria-hidden="true">' + (isOpen ? "▾" : "▸") + '</span>' +
+      '</button>'
+    );
+    head.addEventListener("click", function () {
+      libraryState.openKey = isOpen ? null : key;
+      libraryState.editingKey = null;
+      renderLibraryList(listWrap);
+    });
+    row.appendChild(head);
+
+    if (isOpen) {
+      var body = h('<div class="lib-row-body"></div>');
+      if (libraryState.editingKey === key) {
+        body.appendChild(buildCardEditForm(mod, card, listWrap));
+      } else {
+        body.appendChild(h('<div class="lib-face"><div class="lib-face-label mono">Front</div><div class="lib-face-content">' + effectiveFront(mod.id, card) + '</div></div>'));
+        body.appendChild(h('<div class="lib-face"><div class="lib-face-label mono">Back</div><div class="lib-face-content">' + effectiveBack(mod.id, card) + '</div></div>'));
+        var noteVal = cardNote(mod.id, card);
+        if (noteVal) body.appendChild(h('<div class="card-note"><strong>Your note:</strong> ' + esc(noteVal) + '</div>'));
+        var actions = h('<div class="lib-row-actions"></div>');
+        var editBtn = h('<button type="button" class="btn ghost small">Edit card &amp; note</button>');
+        editBtn.addEventListener("click", function () { libraryState.editingKey = key; renderLibraryList(listWrap); });
+        actions.appendChild(editBtn);
+        if (cardIsEdited(mod.id, card)) {
+          var resetBtn = h('<button type="button" class="link-btn">Reset to original</button>');
+          resetBtn.addEventListener("click", function () {
+            if (!window.confirm("Reset this card's wording to the original? Your note, if any, is kept.")) return;
+            clearCardEditOverride(mod.id, card.id);
+            renderLibraryList(listWrap);
+          });
+          actions.appendChild(resetBtn);
+        }
+        body.appendChild(actions);
+      }
+      row.appendChild(body);
+    }
+    return row;
+  }
+
+  function buildCardEditForm(mod, card, listWrap) {
+    var wrap = h('<div class="lib-edit-form"></div>');
+    wrap.appendChild(h('<label class="lib-edit-label mono">Front</label>'));
+    var frontTa = document.createElement("textarea");
+    frontTa.className = "lib-edit-textarea"; frontTa.rows = 3; frontTa.value = effectiveFront(mod.id, card);
+    wrap.appendChild(frontTa);
+    wrap.appendChild(h('<label class="lib-edit-label mono">Back</label>'));
+    var backTa = document.createElement("textarea");
+    backTa.className = "lib-edit-textarea"; backTa.rows = 6; backTa.value = effectiveBack(mod.id, card);
+    wrap.appendChild(backTa);
+    wrap.appendChild(h('<label class="lib-edit-label mono">Your note <span class="lib-edit-hint">(only you see this)</span></label>'));
+    var noteTa = document.createElement("textarea");
+    noteTa.className = "lib-edit-textarea"; noteTa.rows = 2; noteTa.value = cardNote(mod.id, card);
+    wrap.appendChild(noteTa);
+
+    var actions = h('<div class="lib-row-actions"></div>');
+    var saveBtn = h('<button type="button" class="btn small">Save</button>');
+    saveBtn.addEventListener("click", function () {
+      saveCardOverride(mod.id, card.id, { front: frontTa.value, back: backTa.value, note: noteTa.value });
+      libraryState.editingKey = null;
+      renderLibraryList(listWrap);
+    });
+    var cancelBtn = h('<button type="button" class="btn ghost small">Cancel</button>');
+    cancelBtn.addEventListener("click", function () { libraryState.editingKey = null; renderLibraryList(listWrap); });
+    actions.appendChild(saveBtn); actions.appendChild(cancelBtn);
+    wrap.appendChild(actions);
+    return wrap;
   }
 
   /* ---------- ROADMAP: the full curriculum map, one row per track,
@@ -1597,11 +1828,14 @@
     if (_ab) { tags += '<span class="pill track" title="' + esc(_abTitle) + '">' + esc(_ab) + '</span>'; }
     tags += '<span class="pill">' + esc(_topic) + '</span>';
 
+    var _ownerId = cardOwnerId(card, _ownerMod.id);
+    var _note = cardNote(_ownerId, card);
     var fc = h('<div class="flashcard"></div>');
-    fc.appendChild(h('<div class="card-tags">' + tags + '</div>'));
-    fc.appendChild(h('<div class="card-front">' + card.front + '</div>'));
-    var back = h('<div class="card-back hidden">' + card.back + '</div>');
+    fc.appendChild(h('<div class="card-tags">' + tags + (cardIsEdited(_ownerId, card) ? '<span class="pill edited">Edited</span>' : '') + '</div>'));
+    fc.appendChild(h('<div class="card-front">' + effectiveFront(_ownerId, card) + '</div>'));
+    var back = h('<div class="card-back hidden">' + effectiveBack(_ownerId, card) + '</div>');
     fc.appendChild(back);
+    if (_note) fc.appendChild(h('<div class="card-note"><strong>Your note:</strong> ' + esc(_note) + '</div>'));
     var srcLine = card.reviewer
       ? '<span class="rev">Reviewed: ' + esc(card.reviewer) + '</span>'
       : '<span class="rev">Reviewer: pending sign-off</span>';
@@ -1684,7 +1918,7 @@
         idx.push({ type: "case", modId: m.id, title: stripHtml(cs.stem).slice(0, 90), snippet: cs.teaching || "", tab: "cases", anchor: "case-" + cs.id });
       });
       (m.cards || []).forEach(function (card) {
-        idx.push({ type: "card", modId: m.id, title: stripHtml(card.front), snippet: stripHtml(card.back).slice(0, 140), tab: "cards", cardId: card.id });
+        idx.push({ type: "card", modId: m.id, title: stripHtml(effectiveFront(m.id, card)), snippet: stripHtml(effectiveBack(m.id, card)).slice(0, 140), tab: "cards", cardId: card.id });
       });
     });
     return idx;
@@ -2033,6 +2267,9 @@
     var roadmapNav = h('<button type="button" class="sn-item sn-roadmap" data-nav="roadmap"><span class="sn-ic">🗺</span><span>Curriculum roadmap</span></button>');
     roadmapNav.addEventListener("click", function () { goRoadmap(); closeNav(); });
     nav.appendChild(roadmapNav);
+    var libraryNav = h('<button type="button" class="sn-item sn-library" data-nav="library"><span class="sn-ic">🗃</span><span>Card Library</span></button>');
+    libraryNav.addEventListener("click", function () { goCardLibrary(); closeNav(); });
+    nav.appendChild(libraryNav);
     if (pimpBank() && (pimpBank().sets || []).length) {
       var pimpNav = h('<button type="button" class="sn-item sn-pimp" data-nav="pimp"><span class="sn-ic">🎓</span><span>Frequently Asked Questions</span></button>');
       pimpNav.addEventListener("click", function () { goPimp(); closeNav(); });
@@ -2076,6 +2313,8 @@
     if (pimpBtn) pimpBtn.classList.toggle("active", state.screen === "pimp");
     var roadmapBtn = nav.querySelector('.sn-roadmap');
     if (roadmapBtn) roadmapBtn.classList.toggle("active", state.screen === "roadmap");
+    var libraryBtn = nav.querySelector('.sn-library');
+    if (libraryBtn) libraryBtn.classList.toggle("active", state.screen === "library");
     nav.querySelectorAll(".sn-group").forEach(function (g) {
       var on = g.dataset.track === curTrack;
       if (on) g.classList.add("open");
@@ -2493,12 +2732,16 @@
       return;
     }
     var card = fp.cards[fp.i];
+    var cardOwnerModId = cardOwnerId(card, card._owner);
+    var fpNote = cardNote(cardOwnerModId, card);
     stage.appendChild(h('<div class="fp-prog"><i style="width:' + Math.round(fp.i / fp.cards.length * 100) + '%"></i></div>'));
     stage.appendChild(h('<div class="fp-count mono">Card ' + (fp.i + 1) + ' of ' + fp.cards.length + '</div>'));
     var fc = h('<div class="flashcard fp-card"></div>');
-    fc.appendChild(h('<div class="card-front">' + card.front + '</div>'));
-    var back = h('<div class="card-back' + (fp.revealed ? '' : ' hidden') + '">' + card.back + '</div>');
-    fc.appendChild(back); stage.appendChild(fc);
+    fc.appendChild(h('<div class="card-front">' + effectiveFront(cardOwnerModId, card) + '</div>'));
+    var back = h('<div class="card-back' + (fp.revealed ? '' : ' hidden') + '">' + effectiveBack(cardOwnerModId, card) + '</div>');
+    fc.appendChild(back);
+    if (fpNote) fc.appendChild(h('<div class="card-note"><strong>Your note:</strong> ' + esc(fpNote) + '</div>'));
+    stage.appendChild(fc);
     if (!fp.revealed) {
       var rv = h('<button class="btn reveal-btn" style="width:100%">Show answer</button>');
       rv.addEventListener("click", function () { fp.revealed = true; renderFlash(); });

@@ -589,6 +589,50 @@ td.flag { color: var(--flag); font-weight: 600; }
   padding: 0; cursor: pointer; transition: color .15s var(--ease-out); }
 .case-step-back:hover { color: var(--ink-soft); text-decoration: underline; }
 
+/* ---- card library: every flashcard, individually, grouped by module ---- */
+.lib-controls { margin: 22px 0 14px; }
+.lib-search { width: 100%; background: var(--surface-2); border: 1px solid var(--line); border-radius: 10px;
+  padding: 12px 16px; color: var(--ink); font-size: 15px; }
+.lib-search::placeholder { color: var(--ink-faint); }
+.lib-search:focus { outline: none; border-color: var(--primary); background: var(--surface); }
+.lib-filter-bar { margin-bottom: 10px; }
+.lib-groups { display: flex; flex-direction: column; gap: 36px; margin-top: 24px; }
+.lib-group-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.lib-group-dot { width: 8px; height: 8px; border-radius: 50%; flex: 0 0 auto; background: var(--track-color, var(--ink-faint)); }
+.lib-group-title { font-family: "Source Serif 4", serif; font-weight: 600; font-size: 1.1rem; color: var(--ink); }
+.lib-group-rule { flex: 1 1 auto; height: 1px; background: var(--line-soft); }
+.lib-group-count { flex: 0 0 auto; font-size: 11px; color: var(--ink-faint); background: var(--surface-2);
+  padding: 3px 10px; border-radius: 999px; }
+.lib-rows { display: flex; flex-direction: column; gap: 8px; }
+.lib-row { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--track-color, var(--primary));
+  border-radius: 9px; overflow: hidden; }
+.lib-row-head { display: flex; align-items: center; gap: 12px; width: 100%; text-align: left;
+  background: none; border: 0; padding: 13px 16px; cursor: pointer; }
+.lib-row-front { flex: 1 1 auto; min-width: 0; font-size: 14px; color: var(--ink); overflow: hidden;
+  text-overflow: ellipsis; white-space: nowrap; }
+.lib-row-flags { flex: 0 0 auto; display: flex; gap: 6px; }
+.lib-row-chev { flex: 0 0 auto; color: var(--ink-faint); font-size: 12px; }
+.lib-row.open .lib-row-head { background: var(--surface-2); }
+.lib-row-body { padding: 4px 16px 18px; }
+.lib-face { margin-top: 12px; }
+.lib-face-label { font-size: 10.5px; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-faint); margin-bottom: 5px; }
+.lib-face-content { font-size: 14.5px; color: var(--ink-soft); line-height: 1.55; }
+.lib-row-actions { display: flex; align-items: center; gap: 16px; margin-top: 16px; flex-wrap: wrap; }
+.lib-edit-form { margin-top: 12px; display: flex; flex-direction: column; gap: 4px; }
+.lib-edit-label { font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: var(--ink-faint);
+  margin-top: 12px; }
+.lib-edit-label:first-child { margin-top: 0; }
+.lib-edit-hint { text-transform: none; letter-spacing: 0; font-weight: 400; color: var(--ink-faint); }
+.lib-edit-textarea { width: 100%; background: var(--surface-2); border: 1px solid var(--line); border-radius: 8px;
+  padding: 10px 12px; color: var(--ink); font-size: 13.5px; font-family: "JetBrains Mono", monospace;
+  line-height: 1.5; resize: vertical; }
+.lib-edit-textarea:focus { outline: none; border-color: var(--primary); background: var(--surface); }
+.pill.edited { background: var(--accent-tint); color: var(--accent); border-color: transparent; font-weight: 600; }
+.pill.noted { background: var(--primary-tint); color: var(--primary-deep); border-color: transparent; font-weight: 600; }
+.card-note { margin-top: 14px; padding: 10px 14px; background: var(--accent-tint); border-radius: 9px;
+  color: var(--ink-soft); font-size: 13.5px; line-height: 1.5; }
+.card-note strong { color: var(--ink); }
+
 /* ---- diagram / image label (nested inside an anatomy .panel) ---- */
 .diagram-stage { background: var(--surface-2); border: 1px dashed var(--line); border-radius: 12px; padding: 12px; position: relative; margin: 4px 0 14px; }
 .diagram-stage svg { width: 100%; height: auto; max-width: 280px; display: block; margin: 0 auto; }
