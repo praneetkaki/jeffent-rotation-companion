@@ -1017,50 +1017,75 @@
     );
     wrap.appendChild(filterBar);
 
-    var grid = h('<div class="tg-grid"></div>');
+    /* Notes and diagrams render as two clearly separated sections (each with
+       its own heading and grid) rather than one merged grid -- with uneven
+       counts, mixing kinds meant a note card and a diagram card often ended
+       up side by side in the same row, and with similarly-named topics
+       (e.g. a "Facial nerve" note next to a "facial nerve's intratemporal
+       course" diagram) that was easy to mistake for one card. */
+    var sections = h('<div class="tg-sections"></div>');
 
-    notes.forEach(function (n, i) {
-      var src = firstImageSrc(n.html);
-      var media = src
-        ? '<img src="' + esc(src) + '" alt="" loading="lazy">'
-        : trackBadge(modTrack, "tg-placeholder-icon", 26);
-      var card = h(
-        '<button type="button" class="tg-card' + (src ? '' : ' no-img') + '" data-kind="note"' + trackStyle + '>' +
-          '<div class="tg-media">' + media + '</div>' +
-          '<div class="tg-body"><h3>' + esc(n.title) + '</h3><p>' + esc(teaserOf(n.html, 110)) + '</p>' +
-          '<span class="tg-chip">Note</span></div>' +
-        '</button>'
+    function buildGroup(kind, label, items, mapper) {
+      var group = h(
+        '<section class="tg-group" data-kind="' + kind + '">' +
+          '<div class="tg-group-head"><span class="tg-group-dot ' + kind + '"></span>' +
+          '<h3 class="tg-group-title">' + label + '</h3>' +
+          '<span class="tg-group-count mono">' + items.length + '</span></div>' +
+          '<div class="tg-grid"></div>' +
+        '</section>'
       );
-      card.addEventListener("click", function () {
-        state.anatomyTopic = { kind: "note", index: i };
-        renderAnatomyPane(pane, mod);
+      var grid = group.querySelector(".tg-grid");
+      items.forEach(function (item, i) { grid.appendChild(mapper(item, i)); });
+      sections.appendChild(group);
+    }
+
+    if (notes.length) {
+      buildGroup("note", "Notes", notes, function (n, i) {
+        var src = firstImageSrc(n.html);
+        var media = src
+          ? '<img src="' + esc(src) + '" alt="" loading="lazy">'
+          : trackBadge(modTrack, "tg-placeholder-icon", 26);
+        var card = h(
+          '<button type="button" class="tg-card' + (src ? '' : ' no-img') + '" data-kind="note"' + trackStyle + '>' +
+            '<div class="tg-media">' + media + '</div>' +
+            '<div class="tg-body"><h3>' + esc(n.title) + '</h3><p>' + esc(teaserOf(n.html, 110)) + '</p>' +
+            '<span class="tg-chip">Note</span></div>' +
+          '</button>'
+        );
+        card.addEventListener("click", function () {
+          state.anatomyTopic = { kind: "note", index: i };
+          renderAnatomyPane(pane, mod);
+        });
+        return card;
       });
-      grid.appendChild(card);
-    });
+    }
 
-    diagrams.forEach(function (dg, i) {
-      var src = dg.kind === "image" ? dg.src : null;
-      var media = src
-        ? '<img src="' + esc(src) + '" alt="" loading="lazy">'
-        : trackBadge(modTrack, "tg-placeholder-icon", 26);
-      var teaser = dg.note ? teaserOf(dg.note, 110) : "";
-      var card = h(
-        '<button type="button" class="tg-card' + (src ? '' : ' no-img') + '" data-kind="diagram"' + trackStyle + '>' +
-          '<div class="tg-media">' + media + '</div>' +
-          '<div class="tg-body"><h3>' + esc(dg.title) + '</h3>' + (teaser ? '<p>' + esc(teaser) + '</p>' : '<p>&nbsp;</p>') +
-          '<span class="tg-chip diagram">Diagram</span></div>' +
-        '</button>'
-      );
-      card.addEventListener("click", function () {
-        state.anatomyTopic = { kind: "diagram", index: i };
-        renderAnatomyPane(pane, mod);
+    if (diagrams.length) {
+      buildGroup("diagram", "Diagrams", diagrams, function (dg, i) {
+        var src = dg.kind === "image" ? dg.src : null;
+        var media = src
+          ? '<img src="' + esc(src) + '" alt="" loading="lazy">'
+          : trackBadge(modTrack, "tg-placeholder-icon", 26);
+        var teaser = dg.note ? teaserOf(dg.note, 110) : "";
+        var card = h(
+          '<button type="button" class="tg-card' + (src ? '' : ' no-img') + '" data-kind="diagram"' + trackStyle + '>' +
+            '<div class="tg-media">' + media + '</div>' +
+            '<div class="tg-body"><h3>' + esc(dg.title) + '</h3>' + (teaser ? '<p>' + esc(teaser) + '</p>' : '<p>&nbsp;</p>') +
+            '<span class="tg-chip diagram">Diagram</span></div>' +
+          '</button>'
+        );
+        card.addEventListener("click", function () {
+          state.anatomyTopic = { kind: "diagram", index: i };
+          renderAnatomyPane(pane, mod);
+        });
+        return card;
       });
-      grid.appendChild(card);
-    });
+    }
 
-    wrap.appendChild(grid);
+    wrap.appendChild(sections);
 
-    /* filter pills: animated sliding underline + fade transition on the grid */
+    /* filter pills: animated sliding underline + fade transition, now
+       toggling whole Notes/Diagrams sections rather than individual cards */
     var indicator = h('<span class="tg-filter-indicator"></span>');
     filterBar.appendChild(indicator);
     function positionIndicator() {
@@ -1075,12 +1100,12 @@
         filterBar.querySelectorAll(".tg-filter").forEach(function (p) { p.classList.toggle("active", p === pill); });
         positionIndicator();
         var kind = pill.dataset.kind;
-        grid.classList.add("tg-grid-fade");
+        sections.classList.add("tg-grid-fade");
         setTimeout(function () {
-          grid.querySelectorAll(".tg-card").forEach(function (card) {
-            card.style.display = (kind === "all" || card.dataset.kind === kind) ? "" : "none";
+          sections.querySelectorAll(".tg-group").forEach(function (group) {
+            group.style.display = (kind === "all" || group.dataset.kind === kind) ? "" : "none";
           });
-          grid.classList.remove("tg-grid-fade");
+          sections.classList.remove("tg-grid-fade");
         }, 140);
       });
     });

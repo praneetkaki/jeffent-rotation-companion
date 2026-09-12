@@ -358,10 +358,21 @@ main.wrap { padding-top: 48px; padding-bottom: 60px; min-height: 60vh; }
   transition: left .22s var(--ease-drawer, ease), width .22s var(--ease-drawer, ease); }
 @media (prefers-reduced-motion: reduce) { .tg-filter-indicator { transition: none; } }
 
-.tg-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 22px; margin-bottom: 8px;
-  transition: opacity .14s ease; }
-.tg-grid.tg-grid-fade { opacity: .25; }
-@media (prefers-reduced-motion: reduce) { .tg-grid, .tg-grid.tg-grid-fade { transition: none; opacity: 1; } }
+/* Notes and Diagrams render as two distinct sections, stacked with real
+   vertical separation, instead of one merged grid where a note card and a
+   diagram card could land side by side in the same row -- especially
+   confusing when their titles cover the same topic. */
+.tg-sections { display: flex; flex-direction: column; gap: 40px; transition: opacity .14s ease; }
+.tg-sections.tg-grid-fade { opacity: .25; }
+@media (prefers-reduced-motion: reduce) { .tg-sections, .tg-sections.tg-grid-fade { transition: none; opacity: 1; } }
+.tg-group-head { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
+.tg-group-dot { width: 9px; height: 9px; border-radius: 3px; flex: 0 0 auto; background: var(--ink-faint); }
+.tg-group-dot.diagram { background: var(--primary); }
+.tg-group-title { font-family: "Source Serif 4", serif; font-weight: 600; font-size: 1.15rem; color: var(--ink); }
+.tg-group-count { font-size: 11px; color: var(--ink-faint); background: var(--surface-2);
+  padding: 3px 9px; border-radius: 999px; }
+
+.tg-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 22px; margin-bottom: 8px; }
 .tg-card { text-align: left; border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden;
   background: var(--surface); box-shadow: var(--shadow); display: flex; flex-direction: column; width: 100%;
   transition: transform .18s var(--ease-out), box-shadow .18s var(--ease-out), border-color .18s var(--ease-out); }
