@@ -573,11 +573,21 @@ td.flag { color: var(--flag); font-weight: 600; }
 .case-arrow:hover:not(:disabled) { border-color: var(--primary); color: var(--ink); }
 .case-arrow:disabled { opacity: .4; cursor: default; }
 .case-step { margin-top: 16px; }
+/* Answered questions accumulate above the current one instead of being
+   replaced by it, so a case reads as one growing record. A hairline
+   separates each answered Q&A block, and the current question gets a
+   little more visual weight than the settled ones above it. */
+.case-q { padding-top: 16px; border-top: 1px solid var(--line-soft); }
+.case-q:first-child { padding-top: 0; border-top: 0; }
+.case-q.done .case-q-text { font-weight: 500; color: var(--ink-soft); }
 .case-q-meta { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-faint); margin-bottom: 8px; }
 .case-q-text { font-size: 1.05rem; color: var(--ink); font-weight: 600; line-height: 1.4; }
 .case-a { margin-top: 14px; animation: cardReveal .22s var(--ease-out); }
 @media (prefers-reduced-motion: reduce) { .case-a { animation: none; } }
-.case-reveal, .case-next { margin-top: 18px; }
+.case-controls { display: flex; align-items: center; gap: 16px; margin-top: 18px; flex-wrap: wrap; }
+.case-step-back { border: 0; background: none; color: var(--ink-faint); font-size: 12.5px; font-weight: 500;
+  padding: 0; cursor: pointer; transition: color .15s var(--ease-out); }
+.case-step-back:hover { color: var(--ink-soft); text-decoration: underline; }
 
 /* ---- diagram / image label (nested inside an anatomy .panel) ---- */
 .diagram-stage { background: var(--surface-2); border: 1px dashed var(--line); border-radius: 12px; padding: 12px; position: relative; margin: 4px 0 14px; }

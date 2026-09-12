@@ -1427,20 +1427,47 @@
     var stepWrap = h('<div class="case-step"></div>');
     card.appendChild(stepWrap);
 
+    /* Every question already answered stays on screen with its answer, so
+       the case reads as one accumulating record instead of replacing itself
+       each step. Only the current (or not-yet-revealed) question hides its
+       answer behind a button. */
     var atTeaching = cs.promptIdx >= prompts.length;
+    var historyThrough = atTeaching ? prompts.length - 1 : cs.promptIdx - 1;
+    for (var qi = 0; qi <= historyThrough; qi++) {
+      stepWrap.appendChild(h(
+        '<div class="case-q done">' +
+          '<div class="case-q-meta mono">Question ' + (qi + 1) + ' of ' + prompts.length + '</div>' +
+          '<div class="case-q-text">' + esc(prompts[qi].q) + '</div>' +
+        '</div>'
+      ));
+      stepWrap.appendChild(h('<div class="ans case-a">' + prompts[qi].a + '</div>'));
+    }
+
+    function stepBack() {
+      cs.promptIdx -= 1; cs.revealed = false; cs.teachRevealed = false;
+      renderCasesPane(pane, mod);
+    }
+    var canStepBack = cs.promptIdx > 0;
+
     if (!atTeaching) {
       var p = prompts[cs.promptIdx];
       var isLast = cs.promptIdx === prompts.length - 1;
       stepWrap.appendChild(h(
-        '<div class="case-q">' +
+        '<div class="case-q current">' +
           '<div class="case-q-meta mono">Question ' + (cs.promptIdx + 1) + ' of ' + prompts.length + '</div>' +
           '<div class="case-q-text">' + esc(p.q) + '</div>' +
         '</div>'
       ));
+      var controls = h('<div class="case-controls"></div>');
+      if (canStepBack) {
+        var backBtn = h('<button type="button" class="case-step-back mono">&larr; Previous question</button>');
+        backBtn.addEventListener("click", stepBack);
+        controls.appendChild(backBtn);
+      }
       if (!cs.revealed) {
         var showBtn = h('<button type="button" class="btn ghost case-reveal">Show answer</button>');
         showBtn.addEventListener("click", function () { cs.revealed = true; renderCasesPane(pane, mod); });
-        stepWrap.appendChild(showBtn);
+        controls.appendChild(showBtn);
       } else {
         stepWrap.appendChild(h('<div class="ans case-a">' + p.a + '</div>'));
         var label = !isLast ? "Next question →" : c.teaching ? "Show teaching point →" : cs.index < total - 1 ? "Next case →" : "Back to all cases";
@@ -1451,20 +1478,31 @@
           else if (cs.index < total - 1) { goToCase(cs.index + 1); }
           else { goToCase(null); }
         });
-        stepWrap.appendChild(nextBtn);
+        controls.appendChild(nextBtn);
       }
-    } else if (c.teaching && !cs.teachRevealed) {
-      var teachBtn = h('<button type="button" class="btn ghost case-reveal">Show teaching point</button>');
-      teachBtn.addEventListener("click", function () { cs.teachRevealed = true; renderCasesPane(pane, mod); });
-      stepWrap.appendChild(teachBtn);
+      stepWrap.appendChild(controls);
     } else {
-      if (c.teaching) stepWrap.appendChild(h('<div class="teach"><strong>Teaching point:</strong> ' + esc(c.teaching) + '</div>'));
-      var doneLabel = cs.index < total - 1 ? "Next case →" : "Back to all cases";
-      var doneBtn = h('<button type="button" class="btn case-next">' + doneLabel + '</button>');
-      doneBtn.addEventListener("click", function () {
-        if (cs.index < total - 1) goToCase(cs.index + 1); else goToCase(null);
-      });
-      stepWrap.appendChild(doneBtn);
+      var controls2 = h('<div class="case-controls"></div>');
+      if (canStepBack) {
+        var backBtn2 = h('<button type="button" class="case-step-back mono">&larr; Previous question</button>');
+        backBtn2.addEventListener("click", stepBack);
+        controls2.appendChild(backBtn2);
+      }
+      if (c.teaching && !cs.teachRevealed) {
+        var teachBtn = h('<button type="button" class="btn ghost case-reveal">Show teaching point</button>');
+        teachBtn.addEventListener("click", function () { cs.teachRevealed = true; renderCasesPane(pane, mod); });
+        controls2.appendChild(teachBtn);
+        stepWrap.appendChild(controls2);
+      } else {
+        if (c.teaching) stepWrap.appendChild(h('<div class="teach"><strong>Teaching point:</strong> ' + esc(c.teaching) + '</div>'));
+        var doneLabel = cs.index < total - 1 ? "Next case →" : "Back to all cases";
+        var doneBtn = h('<button type="button" class="btn case-next">' + doneLabel + '</button>');
+        doneBtn.addEventListener("click", function () {
+          if (cs.index < total - 1) goToCase(cs.index + 1); else goToCase(null);
+        });
+        controls2.appendChild(doneBtn);
+        stepWrap.appendChild(controls2);
+      }
     }
 
     pane.appendChild(card);
