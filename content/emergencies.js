@@ -41,7 +41,7 @@ window.JEFFENT.register({
       },
       {
         title: "The 'danger triangle' of deep-space infection",
-        html: "<figure class='note-fig' data-credit=\"Deep cervical fascia and spaces. Wikimedia Commons, CC BY-SA 4.0.\"><img class='zoomable' src='assets/1024px-Deep_cervical_fascia.svg.png' alt='Deep cervical fascia' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Landmarks: Pretracheal, retrovisceral, and danger space extending to the posterior mediastinum.</figcaption></figure><ul><li>Neck and facial infections track along fascial planes into spaces next to the airway, great vessels, and mediastinum.</li><li>The deep neck spaces <strong>communicate</strong> (peritonsillar, parapharyngeal, retropharyngeal, mediastinum).</li><li>This is why a localized infection (quinsy, dental abscess) can escalate to airway compromise, carotid sheath involvement, or descending mediastinitis if not treated promptly.</li></ul><figure class='note-fig' data-credit=\"Deep Neck Space Communications and Mediastinal Spread Pathways. Wikimedia Commons.\"><img class='zoomable' src='assets/img/mc/86_deep_neck_spaces_communication_wikimedia.png' alt='Deep neck space communications' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Deep neck space communications and mediastinal spread pathways.</figcaption></figure>"
+        html: "<figure class='note-fig' data-credit=\"Deep cervical fascia and spaces. Wikimedia Commons, CC BY-SA 4.0.\"><img class='zoomable' src='assets/1024px-Deep_cervical_fascia.svg.png' alt='Deep cervical fascia' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Landmarks: Pretracheal, retrovisceral, and danger space extending to the posterior mediastinum.</figcaption></figure><ul><li>Neck and facial infections track along fascial planes into spaces next to the airway, great vessels, and mediastinum.</li><li>The deep neck spaces <strong>communicate</strong> (peritonsillar, parapharyngeal, retropharyngeal, mediastinum).</li><li>This is why a localized infection (quinsy, dental abscess) can escalate to airway compromise, carotid sheath involvement, or descending mediastinitis if not treated promptly.</li></ul><figure class='note-fig' data-credit=\"Deep Neck Space Communications and Mediastinal Spread Pathways. Wikimedia Commons.\"><img class='zoomable' src='assets/img/mc/57_tracheostomy_tube_types_wikimedia.png' alt='Deep neck space communications' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Deep neck space communications and mediastinal spread pathways.</figcaption></figure>"
       },
       {
         title: "Why ENT emergencies escalate fast",
@@ -66,7 +66,7 @@ window.JEFFENT.register({
         id: "deep-neck-space-spread",
         title: "Deep neck space spread",
         note: "How infection tracks from a localized source toward the mediastinum. Name each space, then reveal.",
-        src: "assets/img/mc/86_deep_neck_spaces_communication_wikimedia.png",
+        src: "assets/img/mc/57_tracheostomy_tube_types_wikimedia.png",
         source: "Deep Neck Space Communications and Mediastinal Spread Pathways. Wikimedia Commons.",
         labels: [
           { id:"peritonsillar", text:"Peritonsillar space (quinsy origin)", box:{x:38.0,y:12.2,w:24.0,h:9.0} },
