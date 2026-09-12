@@ -1,8 +1,8 @@
 {
  "generated_by": "scripts/build-image-registry.py",
  "note": "Auto-generated from content/*.js. Do not hand-edit; rerun the script instead.",
- "image_count": 106,
- "total_usages": 216,
+ "image_count": 93,
+ "total_usages": 214,
  "images": [
   {
    "file": "assets/1024px-2306_The_Larynx.jpg",
@@ -17,40 +17,6 @@
      "stem_snippet": null,
      "alt": "The larynx",
      "caption": "Landmarks: Cricothyroid membrane surface anatomy for the emergency surgical airway.",
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/1024px-Deep_cervical_fascia.svg.png",
-   "used_in": [
-    {
-     "module_file": "content/emergencies.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "The 'danger triangle' of deep-space infection",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Deep cervical fascia",
-     "caption": "Landmarks: Pretracheal, retrovisceral, and danger space extending to the posterior mediastinum.",
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/1024px-Head_facial_nerve_branches_TZBMC.jpg",
-   "used_in": [
-    {
-     "module_file": "content/facial-plastics.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "The parotid gland, facial nerve, and Stensen's duct",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Facial nerve branches",
-     "caption": "Landmarks: Pes anserinus branches; Stensen's duct crossing the masseter into the buccinator.",
      "credit": null
     }
    ]
@@ -73,91 +39,6 @@
    ]
   },
   {
-   "file": "assets/1024px-Mallampati.svg.png",
-   "used_in": [
-    {
-     "module_file": "content/sleep.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "Friedman tongue position and staging",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Graded oropharyngeal view",
-     "caption": "Landmarks: Graded oropharyngeal view, positions I to IV (Mallampati figure, closely related to Friedman tongue position).",
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/1280px-Anatomy_of_the_Human_Ear.svg.png",
-   "used_in": [
-    {
-     "module_file": "content/otology.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "Three compartments, one organ",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Anatomy of the human ear",
-     "caption": "Landmarks: External canal, middle ear with ossicular chain, and inner ear labyrinth.",
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/800px-CPAP_Machine.jpg",
-   "used_in": [
-    {
-     "module_file": "content/sleep.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "How CPAP works",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "CPAP machine",
-     "caption": "Landmarks: A CPAP device (it splints the collapsible upper airway pneumatically).",
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/800px-Gray794.png",
-   "used_in": [
-    {
-     "module_file": "content/sleep.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "The hypoglossal nerve and tongue protrusion",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Hypoglossal nerve",
-     "caption": "Landmarks: CN XII course and genioglossus innervation (the target of upper airway stimulation).",
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/800px-Gray912.png",
-   "used_in": [
-    {
-     "module_file": "content/pediatric.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "Eustachian tube anatomy in children",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Auditory tube and middle ear",
-     "caption": "Landmarks: Auditory (Eustachian) tube opening and middle ear (the pediatric horizontal angle is described in the text).",
-     "credit": null
-    }
-   ]
-  },
-  {
    "file": "assets/800px-Gray981.png",
    "used_in": [
     {
@@ -170,309 +51,6 @@
      "stem_snippet": null,
      "alt": "Branchial arches",
      "caption": "Landmarks: Arches 1-4, pouches 1-4, and second cleft persistence.",
-     "credit": null
-    },
-    {
-     "module_file": "content/pediatric.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "Branchial apparatus embryology: the basics",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Branchial arches",
-     "caption": "Landmarks: Second branchial cleft tract runs along the anterior SCM to the tonsillar fossa.",
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/Tonsils_diagram.jpg",
-   "used_in": [
-    {
-     "module_file": "content/pediatric.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "Waldeyer's ring",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Waldeyer",
-     "caption": "Landmarks: Adenoids, tubal tonsils, palatine tonsils, lingual tonsil.",
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/View-normal-tympanic-membrane.png",
-   "used_in": [
-    {
-     "module_file": "content/ent-exam-clinic-complaints.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "Tympanic membrane landmarks",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Normal tympanic membrane",
-     "caption": "Landmarks: Pars tensa, pars flaccida, manubrium, umbo, lateral process, cone of light.",
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/anatomy-atlas/cranial-nerves-inferior-view.svg",
-   "used_in": [
-    {
-     "module_file": "content/anatomy-atlas.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "Cranial nerves of the head & neck",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "The twelve cranial nerves on the inferior surface of the brain",
-     "caption": "The twelve cranial nerves (inferior view of the brain)",
-     "credit": null
-    },
-    {
-     "module_file": "content/ent-exam-clinic-complaints.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "Cranial nerves",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "The twelve cranial nerves on the inferior surface of the brain",
-     "caption": "The twelve cranial nerves (inferior view of the brain)",
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/anatomy-atlas/neck-triangles-colored.png",
-   "used_in": [
-    {
-     "module_file": "content/anatomy-atlas.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "The neck as fascial layers and triangles",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Triangles of the neck",
-     "caption": "Triangles of the neck",
-     "credit": null
-    },
-    {
-     "module_file": "content/ent-exam-clinic-complaints.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "Neck: triangles, levels & glands",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Triangles of the neck",
-     "caption": "Triangles of the neck",
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/anatomy-atlas/skull-lateral-openstax.png",
-   "used_in": [
-    {
-     "module_file": "content/anatomy-atlas.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "The temporal bone in four parts",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Lateral skull showing the temporal bone",
-     "caption": "Temporal bone on the lateral skull: squamous portion, external acoustic meatus, mastoid and styloid processes, zygomatic process.",
-     "credit": null
-    },
-    {
-     "module_file": "content/facial-plastics.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "The facial buttresses",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Lateral facial skeleton",
-     "caption": "Facial skeleton (lateral): frontal, zygomatic, maxillary and temporal bones form the vertical and horizontal buttresses.",
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/anatomy-atlas/tmj-wikimedia.png",
-   "used_in": [
-    {
-     "module_file": "content/anatomy-atlas.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "The temporal bone in four parts",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Temporomandibular joint",
-     "caption": "The temporomandibular joint, formed by the mandibular condyle and the temporal bone.",
-     "credit": "Temporomandibular joint. Wikimedia Commons."
-    }
-   ]
-  },
-  {
-   "file": "assets/img/ear/ear-overview.png",
-   "used_in": [
-    {
-     "module_file": "content/otology.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "ear-overview-photo",
-     "context_title": "The ear in cross-section",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/ear/ear-parts-nidcd.png",
-   "used_in": [
-    {
-     "module_file": "content/ent-exam-clinic-complaints.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "ear-cross-section",
-     "context_title": "The ear in cross-section",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/ear/inner-ear-labyrinth.png",
-   "used_in": [
-    {
-     "module_file": "content/otology.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "labyrinth-photo",
-     "context_title": "Bony (osseous) labyrinth: inner ear",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/ear/middle-ear-ossicles.png",
-   "used_in": [
-    {
-     "module_file": "content/otology.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "middle-ear-photo",
-     "context_title": "Tympanic membrane viewed from within",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/ear/middle-ear-wikimedia.png",
-   "used_in": [
-    {
-     "module_file": "content/otology.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "Three compartments, one organ",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Middle ear anatomy",
-     "caption": "The middle ear: ossicular chain, tympanic membrane, and Eustachian tube.",
-     "credit": "Middle ear. Wikimedia Commons."
-    }
-   ]
-  },
-  {
-   "file": "assets/img/ear/ossicles-wikimedia.png",
-   "used_in": [
-    {
-     "module_file": "content/otology.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": null,
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Auditory ossicles",
-     "caption": "The ossicular chain: malleus, incus, and stapes.",
-     "credit": "Auditory ossicles. Wikimedia Commons."
-    }
-   ]
-  },
-  {
-   "file": "assets/img/ear/otoscopy-comparison-gemini.png",
-   "used_in": [
-    {
-     "module_file": "content/otology.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": "infection-and-danger",
-     "context_title": "Infection, and when it's dangerous",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Otoscopy comparison: otitis externa, acute otitis media, cholesteatoma, necrotizing otitis externa",
-     "caption": "Otoscopy side by side: otitis externa, acute otitis media, cholesteatoma, and necrotizing otitis externa.",
-     "credit": "Otoscopic views (otitis externa, acute otitis media, cholesteatoma, necrotizing otitis externa). Illustration generated with Google Gemini."
-    }
-   ]
-  },
-  {
-   "file": "assets/img/ear/tympanic-membrane.png",
-   "used_in": [
-    {
-     "module_file": "content/otology.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "tm-photo",
-     "context_title": "Right tympanic membrane",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/facial-plastics/facial-expression-muscles-openstax.png",
-   "used_in": [
-    {
-     "module_file": "content/facial-plastics.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "The frontal branch of the facial nerve and Pitanguy's line",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Muscles of facial expression",
-     "caption": "Muscles of facial expression; the frontalis (occipitofrontalis, frontal belly) is the muscle driven by the temporal (frontal) branch.",
      "credit": null
     }
    ]
@@ -495,174 +73,874 @@
    ]
   },
   {
-   "file": "assets/img/head-neck/ent-regions-gemini.png",
+   "file": "assets/img/figures/ARIA_allergic_rhinitis_management.png",
    "used_in": [
     {
-     "module_file": "content/head-neck.js",
+     "module_file": "content/rhinology.js",
      "kind": "figure",
      "section": null,
-     "context_id": null,
-     "context_title": "Oral cavity vs oropharynx",
+     "context_id": "ar-classification",
+     "context_title": "Allergic rhinitis: ARIA classification & step-up therapy",
      "front_snippet": null,
      "stem_snippet": null,
-     "alt": "ENT regions in sagittal section",
-     "caption": "Orientation: the major ENT regions in sagittal section.",
-     "credit": "ENT regions, sagittal. Illustration generated with Google Gemini."
+     "alt": "ARIA allergic rhinitis management",
+     "caption": "ARIA&#39;s duration/severity classification grid for allergic rhinitis.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
     }
    ]
   },
   {
-   "file": "assets/img/head-neck/neck-levels-colored.png",
+   "file": "assets/img/figures/ARIA_allergic_rhinitis_stepwise.png",
    "used_in": [
     {
-     "module_file": "content/anatomy-atlas.js",
+     "module_file": "content/rhinology.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": "ar-step-therapy",
+     "context_title": "Allergic rhinitis: the step-up therapy ladder",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "ARIA allergic rhinitis stepwise",
+     "caption": "Stepwise escalation of allergic rhinitis therapy from avoidance through immunotherapy.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/CPAP_therapy.png",
+   "used_in": [
+    {
+     "module_file": "content/sleep.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": null,
+     "context_title": "How CPAP works",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "CPAP therapy",
+     "caption": "CPAP as pneumatic splinting of the collapsible upper airway.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/sleep.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "cpap-mechanism",
+     "context_title": "How CPAP holds the airway open: pneumatic splinting",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
+     "credit": null
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/ENT_regions.png",
+   "used_in": [
+    {
+     "module_file": "content/ent-exam-clinic-complaints.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "ent-regions-overview",
+     "context_title": "The ENT regions at a glance",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
+     "credit": null
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/ENT_regions_glance.png",
+   "used_in": [
+    {
+     "module_file": "content/ent-exam-clinic-complaints.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": null,
+     "context_title": "The ENT regions at a glance",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "ENT regions glance",
+     "caption": "Overview map of the five linked ENT anatomical regions (ear, nose/sinuses, oral cavity/pharynx, larynx, neck).",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/FESS_anatomy_variants_sinus_CT.png",
+   "used_in": [
+    {
+     "module_file": "content/rhinology.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": null,
+     "context_title": "FESS anatomy variants",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "FESS anatomy variants sinus CT",
+     "caption": "Pneumatization variants relevant to FESS: concha bullosa, Haller cells, Onodi cells.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/rhinology.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "fess-anatomic-variants",
+     "context_title": "FESS anatomic variants: concha bullosa, Haller cells, Onodi cells",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
+     "credit": null
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/Friedman_tongue.png",
+   "used_in": [
+    {
+     "module_file": "content/sleep.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": null,
+     "context_title": "Friedman tongue position and staging",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Friedman tongue",
+     "caption": "Friedman tongue position grades I-IV and how they predict UPPP response.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/sleep.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "friedman-tongue-position",
+     "context_title": "Friedman tongue position (I-IV)",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
+     "credit": null
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/acute_epiglottitis.png",
+   "used_in": [
+    {
+     "module_file": "content/emergencies.js",
+     "kind": "figure",
+     "section": "cases",
+     "context_id": "case-epiglottitis-adult",
+     "context_title": null,
+     "front_snippet": null,
+     "stem_snippet": "An <b>adult</b> presents with rapid-onset severe sore throat, muffled voice, and drooling, but a <b>relatively unremarka",
+     "alt": "Acute epiglottitis",
+     "caption": "Adult epiglottitis presenting with muffled voice/drooling despite a deceptively normal-looking oropharynx, confirmed by flexible laryngoscopy.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/ent-exam-clinic-complaints.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": "epiglottitis",
+     "context_title": null,
+     "front_snippet": "What is the classic presentation and the critical DON'T of epiglottitis?",
+     "stem_snippet": null,
+     "alt": "Acute epiglottitis",
+     "caption": "Classic epiglottitis presentation (drooling, tripod, muffled voice, stridor) and the rule against examining the throat.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/laryngology.js",
+     "kind": "figure",
+     "section": "cases",
+     "context_id": "case-croup-vs-epiglottitis",
+     "context_title": null,
+     "front_snippet": null,
+     "stem_snippet": "A <b>2-year-old</b> has one day of a <b>barky, seal-like cough</b>, mild fever, and a hoarse voice, worse at night. She ",
+     "alt": "Acute epiglottitis",
+     "caption": "Differentiating croup from epiglottitis in a young child by onset speed, fever, and toxicity.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/acute_sinusitis_complications.png",
+   "used_in": [
+    {
+     "module_file": "content/emergencies.js",
+     "kind": "figure",
+     "section": "cases",
+     "context_id": "case-orbital-cellulitis-complication",
+     "context_title": null,
+     "front_snippet": null,
+     "stem_snippet": "A child with several days of sinusitis symptoms develops <b>eyelid swelling, proptosis, and pain with eye movement</b>, ",
+     "alt": "Acute sinusitis complications",
+     "caption": "Sinusitis progressing to orbital (postseptal) cellulitis with proptosis and painful eye movement.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/ent-exam-clinic-complaints.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": "case-orbital-cellulitis",
+     "context_title": null,
+     "front_snippet": null,
+     "stem_snippet": "A <b>9-year-old</b> with a week of a cold now has a <b>swollen, red left eyelid</b>, <b>eye pain on looking around</b>, ",
+     "alt": "Acute sinusitis complications",
+     "caption": "Orbital cellulitis/subperiosteal abscess complicating pediatric ethmoid sinusitis via the lamina papyracea.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/ent-exam-clinic-complaints.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": "sinusitis-complications",
+     "context_title": null,
+     "front_snippet": "What complications of sinusitis must you not miss?",
+     "stem_snippet": null,
+     "alt": "Acute sinusitis complications",
+     "caption": "Orbital and intracranial complications of sinusitis requiring urgent CT and IV antibiotics.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/rhinology.js",
+     "kind": "figure",
+     "section": "cases",
+     "context_id": "case-orbital-abscess",
+     "context_title": null,
+     "front_snippet": null,
+     "stem_snippet": "A <b>7-year-old</b> with known sinusitis develops worsening proptosis; eye movements are now painful and limited, and co",
+     "alt": "Acute sinusitis complications",
+     "caption": "Subperiosteal orbital abscess as a Chandler stage III complication of pediatric sinusitis.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/audiogram_interpretation.png",
+   "used_in": [
+    {
+     "module_file": "content/emergencies.js",
+     "kind": "figure",
+     "section": "cases",
+     "context_id": "case-ssnhl-window",
+     "context_title": null,
+     "front_snippet": null,
+     "stem_snippet": "A patient reports <b>sudden hearing loss in one ear over the past 2 days</b>, with no preceding trauma, infection, or ba",
+     "alt": "Audiogram interpretation",
+     "caption": "Sudden sensorineural hearing loss confirmed by urgent audiogram, with a time-sensitive steroid treatment window.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/ent-exam-clinic-complaints.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": "audiogram-basics",
+     "context_title": null,
+     "front_snippet": "How do you read an audiogram at a glance?",
+     "stem_snippet": null,
+     "alt": "Audiogram interpretation",
+     "caption": "Reading an audiogram: axes, symbols, air-bone gap vs bilateral threshold drop.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/otology.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": "rinne",
+     "context_title": null,
+     "front_snippet": "Interpret the Rinne test.",
+     "stem_snippet": null,
+     "alt": "Audiogram interpretation",
+     "caption": "Interpreting the Rinne tuning-fork test (AC vs BC) alongside the Weber/Rinne comparison table.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/branchial_cleft_cyst.png",
+   "used_in": [
+    {
+     "module_file": "content/pediatric.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": null,
+     "context_title": "Branchial apparatus embryology: the basics",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Branchial cleft cyst",
+     "caption": "Explains second branchial cleft anomalies and the classic tract from a neck pit anterior to the SCM up to the tonsillar fossa.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/pediatric.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "branchial-cleft-track",
+     "context_title": "Second branchial cleft tract",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
+     "credit": null
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/cervical_fascia_danger_space.png",
+   "used_in": [
+    {
+     "module_file": "content/emergencies.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": null,
+     "context_title": "The 'danger triangle' of deep-space infection",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Cervical fascia danger space",
+     "caption": "Deep cervical fascial spaces communicate (peritonsillar/parapharyngeal/retropharyngeal) and can carry infection down the &#39;danger space&#39; toward the mediastinum.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/emergencies.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "deep-neck-space-spread",
+     "context_title": "Deep neck space spread",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
+     "credit": null
+    },
+    {
+     "module_file": "content/pediatric.js",
      "kind": "figure",
      "section": null,
      "context_id": null,
      "context_title": null,
      "front_snippet": null,
      "stem_snippet": null,
-     "alt": "Cervical lymph node levels I to VII",
-     "caption": "Cervical lymph node levels I to VII (including IIa/IIb and Va/Vb).",
-     "credit": "Cervical lymph node levels. Wikimedia Commons."
+     "alt": "Cervical fascia danger space",
+     "caption": "Young child with fever, rigid neck extension, muffled voice, and drooling from a retropharyngeal abscess, diagnosed with contrast CT distinguishing abscess from phlegmon.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/cholesteatoma_TM_perforation.png",
+   "used_in": [
+    {
+     "module_file": "content/otology.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": null,
+     "context_title": null,
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Cholesteatoma TM perforation",
+     "caption": "Cholesteatoma pathophysiology (retraction pocket, keratin accumulation, bone erosion) and why mastoidectomy is required.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/otology.js",
+     "kind": "figure",
+     "section": "cases",
+     "context_id": "case-cholesteatoma",
+     "context_title": null,
+     "front_snippet": null,
+     "stem_snippet": "A <b>28-year-old</b> has <b>months of painless, foul-smelling drainage</b> from one ear and mild hearing loss. Otoscopy ",
+     "alt": "Cholesteatoma TM perforation",
+     "caption": "Chronic painless foul otorrhea with an attic retraction pocket, diagnostic of cholesteatoma.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/otology.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": "cholesteatoma-erosion-card",
+     "context_title": null,
+     "front_snippet": "Cholesteatoma needs <span class=\\",
+     "stem_snippet": null,
+     "alt": "Cholesteatoma TM perforation",
+     "caption": "Cholesteatoma requires mastoidectomy, not drops, because its enzymes keep eroding nearby bone.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/cholesteatoma_ear.png",
+   "used_in": [
+    {
+     "module_file": "content/otology.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": "cholesteatoma-classification-card",
+     "context_title": null,
+     "front_snippet": "A white mass behind an intact, normal-looking tympanic membrane in a child with no history of perforation or ear surgery",
+     "stem_snippet": null,
+     "alt": "Cholesteatoma ear",
+     "caption": "Congenital cholesteatoma: a white mass behind an intact, normal-looking TM in a child.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/chronic_rhinosinusitis.png",
+   "used_in": [
+    {
+     "module_file": "content/rhinology.js",
+     "kind": "figure",
+     "section": "diagrams",
+     "context_id": "crs-definition",
+     "context_title": "Chronic rhinosinusitis (CRS): definition & subtypes",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Chronic rhinosinusitis",
+     "caption": "Formal CRS definition and CRSsNP/CRSwNP/AERD subtypes with first-line management.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/rhinology.js",
+     "kind": "figure",
+     "section": "cards",
+     "context_id": "crs-subtypes-card",
+     "context_title": null,
+     "front_snippet": "Contrast CRSsNP and CRSwNP, and name their first-line treatments.",
+     "stem_snippet": null,
+     "alt": "Chronic rhinosinusitis",
+     "caption": "Contrast of CRSsNP vs CRSwNP and their first-line treatments.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/congenital_neck_masses.png",
+   "used_in": [
+    {
+     "module_file": "content/pediatric.js",
+     "kind": "figure",
+     "section": "diagrams",
+     "context_id": "congenital-neck-masses",
+     "context_title": "Congenital neck masses by location",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Congenital neck masses",
+     "caption": "Uses anatomic location (midline, lateral anterior to SCM, posterior triangle, preauricular) to differentiate congenital neck mass diagnoses.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/pediatric.js",
+     "kind": "figure",
+     "section": "cases",
+     "context_id": "case-thyroglossal-cyst",
+     "context_title": null,
+     "front_snippet": null,
+     "stem_snippet": "A <b>3-year-old</b> has a painless midline neck swelling that moves upward when he sticks out his tongue.",
+     "alt": "Congenital neck masses",
+     "caption": "Child with a midline neck mass moving with tongue protrusion, diagnosed as thyroglossal duct cyst, requiring thyroid imaging before Sistrunk procedure.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/cranial-nerves-inferior-view.svg",
+   "used_in": [
+    {
+     "module_file": "content/anatomy-atlas.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": null,
+     "context_title": "Cranial nerves of the head & neck",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Cranial nerves inferior view",
+     "caption": "The twelve cranial nerves, with emphasis on the seven relevant to ENT, and their skull-base exits.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
     },
     {
      "module_file": "content/ent-exam-clinic-complaints.js",
      "kind": "figure",
      "section": null,
      "context_id": null,
-     "context_title": "Neck: triangles, levels & glands",
+     "context_title": "Cranial nerves",
      "front_snippet": null,
      "stem_snippet": null,
-     "alt": "Cervical lymph node levels I to VII",
-     "caption": "Cervical lymph node levels I to VII (including IIa/IIb and Va/Vb).",
-     "credit": "Cervical lymph node levels. Wikimedia Commons."
+     "alt": "Cranial nerves inferior view",
+     "caption": "All twelve cranial nerves with their skull-base exit foramen and function.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/ear-overview.png",
+   "used_in": [
+    {
+     "module_file": "content/otology.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "ear-overview-photo",
+     "context_title": "The ear in cross-section",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
+     "credit": null
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/ear_anatomy_physiology_overview.png",
+   "used_in": [
+    {
+     "module_file": "content/otology.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": null,
+     "context_title": "Three compartments, one organ",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Ear anatomy physiology overview",
+     "caption": "Overview of the ear&#39;s three compartments (external/sound-gathering, middle/amplification, inner/transduction) and how CN VIII reads out the inner ear.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
     },
     {
-     "module_file": "content/head-neck.js",
+     "module_file": "content/otology.js",
      "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "Neck levels I-VII",
-     "front_snippet": null,
+     "section": "cards",
+     "context_id": "eac-canal",
+     "context_title": null,
+     "front_snippet": "Describe the makeup of the external auditory canal.",
      "stem_snippet": null,
-     "alt": "Cervical lymph node levels",
-     "caption": "Levels I to VII, including IIa/IIb and Va/Vb.",
-     "credit": null
+     "alt": "Ear anatomy physiology overview",
+     "caption": "External auditory canal composition: outer 1/3 cartilaginous (cerumen glands), inner 2/3 bony.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
     }
    ]
   },
   {
-   "file": "assets/img/head-neck/pharynx-regions-openstax.png",
+   "file": "assets/img/figures/ear_cross_section.png",
    "used_in": [
     {
-     "module_file": "content/head-neck.js",
+     "module_file": "content/anatomy-atlas.js",
      "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "Oral cavity vs oropharynx",
+     "section": "cards",
+     "context_id": "external-vs-middle-inner-ear-card",
+     "context_title": null,
+     "front_snippet": "What separates the external, middle, and inner ear anatomically?",
+     "stem_snippet": null,
+     "alt": "Ear cross section",
+     "caption": "What separates the external, middle, and inner ear compartments anatomically.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/ent-exam-clinic-complaints.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "ear-cross-section",
+     "context_title": "The ear in cross-section",
      "front_snippet": null,
      "stem_snippet": null,
-     "alt": "Pharynx regions",
-     "caption": "Nasopharynx, oropharynx, and laryngopharynx.",
+     "alt": null,
+     "caption": null,
      "credit": null
     },
     {
-     "module_file": "content/sleep.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "Sites of upper airway obstruction in OSA",
+     "module_file": "content/otology.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "ear-cross-section",
+     "context_title": "The ear in cross-section",
      "front_snippet": null,
      "stem_snippet": null,
-     "alt": "Upper airway regions",
-     "caption": "Retropalatal and retroglossal levels of the collapsible upper airway.",
+     "alt": null,
+     "caption": null,
      "credit": null
     }
    ]
   },
   {
-   "file": "assets/img/head-neck/salivary-glands-openstax.png",
-   "used_in": [
-    {
-     "module_file": "content/head-neck.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "The salivary glands",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Salivary glands",
-     "caption": "Parotid with Stensen's duct, submandibular with Wharton's duct, sublingual gland.",
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/laryngology/larynx-coronal-wikimedia.png",
-   "used_in": [
-    {
-     "module_file": "content/laryngology.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "Three subsites: supraglottis, glottis, subglottis",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Coronal larynx",
-     "caption": "False and true vocal folds, laryngeal ventricle, and subglottis.",
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/laryngology/larynx-openstax.png",
+   "file": "assets/img/figures/epistaxis_mgmt.png",
    "used_in": [
     {
      "module_file": "content/ent-exam-clinic-complaints.js",
      "kind": "figure",
+     "section": "cases",
+     "context_id": "case-epistaxis",
+     "context_title": null,
+     "front_snippet": null,
+     "stem_snippet": "A <b>74-year-old on warfarin</b> has a brisk <b>left-sided nosebleed</b> for 30 minutes at home. He is hemodynamically s",
+     "alt": "Epistaxis mgmt",
+     "caption": "Anterior epistaxis on anticoagulation managed with compression, topical vasoconstrictor, and INR check.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/rhinology.js",
+     "kind": "figure",
      "section": null,
-     "context_id": null,
-     "context_title": "Larynx: essentials",
+     "context_id": "epistaxis-ladder",
+     "context_title": "The epistaxis escalation ladder",
      "front_snippet": null,
      "stem_snippet": null,
-     "alt": "Larynx, anterior and lateral views",
-     "caption": "Epiglottis, thyroid and cricoid cartilages, vocal and vestibular folds.",
+     "alt": "Epistaxis mgmt",
+     "caption": "Stepwise epistaxis management from first aid through cautery, packing, and arterial ligation/embolization.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/rhinology.js",
+     "kind": "figure",
+     "section": "cases",
+     "context_id": "case-posterior-epistaxis",
+     "context_title": null,
+     "front_snippet": null,
+     "stem_snippet": "An <b>81-year-old on apixaban</b> has a heavy nosebleed with blood visible in the <b>oropharynx</b> despite 20 minutes o",
+     "alt": "Epistaxis mgmt",
+     "caption": "Posterior epistaxis in an anticoagulated elderly patient, requiring escalation past anterior measures.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/eustachian_tube_child_adult.png",
+   "used_in": [
+    {
+     "module_file": "content/pediatric.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": null,
+     "context_title": "Eustachian tube anatomy in children",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Eustachian tube child adult",
+     "caption": "Contrasts the child&#39;s shorter, more horizontal Eustachian tube with the adult&#39;s steeper tube to explain why otitis media is a childhood disease.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/pediatric.js",
+     "kind": "figure",
+     "section": "cards",
+     "context_id": "et-tube-child-card",
+     "context_title": null,
+     "front_snippet": "Why does a child's Eustachian tube anatomy predispose to otitis media?",
+     "stem_snippet": null,
+     "alt": "Eustachian tube child adult",
+     "caption": "Flashcard on why a child&#39;s Eustachian tube anatomy predisposes to otitis media.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/pediatric.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "eustachian-tube-pediatric",
+     "context_title": "Pediatric vs adult Eustachian tube angle",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
+     "credit": null
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/facial_buttresses.png",
+   "used_in": [
+    {
+     "module_file": "content/facial-plastics.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": null,
+     "context_title": "The facial buttresses",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Facial buttresses",
+     "caption": "Vertical and horizontal facial buttress columns that absorb/transmit force and that reconstructive plating restores.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/facial-plastics.js",
+     "kind": "figure",
+     "section": "cards",
+     "context_id": "facial-buttresses-card",
+     "context_title": null,
+     "front_snippet": "What are the facial buttresses, and why does reconstructive plating target them specifically?",
+     "stem_snippet": null,
+     "alt": "Facial buttresses",
+     "caption": "Facial buttresses as force-absorbing bone columns targeted by reconstructive plating.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/facial-plastics.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "facial-buttresses",
+     "context_title": "Facial buttresses",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
+     "credit": null
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/facial_nerve_course.png",
+   "used_in": [
+    {
+     "module_file": "content/anatomy-atlas.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": null,
+     "context_title": "Facial nerve: intratemporal segments",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Facial nerve course",
+     "caption": "The labyrinthine, tympanic, and mastoid intratemporal segments of the facial nerve and the geniculate ganglion (Ramsay Hunt syndrome).",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/anatomy-atlas.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": "facial-nerve-segments-card",
+     "context_title": null,
+     "front_snippet": "The narrowest of the facial nerve's three intratemporal segments, and the one most vulnerable to swelling in Bell's pals",
+     "stem_snippet": null,
+     "alt": "Facial nerve course",
+     "caption": "Identifying the labyrinthine segment as the narrowest/most vulnerable facial nerve segment in Bell&#39;s palsy.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/anatomy-atlas.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "facial-nerve-intratemporal-course",
+     "context_title": "The facial nerve's intratemporal course",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
      "credit": null
     },
     {
-     "module_file": "content/laryngology.js",
+     "module_file": "content/ent-exam-clinic-complaints.js",
      "kind": "figure",
      "section": null,
-     "context_id": null,
-     "context_title": "The laryngeal cartilage framework",
+     "context_id": "case-bells-vs-central",
+     "context_title": null,
      "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Larynx, anterior and lateral views",
-     "caption": "Hyoid, thyroid and cricoid cartilages, epiglottis, arytenoid, vocal and vestibular folds.",
-     "credit": null
+     "stem_snippet": "A <b>40-year-old</b> wakes with a <b>drooping right face</b>: the mouth and the <b>forehead</b> are both affected. No li",
+     "alt": "Facial nerve course",
+     "caption": "Distinguishing peripheral (Bell&#39;s) from central facial palsy using forehead involvement/sparing.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/facial-plastics.js",
+     "kind": "figure",
+     "section": "cases",
+     "context_id": "case-facial-nerve-laceration",
+     "context_title": null,
+     "front_snippet": null,
+     "stem_snippet": "A patient has a <b>deep laceration anterior to the ear</b> from a knife injury, with <b>immediate, complete inability to",
+     "alt": "Facial nerve course",
+     "caption": "Immediate complete facial paralysis after a penetrating preauricular knife wound indicating nerve transection needing urgent exploration.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
     }
    ]
   },
   {
-   "file": "assets/img/laryngology/larynx-subsites-nci.png",
+   "file": "assets/img/figures/facial_nerve_ear_otology.png",
    "used_in": [
     {
-     "module_file": "content/laryngology.js",
+     "module_file": "content/otology.js",
      "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "Three subsites: supraglottis, glottis, subglottis",
-     "front_snippet": null,
+     "section": "cards",
+     "context_id": "cn7-me",
+     "context_title": null,
+     "front_snippet": "Why does the facial nerve matter in otology?",
      "stem_snippet": null,
-     "alt": "Laryngeal subsites",
-     "caption": "Laryngeal subsites: supraglottis, glottis, and subglottis.",
-     "credit": "Laryngeal subsites. NCI Visuals Online. Public domain."
+     "alt": "Facial nerve ear otology",
+     "caption": "Why the facial nerve matters in otology: its course through the temporal bone and vulnerability to otologic disease.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/otology.js",
+     "kind": "figure",
+     "section": "cards",
+     "context_id": "chorda",
+     "context_title": null,
+     "front_snippet": "What is the chorda tympani and what does it carry?",
+     "stem_snippet": null,
+     "alt": "Facial nerve ear otology",
+     "caption": "The chorda tympani (CN VII branch) crossing the middle ear, carrying taste from the anterior 2/3 of the tongue.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
     }
    ]
   },
   {
-   "file": "assets/img/mc/05a_facial_nerve_intratemporal_amboss.png",
+   "file": "assets/img/figures/fascial_layers_neck.png",
+   "used_in": [
+    {
+     "module_file": "content/anatomy-atlas.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": null,
+     "context_title": "The neck as fascial layers and triangles",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Fascial layers neck",
+     "caption": "Deep cervical fascial layers, the carotid sheath, and the surface triangles of the neck, plus a nodal-level table.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/anatomy-atlas.js",
+     "kind": "figure",
+     "section": "cards",
+     "context_id": "neck-fascial-layers-card",
+     "context_title": null,
+     "front_snippet": "Name the layers of deep cervical fascia.",
+     "stem_snippet": null,
+     "alt": "Fascial layers neck",
+     "caption": "Recall of the deep cervical fascial layers and the carotid sheath.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/emergencies.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": null,
+     "context_title": null,
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Fascial layers neck",
+     "caption": "Ludwig&#39;s angina: odontogenic bilateral floor-of-mouth/submandibular space cellulitis threatening the airway via tongue displacement.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/hearing_loss_ear.png",
+   "used_in": [
+    {
+     "module_file": "content/otology.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": "hearing-loss-fork",
+     "context_title": "Hearing loss: the fork in the road",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Hearing loss ear",
+     "caption": "Conductive vs sensorineural hearing loss, localized by lesion site along the auditory pathway.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/hypoglossal_nerve_branches.png",
    "used_in": [
     {
      "module_file": "content/sleep.js",
@@ -672,9 +950,9 @@
      "context_title": "The hypoglossal nerve and tongue protrusion",
      "front_snippet": null,
      "stem_snippet": null,
-     "alt": "Hypoglossal nerve and genioglossus",
-     "caption": "Sagittal section showing intrinsic and extrinsic tongue muscles and their role in protrusion, retraction, and opening the retropalatal/hypopharyngeal space via palatoglossus coupling. (L) and (M) are the lateral and medial branches of the hypoglossal nerve.",
-     "credit": null
+     "alt": "Hypoglossal nerve branches",
+     "caption": "CN XII course and genioglossus innervation underlying tongue protrusion and its role in OSA/airway patency.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
     },
     {
      "module_file": "content/sleep.js",
@@ -682,6 +960,1869 @@
      "section": "diagrams",
      "context_id": "hypoglossal-nerve-tongue",
      "context_title": "The hypoglossal nerve, genioglossus, and tongue protrusion",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
+     "credit": null
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/hypoglossal_nerve_stimulator_diagram.png",
+   "used_in": [
+    {
+     "module_file": "content/sleep.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": "hgns-candidacy-card",
+     "context_title": null,
+     "front_snippet": "What are the indications and candidacy criteria for hypoglossal nerve stimulation (HGNS) in obstructive sleep apnea?",
+     "stem_snippet": null,
+     "alt": "Hypoglossal nerve stimulator diagram",
+     "caption": "FDA/STAR-trial candidacy criteria for hypoglossal nerve stimulation, with an embedded figure of the generator/lead/cuff components.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/sleep.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "hypoglossal-stimulator-pathway",
+     "context_title": "Hypoglossal nerve stimulator",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
+     "credit": null
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/inner-ear-labyrinth.png",
+   "used_in": [
+    {
+     "module_file": "content/otology.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "labyrinth-photo",
+     "context_title": "Bony (osseous) labyrinth: inner ear",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
+     "credit": null
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/inner_ear_anatomy.png",
+   "used_in": [
+    {
+     "module_file": "content/otology.js",
+     "kind": "figure",
+     "section": "cards",
+     "context_id": "inner-div",
+     "context_title": null,
+     "front_snippet": "Divide the inner ear by function.",
+     "stem_snippet": null,
+     "alt": "Inner ear anatomy",
+     "caption": "Dividing the inner ear by function: cochlea (hearing) vs vestibule + semicircular canals (balance), both read by CN VIII.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/kiesselbach_plexus.png",
+   "used_in": [
+    {
+     "module_file": "content/ent-exam-clinic-complaints.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": "epistaxis",
+     "context_title": null,
+     "front_snippet": "Most anterior epistaxis arises from <span class=\\",
+     "stem_snippet": null,
+     "alt": "Kiesselbach plexus",
+     "caption": "Kiesselbach&#39;s plexus as the source of most anterior nosebleeds.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/rhinology.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": null,
+     "context_title": "Blood supply of the nose",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Kiesselbach plexus",
+     "caption": "Little&#39;s area/Kiesselbach&#39;s plexus vascular convergence and anterior vs posterior epistaxis sources.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/rhinology.js",
+     "kind": "figure",
+     "section": "cards",
+     "context_id": "septal-blood-supply",
+     "context_title": null,
+     "front_snippet": "Which four arteries converge at Little's area (Kiesselbach's plexus)?",
+     "stem_snippet": null,
+     "alt": "Kiesselbach plexus",
+     "caption": "Four arteries converging at Little&#39;s area/Kiesselbach&#39;s plexus.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/rhinology.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "septal-vessels",
+     "context_title": "Little's area (Kiesselbach's plexus)",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
+     "credit": null
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/laryngeal_cartilages.png",
+   "used_in": [
+    {
+     "module_file": "content/laryngology.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": null,
+     "context_title": "The laryngeal cartilage framework",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Laryngeal cartilages",
+     "caption": "Overview of the thyroid, cricoid, arytenoid cartilages and epiglottis forming the laryngeal skeleton.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/laryngology.js",
+     "kind": "figure",
+     "section": "cards",
+     "context_id": "laryngeal-cartilages-card",
+     "context_title": null,
+     "front_snippet": "Name the laryngeal cartilages and one key fact about each.",
+     "stem_snippet": null,
+     "alt": "Laryngeal cartilages",
+     "caption": "Naming the laryngeal cartilages (thyroid, cricoid, arytenoids, epiglottis) and a key fact about each.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/laryngology.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "laryngeal-cartilages",
+     "context_title": "Laryngeal cartilage framework",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
+     "credit": null
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/laryngeal_subsites_supraglottis.png",
+   "used_in": [
+    {
+     "module_file": "content/anatomy-atlas.js",
+     "kind": "figure",
+     "section": "cards",
+     "context_id": "larynx-subsites-recall-card",
+     "context_title": null,
+     "front_snippet": "Name the three laryngeal subsites from superior to inferior.",
+     "stem_snippet": null,
+     "alt": "Laryngeal subsites supraglottis",
+     "caption": "Recall of the three laryngeal subsites (supraglottis, glottis, subglottis).",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/laryngology.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": null,
+     "context_title": "Three subsites: supraglottis, glottis, subglottis",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Laryngeal subsites supraglottis",
+     "caption": "Coronal division of the larynx into supraglottis, glottis, and subglottis, the basis for cancer staging and airway localization.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/laryngology.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": "laryngeal-cancer-approach",
+     "context_title": "Laryngeal cancer: risk and the staging logic",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Laryngeal subsites supraglottis",
+     "caption": "Laryngeal cancer risk factors (synergistic tobacco/alcohol) and why subsite lymphatic drainage drives presentation timing.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/laryngology.js",
+     "kind": "figure",
+     "section": "cases",
+     "context_id": "case-laryngeal-cancer",
+     "context_title": null,
+     "front_snippet": null,
+     "stem_snippet": "A <b>67-year-old man with a 45 pack-year smoking history</b> and daily alcohol use presents with <b>progressive hoarsene",
+     "alt": "Laryngeal subsites supraglottis",
+     "caption": "Progressive hoarseness with tobacco/alcohol risk factors and weight loss requiring urgent laryngoscopy for laryngeal cancer.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/laryngology.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "laryngeal-subsites",
+     "context_title": "Supraglottis \\u00b7 glottis \\u00b7 subglottis (coronal)",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
+     "credit": null
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/larynx-coronal-wikimedia.png",
+   "used_in": [
+    {
+     "module_file": "content/ent-exam-clinic-complaints.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "larynx-coronal",
+     "context_title": "Larynx: coronal",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
+     "credit": null
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/larynx-openstax.png",
+   "used_in": [
+    {
+     "module_file": "content/ent-exam-clinic-complaints.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": null,
+     "context_title": "Larynx: essentials",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Larynx openstax",
+     "caption": "Epiglottis, thyroid/cricoid cartilage framework, true/false vocal folds, recurrent laryngeal nerve.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/le_fort_fractures.png",
+   "used_in": [
+    {
+     "module_file": "content/facial-plastics.js",
+     "kind": "figure",
+     "section": "diagrams",
+     "context_id": "le-fort-classification",
+     "context_title": "Le Fort fracture classification",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Le fort fractures",
+     "caption": "Le Fort I, II, and III midface fracture patterns distinguished by fracture line level.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/facial-plastics.js",
+     "kind": "figure",
+     "section": "cases",
+     "context_id": "case-le-fort-ii",
+     "context_title": null,
+     "front_snippet": null,
+     "stem_snippet": "After a motor vehicle collision, a patient has <b>facial swelling, epistaxis, and a mobile midface</b> that moves as a u",
+     "alt": "Le fort fractures",
+     "caption": "A mobile midface moving with the nasal complex, classic for Le Fort II fracture, assessed after ATLS priorities.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/facial-plastics.js",
+     "kind": "figure",
+     "section": "cards",
+     "context_id": "le-fort-card",
+     "context_title": null,
+     "front_snippet": "Distinguish Le Fort I, II, and III fractures.",
+     "stem_snippet": null,
+     "alt": "Le fort fractures",
+     "caption": "Distinguishing Le Fort I, II, and III fracture patterns.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/level_upper_airway_obstruction_labeled.png",
+   "used_in": [
+    {
+     "module_file": "content/sleep.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": null,
+     "context_title": "Sites of upper airway obstruction in OSA",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Level upper airway obstruction labeled",
+     "caption": "The three anatomic levels where the upper airway can collapse in OSA: nasal, retropalatal, and retroglossal.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/sleep.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "airway-obstruction-sites",
+     "context_title": "Levels of upper airway obstruction",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
+     "credit": null
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/mandible_anatomy.png",
+   "used_in": [
+    {
+     "module_file": "content/facial-plastics.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": "mandible-fracture-patterns",
+     "context_title": "Mandible fracture patterns and the bimanual exam",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Mandible anatomy",
+     "caption": "Common mandible fracture sites (condyle, angle, body, parasymphysis) and the bimanual/tongue-blade exam.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/facial-plastics.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": "case-guardsman-fracture",
+     "context_title": null,
+     "front_snippet": null,
+     "stem_snippet": "A patient fell and landed chin-first on the pavement. He reports his <b>bite feels wrong</b>, has bilateral preauricular",
+     "alt": "Mandible anatomy",
+     "caption": "Bilateral condylar mandible fracture with symphyseal fracture and bilateral numb chin sign from a chin-first fall.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/facial-plastics.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": null,
+     "context_title": null,
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Mandible anatomy",
+     "caption": "Bilateral parasymphyseal mandible fracture causing tongue-base airway obstruction requiring airway management before fixation.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/facial-plastics.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": "mandible-fracture-sites-card",
+     "context_title": null,
+     "front_snippet": "Because the mandible is a ring of bone, a strong enough force often fractures it in <span class=\\",
+     "stem_snippet": null,
+     "alt": "Mandible anatomy",
+     "caption": "The mandible as a ring of bone that often fractures in two places at once.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/middle_ear_anatomy_real.png",
+   "used_in": [
+    {
+     "module_file": "content/otology.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "middle-ear-photo",
+     "context_title": "Tympanic membrane viewed from within",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
+     "credit": null
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/middle_ear_dangerous_relationships.png",
+   "used_in": [
+    {
+     "module_file": "content/otology.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": null,
+     "context_title": "The clinically dangerous relationships",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Middle ear dangerous relationships",
+     "caption": "Middle-ear/mastoid danger zone: facial nerve, tensor tympani/stapedius, chorda tympani, and referred otalgia via CN V/VII/IX/X.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/otology.js",
+     "kind": "figure",
+     "section": "cards",
+     "context_id": "me-muscles",
+     "context_title": null,
+     "front_snippet": "What are the two middle-ear muscles, their nerves, and their job?",
+     "stem_snippet": null,
+     "alt": "Middle ear dangerous relationships",
+     "caption": "Tensor tympani (CN V3) and stapedius (CN VII), the two middle-ear muscles and the acoustic reflex.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/otology.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "middle-ear-danger-relationships",
+     "context_title": "The middle ear and mastoid danger zone",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
+     "credit": null
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/nasal-septum-openstax.png",
+   "used_in": [
+    {
+     "module_file": "content/rhinology.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": null,
+     "context_title": "The nasal septum",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Nasal septum openstax",
+     "caption": "Septal skeleton (quadrangular cartilage, perpendicular plate of ethmoid, vomer) and septal hematoma risk.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/nasal_septum.png",
+   "used_in": [
+    {
+     "module_file": "content/rhinology.js",
+     "kind": "figure",
+     "section": "cards",
+     "context_id": "septal-structure",
+     "context_title": null,
+     "front_snippet": "What makes up the nasal septum, and why is a septal hematoma dangerous?",
+     "stem_snippet": null,
+     "alt": "Nasal septum",
+     "caption": "Composition of the nasal septum and why septal hematoma causes saddle-nose deformity.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/rhinology.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "nasal-septum-anatomy",
+     "context_title": "Nasal septum: cartilage and bone",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
+     "credit": null
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/neck-triangles-colored.png",
+   "used_in": [
+    {
+     "module_file": "content/anatomy-atlas.js",
+     "kind": "figure",
+     "section": "cards",
+     "context_id": "neck-triangles-card",
+     "context_title": null,
+     "front_snippet": "What structures define the anterior and posterior triangles of the neck?",
+     "stem_snippet": null,
+     "alt": "Neck triangles colored",
+     "caption": "Recall of the boundaries and contents of the anterior and posterior neck triangles.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/anatomy-atlas.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "neck-fascial-triangles",
+     "context_title": "The neck as fascial layers and triangles",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
+     "credit": null
+    },
+    {
+     "module_file": "content/ent-exam-clinic-complaints.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": null,
+     "context_title": "Neck: triangles, levels & glands",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Neck triangles colored",
+     "caption": "Anterior/posterior neck triangles, cervical nodal levels I-VII, and key neck glands.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/neck_levels_colored.png",
+   "used_in": [
+    {
+     "module_file": "content/ent-exam-clinic-complaints.js",
+     "kind": "figure",
+     "section": "cards",
+     "context_id": "neck-levels",
+     "context_title": null,
+     "front_snippet": "How do you structure the neck exam and which nodal levels do you palpate?",
+     "stem_snippet": null,
+     "alt": "Neck levels colored",
+     "caption": "Structuring the neck exam by nodal levels I-VI plus thyroid/parotid/supraclavicular.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/ent-exam-clinic-complaints.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "neck-levels",
+     "context_title": "Neck nodal levels I-VI",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
+     "credit": null
+    },
+    {
+     "module_file": "content/head-neck.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": null,
+     "context_title": "Neck levels I-VII",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Neck levels colored",
+     "caption": "Cervical lymph node level classification (I-VII, including IIA/IIB and VA/VB) for head & neck cancer staging.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/head-neck.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "neck-levels-full",
+     "context_title": "Neck nodal levels I-VII",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
+     "credit": null
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/neck_zones_trauma.png",
+   "used_in": [
+    {
+     "module_file": "content/emergencies.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": null,
+     "context_title": "Zones of the neck",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Neck zones trauma",
+     "caption": "Zones I, II, III of the neck for penetrating trauma and how surgical accessibility differs by zone.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/emergencies.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": null,
+     "context_title": null,
+     "front_snippet": null,
+     "stem_snippet": "A patient arrives with a <b>stab wound to the mid-neck (Zone II)</b>. On exam there is a <b>rapidly expanding hematoma</",
+     "alt": "Neck zones trauma",
+     "caption": "Zone II penetrating neck stab wound with hard signs (expanding hematoma, bruit) mandating immediate OR exploration.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/necrotizing_otitis_externa.png",
+   "used_in": [
+    {
+     "module_file": "content/otology.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": null,
+     "context_title": null,
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Necrotizing otitis externa",
+     "caption": "Necrotizing otitis externa pathogen, cranial-nerve progression from skull-base osteomyelitis, and treatment.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/otology.js",
+     "kind": "figure",
+     "section": "cases",
+     "context_id": "case-noe-progression",
+     "context_title": null,
+     "front_snippet": null,
+     "stem_snippet": "A <b>68-year-old with poorly controlled diabetes</b> has three weeks of severe, worsening <b>left ear pain and purulent ",
+     "alt": "Necrotizing otitis externa",
+     "caption": "Progressive necrotizing otitis externa in a diabetic patient developing facial droop and hoarseness from skull-base spread.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/oral_cavity_oropharynx_anatomy.png",
+   "used_in": [
+    {
+     "module_file": "content/head-neck.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": null,
+     "context_title": "Oral cavity vs oropharynx",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Oral cavity oropharynx anatomy",
+     "caption": "Anatomic distinction between oral cavity and oropharynx subsites and its oncologic significance (tobacco vs HPV driven cancer).",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/head-neck.js",
+     "kind": "figure",
+     "section": "cases",
+     "context_id": "case-hpv-oropharyngeal",
+     "context_title": null,
+     "front_snippet": null,
+     "stem_snippet": "A <b>52-year-old non-smoker</b> notices a <b>painless right neck lump</b> for a month. On exam there is a firm level II ",
+     "alt": "Oral cavity oropharynx anatomy",
+     "caption": "Painless neck node with base-of-tongue fullness in a non-smoker, pointing to HPV-associated oropharyngeal cancer.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/head-neck.js",
+     "kind": "figure",
+     "section": "cards",
+     "context_id": "oral-vs-oropharynx-card",
+     "context_title": null,
+     "front_snippet": "What structures define the oral cavity vs the oropharynx, and why does the distinction matter oncologically?",
+     "stem_snippet": null,
+     "alt": "Oral cavity oropharynx anatomy",
+     "caption": "Structures defining the oral cavity vs oropharynx and their differing oncologic drivers.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/head-neck.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "oral-oropharynx-subsites",
+     "context_title": "Oral cavity vs oropharynx (sagittal)",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
+     "credit": null
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/ossicles_joints.png",
+   "used_in": [
+    {
+     "module_file": "content/otology.js",
+     "kind": "figure",
+     "section": "cards",
+     "context_id": "ossicles",
+     "context_title": null,
+     "front_snippet": "Name the ossicular chain in order and what it connects.",
+     "stem_snippet": null,
+     "alt": "Ossicles joints",
+     "caption": "The ossicular chain (malleus, incus, stapes) and its mechanical connection from TM to oval window.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/osteomeatal_complex.png",
+   "used_in": [
+    {
+     "module_file": "content/rhinology.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": null,
+     "context_title": "The lateral nasal wall & the ostiomeatal complex (OMC)",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Osteomeatal complex",
+     "caption": "Anatomy of the middle meatus/uncinate process/ethmoid bulla forming the ostiomeatal complex, the shared drainage funnel for frontal, anterior ethmoid, and maxillary sinuses.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/rhinology.js",
+     "kind": "figure",
+     "section": "cards",
+     "context_id": "omc-anatomy",
+     "context_title": null,
+     "front_snippet": "What structures form the ostiomeatal complex, and why does it matter clinically?",
+     "stem_snippet": null,
+     "alt": "Osteomeatal complex",
+     "caption": "Ostiomeatal complex structures (uncinate process, ethmoid bulla, infundibulum) and their role in CRS.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/rhinology.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "omc-drainage",
+     "context_title": "Ostiomeatal complex: coronal drainage",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
+     "credit": null
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/otoscopy-comparison-gemini.png",
+   "used_in": [
+    {
+     "module_file": "content/otology.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": "infection-and-danger",
+     "context_title": "Infection, and when it's dangerous",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Otoscopy comparison gemini",
+     "caption": "Side-by-side otoscopic comparison of otitis externa, AOM, cholesteatoma, and necrotizing otitis externa.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/paranasal_sinus_drainage.png",
+   "used_in": [
+    {
+     "module_file": "content/anatomy-atlas.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": null,
+     "context_title": "Paranasal sinuses",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Paranasal sinus drainage",
+     "caption": "The four paranasal sinuses and where each one drains.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/anatomy-atlas.js",
+     "kind": "figure",
+     "section": "cards",
+     "context_id": "paranasal-sinus-drainage-card",
+     "context_title": null,
+     "front_snippet": "Where does each paranasal sinus drain?",
+     "stem_snippet": null,
+     "alt": "Paranasal sinus drainage",
+     "caption": "Recall of where each paranasal sinus drains.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/anatomy-atlas.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "paranasal-sinus-set",
+     "context_title": "The four paranasal sinuses and their drainage",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
+     "credit": null
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/paranasal_sinus_drainage_danger_zones.png",
+   "used_in": [
+    {
+     "module_file": "content/ent-exam-clinic-complaints.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": null,
+     "context_title": "Nose & paranasal sinuses",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Paranasal sinus drainage danger zones",
+     "caption": "Turbinates/meatuses, ostiomeatal complex drainage, and proximity of sinuses to orbit/skull base.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/rhinology.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": null,
+     "context_title": "The paranasal sinuses: drainage & danger zones",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Paranasal sinus drainage danger zones",
+     "caption": "Drainage pathways of frontal/maxillary/ethmoid/sphenoid sinuses and the adjacent danger zones (orbit, skull base, cavernous sinus).",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/rhinology.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": "fess-complications",
+     "context_title": "FESS: the three complication sites every student should know",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Paranasal sinus drainage danger zones",
+     "caption": "Three FESS complication sites: orbit (lamina papyracea), skull base (cribriform plate), and internal carotid artery.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/rhinology.js",
+     "kind": "figure",
+     "section": "cards",
+     "context_id": "sinus-danger-zones",
+     "context_title": null,
+     "front_snippet": "What critical structures border each paranasal sinus, and what complication does each border explain?",
+     "stem_snippet": null,
+     "alt": "Paranasal sinus drainage danger zones",
+     "caption": "Critical structures bordering each paranasal sinus and the complications each border explains.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/rhinology.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "sinus-danger-zones",
+     "context_title": "Sinus danger zones: orbit and skull base",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
+     "credit": null
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/paranasal_sinuses.png",
+   "used_in": [
+    {
+     "module_file": "content/ent-exam-clinic-complaints.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "sinuses-coronal",
+     "context_title": "Paranasal sinuses: coronal",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
+     "credit": null
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/parotid_facial_nerve.png",
+   "used_in": [
+    {
+     "module_file": "content/anatomy-atlas.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": "parotid-facial-nerve-recall-card",
+     "context_title": null,
+     "front_snippet": "How does the facial nerve relate anatomically to the parotid gland?",
+     "stem_snippet": null,
+     "alt": "Parotid facial nerve",
+     "caption": "How the facial nerve runs through and divides the parotid gland.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/facial-plastics.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": null,
+     "context_title": "The parotid gland, facial nerve, and Stensen's duct",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Parotid facial nerve",
+     "caption": "Facial nerve trunk and its five branches running through the parotid gland, plus Stensen&#39;s duct course.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/facial-plastics.js",
+     "kind": "figure",
+     "section": "diagrams",
+     "context_id": "duct-and-nerve-not-to-miss",
+     "context_title": "Structures not to miss in a cheek/parotid laceration",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Parotid facial nerve",
+     "caption": "Stensen&#39;s duct and buccal branch of the facial nerve at risk along the tragus-to-upper-lip line.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/facial-plastics.js",
+     "kind": "figure",
+     "section": "cases",
+     "context_id": "case-parotid-duct-injury",
+     "context_title": null,
+     "front_snippet": null,
+     "stem_snippet": "A patient has a laceration over the cheek along a line from the tragus to the corner of the mouth, with <b>clear, watery",
+     "alt": "Parotid facial nerve",
+     "caption": "Cheek laceration with clear salivary drainage indicating Stensen&#39;s duct injury, with concurrent buccal nerve risk.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/facial-plastics.js",
+     "kind": "figure",
+     "section": "cards",
+     "context_id": "facial-nerve-parotid-card",
+     "context_title": null,
+     "front_snippet": "Name the five branches of the facial nerve as it exits the parotid.",
+     "stem_snippet": null,
+     "alt": "Parotid facial nerve",
+     "caption": "The five facial nerve branches exiting the parotid gland.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/facial-plastics.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "facial-nerve-parotid",
+     "context_title": "Facial nerve branches through the parotid",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
+     "credit": null
+    },
+    {
+     "module_file": "content/head-neck.js",
+     "kind": "figure",
+     "section": "cases",
+     "context_id": "case-parotid-facial-weakness",
+     "context_title": null,
+     "front_snippet": null,
+     "stem_snippet": "A <b>64-year-old</b> has a slowly enlarging <b>right parotid mass</b> over several months, now with new <b>weakness of t",
+     "alt": "Parotid facial nerve",
+     "caption": "Enlarging parotid mass with new facial weakness signifying likely malignant nerve invasion.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/head-neck.js",
+     "kind": "figure",
+     "section": "cards",
+     "context_id": "parotid-anatomy-card",
+     "context_title": null,
+     "front_snippet": "The <span class=\\",
+     "stem_snippet": null,
+     "alt": "Parotid facial nerve",
+     "caption": "Facial nerve running through and dividing the parotid gland into superficial/deep lobes.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/head-neck.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "parotid-facial-nerve",
+     "context_title": "Parotid gland & facial nerve",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
+     "credit": null
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/parotid_pathology.png",
+   "used_in": [
+    {
+     "module_file": "content/head-neck.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": "parotid-rule-80s-card",
+     "context_title": null,
+     "front_snippet": "What is the 'rule of 80s' for parotid tumors, and what is the most common malignant one?",
+     "stem_snippet": null,
+     "alt": "Parotid pathology",
+     "caption": "&#39;Rule of 80s&#39; for parotid tumor prevalence (pleomorphic adenoma benign, mucoepidermoid carcinoma malignant).",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/pediatric_adult_airway.png",
+   "used_in": [
+    {
+     "module_file": "content/pediatric.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": null,
+     "context_title": "The pediatric airway vs the adult airway",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Pediatric adult airway",
+     "caption": "Explains why a child&#39;s funnel-shaped airway (narrowest at the subglottis, cephalad larynx, floppy omega-shaped epiglottis) makes small amounts of edema disproportionately obstructive compared to an adult&#39;s cylindrical airway.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/pediatric.js",
+     "kind": "figure",
+     "section": "cards",
+     "context_id": "peds-airway-anatomy-card",
+     "context_title": null,
+     "front_snippet": "Name three ways a child's airway anatomy differs from an adult's, and why it matters.",
+     "stem_snippet": null,
+     "alt": "Pediatric adult airway",
+     "caption": "Flashcard on three anatomic differences between a child&#39;s and an adult&#39;s airway (funnel shape, cephalad larynx, floppy epiglottis).",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/pediatric.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "peds-vs-adult-airway",
+     "context_title": "Pediatric vs adult airway shape",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
+     "credit": null
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/peritonsilllar abscess.png",
+   "used_in": [
+    {
+     "module_file": "content/ent-exam-clinic-complaints.js",
+     "kind": "figure",
+     "section": "cases",
+     "context_id": "case-airway-pta",
+     "context_title": null,
+     "front_snippet": null,
+     "stem_snippet": "A <b>19-year-old</b> has severe sore throat, <b>trismus</b>, a <b>muffled 'hot potato' voice</b>, and drools. Temperatur",
+     "alt": "Peritonsilllar abscess",
+     "caption": "Peritonsillar abscess presenting with trismus, muffled voice, and drooling; airway first, then drainage.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/ent-exam-clinic-complaints.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": "pta",
+     "context_title": null,
+     "front_snippet": "What triad suggests a peritonsillar abscess?",
+     "stem_snippet": null,
+     "alt": "Peritonsilllar abscess",
+     "caption": "Peritonsillar abscess triad (trismus, muffled voice, uvular deviation) and management.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/pitanguy_line.png",
+   "used_in": [
+    {
+     "module_file": "content/facial-plastics.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": null,
+     "context_title": "The frontal branch of the facial nerve and Pitanguy's line",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Pitanguy line",
+     "caption": "The temporal (frontal) branch of the facial nerve and Pitanguy&#39;s surface-marking line that approximates its course.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/facial-plastics.js",
+     "kind": "figure",
+     "section": "cards",
+     "context_id": "pitanguys-line-card",
+     "context_title": null,
+     "front_snippet": "What is Pitanguy's line, and why does it matter clinically?",
+     "stem_snippet": null,
+     "alt": "Pitanguy line",
+     "caption": "Pitanguy&#39;s line as a surface marking for the temporal (frontal) branch of the facial nerve.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/facial-plastics.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "frontal-branch-pitanguy-line",
+     "context_title": "Pitanguy's line and the frontal branch",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
+     "credit": null
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/reconstructive_ladder.png",
+   "used_in": [
+    {
+     "module_file": "content/facial-plastics.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": "reconstructive-ladder",
+     "context_title": "The reconstructive ladder",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Reconstructive ladder",
+     "caption": "Stepwise reconstructive options from secondary intention through free tissue transfer.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/facial-plastics.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": "reconstructive-ladder-card",
+     "context_title": null,
+     "front_snippet": "State the reconstructive ladder in order.",
+     "stem_snippet": null,
+     "alt": "Reconstructive ladder",
+     "caption": "The reconstructive ladder from secondary intention to free tissue transfer.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/recurrent_laryngeal_nerve_course.png",
+   "used_in": [
+    {
+     "module_file": "content/ent-exam-clinic-complaints.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": "case-hoarseness",
+     "context_title": null,
+     "front_snippet": null,
+     "stem_snippet": "A <b>63-year-old smoker</b> has been <b>hoarse for 6 weeks</b>. No sore throat now. He's otherwise well.",
+     "alt": "Recurrent laryngeal nerve course",
+     "caption": "Persistent hoarseness in a smoker requiring laryngoscopy, with vocal-fold paralysis raised via recurrent laryngeal nerve course.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/laryngology.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": null,
+     "context_title": "Laryngeal nerve supply",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Recurrent laryngeal nerve course",
+     "caption": "Superior laryngeal nerve and recurrent laryngeal nerve innervation of the larynx and their courses.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/laryngology.js",
+     "kind": "figure",
+     "section": "diagrams",
+     "context_id": "vf-paralysis-workup-management",
+     "context_title": "Unilateral vocal fold paralysis: workup and the management ladder",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Recurrent laryngeal nerve course",
+     "caption": "Workup of unilateral vocal fold paralysis requires imaging the entire RLN course; management ladder from voice therapy to thyroplasty.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/laryngology.js",
+     "kind": "figure",
+     "section": "cards",
+     "context_id": "rln-course-card",
+     "context_title": null,
+     "front_snippet": "Trace the course of the recurrent laryngeal nerve on each side, and explain why it matters for hoarseness.",
+     "stem_snippet": null,
+     "alt": "Recurrent laryngeal nerve course",
+     "caption": "Course of the recurrent laryngeal nerve on each side and its clinical significance for hoarseness.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/laryngology.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "rln-course",
+     "context_title": "Recurrent laryngeal nerve course",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
+     "credit": null
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/salivary-glands-openstax.png",
+   "used_in": [
+    {
+     "module_file": "content/head-neck.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": null,
+     "context_title": "The salivary glands",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Salivary glands openstax",
+     "caption": "Major salivary gland anatomy: parotid (Stensen&#39;s duct) and submandibular (Wharton&#39;s duct).",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/salivary_gland_ducts.png",
+   "used_in": [
+    {
+     "module_file": "content/head-neck.js",
+     "kind": "figure",
+     "section": "cards",
+     "context_id": "submandibular-duct-card",
+     "context_title": null,
+     "front_snippet": "Why is the submandibular gland the classic site for salivary stones?",
+     "stem_snippet": null,
+     "alt": "Salivary gland ducts",
+     "caption": "Wharton&#39;s duct&#39;s uphill course explaining why the submandibular gland is the classic site for salivary stones.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/head-neck.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "salivary-glands-overview",
+     "context_title": "The three major salivary glands and their ducts",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
+     "credit": null
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/skullbase_foramen.png",
+   "used_in": [
+    {
+     "module_file": "content/anatomy-atlas.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": null,
+     "context_title": "Skull base foramina",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Skullbase foramen",
+     "caption": "The named skull-base foramina and the cranial nerves/vessels that pass through each.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/anatomy-atlas.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": "skull-base-foramina-card",
+     "context_title": null,
+     "front_snippet": "Match the skull-base foramen to what passes through it: foramen ovale, foramen rotundum, foramen spinosum, internal acou",
+     "stem_snippet": null,
+     "alt": "Skullbase foramen",
+     "caption": "Matching skull-base foramina (ovale, rotundum, spinosum, internal acoustic meatus) to what passes through them.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/anatomy-atlas.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": "jugular-foramen-syndrome-card",
+     "context_title": null,
+     "front_snippet": "What is jugular foramen syndrome (Vernet syndrome), and which cranial nerves does it affect?",
+     "stem_snippet": null,
+     "alt": "Skullbase foramen",
+     "caption": "Jugular foramen syndrome (Vernet syndrome) affecting CN IX, X, and XI.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/anatomy-atlas.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "head-neck-cranial-nerves",
+     "context_title": "Cranial nerves of the head and neck",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
+     "credit": null
+    },
+    {
+     "module_file": "content/anatomy-atlas.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "skull-base-foramina",
+     "context_title": "The skull base foramina",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
+     "credit": null
+    },
+    {
+     "module_file": "content/ent-exam-clinic-complaints.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "ent-cranial-nerves-overview",
+     "context_title": "The skull base foramina and their cranial nerves",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
+     "credit": null
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/sore_throat_centor.png",
+   "used_in": [
+    {
+     "module_file": "content/ent-exam-clinic-complaints.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": "sore-throat-centor",
+     "context_title": null,
+     "front_snippet": "How do you approach acute sore throat?",
+     "stem_snippet": null,
+     "alt": "Sore throat centor",
+     "caption": "Approach to acute sore throat using Centor/McIsaac and FeverPAIN scoring.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/sphenoid_sinus_cavernous_sinus.png",
+   "used_in": [
+    {
+     "module_file": "content/anatomy-atlas.js",
+     "kind": "figure",
+     "section": "cards",
+     "context_id": "sphenoid-neighbors-card",
+     "context_title": null,
+     "front_snippet": "What structures border the sphenoid sinus, and why does that matter clinically?",
+     "stem_snippet": null,
+     "alt": "Sphenoid sinus cavernous sinus",
+     "caption": "The pituitary, optic nerve, and cavernous sinus as sphenoid sinus neighbors and their clinical significance.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/temporal_bone_anatomy.png",
+   "used_in": [
+    {
+     "module_file": "content/anatomy-atlas.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": null,
+     "context_title": "The temporal bone in four parts",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Temporal bone anatomy",
+     "caption": "Overview of the temporal bone&#39;s four parts (squamous, tympanic, petrous, mastoid) and the TMJ formed by its squamous portion.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/anatomy-atlas.js",
+     "kind": "figure",
+     "section": "cards",
+     "context_id": "temporal-bone-parts-card",
+     "context_title": null,
+     "front_snippet": "Name the four parts of the temporal bone and one clinically relevant fact about each.",
+     "stem_snippet": null,
+     "alt": "Temporal bone anatomy",
+     "caption": "Recall of the temporal bone&#39;s four parts and a clinical fact about each.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/anatomy-atlas.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "temporal-bone-parts",
+     "context_title": "The temporal bone in four parts",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
+     "credit": null
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/thyroid_adjacent_structures.png",
+   "used_in": [
+    {
+     "module_file": "content/emergencies.js",
+     "kind": "figure",
+     "section": "cases",
+     "context_id": "case-post-thyroidectomy-hematoma",
+     "context_title": null,
+     "front_snippet": null,
+     "stem_snippet": "A few hours after thyroidectomy, a patient develops <b>rapidly expanding neck swelling, difficulty breathing, and strido",
+     "alt": "Thyroid adjacent structures",
+     "caption": "Expanding neck hematoma after thyroidectomy compressing the airway, requiring bedside wound opening.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/head-neck.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": null,
+     "context_title": "Thyroid & parathyroid anatomy",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Thyroid adjacent structures",
+     "caption": "Thyroid lobes/isthmus, parathyroid glands, and recurrent laryngeal nerve relationships relevant to thyroidectomy risk.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/head-neck.js",
+     "kind": "figure",
+     "section": "cards",
+     "context_id": "thyroid-parathyroid-anatomy-card",
+     "context_title": null,
+     "front_snippet": "What two structures are at surgical risk during thyroidectomy, and what does injury to each cause?",
+     "stem_snippet": null,
+     "alt": "Thyroid adjacent structures",
+     "caption": "Recurrent laryngeal nerve and parathyroid glands at surgical risk during thyroidectomy.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/head-neck.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "thyroid-parathyroid-anatomy",
+     "context_title": "Thyroid and parathyroid glands with the recurrent laryngeal nerve",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
+     "credit": null
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/thyroid_diagnostic_steps.png",
+   "used_in": [
+    {
+     "module_file": "content/head-neck.js",
+     "kind": "figure",
+     "section": "cases",
+     "context_id": "case-thyroid-nodule",
+     "context_title": null,
+     "front_snippet": null,
+     "stem_snippet": "A <b>45-year-old woman</b> has an incidentally found 1.8 cm thyroid nodule. TSH is normal. Ultrasound shows a hypoechoic",
+     "alt": "Thyroid diagnostic steps",
+     "caption": "Suspicious thyroid nodule ultrasound features (TI-RADS) driving FNA, then Bethesda-reported cytology.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/head-neck.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": "thyroid-nodule-workup-card",
+     "context_title": null,
+     "front_snippet": "What is the stepwise workup for a newly found thyroid nodule?",
+     "stem_snippet": null,
+     "alt": "Thyroid diagnostic steps",
+     "caption": "Stepwise thyroid nodule workup: TSH, then ultrasound, then FNA.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/head-neck.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": "bethesda-card",
+     "context_title": null,
+     "front_snippet": "What does the Bethesda System do for a thyroid FNA result?",
+     "stem_snippet": null,
+     "alt": "Thyroid diagnostic steps",
+     "caption": "Bethesda System categories (I-VI) for reporting thyroid FNA cytology and their associated management.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/tmj-wikimedia.png",
+   "used_in": [
+    {
+     "module_file": "content/anatomy-atlas.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": "tmj-anatomy-card",
+     "context_title": null,
+     "front_snippet": "Because the temporomandibular joint sits directly anterior to the external auditory canal, TMJ dysfunction is a classic ",
+     "stem_snippet": null,
+     "alt": "Tmj wikimedia",
+     "caption": "The TMJ&#39;s proximity to the ear canal as a cause of referred otalgia.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/tracheostomy_tube.png",
+   "used_in": [
+    {
+     "module_file": "content/laryngology.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": "tracheostomy-in-depth",
+     "context_title": "Tracheostomy: tube types, first-week emergencies, and decannulation",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Tracheostomy tube",
+     "caption": "Tracheostomy tube types, the first-postoperative-week dislodgement emergency, and decannulation pathway.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/laryngology.js",
+     "kind": "figure",
+     "section": "cases",
+     "context_id": "case-trach-dislodgement",
+     "context_title": null,
+     "front_snippet": null,
+     "stem_snippet": "A nurse calls urgently: a patient who underwent tracheostomy <b>3 days ago</b> for prolonged ventilator weaning has beco",
+     "alt": "Tracheostomy tube",
+     "caption": "Dislodged tracheostomy tube 3 days post-op requiring alternate airway rather than blind reinsertion into an immature stoma.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/tympanic-membrane.png",
+   "used_in": [
+    {
+     "module_file": "content/otology.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "tm-photo",
+     "context_title": "Right tympanic membrane",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
+     "credit": null
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/tympanic_membrane_landmarks.png",
+   "used_in": [
+    {
+     "module_file": "content/ent-exam-clinic-complaints.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": null,
+     "context_title": "Tympanic membrane landmarks",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Tympanic membrane landmarks",
+     "caption": "Naming otoscopic TM landmarks: cone of light, umbo, manubrium, pars tensa/flaccida.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/ent-exam-clinic-complaints.js",
+     "kind": "figure",
+     "section": "cards",
+     "context_id": "tm-landmarks",
+     "context_title": null,
+     "front_snippet": "Name the normal tympanic-membrane landmarks.",
+     "stem_snippet": null,
+     "alt": "Tympanic membrane landmarks",
+     "caption": "Naming normal tympanic-membrane landmarks (cone of light, umbo, manubrium, pars tensa/flaccida).",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/ent-exam-clinic-complaints.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "tm-right",
+     "context_title": "Right tympanic membrane: landmarks",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
+     "credit": null
+    },
+    {
+     "module_file": "content/otology.js",
+     "kind": "figure",
+     "section": "cards",
+     "context_id": "tm-landmarks2",
+     "context_title": null,
+     "front_snippet": "Name the tympanic membrane landmarks.",
+     "stem_snippet": null,
+     "alt": "Tympanic membrane landmarks",
+     "caption": "Naming tympanic membrane landmarks (cone of light, umbo, manubrium, pars tensa/flaccida) on otoscopy.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/otology.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "tm-right",
+     "context_title": "Right tympanic membrane: landmarks",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
+     "credit": null
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/tympanograms.png",
+   "used_in": [
+    {
+     "module_file": "content/ent-exam-clinic-complaints.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": "tympanometry",
+     "context_title": null,
+     "front_snippet": "What do tympanometry types A, B, and C mean?",
+     "stem_snippet": null,
+     "alt": "Tympanograms",
+     "caption": "Tympanogram types A, B, C and the ear conditions each indicates.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/otology.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": null,
+     "context_title": null,
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Tympanograms",
+     "caption": "Differentiating otosclerosis (Type As), OME (Type B), and ossicular discontinuity (Type Ad) by tympanogram pattern.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/otology.js",
+     "kind": "figure",
+     "section": "cases",
+     "context_id": "case-otosclerosis",
+     "context_title": null,
+     "front_snippet": null,
+     "stem_snippet": "A <b>29-year-old woman</b>, now 20 weeks pregnant, reports progressive hearing loss in both ears over two years, worse o",
+     "alt": "Tympanograms",
+     "caption": "Bilateral conductive hearing loss with a normal TM, family history, and pregnancy-related worsening, diagnostic of otosclerosis.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/unilateral_sinonasal_masses.png",
+   "used_in": [
+    {
+     "module_file": "content/rhinology.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": "unilateral-masses",
+     "context_title": "Unilateral nasal masses by age: the pattern to memorize",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Unilateral sinonasal masses",
+     "caption": "Age-based pattern for unilateral sinonasal masses: JNA, inverted papilloma, esthesioneuroblastoma/malignancy.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/vestibular_schwannoma_MRI.png",
+   "used_in": [
+    {
+     "module_file": "content/otology.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": null,
+     "context_title": null,
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Vestibular schwannoma MRI",
+     "caption": "Vestibular schwannoma presentation, MRI IAC workup, and the observation/radiosurgery/microsurgery management ladder.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/otology.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": null,
+     "context_title": null,
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Vestibular schwannoma MRI",
+     "caption": "Progressive asymmetric SNHL and tinnitus worked up with MRI IAC, revealing a vestibular schwannoma, with management options discussed via House-Brackmann.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/otology.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": "asym-snhl",
+     "context_title": null,
+     "front_snippet": "Asymmetric SNHL or unilateral tinnitus: what must you exclude?",
+     "stem_snippet": null,
+     "alt": "Vestibular schwannoma MRI",
+     "caption": "Asymmetric SNHL or unilateral tinnitus must be worked up with MRI to exclude vestibular schwannoma.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/otology.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": "vestibular-schwannoma-workup-card",
+     "context_title": null,
+     "front_snippet": "The imaging study of choice for a suspected vestibular schwannoma, able to detect tumors only a few millimeters across, ",
+     "stem_snippet": null,
+     "alt": "Vestibular schwannoma MRI",
+     "caption": "MRI of the internal auditory canals with gadolinium is the imaging study of choice for vestibular schwannoma.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/otology.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": "house-brackmann-card",
+     "context_title": null,
+     "front_snippet": "The scale that grades facial nerve function from Grade I, normal function, to Grade VI, total paralysis, is the <span cl",
+     "stem_snippet": null,
+     "alt": "Vestibular schwannoma MRI",
+     "caption": "The House-Brackmann scale (Grade I-VI) for grading facial nerve function, used before/after vestibular schwannoma surgery.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/vocal_fold_layers.png",
+   "used_in": [
+    {
+     "module_file": "content/laryngology.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": null,
+     "context_title": "Vocal fold layers",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Vocal fold layers",
+     "caption": "Layered cover-body microarchitecture of the vocal fold (epithelium, lamina propria, vocalis muscle).",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/laryngology.js",
+     "kind": "figure",
+     "section": "cards",
+     "context_id": "vf-cover-body",
+     "context_title": null,
+     "front_snippet": "What is the 'cover-body' model of vocal fold vibration, and why does it matter clinically?",
+     "stem_snippet": null,
+     "alt": "Vocal fold layers",
+     "caption": "The cover-body model of vocal fold vibration and clinical implications of cover stiffening.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/laryngology.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "vocal-fold-layers",
+     "context_title": "Vocal fold layers in cross-section",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
+     "credit": null
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/vocal_process_granuloma.png",
+   "used_in": [
+    {
+     "module_file": "content/laryngology.js",
+     "kind": "figure",
+     "section": "diagrams",
+     "context_id": "vocal-process-granuloma",
+     "context_title": "Vocal process (contact) granuloma",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Vocal process granuloma",
+     "caption": "Contact granuloma at the vocal process of the arytenoid, usually from intubation trauma or reflux.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/waldeyer_ring.png",
+   "used_in": [
+    {
+     "module_file": "content/pediatric.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": null,
+     "context_title": "Waldeyer's ring",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Waldeyer ring",
+     "caption": "Describes the ring of lymphoid tissue (adenoids, palatine tonsils, lingual tonsil) guarding the aerodigestive entrance.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/pediatric.js",
+     "kind": "figure",
+     "section": "cards",
+     "context_id": "waldeyers-ring-card",
+     "context_title": null,
+     "front_snippet": "What structures make up Waldeyer's ring?",
+     "stem_snippet": null,
+     "alt": "Waldeyer ring",
+     "caption": "Flashcard on the structures composing Waldeyer&#39;s ring.",
+     "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
+    },
+    {
+     "module_file": "content/pediatric.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "waldeyers-ring-diagram",
+     "context_title": "Waldeyer's ring",
      "front_snippet": null,
      "stem_snippet": null,
      "alt": null,
@@ -716,129 +2857,6 @@
      "alt": null,
      "caption": null,
      "credit": null
-    },
-    {
-     "module_file": "content/otology.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": null,
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Acoustic neuroma illustration",
-     "caption": "Vestibular schwannoma at the cerebellopontine angle, on the cochlear/vestibular nerves.",
-     "credit": "Acoustic neuroma (vestibular schwannoma). Wikimedia Commons."
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/16_ent_regions_overview.png",
-   "used_in": [
-    {
-     "module_file": "content/ent-exam-clinic-complaints.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "ent-regions-overview",
-     "context_title": "The ENT regions at a glance",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    },
-    {
-     "module_file": "content/pediatric.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "The pediatric airway vs the adult airway",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Pediatric vs adult airway anatomy",
-     "caption": "Pediatric versus adult airway anatomy and geometric differences.",
-     "credit": null
-    },
-    {
-     "module_file": "content/pediatric.js",
-     "kind": "figure",
-     "section": "cards",
-     "context_id": "peds-airway-anatomy-card",
-     "context_title": null,
-     "front_snippet": "Name three ways a child's airway anatomy differs from an adult's, and why it matters.",
-     "stem_snippet": null,
-     "alt": "Pediatric vs adult airway anatomy",
-     "caption": "Pediatric versus adult airway anatomy and geometric differences.",
-     "credit": null
-    },
-    {
-     "module_file": "content/pediatric.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "peds-vs-adult-airway",
-     "context_title": "Pediatric vs adult airway shape",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/17_ostiomeatal_complex_radiopaedia.png",
-   "used_in": [
-    {
-     "module_file": "content/head-neck.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "The salivary glands",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "The three major salivary glands and their ducts",
-     "caption": "The parotid, submandibular, and sublingual glands and where each duct empties.",
-     "credit": "Salivary glands and ducts. KnowledgeWorks Global Ltd. (CC BY)."
-    },
-    {
-     "module_file": "content/head-neck.js",
-     "kind": "figure",
-     "section": "cards",
-     "context_id": "submandibular-duct-card",
-     "context_title": null,
-     "front_snippet": "Why is the submandibular gland the classic site for salivary stones?",
-     "stem_snippet": null,
-     "alt": "Major salivary glands and ducts",
-     "caption": "The major salivary glands and their ducts.",
-     "credit": null
-    },
-    {
-     "module_file": "content/head-neck.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "salivary-glands-overview",
-     "context_title": "The three major salivary glands and their ducts",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/22_tympanic_membrane_normal_oxford.png",
-   "used_in": [
-    {
-     "module_file": "content/otology.js",
-     "kind": "figure",
-     "section": "cards",
-     "context_id": "inner-div",
-     "context_title": null,
-     "front_snippet": "Divide the inner ear by function.",
-     "stem_snippet": null,
-     "alt": "Bony labyrinth of the inner ear",
-     "caption": "The bony labyrinth: cochlea and semicircular canals.",
-     "credit": null
     }
    ]
   },
@@ -856,76 +2874,6 @@
      "alt": "Thyroid nodule workup sequence",
      "caption": "Thyroid nodule workup order: TSH, then ultrasound (TI-RADS), then FNA (Bethesda).",
      "credit": "Thyroid nodule workup. Illustration generated with Google Gemini."
-    },
-    {
-     "module_file": "content/head-neck.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": "thyroid-nodule-workup-card",
-     "context_title": null,
-     "front_snippet": "What is the stepwise workup for a newly found thyroid nodule?",
-     "stem_snippet": null,
-     "alt": "Thyroid nodule workup algorithm",
-     "caption": "Stepwise thyroid nodule workup algorithm.",
-     "credit": null
-    },
-    {
-     "module_file": "content/head-neck.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": "bethesda-card",
-     "context_title": null,
-     "front_snippet": "What does the Bethesda System do for a thyroid FNA result?",
-     "stem_snippet": null,
-     "alt": "Bethesda system for thyroid cytopathology",
-     "caption": "The Bethesda system for reporting thyroid cytopathology.",
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/35_cholesteatoma_tm_perforation_wikimedia.png",
-   "used_in": [
-    {
-     "module_file": "content/pediatric.js",
-     "kind": "figure",
-     "section": "diagrams",
-     "context_id": "congenital-neck-masses",
-     "context_title": "Congenital neck masses by location",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Congenital neck masses by location",
-     "caption": "Congenital neck masses differentiated by anatomical location.",
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/36b_vestibular_schwannoma_gross_wikimedia.png",
-   "used_in": [
-    {
-     "module_file": "content/sleep.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "How CPAP works",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "How CPAP works",
-     "caption": "How CPAP works: continuous pneumatic airway splinting.",
-     "credit": null
-    },
-    {
-     "module_file": "content/sleep.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "cpap-mechanism",
-     "context_title": "How CPAP holds the airway open: pneumatic splinting",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
     }
    ]
   },
@@ -942,344 +2890,6 @@
      "stem_snippet": null,
      "alt": "External ear innervation",
      "caption": "Sensory innervation of the external ear and referred otalgia pathways.",
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/39_ossicular_chain_gemini.png",
-   "used_in": [
-    {
-     "module_file": "content/facial-plastics.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "The facial buttresses",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Facial buttresses",
-     "caption": "Vertical and horizontal facial buttresses.",
-     "credit": null
-    },
-    {
-     "module_file": "content/facial-plastics.js",
-     "kind": "figure",
-     "section": "cards",
-     "context_id": "facial-buttresses-card",
-     "context_title": null,
-     "front_snippet": "What are the facial buttresses, and why does reconstructive plating target them specifically?",
-     "stem_snippet": null,
-     "alt": "Facial buttresses",
-     "caption": "The vertical and horizontal facial buttresses.",
-     "credit": null
-    },
-    {
-     "module_file": "content/facial-plastics.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "facial-buttresses",
-     "context_title": "Facial buttresses",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/41_bony_labyrinth_inner_ear_wikimedia.png",
-   "used_in": [
-    {
-     "module_file": "content/anatomy-atlas.js",
-     "kind": "figure",
-     "section": "cards",
-     "context_id": "sphenoid-neighbors-card",
-     "context_title": null,
-     "front_snippet": "What structures border the sphenoid sinus, and why does that matter clinically?",
-     "stem_snippet": null,
-     "alt": "Sphenoid sinus and cavernous sinus relations",
-     "caption": "Sphenoid sinus and its cavernous sinus relations.",
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/55_recurrent_laryngeal_nerve_course_gemini.png",
-   "used_in": [
-    {
-     "module_file": "content/otology.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": null,
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Vestibular schwannoma on axial MRI",
-     "caption": "The same lesion on contrast-enhanced axial MRI of the internal auditory canal.",
-     "credit": "Vestibular schwannoma on axial MRI. Wikimedia Commons."
-    },
-    {
-     "module_file": "content/otology.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": "asym-snhl",
-     "context_title": null,
-     "front_snippet": "Asymmetric SNHL or unilateral tinnitus: what must you exclude?",
-     "stem_snippet": null,
-     "alt": "Vestibular schwannoma on axial MRI",
-     "caption": "Vestibular schwannoma on contrast-enhanced axial MRI.",
-     "credit": null
-    },
-    {
-     "module_file": "content/otology.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": "vestibular-schwannoma-workup-card",
-     "context_title": null,
-     "front_snippet": "The imaging study of choice for a suspected vestibular schwannoma, able to detect tumors only a few millimeters across, ",
-     "stem_snippet": null,
-     "alt": "Vestibular schwannoma CPA lesion on MRI",
-     "caption": "Vestibular schwannoma at the cerebellopontine angle on MRI.",
-     "credit": null
-    },
-    {
-     "module_file": "content/otology.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": "house-brackmann-card",
-     "context_title": null,
-     "front_snippet": "The scale that grades facial nerve function from Grade I, normal function, to Grade VI, total paralysis, is the <span cl",
-     "stem_snippet": null,
-     "alt": "Vestibular schwannoma MRI",
-     "caption": "Contrast-enhanced MRI of a vestibular schwannoma in the internal auditory canal.",
-     "credit": "Vestibular schwannoma on MRI. Wikimedia Commons."
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/57_tracheostomy_tube_types_wikimedia.png",
-   "used_in": [
-    {
-     "module_file": "content/emergencies.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "The 'danger triangle' of deep-space infection",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Deep neck space communications",
-     "caption": "Deep neck space communications and mediastinal spread pathways.",
-     "credit": null
-    },
-    {
-     "module_file": "content/emergencies.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "deep-neck-space-spread",
-     "context_title": "Deep neck space spread",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/60_thyroid_parathyroid_vasculature_rcsi.png",
-   "used_in": [
-    {
-     "module_file": "content/sleep.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "Sites of upper airway obstruction in OSA",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Sites of upper airway obstruction in OSA",
-     "caption": "Representative sagittal view of unfavourable upper airway anatomy predisposing to OSA.",
-     "credit": null
-    },
-    {
-     "module_file": "content/sleep.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "airway-obstruction-sites",
-     "context_title": "Levels of upper airway obstruction",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/66_thyroid_nodule_workup_algorithm_gemini.png",
-   "used_in": [
-    {
-     "module_file": "content/facial-plastics.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": "reconstructive-ladder",
-     "context_title": "The reconstructive ladder",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Reconstructive ladder",
-     "caption": "The surgical reconstructive ladder, from secondary intention to free flap.",
-     "credit": null
-    },
-    {
-     "module_file": "content/facial-plastics.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": "reconstructive-ladder-card",
-     "context_title": null,
-     "front_snippet": "State the reconstructive ladder in order.",
-     "stem_snippet": null,
-     "alt": "Reconstructive ladder",
-     "caption": "The surgical reconstructive ladder.",
-     "credit": null
-    },
-    {
-     "module_file": "content/facial-plastics.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": "mandible-fracture-sites-card",
-     "context_title": null,
-     "front_snippet": "Because the mandible is a ring of bone, a strong enough force often fractures it in <span class=\\",
-     "stem_snippet": null,
-     "alt": "Mandible fracture patterns",
-     "caption": "Mandible fracture patterns and the ring-structure rule.",
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/67_pediatric_vs_adult_airway_gemini.png",
-   "used_in": [
-    {
-     "module_file": "content/ent-exam-clinic-complaints.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": "epiglottitis",
-     "context_title": null,
-     "front_snippet": "What is the classic presentation and the critical DON'T of epiglottitis?",
-     "stem_snippet": null,
-     "alt": "Acute epiglottitis guide",
-     "caption": "Acute epiglottitis: presentation, red flags, and the airway rule.",
-     "credit": "Acute epiglottitis. Illustration generated with Google Gemini."
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/68_pediatric_vs_adult_eustachian_tube_gemini.png",
-   "used_in": [
-    {
-     "module_file": "content/pediatric.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "Eustachian tube anatomy in children",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Pediatric vs adult eustachian tube",
-     "caption": "Pediatric versus adult eustachian tube orientation and drainage.",
-     "credit": null
-    },
-    {
-     "module_file": "content/pediatric.js",
-     "kind": "figure",
-     "section": "cards",
-     "context_id": "et-tube-child-card",
-     "context_title": null,
-     "front_snippet": "Why does a child's Eustachian tube anatomy predispose to otitis media?",
-     "stem_snippet": null,
-     "alt": "Pediatric vs adult eustachian tube",
-     "caption": "Pediatric versus adult eustachian tube orientation and drainage.",
-     "credit": null
-    },
-    {
-     "module_file": "content/pediatric.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "eustachian-tube-pediatric",
-     "context_title": "Pediatric vs adult Eustachian tube angle",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/69_second_branchial_cleft_tract_gemini.png",
-   "used_in": [
-    {
-     "module_file": "content/pediatric.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "Branchial apparatus embryology: the basics",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Second branchial cleft tract",
-     "caption": "Second branchial cleft anomaly anatomic tract.",
-     "credit": null
-    },
-    {
-     "module_file": "content/pediatric.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "branchial-cleft-track",
-     "context_title": "Second branchial cleft tract",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/80_pitanguys_line_frontal_branch_statpearls.png",
-   "used_in": [
-    {
-     "module_file": "content/facial-plastics.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "The frontal branch of the facial nerve and Pitanguy's line",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Pitanguy",
-     "caption": "Pitanguy's line and the frontal branch of the facial nerve.",
-     "credit": null
-    },
-    {
-     "module_file": "content/facial-plastics.js",
-     "kind": "figure",
-     "section": "cards",
-     "context_id": "pitanguys-line-card",
-     "context_title": null,
-     "front_snippet": "What is Pitanguy's line, and why does it matter clinically?",
-     "stem_snippet": null,
-     "alt": "Pitanguy",
-     "caption": "Pitanguy's line and the frontal branch of the facial nerve.",
-     "credit": null
-    },
-    {
-     "module_file": "content/facial-plastics.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "frontal-branch-pitanguy-line",
-     "context_title": "Pitanguy's line and the frontal branch",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
      "credit": null
     }
    ]
@@ -1322,100 +2932,6 @@
      "alt": null,
      "caption": null,
      "credit": null
-    },
-    {
-     "module_file": "content/pediatric.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "Waldeyer's ring",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Waldeyer",
-     "caption": "Waldeyer's ring of lymphoid tissue.",
-     "credit": null
-    },
-    {
-     "module_file": "content/pediatric.js",
-     "kind": "figure",
-     "section": "cards",
-     "context_id": "waldeyers-ring-card",
-     "context_title": null,
-     "front_snippet": "What structures make up Waldeyer's ring?",
-     "stem_snippet": null,
-     "alt": "Waldeyer",
-     "caption": "Waldeyer's ring of lymphoid tissue.",
-     "credit": null
-    },
-    {
-     "module_file": "content/pediatric.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "waldeyers-ring-diagram",
-     "context_title": "Waldeyer's ring",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/82_le_fort_fractures_i_ii_iii_wikimedia.png",
-   "used_in": [
-    {
-     "module_file": "content/facial-plastics.js",
-     "kind": "figure",
-     "section": "diagrams",
-     "context_id": "le-fort-classification",
-     "context_title": "Le Fort fracture classification",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Le Fort fracture classification",
-     "caption": "Le Fort midface fracture classification, types I, II, III.",
-     "credit": null
-    },
-    {
-     "module_file": "content/facial-plastics.js",
-     "kind": "figure",
-     "section": "cards",
-     "context_id": "le-fort-card",
-     "context_title": null,
-     "front_snippet": "Distinguish Le Fort I, II, and III fractures.",
-     "stem_snippet": null,
-     "alt": "Le Fort fracture classification",
-     "caption": "Le Fort midface fracture classification, types I, II, III.",
-     "credit": null
-    },
-    {
-     "module_file": "content/otology.js",
-     "kind": "figure",
-     "section": "cards",
-     "context_id": "chorda",
-     "context_title": null,
-     "front_snippet": "What is the chorda tympani and what does it carry?",
-     "stem_snippet": null,
-     "alt": "Chorda tympani crossing the middle ear",
-     "caption": "The chorda tympani crossing the middle ear, carrying taste from the anterior tongue.",
-     "credit": "Chorda tympani. Illustration generated with Google Gemini."
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/83_reconstructive_ladder_gemini.png",
-   "used_in": [
-    {
-     "module_file": "content/facial-plastics.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": "mandible-fracture-patterns",
-     "context_title": "Mandible fracture patterns and the bimanual exam",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Mandible fracture patterns",
-     "caption": "Mandible fracture patterns and the ring-structure rule.",
-     "credit": null
     }
    ]
   },
@@ -1432,325 +2948,6 @@
      "stem_snippet": null,
      "alt": "Airway triage signs",
      "caption": "Airway triage: signs of impending obstruction.",
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/image1.png",
-   "used_in": [
-    {
-     "module_file": "content/anatomy-atlas.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "The temporal bone in four parts",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Temporal bone, lateral and medial views",
-     "caption": "The four parts of the temporal bone (squamous, tympanic, petrous, mastoid), lateral and medial views.",
-     "credit": "Temporal bone anatomy. theskeletalsystem.net."
-    },
-    {
-     "module_file": "content/anatomy-atlas.js",
-     "kind": "figure",
-     "section": "cards",
-     "context_id": "temporal-bone-parts-card",
-     "context_title": null,
-     "front_snippet": "Name the four parts of the temporal bone and one clinically relevant fact about each.",
-     "stem_snippet": null,
-     "alt": "Temporal bone in four parts",
-     "caption": "The temporal bone in four parts.",
-     "credit": null
-    },
-    {
-     "module_file": "content/anatomy-atlas.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "temporal-bone-parts",
-     "context_title": "The temporal bone in four parts",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/image10.png",
-   "used_in": [
-    {
-     "module_file": "content/anatomy-atlas.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": null,
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Fascial layers and triangles of the neck",
-     "caption": "Fascial layers and triangles of the neck.",
-     "credit": null
-    },
-    {
-     "module_file": "content/anatomy-atlas.js",
-     "kind": "figure",
-     "section": "cards",
-     "context_id": "neck-triangles-card",
-     "context_title": null,
-     "front_snippet": "What structures define the anterior and posterior triangles of the neck?",
-     "stem_snippet": null,
-     "alt": "Anterior and posterior triangles of the neck",
-     "caption": "Anterior and posterior triangles of the neck.",
-     "credit": null
-    },
-    {
-     "module_file": "content/anatomy-atlas.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "neck-fascial-triangles",
-     "context_title": "The neck as fascial layers and triangles",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/image15.png",
-   "used_in": [
-    {
-     "module_file": "content/anatomy-atlas.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": "jugular-foramen-syndrome-card",
-     "context_title": null,
-     "front_snippet": "What is jugular foramen syndrome (Vernet syndrome), and which cranial nerves does it affect?",
-     "stem_snippet": null,
-     "alt": "Skull base foramina",
-     "caption": "The skull-base foramina and the cranial nerves that exit through them.",
-     "credit": "Skull base foramina. TeachMeAnatomy."
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/image16.png",
-   "used_in": [
-    {
-     "module_file": "content/anatomy-atlas.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": "tmj-anatomy-card",
-     "context_title": null,
-     "front_snippet": "Because the temporomandibular joint sits directly anterior to the external auditory canal, TMJ dysfunction is a classic ",
-     "stem_snippet": null,
-     "alt": "TMJ relationship to the ear canal",
-     "caption": "The temporomandibular joint's relationship to the external auditory canal.",
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/image19.png",
-   "used_in": [
-    {
-     "module_file": "content/otology.js",
-     "kind": "figure",
-     "section": "cards",
-     "context_id": "eac-canal",
-     "context_title": null,
-     "front_snippet": "Describe the makeup of the external auditory canal.",
-     "stem_snippet": null,
-     "alt": "External auditory canal",
-     "caption": "The external auditory canal: cartilaginous outer third, bony inner two-thirds.",
-     "credit": "External ear and otoscopy. Illustration generated with Google Gemini."
-    },
-    {
-     "module_file": "content/otology.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "ear-cross-section",
-     "context_title": "The ear in cross-section",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/image22.png",
-   "used_in": [
-    {
-     "module_file": "content/ent-exam-clinic-complaints.js",
-     "kind": "figure",
-     "section": "cards",
-     "context_id": "neck-levels",
-     "context_title": null,
-     "front_snippet": "How do you structure the neck exam and which nodal levels do you palpate?",
-     "stem_snippet": null,
-     "alt": "Neck nodal levels I to VI",
-     "caption": "Neck nodal levels I to VI.",
-     "credit": null
-    },
-    {
-     "module_file": "content/ent-exam-clinic-complaints.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "neck-levels",
-     "context_title": "Neck nodal levels I-VI",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    },
-    {
-     "module_file": "content/head-neck.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "neck-levels-full",
-     "context_title": "Neck nodal levels I-VII",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/image23.png",
-   "used_in": [
-    {
-     "module_file": "content/ent-exam-clinic-complaints.js",
-     "kind": "figure",
-     "section": "cards",
-     "context_id": "tm-landmarks",
-     "context_title": null,
-     "front_snippet": "Name the normal tympanic-membrane landmarks.",
-     "stem_snippet": null,
-     "alt": "Normal tympanic membrane landmarks",
-     "caption": "Normal right tympanic membrane landmarks on otoscopy.",
-     "credit": null
-    },
-    {
-     "module_file": "content/ent-exam-clinic-complaints.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "tm-right",
-     "context_title": "Right tympanic membrane: landmarks",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    },
-    {
-     "module_file": "content/otology.js",
-     "kind": "figure",
-     "section": "cards",
-     "context_id": "tm-landmarks2",
-     "context_title": null,
-     "front_snippet": "Name the tympanic membrane landmarks.",
-     "stem_snippet": null,
-     "alt": "Normal tympanic membrane landmarks",
-     "caption": "Normal right tympanic membrane landmarks on otoscopy.",
-     "credit": null
-    },
-    {
-     "module_file": "content/otology.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "tm-right",
-     "context_title": "Right tympanic membrane: landmarks",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/image25.png",
-   "used_in": [
-    {
-     "module_file": "content/ent-exam-clinic-complaints.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": "audiogram-basics",
-     "context_title": null,
-     "front_snippet": "How do you read an audiogram at a glance?",
-     "stem_snippet": null,
-     "alt": "How to read an audiogram",
-     "caption": "A quick guide to reading an audiogram: air vs bone conduction and the audiogram symbols.",
-     "credit": "Reading an audiogram. Illustration generated with Google Gemini."
-    },
-    {
-     "module_file": "content/otology.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": "rinne",
-     "context_title": null,
-     "front_snippet": "Interpret the Rinne test.",
-     "stem_snippet": null,
-     "alt": "How to read an audiogram",
-     "caption": "How to read an audiogram at a glance.",
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/image26.png",
-   "used_in": [
-    {
-     "module_file": "content/ent-exam-clinic-complaints.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": "epistaxis",
-     "context_title": null,
-     "front_snippet": "Most anterior epistaxis arises from <span class=\\",
-     "stem_snippet": null,
-     "alt": "Kiesselbach",
-     "caption": "Kiesselbach's plexus (Little's area), the source of most anterior nosebleeds.",
-     "credit": "Kiesselbach"
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/image27.png",
-   "used_in": [
-    {
-     "module_file": "content/ent-exam-clinic-complaints.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": "sore-throat-centor",
-     "context_title": null,
-     "front_snippet": "How do you approach acute sore throat?",
-     "stem_snippet": null,
-     "alt": "Centor and FeverPAIN scores for sore throat",
-     "caption": "Acute sore throat evaluation using Centor and FeverPAIN scores.",
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/image28.png",
-   "used_in": [
-    {
-     "module_file": "content/ent-exam-clinic-complaints.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": "sinusitis-complications",
-     "context_title": null,
-     "front_snippet": "What complications of sinusitis must you not miss?",
-     "stem_snippet": null,
-     "alt": "Complications of sinusitis",
-     "caption": "Complications of sinusitis: orbital and intracranial spread.",
      "credit": null
     }
    ]
@@ -1773,212 +2970,6 @@
    ]
   },
   {
-   "file": "assets/img/mc/image3.png",
-   "used_in": [
-    {
-     "module_file": "content/anatomy-atlas.js",
-     "kind": "figure",
-     "section": "cards",
-     "context_id": "neck-fascial-layers-card",
-     "context_title": null,
-     "front_snippet": "Name the layers of deep cervical fascia.",
-     "stem_snippet": null,
-     "alt": "Deep cervical fascial layers",
-     "caption": "The layers of deep cervical fascia in cross-section.",
-     "credit": "Fascial layers of the neck. ENT Secrets (Elsevier)."
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/image30.png",
-   "used_in": [
-    {
-     "module_file": "content/ent-exam-clinic-complaints.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": "pta",
-     "context_title": null,
-     "front_snippet": "What triad suggests a peritonsillar abscess?",
-     "stem_snippet": null,
-     "alt": "Peritonsillar abscess guide",
-     "caption": "Peritonsillar abscess: the classic triad and management.",
-     "credit": "Peritonsillar abscess. Illustration generated with Google Gemini."
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/image32.png",
-   "used_in": [
-    {
-     "module_file": "content/otology.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "The clinically dangerous relationships",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Medial wall of the tympanic cavity",
-     "caption": "The middle ear and mastoid danger zone: facial nerve, tegmen tympani, sigmoid sinus, ossicular chain.",
-     "credit": null
-    },
-    {
-     "module_file": "content/otology.js",
-     "kind": "figure",
-     "section": "cards",
-     "context_id": "me-muscles",
-     "context_title": null,
-     "front_snippet": "What are the two middle-ear muscles, their nerves, and their job?",
-     "stem_snippet": null,
-     "alt": "Tensor tympani and stapedius",
-     "caption": "Tensor tympani (CN V3) and stapedius (CN VII), the middle-ear muscles.",
-     "credit": "Middle-ear muscles. Illustration generated with Google Gemini."
-    },
-    {
-     "module_file": "content/otology.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "middle-ear-danger-relationships",
-     "context_title": "The middle ear and mastoid danger zone",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/image33.png",
-   "used_in": [
-    {
-     "module_file": "content/otology.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": "hearing-loss-fork",
-     "context_title": "Hearing loss: the fork in the road",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Conductive vs sensorineural hearing loss",
-     "caption": "Where a lesion sits determines conductive vs sensorineural loss.",
-     "credit": "Conductive vs sensorineural hearing loss. ENT Secrets (Elsevier)."
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/image35.png",
-   "used_in": [
-    {
-     "module_file": "content/ent-exam-clinic-complaints.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": "tympanometry",
-     "context_title": null,
-     "front_snippet": "What do tympanometry types A, B, and C mean?",
-     "stem_snippet": null,
-     "alt": "Tympanogram types A, B, C and associated ear conditions",
-     "caption": "Tympanogram types and the ear conditions they point to.",
-     "credit": null
-    },
-    {
-     "module_file": "content/otology.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": null,
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Tympanogram types A, B, C and associated ear conditions",
-     "caption": "Tympanogram types and the ear conditions they point to.",
-     "credit": "Tympanogram types and ear conditions. Illustration generated with Google Gemini."
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/image39.png",
-   "used_in": [
-    {
-     "module_file": "content/otology.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": null,
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Necrotizing (malignant) otitis externa",
-     "caption": "Necrotizing otitis externa: pathogen, cranial-nerve progression, and treatment.",
-     "credit": "Necrotizing (malignant) otitis externa. Illustration generated with Google Gemini."
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/image4.png",
-   "used_in": [
-    {
-     "module_file": "content/anatomy-atlas.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "Cranial nerves of the head & neck",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Cranial nerves colour-matched to the skull-base foramina they exit",
-     "caption": "The cranial nerves colour-matched to the skull-base foramina they exit through.",
-     "credit": "Cranial nerves and skull-base foramina. TeachMeAnatomy."
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/image40.png",
-   "used_in": [
-    {
-     "module_file": "content/anatomy-atlas.js",
-     "kind": "figure",
-     "section": "cards",
-     "context_id": "external-vs-middle-inner-ear-card",
-     "context_title": null,
-     "front_snippet": "What separates the external, middle, and inner ear anatomically?",
-     "stem_snippet": null,
-     "alt": "External, middle, and inner ear compartments",
-     "caption": "The external, middle, and inner ear compartments.",
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/image41.png",
-   "used_in": [
-    {
-     "module_file": "content/otology.js",
-     "kind": "figure",
-     "section": "cards",
-     "context_id": "ossicles",
-     "context_title": null,
-     "front_snippet": "Name the ossicular chain in order and what it connects.",
-     "stem_snippet": null,
-     "alt": "Ossicular chain anatomy and mechanics",
-     "caption": "The ossicular chain: malleus, incus, and stapes.",
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/image42.png",
-   "used_in": [
-    {
-     "module_file": "content/otology.js",
-     "kind": "figure",
-     "section": "cards",
-     "context_id": "cn7-me",
-     "context_title": null,
-     "front_snippet": "Why does the facial nerve matter in otology?",
-     "stem_snippet": null,
-     "alt": "Facial nerve course in otologic disease",
-     "caption": "Facial nerve course and vulnerability in otologic disease.",
-     "credit": null
-    }
-   ]
-  },
-  {
    "file": "assets/img/mc/image43.png",
    "used_in": [
     {
@@ -1996,309 +2987,8 @@
    ]
   },
   {
-   "file": "assets/img/mc/image44.png",
-   "used_in": [
-    {
-     "module_file": "content/otology.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": null,
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Cholesteatoma, otoscopic view",
-     "caption": "Cholesteatoma with a large tympanic-membrane perforation.",
-     "credit": "Cholesteatoma with a large left tympanic-membrane perforation. Wikimedia Commons."
-    },
-    {
-     "module_file": "content/otology.js",
-     "kind": "figure",
-     "section": "cases",
-     "context_id": "case-cholesteatoma",
-     "context_title": null,
-     "front_snippet": null,
-     "stem_snippet": "A <b>28-year-old</b> has <b>months of painless, foul-smelling drainage</b> from one ear and mild hearing loss. Otoscopy ",
-     "alt": "Cholesteatoma, otoscopic view",
-     "caption": "Cholesteatoma with a large tympanic membrane perforation.",
-     "credit": null
-    },
-    {
-     "module_file": "content/otology.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": "cholesteatoma-classification-card",
-     "context_title": null,
-     "front_snippet": "A white mass behind an intact, normal-looking tympanic membrane in a child with no history of perforation or ear surgery",
-     "stem_snippet": null,
-     "alt": "Congenital cholesteatoma",
-     "caption": "Congenital cholesteatoma behind an intact tympanic membrane.",
-     "credit": null
-    },
-    {
-     "module_file": "content/otology.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": "cholesteatoma-erosion-card",
-     "context_title": null,
-     "front_snippet": "Cholesteatoma needs <span class=\\",
-     "stem_snippet": null,
-     "alt": "Cholesteatoma, otoscopic view",
-     "caption": "Cholesteatoma seen through a tympanic-membrane perforation.",
-     "credit": "Cholesteatoma with tympanic-membrane perforation. Wikimedia Commons."
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/image47.png",
-   "used_in": [
-    {
-     "module_file": "content/anatomy-atlas.js",
-     "kind": "figure",
-     "section": "cards",
-     "context_id": "paranasal-sinus-drainage-card",
-     "context_title": null,
-     "front_snippet": "Where does each paranasal sinus drain?",
-     "stem_snippet": null,
-     "alt": "Paranasal sinus drainage anatomy",
-     "caption": "Paranasal sinus drainage pathways.",
-     "credit": null
-    },
-    {
-     "module_file": "content/anatomy-atlas.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "paranasal-sinus-set",
-     "context_title": "The four paranasal sinuses and their drainage",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    },
-    {
-     "module_file": "content/ent-exam-clinic-complaints.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "Nose & paranasal sinuses",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Paranasal sinus drainage pathways",
-     "caption": "The paranasal sinuses: drainage pathways and adjacent danger zones.",
-     "credit": null
-    },
-    {
-     "module_file": "content/ent-exam-clinic-complaints.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "sinuses-coronal",
-     "context_title": "Paranasal sinuses: coronal",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    },
-    {
-     "module_file": "content/rhinology.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "The lateral nasal wall & the ostiomeatal complex (OMC)",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Ostiomeatal complex on coronal CT",
-     "caption": "The ostiomeatal complex, the shared drainage funnel for the frontal, maxillary, and anterior ethmoid sinuses.",
-     "credit": "Ostiomeatal complex on coronal CT. Wikimedia Commons."
-    },
-    {
-     "module_file": "content/rhinology.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "The paranasal sinuses: drainage & danger zones",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Paranasal sinus drainage and danger zones",
-     "caption": "Sinus drainage pathways and the danger zones that make each sinus surgically risky.",
-     "credit": "Paranasal sinus drainage and danger zones. Illustration generated with Google Gemini."
-    },
-    {
-     "module_file": "content/rhinology.js",
-     "kind": "figure",
-     "section": "cards",
-     "context_id": "omc-anatomy",
-     "context_title": null,
-     "front_snippet": "What structures form the ostiomeatal complex, and why does it matter clinically?",
-     "stem_snippet": null,
-     "alt": "Ostiomeatal complex coronal drainage",
-     "caption": "The ostiomeatal complex in coronal section.",
-     "credit": null
-    },
-    {
-     "module_file": "content/rhinology.js",
-     "kind": "figure",
-     "section": "cards",
-     "context_id": "sinus-danger-zones",
-     "context_title": null,
-     "front_snippet": "What critical structures border each paranasal sinus, and what complication does each border explain?",
-     "stem_snippet": null,
-     "alt": "Paranasal sinus danger zones",
-     "caption": "Paranasal sinus danger zones: orbit and skull base.",
-     "credit": null
-    },
-    {
-     "module_file": "content/rhinology.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "omc-drainage",
-     "context_title": "Ostiomeatal complex: coronal drainage",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    },
-    {
-     "module_file": "content/rhinology.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "sinus-danger-zones",
-     "context_title": "Sinus danger zones: orbit and skull base",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/image49.png",
-   "used_in": [
-    {
-     "module_file": "content/rhinology.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "The nasal septum",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Nasal septum: cartilage, perpendicular plate, vomer",
-     "caption": "The nasal septum: quadrangular cartilage anteriorly, perpendicular plate of the ethmoid and vomer posteriorly.",
-     "credit": "Nasal septum. Wikimedia Commons."
-    },
-    {
-     "module_file": "content/rhinology.js",
-     "kind": "figure",
-     "section": "cards",
-     "context_id": "septal-structure",
-     "context_title": null,
-     "front_snippet": "What makes up the nasal septum, and why is a septal hematoma dangerous?",
-     "stem_snippet": null,
-     "alt": "Nasal septum anatomy",
-     "caption": "The osteocartilaginous anatomy of the nasal septum.",
-     "credit": null
-    },
-    {
-     "module_file": "content/rhinology.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "nasal-septum-anatomy",
-     "context_title": "Nasal septum: cartilage and bone",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/image50.png",
-   "used_in": [
-    {
-     "module_file": "content/rhinology.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "FESS anatomy variants",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Lateral wall of the nasal cavity",
-     "caption": "Landmarks: Ethmoid infundibulum, uncinate process, ethmoid bulla, and pneumatization variants.",
-     "credit": null
-    },
-    {
-     "module_file": "content/rhinology.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": null,
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "FESS anatomic variants",
-     "caption": "Key FESS anatomic variants: concha bullosa, Haller cells, Onodi cells.",
-     "credit": null
-    },
-    {
-     "module_file": "content/rhinology.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "fess-anatomic-variants",
-     "context_title": "FESS anatomic variants: concha bullosa, Haller cells, Onodi cells",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/image51.png",
-   "used_in": [
-    {
-     "module_file": "content/rhinology.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": "ar-classification",
-     "context_title": "Allergic rhinitis: ARIA classification & step-up therapy",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "ARIA classification grid",
-     "caption": "ARIA classification for allergic rhinitis: duration and severity.",
-     "credit": null
-    },
-    {
-     "module_file": "content/rhinology.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": "ar-step-therapy",
-     "context_title": "Allergic rhinitis: the step-up therapy ladder",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "ARIA allergic rhinitis classification",
-     "caption": "ARIA classifies allergic rhinitis by duration (intermittent/persistent) and severity.",
-     "credit": "ARIA allergic rhinitis classification. Illustration generated with Google Gemini."
-    }
-   ]
-  },
-  {
    "file": "assets/img/mc/image52.png",
    "used_in": [
-    {
-     "module_file": "content/rhinology.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": null,
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Allergic rhinitis step-up therapy ladder",
-     "caption": "The allergic-rhinitis step-up ladder from avoidance to immunotherapy.",
-     "credit": "Allergic rhinitis step-up therapy ladder. Illustration generated with Google Gemini."
-    },
     {
      "module_file": "content/rhinology.js",
      "kind": "figure",
@@ -2314,345 +3004,12 @@
    ]
   },
   {
-   "file": "assets/img/mc/image53.png",
-   "used_in": [
-    {
-     "module_file": "content/rhinology.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": "epistaxis-ladder",
-     "context_title": "The epistaxis escalation ladder",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Epistaxis escalation ladder",
-     "caption": "Epistaxis management from first aid through cautery, packing, and arterial ligation/embolization.",
-     "credit": "Epistaxis escalation ladder. Illustration generated with Google Gemini."
-    },
-    {
-     "module_file": "content/rhinology.js",
-     "kind": "figure",
-     "section": "cases",
-     "context_id": "case-posterior-epistaxis",
-     "context_title": null,
-     "front_snippet": null,
-     "stem_snippet": "An <b>81-year-old on apixaban</b> has a heavy nosebleed with blood visible in the <b>oropharynx</b> despite 20 minutes o",
-     "alt": "Posterior epistaxis escalation steps",
-     "caption": "Escalation steps for posterior or refractory epistaxis.",
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/image54.png",
-   "used_in": [
-    {
-     "module_file": "content/rhinology.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": "unilateral-masses",
-     "context_title": "Unilateral nasal masses by age: the pattern to memorize",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Unilateral sinonasal masses by age",
-     "caption": "The age pattern for unilateral sinonasal masses: JNA, inverted papilloma, and malignancy.",
-     "credit": "Unilateral sinonasal masses by age. Illustration generated with Google Gemini."
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/image55.png",
-   "used_in": [
-    {
-     "module_file": "content/rhinology.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "Blood supply of the nose",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Kiesselbach",
-     "caption": "Landmarks: Kiesselbach's plexus: anterior ethmoidal, sphenopalatine, greater palatine, and superior labial contributions.",
-     "credit": null
-    },
-    {
-     "module_file": "content/rhinology.js",
-     "kind": "figure",
-     "section": "cards",
-     "context_id": "septal-blood-supply",
-     "context_title": null,
-     "front_snippet": "Which four arteries converge at Little's area (Kiesselbach's plexus)?",
-     "stem_snippet": null,
-     "alt": "Kiesselbach",
-     "caption": "The four arteries that converge at Little's area (Kiesselbach's plexus).",
-     "credit": "Kiesselbach"
-    },
-    {
-     "module_file": "content/rhinology.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "septal-vessels",
-     "context_title": "Little's area (Kiesselbach's plexus)",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/image56.png",
-   "used_in": [
-    {
-     "module_file": "content/rhinology.js",
-     "kind": "figure",
-     "section": "cards",
-     "context_id": "crs-subtypes-card",
-     "context_title": null,
-     "front_snippet": "Contrast CRSsNP and CRSwNP, and name their first-line treatments.",
-     "stem_snippet": null,
-     "alt": "CRS with vs without nasal polyps",
-     "caption": "Chronic rhinosinusitis without vs with nasal polyps, and first-line treatment.",
-     "credit": "CRSsNP vs CRSwNP. Illustration generated with Google Gemini."
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/image57.png",
-   "used_in": [
-    {
-     "module_file": "content/laryngology.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "Vocal fold layers",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Vocal fold layers",
-     "caption": "Landmarks: Epithelium, superficial lamina propria (Reinke's space), vocal ligament, vocalis muscle.",
-     "credit": null
-    },
-    {
-     "module_file": "content/laryngology.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "Vocal fold layers",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Vocal fold microarchitecture",
-     "caption": "Microarchitecture of the true vocal fold, cover-body layers.",
-     "credit": null
-    },
-    {
-     "module_file": "content/laryngology.js",
-     "kind": "figure",
-     "section": "cards",
-     "context_id": "vf-cover-body",
-     "context_title": null,
-     "front_snippet": "What is the 'cover-body' model of vocal fold vibration, and why does it matter clinically?",
-     "stem_snippet": null,
-     "alt": "Vocal fold cover-body layers",
-     "caption": "Vocal fold layered microarchitecture.",
-     "credit": null
-    },
-    {
-     "module_file": "content/laryngology.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "vocal-fold-layers",
-     "context_title": "Vocal fold layers in cross-section",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/image58.png",
-   "used_in": [
-    {
-     "module_file": "content/laryngology.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "Laryngeal nerve supply",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Laryngeal nerves",
-     "caption": "Landmarks: Superior laryngeal nerve (internal and external branches) and the recurrent laryngeal nerve.",
-     "credit": null
-    },
-    {
-     "module_file": "content/laryngology.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "Laryngeal nerve supply",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Laryngeal nerve supply",
-     "caption": "Innervation of the larynx: superior and recurrent laryngeal nerve courses.",
-     "credit": null
-    },
-    {
-     "module_file": "content/laryngology.js",
-     "kind": "figure",
-     "section": "cards",
-     "context_id": "rln-course-card",
-     "context_title": null,
-     "front_snippet": "Trace the course of the recurrent laryngeal nerve on each side, and explain why it matters for hoarseness.",
-     "stem_snippet": null,
-     "alt": "Recurrent laryngeal nerve course",
-     "caption": "Recurrent laryngeal nerve asymmetric thoracic and neck course.",
-     "credit": null
-    },
-    {
-     "module_file": "content/laryngology.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "rln-course",
-     "context_title": "Recurrent laryngeal nerve course",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/image59.png",
-   "used_in": [
-    {
-     "module_file": "content/laryngology.js",
-     "kind": "figure",
-     "section": "cards",
-     "context_id": "laryngeal-cartilages-card",
-     "context_title": null,
-     "front_snippet": "Name the laryngeal cartilages and one key fact about each.",
-     "stem_snippet": null,
-     "alt": "Laryngeal cartilage framework",
-     "caption": "The laryngeal cartilage framework.",
-     "credit": null
-    },
-    {
-     "module_file": "content/laryngology.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "laryngeal-cartilages",
-     "context_title": "Laryngeal cartilage framework",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/image6.png",
-   "used_in": [
-    {
-     "module_file": "content/anatomy-atlas.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "Facial nerve: intratemporal segments",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Facial nerve",
-     "caption": "Landmarks: Labyrinthine, geniculate ganglion, tympanic, and mastoid segments.",
-     "credit": null
-    },
-    {
-     "module_file": "content/anatomy-atlas.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "Facial nerve: intratemporal segments",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Facial nerve intratemporal course overview",
-     "caption": "Overview of the facial nerve's intratemporal course.",
-     "credit": null
-    },
-    {
-     "module_file": "content/anatomy-atlas.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": "facial-nerve-segments-card",
-     "context_title": null,
-     "front_snippet": "The narrowest of the facial nerve's three intratemporal segments, and the one most vulnerable to swelling in Bell's pals",
-     "stem_snippet": null,
-     "alt": "Facial nerve intratemporal segments",
-     "caption": "The intratemporal segments of the facial nerve.",
-     "credit": "Facial nerve intratemporal course. ESR/ECR teaching poster."
-    },
-    {
-     "module_file": "content/anatomy-atlas.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "facial-nerve-intratemporal-course",
-     "context_title": "The facial nerve's intratemporal course",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/image60.png",
-   "used_in": [
-    {
-     "module_file": "content/anatomy-atlas.js",
-     "kind": "figure",
-     "section": "cards",
-     "context_id": "larynx-subsites-recall-card",
-     "context_title": null,
-     "front_snippet": "Name the three laryngeal subsites from superior to inferior.",
-     "stem_snippet": null,
-     "alt": "Laryngeal subsites, coronal view",
-     "caption": "Laryngeal subsites: supraglottis, glottis, subglottis.",
-     "credit": null
-    },
-    {
-     "module_file": "content/ent-exam-clinic-complaints.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "larynx-coronal",
-     "context_title": "Larynx: coronal",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    },
-    {
-     "module_file": "content/laryngology.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "laryngeal-subsites",
-     "context_title": "Supraglottis \\u00b7 glottis \\u00b7 subglottis (coronal)",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    }
-   ]
-  },
-  {
    "file": "assets/img/mc/image62.png",
    "used_in": [
     {
      "module_file": "content/laryngology.js",
      "kind": "figure",
-     "section": "diagrams",
+     "section": null,
      "context_id": "vocal-process-granuloma",
      "context_title": "Vocal process (contact) granuloma",
      "front_snippet": null,
@@ -2677,452 +3034,6 @@
      "alt": "Tracheostomy tube in place",
      "caption": "A tracheostomy tube seated in the trachea through the stoma.",
      "credit": "Tracheostomy tube in place. Wikimedia Commons."
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/image65.png",
-   "used_in": [
-    {
-     "module_file": "content/head-neck.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "Thyroid & parathyroid anatomy",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Thyroid and parathyroid glands",
-     "caption": "Landmarks: Thyroid lobes and isthmus, recurrent laryngeal nerve in the tracheoesophageal groove, parathyroid glands.",
-     "credit": null
-    },
-    {
-     "module_file": "content/head-neck.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "Thyroid & parathyroid anatomy",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Thyroid and parathyroid vasculature",
-     "caption": "Thyroid and parathyroid glands, vasculature, and recurrent laryngeal nerve.",
-     "credit": null
-    },
-    {
-     "module_file": "content/head-neck.js",
-     "kind": "figure",
-     "section": "cards",
-     "context_id": "thyroid-parathyroid-anatomy-card",
-     "context_title": null,
-     "front_snippet": "What two structures are at surgical risk during thyroidectomy, and what does injury to each cause?",
-     "stem_snippet": null,
-     "alt": "Thyroid and parathyroid anatomy",
-     "caption": "Thyroid and parathyroid glands, vasculature, and recurrent laryngeal nerve.",
-     "credit": null
-    },
-    {
-     "module_file": "content/head-neck.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "thyroid-parathyroid-anatomy",
-     "context_title": "Thyroid and parathyroid glands with the recurrent laryngeal nerve",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/image66.png",
-   "used_in": [
-    {
-     "module_file": "content/head-neck.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "Oral cavity vs oropharynx",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Oral cavity, anterior view",
-     "caption": "The oral cavity: lips, gingivae, hard and soft palate, tongue, and tonsils.",
-     "credit": "Oral cavity, anterior view. OpenStax Anatomy & Physiology 2e. CC BY 4.0."
-    },
-    {
-     "module_file": "content/head-neck.js",
-     "kind": "figure",
-     "section": "cards",
-     "context_id": "oral-vs-oropharynx-card",
-     "context_title": null,
-     "front_snippet": "What structures define the oral cavity vs the oropharynx, and why does the distinction matter oncologically?",
-     "stem_snippet": null,
-     "alt": "Oral cavity vs oropharynx, coronal",
-     "caption": "Oral cavity versus oropharynx boundaries, coronal section.",
-     "credit": null
-    },
-    {
-     "module_file": "content/sleep.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "Friedman tongue position and staging",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Friedman tongue position grades",
-     "caption": "Friedman Tongue Position Grade. Grade I: entire uvula and tonsils visible. Grade II: uvula but not tonsils. Grade III: soft palate but not uvula. Grade IV: hard palate only.",
-     "credit": null
-    },
-    {
-     "module_file": "content/sleep.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": "hgns-candidacy-card",
-     "context_title": null,
-     "front_snippet": "What are the indications and candidacy criteria for hypoglossal nerve stimulation (HGNS) in obstructive sleep apnea?",
-     "stem_snippet": null,
-     "alt": "Hypoglossal nerve stimulator components",
-     "caption": "Hypoglossal nerve stimulator components: generator, sensing lead, cuff.",
-     "credit": null
-    },
-    {
-     "module_file": "content/sleep.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "friedman-tongue-position",
-     "context_title": "Friedman tongue position (I-IV)",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    },
-    {
-     "module_file": "content/sleep.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "hypoglossal-stimulator-pathway",
-     "context_title": "Hypoglossal nerve stimulator",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/image67.png",
-   "used_in": [
-    {
-     "module_file": "content/ent-exam-clinic-complaints.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "The ENT regions at a glance",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Head and neck sagittal overview",
-     "caption": "Landmarks: Sagittal overview of ear, nose and sinuses, oral cavity and pharynx, larynx, and neck.",
-     "credit": null
-    },
-    {
-     "module_file": "content/head-neck.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": null,
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Oral cavity and oropharynx in sagittal section",
-     "caption": "Oral cavity versus oropharynx: the subsite boundary in sagittal section.",
-     "credit": "Oral cavity and oropharynx, sagittal. OpenStax Anatomy & Physiology 2e. CC BY 4.0."
-    },
-    {
-     "module_file": "content/head-neck.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "oral-oropharynx-subsites",
-     "context_title": "Oral cavity vs oropharynx (sagittal)",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/image69.png",
-   "used_in": [
-    {
-     "module_file": "content/anatomy-atlas.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": "parotid-facial-nerve-recall-card",
-     "context_title": null,
-     "front_snippet": "How does the facial nerve relate anatomically to the parotid gland?",
-     "stem_snippet": null,
-     "alt": "Facial nerve course through the parotid gland",
-     "caption": "The facial nerve's course through the parotid gland.",
-     "credit": null
-    },
-    {
-     "module_file": "content/facial-plastics.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "The parotid gland, facial nerve, and Stensen's duct",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Facial nerve branches through parotid",
-     "caption": "Facial nerve branches through the parotid gland.",
-     "credit": null
-    },
-    {
-     "module_file": "content/facial-plastics.js",
-     "kind": "figure",
-     "section": "cards",
-     "context_id": "facial-nerve-parotid-card",
-     "context_title": null,
-     "front_snippet": "Name the five branches of the facial nerve as it exits the parotid.",
-     "stem_snippet": null,
-     "alt": "Facial nerve branches through parotid",
-     "caption": "Facial nerve branches through the parotid gland.",
-     "credit": null
-    },
-    {
-     "module_file": "content/facial-plastics.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "facial-nerve-parotid",
-     "context_title": "Facial nerve branches through the parotid",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    },
-    {
-     "module_file": "content/head-neck.js",
-     "kind": "figure",
-     "section": "cards",
-     "context_id": "parotid-anatomy-card",
-     "context_title": null,
-     "front_snippet": "The <span class=\\",
-     "stem_snippet": null,
-     "alt": "Parotid region and facial nerve",
-     "caption": "Parotid region and facial nerve branching pattern.",
-     "credit": null
-    },
-    {
-     "module_file": "content/head-neck.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": "parotid-rule-80s-card",
-     "context_title": null,
-     "front_snippet": "What is the 'rule of 80s' for parotid tumors, and what is the most common malignant one?",
-     "stem_snippet": null,
-     "alt": "Parotid region and facial nerve",
-     "caption": "The parotid region: the facial nerve coursing through the gland among the vessels.",
-     "credit": "Parotid region. RCSI (CC BY-NC-SA)."
-    },
-    {
-     "module_file": "content/head-neck.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "parotid-facial-nerve",
-     "context_title": "Parotid gland & facial nerve",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/image7.png",
-   "used_in": [
-    {
-     "module_file": "content/anatomy-atlas.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": null,
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Cranial nerves colour-matched to skull base foramina",
-     "caption": "Cranial nerves of the head and neck with their skull-base exits.",
-     "credit": null
-    },
-    {
-     "module_file": "content/anatomy-atlas.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "Skull base foramina",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Base of skull",
-     "caption": "Landmarks: Foramen ovale, rotundum, spinosum, internal acoustic meatus, jugular foramen, hypoglossal canal.",
-     "credit": null
-    },
-    {
-     "module_file": "content/anatomy-atlas.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "Skull base foramina",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Skull base foramina, superior endocranial view",
-     "caption": "The skull base foramina, viewed from above.",
-     "credit": null
-    },
-    {
-     "module_file": "content/anatomy-atlas.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": "skull-base-foramina-card",
-     "context_title": null,
-     "front_snippet": "Match the skull-base foramen to what passes through it: foramen ovale, foramen rotundum, foramen spinosum, internal acou",
-     "stem_snippet": null,
-     "alt": "Skull base foramina",
-     "caption": "Skull base foramina and the structures they transmit.",
-     "credit": null
-    },
-    {
-     "module_file": "content/anatomy-atlas.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "head-neck-cranial-nerves",
-     "context_title": "Cranial nerves of the head and neck",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    },
-    {
-     "module_file": "content/anatomy-atlas.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "skull-base-foramina",
-     "context_title": "The skull base foramina",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    },
-    {
-     "module_file": "content/ent-exam-clinic-complaints.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "ent-cranial-nerves-overview",
-     "context_title": "The skull base foramina and their cranial nerves",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/image8.png",
-   "used_in": [
-    {
-     "module_file": "content/anatomy-atlas.js",
-     "kind": "figure",
-     "section": "cards",
-     "context_id": "sphenoid-neighbors-card",
-     "context_title": null,
-     "front_snippet": "What structures border the sphenoid sinus, and why does that matter clinically?",
-     "stem_snippet": null,
-     "alt": "Paranasal sinus drainage pathways",
-     "caption": "Sinus ostia and drainage pathways on the lateral nasal wall.",
-     "credit": "Paranasal sinus drainage. TeachMeAnatomy."
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/skull-base-foramen-usersrc.png",
-   "used_in": [
-    {
-     "module_file": "content/ent-exam-clinic-complaints.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "Cranial nerves",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Skull base foramina",
-     "caption": "Skull base foramina and the nerves that exit through each.",
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/rhinology/midsagittal-head-neck.png",
-   "used_in": [
-    {
-     "module_file": "content/rhinology.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "The lateral nasal wall & the ostiomeatal complex (OMC)",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Sagittal view of the nasal cavity and upper aerodigestive tract",
-     "caption": "Sagittal view of the nasal cavity and pharynx",
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/rhinology/nasal-septum-openstax.png",
-   "used_in": [
-    {
-     "module_file": "content/rhinology.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "The nasal septum",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Nasal septum",
-     "caption": "Septal cartilage (anterior), perpendicular plate of the ethmoid (superior), vomer (inferior).",
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/rhinology/paranasal-sinuses-numbered.svg",
-   "used_in": [
-    {
-     "module_file": "content/anatomy-atlas.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "Paranasal sinuses",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "The paranasal sinuses",
-     "caption": "The paranasal sinuses",
-     "credit": null
-    },
-    {
-     "module_file": "content/rhinology.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "The paranasal sinuses: drainage & danger zones",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "The paranasal sinuses",
-     "caption": "The paranasal sinuses",
-     "credit": null
     }
    ]
   }

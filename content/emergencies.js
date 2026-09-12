@@ -41,7 +41,7 @@ window.JEFFENT.register({
       },
       {
         title: "The 'danger triangle' of deep-space infection",
-        html: "<figure class='note-fig' data-credit=\"Deep cervical fascia and spaces. Wikimedia Commons, CC BY-SA 4.0.\"><img class='zoomable' src='assets/1024px-Deep_cervical_fascia.svg.png' alt='Deep cervical fascia' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Landmarks: Pretracheal, retrovisceral, and danger space extending to the posterior mediastinum.</figcaption></figure><ul><li>Neck and facial infections track along fascial planes into spaces next to the airway, great vessels, and mediastinum.</li><li>The deep neck spaces <strong>communicate</strong> (peritonsillar, parapharyngeal, retropharyngeal, mediastinum).</li><li>This is why a localized infection (quinsy, dental abscess) can escalate to airway compromise, carotid sheath involvement, or descending mediastinitis if not treated promptly.</li></ul><figure class='note-fig' data-credit=\"Deep Neck Space Communications and Mediastinal Spread Pathways. Wikimedia Commons.\"><img class='zoomable' src='assets/img/mc/57_tracheostomy_tube_types_wikimedia.png' alt='Deep neck space communications' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Deep neck space communications and mediastinal spread pathways.</figcaption></figure>"
+        html: "<figure class='note-fig' data-credit='Source not yet cited, added by the project owner, replace credit before sharing.'><img class='zoomable' src='assets/img/figures/cervical_fascia_danger_space.png' alt='Cervical fascia danger space' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Deep cervical fascial spaces communicate (peritonsillar/parapharyngeal/retropharyngeal) and can carry infection down the &#39;danger space&#39; toward the mediastinum.</figcaption></figure><ul><li>Neck and facial infections track along fascial planes into spaces next to the airway, great vessels, and mediastinum.</li><li>The deep neck spaces <strong>communicate</strong> (peritonsillar, parapharyngeal, retropharyngeal, mediastinum).</li><li>This is why a localized infection (quinsy, dental abscess) can escalate to airway compromise, carotid sheath involvement, or descending mediastinitis if not treated promptly.</li></ul>"
       },
       {
         title: "Why ENT emergencies escalate fast",
@@ -52,7 +52,7 @@ window.JEFFENT.register({
       },
       {
         title: "Zones of the neck",
-        html: "<p>For <strong>penetrating neck trauma</strong>, the neck is divided into three horizontal zones, not because the anatomy changes character at each boundary, but because <strong>surgical accessibility</strong> does, and that access drives the initial management algorithm (see Clinical tab):</p><ul>" +
+        html: "<figure class='note-fig' data-credit='Source not yet cited, added by the project owner, replace credit before sharing.'><img class='zoomable' src='assets/img/figures/neck_zones_trauma.png' alt='Neck zones trauma' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Zones I, II, III of the neck for penetrating trauma and how surgical accessibility differs by zone.</figcaption></figure><p>For <strong>penetrating neck trauma</strong>, the neck is divided into three horizontal zones, not because the anatomy changes character at each boundary, but because <strong>surgical accessibility</strong> does, and that access drives the initial management algorithm (see Clinical tab):</p><ul>" +
           "<li><strong>Zone I</strong>: cricoid cartilage to the thoracic outlet/clavicles. Contains the great vessel origins (proximal carotids, subclavian vessels), trachea, esophagus, thoracic duct, apex of the lung. <strong>Least accessible</strong> surgically: injuries here may need a sternotomy/thoracotomy approach.</li>" +
           "<li><strong>Zone II</strong>: cricoid cartilage to the angle of the mandible. Contains the carotid arteries, jugular veins, larynx, trachea, esophagus, vagus and recurrent laryngeal nerves. The <strong>largest zone and the most surgically accessible</strong>, and most penetrating neck injuries occur here.</li>" +
           "<li><strong>Zone III</strong>: angle of the mandible to the skull base. Contains the distal carotid/vertebral arteries, distal jugular veins, and lower cranial nerves. Also <strong>poorly accessible</strong>: proximal vascular control is difficult, and injuries here may need interventional radiology (endovascular) rather than open exploration.</li></ul>" +
@@ -66,7 +66,7 @@ window.JEFFENT.register({
         id: "deep-neck-space-spread",
         title: "Deep neck space spread",
         note: "How infection tracks from a localized source toward the mediastinum. Name each space, then reveal.",
-        src: "assets/img/mc/57_tracheostomy_tube_types_wikimedia.png",
+        src: "assets/img/figures/cervical_fascia_danger_space.png",
         source: "Deep Neck Space Communications and Mediastinal Spread Pathways. Wikimedia Commons.",
         labels: [
           { id:"peritonsillar", text:"Peritonsillar space (quinsy origin)", box:{x:38.0,y:12.2,w:24.0,h:9.0} },
@@ -227,7 +227,7 @@ window.JEFFENT.register({
         { q: "Why doesn't a normal-looking oropharynx rule this out, and what should you avoid doing?", a: "<strong>Epiglottitis</strong> involves the supraglottic structures, not the visible oropharynx/tonsils, so a normal oral exam doesn't exclude it. <strong>Avoid aggressive oropharyngeal manipulation</strong> or anything that could agitate the patient; adult epiglottitis is increasingly recognized (not just a pediatric disease) and remains airway-threatening." },
         { q: "What confirms the diagnosis safely, and who should be present?", a: "<strong>Flexible laryngoscopy</strong>, ideally performed by ENT with anesthesia/airway backup immediately available, given the risk of precipitating obstruction." }
       ],
-      teaching: "Epiglottitis isn't only a pediatric, pre-vaccine-era diagnosis. A muffled voice and drooling with a deceptively normal-looking mouth should raise it in adults too, and management stays airway-first."
+      teaching: "<figure class='note-fig' data-credit='Source not yet cited, added by the project owner, replace credit before sharing.'><img class='zoomable' src='assets/img/figures/acute_epiglottitis.png' alt='Acute epiglottitis' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Adult epiglottitis presenting with muffled voice/drooling despite a deceptively normal-looking oropharynx, confirmed by flexible laryngoscopy.</figcaption></figure>Epiglottitis isn't only a pediatric, pre-vaccine-era diagnosis. A muffled voice and drooling with a deceptively normal-looking mouth should raise it in adults too, and management stays airway-first."
     },
     {
       id: "case-orbital-cellulitis-complication",
@@ -238,7 +238,7 @@ window.JEFFENT.register({
         { q: "What is the concern, and how would you distinguish it from simple preseptal cellulitis?", a: "<strong>Orbital (postseptal) cellulitis</strong>, a sinusitis complication. <strong>Proptosis, painful/restricted eye movement, and vision change</strong> distinguish it from preseptal (periorbital) cellulitis, which spares eye movement and vision." },
         { q: "What is the management, and what would make you escalate further?", a: "Urgent <strong>CT imaging</strong>, IV antibiotics, and ENT/ophthalmology involvement. <strong>Decreasing vision, a relative afferent pupillary defect, or altered mental status</strong> would raise concern for intracranial extension (subperiosteal/orbital abscess, cavernous sinus thrombosis) and prompt more urgent surgical drainage." }
       ],
-      teaching: "Painful eye movement and proptosis turn 'sinusitis with eyelid swelling' into an orbital emergency. The eye exam, not just the sinus history, drives urgency here."
+      teaching: "<figure class='note-fig' data-credit='Source not yet cited, added by the project owner, replace credit before sharing.'><img class='zoomable' src='assets/img/figures/acute_sinusitis_complications.png' alt='Acute sinusitis complications' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Sinusitis progressing to orbital (postseptal) cellulitis with proptosis and painful eye movement.</figcaption></figure>Painful eye movement and proptosis turn 'sinusitis with eyelid swelling' into an orbital emergency. The eye exam, not just the sinus history, drives urgency here."
     },
     {
       id: "case-invasive-fungal-sinusitis",
@@ -260,7 +260,7 @@ window.JEFFENT.register({
         { q: "What is happening, and what is the immediate bedside action, before imaging and before calling the OR?", a: "<strong>Expanding neck hematoma compressing the airway.</strong> The immediate action is to <strong>open the wound at the bedside</strong> (remove skin/strap muscle sutures/clips) to evacuate the hematoma and relieve pressure. This cannot wait for imaging or transport to the OR." },
         { q: "What happens after the bedside decompression?", a: "The patient still needs to go to the OR for definitive hemostasis and wound exploration, but the bedside opening buys critical time by relieving the airway-threatening pressure immediately." }
       ],
-      teaching: "A post-thyroidectomy airway emergency is opened at the bedside, immediately. This is one of the few true 'don't wait for the OR' moments in otolaryngology."
+      teaching: "<figure class='note-fig' data-credit='Source not yet cited, added by the project owner, replace credit before sharing.'><img class='zoomable' src='assets/img/figures/thyroid_adjacent_structures.png' alt='Thyroid adjacent structures' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Expanding neck hematoma after thyroidectomy compressing the airway, requiring bedside wound opening.</figcaption></figure>A post-thyroidectomy airway emergency is opened at the bedside, immediately. This is one of the few true 'don't wait for the OR' moments in otolaryngology."
     },
     {
       id: "case-ssnhl-window",
@@ -271,7 +271,7 @@ window.JEFFENT.register({
         { q: "Why is this treated with urgency rather than routine referral?", a: "<strong>Sudden sensorineural hearing loss (SSNHL)</strong> has a <strong>time-sensitive treatment window</strong>: oral or intratympanic corticosteroids are most effective when started early (ideally within 2 weeks, with better outcomes the sooner they're started). Delayed treatment reduces the chance of hearing recovery." },
         { q: "What must be done urgently to confirm the diagnosis and guide treatment?", a: "An <strong>urgent audiogram</strong> to confirm a sensorineural (not conductive) loss of a defined magnitude, and prompt initiation of steroids without waiting for a full subspecialty work-up to be completed first." }
       ],
-      teaching: "Sudden hearing loss is one of the few 'benign-sounding' ENT complaints that is actually a treatment-window emergency. The delay itself is what causes permanent harm."
+      teaching: "<figure class='note-fig' data-credit='Source not yet cited, added by the project owner, replace credit before sharing.'><img class='zoomable' src='assets/img/figures/audiogram_interpretation.png' alt='Audiogram interpretation' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Sudden sensorineural hearing loss confirmed by urgent audiogram, with a time-sensitive steroid treatment window.</figcaption></figure>Sudden hearing loss is one of the few 'benign-sounding' ENT complaints that is actually a treatment-window emergency. The delay itself is what causes permanent harm."
     },
     {
       id: "case-ace-inhibitor-angioedema",
@@ -293,7 +293,7 @@ window.JEFFENT.register({
         { q: "Does 'hemodynamically stable right now' mean this can wait for a CT angiogram?", a: "No. An <strong>expanding hematoma and a bruit are hard signs</strong> of vascular injury. Hard signs mandate <strong>immediate operative exploration</strong> regardless of the patient's current hemodynamic stability, because that stability can be lost abruptly. Waiting for imaging in a hard-sign patient risks a sudden, catastrophic bleed or airway loss." },
         { q: "Why does the zone (II here) matter for how that exploration happens?", a: "<strong>Zone II</strong> (cricoid to the angle of the mandible) is the <strong>most surgically accessible</strong> zone: proximal and distal vascular control is straightforward compared to Zone I (needs a chest approach) or Zone III (needs skull-base access, sometimes endovascular). A Zone II hard-sign injury goes to the OR directly; the same hard signs in Zone I or III may still prompt urgent imaging first, purely because the surgical approach needs more planning." }
       ],
-      teaching: "In penetrating neck trauma, hard signs override a reassuring vital-signs snapshot. 'Stable now' is not the same as 'safe to image first,' and the zone shapes the surgical plan, not whether hard signs get you to the OR."
+      teaching: "<figure class='note-fig' data-credit='Source not yet cited, added by the project owner, replace credit before sharing.'><img class='zoomable' src='assets/img/figures/neck_zones_trauma.png' alt='Neck zones trauma' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Zone II penetrating neck stab wound with hard signs (expanding hematoma, bruit) mandating immediate OR exploration.</figcaption></figure>In penetrating neck trauma, hard signs override a reassuring vital-signs snapshot. 'Stable now' is not the same as 'safe to image first,' and the zone shapes the surgical plan, not whether hard signs get you to the OR."
     },
     {
       id: "case-ludwigs-angina",
@@ -306,7 +306,7 @@ window.JEFFENT.register({
         { q: "What imaging and treatment follow once the airway is addressed?", a: "<strong>Contrast-enhanced CT of the neck</strong> to define the extent of spread and look for a drainable collection or gas, <strong>IV broad-spectrum antibiotics</strong> covering oral flora (streptococci and anaerobes), <strong>dental source control</strong>, and <strong>surgical drainage</strong> if a discrete abscess pocket is identified." },
         { q: "Why can this obstruct the airway before it ever 'points' like a typical abscess?", a: "Because it is primarily a <strong>diffuse fascial-space cellulitis</strong> rather than a walled-off collection, mechanical displacement of the tongue and floor of mouth can compromise the airway well before any fluctuant, drainable pus develops, so management does not wait for 'fluctuance' the way a peritonsillar abscess might." }
       ],
-      teaching: "Ludwig's angina is a floor-of-mouth surgical-airway emergency, not just a bad dental abscess: bilateral woody submandibular swelling and posterior tongue displacement from an odontogenic source can obstruct the airway before any drainable collection even forms, so the default is early, controlled airway management (awake fiberoptic ± surgical airway standby) rather than watchful waiting."
+      teaching: "<figure class='note-fig' data-credit='Source not yet cited, added by the project owner, replace credit before sharing.'><img class='zoomable' src='assets/img/figures/fascial_layers_neck.png' alt='Fascial layers neck' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Ludwig&#39;s angina: odontogenic bilateral floor-of-mouth/submandibular space cellulitis threatening the airway via tongue displacement.</figcaption></figure>Ludwig's angina is a floor-of-mouth surgical-airway emergency, not just a bad dental abscess: bilateral woody submandibular swelling and posterior tongue displacement from an odontogenic source can obstruct the airway before any drainable collection even forms, so the default is early, controlled airway management (awake fiberoptic ± surgical airway standby) rather than watchful waiting."
     },
     {
       id: "case-orbital-compartment-syndrome",
