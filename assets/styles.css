@@ -35,7 +35,9 @@
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
   --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
-  --scroll-deep: #0f1f4d;  /* light mode: deep cobalt-navy the page canvas eases toward on scroll */
+  --scroll-tint: #2f6ff0;  /* light mode: a genuinely saturated blue -- mixed in at a low
+                               percentage this reads as "tinted", not "went dark/gray" the
+                               way a desaturated navy would at the same lightness drop */
   --scroll-progress: 0;    /* 0 at top of page, 1 at bottom -- kept in sync by initScrollTint() in app.js */
 }
 @media (prefers-color-scheme: dark) {
@@ -50,7 +52,8 @@
     --good: #6cd6ab;
     --muted-label: #767ea8;
     --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 24px -16px rgba(0,0,0,.5);
-    --scroll-deep: #050810;  /* dark mode: near-black indigo, deepens further instead of going flat black */
+    --scroll-tint: #0a1330;  /* dark mode: deep indigo -- blue-hued but darker than --ground, so
+                                 scrolling down still reads as "deeper", not "brighter" */
   }
 }
 :root[data-theme="dark"] {
@@ -64,24 +67,31 @@
   --good: #6cd6ab;
   --muted-label: #767ea8;
   --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 24px -16px rgba(0,0,0,.5);
-  --scroll-deep: #050810;
+  --scroll-tint: #0a1330;
 }
 
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
-/* Ambient scroll tint: the page canvas eases from --ground toward a deeper
-   --scroll-deep the further down the page you are, and back as you scroll
-   up -- initScrollTint() in app.js keeps --scroll-progress (0..1) synced to
-   scroll position; this rule only ever reads it. Falls back to a flat
-   --ground with no JS (custom property simply stays at its default 0). */
+/* Ambient scroll gradient: a real top-to-bottom gradient sits behind the
+   page at all times (not a flat color swap) -- background-attachment:
+   fixed pins it to the viewport, so the top of whatever's currently on
+   screen is always the lighter stop and the bottom the (scroll-adjusted)
+   deeper one. Both stops mix in more --scroll-tint the further down the
+   page you are, via initScrollTint() in app.js keeping --scroll-progress
+   (0 at the top of the page, 1 at the bottom) synced to scroll position;
+   this rule only ever reads it. Kept deliberately faint -- low single-
+   digit percentages -- so it reads as a mood shift, not a color change.
+   Falls back to flat --ground with no JS (the property stays at 0). */
 body {
   margin: 0; color: var(--ink);
-  background-color: color-mix(in srgb, var(--scroll-deep) calc(var(--scroll-progress, 0) * 22%), var(--ground));
-  transition: background-color .3s var(--ease-out);
+  background-color: var(--ground);
+  background-image: linear-gradient(180deg,
+    color-mix(in srgb, var(--scroll-tint) calc(1% + var(--scroll-progress, 0) * 3%), transparent),
+    color-mix(in srgb, var(--scroll-tint) calc(3% + var(--scroll-progress, 0) * 9%), transparent) 100%);
+  background-attachment: fixed;
   font-family: "Work Sans", system-ui, -apple-system, sans-serif;
   font-size: 16.5px; line-height: 1.6; -webkit-font-smoothing: antialiased;
 }
-@media (prefers-reduced-motion: reduce) { body { transition: none; } }
 .wrap { max-width: 920px; margin: 0 auto; padding: 0 20px; width: 100%; }
 .mono { font-family: "JetBrains Mono", monospace; }
 h1,h2,h3 { font-family: "Source Serif 4", Georgia, serif; font-weight: 600; line-height: 1.15; letter-spacing: -.01em; text-wrap: balance; margin: 0; }
