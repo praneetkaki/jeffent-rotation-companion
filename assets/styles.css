@@ -35,6 +35,8 @@
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
   --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+  --scroll-deep: #0f1f4d;  /* light mode: deep cobalt-navy the page canvas eases toward on scroll */
+  --scroll-progress: 0;    /* 0 at top of page, 1 at bottom -- kept in sync by initScrollTint() in app.js */
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
@@ -48,6 +50,7 @@
     --good: #6cd6ab;
     --muted-label: #767ea8;
     --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 24px -16px rgba(0,0,0,.5);
+    --scroll-deep: #050810;  /* dark mode: near-black indigo, deepens further instead of going flat black */
   }
 }
 :root[data-theme="dark"] {
@@ -61,15 +64,24 @@
   --good: #6cd6ab;
   --muted-label: #767ea8;
   --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 24px -16px rgba(0,0,0,.5);
+  --scroll-deep: #050810;
 }
 
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
+/* Ambient scroll tint: the page canvas eases from --ground toward a deeper
+   --scroll-deep the further down the page you are, and back as you scroll
+   up -- initScrollTint() in app.js keeps --scroll-progress (0..1) synced to
+   scroll position; this rule only ever reads it. Falls back to a flat
+   --ground with no JS (custom property simply stays at its default 0). */
 body {
-  margin: 0; background: var(--ground); color: var(--ink);
+  margin: 0; color: var(--ink);
+  background-color: color-mix(in srgb, var(--scroll-deep) calc(var(--scroll-progress, 0) * 22%), var(--ground));
+  transition: background-color .3s var(--ease-out);
   font-family: "Work Sans", system-ui, -apple-system, sans-serif;
   font-size: 16.5px; line-height: 1.6; -webkit-font-smoothing: antialiased;
 }
+@media (prefers-reduced-motion: reduce) { body { transition: none; } }
 .wrap { max-width: 920px; margin: 0 auto; padding: 0 20px; width: 100%; }
 .mono { font-family: "JetBrains Mono", monospace; }
 h1,h2,h3 { font-family: "Source Serif 4", Georgia, serif; font-weight: 600; line-height: 1.15; letter-spacing: -.01em; text-wrap: balance; margin: 0; }

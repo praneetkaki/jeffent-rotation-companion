@@ -600,6 +600,27 @@
     });
   }
 
+  /* Ambient scroll tint: keeps --scroll-progress (0 at the top of the page,
+   * 1 at the bottom) in sync with scroll position; the body rule in
+   * styles.css reads it to ease the page canvas from --ground toward the
+   * deeper --scroll-deep going down, and back lighter coming back up.
+   * rAF-throttled so it costs nothing beyond one style write per frame. */
+  function initScrollTint() {
+    var ticking = false;
+    function update() {
+      var doc = document.documentElement;
+      var scrollable = doc.scrollHeight - doc.clientHeight;
+      var progress = scrollable > 0 ? window.scrollY / scrollable : 0;
+      if (progress < 0) progress = 0; else if (progress > 1) progress = 1;
+      doc.style.setProperty("--scroll-progress", progress.toFixed(3));
+      ticking = false;
+    }
+    window.addEventListener("scroll", function () {
+      if (!ticking) { ticking = true; requestAnimationFrame(update); }
+    }, { passive: true });
+    update();
+  }
+
   /* One deliberate load moment for the Home stat row: numbers count up from
      zero instead of appearing static. Respects prefers-reduced-motion. */
   function animateStatCounts(scope) {
@@ -2833,6 +2854,7 @@
     initXrefs();
     initSearchShortcut();
     initFlashShortcut();
+    initScrollTint();
     bumpStreak();
     var brand = el("brandHome");
     on(brand, "click", goHome);
