@@ -1,5 +1,12 @@
 # Image Registry
 
+> **Live tracking now lives in [`IMAGE-REGISTRY.json`](IMAGE-REGISTRY.json)**, regenerated straight from the current
+> `content/*.js` files (not hand-maintained) via `python3 scripts/build-image-registry.py`. It lists every image and
+> every single place it's used, including images reused in more than one place. Run the script any time content
+> changes and you want an up-to-date map — no manual dragging/tracking needed. This `.md` file is the older,
+> hand-written sourcing history below; keep it for citation/license notes, but treat the JSON as the source of truth
+> for "what shows where."
+
 Tracking for every image referenced in `MODULE-CONTENT-FULL.md`. Each row lists the source label, what the image shows, the citation exactly as it appeared in the source document, its license class, and its current status in the app.
 
 License classes:
