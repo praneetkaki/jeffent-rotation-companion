@@ -1874,8 +1874,8 @@
       var ctr = h(
         '<div class="answer-controls">' +
           '<button class="rate again" data-r="again">Again<small>&lt; 1 day</small></button>' +
-          '<button class="rate" data-r="good">Good<small>step up</small></button>' +
-          '<button class="rate" data-r="easy">Easy<small>skip ahead</small></button>' +
+          '<button class="rate good" data-r="good">Good<small>step up</small></button>' +
+          '<button class="rate easy" data-r="easy">Easy<small>skip ahead</small></button>' +
         '</div>'
       );
       ctr.querySelectorAll(".rate").forEach(function (btn) {
@@ -2648,7 +2648,7 @@
   function initFlashPanel() {
     var aside = document.createElement("aside");
     aside.id = "flashpanel"; aside.className = "flashpanel"; aside.setAttribute("aria-label", "Flashcards");
-    aside.innerHTML = '<div class="fp-resize" data-tip="Drag to resize"></div><div class="fp-head"><div class="fp-title">Flashcards</div><button type="button" class="fp-close icon-btn" data-tip="Close" aria-label="Close flashcards">✕</button></div><div class="fp-body"></div>';
+    aside.innerHTML = '<div class="fp-resize" data-tip="Drag to resize"></div><div class="fp-head"><div class="fp-title"><span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="13" height="16" rx="2"></rect><path d="M8 2.5v4M13 2.5v4"></path><path d="M7 20.5h9a2 2 0 0 0 2-2V9"></path></svg></span>Flashcards</div><button type="button" class="fp-close icon-btn" data-tip="Close" aria-label="Close flashcards">✕</button></div><div class="fp-body"></div>';
     document.body.appendChild(aside);
     aside.querySelector(".fp-close").addEventListener("click", closeFlash);
     var t = el("flashToggle"); if (t) t.addEventListener("click", toggleFlash);
@@ -2768,7 +2768,7 @@
       rv.addEventListener("click", function () { fp.revealed = true; renderFlash(); });
       stage.appendChild(rv);
     } else {
-      var ctr = h('<div class="answer-controls fp-controls"><button class="rate again" data-r="again">Again</button><button class="rate" data-r="good">Good</button><button class="rate" data-r="easy">Easy</button></div>');
+      var ctr = h('<div class="answer-controls fp-controls"><button class="rate again" data-r="again">Again</button><button class="rate good" data-r="good">Good</button><button class="rate easy" data-r="easy">Easy</button></div>');
       ctr.querySelectorAll(".rate").forEach(function (btn) {
         btn.addEventListener("click", function () {
           window.SRS.rate(card._owner || state.moduleId, card.id, btn.dataset.r);
