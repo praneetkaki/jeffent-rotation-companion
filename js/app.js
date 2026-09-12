@@ -14,7 +14,7 @@
   var TAB_LABELS = { anatomy: "Anatomy", clinical: "Clinical", cases: "Cases", cards: "Cards" };
   var SCREENS = ["home", "track", "module", "study", "pimp", "roadmap", "about"];
 
-  var state = { screen: "home", trackId: null, moduleId: null, tab: "anatomy", session: null, anatomyTopic: null };
+  var state = { screen: "home", trackId: null, moduleId: null, tab: "anatomy", session: null, anatomyTopic: null, caseSession: null };
 
   /* ---------- helpers ---------- */
   function el(id) { return document.getElementById(id); }
@@ -230,7 +230,7 @@
   function goModule(moduleId) {
     var mod = window.JEFFENT.get(moduleId);
     if (!mod) return;
-    state.screen = "module"; state.moduleId = moduleId; state.session = null; state.anatomyTopic = null;
+    state.screen = "module"; state.moduleId = moduleId; state.session = null; state.anatomyTopic = null; state.caseSession = null;
     state.tab = loadLastTab(moduleId) || "anatomy";
     if (TABS.indexOf(state.tab) === -1) state.tab = "anatomy";
     renderModule(moduleId);
@@ -1344,24 +1344,130 @@
     return pane;
   }
 
-  /* ---- Cases tab ---- */
+  /* ---- Cases tab ----
+   * An index of cases (short teaser + question count) opens into a
+   * one-case-at-a-time stepper: one question visible at a time (reveal its
+   * answer, then advance), and the teaching point stays hidden until the
+   * learner has been through every question and asks for it -- instead of
+   * dumping every question and the teaching point onto the screen at once,
+   * which let you read the teaching point before even trying the case. */
   function buildCasesPane(mod) {
     var pane = h('<div class="tabpane" data-pane="cases"></div>');
+    renderCasesPane(pane, mod);
+    return pane;
+  }
+
+  function renderCasesPane(pane, mod) {
+    pane.innerHTML = "";
     var cases = mod.cases || [];
     if (cases.length === 0) {
       pane.appendChild(emptyNote("No cases for this module yet."));
-      return pane;
+      return;
     }
-    cases.forEach(function (c) {
-      var card = h('<div class="case" data-anchor="case-' + esc(c.id || "") + '"></div>');
-      card.appendChild(h('<div class="stem">' + c.stem + '</div>'));
-      c.prompts.forEach(function (p) {
-        card.appendChild(h('<details><summary>' + esc(p.q) + '</summary><div class="ans">' + p.a + '</div></details>'));
+    if (!state.caseSession) renderCaseIndex(pane, mod, cases);
+    else renderCaseStepper(pane, mod, cases);
+  }
+
+  function freshCaseSession(index) {
+    return { index: index, promptIdx: 0, revealed: false, teachRevealed: false };
+  }
+
+  function renderCaseIndex(pane, mod, cases) {
+    pane.appendChild(h(
+      '<div class="eyebrow" style="margin-bottom:10px">' + cases.length + ' case' + (cases.length === 1 ? "" : "s") + '</div>'
+    ));
+    var list = h('<div class="case-index"></div>');
+    cases.forEach(function (c, i) {
+      var n = (c.prompts || []).length;
+      var row = h(
+        '<button type="button" class="case-row">' +
+          '<div class="case-row-num mono">' + (i + 1) + '</div>' +
+          '<div class="case-row-body"><p>' + esc(teaserOf(c.stem, 140)) + '</p>' +
+          '<span class="case-row-meta mono">' + n + ' question' + (n === 1 ? "" : "s") + '</span></div>' +
+        '</button>'
+      );
+      row.addEventListener("click", function () {
+        state.caseSession = freshCaseSession(i);
+        renderCasesPane(pane, mod);
       });
-      if (c.teaching) card.appendChild(h('<div class="teach"><strong>Teaching point:</strong> ' + esc(c.teaching) + '</div>'));
-      pane.appendChild(card);
+      list.appendChild(row);
     });
-    return pane;
+    pane.appendChild(list);
+  }
+
+  function renderCaseStepper(pane, mod, cases) {
+    var cs = state.caseSession;
+    var total = cases.length;
+    var c = cases[cs.index];
+    var prompts = c.prompts || [];
+
+    function goToCase(i) {
+      state.caseSession = i === null ? null : freshCaseSession(i);
+      renderCasesPane(pane, mod);
+    }
+
+    var nav = h(
+      '<div class="case-nav">' +
+        '<button type="button" class="case-back mono">&larr; All cases</button>' +
+        '<span class="case-count mono">Case ' + (cs.index + 1) + ' of ' + total + '</span>' +
+        '<div class="case-arrows">' +
+          '<button type="button" class="case-arrow" data-dir="-1" aria-label="Previous case"' + (cs.index === 0 ? " disabled" : "") + '>&lsaquo;</button>' +
+          '<button type="button" class="case-arrow" data-dir="1" aria-label="Next case"' + (cs.index === total - 1 ? " disabled" : "") + '>&rsaquo;</button>' +
+        '</div>' +
+      '</div>'
+    );
+    nav.querySelector(".case-back").addEventListener("click", function () { goToCase(null); });
+    nav.querySelectorAll(".case-arrow").forEach(function (btn) {
+      btn.addEventListener("click", function () { if (!btn.disabled) goToCase(cs.index + Number(btn.dataset.dir)); });
+    });
+    pane.appendChild(nav);
+
+    var card = h('<div class="case"></div>');
+    card.appendChild(h('<div class="stem">' + c.stem + '</div>'));
+    var stepWrap = h('<div class="case-step"></div>');
+    card.appendChild(stepWrap);
+
+    var atTeaching = cs.promptIdx >= prompts.length;
+    if (!atTeaching) {
+      var p = prompts[cs.promptIdx];
+      var isLast = cs.promptIdx === prompts.length - 1;
+      stepWrap.appendChild(h(
+        '<div class="case-q">' +
+          '<div class="case-q-meta mono">Question ' + (cs.promptIdx + 1) + ' of ' + prompts.length + '</div>' +
+          '<div class="case-q-text">' + esc(p.q) + '</div>' +
+        '</div>'
+      ));
+      if (!cs.revealed) {
+        var showBtn = h('<button type="button" class="btn ghost case-reveal">Show answer</button>');
+        showBtn.addEventListener("click", function () { cs.revealed = true; renderCasesPane(pane, mod); });
+        stepWrap.appendChild(showBtn);
+      } else {
+        stepWrap.appendChild(h('<div class="ans case-a">' + p.a + '</div>'));
+        var label = !isLast ? "Next question →" : c.teaching ? "Show teaching point →" : cs.index < total - 1 ? "Next case →" : "Back to all cases";
+        var nextBtn = h('<button type="button" class="btn case-next">' + label + '</button>');
+        nextBtn.addEventListener("click", function () {
+          if (!isLast) { cs.promptIdx += 1; cs.revealed = false; renderCasesPane(pane, mod); }
+          else if (c.teaching) { cs.promptIdx += 1; renderCasesPane(pane, mod); }
+          else if (cs.index < total - 1) { goToCase(cs.index + 1); }
+          else { goToCase(null); }
+        });
+        stepWrap.appendChild(nextBtn);
+      }
+    } else if (c.teaching && !cs.teachRevealed) {
+      var teachBtn = h('<button type="button" class="btn ghost case-reveal">Show teaching point</button>');
+      teachBtn.addEventListener("click", function () { cs.teachRevealed = true; renderCasesPane(pane, mod); });
+      stepWrap.appendChild(teachBtn);
+    } else {
+      if (c.teaching) stepWrap.appendChild(h('<div class="teach"><strong>Teaching point:</strong> ' + esc(c.teaching) + '</div>'));
+      var doneLabel = cs.index < total - 1 ? "Next case →" : "Back to all cases";
+      var doneBtn = h('<button type="button" class="btn case-next">' + doneLabel + '</button>');
+      doneBtn.addEventListener("click", function () {
+        if (cs.index < total - 1) goToCase(cs.index + 1); else goToCase(null);
+      });
+      stepWrap.appendChild(doneBtn);
+    }
+
+    pane.appendChild(card);
   }
 
   /* ---- Cards tab (SRS study flow) ---- */
@@ -1916,7 +2022,7 @@
   }
   function goModuleTab(moduleId, tab) {
     var mod = window.JEFFENT.get(moduleId); if (!mod) return;
-    state.screen = "module"; state.moduleId = moduleId; state.session = null; state.anatomyTopic = null;
+    state.screen = "module"; state.moduleId = moduleId; state.session = null; state.anatomyTopic = null; state.caseSession = null;
     var av = availableTabs(mod);
     state.tab = (av.indexOf(tab) === -1 ? av[0] : tab);
     saveLastTab(moduleId, state.tab);

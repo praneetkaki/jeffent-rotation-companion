@@ -212,7 +212,15 @@ main.wrap { padding-top: 48px; padding-bottom: 60px; min-height: 60vh; }
 .tile:not(:disabled):active { transform: translateY(-1px); box-shadow: var(--shadow); }
 .tile:disabled { cursor: default; opacity: .55; }
 @media (prefers-reduced-motion: reduce) { .tile { transition: none; } }
-.tile-banner { position: relative; display: flex; align-items: center; justify-content: space-between;
+/* No position/z-index here on purpose: .tile-body overlaps this banner by
+   20px (see its negative margin below), and .tile-body must stay the
+   later-in-DOM, non-positioned sibling so normal paint order puts it above
+   the banner in that overlap band. Giving the banner `position: relative`
+   promoted it into its own paint layer, which then painted ON TOP of
+   .tile-body in that band regardless of DOM order -- faded/"cut"-looking
+   card titles across every tile. overflow:hidden alone is enough to clip
+   the gradient to the banner's own box; it needs no positioning context. */
+.tile-banner { display: flex; align-items: center; justify-content: space-between;
   padding: 18px 18px 34px; overflow: hidden;
   background: radial-gradient(120% 160% at 100% 0%, color-mix(in srgb, var(--track-color, var(--primary)) 14%, transparent), transparent 70%),
     color-mix(in srgb, var(--track-color, var(--primary)) 8%, var(--surface)); }
@@ -540,13 +548,36 @@ td.flag { color: var(--flag); font-weight: 600; }
   border-radius: 10px; padding: 26px 28px; margin: 24px 0; box-shadow: var(--shadow); }
 .case .stem { font-size: 1.08rem; }
 .case .stem b { color: var(--ink); }
-.case details { margin: 10px 0; border: 1px solid var(--line-soft); border-radius: 9px; overflow: hidden; }
-.case summary { cursor: pointer; padding: 11px 14px; background: var(--surface-2); font-weight: 600; font-size: 14.5px; list-style: none; }
-.case summary::-webkit-details-marker { display: none; }
-.case summary::before { content: "▸ "; color: var(--primary); }
-.case details[open] summary::before { content: "▾ "; }
-.case .ans { padding: 12px 14px; color: var(--ink-soft); font-size: 14.5px; }
+.case .ans { padding: 12px 14px; color: var(--ink-soft); font-size: 14.5px; background: var(--surface-2); border-radius: 9px; }
 .case .teach { margin-top: 12px; padding: 12px 14px; background: var(--primary-tint); border-radius: 9px; color: var(--primary-deep); font-size: 14px; }
+
+/* ---- case index: teaser list, click one to open its one-by-one stepper
+   (mirrors the Anatomy tab's index-grid -> detail-page convention). ---- */
+.case-index { display: flex; flex-direction: column; gap: 10px; margin-top: 4px; }
+.case-row { display: flex; align-items: flex-start; gap: 14px; width: 100%; text-align: left;
+  background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--track-color, var(--accent));
+  border-radius: 10px; padding: 16px 18px; transition: border-color .16s var(--ease-out), background-color .16s var(--ease-out), transform .16s var(--ease-out); }
+.case-row:hover { background: color-mix(in srgb, var(--track-color, var(--accent)) 4%, var(--surface)); transform: translateY(-1px); }
+.case-row-num { flex: 0 0 auto; width: 22px; padding-top: 2px; color: var(--ink-faint); font-size: 12px; }
+.case-row-body p { margin: 0; color: var(--ink); font-size: 14.5px; line-height: 1.5; }
+.case-row-meta { display: block; margin-top: 6px; font-size: 11.5px; color: var(--ink-faint); }
+
+/* ---- case stepper: one case, one question at a time ---- */
+.case-nav { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 4px; }
+.case-back { border: 0; background: none; color: var(--primary); font-size: 13px; font-weight: 500; padding: 0; cursor: pointer; }
+.case-back:hover { text-decoration: underline; }
+.case-count { font-size: 12px; color: var(--ink-faint); }
+.case-arrows { display: flex; gap: 6px; }
+.case-arrow { width: 30px; height: 30px; border: 1px solid var(--line); background: var(--surface); color: var(--ink-soft);
+  border-radius: 7px; font-size: 16px; line-height: 1; cursor: pointer; transition: border-color .15s var(--ease-out), color .15s var(--ease-out); }
+.case-arrow:hover:not(:disabled) { border-color: var(--primary); color: var(--ink); }
+.case-arrow:disabled { opacity: .4; cursor: default; }
+.case-step { margin-top: 16px; }
+.case-q-meta { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-faint); margin-bottom: 8px; }
+.case-q-text { font-size: 1.05rem; color: var(--ink); font-weight: 600; line-height: 1.4; }
+.case-a { margin-top: 14px; animation: cardReveal .22s var(--ease-out); }
+@media (prefers-reduced-motion: reduce) { .case-a { animation: none; } }
+.case-reveal, .case-next { margin-top: 18px; }
 
 /* ---- diagram / image label (nested inside an anatomy .panel) ---- */
 .diagram-stage { background: var(--surface-2); border: 1px dashed var(--line); border-radius: 12px; padding: 12px; position: relative; margin: 4px 0 14px; }
