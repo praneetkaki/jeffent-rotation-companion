@@ -49,7 +49,7 @@ window.JEFFENT.register({
       },
       {
         title: "How CPAP works",
-        html: "<figure class='note-fig' data-credit=\"CPAP machine. Wikimedia Commons, CC BY-SA 2.0.\"><img class='zoomable' src='assets/800px-CPAP_Machine.jpg' alt='CPAP machine' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Landmarks: A CPAP device (it splints the collapsible upper airway pneumatically).</figcaption></figure><ul><li>CPAP acts as a <strong>pneumatic splint</strong>, holding the airway open at all levels at once regardless of where collapse occurs, which is why it is first-line even before the exact site is known.</li><li>Intolerance is common: mask discomfort, claustrophobia, nasal obstruction limiting airflow, aerophagia.</li><li>That is why <strong>surgery is mainly a CPAP alternative or adjunct</strong>, not usually first-line.</li></ul><figure class='note-fig' data-credit=\"How CPAP Works: Continuous Pneumatic Airway Splinting. Illustration generated with Google Gemini.\"><img class='zoomable' src='assets/img/mc/75_cpap_pneumatic_splinting_gemini.png' alt='How CPAP works' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>How CPAP works: continuous pneumatic airway splinting.</figcaption></figure>"
+        html: "<figure class='note-fig' data-credit=\"CPAP machine. Wikimedia Commons, CC BY-SA 2.0.\"><img class='zoomable' src='assets/800px-CPAP_Machine.jpg' alt='CPAP machine' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Landmarks: A CPAP device (it splints the collapsible upper airway pneumatically).</figcaption></figure><ul><li>CPAP acts as a <strong>pneumatic splint</strong>, holding the airway open at all levels at once regardless of where collapse occurs, which is why it is first-line even before the exact site is known.</li><li>Intolerance is common: mask discomfort, claustrophobia, nasal obstruction limiting airflow, aerophagia.</li><li>That is why <strong>surgery is mainly a CPAP alternative or adjunct</strong>, not usually first-line.</li></ul><figure class='note-fig' data-credit=\"How CPAP Works: Continuous Pneumatic Airway Splinting. Illustration generated with Google Gemini.\"><img class='zoomable' src='assets/img/mc/36b_vestibular_schwannoma_gross_wikimedia.png' alt='How CPAP works' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>How CPAP works: continuous pneumatic airway splinting.</figcaption></figure>"
       }
     ],
     diagrams: [
@@ -73,7 +73,7 @@ window.JEFFENT.register({
         id: "friedman-tongue-position",
         title: "Friedman tongue position (I-IV)",
         note: "How much the tongue base obscures the view on relaxed oral exam. Name each grade, then reveal.",
-        src: "assets/img/mc/73_friedman_tongue_position_grades_researchgate.png",
+        src: "assets/img/mc/image66.png",
         source: "Friedman Tongue Position Grades (I-IV). ResearchGate / Friedman et al.",
         labels: [
           { id:"i", text:"Grade I: full view of tonsils/pillars/soft palate", box:{x:0.5,y:45.5,w:24.0,h:9.0} },
@@ -88,7 +88,7 @@ window.JEFFENT.register({
         id: "hypoglossal-stimulator-pathway",
         title: "Hypoglossal nerve stimulator",
         note: "Sensing lead, generator, and stimulation cuff: name each component, then reveal.",
-        src: "assets/img/mc/73_friedman_tongue_position_grades_researchgate.png",
+        src: "assets/img/mc/image66.png",
         source: "Hypoglossal Nerve Stimulator Components (Generator, Sensing Lead, Cuff). Xia et al. (2023) Sensors 23(21):8882.",
         labels: [
           { id:"generator", text:"Pulse generator: implanted in the chest, senses respiration", box:{x:9.9,y:56.2,w:24.0,h:9.0} },
@@ -365,6 +365,6 @@ window.JEFFENT.register({
     { id:"stop-bang-risk-stratification-card", tags: ["SL", "clinical"], milestones:["PC9","SBP3"], ukmla:"Obstructive sleep apnoea", source:"Chung F et al., STOP-BANG questionnaire validation and risk-stratification studies (Anesthesiology 2008; Anesth Analg 2016).", front:"Beyond '≥3 = high risk,' how is STOP-BANG risk more precisely stratified?",
       back:"<strong>0-2</strong> = low risk, <strong>3-4</strong> = intermediate risk, <strong>5-8</strong> = high risk. An intermediate score can be reclassified as high risk if BMI &gt;35, neck circumference &gt;40cm, or male gender is among the positive items. This reclassification is used especially in preoperative screening." },
     { id:"hgns-candidacy-card", tags: ["SL", "clinical"], milestones:["PC9","MK1"], ukmla:"Obstructive sleep apnoea", source:"FDA hypoglossal nerve stimulation approval criteria; STAR trial inclusion criteria (Strollo et al., NEJM 2014).", front:"What are the indications and candidacy criteria for hypoglossal nerve stimulation (HGNS) in obstructive sleep apnea?",
-      back:"HGNS is FDA-approved for adults (&ge;18) with moderate-to-severe OSA who have failed or cannot tolerate CPAP. Core criteria: <strong>AHI 15-65 events/h</strong>, a central + mixed apnea index &lt;25% of the total AHI, a <strong>BMI &le;32 kg/m&sup2;</strong> (some insurers allow &lt;35), and a drug-induced sleep endoscopy (DISE) that shows <strong>no complete concentric collapse</strong> at the palate/velopharynx.<figure class='note-fig' data-credit=\"Hypoglossal Nerve Stimulator Components (Generator, Sensing Lead, Cuff). Xia et al. (2023) Sensors 23(21):8882.\"><img class='zoomable' src='assets/img/mc/73_friedman_tongue_position_grades_researchgate.png' alt='Hypoglossal nerve stimulator components' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Hypoglossal nerve stimulator components: generator, sensing lead, cuff.</figcaption></figure>" }
+      back:"HGNS is FDA-approved for adults (&ge;18) with moderate-to-severe OSA who have failed or cannot tolerate CPAP. Core criteria: <strong>AHI 15-65 events/h</strong>, a central + mixed apnea index &lt;25% of the total AHI, a <strong>BMI &le;32 kg/m&sup2;</strong> (some insurers allow &lt;35), and a drug-induced sleep endoscopy (DISE) that shows <strong>no complete concentric collapse</strong> at the palate/velopharynx.<figure class='note-fig' data-credit=\"Hypoglossal Nerve Stimulator Components (Generator, Sensing Lead, Cuff). Xia et al. (2023) Sensors 23(21):8882.\"><img class='zoomable' src='assets/img/mc/image66.png' alt='Hypoglossal nerve stimulator components' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Hypoglossal nerve stimulator components: generator, sensing lead, cuff.</figcaption></figure>" }
   ]
 });

@@ -1,8 +1,8 @@
 {
  "generated_by": "scripts/build-image-registry.py",
  "note": "Auto-generated from content/*.js. Do not hand-edit; rerun the script instead.",
- "image_count": 119,
- "total_usages": 218,
+ "image_count": 106,
+ "total_usages": 216,
  "images": [
   {
    "file": "assets/1024px-2306_The_Larynx.jpg",
@@ -662,52 +662,6 @@
    ]
   },
   {
-   "file": "assets/img/mc/01_temporal_bone_four_parts.png",
-   "used_in": [
-    {
-     "module_file": "content/anatomy-atlas.js",
-     "kind": "figure",
-     "section": "cards",
-     "context_id": "temporal-bone-parts-card",
-     "context_title": null,
-     "front_snippet": "Name the four parts of the temporal bone and one clinically relevant fact about each.",
-     "stem_snippet": null,
-     "alt": "Temporal bone in four parts",
-     "caption": "The temporal bone in four parts.",
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/03_neck_fascial_layers_triangles.png",
-   "used_in": [
-    {
-     "module_file": "content/anatomy-atlas.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": null,
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Fascial layers and triangles of the neck",
-     "caption": "Fascial layers and triangles of the neck.",
-     "credit": null
-    },
-    {
-     "module_file": "content/anatomy-atlas.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "neck-fascial-triangles",
-     "context_title": "The neck as fascial layers and triangles",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    }
-   ]
-  },
-  {
    "file": "assets/img/mc/05a_facial_nerve_intratemporal_amboss.png",
    "used_in": [
     {
@@ -872,23 +826,6 @@
    ]
   },
   {
-   "file": "assets/img/mc/18_ear_anatomy_cross_section_nidcd.png",
-   "used_in": [
-    {
-     "module_file": "content/otology.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "ear-cross-section",
-     "context_title": "The ear in cross-section",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    }
-   ]
-  },
-  {
    "file": "assets/img/mc/22_tympanic_membrane_normal_oxford.png",
    "used_in": [
     {
@@ -901,57 +838,6 @@
      "stem_snippet": null,
      "alt": "Bony labyrinth of the inner ear",
      "caption": "The bony labyrinth: cochlea and semicircular canals.",
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/23_skull_base_foramina_cranial_nerves_radiopaedia.png",
-   "used_in": [
-    {
-     "module_file": "content/ent-exam-clinic-complaints.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "ent-cranial-nerves-overview",
-     "context_title": "The skull base foramina and their cranial nerves",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/26_acute_sore_throat_centor_feverpain_gemini.png",
-   "used_in": [
-    {
-     "module_file": "content/ent-exam-clinic-complaints.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": "sore-throat-centor",
-     "context_title": null,
-     "front_snippet": "How do you approach acute sore throat?",
-     "stem_snippet": null,
-     "alt": "Centor and FeverPAIN scores for sore throat",
-     "caption": "Acute sore throat evaluation using Centor and FeverPAIN scores.",
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/31_middle_ear_mastoid_danger_zone_bagla.png",
-   "used_in": [
-    {
-     "module_file": "content/otology.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "middle-ear-danger-relationships",
-     "context_title": "The middle ear and mastoid danger zone",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
      "credit": null
     }
    ]
@@ -975,6 +861,18 @@
      "module_file": "content/head-neck.js",
      "kind": "figure",
      "section": null,
+     "context_id": "thyroid-nodule-workup-card",
+     "context_title": null,
+     "front_snippet": "What is the stepwise workup for a newly found thyroid nodule?",
+     "stem_snippet": null,
+     "alt": "Thyroid nodule workup algorithm",
+     "caption": "Stepwise thyroid nodule workup algorithm.",
+     "credit": null
+    },
+    {
+     "module_file": "content/head-neck.js",
+     "kind": "figure",
+     "section": null,
      "context_id": "bethesda-card",
      "context_title": null,
      "front_snippet": "What does the Bethesda System do for a thyroid FNA result?",
@@ -986,8 +884,37 @@
    ]
   },
   {
+   "file": "assets/img/mc/35_cholesteatoma_tm_perforation_wikimedia.png",
+   "used_in": [
+    {
+     "module_file": "content/pediatric.js",
+     "kind": "figure",
+     "section": "diagrams",
+     "context_id": "congenital-neck-masses",
+     "context_title": "Congenital neck masses by location",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Congenital neck masses by location",
+     "caption": "Congenital neck masses differentiated by anatomical location.",
+     "credit": null
+    }
+   ]
+  },
+  {
    "file": "assets/img/mc/36b_vestibular_schwannoma_gross_wikimedia.png",
    "used_in": [
+    {
+     "module_file": "content/sleep.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": null,
+     "context_title": "How CPAP works",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "How CPAP works",
+     "caption": "How CPAP works: continuous pneumatic airway splinting.",
+     "credit": null
+    },
     {
      "module_file": "content/sleep.js",
      "kind": "diagram",
@@ -1022,6 +949,18 @@
   {
    "file": "assets/img/mc/39_ossicular_chain_gemini.png",
    "used_in": [
+    {
+     "module_file": "content/facial-plastics.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": null,
+     "context_title": "The facial buttresses",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Facial buttresses",
+     "caption": "Vertical and horizontal facial buttresses.",
+     "credit": null
+    },
     {
      "module_file": "content/facial-plastics.js",
      "kind": "figure",
@@ -1061,23 +1000,6 @@
      "stem_snippet": null,
      "alt": "Sphenoid sinus and cavernous sinus relations",
      "caption": "Sphenoid sinus and its cavernous sinus relations.",
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/42_congenital_cholesteatoma_wikimedia.png",
-   "used_in": [
-    {
-     "module_file": "content/otology.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": "cholesteatoma-classification-card",
-     "context_title": null,
-     "front_snippet": "A white mass behind an intact, normal-looking tympanic membrane in a child with no history of perforation or ear surgery",
-     "stem_snippet": null,
-     "alt": "Congenital cholesteatoma",
-     "caption": "Congenital cholesteatoma behind an intact tympanic membrane.",
      "credit": null
     }
    ]
@@ -1136,23 +1058,6 @@
    ]
   },
   {
-   "file": "assets/img/mc/56_vocal_process_granuloma_wikimedia.png",
-   "used_in": [
-    {
-     "module_file": "content/laryngology.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": "vocal-process-granuloma-card",
-     "context_title": null,
-     "front_snippet": "A vocal process (contact) granuloma is a benign inflammatory lesion at the <span class=\\",
-     "stem_snippet": null,
-     "alt": "Vocal process granuloma",
-     "caption": "Vocal process (contact) granuloma of the posterior glottis.",
-     "credit": null
-    }
-   ]
-  },
-  {
    "file": "assets/img/mc/57_tracheostomy_tube_types_wikimedia.png",
    "used_in": [
     {
@@ -1177,23 +1082,6 @@
      "stem_snippet": null,
      "alt": null,
      "caption": null,
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/58_reinkes_edema_wikimedia.png",
-   "used_in": [
-    {
-     "module_file": "content/laryngology.js",
-     "kind": "figure",
-     "section": "cards",
-     "context_id": "reinkes-edema-card",
-     "context_title": null,
-     "front_snippet": "What is Reinke's edema, and what is its classic association?",
-     "stem_snippet": null,
-     "alt": "Reinke",
-     "caption": "Reinke's edema: bilateral gelatinous polypoid corditis.",
      "credit": null
     }
    ]
@@ -1243,15 +1131,27 @@
      "credit": null
     },
     {
-     "module_file": "content/head-neck.js",
+     "module_file": "content/facial-plastics.js",
      "kind": "figure",
      "section": null,
-     "context_id": "thyroid-nodule-workup-card",
+     "context_id": "reconstructive-ladder-card",
      "context_title": null,
-     "front_snippet": "What is the stepwise workup for a newly found thyroid nodule?",
+     "front_snippet": "State the reconstructive ladder in order.",
      "stem_snippet": null,
-     "alt": "Thyroid nodule workup algorithm",
-     "caption": "Stepwise thyroid nodule workup algorithm.",
+     "alt": "Reconstructive ladder",
+     "caption": "The surgical reconstructive ladder.",
+     "credit": null
+    },
+    {
+     "module_file": "content/facial-plastics.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": "mandible-fracture-sites-card",
+     "context_title": null,
+     "front_snippet": "Because the mandible is a ring of bone, a strong enough force often fractures it in <span class=\\",
+     "stem_snippet": null,
+     "alt": "Mandible fracture patterns",
+     "caption": "Mandible fracture patterns and the ring-structure rule.",
      "credit": null
     }
    ]
@@ -1339,115 +1239,6 @@
      "stem_snippet": null,
      "alt": null,
      "caption": null,
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/70_waldeyers_ring_lymphoid_gemini.png",
-   "used_in": [
-    {
-     "module_file": "content/pediatric.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "waldeyers-ring-diagram",
-     "context_title": "Waldeyer's ring",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/71_congenital_neck_masses_by_location_gemini.png",
-   "used_in": [
-    {
-     "module_file": "content/pediatric.js",
-     "kind": "figure",
-     "section": "diagrams",
-     "context_id": "congenital-neck-masses",
-     "context_title": "Congenital neck masses by location",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Congenital neck masses by location",
-     "caption": "Congenital neck masses differentiated by anatomical location.",
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/73_friedman_tongue_position_grades_researchgate.png",
-   "used_in": [
-    {
-     "module_file": "content/sleep.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": "hgns-candidacy-card",
-     "context_title": null,
-     "front_snippet": "What are the indications and candidacy criteria for hypoglossal nerve stimulation (HGNS) in obstructive sleep apnea?",
-     "stem_snippet": null,
-     "alt": "Hypoglossal nerve stimulator components",
-     "caption": "Hypoglossal nerve stimulator components: generator, sensing lead, cuff.",
-     "credit": null
-    },
-    {
-     "module_file": "content/sleep.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "friedman-tongue-position",
-     "context_title": "Friedman tongue position (I-IV)",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    },
-    {
-     "module_file": "content/sleep.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "hypoglossal-stimulator-pathway",
-     "context_title": "Hypoglossal nerve stimulator",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/75_cpap_pneumatic_splinting_gemini.png",
-   "used_in": [
-    {
-     "module_file": "content/sleep.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "How CPAP works",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "How CPAP works",
-     "caption": "How CPAP works: continuous pneumatic airway splinting.",
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/78_facial_buttresses_vertical_horizontal_gemini.png",
-   "used_in": [
-    {
-     "module_file": "content/facial-plastics.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "The facial buttresses",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Facial buttresses",
-     "caption": "Vertical and horizontal facial buttresses.",
      "credit": null
     }
    ]
@@ -1555,6 +1346,18 @@
      "alt": "Waldeyer",
      "caption": "Waldeyer's ring of lymphoid tissue.",
      "credit": null
+    },
+    {
+     "module_file": "content/pediatric.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "waldeyers-ring-diagram",
+     "context_title": "Waldeyer's ring",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
+     "credit": null
     }
    ]
   },
@@ -1606,35 +1409,6 @@
      "module_file": "content/facial-plastics.js",
      "kind": "figure",
      "section": null,
-     "context_id": "reconstructive-ladder-card",
-     "context_title": null,
-     "front_snippet": "State the reconstructive ladder in order.",
-     "stem_snippet": null,
-     "alt": "Reconstructive ladder",
-     "caption": "The surgical reconstructive ladder.",
-     "credit": null
-    },
-    {
-     "module_file": "content/facial-plastics.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": "mandible-fracture-sites-card",
-     "context_title": null,
-     "front_snippet": "Because the mandible is a ring of bone, a strong enough force often fractures it in <span class=\\",
-     "stem_snippet": null,
-     "alt": "Mandible fracture patterns",
-     "caption": "Mandible fracture patterns and the ring-structure rule.",
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/84_mandible_fractures_ring_rule_wikimedia.png",
-   "used_in": [
-    {
-     "module_file": "content/facial-plastics.js",
-     "kind": "figure",
-     "section": null,
      "context_id": "mandible-fracture-patterns",
      "context_title": "Mandible fracture patterns and the bimanual exam",
      "front_snippet": null,
@@ -1679,6 +1453,18 @@
     },
     {
      "module_file": "content/anatomy-atlas.js",
+     "kind": "figure",
+     "section": "cards",
+     "context_id": "temporal-bone-parts-card",
+     "context_title": null,
+     "front_snippet": "Name the four parts of the temporal bone and one clinically relevant fact about each.",
+     "stem_snippet": null,
+     "alt": "Temporal bone in four parts",
+     "caption": "The temporal bone in four parts.",
+     "credit": null
+    },
+    {
+     "module_file": "content/anatomy-atlas.js",
      "kind": "diagram",
      "section": "diagrams",
      "context_id": "temporal-bone-parts",
@@ -1697,6 +1483,18 @@
     {
      "module_file": "content/anatomy-atlas.js",
      "kind": "figure",
+     "section": null,
+     "context_id": null,
+     "context_title": null,
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": "Fascial layers and triangles of the neck",
+     "caption": "Fascial layers and triangles of the neck.",
+     "credit": null
+    },
+    {
+     "module_file": "content/anatomy-atlas.js",
+     "kind": "figure",
      "section": "cards",
      "context_id": "neck-triangles-card",
      "context_title": null,
@@ -1704,6 +1502,18 @@
      "stem_snippet": null,
      "alt": "Anterior and posterior triangles of the neck",
      "caption": "Anterior and posterior triangles of the neck.",
+     "credit": null
+    },
+    {
+     "module_file": "content/anatomy-atlas.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "neck-fascial-triangles",
+     "context_title": "The neck as fascial layers and triangles",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
      "credit": null
     }
    ]
@@ -1756,6 +1566,18 @@
      "alt": "External auditory canal",
      "caption": "The external auditory canal: cartilaginous outer third, bony inner two-thirds.",
      "credit": "External ear and otoscopy. Illustration generated with Google Gemini."
+    },
+    {
+     "module_file": "content/otology.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "ear-cross-section",
+     "context_title": "The ear in cross-section",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
+     "credit": null
     }
    ]
   },
@@ -1900,6 +1722,23 @@
    ]
   },
   {
+   "file": "assets/img/mc/image27.png",
+   "used_in": [
+    {
+     "module_file": "content/ent-exam-clinic-complaints.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": "sore-throat-centor",
+     "context_title": null,
+     "front_snippet": "How do you approach acute sore throat?",
+     "stem_snippet": null,
+     "alt": "Centor and FeverPAIN scores for sore throat",
+     "caption": "Acute sore throat evaluation using Centor and FeverPAIN scores.",
+     "credit": null
+    }
+   ]
+  },
+  {
    "file": "assets/img/mc/image28.png",
    "used_in": [
     {
@@ -1993,6 +1832,18 @@
      "alt": "Tensor tympani and stapedius",
      "caption": "Tensor tympani (CN V3) and stapedius (CN VII), the middle-ear muscles.",
      "credit": "Middle-ear muscles. Illustration generated with Google Gemini."
+    },
+    {
+     "module_file": "content/otology.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "middle-ear-danger-relationships",
+     "context_title": "The middle ear and mastoid danger zone",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
+     "credit": null
     }
    ]
   },
@@ -2169,6 +2020,18 @@
      "stem_snippet": "A <b>28-year-old</b> has <b>months of painless, foul-smelling drainage</b> from one ear and mild hearing loss. Otoscopy ",
      "alt": "Cholesteatoma, otoscopic view",
      "caption": "Cholesteatoma with a large tympanic membrane perforation.",
+     "credit": null
+    },
+    {
+     "module_file": "content/otology.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": "cholesteatoma-classification-card",
+     "context_title": null,
+     "front_snippet": "A white mass behind an intact, normal-looking tympanic membrane in a child with no history of perforation or ear surgery",
+     "stem_snippet": null,
+     "alt": "Congenital cholesteatoma",
+     "caption": "Congenital cholesteatoma behind an intact tympanic membrane.",
      "credit": null
     },
     {
@@ -2908,6 +2771,42 @@
      "alt": "Friedman tongue position grades",
      "caption": "Friedman Tongue Position Grade. Grade I: entire uvula and tonsils visible. Grade II: uvula but not tonsils. Grade III: soft palate but not uvula. Grade IV: hard palate only.",
      "credit": null
+    },
+    {
+     "module_file": "content/sleep.js",
+     "kind": "figure",
+     "section": null,
+     "context_id": "hgns-candidacy-card",
+     "context_title": null,
+     "front_snippet": "What are the indications and candidacy criteria for hypoglossal nerve stimulation (HGNS) in obstructive sleep apnea?",
+     "stem_snippet": null,
+     "alt": "Hypoglossal nerve stimulator components",
+     "caption": "Hypoglossal nerve stimulator components: generator, sensing lead, cuff.",
+     "credit": null
+    },
+    {
+     "module_file": "content/sleep.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "friedman-tongue-position",
+     "context_title": "Friedman tongue position (I-IV)",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
+     "credit": null
+    },
+    {
+     "module_file": "content/sleep.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "hypoglossal-stimulator-pathway",
+     "context_title": "Hypoglossal nerve stimulator",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
+     "credit": null
     }
    ]
   },
@@ -3110,6 +3009,18 @@
      "section": "diagrams",
      "context_id": "skull-base-foramina",
      "context_title": "The skull base foramina",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
+     "credit": null
+    },
+    {
+     "module_file": "content/ent-exam-clinic-complaints.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "ent-cranial-nerves-overview",
+     "context_title": "The skull base foramina and their cranial nerves",
      "front_snippet": null,
      "stem_snippet": null,
      "alt": null,

@@ -87,7 +87,7 @@ window.JEFFENT.register({
         id: "waldeyers-ring-diagram",
         title: "Waldeyer's ring",
         note: "The lymphoid ring guarding the aerodigestive entrance. Name each component, then reveal.",
-        src: "assets/img/mc/70_waldeyers_ring_lymphoid_gemini.png",
+        src: "assets/img/mc/81_orbital_floor_blowout_fracture_wikimedia.png",
         source: "Waldeyer's Ring of Lymphoid Tissue. Illustration generated with Google Gemini.",
         labels: [
           { id:"adenoid", text:"Adenoids (nasopharyngeal tonsil)", box:{x:38.0,y:18.8,w:24.0,h:9.0} },
@@ -146,7 +146,7 @@ window.JEFFENT.register({
       {
         id: "congenital-neck-masses",
         title: "Congenital neck masses by location",
-        html: "<p>Location does most of the differential work.</p><figure class='note-fig' data-credit=\"Congenital Neck Masses Differentiated by Anatomical Location. Illustration generated with Google Gemini.\"><img class='zoomable' src='assets/img/mc/71_congenital_neck_masses_by_location_gemini.png' alt='Congenital neck masses by location' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Congenital neck masses differentiated by anatomical location.</figcaption></figure>",
+        html: "<p>Location does most of the differential work.</p><figure class='note-fig' data-credit=\"Congenital Neck Masses Differentiated by Anatomical Location. Illustration generated with Google Gemini.\"><img class='zoomable' src='assets/img/mc/35_cholesteatoma_tm_perforation_wikimedia.png' alt='Congenital neck masses by location' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Congenital neck masses differentiated by anatomical location.</figcaption></figure>",
         table: {
           head: ["Location", "Likely diagnosis"],
           rows: [
