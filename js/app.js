@@ -1030,6 +1030,7 @@
         '<section class="tg-group" data-kind="' + kind + '">' +
           '<div class="tg-group-head"><span class="tg-group-dot ' + kind + '"></span>' +
           '<h3 class="tg-group-title">' + label + '</h3>' +
+          '<span class="tg-group-rule" aria-hidden="true"></span>' +
           '<span class="tg-group-count mono">' + items.length + '</span></div>' +
           '<div class="tg-grid"></div>' +
         '</section>'
