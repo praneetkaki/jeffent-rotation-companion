@@ -1746,7 +1746,7 @@
         controls2.appendChild(teachBtn);
         stepWrap.appendChild(controls2);
       } else {
-        if (c.teaching) stepWrap.appendChild(h('<div class="teach"><strong>Teaching point:</strong> ' + esc(c.teaching) + '</div>'));
+        if (c.teaching) stepWrap.appendChild(h('<div class="teach"><strong>Teaching point:</strong> ' + c.teaching + '</div>'));
         var doneLabel = cs.index < total - 1 ? "Next case →" : "Back to all cases";
         var doneBtn = h('<button type="button" class="btn case-next">' + doneLabel + '</button>');
         doneBtn.addEventListener("click", function () {
