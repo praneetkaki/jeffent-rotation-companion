@@ -494,7 +494,12 @@ main.wrap { padding-top: 48px; padding-bottom: 60px; min-height: 60vh; }
 @media (prefers-reduced-motion: reduce) { .anatomy-detail { animation: none; } }
 .anatomy-back { background: none; border: 0; color: var(--primary); font-size: 14px; padding: 0; margin-bottom: 16px; font-weight: 500; }
 .anatomy-back:hover { text-decoration: underline; }
-.anatomy-detail-title { font-size: 1.4rem; margin-bottom: 14px; }
+.anatomy-detail-title { font-size: 1.4rem; margin-bottom: 6px; }
+/* one-line "what this page covers" caption, under a note/diagram/clinical-block title.
+   Negative top margin pulls it up against the title above without changing that
+   title's own margin globally (many .panel/h3 pairs have no tagline at all). */
+.detail-tagline { color: var(--ink-faint); font-size: 13px; line-height: 1.45; margin: -6px 0 16px; max-width: 640px; }
+.panel .detail-tagline { margin-bottom: 14px; }
 .anatomy-detail-body.panel { max-width: 720px; }
 div.anatomy-detail-body:not(.panel) { max-width: 720px; color: var(--ink-soft); font-size: 15.5px; line-height: 1.65; }
 div.anatomy-detail-body:not(.panel) strong { color: var(--ink); }
@@ -1069,6 +1074,10 @@ body.pimp-open .pimppanel { transform: none; }
 /* ---- in-app cross-reference links + hover preview ---- */
 .xref { color: var(--primary-deep); text-decoration: underline; text-underline-offset: 2px; cursor: pointer; }
 .xref:hover { color: var(--primary); }
+/* ---- inline glossary terms: same preview-card mechanism as .xref (shared
+   #xrefPreview element in JS), but definition-only, no page to open. ---- */
+.term { border-bottom: 1px dotted var(--ink-faint); cursor: help; }
+.term:hover, .term:focus-visible { border-bottom-color: var(--primary); color: var(--primary-deep); }
 .xref-preview { position: absolute; z-index: 200; width: 300px; max-width: 86vw; background: var(--surface);
   border: 1px solid var(--line); border-radius: 10px; box-shadow: var(--shadow); padding: 12px 14px; pointer-events: none; }
 .xref-preview[hidden] { display: none; }

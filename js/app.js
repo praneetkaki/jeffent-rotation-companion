@@ -1199,7 +1199,7 @@
       var noteTitle = notes[topic.index].title;
       var noteWrap = buildAnatomyDetail(mod, pane, noteTitle, function () {
         return h('<div class="anatomy-detail-body" data-anchor="anatomy-note-' + topic.index + '">' + notes[topic.index].html + '</div>');
-      });
+      }, false, notes[topic.index].tagline);
       appendRelatedCardsCta(noteWrap, mod, noteTitle, topic);
       appendFigureSources(noteWrap);
       pane.appendChild(noteWrap);
@@ -1211,7 +1211,7 @@
         var dgPanel = buildDiagramPanel(diagrams[topic.index]);
         dgPanel.classList.add("anatomy-detail-body");
         return dgPanel;
-      }, true);
+      }, true, diagrams[topic.index].tagline);
       appendRelatedCardsCta(dgWrap, mod, dgTitle, topic);
       pane.appendChild(dgWrap);
       return;
@@ -1221,8 +1221,10 @@
   }
 
   /* skipTitle: the diagram detail body already renders its own <h3> title via
-   * buildDiagramPanel, so buildAnatomyDetail should not duplicate it. */
-  function buildAnatomyDetail(mod, pane, title, buildBody, skipTitle) {
+   * buildDiagramPanel, so buildAnatomyDetail should not duplicate it.
+   * tagline: optional one-line "what this page covers" caption, shown under
+   * the title (or under the back-link, when the title itself is skipped). */
+  function buildAnatomyDetail(mod, pane, title, buildBody, skipTitle, tagline) {
     var wrap = h('<div class="anatomy-detail"></div>');
     var back = h('<button type="button" class="crumb anatomy-back">← Back to anatomy overview</button>');
     back.addEventListener("click", function () {
@@ -1232,6 +1234,7 @@
     });
     wrap.appendChild(back);
     if (!skipTitle) wrap.appendChild(h('<h2 class="anatomy-detail-title">' + esc(title) + '</h2>'));
+    if (tagline) wrap.appendChild(h('<p class="detail-tagline">' + esc(tagline) + '</p>'));
     wrap.appendChild(buildBody());
     setStickyCurrent(title);
     return wrap;
@@ -1648,7 +1651,8 @@
       return pane;
     }
     blocks.forEach(function (b) {
-      var p = h('<div class="panel" data-anchor="clinical-block-' + esc(b.id || "") + '"><h3>' + esc(b.title) + '</h3></div>');
+      var p = h('<div class="panel" data-anchor="clinical-block-' + esc(b.id || "") + '"><h3>' + esc(b.title) + '</h3>' +
+        (b.tagline ? '<p class="detail-tagline">' + esc(b.tagline) + '</p>' : '') + '</div>');
       if (b.html) p.appendChild(h('<div>' + b.html + '</div>'));
       if (b.table) {
         p.appendChild(h(
@@ -3054,28 +3058,48 @@
     });
   }
 
-  /* ---------- CROSS-REFERENCE LINKS (in-app jumps with hover preview) ---------- */
+  /* ---------- CROSS-REFERENCE LINKS + INLINE GLOSSARY TERMS ----------
+   * Two kinds of hoverable inline markup share one preview card:
+   *  - .xref  (data-mod, data-tab): jumps to another module/tab on click,
+   *    preview shows that module's own title/subtitle.
+   *  - .term  (data-def): definition-only, authored inline, no navigation --
+   *    click just toggles the card open/closed (for touch, where hover
+   *    doesn't apply). */
   function initXrefs() {
     var prev = null;
     function ensure() { if (prev) return; prev = h('<div class="xref-preview" hidden></div>'); document.body.appendChild(prev); }
-    function show(a) {
-      var mod = window.JEFFENT.get(a.getAttribute("data-mod")); if (!mod) return;
-      ensure();
-      var tab = a.getAttribute("data-tab") || "";
-      prev.innerHTML = '<div class="xp-title">' + esc(mod.title) + (tab ? ' · ' + esc(TAB_LABELS[tab] || tab) : "") + '</div>' +
-        '<div class="xp-sub">' + esc(mod.subtitle || "") + '</div><div class="xp-go">Open →</div>';
+    function position(a) {
       var r = a.getBoundingClientRect();
       prev.hidden = false;
       var top = window.scrollY + r.bottom + 6, left = window.scrollX + r.left;
       prev.style.top = top + "px"; prev.style.left = Math.min(left, window.scrollX + window.innerWidth - 320) + "px";
     }
+    function showXref(a) {
+      var mod = window.JEFFENT.get(a.getAttribute("data-mod")); if (!mod) return;
+      ensure();
+      var tab = a.getAttribute("data-tab") || "";
+      prev.innerHTML = '<div class="xp-title">' + esc(mod.title) + (tab ? ' · ' + esc(TAB_LABELS[tab] || tab) : "") + '</div>' +
+        '<div class="xp-sub">' + esc(mod.subtitle || "") + '</div><div class="xp-go">Open →</div>';
+      position(a);
+    }
+    function showTerm(a) {
+      var def = a.getAttribute("data-def"); if (!def) return;
+      ensure();
+      prev.innerHTML = '<div class="xp-title">' + esc(a.textContent) + '</div><div class="xp-sub">' + esc(def) + '</div>';
+      position(a);
+    }
     function hide() { if (prev) prev.hidden = true; }
-    document.addEventListener("mouseover", function (e) { var a = e.target.closest && e.target.closest(".xref"); if (a) show(a); });
-    document.addEventListener("mouseout", function (e) { var a = e.target.closest && e.target.closest(".xref"); if (a) hide(); });
+    document.addEventListener("mouseover", function (e) {
+      var a = e.target.closest && e.target.closest(".xref, .term"); if (!a) return;
+      if (a.classList.contains("xref")) showXref(a); else showTerm(a);
+    });
+    document.addEventListener("mouseout", function (e) { var a = e.target.closest && e.target.closest(".xref, .term"); if (a) hide(); });
     document.addEventListener("click", function (e) {
-      var a = e.target.closest && e.target.closest(".xref"); if (!a) return;
-      e.preventDefault(); hide();
-      goModuleTab(a.getAttribute("data-mod"), a.getAttribute("data-tab") || "anatomy");
+      var xa = e.target.closest && e.target.closest(".xref");
+      if (xa) { e.preventDefault(); hide(); goModuleTab(xa.getAttribute("data-mod"), xa.getAttribute("data-tab") || "anatomy"); return; }
+      var ta = e.target.closest && e.target.closest(".term");
+      if (ta) { e.preventDefault(); if (prev && !prev.hidden) hide(); else showTerm(ta); return; }
+      hide();
     });
   }
 

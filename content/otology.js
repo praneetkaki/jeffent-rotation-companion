@@ -34,22 +34,24 @@ window.JEFFENT.register({
     notes: [
       {
         title: "Three compartments, one organ",
+        tagline: "The external, middle, and inner ear at a glance, and the structure each one contributes to hearing or balance.",
         html:
           "<figure class='note-fig' data-credit='Source not yet cited, added by the project owner, replace credit before sharing.'><img class='zoomable' src='assets/img/figures/ear_anatomy_physiology_overview.png' alt='Ear anatomy physiology overview' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Overview of the ear&#39;s three compartments (external/sound-gathering, middle/amplification, inner/transduction) and how CN VIII reads out the inner ear.</figcaption></figure><p>Work outside-in: <strong>external</strong> (sound gathering), <strong>middle</strong> (sound amplification &amp; transmission), <strong>inner</strong> (transduction + balance).</p>" +
           "<ul>" +
           "<li><strong>External:</strong> auricle + external auditory canal (EAC): outer ⅓ cartilage, inner ⅔ bone; cerumen glands in the cartilaginous part.</li>" +
-          "<li><strong>Middle:</strong> tympanic membrane → ossicles (<strong>malleus → incus → stapes</strong>) → oval window; connected to the nasopharynx by the <strong>Eustachian tube</strong>.</li>" +
-          "<li><strong>Inner:</strong> <strong>cochlea</strong> (hearing) and <strong>vestibule + semicircular canals</strong> (balance), read out by <strong>CN VIII</strong>.</li>" +
+          "<li><strong>Middle:</strong> <span class=\"term\" data-def=\"The three-layered drum that vibrates with sound and transmits energy to the ossicular chain.\">tympanic membrane</span> → <span class=\"term\" data-def=\"The chain of three tiny bones (malleus, incus, stapes) that mechanically carries sound vibration from the eardrum to the inner ear.\">ossicles</span> (<strong>malleus → incus → stapes</strong>) → oval window; connected to the nasopharynx by the <span class=\"term\" data-def=\"The tube connecting the middle ear to the nasopharynx; equalizes pressure and drains secretions, and its dysfunction underlies most middle-ear effusion.\">Eustachian tube</span>.</li>" +
+          "<li><strong>Inner:</strong> <span class=\"term\" data-def=\"The spiral, fluid-filled organ of hearing; converts sound vibration into neural signal via hair cells.\">cochlea</span> (hearing) and <strong>vestibule + semicircular canals</strong> (balance), read out by <strong>CN VIII</strong>.</li>" +
           "</ul>"
       },
       {
         title: "The clinically dangerous relationships",
+        tagline: "Why ear disease can cause facial weakness, referred pain from elsewhere, or taste disturbance -- the nerves and muscles that share this small space.",
         html:
           "<figure class='note-fig' data-credit='Source not yet cited, added by the project owner, replace credit before sharing.'><img class='zoomable' src='assets/img/figures/middle_ear_dangerous_relationships.png' alt='Middle ear dangerous relationships' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Middle-ear/mastoid danger zone: facial nerve, tensor tympani/stapedius, chorda tympani, and referred otalgia via CN V/VII/IX/X.</figcaption></figure><ul>" +
           "<li><strong>Facial nerve (CN VII)</strong> runs through the temporal bone next to the middle/inner ear, so facial weakness with ear disease is a red flag.</li>" +
           "<li><strong>Referred otalgia:</strong> the ear is innervated by CN <strong>V, VII, IX, X</strong> and C2-C3, so a normal-looking ear can hurt because of pathology elsewhere (TMJ, teeth, tonsil, tongue base, larynx).</li>" +
-          "<li><strong>Middle-ear muscles:</strong> tensor tympani (CN V3) and stapedius (CN VII) dampen loud sound.</li>" +
-          "<li><strong>Chorda tympani</strong> (branch of VII) crosses the middle ear carrying taste from the anterior ⅔ of the tongue.</li>" +
+          "<li><strong>Middle-ear muscles:</strong> <span class=\"term\" data-def=\"Innervated by CN V3; tenses the tympanic membrane to dampen loud sound.\">tensor tympani</span> (CN V3) and <span class=\"term\" data-def=\"Innervated by CN VII; the smallest skeletal muscle in the body, dampens loud sound via the acoustic reflex.\">stapedius</span> (CN VII) dampen loud sound.</li>" +
+          "<li><span class=\"term\" data-def=\"A branch of the facial nerve (CN VII) that crosses the middle ear and carries taste sensation from the anterior two-thirds of the tongue -- at risk during middle-ear surgery.\">Chorda tympani</span> (branch of VII) crosses the middle ear carrying taste from the anterior ⅔ of the tongue.</li>" +
           "</ul>"
       }
     ],
@@ -239,6 +241,7 @@ window.JEFFENT.register({
       {
         id: "hearing-loss-fork",
         title: "Hearing loss: the fork in the road",
+        tagline: "Conductive vs sensorineural: the bedside tuning-fork test that splits every hearing-loss workup in two.",
         html:
           "<p><strong>Conductive</strong> (something blocks sound reaching the cochlea) vs <strong>sensorineural</strong> (cochlea or CN VIII). Localize at the bedside with <strong>Weber + Rinne (512 Hz)</strong>.</p>" +
           "<ul><li><strong>Conductive causes:</strong> cerumen, middle-ear effusion, TM perforation, otosclerosis, ossicular problems.</li>" +
@@ -247,6 +250,7 @@ window.JEFFENT.register({
       {
         id: "otalgia-primary-referred",
         title: "Otalgia: primary vs referred",
+        tagline: "Ear pain with a normal ear exam: which distant structures actually refer pain here, and when that pattern is a red flag.",
         html:
           "<ul>" +
           "<li><strong>Primary</strong> (ear pathology): otitis externa (pain on tragal traction, canal edema), acute otitis media (bulging red TM), cerumen, TM perforation.</li>" +
@@ -257,6 +261,7 @@ window.JEFFENT.register({
       {
         id: "infection-and-danger",
         title: "Infection, and when it's dangerous",
+        tagline: "Otitis externa, AOM, cholesteatoma, and necrotizing otitis externa side by side -- and which ones simply cannot wait.",
         html:
           "<ul><li><strong>Otitis externa:</strong> canal infection; tragal tenderness, discharge.</li>" +
           "<li><strong>Acute otitis media:</strong> middle-ear infection; bulging TM, effusion.</li>" +
@@ -266,6 +271,7 @@ window.JEFFENT.register({
       {
         id: "otitis-externa-management",
         title: "Acute otitis externa: first-line management",
+        tagline: "Why topical, not oral, antibiotics are first-line for swimmer's ear, and how TM status changes which drop is safe.",
         html:
           "<ul><li><strong>Topical therapy is first-line, not oral antibiotics</strong> &mdash; topical agents reach far higher local concentrations, have fewer systemic effects, and limit resistance (AAO-HNS 2014). Most common pathogens: <em>Pseudomonas aeruginosa</em> and <em>Staphylococcus aureus</em>.</li>" +
           "<li><strong>Aural toilet</strong> (cleaning/microsuction) and pain control are integral; a wick is placed when canal edema prevents drops from entering.</li>" +
@@ -275,6 +281,7 @@ window.JEFFENT.register({
       {
         id: "dizziness-peripheral-central",
         title: "Dizziness: peripheral vs central",
+        tagline: "BPPV, vestibular neuritis, and Ménière's vs the central mimics -- and exactly when (and when not) to reach for HINTS.",
         html:
           "<ul><li><strong>BPPV:</strong> brief positional vertigo; <strong>Dix-Hallpike</strong> reproduces it; treat with Epley.</li>" +
           "<li><strong>Vestibular neuritis:</strong> acute constant vertigo for days, no hearing loss, often post-viral.</li>" +
@@ -284,10 +291,11 @@ window.JEFFENT.register({
       {
         id: "otosclerosis-chl-differential",
         title: "Conductive hearing loss with an intact tympanic membrane: the differential",
+        tagline: "Otosclerosis, OME, and ossicular discontinuity: three causes of a normal-looking drum with abnormal hearing, told apart by tympanogram.",
         html:
           "<p>When conductive hearing loss is confirmed (Weber lateralizes to the affected ear, Rinne negative) but the tympanic membrane looks completely normal, three diagnoses dominate, and tympanometry usually separates them before imaging is ever needed.</p>" +
           "<ul>" +
-          "<li><strong>Otosclerosis:</strong> abnormal bone remodeling fixes the stapes footplate in the oval window. Classically a <strong>young adult</strong> (20s-40s) with a <strong>family history</strong> (autosomal dominant, variable penetrance), <strong>bilateral in roughly 70-80%</strong>, and often <strong>worsens in pregnancy</strong>. Tympanogram is <strong>Type As</strong> (normal peak pressure, reduced compliance/shallow peak): the drum moves normally but the ossicular chain is stiff. The audiogram classically shows a <strong>Carhart notch</strong> (an artifactual dip in bone conduction around 2000 Hz that resolves after successful surgery).</li>" +
+          "<li><strong>Otosclerosis:</strong> abnormal bone remodeling fixes the stapes footplate in the oval window. Classically a <strong>young adult</strong> (20s-40s) with a <strong>family history</strong> (autosomal dominant, variable penetrance), <strong>bilateral in roughly 70-80%</strong>, and often <strong>worsens in pregnancy</strong>. Tympanogram is <strong>Type As</strong> (normal peak pressure, reduced compliance/shallow peak): the drum moves normally but the ossicular chain is stiff. The audiogram classically shows a <span class=\"term\" data-def=\"An artifactual dip in bone conduction around 2000 Hz on the audiogram, caused by stapes fixation; it resolves after successful stapes surgery.\">Carhart notch</span> (an artifactual dip in bone conduction around 2000 Hz that resolves after successful surgery).</li>" +
           "<li><strong>Otitis media with effusion (OME):</strong> fluid behind an intact drum without acute infection signs; Eustachian tube dysfunction is the usual driver. Tympanogram is <strong>Type B</strong> (flat, no discernible peak). Common in children; a <strong>new unilateral</strong> effusion in an <strong>adult</strong> needs the nasopharynx examined to exclude a mass.</li>" +
           "<li><strong>Ossicular discontinuity:</strong> most often the incudostapedial joint, from prior trauma, infection, or cholesteatoma erosion. Tympanogram can show an abnormally <strong>high-compliance Type Ad</strong> peak (a floppy, hypermobile system), the opposite mechanical picture from otosclerosis.</li>" +
           "</ul>" +
@@ -296,10 +304,11 @@ window.JEFFENT.register({
       {
         id: "cholesteatoma-depth",
         title: "Cholesteatoma: mechanism, classification, and why it's surgical",
+        tagline: "How a trapped sac of skin keratin behind the eardrum erodes bone, why drops never fix it, and what mastoidectomy actually removes.",
         html:
           "<p>A cholesteatoma is not a tumor. It's a sac of stratified squamous epithelium and trapped keratin debris growing where it doesn't belong, expanding by pressure and by releasing enzymes that resorb adjacent bone.</p>" +
           "<ul>" +
-          "<li><strong>Acquired (primary):</strong> the common type. Chronic Eustachian tube dysfunction creates negative middle-ear pressure, drawing the <strong>pars flaccida</strong> (or, less often, the postero-superior pars tensa) inward into a <strong>retraction pocket</strong>. Desquamated keratin accumulates in the pocket instead of migrating out normally, and the sac enlarges.</li>" +
+          "<li><strong>Acquired (primary):</strong> the common type. Chronic Eustachian tube dysfunction creates negative middle-ear pressure, drawing the <span class=\"term\" data-def=\"The small, floppy upper portion of the tympanic membrane above the malleus folds -- the weakest part of the drum and the classic starting point for a retraction-pocket cholesteatoma.\">pars flaccida</span> (or, less often, the postero-superior pars tensa) inward into a <strong>retraction pocket</strong>. Desquamated keratin accumulates in the pocket instead of migrating out normally, and the sac enlarges.</li>" +
           "<li><strong>Acquired (secondary):</strong> squamous epithelium is implanted through a pre-existing <strong>marginal or attic TM perforation</strong> (from chronic otitis media or trauma) rather than forming via a retraction pocket.</li>" +
           "<li><strong>Congenital:</strong> a white mass <strong>behind an intact, normal-looking TM</strong> in a child with no history of perforation or ear surgery: a keratin rest that failed to involute embryologically. Easy to miss because the drum itself looks unremarkable.</li>" +
           "</ul>" +
@@ -315,6 +324,7 @@ window.JEFFENT.register({
       {
         id: "vestibular-schwannoma-workup",
         title: "Vestibular schwannoma: workup and the management ladder",
+        tagline: "Asymmetric hearing loss or tinnitus: the imaging that finds a millimeter-scale CN VIII tumor, and how observation, radiosurgery, and microsurgery are chosen.",
         html:
           "<p>A vestibular schwannoma (acoustic neuroma) is a benign, slow-growing Schwann-cell tumor of the vestibular division of CN VIII, arising in the internal auditory canal. It's the classic explanation for <strong>asymmetric/unilateral SNHL or tinnitus</strong>, can cause disequilibrium (true vertigo is uncommon; slow growth allows central compensation), and, as it enlarges, can produce trigeminal (facial numbness) or facial nerve symptoms from cerebellopontine-angle/brainstem compression.</p>" +
           "<ul>" +
@@ -329,6 +339,7 @@ window.JEFFENT.register({
       {
         id: "meniere-criteria-management",
         title: "Ménière's disease: diagnostic criteria and the step-up ladder",
+        tagline: "The formal Bárány/AAO-HNS diagnostic criteria beyond the classic tetrad, and the five-step ladder from diet to ear-destructive surgery.",
         html:
           "<p>The Bárány Society/AAO-HNS (2015) consensus criteria formalize the diagnosis beyond the simple tetrad:</p>" +
           "<p><strong>Definite Ménière's disease</strong> requires all of the following:</p>" +
@@ -352,9 +363,10 @@ window.JEFFENT.register({
       {
         id: "noe-depth",
         title: "Necrotizing (malignant) otitis externa: the progression to watch",
+        tagline: "Skull-base osteomyelitis from a 'bad ear infection' in a diabetic patient -- the organism, the cranial-nerve spread pattern, and why it's weeks of IV therapy.",
         html:
           "<p><strong>Pseudomonas aeruginosa</strong> is the classic pathogen, invading through the fissures of Santorini and the bony-cartilaginous junction of the canal to cause osteomyelitis of the skull base, almost always in a <strong>diabetic</strong> (poor glycemic control) or otherwise <strong>immunocompromised</strong> patient. Pain is disproportionate to exam findings and often worse at night; granulation tissue at the bony-cartilaginous junction of the canal floor is the classic sign.</p>" +
-          "<p><strong>Cranial nerve progression tracks how far the osteomyelitis has spread:</strong> <strong>CN VII</strong> is affected first and most often (it exits nearby via the stylomastoid foramen); further skull-base spread toward the jugular foramen threatens <strong>CN IX, X, XI</strong> (dysphagia, hoarseness, shoulder weakness), and <strong>CN XII</strong> (tongue weakness) if it extends to the hypoglossal canal. New cranial neuropathies signal advancing disease, not a new, separate problem.</p>" +
+          "<p><strong>Cranial nerve progression tracks how far the osteomyelitis has spread:</strong> <strong>CN VII</strong> is affected first and most often (it exits nearby via the <span class=\"term\" data-def=\"The opening in the skull base where the facial nerve (CN VII) exits the temporal bone, just behind the ear -- the first structure threatened as necrotizing otitis externa spreads.\">stylomastoid foramen</span>); further skull-base spread toward the jugular foramen threatens <strong>CN IX, X, XI</strong> (dysphagia, hoarseness, shoulder weakness), and <strong>CN XII</strong> (tongue weakness) if it extends to the hypoglossal canal. New cranial neuropathies signal advancing disease, not a new, separate problem.</p>" +
           "<p><strong>Workup and treatment:</strong> CT temporal bone shows bony erosion; <strong>MRI</strong> better delineates soft-tissue and marrow involvement; a <strong>technetium-99m bone scan</strong> is sensitive early but stays positive long after cure (not useful for following response), while a <strong>gallium-67 scan</strong> reflects active inflammation and is used to confirm treatment response. Treatment is <strong>prolonged (often 6-8 weeks) IV antipseudomonal antibiotics</strong> (e.g., an antipseudomonal fluoroquinolone or a beta-lactam/aminoglycoside combination) plus tight glycemic control and debridement of obvious necrotic tissue. This is not an outpatient-drops problem.</p>" + "<figure class='note-fig' data-credit='Source not yet cited, added by the project owner, replace credit before sharing.'><img class='zoomable' src='assets/img/figures/necrotizing_otitis_externa.png' alt='Necrotizing otitis externa' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Necrotizing otitis externa pathogen, cranial-nerve progression from skull-base osteomyelitis, and treatment.</figcaption></figure>"
       }
     ],
