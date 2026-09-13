@@ -763,19 +763,16 @@
       toggleBtn.querySelector(".dash-toggle-label").textContent = next ? "Expand" : "Minimize";
     });
 
-    /* hero: spaced-repetition queue, deep-midnight card + a compact,
-       highest-due-first list of tracks (mastery ring + direct Review
-       button per row), capped so it stays scannable instead of scrolling
-       through 8 identical blocks. */
+    /* hero: spaced-repetition queue, deep-midnight card + a highest-due-first
+       list of every track (mastery ring + direct Review button per row) in a
+       fixed-height, continuously-scrollable strip. The row set is tripled so
+       scrolling past the last track (or before the first) loops seamlessly
+       back around instead of dead-ending in a "+N more" link. */
     var dueTracks = TRACKS.map(function (t) {
       var mods = modulesFor(t.id);
       return { track: t, mods: mods, due: aggregateStats(mods).due };
     }).filter(function (x) { return x.mods.length; })
       .sort(function (a, b) { return b.due - a.due; });
-
-    var SR_MAX_ROWS = 5;
-    var shownTracks = dueTracks.slice(0, SR_MAX_ROWS);
-    var moreCount = dueTracks.length - shownTracks.length;
 
     var hero = h(
       '<div class="study-cta all-due-cta">' +
@@ -786,7 +783,7 @@
             '<div class="cta-sub">' + agg.due + ' card' + (agg.due === 1 ? '' : 's') + ' due across ' + allMods.length + ' modules.</div>' +
             '<div class="cta-actions"></div>' +
           '</div>' +
-          '<div class="sr-list"></div>' +
+          '<div class="sr-list-wrap"><div class="sr-list" id="srList"></div></div>' +
         '</div>' +
       '</div>'
     );
@@ -794,36 +791,51 @@
     heroBtn.addEventListener("click", goStudyAll);
     hero.querySelector(".cta-actions").appendChild(heroBtn);
     var listWrap = hero.querySelector(".sr-list");
-    if (shownTracks.length) {
-      shownTracks.forEach(function (x) {
-        var s = aggregateStats(x.mods);
-        var tpct = s.total ? Math.round((s.mastered / s.total) * 100) : 0;
-        var color = x.track.color || '#fff';
-        var row = h(
-          '<div class="sr-row" tabindex="0" role="button" aria-label="Review ' + esc(x.track.name) + ': ' + x.due + ' due, ' + tpct + '% mastered">' +
-            '<div class="sr-ring">' + masteryRing(tpct, color, 38) + '</div>' +
-            '<div class="sr-info">' +
-              '<div class="sr-name">' + esc(x.track.name) + '</div>' +
-              '<div class="sr-meta">' + x.due + ' due &middot; ' + tpct + '% mastered</div>' +
-            '</div>' +
-            '<button type="button" class="sr-review-btn">Review</button>' +
-          '</div>'
-        );
-        var openTrack = function () { goTrack(x.track.id); };
-        row.querySelector(".sr-review-btn").addEventListener("click", function (e) {
-          e.stopPropagation();
-          openTrack();
+    if (dueTracks.length) {
+      var loop = dueTracks.length > 1;
+      var copies = loop ? [dueTracks, dueTracks, dueTracks] : [dueTracks];
+      copies.forEach(function (copy, copyIdx) {
+        var isRealCopy = !loop || copyIdx === 1; /* middle copy is the accessible one */
+        copy.forEach(function (x) {
+          var s = aggregateStats(x.mods);
+          var tpct = s.total ? Math.round((s.mastered / s.total) * 100) : 0;
+          var color = x.track.color || '#fff';
+          var row = h(
+            '<div class="sr-row"' + (isRealCopy ? ' tabindex="0" role="button"' : ' tabindex="-1" aria-hidden="true"') +
+              ' aria-label="Review ' + esc(x.track.name) + ': ' + x.due + ' due, ' + tpct + '% mastered">' +
+              '<div class="sr-ring">' + masteryRing(tpct, color, 38) + '</div>' +
+              '<div class="sr-info">' +
+                '<div class="sr-name">' + esc(x.track.name) + '</div>' +
+                '<div class="sr-meta">' + x.due + ' due &middot; ' + tpct + '% mastered</div>' +
+              '</div>' +
+              '<button type="button" class="sr-review-btn"' + (isRealCopy ? '' : ' tabindex="-1"') + '>Review</button>' +
+            '</div>'
+          );
+          var openTrack = function () { goTrack(x.track.id); };
+          row.querySelector(".sr-review-btn").addEventListener("click", function (e) {
+            e.stopPropagation();
+            openTrack();
+          });
+          row.addEventListener("click", openTrack);
+          row.addEventListener("keydown", function (e) {
+            if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openTrack(); }
+          });
+          listWrap.appendChild(row);
         });
-        row.addEventListener("click", openTrack);
-        row.addEventListener("keydown", function (e) {
-          if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openTrack(); }
-        });
-        listWrap.appendChild(row);
       });
-      if (moreCount > 0) {
-        var moreRow = h('<button type="button" class="sr-more">+' + moreCount + ' more track' + (moreCount === 1 ? '' : 's') + ' with cards due &rarr;</button>');
-        moreRow.addEventListener("click", goRoadmap);
-        listWrap.appendChild(moreRow);
+      if (loop) {
+        requestAnimationFrame(function () {
+          var copyHeight = listWrap.scrollHeight / 3;
+          if (!copyHeight) return;
+          listWrap.scrollTop = copyHeight;
+          listWrap.addEventListener("scroll", function () {
+            if (listWrap.scrollTop <= 1) {
+              listWrap.scrollTop += copyHeight;
+            } else if (listWrap.scrollTop >= copyHeight * 2 - 1) {
+              listWrap.scrollTop -= copyHeight;
+            }
+          });
+        });
       }
     } else {
       listWrap.appendChild(h('<div class="sr-row sr-empty"><div class="sr-info"><div class="sr-name">All caught up</div><div class="sr-meta">Nothing due right now</div></div></div>'));
@@ -2745,6 +2757,7 @@
     try { localStorage.setItem("jeffent.fpScope", scope); localStorage.setItem("jeffent.fpMode", mode); } catch (_) {}
   }
   function openFlash() {
+    closePimpPanel();
     var scope = "", mode = "";
     try { scope = localStorage.getItem("jeffent.fpScope") || ""; mode = localStorage.getItem("jeffent.fpMode") || ""; } catch (_) {}
     /* First open with no saved scope: default to the subspecialty you're viewing
@@ -2855,10 +2868,175 @@
     return true;
   }
 
+  /* ---------- FAQ (PIMP QUESTIONS) SIDE PANEL ----------
+   * Same shell/behavior as the flashcards panel above (self-contained,
+   * independent of state.session), but for the oral-recall question bank.
+   * Its own session var `ppq` is separate from `pq` (the full-page "Frequently
+   * Asked Questions" screen reached via the sidebar), so opening the panel
+   * never disturbs a quiz already in progress on that screen, and vice versa.
+   * Only one right-hand panel may be open at a time -- open{Flash,PimpPanel}
+   * each close the other before opening themselves. */
+  var ppq = null;
+  function initPimpPanel() {
+    var aside = document.createElement("aside");
+    aside.id = "pimppanel"; aside.className = "pimppanel"; aside.setAttribute("aria-label", "Frequently asked questions");
+    aside.innerHTML = '<div class="pp-resize" data-tip="Drag to resize"></div><div class="pp-head"><div class="pp-title"><span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.9.4-1.5 1-1.5 2"></path><path d="M12 16.2v.01"></path></svg></span>Frequently asked questions</div><button type="button" class="pp-close icon-btn" data-tip="Close" aria-label="Close frequently asked questions">✕</button></div><div class="pp-body"></div>';
+    document.body.appendChild(aside);
+    aside.querySelector(".pp-close").addEventListener("click", closePimpPanel);
+    var t = el("pimpToggle"); if (t) t.addEventListener("click", togglePimpPanel);
+    var rez = aside.querySelector(".pp-resize"), dragging = false;
+    rez.addEventListener("mousedown", function (e) { e.preventDefault(); dragging = true; document.body.style.userSelect = "none"; });
+    window.addEventListener("mousemove", function (e) { if (!dragging) return; var w = window.innerWidth - e.clientX; var maxw = Math.floor(window.innerWidth / 3); w = Math.max(320, Math.min(w, maxw)); aside.style.width = w + "px"; try { localStorage.setItem("ppWidth", String(w)); } catch (_) {} });
+    window.addEventListener("mouseup", function () { if (dragging) { dragging = false; document.body.style.userSelect = ""; } });
+    try { var sw = parseInt(localStorage.getItem("ppWidth"), 10); if (sw) aside.style.width = Math.max(320, Math.min(sw, Math.floor(window.innerWidth / 3))) + "px"; } catch (_) {}
+  }
+  function openPimpPanel() {
+    closeFlash();
+    ppq = null;
+    document.body.classList.add("pimp-open");
+    var t = el("pimpToggle"); if (t) t.setAttribute("aria-expanded", "true");
+    renderPimpPanel();
+  }
+  function closePimpPanel() { document.body.classList.remove("pimp-open"); var t = el("pimpToggle"); if (t) t.setAttribute("aria-expanded", "false"); }
+  function togglePimpPanel() { if (document.body.classList.contains("pimp-open")) closePimpPanel(); else openPimpPanel(); }
+
+  function renderPimpPanel() {
+    var body = document.querySelector("#pimppanel .pp-body"); if (!body) return;
+    body.innerHTML = "";
+    if (ppq) renderPimpPanelQuiz(body); else renderPimpPanelIntro(body);
+  }
+
+  function renderPimpPanelIntro(body) {
+    var bank = pimpBank();
+    if (!bank || !(bank.sets || []).length) {
+      body.appendChild(h('<p class="empty-note">No questions are loaded yet.</p>'));
+      return;
+    }
+    var total = pimpAllQuestions().length;
+    body.appendChild(h('<div class="fp-ctx mono">' + bank.sets.length + ' sets &middot; ' + total + ' questions</div>'));
+    var allBtn = h('<button class="btn" style="width:100%;margin-bottom:8px">Quiz all (' + total + ') &rarr;</button>');
+    allBtn.addEventListener("click", function () { startPimpPanelQuiz(pimpAllQuestions(), "All questions"); });
+    body.appendChild(allBtn);
+    var missN = pqMissCount();
+    if (missN) {
+      var mbtn = h('<button class="btn ghost" style="width:100%;margin-bottom:8px">Review missed (' + missN + ') &rarr;</button>');
+      mbtn.addEventListener("click", function () { startPimpPanelQuiz(pqMissedQuestions(), "Most missed"); });
+      body.appendChild(mbtn);
+    }
+    var shuffleWrap = h('<label class="pq-shuffle mono" style="margin:10px 0 4px"><input type="checkbox" id="ppShuffle"> Shuffle question order</label>');
+    body.appendChild(shuffleWrap);
+    var chk = shuffleWrap.querySelector("input");
+    chk.checked = pimpShuffleOn();
+    chk.addEventListener("change", function () { setPimpShuffle(chk.checked); });
+
+    var groups = [];
+    (bank.sets || []).forEach(function (s) { if (groups.indexOf(s.group) === -1) groups.push(s.group); });
+    var list = h('<div class="mod-list" style="margin-top:10px"></div>');
+    groups.forEach(function (group) {
+      var setsIn = (bank.sets || []).filter(function (s) { return s.group === group; });
+      var gTrack = setsIn[0] ? trackById(setsIn[0].track) : null;
+      var gCount = setsIn.reduce(function (n, s) { return n + (s.questions || []).length; }, 0);
+      var headStyle = gTrack && gTrack.color ? ' style="--track-color:' + gTrack.color + '"' : "";
+      var row = h(
+        '<button class="mod-row pq-allrow" type="button"' + headStyle + '>' +
+          '<div class="row-top"><h3>' + (gTrack ? trackBadge(gTrack, "pq-groupbadge", 14) : "") + esc(group) + '</h3><span class="status-chip">' + gCount + ' Qs</span></div>' +
+        '</button>'
+      );
+      row.addEventListener("click", function () { startPimpPanelQuiz(pimpQuestionsForGroup(group), group); });
+      list.appendChild(row);
+    });
+    body.appendChild(list);
+  }
+
+  function startPimpPanelQuiz(questions, label) {
+    var qs = pimpShuffleOn() ? shuffled(questions) : questions.slice();
+    ppq = { qs: qs, i: 0, revealed: false, label: label || "Questions", got: 0, missed: 0, missedQs: [] };
+    renderPimpPanel();
+  }
+  function pimpPanelAdvance() { ppq.i++; ppq.revealed = false; renderPimpPanel(); }
+  function pimpPanelMarkGot(item) { ppq.got++; pqMissAdjust(item, -1); pimpPanelAdvance(); }
+  function pimpPanelMarkMissed(item) { ppq.missed++; ppq.missedQs.push(item); pqMissAdjust(item, 1); pimpPanelAdvance(); }
+
+  function renderPimpPanelQuiz(body) {
+    var total = ppq.qs.length;
+    var crumb = h('<button class="crumb">&larr; All sets</button>');
+    crumb.addEventListener("click", function () { ppq = null; renderPimpPanel(); });
+    body.appendChild(crumb);
+
+    if (ppq.i >= total) {
+      var answered = ppq.got + ppq.missed;
+      var pct = answered ? Math.round(ppq.got / answered * 100) : 0;
+      var summary = h('<div class="pq-summary"></div>');
+      summary.appendChild(h('<div class="pq-scorebig">' + pct + '%</div>'));
+      summary.appendChild(h('<div class="pq-scoreline mono">' + ppq.got + ' of ' + answered + ' marked correct &middot; ' + esc(ppq.label) + '</div>'));
+      var acts = h('<div class="pq-summary-actions"></div>');
+      if (ppq.missedQs.length) {
+        var redo = h('<button class="btn" style="width:100%">Redo missed (' + ppq.missedQs.length + ') &rarr;</button>');
+        var missedList = ppq.missedQs.slice();
+        redo.addEventListener("click", function () { startPimpPanelQuiz(missedList, ppq.label + " · missed"); });
+        acts.appendChild(redo);
+      }
+      var restart = h('<button class="btn ghost" style="width:100%">Restart set</button>');
+      var full = ppq.qs.slice();
+      restart.addEventListener("click", function () { startPimpPanelQuiz(full, ppq.label); });
+      acts.appendChild(restart);
+      var back = h('<button class="btn ghost" style="width:100%">Back to sets</button>');
+      back.addEventListener("click", function () { ppq = null; renderPimpPanel(); });
+      acts.appendChild(back);
+      summary.appendChild(acts);
+      body.appendChild(summary);
+      return;
+    }
+
+    var item = ppq.qs[ppq.i];
+    var pctDone = Math.round(ppq.i / total * 100);
+    body.appendChild(h('<div class="fp-prog"><i style="width:' + pctDone + '%"></i></div>'));
+    body.appendChild(h('<div class="fp-count mono">Question ' + (ppq.i + 1) + ' of ' + total + ' &middot; ' + esc(ppq.label) + '</div>'));
+
+    var card = h('<div class="flashcard pq-card"></div>');
+    var srcTrack = trackById(item.track);
+    var srcTags = '<div class="card-tags">' +
+      (srcTrack ? '<span class="pill track" title="' + esc(item.group || "") + '">' + esc(srcTrack.abbr || srcTrack.name) + '</span>' : "") +
+      '<span class="pill">' + esc(item.setTitle || "") + '</span>' +
+      '</div>';
+    card.appendChild(h(srcTags));
+    var qEl = document.createElement("div"); qEl.className = "pq-q"; qEl.textContent = item.q;
+    card.appendChild(qEl);
+    if (ppq.revealed) {
+      var aEl = document.createElement("div"); aEl.className = "pq-a"; aEl.textContent = item.a;
+      card.appendChild(aEl);
+    }
+    body.appendChild(card);
+
+    if (!ppq.revealed) {
+      var rv = h('<button class="btn reveal-btn" style="width:100%">Show answer</button>');
+      rv.addEventListener("click", function () { ppq.revealed = true; renderPimpPanel(); });
+      body.appendChild(rv);
+    } else {
+      var ctr = h('<div class="answer-controls pq-controls"></div>');
+      var missBtn = h('<button class="rate again">Missed</button>');
+      missBtn.addEventListener("click", function () { pimpPanelMarkMissed(item); });
+      var gotBtn = h('<button class="rate pq-got">Got it</button>');
+      gotBtn.addEventListener("click", function () { pimpPanelMarkGot(item); });
+      ctr.appendChild(missBtn); ctr.appendChild(gotBtn);
+      body.appendChild(ctr);
+      body.appendChild(h('<div class="kbd-hint mono">Space = Got it</div>'));
+    }
+  }
+
+  /* Spacebar in the FAQ panel: reveal the answer, then mark it correct. */
+  function handlePimpPanelSpace() {
+    if (!ppq || ppq.i >= ppq.qs.length) return false;
+    if (!ppq.revealed) { ppq.revealed = true; renderPimpPanel(); return true; }
+    pimpPanelMarkGot(ppq.qs[ppq.i]);
+    return true;
+  }
+
   /* One global keydown wires the spacebar into whichever card view is active:
-   * the flashcard panel if it is open, otherwise a running study session,
-   * otherwise the FAQ quiz. A focused button, or a form field, is left alone so
-   * native behavior and typing still work. */
+   * the flashcard panel if it is open, then the FAQ panel if it is open,
+   * otherwise a running study session, otherwise the full-page FAQ quiz.
+   * A focused button, or a form field, is left alone so native behavior and
+   * typing still work. */
   function initQuizKeys() {
     document.addEventListener("keydown", function (e) {
       if (e.code !== "Space" && e.key !== " " && e.keyCode !== 32) return;
@@ -2869,6 +3047,7 @@
       if (tag === "INPUT" || tag === "SELECT" || tag === "TEXTAREA" || (t && t.isContentEditable)) return;
       var handled = false;
       if (document.body.classList.contains("flash-open")) handled = handleFlashSpace();
+      else if (document.body.classList.contains("pimp-open")) handled = handlePimpPanelSpace();
       else if ((state.screen === "module" || state.screen === "study") && state.session && !state.session.done) handled = handleStudySpace();
       else if (state.screen === "pimp") handled = handlePimpSpace();
       if (handled) e.preventDefault();
@@ -2914,6 +3093,7 @@
     initTopbarHeightVar();
     initSideNav();
     initFlashPanel();
+    initPimpPanel();
     initQuizKeys();
     initXrefs();
     initSearchShortcut();
@@ -2923,8 +3103,6 @@
     var brand = el("brandHome");
     on(brand, "click", goHome);
     on(brand, "keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); goHome(); } });
-    var pimpBtn = el("pimpToggle");
-    if (pimpBtn) on(pimpBtn, "click", goPimp);
     goHome();
   }
   document.addEventListener("DOMContentLoaded", boot);
