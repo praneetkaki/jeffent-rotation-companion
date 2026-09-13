@@ -1197,47 +1197,138 @@
     var topic = state.anatomyTopic;
     if (topic && topic.kind === "note" && notes[topic.index]) {
       var noteTitle = notes[topic.index].title;
-      var noteWrap = buildAnatomyDetail(mod, pane, noteTitle, function () {
+      var built = buildAnatomyDetail(mod, pane, notes, diagrams, topic, noteTitle, function () {
         return h('<div class="anatomy-detail-body" data-anchor="anatomy-note-' + topic.index + '">' + notes[topic.index].html + '</div>');
       }, false, notes[topic.index].tagline);
-      appendRelatedCardsCta(noteWrap, mod, noteTitle, topic);
-      appendFigureSources(noteWrap);
-      pane.appendChild(noteWrap);
+      appendRelatedCardsCta(built.main, mod, noteTitle, topic);
+      appendFigureSources(built.main);
+      appendNextLessonNav(built.main, mod, pane, notes, diagrams, topic);
+      pane.appendChild(built.shell);
       return;
     }
     if (topic && topic.kind === "diagram" && diagrams[topic.index]) {
       var dgTitle = diagrams[topic.index].title;
-      var dgWrap = buildAnatomyDetail(mod, pane, dgTitle, function () {
+      var built2 = buildAnatomyDetail(mod, pane, notes, diagrams, topic, dgTitle, function () {
         var dgPanel = buildDiagramPanel(diagrams[topic.index]);
         dgPanel.classList.add("anatomy-detail-body");
         return dgPanel;
       }, true, diagrams[topic.index].tagline);
-      appendRelatedCardsCta(dgWrap, mod, dgTitle, topic);
-      pane.appendChild(dgWrap);
+      appendRelatedCardsCta(built2.main, mod, dgTitle, topic);
+      appendNextLessonNav(built2.main, mod, pane, notes, diagrams, topic);
+      pane.appendChild(built2.shell);
       return;
     }
     pane.appendChild(buildAnatomyTopicList(mod, pane, notes, diagrams));
     stacks.forEach(function (st) { pane.appendChild(buildStackPanel(st)); });
   }
 
+  /* Flat, ordered list of every anatomy "lesson" (notes then diagrams, same
+   * order as the overview grid) -- backs both the lesson sidebar and the
+   * next-lesson footer so they always agree on sequence. */
+  function combinedAnatomyList(notes, diagrams) {
+    var list = [];
+    notes.forEach(function (n, i) { list.push({ kind: "note", index: i, title: n.title }); });
+    diagrams.forEach(function (d, i) { list.push({ kind: "diagram", index: i, title: d.title }); });
+    return list;
+  }
+  function anatomyListPos(list, topic) {
+    for (var i = 0; i < list.length; i++) { if (list[i].kind === topic.kind && list[i].index === topic.index) return i; }
+    return -1;
+  }
+
   /* skipTitle: the diagram detail body already renders its own <h3> title via
-   * buildDiagramPanel, so buildAnatomyDetail should not duplicate it.
-   * tagline: optional one-line "what this page covers" caption, shown under
-   * the title (or under the back-link, when the title itself is skipped). */
-  function buildAnatomyDetail(mod, pane, title, buildBody, skipTitle, tagline) {
-    var wrap = h('<div class="anatomy-detail"></div>');
+   * buildDiagramPanel, so the lesson header should not duplicate it.
+   * tagline: optional one-line "what this page covers" caption, shown at the
+   * top-right of the lesson header, beside the note/diagram kicker.
+   * Returns { shell, main } -- shell is what the caller appends to the pane
+   * (includes the lesson sidebar, when there's more than one lesson to jump
+   * between); main is the content column, so callers can keep appending
+   * (related-cards CTA, figure sources, next-lesson nav) after the body. */
+  function buildAnatomyDetail(mod, pane, notes, diagrams, topic, title, buildBody, skipTitle, tagline) {
+    var list = combinedAnatomyList(notes, diagrams);
+    var pos = anatomyListPos(list, topic);
+    var trackObj = trackById(mod.track);
+    var trackStyle = trackObj && trackObj.color ? ' style="--track-color:' + trackObj.color + '"' : "";
+
+    var shell = h('<div class="anatomy-detail lesson-shell"></div>');
+
+    if (list.length > 1) {
+      var nav = h('<nav class="lesson-nav" aria-label="Other anatomy lessons in this subspecialty"' + trackStyle + '></nav>');
+      nav.appendChild(h('<div class="lesson-nav-label mono">' + esc(mod.trackName || mod.track) + ' &middot; Anatomy</div>'));
+      var navList = h('<div class="lesson-nav-list"></div>');
+      var lastKind = null;
+      list.forEach(function (item) {
+        if (item.kind !== lastKind) {
+          navList.appendChild(h('<div class="lesson-nav-group">' + (item.kind === "note" ? "Notes" : "Diagrams") + '</div>'));
+          lastKind = item.kind;
+        }
+        var isActive = item.kind === topic.kind && item.index === topic.index;
+        var btn = h(
+          '<button type="button" class="lesson-nav-item' + (isActive ? ' active' : '') + '"' + (isActive ? ' aria-current="page"' : '') + '>' +
+            '<span class="lesson-nav-dot"></span><span class="lesson-nav-item-title">' + esc(item.title) + '</span>' +
+          '</button>'
+        );
+        if (!isActive) {
+          btn.addEventListener("click", function () {
+            state.anatomyTopic = { kind: item.kind, index: item.index };
+            renderAnatomyPane(pane, mod);
+            window.scrollTo(0, 0);
+          });
+        }
+        navList.appendChild(btn);
+      });
+      nav.appendChild(navList);
+      shell.appendChild(nav);
+    }
+
+    var main = h('<div class="lesson-main"></div>');
     var back = h('<button type="button" class="crumb anatomy-back">← Back to anatomy overview</button>');
     back.addEventListener("click", function () {
       state.anatomyTopic = null;
       renderAnatomyPane(pane, mod);
       setStickyCurrent(mod.title);
     });
-    wrap.appendChild(back);
-    if (!skipTitle) wrap.appendChild(h('<h2 class="anatomy-detail-title">' + esc(title) + '</h2>'));
-    if (tagline) wrap.appendChild(h('<p class="detail-tagline">' + esc(tagline) + '</p>'));
-    wrap.appendChild(buildBody());
+    main.appendChild(back);
+
+    var hero = h('<div class="lesson-hero"' + trackStyle + '></div>');
+    var heroTop = h('<div class="lesson-hero-top"></div>');
+    heroTop.appendChild(h(
+      '<span class="lesson-kicker mono">' + esc(topic.kind === "note" ? "Anatomy note" : "Anatomy diagram") +
+      (list.length > 1 && pos > -1 ? ' &middot; ' + (pos + 1) + ' of ' + list.length : '') + '</span>'
+    ));
+    if (tagline) heroTop.appendChild(h('<span class="lesson-tagline">' + esc(tagline) + '</span>'));
+    hero.appendChild(heroTop);
+    if (!skipTitle) hero.appendChild(h('<h2 class="anatomy-detail-title lesson-title">' + esc(title) + '</h2>'));
+    main.appendChild(hero);
+
+    main.appendChild(buildBody());
+    shell.appendChild(main);
     setStickyCurrent(title);
-    return wrap;
+    return { shell: shell, main: main };
+  }
+
+  /* Footer nav: jump straight to the next lesson in this module's Notes+
+   * Diagrams sequence, wrapping back to the first after the last. Omitted
+   * entirely when there's nothing else to go to. */
+  function appendNextLessonNav(main, mod, pane, notes, diagrams, topic) {
+    var list = combinedAnatomyList(notes, diagrams);
+    if (list.length < 2) return;
+    var pos = anatomyListPos(list, topic);
+    if (pos === -1) return;
+    var next = list[(pos + 1) % list.length];
+    var btn = h(
+      '<button type="button" class="lesson-next">' +
+        '<span class="lesson-next-copy"><span class="lesson-next-label">Next lesson</span>' +
+        '<span class="lesson-next-title">' + esc(next.title) + '</span></span>' +
+        '<span class="lesson-next-arrow" aria-hidden="true">&rarr;</span>' +
+      '</button>'
+    );
+    btn.addEventListener("click", function () {
+      state.anatomyTopic = { kind: next.kind, index: next.index };
+      renderAnatomyPane(pane, mod);
+      window.scrollTo(0, 0);
+    });
+    main.appendChild(btn);
   }
 
   /* Updates the slim sticky strip's current-section label, when present. */
