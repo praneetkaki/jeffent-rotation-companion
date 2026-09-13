@@ -49,7 +49,7 @@ window.JEFFENT.register({
       },
       {
         title: "Laryngeal nerve supply",
-        html: "<figure class='note-fig' data-credit='Source not yet cited, added by the project owner, replace credit before sharing.'><img class='zoomable' src='assets/img/figures/recurrent_laryngeal_nerve_course.png' alt='Recurrent laryngeal nerve course' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Superior laryngeal nerve and recurrent laryngeal nerve innervation of the larynx and their courses.</figcaption></figure><ul><li><strong>Superior laryngeal nerve</strong>: external branch to cricothyroid (pitch); internal branch for sensation above the cords.</li><li><strong>Recurrent laryngeal nerve (RLN)</strong>: every other intrinsic muscle (including the only abductor, posterior cricoarytenoid) and sensation below the cords.</li><li>The RLN is long and asymmetric: <strong>left</strong> loops under the aortic arch, <strong>right</strong> under the subclavian artery.</li><li>That is why hoarseness can be the first sign of a lung apex tumor, aortic aneurysm, or thyroid/mediastinal disease, and why the RLN is at risk in thyroid surgery.</li></ul>"
+        html: "<figure class='note-fig' data-credit='Source not yet cited, added by the project owner, replace credit before sharing.'><img class='zoomable' src='assets/img/figures/recurrent_laryngeal_nerve_course_2.png' alt='Recurrent laryngeal nerve course' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Superior laryngeal nerve and recurrent laryngeal nerve innervation of the larynx and their courses.</figcaption></figure><ul><li><strong>Superior laryngeal nerve</strong>: external branch to cricothyroid (pitch); internal branch for sensation above the cords.</li><li><strong>Recurrent laryngeal nerve (RLN)</strong>: every other intrinsic muscle (including the only abductor, posterior cricoarytenoid) and sensation below the cords.</li><li>The RLN is long and asymmetric: <strong>left</strong> loops under the aortic arch, <strong>right</strong> under the subclavian artery.</li><li>That is why hoarseness can be the first sign of a lung apex tumor, aortic aneurysm, or thyroid/mediastinal disease, and why the RLN is at risk in thyroid surgery.</li></ul>"
       }
     ],
     diagrams: [
@@ -62,11 +62,13 @@ window.JEFFENT.register({
         src: "assets/img/figures/laryngeal_cartilages.png",
         source: "Laryngeal Cartilage Framework (Thyroid, Cricoid, Arytenoids, Epiglottis). Illustration generated with Google Gemini.",
         labels: [
-          { id:"epi", text:"Epiglottis", box:{x:38.0,y:7.3,w:24.0,h:9.0} },
-          { id:"thy", text:"Thyroid cartilage (laminae)", box:{x:19.2,y:39.6,w:24.0,h:9.0} },
-          { id:"ary", text:"Arytenoid cartilages (paired, rotate/glide)", box:{x:38.0,y:33.7,w:24.0,h:9.0} },
-          { id:"cric", text:"Cricoid cartilage: the only complete ring", box:{x:38.0,y:71.1,w:24.0,h:9.0} },
-          { id:"trach", text:"Trachea begins", box:{x:38.0,y:86.7,w:24.0,h:9.0} }
+          { id:"hyoid", text:"Hyoid bone: superior anchor for laryngeal suspension; tethers the epiglottis and thyrohyoid membrane above the larynx (not itself a laryngeal cartilage).", box:{x:3.0,y:23.0,w:12.5,h:6.0} },
+          { id:"epi", text:"Epiglottis: leaf-shaped elastic cartilage that folds down over the laryngeal inlet during swallowing to protect the airway.", box:{x:42.0,y:19.5,w:16.0,h:11.5} },
+          { id:"thy", text:"Thyroid cartilage: the largest laryngeal cartilage; its anterior fusion forms the laryngeal prominence ('Adam's apple').", box:{x:41.5,y:36.0,w:16.0,h:11.5} },
+          { id:"cricothy", text:"Cricothyroid membrane: the surface landmark for emergency cricothyrotomy, spanning between the thyroid and cricoid cartilages.", box:{x:38.5,y:51.0,w:23.5,h:6.8} },
+          { id:"cric", text:"Cricoid cartilage: the only complete cartilaginous ring in the airway; forms the lower boundary of the subglottis.", box:{x:38.5,y:61.8,w:23.5,h:7.0} },
+          { id:"ary", text:"Arytenoid cartilages: paired pyramidal cartilages that rotate and glide on the cricoid to open and close the vocal folds.", box:{x:84.5,y:43.5,w:10.5,h:16.5} },
+          { id:"trach", text:"Superior tracheal rings: the trachea begins just below the cricoid cartilage, continuing the airway into the chest.", box:{x:5.5,y:74.8,w:17.5,h:7.0} }
         ]
       },
       {
@@ -78,9 +80,18 @@ window.JEFFENT.register({
         src: "assets/img/figures/laryngeal_subsites_supraglottis.png",
         source: "Laryngeal subsites. Illustration generated with Google Gemini.",
         labels: [
-          { id:"sg", text:"Supraglottis (epiglottis, false folds, ventricle): rich lymphatics, late nodal presentation", box:{x:61,y:17,w:28,h:9} },
-          { id:"gl", text:"Glottis (true vocal folds): sparse lymphatics, hoarseness presents early", box:{x:61,y:45,w:20,h:8} },
-          { id:"sub", text:"Subglottis: narrowest part of a child's airway; site of subglottic stenosis", box:{x:61,y:66,w:27,h:9} }
+          { id:"epiglottis", text:"Epiglottis: leaf-shaped cartilage forming the top of the supraglottis; folds over the laryngeal inlet during swallowing.", box:{x:49.6,y:16.64,w:9.77,h:4.47} },
+          { id:"false-vf", text:"False vocal folds (vestibular folds): supraglottic mucosal folds above the true cords; do not vibrate for phonation, but can compensate for glottic insufficiency.", box:{x:49.3,y:23.26,w:16.6,h:8.05} },
+          { id:"ventricles-morgagni", text:"Laryngeal ventricles (of Morgagni): the space between the false and true vocal folds; saccule herniation here causes a laryngocele.", box:{x:49.3,y:33.99,w:20.02,h:7.51} },
+          { id:"sg", text:"Supraglottis (epiglottis, false folds, ventricle): rich lymphatics, so cancer here presents late, often with a neck node.", box:{x:67.0,y:23.4,w:30.5,h:15.0} },
+          { id:"lv", text:"Laryngeal ventricle: the mucosal recess separating the false fold above from the true fold below.", box:{x:49.3,y:46.51,w:11.72,h:7.51} },
+          { id:"tvf", text:"True vocal folds (vocal cords): the vibrating margin that produces voice; sparse lymphatics mean cancer here causes hoarseness early.", box:{x:9.28,y:54.2,w:15.63,h:7.51} },
+          { id:"true-cords", text:"True cords: the free edge of the vocal fold, formed by the vocalis muscle covered by the epithelium and lamina propria.", box:{x:49.3,y:55.46,w:11.23,h:4.47} },
+          { id:"gl", text:"Glottis (true vocal folds): sparse lymphatics, hoarseness presents early and cancer is often caught before it spreads.", box:{x:67.0,y:47.9,w:30.5,h:15.5} },
+          { id:"rima", text:"Rima glottidis: the airway opening between the true vocal folds; its widest point is at the posterior commissure during abduction.", box:{x:11.52,y:67.08,w:13.18,h:4.47} },
+          { id:"cricoid-cart", text:"Cricoid cartilage: the only complete cartilaginous ring in the airway, forming the subglottic framework below the folds.", box:{x:9.47,y:74.78,w:15.14,h:4.47} },
+          { id:"sub", text:"Subglottis: narrowest part of a child's airway; site of subglottic stenosis (iatrogenic, idiopathic, or GPA).", box:{x:67.0,y:68.0,w:26.5,h:15.0} },
+          { id:"trachea", text:"Trachea: continues the airway below the cricoid cartilage, made of incomplete (C-shaped) cartilaginous rings.", box:{x:16.41,y:85.15,w:9.28,h:4.47} }
         ]
       },
       {
@@ -89,14 +100,16 @@ window.JEFFENT.register({
         id: "rln-course",
         title: "Recurrent laryngeal nerve course",
         note: "Why hoarseness can be the first sign of chest, thyroid, or mediastinal disease. Tap each covered label, then reveal.",
-        src: "assets/img/figures/recurrent_laryngeal_nerve_course.png",
+        src: "assets/img/figures/recurrent_laryngeal_nerve_course_2.png",
         source: "Recurrent laryngeal nerve course. Illustration generated with Google Gemini.",
         labels: [
-          { id:"rrln", text:"Right recurrent laryngeal nerve: loops under the right subclavian artery", box:{x:0,y:18,w:23,h:9} },
-          { id:"lrln", text:"Left recurrent laryngeal nerve: loops under the arch of the aorta", box:{x:56,y:18,w:33,h:9} },
-          { id:"rsub", text:"Right subclavian artery (the right RLN hooks under it)", box:{x:0,y:32,w:22,h:9} },
-          { id:"lsub", text:"Left subclavian artery", box:{x:56,y:32,w:27,h:9} },
-          { id:"arch", text:"Arch of the aorta (the left RLN hooks under it)", box:{x:56,y:52,w:33,h:7} }
+          { id:"rvn", text:"Right vagus nerve: descends in the carotid sheath and gives off the right recurrent laryngeal nerve in the root of the neck.", box:{x:0,y:9.0,w:21.0,h:4.5} },
+          { id:"rrln", text:"Right recurrent laryngeal nerve: loops under the right subclavian artery, a shorter and more direct course than the left.", box:{x:0,y:16.8,w:19.5,h:8.8} },
+          { id:"rsa", text:"Right subclavian artery: the right RLN hooks under this vessel before ascending back to the larynx.", box:{x:0,y:31.4,w:20.5,h:8.5} },
+          { id:"lvn", text:"Left vagus nerve: continues past the aortic arch before giving off the left recurrent laryngeal nerve, giving it a longer thoracic course.", box:{x:79.5,y:9.2,w:20.5,h:4.5} },
+          { id:"lrln", text:"Left recurrent laryngeal nerve: loops under the arch of the aorta, exposing it to mediastinal, thyroid, and aortic pathology.", box:{x:79.5,y:23.4,w:20.5,h:9.2} },
+          { id:"lsa", text:"Left subclavian artery: arises from the aortic arch; the left RLN passes medial to it, not around it.", box:{x:79.5,y:41.5,w:20.5,h:7.0} },
+          { id:"aorta", text:"Arch of the aorta: the anatomic reason the left RLN has a longer, more clinically vulnerable course than the right.", box:{x:85.5,y:54.4,w:14.5,h:5.0} }
         ]
       },
       {
@@ -108,12 +121,14 @@ window.JEFFENT.register({
         src: "assets/img/figures/vocal_fold_layers.png",
         source: "Microarchitecture of the True Vocal Fold (Cover-Body Layers). Illustration generated with Google Gemini.",
         labels: [
-          { id:"vf-epithelium", text:"Epithelium: the thin surface lining", box:{x:30.2,y:25.9,w:24.0,h:9.0} },
-          { id:"vf-superficial-lp", text:"Superficial lamina propria (Reinke's space): the pliable 'cover' layer", box:{x:33.3,y:29.8,w:24.0,h:9.0} },
-          { id:"vf-intermediate-lp", text:"Intermediate lamina propria: part of the 'transition'", box:{x:37.4,y:34.1,w:24.0,h:9.0} },
-          { id:"vf-deep-lp", text:"Deep lamina propria: part of the 'transition'", box:{x:41.4,y:37.3,w:24.0,h:9.0} },
-          { id:"vf-vocalis", text:"Vocalis muscle (thyroarytenoid): the stiffer 'body'", box:{x:50.5,y:45.5,w:24.0,h:9.0} },
-          { id:"vf-free-edge", text:"Free edge: the vibrating margin where cover slides over body", box:{x:7.4,y:45.5,w:24.0,h:9.0} }
+          { id:"vf-epithelium", text:"Epithelium: the thin surface lining of the vocal fold, part of the vibrating 'cover'.", box:{x:43.6,y:12.12,w:16.58,h:4.55} },
+          { id:"vf-superficial-lp", text:"Superficial lamina propria (Reinke's space): the pliable, gelatinous layer that lets the cover slide over the body; swells with smoking, reflux, or vocal abuse.", box:{x:43.5,y:20.15,w:43.75,h:9.39} },
+          { id:"vf-intermediate-lp", text:"Intermediate lamina propria: elastin-rich middle layer of the vocal ligament, part of the 'transition' between cover and body.", box:{x:43.5,y:33.03,w:43.75,h:5.76} },
+          { id:"vf-ligament", text:"Vocal ligament: formed by the intermediate and deep lamina propria together; the fibrous band spanning the anterior and posterior glottis.", box:{x:40.05,y:43.94,w:16.78,h:9.55} },
+          { id:"vf-vocals-muscle", text:"Vocalis (thyroarytenoid) muscle: the stiffer 'body' of the fold; its tension helps set pitch.", box:{x:38.19,y:72.27,w:22.57,h:12.58} },
+          { id:"vf-deep-lp", text:"Deep lamina propria: collagen-rich layer bordering the muscle, part of the 'transition' contributing to the vocal ligament.", box:{x:69.56,y:69.7,w:21.64,h:3.79} },
+          { id:"vf-cover", text:"Cover: the epithelium plus superficial lamina propria; the pliable layer that vibrates freely in the mucosal wave.", box:{x:69.56,y:80.3,w:9.6,h:4.24} },
+          { id:"vf-body", text:"Body: the vocalis muscle plus the vocal ligament (intermediate and deep lamina propria); the stiffer layer the cover vibrates over.", box:{x:64.0,y:86.06,w:35.53,h:8.64} }
         ]
       }
     ]
@@ -139,7 +154,7 @@ window.JEFFENT.register({
       {
         id: "vf-paralysis-workup-management",
         title: "Unilateral vocal fold paralysis: workup and the management ladder",
-        html: "<figure class='note-fig' data-credit='Source not yet cited, added by the project owner, replace credit before sharing.'><img class='zoomable' src='assets/img/figures/recurrent_laryngeal_nerve_course.png' alt='Recurrent laryngeal nerve course' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Workup of unilateral vocal fold paralysis requires imaging the entire RLN course; management ladder from voice therapy to thyroplasty.</figcaption></figure><p>Once laryngoscopy confirms an immobile fold, image the <strong>entire recurrent laryngeal nerve course</strong>, from skull base to the aortic arch and mediastinum, because a lesion anywhere along that path (lung apex tumor, thyroid mass, mediastinal node, aortic aneurysm) can be the cause, not just the neck.</p>"
+        html: "<figure class='note-fig' data-credit='Source not yet cited, added by the project owner, replace credit before sharing.'><img class='zoomable' src='assets/img/figures/recurrent_laryngeal_nerve_course_2.png' alt='Recurrent laryngeal nerve course' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Workup of unilateral vocal fold paralysis requires imaging the entire RLN course; management ladder from voice therapy to thyroplasty.</figcaption></figure><p>Once laryngoscopy confirms an immobile fold, image the <strong>entire recurrent laryngeal nerve course</strong>, from skull base to the aortic arch and mediastinum, because a lesion anywhere along that path (lung apex tumor, thyroid mass, mediastinal node, aortic aneurysm) can be the cause, not just the neck.</p>"
           + "<p><strong>Management ladder</strong> (for a fold unlikely to be from a treatable cause found above):</p>"
           + "<ul><li><strong>Observe + voice therapy</strong> first: a genuine chance of spontaneous recovery persists for up to ~6-12 months, especially after a clear iatrogenic or viral insult.</li>"
           + "<li><strong>Injection augmentation (medialization laryngoplasty)</strong>: an in-office or OR injection of a temporary filler into the paralyzed fold to push it toward midline. Used as a bridge while recovery is still possible, or for a likely-transient palsy (e.g. malignancy with expected nerve recovery after resection).</li>"
@@ -321,7 +336,7 @@ window.JEFFENT.register({
     { id:"sln-rln-card", tags: ["LA", "anatomy"], milestones:["MK1","PC6"], ukmla:"Hoarseness and voice change", source:"Standard laryngeal neuroanatomy teaching.", front:"What does the superior laryngeal nerve control vs the recurrent laryngeal nerve?",
       back:"<strong>Superior laryngeal n.:</strong> external branch → cricothyroid (pitch); internal branch → sensation above the cords. <strong>Recurrent laryngeal n. (RLN):</strong> all other intrinsic muscles (including the only abductor, posterior cricoarytenoid) + sensation below the cords." },
     { id:"rln-course-card", tags: ["LA", "anatomy"], milestones:["MK1","PC6"], ukmla:"Hoarseness and voice change", source:"Standard laryngeal neuroanatomy teaching.", front:"Trace the course of the recurrent laryngeal nerve on each side, and explain why it matters for hoarseness.",
-      back:"<strong>Left RLN</strong> loops under the <strong>aortic arch</strong>; <strong>right RLN</strong> loops under the <strong>subclavian artery</strong>. Both then ascend near the thyroid. This long course means a lung apex tumor, aortic aneurysm, or thyroid/mediastinal mass can present as <strong>hoarseness</strong>, and it's the nerve at risk during thyroid surgery.<figure class='note-fig' data-credit='Source not yet cited, added by the project owner, replace credit before sharing.'><img class='zoomable' src='assets/img/figures/recurrent_laryngeal_nerve_course.png' alt='Recurrent laryngeal nerve course' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Course of the recurrent laryngeal nerve on each side and its clinical significance for hoarseness.</figcaption></figure>" },
+      back:"<strong>Left RLN</strong> loops under the <strong>aortic arch</strong>; <strong>right RLN</strong> loops under the <strong>subclavian artery</strong>. Both then ascend near the thyroid. This long course means a lung apex tumor, aortic aneurysm, or thyroid/mediastinal mass can present as <strong>hoarseness</strong>, and it's the nerve at risk during thyroid surgery.<figure class='note-fig' data-credit='Source not yet cited, added by the project owner, replace credit before sharing.'><img class='zoomable' src='assets/img/figures/recurrent_laryngeal_nerve_course_2.png' alt='Recurrent laryngeal nerve course' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Course of the recurrent laryngeal nerve on each side and its clinical significance for hoarseness.</figcaption></figure>" },
     { id:"unilateral-vf-paralysis-card", tags: ["LA", "clinical"], milestones:["PC6"], ukmla:"Hoarseness and voice change", source:"Standard laryngology teaching on vocal fold immobility.", front:"What does unilateral vocal fold paralysis look like, and what are the common causes?",
       back:"<strong>Breathy, weak voice</strong> and aspiration risk (glottic incompetence), but the <strong>airway is usually fine</strong>. Causes: thyroid/neck/chest surgery, a lung apex or mediastinal mass along the RLN course, idiopathic, viral." },
     { id:"vf-paralysis-management-card", tags: ["LA", "clinical"], milestones:["PC6","MK3"], ukmla:"Hoarseness and voice change", source:"Standard laryngology teaching on vocal fold paralysis workup and medialization procedures.", front:"Working up unilateral vocal fold paralysis means imaging <span class=\"cloze-blank\">[...]</span>, from the skull base to the aortic arch, since a lesion anywhere along that path can be the cause.",

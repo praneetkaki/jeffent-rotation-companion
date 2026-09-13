@@ -1,8 +1,8 @@
 {
  "generated_by": "scripts/build-image-registry.py",
  "note": "Auto-generated from content/*.js. Do not hand-edit; rerun the script instead.",
- "image_count": 93,
- "total_usages": 214,
+ "image_count": 90,
+ "total_usages": 198,
  "images": [
   {
    "file": "assets/1024px-2306_The_Larynx.jpg",
@@ -34,23 +34,6 @@
      "stem_snippet": null,
      "alt": "Head and neck overview",
      "caption": "Landmarks: Airway bottlenecks and rich vascular and fascial connections.",
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/800px-Gray981.png",
-   "used_in": [
-    {
-     "module_file": "content/anatomy-atlas.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": null,
-     "context_title": "Branchial arch, pouch, and cleft embryology",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": "Branchial arches",
-     "caption": "Landmarks: Arches 1-4, pouches 1-4, and second cleft persistence.",
      "credit": null
     }
    ]
@@ -136,23 +119,6 @@
    ]
   },
   {
-   "file": "assets/img/figures/ENT_regions.png",
-   "used_in": [
-    {
-     "module_file": "content/ent-exam-clinic-complaints.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "ent-regions-overview",
-     "context_title": "The ENT regions at a glance",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    }
-   ]
-  },
-  {
    "file": "assets/img/figures/ENT_regions_glance.png",
    "used_in": [
     {
@@ -183,18 +149,6 @@
      "alt": "FESS anatomy variants sinus CT",
      "caption": "Pneumatization variants relevant to FESS: concha bullosa, Haller cells, Onodi cells.",
      "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
-    },
-    {
-     "module_file": "content/rhinology.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "fess-anatomic-variants",
-     "context_title": "FESS anatomic variants: concha bullosa, Haller cells, Onodi cells",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
     }
    ]
   },
@@ -496,7 +450,7 @@
     {
      "module_file": "content/rhinology.js",
      "kind": "figure",
-     "section": "diagrams",
+     "section": null,
      "context_id": "crs-definition",
      "context_title": "Chronic rhinosinusitis (CRS): definition & subtypes",
      "front_snippet": null,
@@ -525,7 +479,7 @@
     {
      "module_file": "content/pediatric.js",
      "kind": "figure",
-     "section": "diagrams",
+     "section": null,
      "context_id": "congenital-neck-masses",
      "context_title": "Congenital neck masses by location",
      "front_snippet": null,
@@ -640,18 +594,6 @@
     },
     {
      "module_file": "content/ent-exam-clinic-complaints.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "ear-cross-section",
-     "context_title": "The ear in cross-section",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    },
-    {
-     "module_file": "content/otology.js",
      "kind": "diagram",
      "section": "diagrams",
      "context_id": "ear-cross-section",
@@ -989,23 +931,6 @@
      "section": "diagrams",
      "context_id": "hypoglossal-stimulator-pathway",
      "context_title": "Hypoglossal nerve stimulator",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/figures/inner-ear-labyrinth.png",
-   "used_in": [
-    {
-     "module_file": "content/otology.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "labyrinth-photo",
-     "context_title": "Bony (osseous) labyrinth: inner ear",
      "front_snippet": null,
      "stem_snippet": null,
      "alt": null,
@@ -1390,18 +1315,6 @@
      "alt": "Middle ear dangerous relationships",
      "caption": "Tensor tympani (CN V3) and stapedius (CN VII), the two middle-ear muscles and the acoustic reflex.",
      "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
-    },
-    {
-     "module_file": "content/otology.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "middle-ear-danger-relationships",
-     "context_title": "The middle ear and mastoid danger zone",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
     }
    ]
   },
@@ -1436,18 +1349,6 @@
      "alt": "Nasal septum",
      "caption": "Composition of the nasal septum and why septal hematoma causes saddle-nose deformity.",
      "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
-    },
-    {
-     "module_file": "content/rhinology.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "nasal-septum-anatomy",
-     "context_title": "Nasal septum: cartilage and bone",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
     }
    ]
   },
@@ -1465,18 +1366,6 @@
      "alt": "Neck triangles colored",
      "caption": "Recall of the boundaries and contents of the anterior and posterior neck triangles.",
      "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
-    },
-    {
-     "module_file": "content/anatomy-atlas.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "neck-fascial-triangles",
-     "context_title": "The neck as fascial layers and triangles",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
     },
     {
      "module_file": "content/ent-exam-clinic-complaints.js",
@@ -1648,6 +1537,35 @@
      "section": "diagrams",
      "context_id": "oral-oropharynx-subsites",
      "context_title": "Oral cavity vs oropharynx (sagittal)",
+     "front_snippet": null,
+     "stem_snippet": null,
+     "alt": null,
+     "caption": null,
+     "credit": null
+    }
+   ]
+  },
+  {
+   "file": "assets/img/figures/orbital_blowout_fracture.png",
+   "used_in": [
+    {
+     "module_file": "content/facial-plastics.js",
+     "kind": "figure",
+     "section": "cards",
+     "context_id": "orbital-blowout-card",
+     "context_title": null,
+     "front_snippet": "What is an orbital blow-out fracture, and what classic exam findings does it cause?",
+     "stem_snippet": null,
+     "alt": "Orbital floor blowout fracture, coronal CT",
+     "caption": "Coronal CT: the arrow marks the trapdoor fracture and herniated tissue into the maxillary sinus.",
+     "credit": null
+    },
+    {
+     "module_file": "content/facial-plastics.js",
+     "kind": "diagram",
+     "section": "diagrams",
+     "context_id": "orbital-floor-blowout",
+     "context_title": "Orbital floor blow-out fracture",
      "front_snippet": null,
      "stem_snippet": null,
      "alt": null,
@@ -1884,7 +1802,7 @@
     {
      "module_file": "content/facial-plastics.js",
      "kind": "figure",
-     "section": "diagrams",
+     "section": null,
      "context_id": "duct-and-nerve-not-to-miss",
      "context_title": "Structures not to miss in a cheek/parotid laceration",
      "front_snippet": null,
@@ -2125,7 +2043,7 @@
    ]
   },
   {
-   "file": "assets/img/figures/recurrent_laryngeal_nerve_course.png",
+   "file": "assets/img/figures/recurrent_laryngeal_nerve_course_2.png",
    "used_in": [
     {
      "module_file": "content/ent-exam-clinic-complaints.js",
@@ -2154,7 +2072,7 @@
     {
      "module_file": "content/laryngology.js",
      "kind": "figure",
-     "section": "diagrams",
+     "section": null,
      "context_id": "vf-paralysis-workup-management",
      "context_title": "Unilateral vocal fold paralysis: workup and the management ladder",
      "front_snippet": null,
@@ -2220,18 +2138,6 @@
      "alt": "Salivary gland ducts",
      "caption": "Wharton&#39;s duct&#39;s uphill course explaining why the submandibular gland is the classic site for salivary stones.",
      "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
-    },
-    {
-     "module_file": "content/head-neck.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "salivary-glands-overview",
-     "context_title": "The three major salivary glands and their ducts",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
     }
    ]
   },
@@ -2280,30 +2186,6 @@
      "section": "diagrams",
      "context_id": "head-neck-cranial-nerves",
      "context_title": "Cranial nerves of the head and neck",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    },
-    {
-     "module_file": "content/anatomy-atlas.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "skull-base-foramina",
-     "context_title": "The skull base foramina",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    },
-    {
-     "module_file": "content/ent-exam-clinic-complaints.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "ent-cranial-nerves-overview",
-     "context_title": "The skull base foramina and their cranial nerves",
      "front_snippet": null,
      "stem_snippet": null,
      "alt": null,
@@ -2425,18 +2307,6 @@
      "alt": "Thyroid adjacent structures",
      "caption": "Recurrent laryngeal nerve and parathyroid glands at surgical risk during thyroidectomy.",
      "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
-    },
-    {
-     "module_file": "content/head-neck.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "thyroid-parathyroid-anatomy",
-     "context_title": "Thyroid and parathyroid glands with the recurrent laryngeal nerve",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
     }
    ]
   },
@@ -2572,18 +2442,6 @@
      "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
     },
     {
-     "module_file": "content/ent-exam-clinic-complaints.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "tm-right",
-     "context_title": "Right tympanic membrane: landmarks",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    },
-    {
      "module_file": "content/otology.js",
      "kind": "figure",
      "section": "cards",
@@ -2594,18 +2452,6 @@
      "alt": "Tympanic membrane landmarks",
      "caption": "Naming tympanic membrane landmarks (cone of light, umbo, manubrium, pars tensa/flaccida) on otoscopy.",
      "credit": "Source not yet cited, added by the project owner, replace credit before sharing."
-    },
-    {
-     "module_file": "content/otology.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "tm-right",
-     "context_title": "Right tympanic membrane: landmarks",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
     }
    ]
   },
@@ -2779,7 +2625,7 @@
     {
      "module_file": "content/laryngology.js",
      "kind": "figure",
-     "section": "diagrams",
+     "section": null,
      "context_id": "vocal-process-granuloma",
      "context_title": "Vocal process (contact) granuloma",
      "front_snippet": null,
@@ -2823,35 +2669,6 @@
      "section": "diagrams",
      "context_id": "waldeyers-ring-diagram",
      "context_title": "Waldeyer's ring",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
-     "credit": null
-    }
-   ]
-  },
-  {
-   "file": "assets/img/mc/14_branchial_arches_derivatives.png",
-   "used_in": [
-    {
-     "module_file": "content/anatomy-atlas.js",
-     "kind": "figure",
-     "section": null,
-     "context_id": "branchial-arch-derivatives-card",
-     "context_title": null,
-     "front_snippet": "Unlike the malleus and incus, which arise from the first arch, the stapes derives embryologically from the <span class=\\",
-     "stem_snippet": null,
-     "alt": "Branchial arch derivatives",
-     "caption": "Branchial arch skeletal and muscular derivatives.",
-     "credit": null
-    },
-    {
-     "module_file": "content/anatomy-atlas.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "branchial-arch-pouch-cleft",
-     "context_title": "First and second branchial arches, pouches, and clefts",
      "front_snippet": null,
      "stem_snippet": null,
      "alt": null,
@@ -2907,30 +2724,6 @@
      "stem_snippet": null,
      "alt": "Orbital floor blowout fracture",
      "caption": "Orbital floor blowout fracture and muscle entrapment.",
-     "credit": null
-    },
-    {
-     "module_file": "content/facial-plastics.js",
-     "kind": "figure",
-     "section": "cards",
-     "context_id": "orbital-blowout-card",
-     "context_title": null,
-     "front_snippet": "What is an orbital blow-out fracture, and what classic exam findings does it cause?",
-     "stem_snippet": null,
-     "alt": "Orbital floor blowout fracture",
-     "caption": "Orbital floor blowout fracture and muscle entrapment.",
-     "credit": null
-    },
-    {
-     "module_file": "content/facial-plastics.js",
-     "kind": "diagram",
-     "section": "diagrams",
-     "context_id": "orbital-floor-blowout",
-     "context_title": "Orbital floor blow-out fracture",
-     "front_snippet": null,
-     "stem_snippet": null,
-     "alt": null,
-     "caption": null,
      "credit": null
     }
    ]

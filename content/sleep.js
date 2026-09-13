@@ -62,9 +62,9 @@ window.JEFFENT.register({
         src: "assets/img/figures/level_upper_airway_obstruction_labeled.png",
         source: "Levels of Upper Airway Obstruction and Targeted Surgeries. Illustration generated with Google Gemini.",
         labels: [
-          { id:"nasal", text:"Nasal cavity: septum/turbinates; affects CPAP tolerance more than apnea directly", box:{x:38.0,y:12.6,w:24.0,h:9.0} },
-          { id:"retropalatal", text:"Retropalatal: soft palate/uvula/lateral walls (UPPP target)", box:{x:38.0,y:37.6,w:24.0,h:9.0} },
-          { id:"retroglossal", text:"Retroglossal: tongue base (hypoglossal nerve stimulator / tongue-base surgery target)", box:{x:38.0,y:63.9,w:24.0,h:9.0} }
+          { id:"nasal", text:"Nasal cavity: septum/turbinates; affects CPAP tolerance more than apnea directly", box:{x:73.5,y:20.0,w:17.0,h:8.0} },
+          { id:"retropalatal", text:"Retropalatal region: soft palate/uvula/lateral walls (UPPP target)", box:{x:73.5,y:44.0,w:26.5,h:8.0} },
+          { id:"retroglossal", text:"Retroglossal region: tongue base (hypoglossal nerve stimulator / tongue-base surgery target)", box:{x:73.5,y:57.0,w:27.0,h:8.0} }
         ]
       },
       {
@@ -76,10 +76,10 @@ window.JEFFENT.register({
         src: "assets/img/figures/Friedman_tongue.png",
         source: "Friedman Tongue Position Grades (I-IV). ResearchGate / Friedman et al.",
         labels: [
-          { id:"i", text:"Grade I: full view of tonsils/pillars/soft palate", box:{x:0.5,y:45.5,w:24.0,h:9.0} },
-          { id:"ii", text:"Grade II: partial view, some tongue-base crowding", box:{x:25.5,y:45.5,w:24.0,h:9.0} },
-          { id:"iii", text:"Grade III: soft palate visible, tongue base obscures most", box:{x:50.5,y:45.5,w:24.0,h:9.0} },
-          { id:"iv", text:"Grade IV: only hard palate visible; worst predictor for UPPP-alone success", box:{x:75.5,y:45.5,w:24.0,h:9.0} }
+          { id:"i", text:"Grade I: full view of tonsils/pillars/soft palate", box:{x:23.0,y:46.0,w:4.0,h:4.0} },
+          { id:"ii", text:"Grade II: partial view, some tongue-base crowding", box:{x:72.9,y:46.0,w:4.0,h:4.0} },
+          { id:"iii", text:"Grade III: soft palate visible, tongue base obscures most", box:{x:22.5,y:96.5,w:4.5,h:3.3} },
+          { id:"iv", text:"Grade IV: only hard palate visible; worst predictor for UPPP-alone success", box:{x:72.3,y:96.5,w:5.0,h:3.3} }
         ]
       },
       {
@@ -91,9 +91,13 @@ window.JEFFENT.register({
         src: "assets/img/figures/hypoglossal_nerve_stimulator_diagram.png",
         source: "Hypoglossal Nerve Stimulator Components (Generator, Sensing Lead, Cuff). Xia et al. (2023) Sensors 23(21):8882.",
         labels: [
-          { id:"generator", text:"Pulse generator: implanted in the chest, senses respiration", box:{x:9.9,y:56.2,w:24.0,h:9.0} },
-          { id:"sensing", text:"Sensing lead: detects inspiration to time stimulation", box:{x:0.0,y:70.5,w:24.0,h:9.0} },
-          { id:"cuff", text:"Stimulation cuff on cranial nerve XII: protrudes the tongue in phase with breathing", box:{x:47.4,y:38.4,w:24.0,h:9.0} }
+          { id:"hypoglossal-nerve", text:"Hypoglossal nerve (CN XII): the stimulation target; contracting genioglossus protrudes the tongue in phase with inspiration", box:{x:2.5,y:52.5,w:12.5,h:3.5} },
+          { id:"stimulating-electrodes", text:"Stimulating electrodes (labeled 'Stimuliti Electrodes' on the figure): a cuff placed around CN XII that delivers the stimulus", box:{x:8.0,y:66.0,w:18.5,h:4.0} },
+          { id:"stimulation-lead", text:"Stimulation lead: wire carrying the pulse from the generator to the hypoglossal nerve cuff", box:{x:27.0,y:74.5,w:16.0,h:4.5} },
+          { id:"battery", text:"Battery: powers the implanted pulse generator", box:{x:48.5,y:74.0,w:7.5,h:4.5} },
+          { id:"generator", text:"Pulse generator: implanted in the chest wall; houses the battery and times stimulation to the breathing signal", box:{x:62.5,y:76.5,w:10.5,h:4.0} },
+          { id:"breathing-sensing-lead", text:"Breathing sensing lead: carries the respiratory signal from the sensor to the generator", box:{x:64.8,y:64.3,w:22.3,h:4.2} },
+          { id:"breathing-sensor", text:"Breathing sensor: detects inspiration so stimulation can be timed to the respiratory cycle", box:{x:71.5,y:50.5,w:17.0,h:4.5} }
         ]
       },
       {
@@ -105,12 +109,19 @@ window.JEFFENT.register({
         src: "assets/img/figures/hypoglossal_nerve_branches.png",
         source: "The Hypoglossal Nerve, Genioglossus, and Tongue Protrusion Mechanics. Mashaqi et al. (2021) Int J Environ Res Public Health.",
         labels: [
-          { id:"hypoglossal-nucleus", text:"Hypoglossal nucleus, medulla: where CN XII originates", box:{x:59.9,y:13.8,w:24.0,h:9.0} },
-          { id:"cn-xii-course", text:"CN XII exits the skull base and courses forward to the tongue base", box:{x:41.1,y:34.8,w:24.0,h:9.0} },
-          { id:"genioglossus", text:"Genioglossus: fans from the mandible into the tongue; the main protrudor muscle", box:{x:20.8,y:62.2,w:24.0,h:9.0} },
-          { id:"tongue-body", text:"Tongue body: falls posteriorly when genioglossus tone drops during sleep", box:{x:39.6,y:48.8,w:24.0,h:9.0} },
-          { id:"airway-space", text:"Airway space behind the tongue: narrowed when the tongue falls back", box:{x:55.8,y:57.2,w:24.0,h:9.0} },
-          { id:"tongue-protrusion", text:"Stimulating CN XII contracts genioglossus, protruding the tongue forward and opening the airway", box:{x:22.4,y:57.2,w:24.0,h:9.0} }
+          { id:"intrinsic-tongue-muscles", text:"Intrinsic muscles of the tongue (oblique, vertical, horizontal fibers): reshape the tongue but don't move it in space; not the muscle group hypoglossal stimulation targets", box:{x:4.3,y:1.2,w:28.6,h:7.8} },
+          { id:"palatoglossus", text:"Palatoglossus muscle: forms the anterior tonsillar pillar; couples tongue movement to the soft palate", box:{x:36.7,y:10.0,w:12.5,h:6.9} },
+          { id:"palatoglossus-coupling", text:"Palatoglossus coupling: tongue elevation pulls on the soft palate, linking tongue-base and palatal position", box:{x:81.1,y:20.1,w:17.6,h:8.3} },
+          { id:"hypoglossal-nerve-branches", text:"Hypoglossal nerve (CN XII), medial and lateral branches: the medial branch mainly drives the protrudors (genioglossus), the lateral branch the retractors, so cuff placement determines which action dominates", box:{x:52.5,y:33.6,w:32.6,h:7.4} },
+          { id:"protruders", text:"Protrudors (extrinsic tongue muscles, chiefly genioglossus): pull the tongue forward, opening the retroglossal airway; the action hypoglossal nerve stimulation recruits (labeled 'Prtotruders' on the figure)", box:{x:0.9,y:44.4,w:26.0,h:9.8} },
+          { id:"styloglossus", text:"Styloglossus muscle: an extrinsic retractor; pulls the tongue up and back", box:{x:56.9,y:49.5,w:16.0,h:7.1} },
+          { id:"lateral-branch-mark", text:"L: point where the hypoglossal nerve's lateral branch enters the retractor muscle group", box:{x:49.1,y:54.9,w:1.9,h:3.9} },
+          { id:"medial-branch-mark", text:"M: point where the hypoglossal nerve's medial branch enters the protrudor (genioglossus) muscle group", box:{x:42.5,y:65.2,w:2.4,h:4.2} },
+          { id:"retractors", text:"Retractors (extrinsic tongue muscles, e.g. styloglossus, hyoglossus): pull the tongue backward and can worsen retroglossal obstruction if they dominate over the protrudors", box:{x:60.0,y:55.6,w:31.4,h:8.6} },
+          { id:"hyoglossus", text:"Hyoglossus muscle: extrinsic retractor and depressor of the tongue", box:{x:60.1,y:73.3,w:12.1,h:7.4} },
+          { id:"genioglossus", text:"Genioglossus muscle: the principal tongue protrudor; the muscle hypoglossal nerve stimulation targets to relieve OSA", box:{x:24.3,y:75.5,w:12.1,h:7.1} },
+          { id:"mylohyoid", text:"Mylohyoid muscle (cut in this dissection): forms the floor of the mouth; elevates the hyoid/tongue during swallowing", box:{x:28.7,y:81.4,w:14.2,h:7.4} },
+          { id:"geniohyoid", text:"Geniohyoid muscle: extrinsic tongue/hyoid muscle; carries C1 fibers that travel with, but are not part of, CN XII's own motor supply", box:{x:31.2,y:86.3,w:11.2,h:6.6} }
         ]
       },
       {
@@ -122,11 +133,13 @@ window.JEFFENT.register({
         src: "assets/img/figures/CPAP_therapy.png",
         source: "How CPAP Works: Continuous Pneumatic Airway Splinting. Illustration generated with Google Gemini.",
         labels: [
-          { id:"collapsed-airway", text:"Without pressure support, the soft tissue walls appose and obstruct the airway", box:{x:13.0,y:37.8,w:24.0,h:9.0} },
-          { id:"airflow-blocked", text:"Airflow is interrupted at the point of collapse", box:{x:13.0,y:20.5,w:24.0,h:9.0} },
-          { id:"open-airway", text:"Same airway, walls held apart by positive airway pressure", box:{x:63.0,y:18.6,w:24.0,h:9.0} },
-          { id:"positive-pressure-splint", text:"Positive pressure acts as a pneumatic splint, pushing outward on the walls at every level of potential collapse", box:{x:63.0,y:37.8,w:24.0,h:9.0} },
-          { id:"airflow-restored", text:"Airflow proceeds uninterrupted through the splinted-open airway", box:{x:63.0,y:59.0,w:24.0,h:9.0} }
+          { id:"collapsed-airway", text:"Collapsed airway: without pressure support, the soft palate/tongue-base tissue apposes the pharyngeal wall and obstructs the airway", box:{x:1.4,y:56.5,w:13.6,h:13.8} },
+          { id:"larynx", text:"Larynx: landmark below the collapsing retropalatal/retroglossal airway; not itself the site of obstruction in OSA", box:{x:4.6,y:73.3,w:9.9,h:4.8} },
+          { id:"cpap-mask", text:"CPAP mask: interface delivering continuous positive pressure to the upper airway; poor fit/comfort is the leading cause of non-adherence", box:{x:45.1,y:20.8,w:13.6,h:11.1} },
+          { id:"open-airway", text:"Open airway: same airway held patent by the pneumatic splinting effect of positive pressure", box:{x:87.9,y:45.6,w:6.7,h:9.5} },
+          { id:"positive-airway-pressure", text:"Positive airway pressure: acts as a pneumatic splint, pushing outward on the pharyngeal walls at every level of potential collapse", box:{x:87.9,y:61.0,w:8.8,h:14.3} },
+          { id:"without-cpap", text:"Without CPAP: the panel depicting unsupported, collapsible upper airway anatomy during sleep", box:{x:19.1,y:91.9,w:16.6,h:4.8} },
+          { id:"with-cpap", text:"With CPAP: the panel depicting the same airway splinted open by continuous positive pressure", box:{x:65.7,y:91.9,w:12.8,h:4.8} }
         ]
       }
     ]

@@ -69,10 +69,16 @@ window.JEFFENT.register({
         src: "assets/img/figures/cervical_fascia_danger_space.png",
         source: "Deep Neck Space Communications and Mediastinal Spread Pathways. Wikimedia Commons.",
         labels: [
-          { id:"peritonsillar", text:"Peritonsillar space (quinsy origin)", box:{x:38.0,y:12.2,w:24.0,h:9.0} },
-          { id:"parapharyngeal", text:"Parapharyngeal space", box:{x:38.0,y:39.9,w:24.0,h:9.0} },
-          { id:"retropharyngeal", text:"Retropharyngeal space: direct route toward mediastinum", box:{x:38.0,y:64.9,w:24.0,h:9.0} },
-          { id:"mediastinum", text:"Mediastinum: descending necrotizing mediastinitis if unchecked", box:{x:38.0,y:84.4,w:24.0,h:9.0} }
+          { id:"visceral-space", text:"Visceral space: encased by the middle layer of deep cervical fascia, contains the thyroid, trachea, and esophagus; thyroiditis or esophageal perforation can spread infection here toward the mediastinum.", box:{x:3.5,y:0.1,w:10.5,h:2.6} },
+          { id:"perivertebral-space", text:"Perivertebral space: surrounds the vertebral bodies within the deep layer of deep cervical fascia; osteomyelitis here can track down along the psoas sheath to the groin.", box:{x:3.6,y:4.5,w:13.9,h:2.6} },
+          { id:"posterior-cervical-space", text:"Posterior cervical space: lies within the posterior triangle between the middle and deep layers of deep cervical fascia; rarely a primary infection site.", box:{x:3.6,y:8.8,w:16.8,h:2.6} },
+          { id:"carotid-space", text:"Carotid space: formed by contributions from all three fascial layers, encloses the carotid artery, internal jugular vein, and vagus nerve; infection here risks septic jugular thrombophlebitis (Lemierre syndrome) or carotid blowout.", box:{x:3.5,y:13.1,w:10.1,h:2.8} },
+          { id:"anterior-cervical-space", text:"Anterior cervical space: superficial to the strap muscles and anterior to the visceral space; contains the anterior jugular veins.", box:{x:3.6,y:17.4,w:16.3,h:2.4} },
+          { id:"superficial-layer-fascia", text:"Superficial layer of deep cervical fascia: encircles the entire neck and splits to envelop the sternocleidomastoid and trapezius muscles.", box:{x:69.2,y:0.0,w:29.2,h:3.3} },
+          { id:"middle-layer-fascia", text:"Middle layer of deep cervical fascia: its visceral division forms the buccopharyngeal fascia behind the pharynx/esophagus, the anterior wall of the retropharyngeal space.", box:{x:70.8,y:4.6,w:24.8,h:2.6} },
+          { id:"deep-layer-fascia", text:"Deep layer of deep cervical fascia (prevertebral fascia): its anterior lamina, the alar fascia, forms the posterior wall of the danger space.", box:{x:69.3,y:8.9,w:25.4,h:2.9} },
+          { id:"retroesophageal-space", text:"Retroesophageal space: between the buccopharyngeal fascia and the alar fascia, posterior to the esophagus; infection here can spread toward the danger space.", box:{x:3.6,y:27.1,w:16.9,h:2.6} },
+          { id:"danger-space", text:"Danger space: between the alar fascia and the prevertebral fascia, extending from the skull base to the diaphragm; the classic route for infection to spread rapidly into the posterior mediastinum.", box:{x:10.4,y:32.4,w:10.1,h:2.6} }
         ]
       },
       {

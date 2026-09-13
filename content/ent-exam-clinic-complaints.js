@@ -104,18 +104,18 @@ window.JEFFENT.register({
         src: "assets/img/figures/ear_cross_section.png",
         source: "Parts of the ear. NIDCD / NIH. Public domain.",
         labels: [
-          { id:"pinna", text:"Pinna", box:{x:1,y:39,w:11,h:6} },
-          { id:"temporal-bone", text:"Temporal bone", box:{x:29,y:36,w:15,h:9} },
-          { id:"stapes", text:"Stapes", box:{x:50,y:31,w:10,h:5} },
-          { id:"malleus", text:"Malleus", box:{x:49,y:38,w:11,h:5} },
-          { id:"scc", text:"Semicircular canals", box:{x:60,y:22,w:14,h:10} },
-          { id:"vestibular", text:"Vestibular nerve", box:{x:74,y:30,w:10,h:8} },
-          { id:"auditory", text:"Auditory nerve", box:{x:85,y:34,w:14,h:9} },
-          { id:"incus", text:"Incus", box:{x:54,y:52,w:10,h:6} },
-          { id:"ear-canal", text:"Ear canal", box:{x:31,y:65,w:15,h:6} },
-          { id:"eardrum", text:"Eardrum (tympanic membrane)", box:{x:47,y:65,w:11,h:6} },
-          { id:"eustachian", text:"Eustachian tube", box:{x:56,y:73,w:14,h:9} },
-          { id:"cochlea", text:"Cochlea", box:{x:82,y:77,w:13,h:6} }
+          { id:"pinna", text:"Pinna: cartilage-and-skin auricle that collects and funnels sound into the ear canal.", box:{x:1.5,y:40.5,w:7.0,h:3.5} },
+          { id:"temporal-bone", text:"Temporal bone: houses the entire middle and inner ear; its petrous portion is the densest bone in the body.", box:{x:30.5,y:36.0,w:11.0,h:6.5} },
+          { id:"stapes", text:"Stapes: smallest bone in the body; its footplate sits in the oval window and drives fluid movement in the inner ear.", box:{x:49.5,y:30.5,w:8.0,h:3.5} },
+          { id:"malleus", text:"Malleus: the ossicle attached to the eardrum; its handle (manubrium) is the landmark seen on otoscopy.", box:{x:48.5,y:33.5,w:9.5,h:3.5} },
+          { id:"scc", text:"Semicircular canals: three orthogonal fluid-filled loops that detect angular head rotation for balance.", box:{x:57.5,y:19.5,w:15.0,h:7.5} },
+          { id:"vestibular", text:"Vestibular nerve: carries balance signals from the semicircular canals and otolith organs to the brainstem.", box:{x:74.5,y:28.5,w:9.0,h:5.5} },
+          { id:"auditory", text:"Auditory (cochlear) nerve: carries sound signals from the cochlea's hair cells to the brainstem.", box:{x:85.5,y:34.5,w:10.5,h:6.5} },
+          { id:"incus", text:"Incus: the middle ossicle, bridging the malleus and stapes.", box:{x:57.0,y:53.0,w:6.5,h:3.5} },
+          { id:"ear-canal", text:"Ear canal (external auditory meatus): S-shaped cartilaginous-then-bony canal; pull the pinna up and back in an adult to straighten it for otoscopy.", box:{x:31.5,y:71.0,w:11.0,h:3.5} },
+          { id:"eardrum", text:"Eardrum (tympanic membrane): vibrates with sound and transmits that energy to the ossicular chain.", box:{x:46.5,y:71.0,w:8.5,h:3.5} },
+          { id:"eustachian", text:"Eustachian tube: connects the middle ear to the nasopharynx and equalizes pressure; dysfunction causes effusion or barotrauma.", box:{x:56.0,y:76.5,w:12.5,h:6.5} },
+          { id:"cochlea", text:"Cochlea: snail-shaped, fluid-filled organ that converts sound vibration into neural signals via hair cells.", box:{x:81.5,y:80.0,w:9.0,h:4.5} }
         ]
       },
       {
@@ -127,14 +127,17 @@ window.JEFFENT.register({
         src: "assets/img/figures/paranasal_sinuses.png",
         source: "Paranasal Sinuses: Coronal CT & Anatomy. radiopaedia.org.",
         labels: [
-          { id:"fr", text:"Frontal sinus", box:{x:29.0,y:7.9,w:24.0,h:9.0} },
-          { id:"orb", text:"Orbit", box:{x:19.4,y:30.8,w:24.0,h:9.0} },
-          { id:"eth", text:"Ethmoid air cells", box:{x:38.0,y:30.2,w:24.0,h:9.0} },
-          { id:"sep", text:"Nasal septum", box:{x:38.0,y:69.0,w:24.0,h:9.0} },
-          { id:"mt", text:"Middle turbinate", box:{x:42.8,y:47.9,w:24.0,h:9.0} },
-          { id:"it", text:"Inferior turbinate", box:{x:43.2,y:63.1,w:24.0,h:9.0} },
-          { id:"max", text:"Maxillary sinus", box:{x:59.4,y:60.2,w:24.0,h:9.0} },
-          { id:"omc", text:"Ostiomeatal complex", box:{x:34.7,y:51.4,w:24.0,h:9.0} }
+          { id:"sup-concha", text:"Superior concha: the smallest, most posterior-superior turbinate; overlies the superior meatus where the posterior ethmoid cells drain.", box:{x:41.0,y:19.5,w:17.0,h:4.0} },
+          { id:"eth", text:"Ethmoidal air cell: thin-walled cells separated from the orbit only by the paper-thin lamina papyracea, so ethmoiditis can spread to cause orbital cellulitis.", box:{x:52.0,y:21.5,w:19.5,h:4.5} },
+          { id:"orb", text:"Contents of orbit: separated from the ethmoid sinus by the lamina papyracea, the classic route for orbital spread of sinogenic infection.", box:{x:18.0,y:35.5,w:15.0,h:6.5} },
+          { id:"sup-meatus", text:"Superior meatus: the groove under the superior concha; receives drainage from the posterior ethmoid air cells.", box:{x:82.5,y:41.0,w:10.0,h:5.5} },
+          { id:"mid-concha", text:"Middle concha (turbinate): overlies the middle meatus and the ostiomeatal complex, the final common drainage pathway for the frontal, maxillary, and anterior ethmoid sinuses.", box:{x:82.5,y:47.0,w:10.0,h:5.0} },
+          { id:"mid-meatus", text:"Middle meatus: drains the frontal sinus, anterior ethmoid cells, and maxillary sinus; obstruction here drives most cases of rhinosinusitis.", box:{x:82.5,y:52.0,w:10.0,h:5.0} },
+          { id:"sep", text:"Septum nasi: the midline cartilage and bone partition; deviation can obstruct one nasal passage and its sinus drainage.", box:{x:82.5,y:57.0,w:9.0,h:4.5} },
+          { id:"inf-concha", text:"Inferior concha (turbinate): the largest turbinate, a separate bone that warms and humidifies inspired air.", box:{x:82.5,y:60.5,w:10.0,h:4.5} },
+          { id:"max", text:"Maxillary sinus: the largest paranasal sinus; its ostium sits high on the medial wall, so it drains uphill into the middle meatus.", box:{x:82.5,y:65.0,w:10.5,h:4.5} },
+          { id:"inf-meatus", text:"Inferior meatus: the groove under the inferior concha; the nasolacrimal duct opens here, not into the sinus drainage pathway.", box:{x:82.5,y:68.0,w:10.5,h:5.0} },
+          { id:"hard-palate", text:"Hard palate: the bony floor of the nasal cavity and roof of the mouth, separating the two.", box:{x:35.0,y:72.0,w:17.5,h:4.0} }
         ]
       },
       {
@@ -146,12 +149,16 @@ window.JEFFENT.register({
         src: "assets/img/figures/larynx-coronal-wikimedia.png",
         source: "Larynx: Coronal Section Showing Airway Framework and Vocal Folds. Wikimedia Commons.",
         labels: [
-          { id:"epi", text:"Epiglottis", box:{x:38.0,y:7.7,w:24.0,h:9.0} },
-          { id:"thy", text:"Thyroid cartilage", box:{x:22.7,y:37.2,w:24.0,h:9.0} },
-          { id:"ff", text:"Vestibular (false) fold", box:{x:31.3,y:37.2,w:24.0,h:9.0} },
-          { id:"tf", text:"Vocal (true) fold", box:{x:32.0,y:43.8,w:24.0,h:9.0} },
-          { id:"cric", text:"Cricoid cartilage", box:{x:38.0,y:59.9,w:24.0,h:9.0} },
-          { id:"trach", text:"Trachea", box:{x:38.0,y:81.1,w:24.0,h:9.0} }
+          { id:"hyoid", text:"Hyoid bone: the free-floating U-shaped bone suspending the larynx, anchoring the thyrohyoid membrane above.", box:{x:11.0,y:0.5,w:23.0,h:4.5} },
+          { id:"epi", text:"Epiglottis: the cartilage leaf that folds down over the laryngeal inlet during swallowing to protect the airway.", box:{x:44.5,y:0.3,w:19.0,h:4.5} },
+          { id:"thyrohyoid", text:"Thyrohyoid membrane: connects the hyoid bone to the thyroid cartilage; pierced by the superior laryngeal neurovascular bundle.", box:{x:0.5,y:18.0,w:27.0,h:9.5} },
+          { id:"ff", text:"False (vestibular) vocal cords: mucosal folds above the true cords that protect the airway but do not normally phonate.", box:{x:0.5,y:37.5,w:24.0,h:7.5} },
+          { id:"ventricle", text:"Ventricle (of Morgagni): the space between the false and true cords; a common site for laryngocele formation.", box:{x:83.0,y:44.5,w:16.5,h:4.5} },
+          { id:"tf", text:"True vocal cords: the folds that vibrate to produce voice; their free edge is exam room zero for any hoarseness workup.", box:{x:0.5,y:54.5,w:24.0,h:7.0} },
+          { id:"vocalis", text:"Vocalis muscle: the medial belly of thyroarytenoid that tenses and fine-tunes the vocal fold for pitch.", box:{x:83.0,y:54.0,w:16.5,h:6.5} },
+          { id:"thy", text:"Thyroid cartilage: the largest laryngeal cartilage, forming the laryngeal prominence (Adam's apple); the framework for the vocal cords.", box:{x:2.0,y:70.5,w:22.0,h:8.0} },
+          { id:"cric", text:"Cricoid cartilage: the only complete cartilage ring in the airway; cricothyrotomy is performed just above it.", box:{x:82.0,y:71.0,w:18.0,h:8.5} },
+          { id:"trach", text:"Trachea: the cartilage-ringed airway continuing below the cricoid to the carina.", box:{x:82.5,y:91.0,w:17.5,h:4.5} }
         ]
       },
       {
@@ -163,12 +170,27 @@ window.JEFFENT.register({
         src: "assets/img/figures/neck_levels_colored.png",
         source: "Neck Nodal Levels I-VI Schematic. Wikimedia Commons.",
         labels: [
-          { id:"l1", text:"I: submental / submandibular", box:{x:29.2,y:37.2,w:24.0,h:9.0} },
-          { id:"l2", text:"II: upper jugular", box:{x:44.9,y:37.7,w:24.0,h:9.0} },
-          { id:"l3", text:"III: mid jugular", box:{x:47.4,y:54.9,w:24.0,h:9.0} },
-          { id:"l4", text:"IV: lower jugular", box:{x:50.5,y:75.5,w:24.0,h:9.0} },
-          { id:"l5", text:"V: posterior triangle", box:{x:64.2,y:61.1,w:24.0,h:9.0} },
-          { id:"l6", text:"VI: central compartment", box:{x:34.9,y:69.9,w:24.0,h:9.0} }
+          { id:"posterior-auricular", text:"Posterior auricular (mastoid) nodes: drain the posterior scalp and pinna, part of the outer Waldeyer nodal ring.", box:{x:1.5,y:2.5,w:12.5,h:11.0} },
+          { id:"occipital", text:"Occipital nodes: drain the posterior scalp; enlarge with scalp infection or, classically, rubella.", box:{x:1.5,y:14.0,w:13.0,h:12.5} },
+          { id:"superficial-cervical", text:"Superficial cervical nodes: run along the external jugular vein, superficial to sternocleidomastoid.", box:{x:1.5,y:33.0,w:24.0,h:6.0} },
+          { id:"lower-border-hyoid", text:"Lower border of the hyoid bone: the surface landmark separating level II (above) from level III (below).", box:{x:6.0,y:43.0,w:18.0,h:12.0} },
+          { id:"superior-deep-cervical", text:"Superior deep cervical nodes: the upper deep cervical chain along the internal jugular vein, corresponding to level II.", box:{x:1.5,y:55.5,w:29.0,h:6.0} },
+          { id:"lower-margin-cricoid", text:"Lower margin of the cricoid cartilage: the surface landmark separating level III (above) from level IV (below).", box:{x:5.0,y:66.5,w:21.0,h:11.5} },
+          { id:"inferior-deep-cervical", text:"Inferior deep cervical nodes: the lower deep cervical chain along the internal jugular vein, corresponding to level IV.", box:{x:70.0,y:74.5,w:27.0,h:6.0} },
+          { id:"parotid", text:"Parotid nodes: intra- and peri-parotid nodes draining the scalp, external ear, and the parotid gland itself.", box:{x:77.0,y:2.5,w:10.0,h:6.5} },
+          { id:"buccinator", text:"Buccinator (facial) nodes: drain the cheek and lower eyelid along the course of the facial vessels.", box:{x:77.0,y:11.0,w:14.0,h:6.0} },
+          { id:"submandibular-region", text:"Supramandibulary (submandibular) region: houses the level Ib nodes and gland, draining the oral cavity, submandibular gland, and anterior face.", box:{x:76.5,y:24.5,w:23.0,h:5.5} },
+          { id:"submaxillary", text:"Submaxillary (submandibular) gland: sits within level Ib, a common site for salivary stones and gland swelling.", box:{x:77.0,y:32.0,w:16.5,h:6.0} },
+          { id:"submental", text:"Submental nodes: the level Ia group, draining the chin, lower lip, and anterior floor of mouth.", box:{x:77.0,y:43.0,w:13.5,h:6.0} },
+          { id:"l1a", text:"Level Ia (submental): between the anterior bellies of digastric, draining the chin, lower lip, and anterior floor of mouth.", box:{x:61.5,y:39.0,w:4.0,h:6.5} },
+          { id:"l1b", text:"Level Ib (submandibular): contains the submandibular gland and nodes, draining the oral cavity and anterior face.", box:{x:54.0,y:35.0,w:4.5,h:6.0} },
+          { id:"l2a", text:"Level IIa (upper jugular, anterior to CN XI): drains the oral cavity, nasopharynx, oropharynx, larynx, and parotid.", box:{x:43.5,y:16.0,w:5.0,h:7.0} },
+          { id:"l2b", text:"Level IIb (upper jugular, posterior to CN XI): the posterior upper jugular group, split from IIa by the spinal accessory nerve.", box:{x:35.5,y:20.0,w:5.5,h:7.0} },
+          { id:"l3", text:"Level III (mid jugular): hyoid to cricoid, draining the larynx, hypopharynx, and oropharynx.", box:{x:45.5,y:53.0,w:5.0,h:6.5} },
+          { id:"l4", text:"Level IV (lower jugular): cricoid to clavicle, draining the larynx, thyroid, hypopharynx, and cervical esophagus.", box:{x:52.0,y:78.5,w:4.5,h:6.0} },
+          { id:"l5a", text:"Level Va (upper posterior triangle): above the cricoid plane, draining the nasopharynx and posterior scalp.", box:{x:34.5,y:45.5,w:5.0,h:6.5} },
+          { id:"l5b", text:"Level Vb (lower posterior triangle): below the cricoid plane, draining the thyroid and posterior neck.", box:{x:38.5,y:73.0,w:5.0,h:6.5} },
+          { id:"l6", text:"Level VI (central compartment): pretracheal, paratracheal, and Delphian nodes draining the thyroid and larynx; the key nodal basin for thyroid cancer.", box:{x:57.5,y:52.0,w:4.5,h:6.5} }
         ]
       },
       {
@@ -180,12 +202,16 @@ window.JEFFENT.register({
         src: "assets/img/figures/tympanic_membrane_landmarks.png",
         source: "Normal Right Tympanic Membrane Landmarks (Otoscopic View). oxfordmedicaleducation.com.",
         labels: [
-          { id:"l1", text:"Pars flaccida", box:{x:38.0,y:12.2,w:24.0,h:9.0} },
-          { id:"l2", text:"Lateral process of malleus", box:{x:36.9,y:19.4,w:24.0,h:9.0} },
-          { id:"l3", text:"Manubrium (malleus handle)", box:{x:36.3,y:37.2,w:24.0,h:9.0} },
-          { id:"l4", text:"Umbo", box:{x:38.0,y:50.5,w:24.0,h:9.0} },
-          { id:"l5", text:"Pars tensa", box:{x:21.3,y:64.9,w:24.0,h:9.0} },
-          { id:"l6", text:"Cone of light (reflex)", box:{x:47.4,y:68.3,w:24.0,h:9.0} }
+          { id:"l1", text:"Posterior fold: mucosal fold running from the lateral process of the malleus posteriorly; marks the upper edge of the pars tensa.", box:{x:9.5,y:4.5,w:22.0,h:5.5} },
+          { id:"l7", text:"Pars flaccida (Shrapnell's membrane): the lax superior part of the eardrum with no fibrous middle layer; the classic site for an attic (acquired) cholesteatoma.", box:{x:55.0,y:0.3,w:20.0,h:5.5} },
+          { id:"l8", text:"Anterior fold: mucosal fold running from the lateral process of the malleus anteriorly; marks the upper edge of the pars tensa.", box:{x:75.0,y:10.5,w:19.5,h:6.0} },
+          { id:"l9", text:"Short process (lateral process) of malleus: the visible bony prominence at the top of the malleus handle, between the anterior and posterior folds.", box:{x:77.5,y:18.0,w:22.0,h:10.0} },
+          { id:"l10", text:"Incus: the middle ossicle, sometimes visible as a faint shadow through the postero-superior eardrum.", box:{x:1.5,y:25.0,w:18.0,h:5.5} },
+          { id:"l4", text:"Umbo: the point where the malleus tip indents the eardrum; the center of the cone of light and a key landmark on otoscopy.", box:{x:0.5,y:50.5,w:12.5,h:5.5} },
+          { id:"l3", text:"Manubrium (handle) of malleus: runs from the umbo up to the lateral process; the main landmark for orientation on otoscopy.", box:{x:79.0,y:56.0,w:18.5,h:10.0} },
+          { id:"l11", text:"Annulus: the fibrocartilaginous ring anchoring the pars tensa into the tympanic sulcus of the temporal bone.", box:{x:0.5,y:71.5,w:20.0,h:5.5} },
+          { id:"l5", text:"Pars tensa: the taut, fibrous-layered main part of the eardrum that vibrates efficiently with sound.", box:{x:16.5,y:84.0,w:16.0,h:5.5} },
+          { id:"l6", text:"Cone of light (light reflex): the antero-inferior light reflection from the otoscope off the pars tensa; blunts or distorts with effusion or retraction.", box:{x:57.0,y:84.0,w:18.5,h:5.5} }
         ]
       },
       {
@@ -197,11 +223,35 @@ window.JEFFENT.register({
         src: "assets/img/figures/ENT_regions.png",
         source: "The Five Primary ENT Anatomical Regions Overview. Illustration generated with Google Gemini.",
         labels: [
-          { id:"region-ear", text:"Ear (external, middle, inner)", box:{x:15.9,y:42.6,w:24.0,h:9.0} },
-          { id:"region-nose-sinuses", text:"Nose and paranasal sinuses", box:{x:60.1,y:33.1,w:24.0,h:9.0} },
-          { id:"region-oral-oropharynx", text:"Oral cavity and oropharynx", box:{x:48.3,y:51.4,w:24.0,h:9.0} },
-          { id:"region-larynx", text:"Larynx (voice box, airway)", box:{x:46.8,y:72.0,w:24.0,h:9.0} },
-          { id:"region-neck", text:"Neck (nodes, thyroid, glands)", box:{x:38.0,y:83.7,w:24.0,h:9.0} }
+          { id:"sphenoidal-sinus", text:"Sphenoidal sinus: the most posterior paranasal sinus, sitting below the pituitary fossa and beside the optic nerve and cavernous sinus; infection here can threaten vision or spread intracranially.", box:{x:0.5,y:3.5,w:17.0,h:4.0} },
+          { id:"nasal-meatuses", text:"Nasal meatuses (superior, middle, inferior): the grooves beneath each turbinate; the middle meatus houses the ostiomeatal complex, the final common drainage pathway for the frontal, maxillary, and anterior ethmoid sinuses.", box:{x:0.0,y:14.0,w:18.5,h:7.5} },
+          { id:"pharyngeal-tonsil", text:"Pharyngeal tonsil (adenoid): lymphoid tissue on the nasopharyngeal roof; hypertrophy in children causes nasal obstruction, mouth breathing, and Eustachian tube dysfunction.", box:{x:0.0,y:22.5,w:18.0,h:3.0} },
+          { id:"opening-auditory-tube", text:"Opening of the auditory (Eustachian) tube: the nasopharyngeal orifice that equalizes middle-ear pressure; obstruction (adenoids, nasopharyngeal tumor) causes effusion.", box:{x:0.0,y:27.5,w:18.5,h:6.0} },
+          { id:"nasopharynx", text:"Nasopharynx: skull base to soft palate; site of the adenoid and, in adults, nasopharyngeal carcinoma (think unilateral effusion plus neck mass).", box:{x:1.0,y:34.8,w:17.0,h:3.0} },
+          { id:"uvula", text:"Uvula: the midline soft-palate projection; deviates away from the affected side in peritonsillar abscess.", box:{x:9.0,y:39.5,w:9.0,h:3.0} },
+          { id:"palatine-tonsil", text:"Palatine tonsil: the paired lymphoid tissue at the oropharyngeal fauces; the usual source of tonsillitis and peritonsillar abscess.", box:{x:1.5,y:44.3,w:16.5,h:3.0} },
+          { id:"fauces", text:"Fauces: the archway connecting the oral cavity to the oropharynx, bounded by the palatoglossal and palatopharyngeal folds.", box:{x:8.0,y:49.0,w:9.0,h:3.0} },
+          { id:"oropharynx", text:"Oropharynx: soft palate to hyoid; includes the tonsils, tongue base, and posterior pharyngeal wall, the classic site for HPV-related oropharyngeal cancer.", box:{x:2.0,y:54.5,w:16.0,h:3.0} },
+          { id:"laryngopharynx", text:"Laryngopharynx (hypopharynx): hyoid to cricoid, behind the larynx; an easily missed site for hypopharyngeal cancer presenting with dysphagia.", box:{x:0.0,y:59.8,w:18.5,h:3.0} },
+          { id:"vestibular-fold", text:"Vestibular (false vocal) fold: the mucosal fold above the true cord that protects the airway but does not normally phonate.", box:{x:2.0,y:64.5,w:16.5,h:3.0} },
+          { id:"vocal-fold", text:"Vocal (true) fold: the vibrating edge that produces voice; exam-room focus for any hoarseness workup.", box:{x:5.5,y:68.8,w:12.5,h:3.0} },
+          { id:"esophagus", text:"Esophagus: begins behind the cricoid cartilage at the cricopharyngeus (upper esophageal sphincter); a foreign body or button battery here is a time-critical emergency.", box:{x:2.0,y:83.8,w:15.5,h:3.0} },
+          { id:"frontal-sinus", text:"Frontal sinus: drains via the frontonasal duct into the middle meatus; frontal sinusitis can erode posteriorly to cause intracranial complications (Pott's puffy tumor).", box:{x:80.0,y:6.0,w:11.5,h:3.5} },
+          { id:"ethmoid-bone", text:"Ethmoid bone: forms the nasal roof and part of the medial orbital wall (lamina papyracea), the classic route for orbital spread of sinogenic infection.", box:{x:79.5,y:10.0,w:11.0,h:3.5} },
+          { id:"olfactory-epithelium", text:"Olfactory epithelium: sits near the cribriform plate; carries CN I fibers through it, so a skull-base fracture here causes anosmia and CSF rhinorrhea risk.", box:{x:79.5,y:13.5,w:19.5,h:3.5} },
+          { id:"nasal-conchae", text:"Nasal conchae (turbinates): the superior, middle, and inferior scroll-shaped bones that warm, humidify, and filter inspired air.", box:{x:80.0,y:21.0,w:15.0,h:4.0} },
+          { id:"nasal-vestibule", text:"Nasal vestibule: the skin-lined entrance just inside the nostril; the site of vestibulitis and the 'danger triangle' venous drainage toward the cavernous sinus.", box:{x:80.0,y:26.5,w:17.0,h:4.0} },
+          { id:"nostril", text:"Nostril (naris): the external opening of the nasal cavity.", box:{x:79.5,y:31.0,w:7.0,h:3.0} },
+          { id:"hard-palate", text:"Hard palate: the bony anterior roof of the mouth; a cleft here causes nasal regurgitation of food and speech problems.", box:{x:79.5,y:34.5,w:11.0,h:3.5} },
+          { id:"soft-palate", text:"Soft palate: the mobile posterior palate that elevates on swallowing (CN X) to seal off the nasopharynx; deviates away from a peritonsillar abscess.", box:{x:79.5,y:38.5,w:11.0,h:3.5} },
+          { id:"tongue", text:"Tongue: its posterior third (base) belongs to the oropharynx and is a common blind spot for early cancer.", box:{x:79.5,y:42.0,w:7.0,h:3.5} },
+          { id:"lingual-tonsil", text:"Lingual tonsil: lymphoid tissue at the tongue base, part of Waldeyer's ring; can hide an HPV-related primary tumor presenting as an unknown-primary neck node.", box:{x:79.5,y:46.0,w:13.5,h:3.5} },
+          { id:"epiglottis", text:"Epiglottis: the cartilage leaf that folds over the laryngeal inlet during swallowing; a floppy, swollen epiglottis is the airway emergency of epiglottitis.", box:{x:79.5,y:51.0,w:9.0,h:3.5} },
+          { id:"hyoid-bone", text:"Hyoid bone: the free-floating U-shaped bone anchoring the tongue base and larynx; the surface landmark separating neck level II (above) from level III (below).", box:{x:79.5,y:61.0,w:9.0,h:3.5} },
+          { id:"thyroid-cartilage", text:"Thyroid cartilage: the largest laryngeal cartilage, forming the laryngeal prominence (Adam's apple) and the framework for the vocal cords.", box:{x:79.5,y:67.5,w:13.5,h:3.5} },
+          { id:"cricoid-cartilage", text:"Cricoid cartilage: the only complete cartilage ring in the airway; cricothyrotomy is performed through the cricothyroid membrane just above it.", box:{x:79.5,y:74.0,w:13.5,h:3.5} },
+          { id:"thyroid-gland", text:"Thyroid gland: sits over the 2nd-4th tracheal rings; a midline neck mass that moves with swallowing points here.", box:{x:79.5,y:85.5,w:9.0,h:3.5} },
+          { id:"trachea", text:"Trachea: the cartilage-ringed airway continuing below the cricoid to the carina.", box:{x:79.5,y:90.5,w:7.0,h:3.5} }
         ]
       },
       {
@@ -213,14 +263,14 @@ window.JEFFENT.register({
         src: "assets/img/figures/skullbase_foramen.png",
         source: "Skull Base Foramina and Their Cranial Nerves. Radiopaedia.",
         labels: [
-          { id:"cribriform-plate", text:"Cribriform plate: CN I, olfactory (smell)", box:{x:38.0,y:14.2,w:24.0,h:9.0} },
-          { id:"optic-canal", text:"Optic canal: CN II, optic (vision)", box:{x:48.3,y:22.1,w:24.0,h:9.0} },
-          { id:"superior-orbital-fissure", text:"Superior orbital fissure: CN III, IV, V1 (ophthalmic), and VI", box:{x:52.7,y:31.4,w:24.0,h:9.0} },
-          { id:"foramen-rotundum", text:"Foramen rotundum: CN V2, maxillary", box:{x:54.2,y:40.8,w:24.0,h:9.0} },
-          { id:"foramen-ovale", text:"Foramen ovale: CN V3, mandibular", box:{x:52.7,y:50.2,w:24.0,h:9.0} },
-          { id:"internal-acoustic-meatus", text:"Internal acoustic meatus: CN VII and VIII", box:{x:48.3,y:59.6,w:24.0,h:9.0} },
-          { id:"jugular-foramen", text:"Jugular foramen: CN IX, X, and XI", box:{x:42.4,y:68.9,w:24.0,h:9.0} },
-          { id:"hypoglossal-canal", text:"Hypoglossal canal: CN XII", box:{x:36.5,y:76.8,w:24.0,h:9.0} }
+          { id:"cribriform-plate", text:"Cribriform plate: transmits the olfactory nerve (CN I); anterior skull-base fracture here causes anosmia and CSF rhinorrhea.", box:{x:3.0,y:2.0,w:40.5,h:8.0} },
+          { id:"optic-canal", text:"Optic canal: transmits the optic nerve (CN II) and ophthalmic artery; compression here causes progressive monocular vision loss.", box:{x:3.0,y:11.5,w:40.5,h:8.0} },
+          { id:"superior-orbital-fissure", text:"Superior orbital fissure: transmits CN III (oculomotor), CN IV (trochlear), CN V1 (ophthalmic), and CN VI (abducens); a lesion here causes painful ophthalmoplegia (superior orbital fissure syndrome).", box:{x:3.0,y:21.5,w:40.5,h:18.5} },
+          { id:"foramen-rotundum", text:"Foramen rotundum: transmits CN V2 (maxillary nerve), the route for perineural spread of some sinonasal and skin cancers.", box:{x:3.0,y:41.5,w:40.5,h:8.0} },
+          { id:"foramen-ovale", text:"Foramen ovale: transmits CN V3 (mandibular nerve); also a common route for perineural tumor spread from the face and parotid.", box:{x:3.0,y:51.5,w:40.5,h:6.5} },
+          { id:"internal-acoustic-meatus", text:"Internal acoustic (auditory) meatus: transmits CN VII (facial) and CN VIII (vestibulocochlear); site of vestibular schwannoma.", box:{x:3.0,y:59.8,w:40.5,h:12.5} },
+          { id:"jugular-foramen", text:"Jugular foramen: transmits CN IX (glossopharyngeal), CN X (vagus), and CN XI (accessory), plus the internal jugular vein; jugular foramen syndrome affects all three nerves together.", box:{x:3.0,y:74.3,w:40.5,h:13.5} },
+          { id:"hypoglossal-canal", text:"Hypoglossal canal: transmits CN XII (hypoglossal nerve); a lesion causes ipsilateral tongue weakness, with deviation toward the affected side on protrusion.", box:{x:3.0,y:89.8,w:40.5,h:8.0} }
         ]
       }
     ]
@@ -375,7 +425,7 @@ window.JEFFENT.register({
         { q: "What does the duration + smoking mandate?", a: "Hoarseness &gt;2-4 weeks in a smoker requires <b>laryngoscopy to exclude laryngeal cancer</b>: do not keep treating it as laryngitis." },
         { q: "If the vocal fold is immobile, what else must you consider?", a: "Vocal-fold paralysis from a lesion along the <b>recurrent laryngeal nerve</b> (lung apex, thyroid, mediastinum): image the whole nerve course." }
       ],
-      teaching: "<figure class='note-fig' data-credit='Source not yet cited, added by the project owner, replace credit before sharing.'><img class='zoomable' src='assets/img/figures/recurrent_laryngeal_nerve_course.png' alt='Recurrent laryngeal nerve course' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Persistent hoarseness in a smoker requiring laryngoscopy, with vocal-fold paralysis raised via recurrent laryngeal nerve course.</figcaption></figure>Persistent hoarseness in a smoker = scope. Voice change is the larynx's warning light."
+      teaching: "<figure class='note-fig' data-credit='Source not yet cited, added by the project owner, replace credit before sharing.'><img class='zoomable' src='assets/img/figures/recurrent_laryngeal_nerve_course_2.png' alt='Recurrent laryngeal nerve course' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Persistent hoarseness in a smoker requiring laryngoscopy, with vocal-fold paralysis raised via recurrent laryngeal nerve course.</figcaption></figure>Persistent hoarseness in a smoker = scope. Voice change is the larynx's warning light."
     },
     {
       id: "case-orbital-cellulitis",

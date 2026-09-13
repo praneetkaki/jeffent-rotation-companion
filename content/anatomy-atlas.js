@@ -56,7 +56,7 @@ window.JEFFENT.register({
       },
       {
         title: "Branchial arch, pouch, and cleft embryology",
-        html: "<figure class='note-fig' data-credit=\"Branchial arches. Gray's Anatomy (1918), Plate 981. Public domain (Wikimedia Commons).\"><img class='zoomable' src='assets/800px-Gray981.png' alt='Branchial arches' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Landmarks: Arches 1-4, pouches 1-4, and second cleft persistence.</figcaption></figure><ul><li><strong>Components</strong>: arches; pouches (internal, endoderm-lined); clefts (external, ectoderm-lined).</li><li><strong>First arch</strong> (Meckel's cartilage): malleus, incus, mandible, muscles of mastication; <strong>CN V</strong>.</li><li><strong>Second arch</strong> (Reichert's cartilage): stapes, styloid process, lesser horn of hyoid, stapedius; <strong>CN VII</strong>.</li><li><strong>Pouches</strong>: 1st becomes the Eustachian tube and middle-ear cavity; 2nd the tonsillar fossa; 3rd and 4th the parathyroids and thymus.</li><li><strong>Clefts</strong>: only the 2nd normally persists as a tract, which is why second branchial cleft cysts/sinuses dominate clinically.</li></ul><p><strong>Branchial arch derivatives:</strong></p><div class='tbl-scroll'><table><thead><tr><th>Arch</th><th>Cartilage</th><th>Skeletal derivatives</th><th>Muscles</th><th>Cranial nerve</th></tr></thead><tbody><tr><td><strong>1st (mandibular)</strong></td><td>Meckel's</td><td>Malleus, incus, mandible, sphenomandibular ligament</td><td>Muscles of mastication, mylohyoid, anterior belly of digastric, tensor tympani, tensor veli palatini</td><td><strong>CN V</strong></td></tr><tr><td><strong>2nd (hyoid)</strong></td><td>Reichert's</td><td>Stapes, styloid process, lesser horn and upper body of hyoid, stylohyoid ligament</td><td>Muscles of facial expression, stapedius, stylohyoid, posterior belly of digastric, platysma</td><td><strong>CN VII</strong></td></tr><tr><td><strong>3rd</strong></td><td>(none)</td><td>Greater horn and lower body of hyoid</td><td>Stylopharyngeus</td><td><strong>CN IX</strong></td></tr><tr><td><strong>4th/6th</strong></td><td>(none)</td><td>Laryngeal cartilages (thyroid, cricoid, arytenoid)</td><td>Pharyngeal and laryngeal muscles (cricothyroid, levator veli palatini, intrinsic laryngeal muscles)</td><td><strong>CN X</strong> (SLN for 4th, RLN for 6th)</td></tr></tbody></table></div><p><strong>Pharyngeal pouches and clefts:</strong></p><div class='tbl-scroll'><table><thead><tr><th>Structure</th><th>Derivative</th><th>Clinical correlate</th></tr></thead><tbody><tr><td><strong>1st pouch</strong></td><td>Eustachian tube and middle-ear cavity</td><td>Tympanic cavity anatomy</td></tr><tr><td><strong>2nd pouch</strong></td><td>Tonsillar fossa and palatine tonsil</td><td>Site of the 2nd cleft internal opening</td></tr><tr><td><strong>3rd pouch</strong></td><td>Inferior parathyroids and thymus</td><td>Migrate caudally (DiGeorge if disrupted)</td></tr><tr><td><strong>4th pouch</strong></td><td>Superior parathyroids (and ultimobranchial body, C cells)</td><td>3rd/4th pouch syndrome (DiGeorge/velocardiofacial)</td></tr><tr><td><strong>1st cleft</strong></td><td>External auditory canal (only cleft that normally persists)</td><td>1st branchial cleft anomalies, near the parotid and facial nerve</td></tr><tr><td><strong>2nd, 3rd, 4th clefts</strong></td><td>Normally obliterate (cervical sinus of His)</td><td>Persistence causes cysts/sinuses/fistulas; 2nd cleft is about 90 to 95% of anomalies</td></tr></tbody></table></div>"
+        html: "<p><strong>Branchial arch derivatives:</strong></p><div class='tbl-scroll'><table><thead><tr><th>Arch</th><th>Cartilage</th><th>Skeletal derivatives</th><th>Muscles</th><th>Cranial nerve</th></tr></thead><tbody><tr><td><strong>1st (mandibular)</strong></td><td>Meckel's</td><td>Malleus, incus, mandible, sphenomandibular ligament</td><td>Muscles of mastication, mylohyoid, anterior belly of digastric, tensor tympani, tensor veli palatini</td><td><strong>CN V</strong></td></tr><tr><td><strong>2nd (hyoid)</strong></td><td>Reichert's</td><td>Stapes, styloid process, lesser horn and upper body of hyoid, stylohyoid ligament</td><td>Muscles of facial expression, stapedius, stylohyoid, posterior belly of digastric, platysma</td><td><strong>CN VII</strong></td></tr><tr><td><strong>3rd</strong></td><td>(none)</td><td>Greater horn and lower body of hyoid</td><td>Stylopharyngeus</td><td><strong>CN IX</strong></td></tr><tr><td><strong>4th/6th</strong></td><td>(none)</td><td>Laryngeal cartilages (thyroid, cricoid, arytenoid)</td><td>Pharyngeal and laryngeal muscles (cricothyroid, levator veli palatini, intrinsic laryngeal muscles)</td><td><strong>CN X</strong> (SLN for 4th, RLN for 6th)</td></tr></tbody></table></div><p><strong>Pharyngeal pouches and clefts:</strong></p><div class='tbl-scroll'><table><thead><tr><th>Structure</th><th>Derivative</th><th>Clinical correlate</th></tr></thead><tbody><tr><td><strong>1st pouch</strong></td><td>Eustachian tube and middle-ear cavity</td><td>Tympanic cavity anatomy</td></tr><tr><td><strong>2nd pouch</strong></td><td>Tonsillar fossa and palatine tonsil</td><td>Site of the 2nd cleft internal opening</td></tr><tr><td><strong>3rd pouch</strong></td><td>Inferior parathyroids and thymus</td><td>Migrate caudally (DiGeorge if disrupted)</td></tr><tr><td><strong>4th pouch</strong></td><td>Superior parathyroids (and ultimobranchial body, C cells)</td><td>3rd/4th pouch syndrome (DiGeorge/velocardiofacial)</td></tr><tr><td><strong>1st cleft</strong></td><td>External auditory canal (only cleft that normally persists)</td><td>1st branchial cleft anomalies, near the parotid and facial nerve</td></tr><tr><td><strong>2nd, 3rd, 4th clefts</strong></td><td>Normally obliterate (cervical sinus of His)</td><td>Persistence causes cysts/sinuses/fistulas; 2nd cleft is about 90 to 95% of anomalies</td></tr></tbody></table></div><ul><li><strong>Components</strong>: arches; pouches (internal, endoderm-lined); clefts (external, ectoderm-lined).</li><li><strong>First arch</strong> (Meckel's cartilage): malleus, incus, mandible, muscles of mastication; <strong>CN V</strong>.</li><li><strong>Second arch</strong> (Reichert's cartilage): stapes, styloid process, lesser horn of hyoid, stapedius; <strong>CN VII</strong>.</li><li><strong>Pouches</strong>: 1st becomes the Eustachian tube and middle-ear cavity; 2nd the tonsillar fossa; 3rd and 4th the parathyroids and thymus.</li><li><strong>Clefts</strong>: only the 2nd normally persists as a tract, which is why second branchial cleft cysts/sinuses dominate clinically.</li></ul>"
       },
       {
         title: "Skull base foramina",
@@ -73,10 +73,23 @@ window.JEFFENT.register({
         src: "assets/img/figures/temporal_bone_anatomy.png",
         source: "The Temporal Bone in Four Parts. theskeletalsystem.net.",
         labels: [
-          { id:"squamous", text:"Squamous part: lateral skull, part of the TMJ", box:{x:19.2,y:16.9,w:24.0,h:9.0} },
-          { id:"tympanic", text:"Tympanic part: most of the external auditory canal", box:{x:25.5,y:49.1,w:24.0,h:9.0} },
-          { id:"petrous", text:"Petrous part: houses the middle and inner ear", box:{x:44.2,y:49.1,w:24.0,h:9.0} },
-          { id:"mastoid", text:"Mastoid part: air-cell system posterior to the ear canal", box:{x:53.6,y:63.4,w:24.0,h:9.0} }
+          { id:"zygomatic-process-lateral", text:"Zygomatic process: anterior projection of the squamous part that joins the zygomatic bone to form the zygomatic arch.", box:{x:0.0,y:27.3,w:10.1,h:6.8} },
+          { id:"squamous-part-lateral", text:"Squamous part: flat, fan-shaped lateral portion of the temporal bone; forms the mandibular fossa/articular tubercle side of the TMJ.", box:{x:14.9,y:26.9,w:12.3,h:5.8} },
+          { id:"articular-tubercle", text:"Articular tubercle: anterior bony ridge of the mandibular fossa; the mandibular condyle translates onto it when the jaw opens wide.", box:{x:39.7,y:25.8,w:18.1,h:3.4} },
+          { id:"mandibular-fossa", text:"Mandibular fossa: concave articular surface on the squamous part that receives the mandibular condyle to form the TMJ.", box:{x:43.8,y:33.2,w:13.9,h:6.4} },
+          { id:"opening-external-auditory-meatus", text:"Opening for the external auditory meatus: bony entrance to the ear canal, framed largely by the tympanic part.", box:{x:48.4,y:40.9,w:18.6,h:12.0} },
+          { id:"tympanic-part", text:"Tympanic part: forms most of the bony external auditory canal (anterior, inferior, and part of the posterior wall).", box:{x:0.0,y:57.2,w:14.7,h:3.5} },
+          { id:"styloid-process-lateral", text:"Styloid process: slender projection anchoring the stylohyoid ligament and stylohyoid/styloglossus/stylopharyngeus muscles; a key parapharyngeal-space landmark.", box:{x:0.0,y:66.0,w:16.2,h:3.8} },
+          { id:"petromastoid-part", text:"Petromastoid part: the composite term for the petrous and mastoid portions, which arise from a shared ossification center and form the posteromedial temporal bone.", box:{x:0.0,y:76.4,w:9.5,h:11.2} },
+          { id:"petrous-part-lateral", text:"Petrous part: dense pyramidal bone housing the middle and inner ear, the otologic core of the temporal bone.", box:{x:11.0,y:76.7,w:10.9,h:3.5} },
+          { id:"mastoid-part", text:"Mastoid part: air-cell system posterior to the ear canal; relevant to mastoiditis and cochlear implant surgery.", box:{x:11.0,y:81.5,w:11.4,h:3.5} },
+          { id:"mastoid-process", text:"Mastoid process: bony projection palpable behind the ear canal; attachment site for sternocleidomastoid, splenius capitis, and longissimus capitis.", box:{x:12.0,y:86.0,w:11.9,h:2.8} },
+          { id:"mastoid-notch", text:"Mastoid notch (digastric groove): groove medial to the mastoid process that gives origin to the posterior belly of digastric.", box:{x:12.5,y:88.6,w:10.9,h:2.8} },
+          { id:"zygomatic-process-medial", text:"Zygomatic process, medial view: same anterior projection of the squamous part seen from the opposite side.", box:{x:85.3,y:29.8,w:14.7,h:6.8} },
+          { id:"squamous-part-medial", text:"Squamous part, medial view: the inner surface of the flat lateral portion of the temporal bone.", box:{x:68.4,y:52.0,w:15.0,h:8.3} },
+          { id:"opening-internal-auditory-meatus", text:"Opening for the internal auditory meatus: transmits CN VII and CN VIII (plus the labyrinthine artery) into the petrous bone.", box:{x:41.7,y:71.2,w:28.3,h:10.5} },
+          { id:"petrous-part-medial", text:"Petrous part, medial view: the same pyramidal bone housing the middle/inner ear, seen from its cranial (medial) surface.", box:{x:87.4,y:69.7,w:12.6,h:6.8} },
+          { id:"styloid-process-medial", text:"Styloid process, medial view: the same slender muscle/ligament attachment site seen from the medial aspect.", box:{x:85.3,y:81.5,w:14.7,h:6.8} }
         ]
       },
       {
@@ -88,10 +101,11 @@ window.JEFFENT.register({
         src: "assets/img/figures/paranasal_sinus_drainage.png",
         source: "Paranasal Sinuses and Their Drainage Pathways. Wikimedia Commons.",
         labels: [
-          { id:"frontal", text:"Frontal sinus: drains via frontonasal duct to middle meatus", box:{x:38.0,y:15.5,w:24.0,h:9.0} },
-          { id:"ethmoid", text:"Ethmoid: anterior cells to middle meatus, posterior cells to superior meatus", box:{x:38.0,y:38.8,w:24.0,h:9.0} },
-          { id:"maxillary-l", text:"Maxillary sinus: ostium high on medial wall, drains against gravity to middle meatus", box:{x:18.0,y:45.5,w:24.0,h:9.0} },
-          { id:"sphenoid", text:"Sphenoid sinus: drains to sphenoethmoidal recess; borders pituitary, optic nerve, cavernous sinus", box:{x:38.0,y:68.8,w:24.0,h:9.0} }
+          { id:"semilunar-hiatus", text:"Semilunar hiatus: the middle-meatus groove receiving the openings of the frontal, maxillary, and anterior ethmoidal sinuses, the ostiomeatal complex's key drainage channel.", box:{x:0.0,y:4.8,w:28.0,h:19.6} },
+          { id:"ethmoid-bulla", text:"Ethmoid bulla: the largest, most constant anterior ethmoid air cell, bulging into the middle meatus; carries the opening of the middle ethmoid sinus cells.", box:{x:47.5,y:9.5,w:32.8,h:10.1} },
+          { id:"opening-sphenoid-sinus", text:"Opening of sphenoid sinus: drains into the sphenoethmoidal recess, high and posterior; the sinus borders the pituitary, optic nerve, and cavernous sinus.", box:{x:66.1,y:24.2,w:21.9,h:9.1} },
+          { id:"opening-eustachian-tube", text:"Opening of eustachian tube: pharyngeal (torus tubarius) opening on the lateral nasopharyngeal wall, posterior to the inferior turbinate; equalizes middle-ear pressure.", box:{x:77.9,y:59.4,w:19.5,h:9.7} },
+          { id:"opening-nasolacrimal-duct", text:"Opening of nasolacrimal duct: drains tears into the inferior meatus, beneath the inferior turbinate; obstruction here causes epiphora.", box:{x:12.6,y:84.2,w:26.6,h:9.7} }
         ]
       },
       {
@@ -103,13 +117,14 @@ window.JEFFENT.register({
         src: "assets/img/figures/skullbase_foramen.png",
         source: "Cranial Nerves of the Head and Neck with Skull Base Foramina. teachmeanatomy.info.",
         labels: [
-          { id:"v", text:"CN V (trigeminal): facial/sinus sensation", box:{x:28.6,y:18.6,w:24.0,h:9.0} },
-          { id:"vii", text:"CN VII (facial): facial movement, runs through parotid", box:{x:47.4,y:18.6,w:24.0,h:9.0} },
-          { id:"viii", text:"CN VIII (vestibulocochlear): hearing/balance", box:{x:50.5,y:30.1,w:24.0,h:9.0} },
-          { id:"ix", text:"CN IX (glossopharyngeal): oropharyngeal sensation, gag", box:{x:41.1,y:45.5,w:24.0,h:9.0} },
-          { id:"x", text:"CN X (vagus, incl. recurrent laryngeal): laryngeal motor/sensory", box:{x:38.0,y:60.9,w:24.0,h:9.0} },
-          { id:"xi", text:"CN XI (accessory): SCM/trapezius, at risk in neck dissection", box:{x:31.8,y:60.9,w:24.0,h:9.0} },
-          { id:"xii", text:"CN XII (hypoglossal): tongue movement", box:{x:28.6,y:45.5,w:24.0,h:9.0} }
+          { id:"cribriform-plate", text:"Cribriform plate: transmits CN I, the olfactory nerve, into the anterior cranial fossa; a fracture here causes anosmia and CSF rhinorrhea.", box:{x:2.6,y:1.5,w:41.0,h:8.5} },
+          { id:"optic-canal", text:"Optic canal: transmits CN II, the optic nerve, along with the ophthalmic artery, into the orbit.", box:{x:2.6,y:11.3,w:41.0,h:8.5} },
+          { id:"superior-orbital-fissure", text:"Superior orbital fissure: transmits CN III, IV, V1 (ophthalmic), and VI; compression here causes orbital apex/superior orbital fissure syndrome.", box:{x:2.6,y:21.2,w:41.0,h:17.8} },
+          { id:"foramen-rotundum", text:"Foramen rotundum: transmits CN V2, the maxillary division of the trigeminal nerve, to the midface and upper teeth.", box:{x:2.6,y:40.4,w:41.0,h:8.5} },
+          { id:"foramen-ovale", text:"Foramen ovale: transmits CN V3, the mandibular division of the trigeminal nerve, to the lower face, tongue, and muscles of mastication.", box:{x:2.6,y:50.2,w:41.0,h:8.8} },
+          { id:"internal-acoustic-meatus", text:"Internal acoustic meatus: transmits CN VII (facial) and CN VIII (vestibulocochlear); CN VII here is the site of vulnerability in Bell's palsy.", box:{x:2.6,y:60.4,w:41.0,h:11.1} },
+          { id:"jugular-foramen", text:"Jugular foramen: transmits CN IX (glossopharyngeal: gag/oropharyngeal sensation), CN X (vagus: laryngeal motor/sensory), and CN XI (accessory: SCM/trapezius, at risk in neck dissection).", box:{x:2.6,y:72.9,w:41.0,h:15.4} },
+          { id:"hypoglossal-canal", text:"Hypoglossal canal: transmits CN XII, the hypoglossal nerve, which supplies tongue movement.", box:{x:2.6,y:89.7,w:41.0,h:9.8} }
         ]
       },
       {
@@ -121,26 +136,18 @@ window.JEFFENT.register({
         src: "assets/img/figures/facial_nerve_course.png",
         source: "Detailed Surgical Anatomy of the Facial Nerve. Hovland N, Phuong A, Lu GN. Oper Tech Otolaryngol Head Neck Surg. 2021;32(4):190-196.",
         labels: [
-          { id:"labyrinthine", text:"Labyrinthine segment: narrowest; most vulnerable to swelling (Bell's palsy)", box:{x:22.4,y:16.9,w:24.0,h:9.0} },
-          { id:"geniculate", text:"Geniculate ganglion: herpes zoster here causes Ramsay Hunt syndrome", box:{x:34.9,y:15.1,w:24.0,h:9.0} },
-          { id:"tympanic", text:"Tympanic segment: along the middle-ear medial wall above the oval window", box:{x:44.2,y:22.3,w:24.0,h:9.0} },
-          { id:"mastoid", text:"Mastoid (vertical) segment: gives off nerve to stapedius and chorda tympani", box:{x:53.6,y:49.1,w:24.0,h:9.0} },
-          { id:"stylomastoid-exit", text:"Exits at the stylomastoid foramen into the parotid", box:{x:53.6,y:66.9,w:24.0,h:9.0} }
-        ]
-      },
-      {
-        kind: "image",
-        occlude: true,
-        id: "branchial-arch-pouch-cleft",
-        title: "First and second branchial arches, pouches, and clefts",
-        note: "Name each arch's derivatives and what its pouch/cleft becomes, then reveal.",
-        src: "assets/img/mc/14_branchial_arches_derivatives.png",
-        source: "Branchial Arch Skeletal and Muscular Derivatives. Wikimedia Commons.",
-        labels: [
-          { id:"arch1", text:"First arch (Meckel's cartilage): malleus, incus, mandible, muscles of mastication; CN V", box:{x:16.1,y:30.1,w:24.0,h:9.0} },
-          { id:"arch2", text:"Second arch (Reichert's cartilage): stapes, styloid process, lesser horn of hyoid, stapedius; CN VII", box:{x:38.0,y:34.0,w:24.0,h:9.0} },
-          { id:"pouch1", text:"First pharyngeal pouch → Eustachian tube and middle-ear cavity", box:{x:19.2,y:74.3,w:24.0,h:9.0} },
-          { id:"cleft2", text:"Only the second cleft normally persists, which is why 2nd-arch branchial cleft cysts dominate clinically", box:{x:59.9,y:74.3,w:24.0,h:9.0} }
+          { id:"motor-root", text:"Motor root of the facial nerve: the larger root, carrying the special visceral efferent fibers to the muscles of facial expression, stapedius, stylohyoid, and posterior digastric.", box:{x:25.2,y:3.2,w:27.9,h:3.4} },
+          { id:"sensory-root", text:"Sensory root (nervus intermedius): carries taste (anterior two-thirds of tongue) and parasympathetic secretomotor fibers to the lacrimal, submandibular, and sublingual glands.", box:{x:77.2,y:3.0,w:22.8,h:5.8} },
+          { id:"cisternal-segment", text:"Cisternal segment: the facial nerve's course through the cerebellopontine angle cistern before entering the internal acoustic meatus; the site involved by vestibular schwannomas.", box:{x:30.0,y:8.2,w:19.9,h:3.4} },
+          { id:"geniculate-ganglion", text:"Geniculate ganglion: sensory ganglion between the labyrinthine and tympanic segments; herpes zoster reactivation here causes Ramsay Hunt syndrome.", box:{x:10.8,y:14.7,w:20.1,h:3.8} },
+          { id:"internal-acoustic-meatus", text:"Internal acoustic meatus (IAM): transmits CN VII and CN VIII from the posterior fossa into the temporal bone.", box:{x:76.8,y:15.3,w:23.2,h:5.8} },
+          { id:"tympanic-segment", text:"Tympanic segment: runs along the medial middle-ear wall just above the oval window; at risk in cholesteatoma and middle-ear surgery.", box:{x:0.0,y:26.1,w:12.3,h:5.8} },
+          { id:"facial-nerve-label", text:"Facial nerve (CN VII): the intratemporal course runs labyrinthine to tympanic to mastoid segments before exiting the stylomastoid foramen.", box:{x:0.0,y:35.3,w:14.2,h:3.6} },
+          { id:"meatal-labyrinthine-segments", text:"Meatal and labyrinthine segments: the narrowest part of the nerve's course, between the IAM fundus and the geniculate ganglion; the classic site of compression in Bell's palsy.", box:{x:82.5,y:26.7,w:17.5,h:8.8} },
+          { id:"greater-petrosal-nerve", text:"Greater petrosal nerve: branches off at the geniculate ganglion carrying parasympathetic fibers to the lacrimal gland; injury here causes dry eye.", box:{x:82.5,y:38.2,w:17.5,h:5.4} },
+          { id:"mastoid-segment", text:"Mastoid (vertical) segment: descends to the stylomastoid foramen, giving off the nerve to stapedius and the chorda tympani.", box:{x:0.0,y:53.4,w:12.3,h:5.8} },
+          { id:"stylomastoid-foramen", text:"Stylomastoid foramen: the facial nerve's exit point from the temporal bone into the parotid gland.", box:{x:0.0,y:62.4,w:18.0,h:6.8} },
+          { id:"chorda-tympani", text:"Chorda tympani: branches from the mastoid segment, crosses the middle ear, and carries taste from the anterior two-thirds of the tongue plus secretomotor fibers to the submandibular/sublingual glands.", box:{x:78.9,y:57.8,w:21.1,h:5.4} }
         ]
       },
       {
@@ -152,12 +159,18 @@ window.JEFFENT.register({
         src: "assets/img/figures/neck-triangles-colored.png",
         source: "Fascial Layers and Triangles of the Neck. Scholes &amp; Ramakrishnan (2015) ENT Secrets / Wikimedia Commons CC BY-SA 4.0.",
         labels: [
-          { id:"anterior-triangle", text:"Anterior triangle: bounded by the mandible above, the midline medially, and the anterior border of sternocleidomastoid laterally; subdivided into submental, submandibular, carotid, and muscular triangles.", box:{x:31.1,y:31.2,w:24.0,h:9.0} },
-          { id:"posterior-triangle", text:"Posterior triangle: bounded by the posterior border of sternocleidomastoid, the anterior border of trapezius, and the clavicle; carries CN XI (spinal accessory) and the brachial plexus roots superficially.", box:{x:14.6,y:52.6,w:24.0,h:9.0} },
-          { id:"scm", text:"Sternocleidomastoid: the single surface landmark that splits each side of the neck into anterior and posterior triangles.", box:{x:24.2,y:56.2,w:24.0,h:9.0} },
-          { id:"investing-fascia", text:"Investing (superficial) layer of deep cervical fascia: encircles the whole neck like a collar, splitting to envelop trapezius and sternocleidomastoid individually.", box:{x:56.1,y:31.2,w:24.0,h:9.0} },
-          { id:"carotid-sheath", text:"Carotid sheath: a fascial tube (contributions from all three deep cervical fascial layers) running the length of the neck deep to SCM, containing the common/internal carotid artery, internal jugular vein, and vagus nerve.", box:{x:53.0,y:49.1,w:24.0,h:9.0} },
-          { id:"pretracheal-fascia", text:"Pretracheal fascia: wraps the trachea, esophagus, and thyroid in the anterior midline; infection here can track down into the mediastinum, which is why deep neck space infections are followed so closely.", box:{x:38.0,y:68.7,w:24.0,h:9.0} }
+          { id:"mandibula", text:"Mandibula (mandible): forms the superior boundary of the anterior triangle of the neck.", box:{x:10.7,y:39.4,w:8.0,h:3.5} },
+          { id:"os-hyoideum", text:"Os hyoideum (hyoid bone): U-shaped bone at the C3 level that anchors suprahyoid and infrahyoid muscles and marks the boundary between the submental/submandibular and carotid/muscular triangles.", box:{x:10.7,y:50.2,w:9.0,h:3.3} },
+          { id:"anterior-triangle", text:"Anterior triangle: bounded by the mandible above, the midline medially, and the anterior border of sternocleidomastoid laterally; subdivided into submental, submandibular, carotid, and muscular triangles.", box:{x:0.0,y:63.7,w:4.0,h:26.7} },
+          { id:"submental-triangle", text:"Submental triangle: unpaired midline space between the anterior bellies of digastric and the hyoid; drains the chin, lower lip, and tongue tip (level Ia nodes).", box:{x:3.7,y:55.4,w:18.3,h:3.5} },
+          { id:"submandibular-triangle", text:"Submandibular triangle: bounded by the digastric bellies and mandible; contains the submandibular gland and level Ib nodes.", box:{x:5.1,y:59.4,w:22.4,h:3.5} },
+          { id:"carotid-triangle", text:"Carotid triangle: bounded by the SCM, posterior digastric, and omohyoid; exposes the carotid sheath (carotid artery, IJV, vagus nerve) for surgical access.", box:{x:3.7,y:63.2,w:13.9,h:3.5} },
+          { id:"muscular-triangle", text:"Muscular triangle: bounded by the midline, SCM, and omohyoid; contains the infrahyoid (strap) muscles overlying the thyroid and trachea.", box:{x:3.7,y:68.4,w:13.9,h:2.8} },
+          { id:"processus-mastoideus", text:"Processus mastoideus (mastoid process): posterior attachment point of sternocleidomastoid, marking the upper posterior corner of the anterior/posterior triangle boundary.", box:{x:76.6,y:29.0,w:18.3,h:3.3} },
+          { id:"posterior-triangle", text:"Posterior triangle: bounded by the posterior border of sternocleidomastoid, the anterior border of trapezius, and the clavicle; carries CN XI (spinal accessory) and the brachial plexus roots superficially.", box:{x:96.0,y:62.0,w:4.0,h:27.6} },
+          { id:"ocipital-triangle", text:"Occipital triangle: the larger, superior subdivision of the posterior triangle (above the inferior belly of omohyoid); contains CN XI and the upper posterior triangle lymph nodes (level Va).", box:{x:74.5,y:56.6,w:15.7,h:3.5} },
+          { id:"subclavian-triangle", text:"Subclavian (supraclavicular) triangle: the smaller, inferior subdivision of the posterior triangle, floored by the subclavian artery and lower brachial plexus trunks (level Vb nodes).", box:{x:74.5,y:62.0,w:20.4,h:3.5} },
+          { id:"clavicula", text:"Clavicula (clavicle): forms the inferior boundary of the posterior triangle and the neck as a whole.", box:{x:87.7,y:76.2,w:6.6,h:2.4} }
         ]
       },
       {
@@ -169,12 +182,14 @@ window.JEFFENT.register({
         src: "assets/img/figures/skullbase_foramen.png",
         source: "Skull Base Foramina (Superior Endocranial View). teachmeanatomy.info.",
         labels: [
-          { id:"foramen-rotundum", text:"Foramen rotundum: transmits CN V2, the maxillary division of the trigeminal nerve. Anteromedial in the middle cranial fossa.", box:{x:47.4,y:36.6,w:24.0,h:9.0} },
-          { id:"foramen-ovale", text:"Foramen ovale: transmits CN V3, the mandibular division of the trigeminal nerve, posterolateral to foramen rotundum.", box:{x:54.2,y:45.5,w:24.0,h:9.0} },
-          { id:"foramen-spinosum", text:"Foramen spinosum: transmits the middle meningeal artery. Injury here causes an epidural hematoma.", box:{x:59.2,y:50.9,w:24.0,h:9.0} },
-          { id:"carotid-canal", text:"Carotid canal: the internal carotid artery enters the skull base here, medial in the petrous temporal bone, then curves anteromedially toward the cavernous sinus.", box:{x:44.9,y:56.2,w:24.0,h:9.0} },
-          { id:"jugular-foramen", text:"Jugular foramen: transmits CN IX, X, and XI, plus the internal jugular vein. Site of origin for glomus jugulare tumors.", box:{x:55.5,y:68.7,w:24.0,h:9.0} },
-          { id:"internal-acoustic-meatus", text:"Internal acoustic meatus: transmits CN VII and CN VIII, on the posterior surface of the petrous ridge.", box:{x:46.8,y:65.9,w:24.0,h:9.0} }
+          { id:"cribriform-plate", text:"Cribriform plate: perforated anterior-fossa bone transmitting CN I (olfactory) fila; fracture here causes anosmia and CSF rhinorrhea.", box:{x:2.6,y:1.5,w:41.0,h:8.5} },
+          { id:"optic-canal", text:"Optic canal: transmits CN II and the ophthalmic artery into the orbit.", box:{x:2.6,y:11.3,w:41.0,h:8.5} },
+          { id:"superior-orbital-fissure", text:"Superior orbital fissure: transmits CN III, IV, V1, and VI; compression causes orbital apex/superior orbital fissure syndrome.", box:{x:2.6,y:21.2,w:41.0,h:17.8} },
+          { id:"foramen-rotundum", text:"Foramen rotundum: transmits CN V2, the maxillary division of the trigeminal nerve. Anteromedial in the middle cranial fossa.", box:{x:2.6,y:40.4,w:41.0,h:8.5} },
+          { id:"foramen-ovale", text:"Foramen ovale: transmits CN V3, the mandibular division of the trigeminal nerve, posterolateral to foramen rotundum.", box:{x:2.6,y:50.2,w:41.0,h:8.8} },
+          { id:"internal-acoustic-meatus", text:"Internal acoustic meatus: transmits CN VII and CN VIII, on the posterior surface of the petrous ridge.", box:{x:2.6,y:60.4,w:41.0,h:11.1} },
+          { id:"jugular-foramen", text:"Jugular foramen: transmits CN IX, X, and XI, plus the internal jugular vein. Site of origin for glomus jugulare tumors.", box:{x:2.6,y:72.9,w:41.0,h:15.4} },
+          { id:"hypoglossal-canal", text:"Hypoglossal canal: transmits CN XII, the hypoglossal nerve, to the tongue musculature.", box:{x:2.6,y:89.7,w:41.0,h:9.8} }
         ]
       }
     ],
@@ -235,7 +250,7 @@ window.JEFFENT.register({
     { id:"geniculate-ganglion-ramsay-hunt-card", tags: ["AN", "anatomy"], milestones:["MK1"], ukmla:"Facial weakness", source:"Standard facial nerve anatomy teaching.", front:"Herpes zoster reactivation at the facial nerve's geniculate ganglion causes <span class=\"cloze-blank\">[...]</span>, presenting as facial palsy with a vesicular rash of the ear canal or pinna.",
       back:"Herpes zoster reactivation at the facial nerve's geniculate ganglion causes <mark class=\"cloze-answer\">Ramsay Hunt syndrome</mark>, presenting as facial palsy with a vesicular rash of the ear canal or pinna. It tends to be more severe and slower to recover than Bell's palsy." },
     { id:"branchial-arch-derivatives-card", tags: ["AN", "anatomy"], milestones:["MK1"], ukmla:"Neck lump", source:"Standard branchial arch embryology teaching.", front:"Unlike the malleus and incus, which arise from the first arch, the stapes derives embryologically from the <span class=\"cloze-blank\">[...]</span> (Reichert's cartilage).",
-      back:"Unlike the malleus and incus, which arise from the first arch, the stapes derives embryologically from the <mark class=\"cloze-answer\">second branchial arch</mark> (Reichert's cartilage). This is why second-arch anomalies are far more common clinically than first-arch ones.<figure class='note-fig' data-credit=\"Branchial Arch Skeletal and Muscular Derivatives. Wikimedia Commons.\"><img class='zoomable' src='assets/img/mc/14_branchial_arches_derivatives.png' alt='Branchial arch derivatives' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Branchial arch skeletal and muscular derivatives.</figcaption></figure>" },
+      back:"Unlike the malleus and incus, which arise from the first arch, the stapes derives embryologically from the <mark class=\"cloze-answer\">second branchial arch</mark> (Reichert's cartilage). This is why second-arch anomalies are far more common clinically than first-arch ones." },
     { id:"pharyngeal-pouch-vs-cleft-card", tags: ["AN", "anatomy"], milestones:["MK1"], ukmla:"Hearing loss", source:"Standard pharyngeal pouch/cleft embryology teaching.", front:"The first pharyngeal pouch develops into the <span class=\"cloze-blank\">[...]</span>.",
       back:"The first pharyngeal pouch develops into the <mark class=\"cloze-answer\">Eustachian tube and middle-ear cavity</mark>. Only the second cleft normally persists, which is why second branchial cleft cysts and sinuses dominate clinically." },
     { id:"skull-base-foramina-card", tags: ["AN", "anatomy"], milestones:["MK1"], ukmla:"Facial pain", source:"Standard skull-base anatomy teaching.", front:"Match the skull-base foramen to what passes through it: foramen ovale, foramen rotundum, foramen spinosum, internal acoustic meatus.",

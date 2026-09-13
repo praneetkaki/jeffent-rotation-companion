@@ -60,11 +60,15 @@ window.JEFFENT.register({
         src: "assets/img/figures/facial_buttresses.png",
         source: "Vertical and Horizontal Facial Buttresses. Illustration generated with Google Gemini.",
         labels: [
-          { id:"naso", text:"Nasomaxillary buttress (vertical)", box:{x:8.0,y:45.5,w:24.0,h:9.0} },
-          { id:"zygo", text:"Zygomaticomaxillary buttress (vertical)", box:{x:68.0,y:45.5,w:24.0,h:9.0} },
-          { id:"ptery", text:"Pterygomaxillary buttress (vertical, posterior)", box:{x:38.0,y:45.5,w:24.0,h:9.0} },
-          { id:"frontal-bar", text:"Frontal bar (horizontal)", box:{x:38.0,y:13.1,w:24.0,h:9.0} },
-          { id:"alveolus", text:"Maxillary alveolus (horizontal)", box:{x:38.0,y:72.0,w:24.0,h:9.0} }
+          { id:"frontal-bar", text:"Frontal bar (horizontal): the superior horizontal buttress along the brow, part of the frame that absorbs frontal impact.", box:{x:74.2,y:25.0,w:24.9,h:5.7} },
+          { id:"naso-r", text:"Nasomaxillary buttress (vertical): runs alongside the nose from the maxillary alveolus to the frontal bone.", box:{x:74.2,y:33.1,w:23.9,h:8.9} },
+          { id:"infraorbital-rim", text:"Infraorbital rim (horizontal): connects the nasomaxillary and zygomaticomaxillary buttresses; disruption contributes to midface flattening.", box:{x:74.2,y:40.3,w:16.1,h:12.0} },
+          { id:"zygo-r", text:"Zygomaticomaxillary buttress (vertical): transmits masticatory and impact forces from the zygoma to the maxillary alveolus.", box:{x:74.2,y:52.8,w:22.3,h:9.8} },
+          { id:"alveolus", text:"Maxillary alveolus (horizontal): the inferior horizontal buttress; houses the maxillary teeth and connects the vertical buttresses.", box:{x:74.2,y:61.2,w:19.3,h:8.6} },
+          { id:"ptery-r", text:"Pterygomaxillary buttress (vertical, posterior): connects the maxilla to the pterygoid plates/skull base posteriorly.", box:{x:74.2,y:68.7,w:18.8,h:8.8} },
+          { id:"naso-l", text:"Nasomaxillary buttress (vertical): runs alongside the nose from the maxillary alveolus to the frontal bone.", box:{x:2.0,y:37.2,w:23.7,h:8.1} },
+          { id:"zygo-l", text:"Zygomaticomaxillary buttress (vertical): transmits masticatory and impact forces from the zygoma to the maxillary alveolus.", box:{x:3.4,y:52.1,w:22.3,h:9.8} },
+          { id:"ptery-l", text:"Pterygomaxillary buttress (vertical, posterior): connects the maxilla to the pterygoid plates/skull base posteriorly.", box:{x:6.8,y:68.3,w:18.8,h:9.1} }
         ]
       },
       {
@@ -76,11 +80,16 @@ window.JEFFENT.register({
         src: "assets/img/figures/parotid_facial_nerve.png",
         source: "Facial Nerve Branches Through the Parotid Gland. Illustration generated with Google Gemini.",
         labels: [
-          { id:"temporal", text:"Temporal (frontal) branch: most vulnerable, crosses Pitanguy's line", box:{x:41.1,y:10.9,w:24.0,h:9.0} },
-          { id:"zygomatic", text:"Zygomatic branch", box:{x:50.5,y:26.3,w:24.0,h:9.0} },
-          { id:"buccal", text:"Buccal branch: runs near Stensen's duct", box:{x:56.8,y:45.5,w:24.0,h:9.0} },
-          { id:"marginal", text:"Marginal mandibular branch: vulnerable along the mandible border", box:{x:50.5,y:64.7,w:24.0,h:9.0} },
-          { id:"cervical", text:"Cervical branch", box:{x:41.1,y:80.1,w:24.0,h:9.0} }
+          { id:"temporal", text:"Temporal (frontal) branch: most vulnerable branch, crosses Pitanguy's line, injury causes brow ptosis.", box:{x:1.0,y:25.9,w:20.0,h:5.9} },
+          { id:"zygomatic", text:"Zygomatic branch: contributes to eyelid closure (orbicularis oculi); injury can impair blink.", box:{x:1.0,y:40.3,w:22.5,h:6.3} },
+          { id:"buccal-upper", text:"Buccal branch: runs near Stensen's duct; often has multiple interconnecting twigs so injury is less consistently disabling.", box:{x:1.0,y:57.2,w:18.1,h:6.3} },
+          { id:"buccal-lower", text:"Buccal branch: crosses the cheek toward the upper lip and nose, alongside Stensen's duct.", box:{x:1.0,y:70.7,w:18.1,h:6.3} },
+          { id:"facial-nerve-trunk", text:"Facial nerve trunk: exits the stylomastoid foramen and enters the parotid before branching.", box:{x:71.8,y:25.0,w:26.4,h:6.3} },
+          { id:"stylomastoid", text:"Stylomastoid foramen: exit point of the facial nerve from the skull base.", box:{x:71.8,y:40.3,w:26.4,h:9.8} },
+          { id:"parotid-gland", text:"Parotid gland: the facial nerve trunk divides it into superficial and deep lobes as it passes through.", box:{x:71.8,y:59.0,w:23.4,h:6.3} },
+          { id:"marginal", text:"Marginal mandibular branch: vulnerable along the mandible border, injury causes asymmetric smile/lower lip droop.", box:{x:71.8,y:71.6,w:26.4,h:8.6} },
+          { id:"cervical", text:"Cervical branch: innervates platysma; injury is usually of minimal functional consequence.", box:{x:71.8,y:80.5,w:20.5,h:6.3} },
+          { id:"stensens-duct", text:"Stensen's duct: runs from the tragus toward the upper lip, pierces buccinator opposite the second upper molar.", box:{x:71.8,y:87.7,w:20.5,h:6.3} }
         ]
       },
       {
@@ -88,14 +97,11 @@ window.JEFFENT.register({
         occlude: true,
         id: "orbital-floor-blowout",
         title: "Orbital floor blow-out fracture",
-        note: "Fat/muscle herniation into the maxillary sinus. Name the structures, then reveal.",
-        src: "assets/img/mc/81_orbital_floor_blowout_fracture_wikimedia.png",
-        source: "Orbital Floor Blowout Fracture and Muscle Entrapment. Wikimedia Commons.",
+        note: "Coronal CT, right orbit. The arrow marks the fracture site. Reveal to see what it shows.",
+        src: "assets/img/figures/orbital_blowout_fracture.png",
+        source: "Coronal CT of an orbital floor blow-out fracture. Added by the project owner; replace credit before sharing.",
         labels: [
-          { id:"globe", text:"Globe", box:{x:38.0,y:28.8,w:24.0,h:9.0} },
-          { id:"floor", text:"Orbital floor (thin, roof of maxillary sinus)", box:{x:38.0,y:45.5,w:24.0,h:9.0} },
-          { id:"herniation", text:"Herniated orbital fat ± inferior rectus: causes enophthalmos, diplopia on upgaze", box:{x:38.0,y:53.8,w:24.0,h:9.0} },
-          { id:"ion", text:"Infraorbital nerve runs in the floor; hypoesthesia is a clue", box:{x:51.3,y:58.0,w:24.0,h:9.0} }
+          { id:"fracture-site", text:"Yellow arrow: a trapdoor fracture of the orbital floor, with soft tissue herniating through the defect into the roof of the maxillary sinus below — the CT correlate of enophthalmos and diplopia on upgaze from inferior rectus entrapment.", box:{x:27.0,y:42.0,w:16.0,h:19.0} }
         ]
       },
       {
@@ -107,12 +113,8 @@ window.JEFFENT.register({
         src: "assets/img/figures/pitanguy_line.png",
         source: "Pitanguy's Line and the Frontal Branch of the Facial Nerve. Jawad, Hohman, &amp; Raggio (2025). StatPearls.",
         labels: [
-          { id:"tragus", text:"Tragus: Pitanguy's line begins 0.5cm below this point.", box:{x:51.3,y:45.5,w:24.0,h:9.0} },
-          { id:"lateral-eyebrow", text:"Lateral eyebrow: Pitanguy's line ends 1.5cm above this point.", box:{x:13.0,y:11.8,w:24.0,h:9.0} },
-          { id:"pitanguys-line", text:"Pitanguy's line: the classic surface marking from 0.5cm below the tragus to 1.5cm above the lateral eyebrow.", box:{x:34.3,y:27.1,w:24.0,h:9.0} },
-          { id:"frontal-branch", text:"Frontal (temporal) branch of the facial nerve: runs just deep to Pitanguy's line, beneath the temporoparietal fascia.", box:{x:33.7,y:23.6,w:24.0,h:9.0} },
-          { id:"zygomatic-arch", text:"Zygomatic arch: bony reference plane deep to the nerve's course over this danger zone.", box:{x:49.7,y:33.0,w:24.0,h:9.0} },
-          { id:"danger-zone", text:"Incisions or blunt dissection crossing this corridor risk injuring the frontal branch, causing brow ptosis.", box:{x:41.3,y:37.7,w:24.0,h:9.0} }
+          { id:"measurement-5mm", text:"Inferior landmark: 0.5 cm (5 mm) below the tragus, the starting point of Pitanguy's line for the frontal branch's surface course.", box:{x:3.2,y:81.3,w:21.7,h:7.6} },
+          { id:"measurement-15mm", text:"Superior landmark: 1.5 cm (15 mm) above the lateral eyebrow, the endpoint of Pitanguy's line; incisions crossing this corridor risk the frontal branch and brow ptosis.", box:{x:70.2,y:41.0,w:29.3,h:9.7} }
         ]
       }
     ]
@@ -343,7 +345,7 @@ window.JEFFENT.register({
     { id:"stensens-duct-card", tags: ["FP", "anatomy"], milestones:["MK1","PC9"], ukmla:"Facial weakness", source:"Standard facial trauma teaching on parotid duct injury.", front:"Where does Stensen's duct run, and what clinical clue suggests it's injured?",
       back:"Along a line from the tragus to the midline of the upper lip, over masseter, piercing buccinator opposite the second upper molar. <strong>Clear, watery drainage from a cheek wound that increases with a sialogogue (e.g., food)</strong> suggests duct injury. Explore or cannulate before closing." },
     { id:"orbital-blowout-card", tags: ["FP", "clinical"], milestones:["PC1","MK2"], ukmla:"Facial/periorbital swelling", source:"Standard orbital trauma teaching on blow-out fractures.", front:"What is an orbital blow-out fracture, and what classic exam findings does it cause?",
-      back:"Fracture of the thin orbital floor (or medial wall) from direct globe impact, with fat ± inferior rectus herniation/entrapment. Causes <strong>enophthalmos, diplopia on upgaze</strong> (restricted extraocular movement), and <strong>infraorbital nerve hypoesthesia</strong> (cheek/upper lip numbness).<figure class='note-fig' data-credit=\"Orbital Floor Blowout Fracture and Muscle Entrapment. Wikimedia Commons.\"><img class='zoomable' src='assets/img/mc/81_orbital_floor_blowout_fracture_wikimedia.png' alt='Orbital floor blowout fracture' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Orbital floor blowout fracture and muscle entrapment.</figcaption></figure>" },
+      back:"Fracture of the thin orbital floor (or medial wall) from direct globe impact, with fat ± inferior rectus herniation/entrapment. Causes <strong>enophthalmos, diplopia on upgaze</strong> (restricted extraocular movement), and <strong>infraorbital nerve hypoesthesia</strong> (cheek/upper lip numbness).<figure class='note-fig' data-credit=\"Coronal CT of an orbital floor blow-out fracture. Added by the project owner; replace credit before sharing.\"><img class='zoomable' src='assets/img/figures/orbital_blowout_fracture.png' alt='Orbital floor blowout fracture, coronal CT' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Coronal CT: the arrow marks the trapdoor fracture and herniated tissue into the maxillary sinus.</figcaption></figure>" },
     { id:"white-eyed-blowout-card", tags: ["FP", "clinical"], milestones:["PC1","PC7"], redFlag:true, ukmla:"Facial/periorbital swelling", source:"Standard pediatric orbital trauma teaching on white-eyed blow-out fractures.", front:"Why is a 'white-eyed' blow-out fracture in a child more dangerous than it looks?",
       back:"Children's elastic bone can spring back after fracture, <strong>trapping the inferior rectus</strong> with minimal external bruising, unlike the obvious hematoma typical of adult blow-outs. Restricted upgaze plus nausea/vomiting (oculocardiac reflex) signals a <strong>surgical emergency</strong> needing prompt release to prevent muscle ischemia." },
     { id:"orbital-compartment-syndrome-card", tags: ["FP", "clinical"], milestones:["PC1"], redFlag:true, ukmla:"Facial/periorbital swelling", source:"Standard ophthalmic emergency teaching on orbital compartment syndrome.", front:"What is orbital compartment syndrome, and what is the emergency treatment?",

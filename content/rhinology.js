@@ -74,11 +74,14 @@ window.JEFFENT.register({
         src: "assets/img/figures/kiesselbach_plexus.png",
         source: "Kiesselbach's Plexus (Little's Area) Arterial Supply. Illustration generated with Google Gemini.",
         labels: [
-          { id:"ka", text:"Little's area / Kiesselbach's plexus", box:{x:29.7,y:42.4,w:24.0,h:9.0} },
-          { id:"aee", text:"Anterior ethmoidal a. (ICA → ophthalmic)", box:{x:4.7,y:23.6,w:24.0,h:9.0} },
-          { id:"sla", text:"Superior labial a. (ECA → facial)", box:{x:4.7,y:67.4,w:24.0,h:9.0} },
-          { id:"spa", text:"Sphenopalatine a. (ECA → maxillary): posterior bleed source", box:{x:71.3,y:26.8,w:24.0,h:9.0} },
-          { id:"gpa", text:"Greater palatine a. (ECA → maxillary)", box:{x:65.8,y:73.6,w:24.0,h:9.0} }
+          { id:"aee-branch", text:"Anterior ethmoidal a. (internal carotid → ophthalmic branch): the highest of the four contributing vessels", box:{x:0.5,y:9.5,w:25.5,h:9.0} },
+          { id:"aee-distal", text:"Anterior ethmoidal a. descending to the septum: internal carotid supply to Kiesselbach's plexus", box:{x:0.5,y:24.5,w:20.0,h:10.0} },
+          { id:"spa", text:"Sphenopalatine a. (external carotid → maxillary a.): the posterior bleed source when it bleeds on its own, higher up the septum", box:{x:0.5,y:37.0,w:21.5,h:11.5} },
+          { id:"gpa", text:"Greater palatine a. (external carotid → maxillary a.): reaches the anterior septum via the incisive canal", box:{x:0.5,y:51.0,w:19.0,h:9.5} },
+          { id:"sla", text:"Superior labial a., septal branch (external carotid → facial a.): supplies the plexus from below", box:{x:0.5,y:65.5,w:21.5,h:12.0} },
+          { id:"ka-plexus", text:"Little's area / Kiesselbach's plexus: the anastomosis on the anterior septum", box:{x:19.5,y:79.0,w:18.5,h:8.0} },
+          { id:"epistaxis-zone", text:"Anterior epistaxis zone: thin, exposed mucosa prone to abrasion and spontaneous bleeding, over 90% of nosebleeds", box:{x:64.0,y:13.5,w:33.0,h:8.0} },
+          { id:"ka-confluence", text:"Kiesselbach's plexus: confluence of the four arteries above, responsible for the great majority of epistaxis", box:{x:59.0,y:83.0,w:40.5,h:14.0} }
         ]
       },
       {
@@ -90,12 +93,14 @@ window.JEFFENT.register({
         src: "assets/img/figures/osteomeatal_complex.png",
         source: "Ostiomeatal Complex (OMC) Coronal Drainage Anatomy. radiopaedia.org.",
         labels: [
-          { id:"max", text:"Maxillary sinus", box:{x:19.4,y:39.6,w:24.0,h:9.0} },
-          { id:"eth", text:"Ethmoid air cells", box:{x:56.6,y:39.6,w:24.0,h:9.0} },
-          { id:"unc", text:"Uncinate process", box:{x:36.8,y:33.1,w:24.0,h:9.0} },
-          { id:"bul", text:"Ethmoid bulla", box:{x:43.2,y:39.6,w:24.0,h:9.0} },
-          { id:"inf", text:"Ethmoid infundibulum (the OMC channel)", box:{x:34.7,y:45.5,w:24.0,h:9.0} },
-          { id:"sep", text:"Nasal septum", box:{x:38.0,y:63.1,w:24.0,h:9.0} }
+          { id:"orbit", text:"Orbit: separated from the ethmoid air cells by the paper-thin lamina papyracea, the route for orbital spread of sinus infection", box:{x:76.0,y:14.0,w:21.0,h:10.5} },
+          { id:"bul", text:"Ethmoid bulla: the largest, most constant anterior ethmoid air cell, forming part of the medial wall of the OMC channel", box:{x:71.5,y:26.5,w:27.5,h:9.5} },
+          { id:"hiatus", text:"Hiatus semilunaris: the two-dimensional cleft behind the uncinate process that the ethmoid infundibulum opens into, and through which the maxillary sinus, frontal recess, and anterior ethmoid cells drain", box:{x:74.5,y:37.5,w:25.5,h:19.0} },
+          { id:"unc", text:"Uncinate process: a thin curved bone whose posterior free edge forms the anterior boundary of the hiatus semilunaris; removed first in FESS to open the OMC", box:{x:1.0,y:54.0,w:34.0,h:12.0} },
+          { id:"mnm", text:"Middle nasal meatus: the space under the middle turbinate that receives drainage from the frontal, maxillary, and anterior ethmoid sinuses via the OMC", box:{x:0.0,y:67.0,w:39.5,h:11.0} },
+          { id:"mt", text:"Middle turbinate: overhangs the middle meatus/OMC; a pneumatized (concha bullosa) or paradoxically-bent middle turbinate can narrow the OMC and predispose to CRS", box:{x:1.0,y:78.0,w:31.5,h:10.0} },
+          { id:"it", text:"Inferior turbinate: overhangs the inferior meatus, where the nasolacrimal duct opens; not part of the OMC", box:{x:1.0,y:89.0,w:31.5,h:10.0} },
+          { id:"max", text:"Maxillary sinus: the largest paranasal sinus; its natural ostium sits high on the medial wall, so drainage depends on ciliary function rather than gravity", box:{x:75.0,y:70.0,w:24.5,h:21.0} }
         ]
       },
       {
@@ -124,12 +129,27 @@ window.JEFFENT.register({
         src: "assets/img/figures/paranasal_sinus_drainage_danger_zones.png",
         source: "Paranasal Sinuses Drainage and Adjacent Danger Zones. Illustration generated with Google Gemini.",
         labels: [
-          { id:"cranial-fossa", text:"Anterior cranial fossa, containing the dura", box:{x:38.0,y:6.4,w:24.0,h:9.0} },
-          { id:"cribriform-plate", text:"Cribriform plate / ethmoid roof: thin bone below the dura", box:{x:38.0,y:16.1,w:24.0,h:9.0} },
-          { id:"ethmoid-cells", text:"Ethmoid air cells: thin-walled, sitting between the nose and the orbit", box:{x:28.0,y:25.2,w:24.0,h:9.0} },
-          { id:"lamina-papyracea", text:"Lamina papyracea: paper-thin bone, the route for orbital spread of infection", box:{x:25.5,y:29.9,w:24.0,h:9.0} },
-          { id:"orbit", text:"Orbit: infection here causes periorbital or orbital cellulitis, abscess, or vision loss", box:{x:11.8,y:29.9,w:24.0,h:9.0} },
-          { id:"maxillary-sinus", text:"Maxillary sinus: sits below the orbit, floor near the tooth roots", box:{x:18.0,y:58.0,w:24.0,h:9.0} }
+          { id:"cranial-fossa", text:"Anterior cranial fossa: sits directly above the ethmoid roof, separated from it only by thin bone, so ethmoid infection can spread intracranially (meningitis, epidural/subdural abscess)", box:{x:24.0,y:13.0,w:19.0,h:7.0} },
+          { id:"frontal-sinus", text:"Frontal sinus: drains via the frontal recess into the middle meatus; borders the anterior cranial fossa, so frontal sinusitis risks intracranial spread (Pott's puffy tumor)", box:{x:41.0,y:19.0,w:9.0,h:8.0} },
+          { id:"frontal-recess-drain", text:"Frontal recess → middle meatus: the frontal sinus's only drainage route, easily obstructed by anterior ethmoid disease or a large agger nasi cell", box:{x:0.0,y:26.0,w:21.0,h:9.0} },
+          { id:"aee-drain", text:"Anterior ethmoid air cells → middle meatus: anterior ethmoid cells drain through the ethmoid infundibulum into the OMC, same pathway as the frontal and maxillary sinuses", box:{x:0.0,y:38.0,w:22.0,h:9.0} },
+          { id:"frontal-recess-pointer", text:"Frontal recess: the hourglass-shaped channel connecting the frontal sinus to the middle meatus, the narrowest and most surgically important part of frontal drainage", box:{x:26.0,y:29.0,w:15.0,h:7.0} },
+          { id:"ethmoid-cells", text:"Ethmoid air cells: thin-walled cells sitting between the nasal cavity and the orbit, separated from it by the paper-thin lamina papyracea", box:{x:27.0,y:39.0,w:16.0,h:7.0} },
+          { id:"ostium", text:"Ostium (gravity-independent drainage): the maxillary sinus ostium sits high on the medial wall, so mucus must be cleared by ciliary action rather than gravity, a key reason CRS is so persistent", box:{x:0.0,y:49.0,w:20.0,h:14.0} },
+          { id:"nasal-cavity-main", text:"Nasal cavity: the shared airway that all paranasal sinus drainage pathways ultimately empty into via the middle and superior meatuses", box:{x:30.0,y:57.0,w:13.0,h:6.0} },
+          { id:"maxillary-sinus", text:"Maxillary sinus: the largest paranasal sinus; its floor lies close to the molar/premolar tooth roots, the basis of odontogenic sinusitis", box:{x:0.0,y:64.0,w:19.0,h:6.0} },
+          { id:"molar-roots", text:"Molar/premolar tooth roots: separated from the maxillary sinus floor by a thin bony plate (sometimes dehiscent), allowing dental infection or extraction to seed the sinus", box:{x:0.0,y:74.0,w:20.0,h:9.0} },
+          { id:"odontogenic-source", text:"Odontogenic source: roughly 10-40% of maxillary sinusitis is dental in origin (periapical abscess, extraction, or a displaced root/implant), and it's classically unilateral and foul-smelling", box:{x:17.0,y:80.0,w:15.0,h:8.0} },
+          { id:"omc-middle-meatus", text:"Ostiomeatal complex (middle meatus): the final common drainage channel for the frontal, maxillary, and anterior ethmoid sinuses; obstruction here is the central mechanism of CRS", box:{x:38.0,y:80.0,w:24.0,h:12.0} },
+          { id:"lamina-papyracea", text:"Lamina papyracea (route to orbital complications): paper-thin ethmoid bone separating the sinuses from the orbit; dehiscence or erosion lets infection spread to cause periorbital/orbital cellulitis, abscess, or vision loss", box:{x:76.0,y:27.0,w:24.0,h:14.0} },
+          { id:"pee-drain", text:"Posterior ethmoid air → superior meatus: posterior ethmoid cells drain separately from the anterior/middle group, emptying into the superior meatus rather than the OMC", box:{x:76.0,y:41.0,w:24.0,h:12.0} },
+          { id:"omc-shared-hub", text:"Ostiomeatal complex (shared drainage hub): because three sinuses funnel through this one narrow channel, a single site of mucosal edema or anatomic variant can obstruct all three at once", box:{x:76.0,y:54.0,w:24.0,h:10.0} },
+          { id:"sphenoid-sinus", text:"Sphenoid sinus (highest-stakes sinus): drains via the sphenoethmoidal recess; borders the optic nerve, internal carotid artery, cavernous sinus, and pituitary gland, making it the highest-risk sinus to operate on", box:{x:77.0,y:63.0,w:23.0,h:8.0} },
+          { id:"optic-nerve", text:"Optic nerve: can run directly along or within the sphenoid sinus wall (sometimes dehiscent), at risk during posterior ethmoid/sphenoid surgery", box:{x:88.0,y:69.0,w:12.0,h:6.0} },
+          { id:"internal-carotid-artery", text:"Internal carotid artery: courses along the lateral sphenoid sinus wall, sometimes with a dehiscent bony covering; the most feared vascular injury in sphenoid/skull base surgery", box:{x:90.0,y:75.0,w:10.0,h:9.0} },
+          { id:"cavernous-sinus", text:"Cavernous sinus: lies lateral to the sphenoid sinus; sphenoid or posterior ethmoid infection can spread here to cause cavernous sinus thrombosis, a life-threatening emergency", box:{x:91.0,y:84.0,w:9.0,h:7.0} },
+          { id:"pituitary-gland", text:"Pituitary gland: sits just above/behind the sphenoid sinus, which is why the sphenoid is the surgical corridor for transsphenoidal pituitary surgery", box:{x:92.0,y:92.0,w:8.0,h:7.0} },
+          { id:"nasal-cavity-inset", text:"Nasal cavity (sagittal view): shown here alongside the sphenoid sinus and its neurovascular neighbors to orient the danger zone in three dimensions", box:{x:72.0,y:86.0,w:14.0,h:7.0} }
         ]
       },
       {
@@ -141,12 +161,13 @@ window.JEFFENT.register({
         src: "assets/img/figures/nasal_septum.png",
         source: "Osteocartilaginous Anatomy of the Nasal Septum. Wikimedia Commons.",
         labels: [
-          { id:"quadrangular-cartilage", text:"Quadrangular cartilage: the anterior two-thirds, flexible and avascular on its own", box:{x:16.9,y:45.5,w:24.0,h:9.0} },
-          { id:"perpendicular-plate", text:"Perpendicular plate of the ethmoid: posterosuperior, continuous with the cribriform plate", box:{x:49.8,y:25.5,w:24.0,h:9.0} },
-          { id:"vomer", text:"Vomer: posteroinferior, a thin flat bone forming the floor of the bony septum", box:{x:49.8,y:58.8,w:24.0,h:9.0} },
-          { id:"deviation-junction", text:"Cartilage-vomer junction: the classic site of septal deviation", box:{x:33.3,y:62.2,w:24.0,h:9.0} },
-          { id:"caudal-septum", text:"Caudal septum: deviation here can visibly tilt the nasal tip", box:{x:5.9,y:77.2,w:24.0,h:9.0} },
-          { id:"maxillary-crest", text:"Maxillary crest: the inferior groove that both cartilage and vomer sit in", box:{x:32.7,y:80.5,w:24.0,h:9.0} }
+          { id:"nasal-bone", text:"Nasal bone: forms the bony dorsum, articulating with the upper lateral (septal) cartilage below it", box:{x:63.0,y:19.0,w:16.0,h:14.0} },
+          { id:"perpendicular-plate", text:"Perpendicular plate of the ethmoid: the posterosuperior bony septum, continuous above with the cribriform plate, which is why a severe septal fracture can risk a CSF leak", box:{x:27.0,y:35.0,w:37.0,h:13.0} },
+          { id:"cartilage-septum", text:"Cartilage of septum (quadrangular cartilage): the anterior two-thirds of the septum, flexible and avascular on its own, dependent entirely on the overlying mucoperichondrium for its blood supply", box:{x:62.0,y:46.0,w:26.0,h:15.0} },
+          { id:"vomer", text:"Vomer: the posteroinferior bony septum, a thin flat bone forming the floor of the bony septum below the perpendicular plate", box:{x:28.0,y:60.0,w:14.0,h:8.0} },
+          { id:"palatine", text:"Palatine bone: contributes to the posterior floor of the nasal cavity where it meets the vomer and maxilla", box:{x:24.0,y:79.0,w:16.0,h:7.0} },
+          { id:"maxilla", text:"Maxilla: its palatine process forms the anterior floor of the nasal cavity and the maxillary crest groove that the septum sits in", box:{x:57.0,y:79.0,w:17.0,h:7.0} },
+          { id:"greater-alar-cartilage", text:"Greater alar cartilage: forms the nasal tip and ala, continuous with but distinct from the septal cartilage; septal deviation near this junction can visibly tilt the nasal tip", box:{x:85.0,y:60.0,w:15.0,h:18.0} }
         ]
       },
       {
@@ -158,13 +179,11 @@ window.JEFFENT.register({
         src: "assets/img/figures/FESS_anatomy_variants_sinus_CT.png",
         source: "Key FESS Anatomic Variants (Concha Bullosa, Haller Cells, Onodi Cells). Illustration generated with Google Gemini.",
         labels: [
-          { id:"normal-turbinate", text:"Normal middle turbinate, shown for comparison", box:{x:23.7,y:29.9,w:24.0,h:9.0} },
-          { id:"concha-bullosa", text:"Concha bullosa: an aerated middle turbinate that can narrow the OMC", box:{x:51.1,y:30.5,w:24.0,h:9.0} },
-          { id:"sphenoid-sinus", text:"Sphenoid sinus", box:{x:36.1,y:10.5,w:24.0,h:9.0} },
-          { id:"haller-cell", text:"Haller cell: an ethmoid cell on the orbital floor, next to the maxillary ostium", box:{x:59.4,y:43.9,w:24.0,h:9.0} },
-          { id:"onodi-cell", text:"Onodi cell: the most posterior ethmoid cell, pneumatizing beside or above the sphenoid", box:{x:47.0,y:3.6,w:24.0,h:9.0} },
-          { id:"optic-nerve", text:"Optic nerve: can run directly beneath an Onodi cell, at risk during posterior surgery", box:{x:47.0,y:8.6,w:24.0,h:9.0} },
-          { id:"maxillary-sinus", text:"Maxillary sinus", box:{x:58.2,y:61.1,w:24.0,h:9.0} }
+          { id:"concha-bullosa", text:"Concha bullosa: an aerated (pneumatized) middle turbinate, shaded green here, that can narrow the ostiomeatal complex and contribute to obstruction/CRS", box:{x:0.0,y:40.0,w:20.0,h:12.0} },
+          { id:"omc", text:"Ostiomeatal complex (OMC): the shared drainage channel that a large concha bullosa can compress from the medial side", box:{x:3.0,y:56.0,w:17.0,h:14.0} },
+          { id:"haller-cell", text:"Haller cell (infraorbital ethmoid cell): an ethmoid air cell extending along the orbital floor next to the maxillary sinus ostium; can narrow the ostium and puts the orbital floor closer to the surgical field than expected", box:{x:80.0,y:23.0,w:20.0,h:20.0} },
+          { id:"onodi-cell", text:"Onodi cell: the most posterior ethmoid air cell, pneumatizing beside or above the sphenoid and closely related to the optic nerve, so mistaking it for the sphenoid sinus risks optic nerve injury during posterior ethmoid/sphenoid surgery", box:{x:80.0,y:46.0,w:20.0,h:18.0} },
+          { id:"optic-nerve", text:"Optic nerve: can run directly beneath or beside an Onodi cell, at risk during posterior ethmoid/sphenoid surgery if the cell is mistaken for the sphenoid sinus proper", box:{x:90.0,y:64.0,w:10.0,h:12.0} }
         ]
       }
     ]

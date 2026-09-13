@@ -62,13 +62,15 @@ window.JEFFENT.register({
         src: "assets/img/figures/neck_levels_colored.png",
         source: "Cervical Lymph Node Levels I-VII Classification. Wikimedia Commons.",
         labels: [
-          { id:"l1", text:"I: submental / submandibular", box:{x:28.6,y:35.0,w:24.0,h:9.0} },
-          { id:"l2ab", text:"IIA/IIB: upper jugular (split by spinal accessory n.)", box:{x:44.5,y:36.0,w:24.0,h:9.0} },
-          { id:"l3", text:"III: mid jugular", box:{x:46.8,y:53.4,w:24.0,h:9.0} },
-          { id:"l4", text:"IV: lower jugular", box:{x:49.8,y:73.4,w:24.0,h:9.0} },
-          { id:"l5ab", text:"VA/VB: posterior triangle", box:{x:61.5,y:60.2,w:24.0,h:9.0} },
-          { id:"l6", text:"VI: central compartment (thyroid bed)", box:{x:34.5,y:68.1,w:24.0,h:9.0} },
-          { id:"l7", text:"VII: superior mediastinal (below sternal notch)", box:{x:37.4,y:90.8,w:24.0,h:9.0} }
+          { id:"ia", text:"Level Ia (submental): between the anterior bellies of digastric, above the hyoid; drains the chin, lower lip, and floor of mouth.", box:{x:60.3,y:37.5,w:4.9,h:6.8} },
+          { id:"ib", text:"Level Ib (submandibular): submandibular triangle, around the submandibular gland; drains the oral cavity and anterior face.", box:{x:54.0,y:34.6,w:5.6,h:6.8} },
+          { id:"iia", text:"Level IIa (upper jugular, anterior to the spinal accessory nerve, CN XI): drains the oral cavity, nasopharynx, oropharynx, larynx, and parotid.", box:{x:42.1,y:15.3,w:6.0,h:6.8} },
+          { id:"iib", text:"Level IIb (upper jugular, posterior to the spinal accessory nerve, CN XI): separated from IIa by CN XI.", box:{x:33.4,y:18.2,w:6.6,h:7.4} },
+          { id:"iii", text:"Level III (mid jugular): hyoid to cricoid; drains the larynx, hypopharynx, and oropharynx.", box:{x:44.7,y:52.0,w:5.7,h:6.8} },
+          { id:"iv", text:"Level IV (lower jugular): cricoid to clavicle; drains the larynx, thyroid, hypopharynx, and cervical esophagus.", box:{x:50.9,y:77.2,w:5.7,h:6.8} },
+          { id:"va", text:"Level Va (posterior triangle, above the cricoid plane): drains the nasopharynx and posterior scalp/neck.", box:{x:32.7,y:45.3,w:6.0,h:6.8} },
+          { id:"vb", text:"Level Vb (posterior triangle, below the cricoid plane): drains the thyroid, with the transverse cervical nodes.", box:{x:37.3,y:72.3,w:5.8,h:6.8} },
+          { id:"vi", text:"Level VI (central compartment/thyroid bed): pretracheal, paratracheal, and prelaryngeal (Delphian) nodes; drains the thyroid, glottic/subglottic larynx, hypopharynx, and cervical esophagus.", box:{x:56.7,y:51.1,w:5.7,h:7.0} }
         ]
       },
       {
@@ -80,10 +82,16 @@ window.JEFFENT.register({
         src: "assets/img/figures/parotid_facial_nerve.png",
         source: "Parotid Region and Facial Nerve Branching Pattern. Royal College of Surgeons of Ireland (CC BY-NC-SA).",
         labels: [
-          { id:"gland", text:"Parotid gland", box:{x:32.1,y:32.2,w:24.0,h:9.0} },
-          { id:"vii", text:"Facial nerve (CN VII): divides gland into superficial/deep lobes", box:{x:32.1,y:45.5,w:24.0,h:9.0} },
-          { id:"branches", text:"Terminal branches (temporal, zygomatic, buccal, marginal mandibular, cervical)", box:{x:32.1,y:62.2,w:24.0,h:9.0} },
-          { id:"duct", text:"Stensen's duct → opens opposite upper 2nd molar", box:{x:76.0,y:45.5,w:24.0,h:9.0} }
+          { id:"temporal", text:"Temporal branch: crosses the zygomatic arch to innervate the frontalis and orbicularis oculi; injury causes brow ptosis and difficulty closing the eye.", box:{x:1.2,y:23.6,w:21.1,h:4.7} },
+          { id:"zygomatic", text:"Zygomatic branch: contributes to orbicularis oculi innervation, helping close the eye.", box:{x:0.0,y:34.9,w:22.3,h:4.5} },
+          { id:"buccal-upper", text:"Buccal branch (upper division): innervates the buccinator and the upper lip elevators.", box:{x:3.1,y:58.5,w:17.2,h:4.7} },
+          { id:"buccal-lower", text:"Buccal branch (lower division): innervates the buccinator and orbicularis oris.", box:{x:1.2,y:72.5,w:19.1,h:4.7} },
+          { id:"facial-trunk", text:"Facial nerve trunk (CN VII): exits the stylomastoid foramen and enters the parotid, where it divides into its terminal branches.", box:{x:73.2,y:23.8,w:21.3,h:4.8} },
+          { id:"stylomastoid", text:"Stylomastoid foramen: skull-base exit point of the facial nerve, just before it enters the parotid gland.", box:{x:73.2,y:43.5,w:14.2,h:8.4} },
+          { id:"parotid-gland", text:"Parotid gland: the largest salivary gland; the facial nerve runs through it, dividing it into superficial and deep lobes.", box:{x:73.2,y:62.1,w:11.5,h:5.0} },
+          { id:"marginal-mandibular", text:"Marginal mandibular branch: runs near the mandibular border to the lower lip depressors; injury causes an asymmetric smile.", box:{x:73.2,y:71.6,w:18.8,h:9.1} },
+          { id:"cervical", text:"Cervical branch: innervates platysma.", box:{x:73.2,y:81.8,w:13.2,h:5.2} },
+          { id:"stensens", text:"Stensen's duct: opens opposite the upper second molar.", box:{x:73.2,y:89.4,w:13.5,h:5.4} }
         ]
       },
       {
@@ -95,9 +103,28 @@ window.JEFFENT.register({
         src: "assets/img/figures/oral_cavity_oropharynx_anatomy.png",
         source: "Oral Cavity vs. Oropharynx Boundaries (Sagittal Section). OpenStax.",
         labels: [
-          { id:"oral", text:"Oral cavity: lips, buccal mucosa, floor of mouth, hard palate, anterior 2/3 tongue; tobacco/alcohol-driven", box:{x:15.8,y:53.2,w:24.0,h:9.0} },
-          { id:"orop", text:"Oropharynx: base of tongue, tonsil, soft palate, posterior wall; increasingly HPV-driven", box:{x:57.4,y:53.2,w:24.0,h:9.0} },
-          { id:"boundary", text:"Circumvallate papillae / soft palate = the subsite boundary", box:{x:38.0,y:45.5,w:24.0,h:9.0} }
+          { id:"superior-lip", text:"Superior lip: part of the oral cavity.", box:{x:79.5,y:0.3,w:15.2,h:2.6} },
+          { id:"superior-labial-frenulum", text:"Superior labial frenulum: midline mucosal fold connecting the upper lip to the gingiva.", box:{x:79.5,y:5.8,w:18.4,h:2.6} },
+          { id:"gingivae-upper", text:"Gingivae (gums): mucosa overlying the alveolar bone and tooth roots.", box:{x:79.5,y:10.7,w:13.3,h:2.9} },
+          { id:"palatoglossal-arch", text:"Palatoglossal arch: the anterior tonsillar pillar; marks the oral cavity-oropharynx boundary.", box:{x:79.5,y:19.1,w:14.7,h:2.7} },
+          { id:"fauces", text:"Fauces: the archway connecting the oral cavity to the oropharynx.", box:{x:79.5,y:25.9,w:6.8,h:2.7} },
+          { id:"palatopharyngeal-arch", text:"Palatopharyngeal arch: the posterior tonsillar pillar, behind the palatine tonsil.", box:{x:79.5,y:33.1,w:18.4,h:2.6} },
+          { id:"hard-palate", text:"Hard palate: bony anterior roof of the mouth; part of the oral cavity.", box:{x:0.0,y:29.8,w:13.3,h:2.7} },
+          { id:"soft-palate", text:"Soft palate: mobile posterior palate; part of the oropharynx.", box:{x:0.0,y:35.6,w:13.3,h:2.7} },
+          { id:"uvula", text:"Uvula: midline muscular projection from the free edge of the soft palate.", box:{x:0.0,y:42.9,w:8.7,h:2.7} },
+          { id:"cheek", text:"Cheek (buccal mucosa): part of the oral cavity; a classic subsite for tobacco/alcohol-driven squamous cell carcinoma.", box:{x:0.0,y:48.6,w:9.1,h:2.6} },
+          { id:"palatine-tonsil", text:"Palatine tonsil: lies between the anterior and posterior tonsillar pillars; the most common oropharyngeal subsite for HPV-driven squamous cell carcinoma.", box:{x:79.5,y:44.4,w:11.7,h:2.7} },
+          { id:"tongue-underside", text:"Tongue (undersurface): the anterior two-thirds is oral cavity; the base of tongue (posterior third) is oropharynx.", box:{x:79.5,y:55.4,w:16.6,h:2.6} },
+          { id:"lingual-frenulum", text:"Lingual frenulum: midline mucosal fold connecting the tongue to the floor of mouth.", box:{x:79.5,y:58.9,w:13.8,h:2.7} },
+          { id:"submandibular-duct-opening", text:"Opening of the submandibular (Wharton's) duct: at the sublingual caruncle, lateral to the lingual frenulum.", box:{x:79.5,y:66.0,w:18.4,h:5.1} },
+          { id:"molars", text:"Molars: posterior grinding teeth.", box:{x:0.0,y:58.7,w:10.3,h:2.6} },
+          { id:"premolars", text:"Premolars: teeth between the canines and molars.", box:{x:0.0,y:69.6,w:13.3,h:2.7} },
+          { id:"cuspid", text:"Cuspid (canine): pointed tooth used for tearing.", box:{x:0.0,y:75.9,w:15.0,h:2.6} },
+          { id:"gingivae-lower", text:"Gingivae (gums): mucosa overlying the lower alveolar bone and tooth roots.", box:{x:79.5,y:76.7,w:13.3,h:2.8} },
+          { id:"incisors", text:"Incisors: anterior cutting teeth.", box:{x:0.0,y:81.3,w:9.1,h:2.7} },
+          { id:"inferior-labial-frenulum", text:"Inferior labial frenulum: midline mucosal fold connecting the lower lip to the gingiva.", box:{x:79.5,y:84.2,w:18.4,h:2.7} },
+          { id:"oral-vestibule", text:"Oral vestibule: the space between the lips/cheeks and the teeth/gingiva.", box:{x:0.0,y:86.2,w:13.3,h:2.7} },
+          { id:"inferior-lip", text:"Inferior lip: part of the oral cavity.", box:{x:79.5,y:91.7,w:8.2,h:2.6} }
         ]
       },
       {
@@ -109,12 +136,14 @@ window.JEFFENT.register({
         src: "assets/img/figures/salivary_gland_ducts.png",
         source: "Major Salivary Glands and Ducts (Parotid, Submandibular, Sublingual). KnowledgeWorks Global Ltd. (CC BY).",
         labels: [
-          { id:"parotid-gland", text:"Parotid gland: the largest major salivary gland, overlying the mandibular ramus below the ear", box:{x:58.8,y:32.2,w:24.0,h:9.0} },
-          { id:"stensens-duct", text:"Stensen's duct: opens opposite the upper second molar", box:{x:13.0,y:38.8,w:24.0,h:9.0} },
-          { id:"submandibular-gland", text:"Submandibular gland: sits below the body of the mandible", box:{x:35.2,y:63.8,w:24.0,h:9.0} },
-          { id:"whartons-duct", text:"Wharton's duct: runs an uphill course to open at the sublingual caruncle", box:{x:24.1,y:66.2,w:24.0,h:9.0} },
-          { id:"sublingual-gland", text:"Sublingual gland: smallest major gland, in the floor of the mouth", box:{x:18.6,y:55.5,w:24.0,h:9.0} },
-          { id:"sublingual-caruncle", text:"Sublingual caruncle: shared opening for Wharton's duct and the sublingual ducts", box:{x:14.4,y:60.5,w:24.0,h:9.0} }
+          { id:"parotid-duct", text:"Parotid (Stensen's) duct: crosses the masseter and opens opposite the upper second molar.", box:{x:2.7,y:28.1,w:15.4,h:4.2} },
+          { id:"opening-whartons", text:"Opening of the submandibular (Wharton's) duct: at the sublingual caruncle in the floor of the mouth.", box:{x:0.0,y:42.2,w:18.1,h:20.1} },
+          { id:"sublingual-gland", text:"Sublingual gland: smallest major salivary gland, in the floor of the mouth; drains via multiple small ducts near the sublingual caruncle.", box:{x:4.6,y:70.7,w:13.5,h:8.8} },
+          { id:"submandibular-whartons-duct", text:"Submandibular (Wharton's) duct: runs an uphill course from the gland to the sublingual caruncle, the classic site for salivary stones.", box:{x:20.0,y:90.2,w:23.5,h:8.2} },
+          { id:"accessory-parotid", text:"Accessory parotid gland: a separate lobule of parotid tissue lying along Stensen's duct, anterior to the main gland.", box:{x:79.9,y:30.9,w:15.0,h:8.8} },
+          { id:"parotid-gland", text:"Parotid gland: the largest major salivary gland, overlying the mandibular ramus below the ear.", box:{x:79.9,y:53.4,w:13.9,h:4.4} },
+          { id:"body-of-mandible", text:"Body of mandible: bony landmark separating the parotid and submandibular regions.", box:{x:79.9,y:65.6,w:15.0,h:4.4} },
+          { id:"submandibular-gland", text:"Submandibular gland: sits below the body of the mandible; classic site for sialolithiasis given its uphill duct course.", box:{x:79.9,y:80.0,w:13.4,h:8.8} }
         ]
       },
       {
@@ -126,11 +155,26 @@ window.JEFFENT.register({
         src: "assets/img/figures/thyroid_adjacent_structures.png",
         source: "Thyroid and Parathyroid Glands, Vasculature, and Recurrent Laryngeal Nerve. Royal College of Surgeons of Ireland (CC BY-NC-SA).",
         labels: [
-          { id:"thyroid-lobes", text:"Thyroid gland: two lobes joined by an isthmus, sitting anterior to the trachea", box:{x:22.4,y:45.5,w:24.0,h:9.0} },
-          { id:"isthmus", text:"Isthmus: bridges the two lobes across the front of the trachea", box:{x:38.0,y:43.9,w:24.0,h:9.0} },
-          { id:"parathyroids", text:"Four parathyroid glands (superior and inferior, times two), on the posterior thyroid capsule", box:{x:24.9,y:34.6,w:24.0,h:9.0} },
-          { id:"rln", text:"Recurrent laryngeal nerve: runs close to the thyroid in the tracheoesophageal groove on each side; injury causes vocal fold paralysis", box:{x:31.1,y:64.2,w:24.0,h:9.0} },
-          { id:"trachea", text:"Trachea: the thyroid gland wraps around its anterior and lateral surface", box:{x:38.0,y:17.4,w:24.0,h:9.0} }
+          { id:"hyoid-bone", text:"Hyoid bone: superior bony landmark above the thyrohyoid membrane and larynx.", box:{x:19.2,y:18.5,w:15.8,h:2.6} },
+          { id:"thyrohyoid-membrane", text:"Thyrohyoid membrane: connects the hyoid bone to the thyroid cartilage; pierced by the internal laryngeal nerve and superior laryngeal vessels.", box:{x:74.5,y:19.0,w:21.8,h:2.2} },
+          { id:"superior-laryngeal-nerve", text:"Superior laryngeal nerve: its external branch runs with the superior thyroid artery and is at risk during upper-pole ligation, causing voice pitch change if injured.", box:{x:12.0,y:31.6,w:23.0,h:4.4} },
+          { id:"superior-thyroid-artery-l", text:"Superior thyroid artery: first branch of the external carotid artery, supplying the upper pole of the thyroid.", box:{x:12.7,y:39.8,w:16.5,h:4.1} },
+          { id:"superior-thyroid-artery-r", text:"Superior thyroid artery: first branch of the external carotid artery, supplying the upper pole of the thyroid.", box:{x:82.8,y:36.8,w:13.5,h:3.6} },
+          { id:"vagus-nerve", text:"Vagus nerve (CN X): runs within the carotid sheath and gives off the recurrent laryngeal nerve.", box:{x:12.7,y:47.4,w:16.5,h:2.3} },
+          { id:"right-lobe-thyroid", text:"Right lobe of thyroid gland: joined to the left lobe by the isthmus, anterior to the trachea.", box:{x:12.0,y:52.2,w:23.0,h:4.1} },
+          { id:"left-lobe-thyroid", text:"Left lobe of thyroid gland: joined to the right lobe by the isthmus, anterior to the trachea.", box:{x:82.8,y:50.8,w:14.3,h:3.7} },
+          { id:"common-carotid-l", text:"Common carotid artery: runs in the carotid sheath lateral to the thyroid lobe.", box:{x:12.0,y:59.1,w:17.2,h:4.4} },
+          { id:"common-carotid-r", text:"Common carotid artery: runs in the carotid sheath lateral to the thyroid lobe.", box:{x:82.8,y:44.0,w:14.3,h:4.0} },
+          { id:"superior-parathyroid-l", text:"Superior parathyroid gland: usually found at a fairly consistent location on the posterior thyroid capsule, near the cricothyroid junction.", box:{x:12.0,y:65.4,w:23.0,h:3.8} },
+          { id:"superior-parathyroid-r", text:"Superior parathyroid gland: usually found at a fairly consistent location on the posterior thyroid capsule, near the cricothyroid junction.", box:{x:77.8,y:57.4,w:19.3,h:3.6} },
+          { id:"inferior-parathyroid-l", text:"Inferior parathyroid gland: more variable in location than the superior gland; can be found anywhere from the thyroid capsule down into the mediastinum.", box:{x:12.0,y:72.3,w:17.2,h:3.6} },
+          { id:"inferior-parathyroid-r", text:"Inferior parathyroid gland: more variable in location than the superior gland; can be found anywhere from the thyroid capsule down into the mediastinum.", box:{x:82.8,y:62.2,w:14.3,h:3.7} },
+          { id:"inferior-thyroid-artery", text:"Inferior thyroid artery: branch of the thyrocervical trunk; runs close to the recurrent laryngeal nerve, so ligation near the gland must be done carefully.", box:{x:74.5,y:72.3,w:22.7,h:2.2} },
+          { id:"recurrent-laryngeal-l", text:"Recurrent laryngeal nerve: runs in the tracheoesophageal groove; injury causes vocal fold paralysis and hoarseness.", box:{x:12.0,y:79.1,w:17.2,h:3.8} },
+          { id:"recurrent-laryngeal-r", text:"Recurrent laryngeal nerve: runs in the tracheoesophageal groove; injury causes vocal fold paralysis and hoarseness.", box:{x:77.8,y:78.0,w:19.3,h:3.6} },
+          { id:"subclavian-l", text:"Subclavian artery: gives rise to the inferior thyroid artery via the thyrocervical trunk.", box:{x:12.7,y:85.7,w:16.5,h:2.5} },
+          { id:"subclavian-r", text:"Subclavian artery: gives rise to the inferior thyroid artery via the thyrocervical trunk.", box:{x:82.8,y:85.6,w:14.3,h:2.3} },
+          { id:"trachea", text:"Trachea: the thyroid gland wraps around its anterior and lateral surface.", box:{x:12.7,y:92.7,w:10.3,h:2.3} }
         ]
       }
     ]
