@@ -621,6 +621,38 @@
     update();
   }
 
+  /* Tiny bar-sparkline (SVG) for the last N days of review activity, shown
+     under the streak stat. Pure decoration -- no interactivity. */
+  function sparklineSvg(values, w, h) {
+    w = w || 60; h = h || 18;
+    var n = values.length || 1;
+    var max = Math.max.apply(null, values.concat([1]));
+    var slot = w / n;
+    var bw = Math.max(2, slot * 0.55);
+    var bars = values.map(function (v, i) {
+      var bh = Math.max(1.5, (v / max) * (h - 2));
+      var x = i * slot + (slot - bw) / 2;
+      var y = h - bh;
+      return '<rect x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" width="' + bw.toFixed(1) + '" height="' + bh.toFixed(1) + '" rx="1"></rect>';
+    }).join("");
+    return '<svg class="spark" viewBox="0 0 ' + w + ' ' + h + '" width="' + w + '" height="' + h + '" aria-hidden="true">' + bars + '</svg>';
+  }
+
+  /* Small circular mastery ring (SVG) used in the spaced-repetition queue --
+     replaces a linear bar with a compact at-a-glance percentage. */
+  function masteryRing(pct, color, size) {
+    size = size || 40;
+    var stroke = 4, r = (size - stroke) / 2, c = 2 * Math.PI * r;
+    var offset = c * (1 - Math.max(0, Math.min(100, pct)) / 100);
+    var cx = size / 2, cy = size / 2;
+    return '<svg class="mastery-ring" width="' + size + '" height="' + size + '" viewBox="0 0 ' + size + ' ' + size + '" aria-hidden="true">' +
+      '<circle cx="' + cx + '" cy="' + cy + '" r="' + r + '" fill="none" stroke="rgba(255,255,255,.16)" stroke-width="' + stroke + '"></circle>' +
+      '<circle cx="' + cx + '" cy="' + cy + '" r="' + r + '" fill="none" stroke="' + esc(color) + '" stroke-width="' + stroke + '" stroke-linecap="round" ' +
+        'stroke-dasharray="' + c.toFixed(1) + '" stroke-dashoffset="' + offset.toFixed(1) + '" transform="rotate(-90 ' + cx + ' ' + cy + ')"></circle>' +
+      '<text x="' + cx + '" y="' + (cy + 4) + '" text-anchor="middle" font-size="11" fill="#fff" font-family="JetBrains Mono, monospace">' + Math.round(pct) + '</text>' +
+    '</svg>';
+  }
+
   /* One deliberate load moment for the Home stat row: numbers count up from
      zero instead of appearing static. Respects prefers-reduced-motion. */
   function animateStatCounts(scope) {
@@ -697,8 +729,9 @@
             '<div class="lbl">Modules reviewed</div><div class="big" data-count="' + reviewedCount + '" data-suffix="' + esc(' / ' + allMods.length) + '">0</div>' +
             '<div class="cta-hint">View roadmap &rarr;</div>' +
           '</button>' +
-          '<button type="button" class="pcard" data-dash="streak" aria-label="' + streak + (streak === 1 ? " day" : " days") + ' study streak. Open study settings.">' +
+          '<button type="button" class="pcard pcard-streak" data-dash="streak" aria-label="' + streak + (streak === 1 ? " day" : " days") + ' study streak. Open study settings.">' +
             '<div class="lbl">Study streak</div><div class="big" data-count="' + streak + '" data-suffix="' + esc(streak === 1 ? ' day' : ' days') + '">0</div>' +
+            '<div class="spark-row">' + sparklineSvg(window.SRS.dailyActivity(7)) + '<span class="spark-lbl">7d</span></div>' +
             '<div class="cta-hint">Settings &rarr;</div>' +
           '</button>' +
         '</div>' +
@@ -730,13 +763,19 @@
       toggleBtn.querySelector(".dash-toggle-label").textContent = next ? "Expand" : "Minimize";
     });
 
-    /* hero: spaced-repetition queue, deep-midnight card + every track's mini
-       card, horizontally scrollable (was the top-3-by-due-count only). */
+    /* hero: spaced-repetition queue, deep-midnight card + a compact,
+       highest-due-first list of tracks (mastery ring + direct Review
+       button per row), capped so it stays scannable instead of scrolling
+       through 8 identical blocks. */
     var dueTracks = TRACKS.map(function (t) {
       var mods = modulesFor(t.id);
       return { track: t, mods: mods, due: aggregateStats(mods).due };
     }).filter(function (x) { return x.mods.length; })
       .sort(function (a, b) { return b.due - a.due; });
+
+    var SR_MAX_ROWS = 5;
+    var shownTracks = dueTracks.slice(0, SR_MAX_ROWS);
+    var moreCount = dueTracks.length - shownTracks.length;
 
     var hero = h(
       '<div class="study-cta all-due-cta">' +
@@ -747,30 +786,47 @@
             '<div class="cta-sub">' + agg.due + ' card' + (agg.due === 1 ? '' : 's') + ' due across ' + allMods.length + ' modules.</div>' +
             '<div class="cta-actions"></div>' +
           '</div>' +
-          '<div class="hero-minis"></div>' +
+          '<div class="sr-list"></div>' +
         '</div>' +
       '</div>'
     );
     var heroBtn = h('<button class="btn">Start due queue (' + agg.due + ') &rarr;</button>');
     heroBtn.addEventListener("click", goStudyAll);
     hero.querySelector(".cta-actions").appendChild(heroBtn);
-    var minisWrap = hero.querySelector(".hero-minis");
-    if (dueTracks.length) {
-      dueTracks.forEach(function (x) {
+    var listWrap = hero.querySelector(".sr-list");
+    if (shownTracks.length) {
+      shownTracks.forEach(function (x) {
         var s = aggregateStats(x.mods);
         var tpct = s.total ? Math.round((s.mastered / s.total) * 100) : 0;
-        var mini = h(
-          '<button type="button" class="hero-mini" style="--hm-color:' + (x.track.color || '#fff') + '">' +
-            '<div class="hm-name">' + esc(x.track.name) + '</div>' +
-            '<div class="hm-meta">' + x.due + ' due &middot; ' + tpct + '% mastered</div>' +
-            '<div class="bar"><i style="width:' + tpct + '%"></i></div>' +
-          '</button>'
+        var color = x.track.color || '#fff';
+        var row = h(
+          '<div class="sr-row" tabindex="0" role="button" aria-label="Review ' + esc(x.track.name) + ': ' + x.due + ' due, ' + tpct + '% mastered">' +
+            '<div class="sr-ring">' + masteryRing(tpct, color, 38) + '</div>' +
+            '<div class="sr-info">' +
+              '<div class="sr-name">' + esc(x.track.name) + '</div>' +
+              '<div class="sr-meta">' + x.due + ' due &middot; ' + tpct + '% mastered</div>' +
+            '</div>' +
+            '<button type="button" class="sr-review-btn">Review</button>' +
+          '</div>'
         );
-        mini.addEventListener("click", function () { goTrack(x.track.id); });
-        minisWrap.appendChild(mini);
+        var openTrack = function () { goTrack(x.track.id); };
+        row.querySelector(".sr-review-btn").addEventListener("click", function (e) {
+          e.stopPropagation();
+          openTrack();
+        });
+        row.addEventListener("click", openTrack);
+        row.addEventListener("keydown", function (e) {
+          if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openTrack(); }
+        });
+        listWrap.appendChild(row);
       });
+      if (moreCount > 0) {
+        var moreRow = h('<button type="button" class="sr-more">+' + moreCount + ' more track' + (moreCount === 1 ? '' : 's') + ' with cards due &rarr;</button>');
+        moreRow.addEventListener("click", goRoadmap);
+        listWrap.appendChild(moreRow);
+      }
     } else {
-      minisWrap.appendChild(h('<div class="hero-mini"><div class="hm-name">All caught up</div><div class="hm-meta">Nothing due right now</div></div>'));
+      listWrap.appendChild(h('<div class="sr-row sr-empty"><div class="sr-info"><div class="sr-name">All caught up</div><div class="sr-meta">Nothing due right now</div></div></div>'));
     }
     root.appendChild(hero);
 
@@ -2260,6 +2316,14 @@
     document.addEventListener("click", function (e) {
       var wrap = e.target.closest && e.target.closest(".tbl-scroll");
       if (!wrap) return;
+      /* The zoom affordance is only the ⤢ icon in the top-right corner
+         (drawn as ::after, so it isn't a real click target) -- gate on
+         pointer position instead of opening for any click on the table. */
+      var r = wrap.getBoundingClientRect();
+      var zone = 34;
+      var inZone = e.clientX >= r.right - zone && e.clientX <= r.right &&
+        e.clientY >= r.top && e.clientY <= r.top + zone;
+      if (!inZone) return;
       var table = wrap.querySelector("table");
       if (table) open(table);
     });
@@ -2875,7 +2939,7 @@
     if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     if (!("IntersectionObserver" in window)) return;
     document.body.classList.add("js-motion");
-    var SEL = ".note-fig, .callout, .case, .tbl-scroll, .tg-card, .study-cta, .pcard, .hero-mini, .rm-row, .mod-row, .panel, .feature-row";
+    var SEL = ".note-fig, .callout, .case, .tbl-scroll, .tg-card, .study-cta, .pcard, .sr-row, .rm-row, .mod-row, .panel, .feature-row";
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
     }, { rootMargin: "0px 0px -6% 0px", threshold: 0.04 });

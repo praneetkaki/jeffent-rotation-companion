@@ -115,6 +115,22 @@
     return count;
   }
 
+  /* Rolling per-day review-activity log (last 30 days), used only to draw
+   * the home-dashboard streak sparkline -- separate from the streak
+   * counter above, which just tracks consecutive days. */
+  var ACTIVITY_KEY = "jeffent.activity";
+  function loadActivity() {
+    try { return JSON.parse(localStorage.getItem(ACTIVITY_KEY) || "{}"); } catch (e) { return {}; }
+  }
+  function bumpActivityToday() {
+    var log = loadActivity();
+    var key = todayStr();
+    log[key] = (log[key] || 0) + 1;
+    var keys = Object.keys(log).sort();
+    while (keys.length > 30) { delete log[keys.shift()]; }
+    try { localStorage.setItem(ACTIVITY_KEY, JSON.stringify(log)); } catch (e) {}
+  }
+
   /* Shared by dueCards() and stats(): partitions `cards` into review-due
    * (seen before, due now) and new (never seen), applies the daily new-card
    * cap to the "new" bucket only, and returns the combined list preserving
@@ -170,7 +186,21 @@
       state[cardId] = s;
       saveState(moduleId, state);
       if (isNew) bumpNewCountToday(moduleId);
+      bumpActivityToday();
       return s;
+    },
+
+    /* Last `days` days of review counts (oldest first), for the home
+     * dashboard's streak sparkline. */
+    dailyActivity: function (days) {
+      var n = days || 7;
+      var log = loadActivity();
+      var out = [];
+      for (var i = n - 1; i >= 0; i--) {
+        var d = new Date(); d.setDate(d.getDate() - i);
+        out.push(log[d.toISOString().slice(0, 10)] || 0);
+      }
+      return out;
     },
 
     /* Aggregate stats for the home dashboard. "due" reflects the same
