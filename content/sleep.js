@@ -37,15 +37,18 @@ window.JEFFENT.register({
     notes: [
       {
         title: "Sites of upper airway obstruction in OSA",
+        tagline: "Nasal, retropalatal, or retroglossal -- identifying where the airway collapses determines which surgery, if any, is right.",
         html: "<figure class='note-fig' data-credit='Source not yet cited, added by the project owner, replace credit before sharing.'><img class='zoomable' src='assets/img/figures/level_upper_airway_obstruction_labeled.png' alt='Level upper airway obstruction labeled' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>The three anatomic levels where the upper airway can collapse in OSA: nasal, retropalatal, and retroglossal.</figcaption></figure><p>Collapse can occur at multiple levels, often more than one at once.</p><ul><li>The <strong>nasal cavity</strong> (septal deviation, turbinate hypertrophy) raises upstream resistance and drives CPAP intolerance.</li><li>The <strong>retropalatal region</strong> (soft palate, uvula, lateral pharyngeal walls) is the classic UPPP target.</li><li>The <strong>retroglossal/hypopharyngeal region</strong> (tongue base, epiglottis) is where tongue-base and hypoglossal nerve procedures work.</li></ul><p>Identifying <em>where</em> collapse occurs determines which surgery, if any, is appropriate.</p>"
       },
       {
         title: "Friedman tongue position and staging",
+        tagline: "How much the tongue base obscures the oropharynx on exam, and what that predicts about UPPP response.",
         html: "<figure class='note-fig' data-credit='Source not yet cited, added by the project owner, replace credit before sharing.'><img class='zoomable' src='assets/img/figures/Friedman_tongue.png' alt='Friedman tongue' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Friedman tongue position grades I-IV and how they predict UPPP response.</figcaption></figure><ul><li><strong>Friedman tongue position (I-IV)</strong> grades how much the tongue base obscures the palate, tonsils, and uvula on a relaxed, non-phonating oral exam.</li><li>Combined with tonsil size and BMI, it forms the <strong>Friedman staging system</strong>, which helps predict response to palatal surgery.</li><li>Higher stages (more tongue-base obstruction) predict worse UPPP-alone outcomes.</li></ul>"
       },
       {
         id: "hgns-anatomy",
         title: "The hypoglossal nerve and tongue protrusion",
+        tagline: "How CN XII protrudes the tongue, and the medial/lateral branch split that makes selective hypoglossal stimulation work.",
         html: "<figure class='note-fig' data-credit='Source not yet cited, added by the project owner, replace credit before sharing.'><img class='zoomable' src='assets/img/figures/hypoglossal_nerve_branches.png' alt='Hypoglossal nerve branches' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>CN XII course and genioglossus innervation underlying tongue protrusion and its role in OSA/airway patency.</figcaption></figure><ul><li><strong>CN XII (hypoglossal)</strong> innervates the genioglossus, the main tongue-protruding muscle.</li><li>During sleep, genioglossus tone normally drops.</li><li>In OSA, too little tone lets the tongue fall backward and obstruct the airway.</li><li><strong>Hypoglossal nerve stimulation:</strong> a cuff electrode fires in phase with inspiration, protruding the tongue forward to hold the airway open.</li></ul>" +
           "<p><strong>Inclusion vs. exclusion branches (why cuff placement matters):</strong> CN XII is a pure motor nerve. Distal to its main trunk it divides into a <strong>medial division</strong> and a <strong>lateral division</strong>, which do opposite things to the tongue.</p><ul>" +
           "<li><strong>Medial branches &rarr; protrusors</strong> (genioglossus, plus geniohyoid/intrinsic protrusive muscles, with a C1 contribution). Stimulating these protrudes and stiffens the tongue, opening the retrolingual airway. These are the <strong>'inclusion' branches</strong> &mdash; the stimulation cuff is placed to capture them.</li>" +
@@ -54,6 +57,7 @@ window.JEFFENT.register({
       },
       {
         title: "How CPAP works",
+        tagline: "Why pneumatic splinting works at every collapse level at once, and why surgery is usually a CPAP adjunct, not a replacement.",
         html: "<figure class='note-fig' data-credit='Source not yet cited, added by the project owner, replace credit before sharing.'><img class='zoomable' src='assets/img/figures/CPAP_therapy.png' alt='CPAP therapy' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>CPAP as pneumatic splinting of the collapsible upper airway.</figcaption></figure><ul><li>CPAP acts as a <strong>pneumatic splint</strong>, holding the airway open at all levels at once regardless of where collapse occurs, which is why it is first-line even before the exact site is known.</li><li>Intolerance is common: mask discomfort, claustrophobia, nasal obstruction limiting airflow, aerophagia.</li><li>That is why <strong>surgery is mainly a CPAP alternative or adjunct</strong>, not usually first-line.</li></ul>"
       }
     ],

@@ -36,18 +36,22 @@ window.JEFFENT.register({
     notes: [
       {
         title: "The pediatric airway vs the adult airway",
+        tagline: "Funnel-shaped, cephalad, floppy -- five anatomic differences that make small amounts of edema disproportionately dangerous in kids.",
         html: "<ul><li><strong>Funnel-shaped</strong>, narrowest at the subglottis (vs the glottis in adults).</li><li>Larynx sits <strong>more cephalad</strong> (about C3-4 vs C4-6).</li><li>Tongue and tonsils are <strong>relatively larger</strong> for the airway size.</li><li>Epiglottis is <strong>omega-shaped</strong> and floppier.</li><li>So small amounts of edema cause disproportionate obstruction, and airway emergencies escalate faster.</li></ul><figure class='note-fig' data-credit='Source not yet cited, added by the project owner, replace credit before sharing.'><img class='zoomable' src='assets/img/figures/pediatric_adult_airway.png' alt='Pediatric adult airway' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Explains why a child&#39;s funnel-shaped airway (narrowest at the subglottis, cephalad larynx, floppy omega-shaped epiglottis) makes small amounts of edema disproportionately obstructive compared to an adult&#39;s cylindrical airway.</figcaption></figure>"
       },
       {
         title: "Eustachian tube anatomy in children",
+        tagline: "Why a shorter, more horizontal tube makes otitis media overwhelmingly a childhood disease.",
         html: "<figure class='note-fig' data-credit='Source not yet cited, added by the project owner, replace credit before sharing.'><img class='zoomable' src='assets/img/figures/eustachian_tube_child_adult.png' alt='Eustachian tube child adult' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Contrasts the child&#39;s shorter, more horizontal Eustachian tube with the adult&#39;s steeper tube to explain why otitis media is a childhood disease.</figcaption></figure><ul><li>A child's Eustachian tube is <strong>shorter, more horizontal, and less angled</strong> than an adult's.</li><li>It therefore drains the middle ear less efficiently and lets nasopharyngeal secretions and pathogens reflux more easily.</li><li>This is why otitis media is overwhelmingly a childhood disease, becoming far less common once the tube matures toward its adult angle.</li></ul>"
       },
       {
         title: "Branchial apparatus embryology: the basics",
+        tagline: "Arches, clefts, and pouches -- and why the second branchial cleft explains the classic lateral neck cyst.",
         html: "<figure class='note-fig' data-credit='Source not yet cited, added by the project owner, replace credit before sharing.'><img class='zoomable' src='assets/img/figures/branchial_cleft_cyst.png' alt='Branchial cleft cyst' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Explains second branchial cleft anomalies and the classic tract from a neck pit anterior to the SCM up to the tonsillar fossa.</figcaption></figure><ul><li>The branchial (pharyngeal) apparatus has arches, clefts (external grooves), and pouches (internal grooves).</li><li>Most clinically relevant anomalies arise from the <strong>second branchial cleft</strong>: a persistent tract can run from a pit near the anterior sternocleidomastoid up toward the tonsillar fossa.</li><li>This is why a 'lateral neck cyst anterior to the SCM' is the classic branchial cleft cyst location.</li></ul>"
       },
       {
         title: "Waldeyer's ring",
+        tagline: "Adenoids, palatine tonsils, and lingual tonsil -- the lymphoid ring behind recurrent tonsillitis and adenotonsillar OSA.",
         html: "<figure class='note-fig' data-credit='Source not yet cited, added by the project owner, replace credit before sharing.'><img class='zoomable' src='assets/img/figures/waldeyer_ring.png' alt='Waldeyer ring' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Describes the ring of lymphoid tissue (adenoids, palatine tonsils, lingual tonsil) guarding the aerodigestive entrance.</figcaption></figure><ul><li>A ring of lymphoid tissue guarding the aerodigestive entrance: <strong>adenoids</strong> (nasopharyngeal tonsil), paired <strong>palatine tonsils</strong> (seen on oral exam), and the <strong>lingual tonsil</strong> at the tongue base.</li><li>All can hypertrophy with recurrent antigen exposure in early childhood, the anatomic basis for both recurrent tonsillitis and adenotonsillar-hypertrophy-driven pediatric OSA.</li></ul>"
       }
     ],

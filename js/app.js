@@ -1246,7 +1246,6 @@
    * (related-cards CTA, figure sources, next-lesson nav) after the body. */
   function buildAnatomyDetail(mod, pane, notes, diagrams, topic, title, buildBody, skipTitle, tagline) {
     var list = combinedAnatomyList(notes, diagrams);
-    var pos = anatomyListPos(list, topic);
     var trackObj = trackById(mod.track);
     var trackStyle = trackObj && trackObj.color ? ' style="--track-color:' + trackObj.color + '"' : "";
 
@@ -1293,8 +1292,7 @@
     var hero = h('<div class="lesson-hero"' + trackStyle + '></div>');
     var heroTop = h('<div class="lesson-hero-top"></div>');
     heroTop.appendChild(h(
-      '<span class="lesson-kicker mono">' + esc(topic.kind === "note" ? "Anatomy note" : "Anatomy diagram") +
-      (list.length > 1 && pos > -1 ? ' &middot; ' + (pos + 1) + ' of ' + list.length : '') + '</span>'
+      '<span class="lesson-kicker mono">' + esc(topic.kind === "note" ? "Anatomy note" : "Anatomy diagram") + '</span>'
     ));
     if (tagline) heroTop.appendChild(h('<span class="lesson-tagline">' + esc(tagline) + '</span>'));
     hero.appendChild(heroTop);
