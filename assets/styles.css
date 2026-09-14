@@ -1133,8 +1133,8 @@ body.pimp-open .pimppanel { transform: none; }
 .xref:hover { color: var(--primary); }
 /* ---- inline glossary terms: same preview-card mechanism as .xref (shared
    #xrefPreview element in JS), but definition-only, no page to open. ---- */
-.term { border-bottom: 1px dotted var(--ink-faint); cursor: help; }
-.term:hover, .term:focus-visible { border-bottom-color: var(--primary); color: var(--primary-deep); }
+.term { border-bottom: 1.5px dotted var(--primary); text-underline-offset: 2px; cursor: help; }
+.term:hover, .term:focus-visible { border-bottom-style: solid; color: var(--primary-deep); }
 .xref-preview { position: absolute; z-index: 200; width: 300px; max-width: 86vw; background: var(--surface);
   border: 1px solid var(--line); border-radius: 10px; box-shadow: var(--shadow); padding: 12px 14px; pointer-events: none; }
 .xref-preview[hidden] { display: none; }
