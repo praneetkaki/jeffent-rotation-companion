@@ -441,6 +441,7 @@
       } else {
         body.appendChild(h('<div class="lib-face"><div class="lib-face-label mono">Front</div><div class="lib-face-content">' + effectiveFront(mod.id, card) + '</div></div>'));
         body.appendChild(h('<div class="lib-face"><div class="lib-face-label mono">Back</div><div class="lib-face-content">' + effectiveBack(mod.id, card) + '</div></div>'));
+        linkGlossaryTerms(body);
         var noteVal = cardNote(mod.id, card);
         if (noteVal) body.appendChild(h('<div class="card-note"><strong>Your note:</strong> ' + esc(noteVal) + '</div>'));
         var actions = h('<div class="lib-row-actions"></div>');
@@ -1203,6 +1204,7 @@
       appendRelatedCardsCta(built.main, mod, noteTitle, topic);
       appendFigureSources(built.main);
       appendNextLessonNav(built.main, mod, pane, notes, diagrams, topic);
+      linkGlossaryTerms(built.main);
       pane.appendChild(built.shell);
       return;
     }
@@ -1215,6 +1217,7 @@
       }, true, diagrams[topic.index].tagline);
       appendRelatedCardsCta(built2.main, mod, dgTitle, topic);
       appendNextLessonNav(built2.main, mod, pane, notes, diagrams, topic);
+      linkGlossaryTerms(built2.main);
       pane.appendChild(built2.shell);
       return;
     }
@@ -1754,6 +1757,7 @@
       }
       pane.appendChild(p);
     });
+    linkGlossaryTerms(pane);
     return pane;
   }
 
@@ -1919,6 +1923,7 @@
     }
 
     pane.appendChild(card);
+    linkGlossaryTerms(card);
   }
 
   /* ---- Cards tab (SRS study flow) ---- */
@@ -2023,6 +2028,7 @@
       : '<span class="rev">Reviewer: pending sign-off</span>';
     fc.appendChild(h('<div class="card-source">' + srcLine + '</div>'));
     shell.appendChild(fc);
+    linkGlossaryTerms(fc);
 
     if (!ses.revealed) {
       var rv = h('<div style="text-align:center"><button class="btn reveal-btn">Show answer</button></div>');
@@ -2782,6 +2788,7 @@
       card.appendChild(aEl);
     }
     shell.appendChild(card);
+    linkGlossaryTerms(card);
 
     if (!pq.revealed) {
       var rv = h('<div style="text-align:center"><button class="btn reveal-btn">Show answer</button></div>');
@@ -2933,6 +2940,7 @@
     fc.appendChild(back);
     if (fpNote) fc.appendChild(h('<div class="card-note"><strong>Your note:</strong> ' + esc(fpNote) + '</div>'));
     stage.appendChild(fc);
+    linkGlossaryTerms(fc);
     if (!fp.revealed) {
       var rv = h('<button class="btn reveal-btn" style="width:100%">Show answer</button>');
       rv.addEventListener("click", function () { fp.revealed = true; renderFlash(); });
@@ -3100,6 +3108,7 @@
       card.appendChild(aEl);
     }
     body.appendChild(card);
+    linkGlossaryTerms(card);
 
     if (!ppq.revealed) {
       var rv = h('<button class="btn reveal-btn" style="width:100%">Show answer</button>');
@@ -3147,49 +3156,175 @@
     });
   }
 
-  /* ---------- CROSS-REFERENCE LINKS + INLINE GLOSSARY TERMS ----------
-   * Two kinds of hoverable inline markup share one preview card:
-   *  - .xref  (data-mod, data-tab): jumps to another module/tab on click,
-   *    preview shows that module's own title/subtitle.
-   *  - .term  (data-def): definition-only, authored inline, no navigation --
-   *    click just toggles the card open/closed (for touch, where hover
-   *    doesn't apply). */
+  /* ---------- UNIVERSAL INLINE GLOSSARY ----------
+   * window.JEFFENT.glossary (content/glossary.js) is one shared term bank
+   * used everywhere in the app -- the same definition for "Eustachian tube"
+   * shows up whether it's mentioned in Otology, Pediatric ENT, or a
+   * flashcard, because nothing is hand-wrapped per file. Instead,
+   * linkGlossaryTerms() walks a freshly-rendered subtree's text nodes after
+   * the fact and wraps any matching phrase in a `.term` span carrying just
+   * a `data-gkey` back-reference to the shared entry -- content authors
+   * never touch glossary markup at all. */
+  var GLOSSARY_INDEX = null;
+  function buildGlossaryIndex() {
+    if (GLOSSARY_INDEX) return GLOSSARY_INDEX;
+    var list = window.JEFFENT.glossary || [];
+    var byKey = {}, allKeys = [];
+    list.forEach(function (entry) {
+      (entry.keys || []).forEach(function (k) {
+        var lk = k.toLowerCase();
+        if (!byKey[lk]) { byKey[lk] = entry; allKeys.push(k); }
+      });
+    });
+    if (!allKeys.length) { GLOSSARY_INDEX = { regex: null, byKey: byKey }; return GLOSSARY_INDEX; }
+    /* longest key first, so a greedy alternation prefers e.g. "Vestibular
+       schwannoma" whole over a shorter key that happens to be a substring. */
+    allKeys.sort(function (a, b) { return b.length - a.length; });
+    var escaped = allKeys.map(function (k) { return k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); });
+    GLOSSARY_INDEX = { regex: new RegExp("\\b(" + escaped.join("|") + ")\\b", "gi"), byKey: byKey };
+    return GLOSSARY_INDEX;
+  }
+
+  var GLOSSARY_SKIP_TAGS = { A: 1, BUTTON: 1, SCRIPT: 1, STYLE: 1, INPUT: 1, TEXTAREA: 1, SELECT: 1, H1: 1, H2: 1, H3: 1 };
+  function linkGlossaryTerms(root) {
+    if (!root) return;
+    var idx = buildGlossaryIndex();
+    if (!idx.regex) return;
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode: function (node) {
+        if (!node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = node.parentNode;
+        while (p && p !== root) {
+          if (GLOSSARY_SKIP_TAGS[p.tagName]) return NodeFilter.FILTER_REJECT;
+          if (p.classList && (p.classList.contains("term") || p.classList.contains("xref"))) return NodeFilter.FILTER_REJECT;
+          p = p.parentNode;
+        }
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    nodes.forEach(function (textNode) {
+      var text = textNode.nodeValue;
+      idx.regex.lastIndex = 0;
+      if (!idx.regex.test(text)) return;
+      idx.regex.lastIndex = 0;
+      var frag = document.createDocumentFragment();
+      var lastIndex = 0, m, matched = false;
+      while ((m = idx.regex.exec(text))) {
+        var entry = idx.byKey[m[0].toLowerCase()];
+        if (!entry) continue;
+        if (m.index > lastIndex) frag.appendChild(document.createTextNode(text.slice(lastIndex, m.index)));
+        var span = document.createElement("span");
+        span.className = "term";
+        span.setAttribute("data-gkey", m[0].toLowerCase());
+        span.textContent = m[0];
+        frag.appendChild(span);
+        lastIndex = idx.regex.lastIndex;
+        matched = true;
+      }
+      if (!matched) return;
+      if (lastIndex < text.length) frag.appendChild(document.createTextNode(text.slice(lastIndex)));
+      textNode.parentNode.replaceChild(frag, textNode);
+    });
+  }
+
+  /* ---------- CROSS-REFERENCE LINKS + GLOSSARY POPOVERS ----------
+   * .xref (data-mod, data-tab): jumps to another module/tab on click; the
+   * lightweight hover card shows that module's own title/subtitle.
+   * .term (data-gkey, set by linkGlossaryTerms): definition-only, no
+   * navigation. Hovering shows the same lightweight card with just the
+   * short definition; clicking opens a richer popover that can also reveal
+   * the term's added clinical detail (mechanism/pitfall/number/decision)
+   * behind a "Read more" toggle, for entries where that's worth a click. */
   function initXrefs() {
-    var prev = null;
-    function ensure() { if (prev) return; prev = h('<div class="xref-preview" hidden></div>'); document.body.appendChild(prev); }
-    function position(a) {
-      var r = a.getBoundingClientRect();
-      prev.hidden = false;
+    var prev = null, pop = null, popOwner = null;
+    function ensurePrev() { if (prev) return; prev = h('<div class="xref-preview" hidden></div>'); document.body.appendChild(prev); }
+    function position(el, box) {
+      var r = el.getBoundingClientRect();
+      box.hidden = false;
+      var w = box.offsetWidth || 300;
       var top = window.scrollY + r.bottom + 6, left = window.scrollX + r.left;
-      prev.style.top = top + "px"; prev.style.left = Math.min(left, window.scrollX + window.innerWidth - 320) + "px";
+      box.style.top = top + "px";
+      box.style.left = Math.min(left, window.scrollX + window.innerWidth - w - 12) + "px";
     }
-    function showXref(a) {
+    function glossaryEntry(a) {
+      var key = a.getAttribute("data-gkey"); if (!key) return null;
+      return buildGlossaryIndex().byKey[key] || null;
+    }
+    function showHoverXref(a) {
       var mod = window.JEFFENT.get(a.getAttribute("data-mod")); if (!mod) return;
-      ensure();
+      ensurePrev();
       var tab = a.getAttribute("data-tab") || "";
       prev.innerHTML = '<div class="xp-title">' + esc(mod.title) + (tab ? ' · ' + esc(TAB_LABELS[tab] || tab) : "") + '</div>' +
         '<div class="xp-sub">' + esc(mod.subtitle || "") + '</div><div class="xp-go">Open →</div>';
-      position(a);
+      position(a, prev);
     }
-    function showTerm(a) {
-      var def = a.getAttribute("data-def"); if (!def) return;
-      ensure();
-      prev.innerHTML = '<div class="xp-title">' + esc(a.textContent) + '</div><div class="xp-sub">' + esc(def) + '</div>';
-      position(a);
+    function showHoverTerm(a) {
+      var entry = glossaryEntry(a); if (!entry) return;
+      ensurePrev();
+      prev.innerHTML = '<div class="xp-title">' + esc(entry.term) + '</div><div class="xp-sub">' + esc(entry.def) + '</div>' +
+        (entry.more ? '<div class="xp-go">Click for more →</div>' : '');
+      position(a, prev);
     }
-    function hide() { if (prev) prev.hidden = true; }
+    function hidePrev() { if (prev) prev.hidden = true; }
+
+    function ensurePop() {
+      if (pop) return;
+      pop = h(
+        '<div class="glossary-popover" hidden role="dialog" aria-label="Glossary">' +
+          '<div class="gp-head"><div class="gp-title"></div><button type="button" class="gp-close" aria-label="Close">✕</button></div>' +
+          '<div class="gp-def"></div>' +
+          '<button type="button" class="gp-toggle" hidden><span class="gp-chev" aria-hidden="true">▾</span><span class="gp-toggle-label">Read more</span></button>' +
+          '<div class="gp-more" hidden></div>' +
+        '</div>'
+      );
+      document.body.appendChild(pop);
+      pop.querySelector(".gp-close").addEventListener("click", function (e) { e.stopPropagation(); hidePop(); });
+      pop.querySelector(".gp-toggle").addEventListener("click", function (e) {
+        e.stopPropagation();
+        var moreEl = pop.querySelector(".gp-more"), btn = pop.querySelector(".gp-toggle");
+        var willOpen = moreEl.hidden;
+        moreEl.hidden = !willOpen;
+        btn.classList.toggle("open", willOpen);
+        btn.querySelector(".gp-toggle-label").textContent = willOpen ? "Show less" : "Read more";
+      });
+    }
+    function openPop(a) {
+      var entry = glossaryEntry(a); if (!entry) return;
+      ensurePop();
+      hidePrev();
+      pop.querySelector(".gp-title").textContent = entry.term;
+      pop.querySelector(".gp-def").textContent = entry.def;
+      var toggle = pop.querySelector(".gp-toggle"), moreEl = pop.querySelector(".gp-more");
+      moreEl.textContent = entry.more || ""; moreEl.hidden = true;
+      toggle.hidden = !entry.more; toggle.classList.remove("open");
+      toggle.querySelector(".gp-toggle-label").textContent = "Read more";
+      position(a, pop);
+      popOwner = a;
+    }
+    function hidePop() { if (pop) pop.hidden = true; popOwner = null; }
+
     document.addEventListener("mouseover", function (e) {
       var a = e.target.closest && e.target.closest(".xref, .term"); if (!a) return;
-      if (a.classList.contains("xref")) showXref(a); else showTerm(a);
+      if (pop && !pop.hidden) return;
+      if (a.classList.contains("xref")) showHoverXref(a); else showHoverTerm(a);
     });
-    document.addEventListener("mouseout", function (e) { var a = e.target.closest && e.target.closest(".xref, .term"); if (a) hide(); });
+    document.addEventListener("mouseout", function (e) { var a = e.target.closest && e.target.closest(".xref, .term"); if (a) hidePrev(); });
     document.addEventListener("click", function (e) {
       var xa = e.target.closest && e.target.closest(".xref");
-      if (xa) { e.preventDefault(); hide(); goModuleTab(xa.getAttribute("data-mod"), xa.getAttribute("data-tab") || "anatomy"); return; }
+      if (xa) { e.preventDefault(); hidePrev(); goModuleTab(xa.getAttribute("data-mod"), xa.getAttribute("data-tab") || "anatomy"); return; }
       var ta = e.target.closest && e.target.closest(".term");
-      if (ta) { e.preventDefault(); if (prev && !prev.hidden) hide(); else showTerm(ta); return; }
-      hide();
+      if (ta) {
+        e.preventDefault();
+        if (popOwner === ta && pop && !pop.hidden) { hidePop(); return; }
+        openPop(ta);
+        return;
+      }
+      if (e.target.closest && e.target.closest(".glossary-popover")) return;
+      hidePrev(); hidePop();
     });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") { hidePrev(); hidePop(); } });
   }
 
   /* ---------- boot ---------- */

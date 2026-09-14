@@ -1142,6 +1142,30 @@ body.pimp-open .pimppanel { transform: none; }
 .xp-sub { font-size: 12.5px; color: var(--ink-soft); line-height: 1.4; }
 .xp-go { font-size: 11px; color: var(--primary); margin-top: 8px; font-weight: 600; }
 
+/* ---- glossary term popover: opens on click, richer than the hover card
+   above (a close button, and an optional "Read more" for the added
+   clinical detail), so long entries don't have to cram into a tooltip. ---- */
+.glossary-popover { position: absolute; z-index: 210; width: 320px; max-width: 90vw; background: var(--surface);
+  border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow-lift); padding: 16px 18px;
+  animation: fade .15s ease; }
+.glossary-popover[hidden] { display: none; }
+@media (prefers-reduced-motion: reduce) { .glossary-popover { animation: none; } }
+.gp-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; margin-bottom: 8px; }
+.gp-title { font-family: "Source Serif 4", serif; font-weight: 600; font-size: 15px; color: var(--ink); line-height: 1.3; }
+.gp-close { flex: 0 0 auto; background: none; border: 0; color: var(--ink-faint); font-size: 15px; line-height: 1;
+  cursor: pointer; padding: 2px; margin: -2px -2px 0 0; border-radius: 6px; }
+.gp-close:hover { color: var(--ink); background: var(--surface-2); }
+.gp-def { font-size: 13.5px; color: var(--ink-soft); line-height: 1.55; }
+.gp-more { font-size: 13.5px; color: var(--ink-soft); line-height: 1.55; margin-top: 12px; padding-top: 12px;
+  border-top: 1px solid var(--line-soft); }
+.gp-more[hidden] { display: none; }
+.gp-toggle { margin-top: 10px; background: none; border: 0; color: var(--primary); font-size: 12.5px; font-weight: 600;
+  cursor: pointer; padding: 0; display: inline-flex; align-items: center; gap: 4px; }
+.gp-toggle:hover { text-decoration: underline; }
+.gp-chev { display: inline-block; transition: transform .15s var(--ease-out); }
+.gp-toggle.open .gp-chev { transform: rotate(180deg); }
+@media (prefers-reduced-motion: reduce) { .gp-chev { transition: none; } }
+
 /* revealed landmark dot highlight (SVG) */
 .hotspot.revealed circle { fill: var(--flag); }
 
