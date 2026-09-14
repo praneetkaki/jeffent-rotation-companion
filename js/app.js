@@ -1116,11 +1116,11 @@
     crumb.addEventListener("click", mods.length > 1 ? function () { goTrack(mod.track); } : goHome);
     if (mods.length > 1) crumb.textContent = "← " + (mod.trackName || mod.track);
     pageHead.appendChild(crumb);
-    pageHead.appendChild(h('<span class="crumb-sep">/</span>'));
+    pageHead.appendChild(h('<span class="crumb-sep">&rsaquo;</span>'));
     var phEyebrow = h('<button type="button" class="ph-eyebrow">' + trackBadge(modTrack, "eyebrow-icon", 11) + '<span class="eyebrow">' + esc(mod.trackName || mod.track) + '</span></button>');
     phEyebrow.addEventListener("click", function () { goTrack(mod.track); });
     pageHead.appendChild(phEyebrow);
-    pageHead.appendChild(h('<span class="crumb-sep">/</span>'));
+    pageHead.appendChild(h('<span class="crumb-sep">&rsaquo;</span>'));
     var phCurrent = h('<button type="button" class="ph-current" id="phCurrent">' + esc(mod.title) + '</button>');
     phCurrent.addEventListener("click", function () {
       state.anatomyTopic = null;
@@ -1129,10 +1129,12 @@
     pageHead.appendChild(phCurrent);
     root.appendChild(pageHead);
 
+    /* The subspecialty name + icon already appear one line up in the sticky
+       .page-head breadcrumb (ph-eyebrow) -- repeating it here as its own
+       eyebrow row read as a duplicated label directly above the H1. */
     root.appendChild(h(
       '<div class="mod-head"' + modHeadStyle + '>' +
         '<div>' +
-          '<div class="eyebrow-row">' + trackBadge(modTrack, "eyebrow-icon", 15) + '<span class="eyebrow">' + esc(mod.trackName || mod.track) + '</span></div>' +
           '<h1>' + esc(mod.title) + '</h1>' +
         '</div>' +
       '</div>'

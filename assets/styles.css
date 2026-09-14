@@ -5,9 +5,9 @@
 :root {
   /* "Midnight Cobalt": cool neutral canvas, cobalt-blue primary, deep
      midnight-slate hero, no orange/amber/yellow anywhere in the palette. */
-  --ground: #f8fafc;
+  --ground: #e7ecf5;
   --surface: #ffffff;
-  --surface-2: #eef2f7;
+  --surface-2: #f3f6fb;
   --ink: #0f172a;
   --ink-soft: #475569;
   --ink-faint: #94a3b8;
@@ -105,12 +105,12 @@ button { font-family: inherit; cursor: pointer; }
 /* ---- top bar ---- */
 .topbar {
   position: sticky; top: 0; z-index: 10;
-  display: flex; align-items: center; justify-content: space-between; gap: 16px;
-  padding: 16px 24px; background: color-mix(in srgb, var(--surface) 88%, transparent);
-  backdrop-filter: blur(8px); border-bottom: 1px solid var(--line-soft);
+  display: flex; align-items: center; justify-content: space-between; gap: 14px;
+  padding: 11px 22px; background: color-mix(in srgb, var(--surface) 92%, transparent);
+  backdrop-filter: blur(10px); border-bottom: 1px solid var(--line-soft);
   box-shadow: 0 10px 18px -14px rgba(15,23,42,.14);
 }
-.brand { display: flex; align-items: center; gap: 14px; cursor: pointer; padding: 3px; border-radius: 10px;
+.brand { display: flex; align-items: center; gap: 12px; cursor: pointer; padding: 3px; border-radius: 10px;
   min-width: 0; flex: 1 1 auto; }
 .brand:hover { background: var(--surface-2); }
 .brand > div { min-width: 0; overflow: hidden; }
@@ -118,26 +118,38 @@ button { font-family: inherit; cursor: pointer; }
    site (viewBox, currentColor stroke, round caps) instead of the old
    gradient/glow raster logo -- an ear with sound reaching it, since that's
    legible at a glance and matches the icon language used everywhere else. */
-.mark { color: var(--primary); display: grid; place-items: center; width: 56px; height: 56px;
-  background: var(--primary-tint); border-radius: 13px; flex: 0 0 auto; }
-.brand-mark { width: 60%; height: 60%; display: block; }
+.mark { color: var(--primary); display: grid; place-items: center; width: 42px; height: 42px;
+  background: var(--primary-tint); border-radius: 11px; flex: 0 0 auto; }
+.brand-mark { width: 58%; height: 58%; display: block; }
 /* Truncates fluidly with whatever room the flex row actually has, at any
    viewport width, instead of the old fixed 1.5rem block wrapping onto a
    second/third line and pushing the icon cluster off-screen once the
    window narrows past the point where "ENT Rotation Companion" fits. */
-.brand-name { font-family: "Source Serif 4", serif; font-weight: 600; font-size: 1.5rem; line-height: 1.1; color: var(--ink);
+.brand-name { font-family: "Source Serif 4", serif; font-weight: 600; font-size: 1.28rem; line-height: 1.1; color: var(--ink);
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: min(46vw, 320px); }
-.brand-sub { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-faint);
+.brand-sub { font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-faint);
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.tb-right { display: flex; align-items: center; gap: 14px; flex: 0 1 auto; min-width: 0; }
+.tb-right { display: flex; align-items: center; gap: 8px; flex: 0 1 auto; min-width: 0; }
 .search { display: flex; align-items: center; gap: 8px; background: var(--surface-2); border: 1px solid var(--line);
   border-radius: 6px; padding: 7px 12px; color: var(--ink-faint); font-size: 13.5px; min-width: 190px; }
 @media (max-width: 640px) { .search { display: none; } }
-.icon-btn { border: 1px solid var(--line); background: var(--surface); color: var(--ink-soft);
-  width: 38px; height: 38px; border-radius: 7px; font-size: 16.5px; flex: 0 0 auto;
-  transition: color .16s var(--ease-out), border-color .16s var(--ease-out), transform .12s var(--ease-out); }
-.icon-btn:hover { color: var(--ink); border-color: var(--primary); }
+/* Icon cluster reads as one grouped control (shared tint container) instead
+   of loose separately-bordered squares, with tighter internal gap between
+   the icons themselves than the gap separating the cluster from search/theme. */
+.icon-cluster { display: flex; align-items: center; gap: 4px; background: var(--surface-2);
+  border: 1px solid var(--line-soft); border-radius: 10px; padding: 3px; flex: 0 0 auto; }
+.icon-btn { border: 1px solid transparent; background: transparent; color: var(--ink-soft);
+  width: 34px; height: 34px; border-radius: 7px; font-size: 15.5px; flex: 0 0 auto;
+  transition: color .16s var(--ease-out), background-color .16s var(--ease-out), transform .12s var(--ease-out); }
+.icon-btn:hover { color: var(--primary-deep); background: var(--surface); }
 .icon-btn:active { transform: translateY(1px); }
+.icon-btn[aria-expanded="true"] { color: var(--primary-deep); background: var(--surface); box-shadow: inset 0 0 0 1px var(--line); }
+.icon-btn svg { width: 17px; height: 17px; display: block; }
+/* nav-toggle stands alone (not inside .icon-cluster), so it keeps its own
+   border/surface treatment rather than relying on a shared group container. */
+.nav-toggle { border-color: var(--line); background: var(--surface); }
+.nav-toggle:hover { background: var(--surface-2); }
+.nav-toggle svg { width: 18px; height: 18px; }
 
 /* ---- mobile topbar: everything above wraps to 3 lines and overflows the
    viewport below ~480px (fixed 56px brand mark + 1.5rem name + 4 full-size
@@ -377,20 +389,27 @@ main.wrap { padding-top: 48px; padding-bottom: 60px; min-height: 60vh; }
 .status-chip { font-family: "JetBrains Mono", monospace; font-size: 11px; padding: 5px 11px; border-radius: 999px;
   background: var(--accent-tint); color: var(--accent); white-space: nowrap; }
 
-.tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--line); margin: 34px 0 32px; overflow-x: auto;
+/* Segmented capsule controller: one pill-shaped track holding all segments,
+   the active one lifted onto its own white chip -- reads as "one control
+   with a position", not a row of independent underlined links. */
+.tabs { display: flex; gap: 2px; background: var(--surface-2); border: 1px solid var(--line-soft);
+  border-radius: 12px; padding: 4px; margin: 28px 0 32px; overflow-x: auto; width: fit-content; max-width: 100%;
   -webkit-overflow-scrolling: touch;
-  /* fades the trailing edge when there are more tabs than fit -- a scroll
-     hint instead of an abrupt cut-off on narrow (phone) widths */
-  -webkit-mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 22px), transparent 100%);
-  mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 22px), transparent 100%); }
-.tab { border: 0; background: none; padding: 13px 18px; font-size: 15px; font-weight: 500; color: var(--ink-soft);
-  border-bottom: 2px solid transparent; white-space: nowrap; flex: 0 0 auto; }
+  -webkit-mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 14px), transparent 100%);
+  mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 14px), transparent 100%); }
+.tab { border: 0; background: none; padding: 9px 18px; font-size: 14.5px; font-weight: 500; color: var(--ink-soft);
+  border-radius: 8px; white-space: nowrap; flex: 0 0 auto;
+  transition: color .16s var(--ease-out), background-color .16s var(--ease-out), box-shadow .16s var(--ease-out); }
+.tab:hover { color: var(--ink); }
 @media (max-width: 560px) {
-  .tabs { margin: 22px 0 20px; }
-  .tab { padding: 11px 13px; font-size: 14px; }
+  .tabs { margin: 20px 0 20px; width: 100%; }
+  .tab { padding: 9px 14px; font-size: 13.5px; flex: 1 1 auto; text-align: center; }
   .panel { padding: 20px 18px; }
 }
-.tab[aria-selected="true"] { color: var(--primary-deep); border-bottom-color: var(--primary); }
+.tab[aria-selected="true"] { color: var(--primary-deep); background: var(--surface);
+  box-shadow: 0 1px 2px rgba(15,23,42,.06), 0 1px 0 rgba(15,23,42,.03); font-weight: 600; }
+:root[data-theme="dark"] .tab[aria-selected="true"], :root:not([data-theme="light"]) .tab[aria-selected="true"] {
+  box-shadow: 0 1px 2px rgba(0,0,0,.3); }
 .tabpane { display: none; }
 .tabpane.active { display: block; animation: fade .25s ease; }
 @media (prefers-reduced-motion: reduce) { .tabpane.active { animation: none; } }
@@ -653,14 +672,23 @@ div.anatomy-detail-body:not(.panel) li { margin: .3em 0; }
   background: var(--accent-tint); color: var(--accent); font-weight: 700; letter-spacing: .03em; }
 .card-back .cloze-answer.cloze-answer { background: var(--accent-tint); color: var(--accent);
   border-radius: 4px; padding: 0 4px; font-weight: 700; }
-.card-source { margin-top: auto; padding-top: 16px; font-size: 12px; color: var(--ink-faint);
-  display: flex; align-items: center; gap: 6px; }
-.card-source::before { content: ""; width: 5px; height: 5px; border-radius: 99px; background: var(--line); flex: 0 0 auto; }
-.card-source .rev { color: var(--accent); }
+/* Review-status notice as a small badge pill (dot + label in a tinted
+   capsule) instead of bare text, matching the pill language used for the
+   card's track/topic tags right above the card front. */
+.card-source { margin-top: auto; padding-top: 16px; display: flex; align-items: center; }
+.card-source .rev { display: inline-flex; align-items: center; gap: 6px; font-size: 11.5px; font-weight: 600;
+  color: var(--accent); background: var(--accent-tint); border-radius: 999px; padding: 4px 10px 4px 8px; }
+.card-source .rev::before { content: ""; width: 5px; height: 5px; border-radius: 99px; background: currentColor; flex: 0 0 auto; }
 
 .answer-controls { display: flex; gap: 10px; margin-top: 20px; justify-content: center; flex-wrap: wrap; }
-.rate { border: 1.5px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 8px; padding: 10px 18px; font-weight: 600; font-size: 14px;
+/* Each rating gets a resting-state tint of its own difficulty color (not
+   just on hover) so "Again / Good / Easy" read as distinct at a glance,
+   plus a bolder label vs. a visibly muted sublabel for real contrast. */
+.rate { border: 1.5px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 8px; padding: 10px 18px; font-weight: 700; font-size: 14px;
   transition: border-color .16s var(--ease-out), color .16s var(--ease-out), background-color .16s var(--ease-out), transform .12s var(--ease-out), box-shadow .16s var(--ease-out); }
+.rate.again { border-color: color-mix(in srgb, var(--flag) 35%, var(--line)); color: color-mix(in srgb, var(--flag) 70%, var(--ink)); background: color-mix(in srgb, var(--flag) 6%, var(--surface)); }
+.rate.good { border-color: color-mix(in srgb, var(--primary) 30%, var(--line)); color: var(--primary-deep); background: color-mix(in srgb, var(--primary) 6%, var(--surface)); }
+.rate.easy { border-color: color-mix(in srgb, var(--good) 35%, var(--line)); color: color-mix(in srgb, var(--good) 75%, var(--ink)); background: color-mix(in srgb, var(--good) 7%, var(--surface)); }
 .rate:hover { border-color: var(--primary); color: var(--primary); background: var(--primary-tint);
   box-shadow: 0 4px 10px -4px color-mix(in srgb, var(--primary) 40%, transparent); }
 .rate.again:hover { border-color: var(--flag); color: var(--flag); background: var(--flag-tint);
@@ -668,7 +696,7 @@ div.anatomy-detail-body:not(.panel) li { margin: .3em 0; }
 .rate.easy:hover { border-color: var(--good); color: var(--good); background: color-mix(in srgb, var(--good) 12%, transparent);
   box-shadow: 0 4px 10px -4px color-mix(in srgb, var(--good) 40%, transparent); }
 .rate:active { transform: translateY(1px); box-shadow: none; }
-.rate small { display: block; font-weight: 400; font-size: 11px; color: var(--ink-faint); font-family: "JetBrains Mono", monospace; }
+.rate small { display: block; font-weight: 500; font-size: 11px; color: var(--ink-soft); font-family: "JetBrains Mono", monospace; margin-top: 2px; }
 .reveal-btn { align-self: center; margin-top: 22px; }
 .reveal-btn::after { content: "→"; margin-left: 8px; display: inline-block; transition: transform .16s var(--ease-out); }
 .reveal-btn:hover::after { transform: translateX(3px); }
@@ -863,12 +891,15 @@ td.flag { color: var(--flag); font-weight: 600; }
 .search-wrap { position: relative; min-width: 150px; flex: 1 1 340px; max-width: 480px; margin-right: 20px; }
 @media (max-width: 640px) { .search-wrap { display: none; } }
 .search-input { width: 100%; background: var(--surface-2); border: 1px solid var(--line);
-  border-radius: 999px; padding: 13px 48px 13px 18px; color: var(--ink); font-size: 15px; }
+  border-radius: 999px; padding: 10.5px 52px 10.5px 40px; color: var(--ink); font-size: 14.5px; }
 .search-input::placeholder { color: var(--ink-faint); }
 .search-input:focus { outline: none; border-color: var(--primary); background: var(--surface); }
-.search-kbd { position: absolute; top: 50%; right: 12px; transform: translateY(-50%);
-  font-size: 11px; color: var(--ink-faint); background: var(--surface); border: 1px solid var(--line);
-  border-radius: 5px; padding: 3px 7px; pointer-events: none; }
+.search-icon { position: absolute; top: 50%; left: 14px; transform: translateY(-50%);
+  width: 15px; height: 15px; color: var(--ink-faint); pointer-events: none; }
+.search-input:focus ~ .search-icon { color: var(--primary); }
+.search-kbd { position: absolute; top: 50%; right: 10px; transform: translateY(-50%);
+  font-size: 10.5px; color: var(--ink-faint); background: var(--surface); border: 1px solid var(--line);
+  border-radius: 5px; padding: 3px 6px; pointer-events: none; }
 .search-results { position: absolute; top: calc(100% + 8px); right: 0; width: 360px; max-width: 80vw;
   max-height: 70vh; overflow-y: auto; background: var(--surface); border: 1px solid var(--line);
   border-radius: 12px; box-shadow: var(--shadow); padding: 8px; z-index: 30; }

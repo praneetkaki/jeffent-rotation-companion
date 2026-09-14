@@ -14,7 +14,9 @@
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="topbar">
-    <button class="icon-btn nav-toggle" id="navToggle" data-tip="Menu" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+    <button class="icon-btn nav-toggle" id="navToggle" data-tip="Menu" aria-label="Toggle navigation menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
     <div class="brand" id="brandHome" role="button" tabindex="0" aria-label="Go to home">
       <span class="mark" aria-hidden="true">
         <svg class="brand-mark" viewBox="0 0 32 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
@@ -31,17 +33,28 @@
     </div>
     <div class="tb-right">
       <div class="search-wrap">
-        <input id="searchInput" class="search-input mono" type="text" placeholder="⌕  Search topics…" autocomplete="off" spellcheck="false" aria-label="Search topics, anatomy, cases, and cards">
+        <input id="searchInput" class="search-input mono" type="text" placeholder="Search topics…" autocomplete="off" spellcheck="false" aria-label="Search topics, anatomy, cases, and cards">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
         <span class="search-kbd mono" aria-hidden="true">&#8984;K</span>
         <div id="searchResults" class="search-results" hidden></div>
       </div>
-      <button class="icon-btn pimp-toggle" id="pimpToggle" data-tip="Frequently asked questions" aria-label="Toggle frequently asked questions panel" aria-expanded="false">🎓</button>
-      <button class="icon-btn flash-toggle" id="flashToggle" data-tip="Flashcards (⌘⇧F)" aria-label="Toggle flashcards panel" aria-expanded="false">🗂</button>
-      <div class="settings-wrap">
-        <button class="icon-btn" id="settingsToggle" data-tip="Settings" aria-label="Study settings" aria-haspopup="true" aria-expanded="false">⚙</button>
-        <div id="settingsPanel" class="settings-panel" hidden></div>
+      <div class="icon-cluster">
+        <button class="icon-btn pimp-toggle" id="pimpToggle" data-tip="Frequently asked questions" aria-label="Toggle frequently asked questions panel" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5-10-5Z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/><path d="M22 9v6"/></svg>
+        </button>
+        <button class="icon-btn flash-toggle" id="flashToggle" data-tip="Flashcards (⌘⇧F)" aria-label="Toggle flashcards panel" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="7" width="14" height="10" rx="2"/><path d="M8 4h11a2 2 0 0 1 2 2v9"/></svg>
+        </button>
+        <div class="settings-wrap">
+          <button class="icon-btn" id="settingsToggle" data-tip="Settings" aria-label="Study settings" aria-haspopup="true" aria-expanded="false">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 13a7.97 7.97 0 0 0 0-2l2.1-1.6-2-3.4-2.5 1a8 8 0 0 0-1.7-1L14.9 3h-3.8l-.4 2.6a8 8 0 0 0-1.7 1l-2.5-1-2 3.4L6.6 11a7.97 7.97 0 0 0 0 2l-2.1 1.6 2 3.4 2.5-1a8 8 0 0 0 1.7 1l.4 2.6h3.8l.4-2.6a8 8 0 0 0 1.7-1l2.5 1 2-3.4L19.4 13Z"/></svg>
+          </button>
+          <div id="settingsPanel" class="settings-panel" hidden></div>
+        </div>
+        <button class="icon-btn" id="themeToggle" data-tip="Theme" aria-label="Toggle theme">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></svg>
+        </button>
       </div>
-      <button class="icon-btn" id="themeToggle" data-tip="Theme" aria-label="Toggle theme">◑</button>
     </div>
   </header>
 
