@@ -565,6 +565,18 @@ main.wrap { padding-top: 48px; padding-bottom: 60px; min-height: 60vh; }
 .lesson-title { font-size: 1.4rem; margin: 10px 0 0; }
 @media (max-width: 640px) { .lesson-tagline { text-align: left; max-width: none; } }
 
+/* Compact top-of-page mirror of .lesson-next below, so advancing to the next
+   lesson doesn't require scrolling past the whole note/diagram body first. */
+.lesson-next-top { display: inline-flex; align-items: center; gap: 6px; margin-top: 12px;
+  border: 1px solid var(--line-soft); border-radius: 999px; padding: 6px 12px 6px 14px;
+  background: color-mix(in srgb, var(--track-color, var(--primary)) 6%, var(--surface));
+  color: var(--track-color, var(--primary)); font-size: 12.5px; font-weight: 600;
+  transition: border-color .16s var(--ease-out), transform .16s var(--ease-out); }
+.lesson-next-top::before { content: "Next:"; color: var(--ink-faint); font-weight: 500; }
+.lesson-next-top:hover { border-color: color-mix(in srgb, var(--track-color, var(--primary)) 45%, var(--line)); transform: translateX(1px); }
+@media (prefers-reduced-motion: reduce) { .lesson-next-top:hover { transform: none; } }
+.lesson-next-top-title { max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
 .lesson-next { display: flex; align-items: center; justify-content: space-between; gap: 14px; width: 100%;
   margin-top: 28px; padding: 16px 20px; border: 1px solid var(--line-soft); border-radius: var(--radius-lg);
   background: color-mix(in srgb, var(--track-color, var(--primary)) 6%, var(--surface)); text-align: left;
@@ -1255,6 +1267,10 @@ body.pimp-open .pimppanel { transform: none; }
 /* Small keyboard hint under the answer controls (flashcards + FAQ quiz). */
 .kbd-hint { text-align: center; margin-top: 10px; font-size: 11px; color: var(--ink-faint); letter-spacing: .03em; }
 .fp-controls + .kbd-hint { margin-top: 8px; }
+.undo-btn { display: block; border: 1px dashed var(--line); background: none; color: var(--ink-faint);
+  font-size: 12px; padding: 7px 14px; border-radius: 8px; margin: 10px auto 0; cursor: pointer;
+  transition: border-color .15s var(--ease-out), color .15s var(--ease-out); }
+.undo-btn:hover { border-color: var(--primary); color: var(--primary); border-style: solid; }
 /* Most-missed CTA uses the flag (red) accent instead of the default gold. */
 .study-cta.pq-misscta .btn { border-color: var(--flag); background: var(--flag); color: #fff; }
 .study-cta.pq-misscta .btn:hover { background: color-mix(in srgb, var(--flag) 85%, black); border-color: color-mix(in srgb, var(--flag) 85%, black); }

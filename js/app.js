@@ -1301,6 +1301,27 @@
     ));
     if (tagline) heroTop.appendChild(h('<span class="lesson-tagline">' + esc(tagline) + '</span>'));
     hero.appendChild(heroTop);
+    /* Same "next lesson" jump as the footer nav, offered here too so a
+     * learner working through a module in order doesn't have to scroll past
+     * the whole note/diagram body just to advance. */
+    if (list.length > 1) {
+      var topPos = anatomyListPos(list, topic);
+      if (topPos !== -1) {
+        var topNext = list[(topPos + 1) % list.length];
+        var topNextBtn = h(
+          '<button type="button" class="lesson-next-top">' +
+            '<span class="lesson-next-top-title">' + esc(topNext.title) + '</span>' +
+            '<span aria-hidden="true">&rarr;</span>' +
+          '</button>'
+        );
+        topNextBtn.addEventListener("click", function () {
+          state.anatomyTopic = { kind: topNext.kind, index: topNext.index };
+          renderAnatomyPane(pane, mod);
+          window.scrollTo(0, 0);
+        });
+        hero.appendChild(topNextBtn);
+      }
+    }
     if (!skipTitle) hero.appendChild(h('<h2 class="anatomy-detail-title lesson-title">' + esc(title) + '</h2>'));
     main.appendChild(hero);
 
@@ -1920,6 +1941,14 @@
           if (cs.index < total - 1) goToCase(cs.index + 1); else goToCase(null);
         });
         controls2.appendChild(doneBtn);
+        /* At the end of a case, offer a jump to this module's Clinical tab --
+         * where the topic the case is built around actually gets taught --
+         * rather than leaving the learner to hunt for it manually. */
+        if (availableTabs(mod).indexOf("clinical") !== -1) {
+          var relatedBtn = h('<button type="button" class="btn ghost case-related">Review the Clinical section for this topic &rarr;</button>');
+          relatedBtn.addEventListener("click", function () { goModuleTab(mod.id, "clinical"); });
+          controls2.appendChild(relatedBtn);
+        }
         stepWrap.appendChild(controls2);
       }
     }
@@ -1971,8 +2000,33 @@
     cards.forEach(function (c) { if (!c._owner) c._owner = mod.id; });
     /* pane and mod are stashed so the spacebar shortcut can re-render this exact
      * session without threading the references through a global. */
-    state.session = { mode: mode, cards: cards, i: 0, revealed: false, done: cards.length === 0, pane: pane, mod: mod };
+    state.session = { mode: mode, cards: cards, i: 0, revealed: false, done: cards.length === 0, pane: pane, mod: mod, history: [] };
     renderStudy(pane, mod);
+  }
+
+  /* Rate the current card in a study session (main Cards tab, cross-module due
+   * queue, or a search-jump session), recording a snapshot of its prior
+   * scheduling state first so the Z-key shortcut can undo it. Shared by the
+   * click handler, the Space shortcut (rates "easy"), and the 1/2/3 shortcuts. */
+  function rateSessionCard(ses, rating) {
+    var card = ses.cards[ses.i];
+    var moduleId = card._owner || (ses.mod && ses.mod.id);
+    var snapshot = window.SRS.snapshotBefore(moduleId, card.id);
+    window.SRS.rate(moduleId, card.id, rating);
+    (ses.history = ses.history || []).push({ moduleId: moduleId, cardId: card.id, snapshot: snapshot });
+    ses.i++; ses.revealed = false;
+    if (ses.i >= ses.cards.length) ses.done = true;
+  }
+
+  /* Undo the most recent rating in a study session: restore that card's prior
+   * SRS state and step back to it, front-side-first (matching Anki's Ctrl+Z). */
+  function undoSessionCard(ses) {
+    var last = ses.history && ses.history.pop();
+    if (!last) return false;
+    window.SRS.undoRate(last.moduleId, last.cardId, last.snapshot);
+    ses.i = Math.max(0, ses.i - 1);
+    ses.revealed = false; ses.done = false;
+    return true;
   }
 
   function renderStudy(pane, mod) {
@@ -1991,6 +2045,14 @@
         if (state.screen === "study") { renderStudyAllIntro(); } else { renderCardsIntro(pane, mod); }
       });
       panel.querySelector(".done-panel").appendChild(back);
+      if (ses && ses.history && ses.history.length) {
+        var undoDone = h('<div style="text-align:center;margin-top:10px"><button type="button" class="undo-btn mono">&#8617; Undo last card (Z)</button></div>');
+        undoDone.querySelector("button").addEventListener("click", function () {
+          undoSessionCard(ses);
+          renderStudy(pane, mod);
+        });
+        panel.querySelector(".done-panel").appendChild(undoDone);
+      }
       pane.appendChild(panel);
       return;
     }
@@ -2049,14 +2111,20 @@
       );
       ctr.querySelectorAll(".rate").forEach(function (btn) {
         btn.addEventListener("click", function () {
-          window.SRS.rate(card._owner || mod.id, card.id, btn.dataset.r);
-          ses.i++; ses.revealed = false;
-          if (ses.i >= ses.cards.length) ses.done = true;
+          rateSessionCard(ses, btn.dataset.r);
           renderStudy(pane, mod);
         });
       });
       shell.appendChild(ctr);
-      shell.appendChild(h('<div class="kbd-hint mono">Space = Easy</div>'));
+      shell.appendChild(h('<div class="kbd-hint mono">Space = Easy &middot; 1/2/3 = Again/Good/Easy &middot; Z = Undo</div>'));
+    }
+    if (ses.history && ses.history.length) {
+      var undoRow = h('<div style="text-align:center;margin-top:10px"><button type="button" class="undo-btn mono">&#8617; Undo last card (Z)</button></div>');
+      undoRow.querySelector("button").addEventListener("click", function () {
+        undoSessionCard(ses);
+        renderStudy(pane, mod);
+      });
+      shell.appendChild(undoRow);
     }
     pane.appendChild(shell);
   }
@@ -2068,10 +2136,25 @@
     var ses = state.session;
     if (!ses || ses.done || ses.i >= ses.cards.length) return false;
     if (!ses.revealed) { ses.revealed = true; renderStudy(ses.pane, ses.mod); return true; }
-    var card = ses.cards[ses.i];
-    window.SRS.rate(card._owner || (ses.mod && ses.mod.id), card.id, "easy");
-    ses.i++; ses.revealed = false;
-    if (ses.i >= ses.cards.length) ses.done = true;
+    rateSessionCard(ses, "easy");
+    renderStudy(ses.pane, ses.mod);
+    return true;
+  }
+
+  /* 1/2/3 shortcuts in a study session: rate Again/Good/Easy directly once
+   * the answer is revealed (Anki-style), and Z to undo the last rating --
+   * from either the active card or the "session complete" screen. */
+  function handleStudyNumberKey(n) {
+    var ses = state.session;
+    if (!ses || ses.done || ses.i >= ses.cards.length || !ses.revealed) return false;
+    var rating = n === "1" ? "again" : n === "2" ? "good" : "easy";
+    rateSessionCard(ses, rating);
+    renderStudy(ses.pane, ses.mod);
+    return true;
+  }
+  function handleStudyUndo() {
+    var ses = state.session;
+    if (!ses || !undoSessionCard(ses)) return false;
     renderStudy(ses.pane, ses.mod);
     return true;
   }
@@ -2855,7 +2938,7 @@
     if (mode !== "all" && mode !== "due") mode = "due";
     if (scope !== "all" && !modulesFor(scope).length) scope = "all";
     var q = buildFlashQueue(scope, mode);
-    fp = { cards: q.cards, i: 0, revealed: false, ctx: q.ctx, mode: mode, scope: scope };
+    fp = { cards: q.cards, i: 0, revealed: false, ctx: q.ctx, mode: mode, scope: scope, history: [] };
     try { localStorage.setItem("jeffent.fpScope", scope); localStorage.setItem("jeffent.fpMode", mode); } catch (_) {}
   }
   function openFlash() {
@@ -2929,6 +3012,11 @@
       var again = h('<button class="btn ghost" style="width:100%">Restart</button>');
       again.addEventListener("click", function () { setFlashQueue(fp.scope, fp.mode); renderFlash(); });
       stage.appendChild(again);
+      if (fp.history && fp.history.length) {
+        var undoDone = h('<button type="button" class="undo-btn mono" style="width:100%;margin-top:8px">&#8617; Undo last card (Z)</button>');
+        undoDone.addEventListener("click", function () { undoFlashCard(); renderFlash(); });
+        stage.appendChild(undoDone);
+      }
       return;
     }
     var card = fp.cards[fp.i];
@@ -2951,13 +3039,37 @@
       var ctr = h('<div class="answer-controls fp-controls"><button class="rate again" data-r="again">Again</button><button class="rate good" data-r="good">Good</button><button class="rate easy" data-r="easy">Easy</button></div>');
       ctr.querySelectorAll(".rate").forEach(function (btn) {
         btn.addEventListener("click", function () {
-          window.SRS.rate(card._owner || state.moduleId, card.id, btn.dataset.r);
-          fp.i++; fp.revealed = false; renderFlash();
+          rateFlashCard(btn.dataset.r);
+          renderFlash();
         });
       });
       stage.appendChild(ctr);
-      stage.appendChild(h('<div class="kbd-hint mono">Space = Easy</div>'));
+      stage.appendChild(h('<div class="kbd-hint mono">Space = Easy &middot; 1/2/3 = Again/Good/Easy &middot; Z = Undo</div>'));
+      if (fp.history && fp.history.length) {
+        var undoRow = h('<button type="button" class="undo-btn mono" style="width:100%;margin-top:8px">&#8617; Undo last card (Z)</button>');
+        undoRow.addEventListener("click", function () { undoFlashCard(); renderFlash(); });
+        stage.appendChild(undoRow);
+      }
     }
+  }
+
+  /* Rate/undo helpers for the floating flashcard panel, mirroring
+   * rateSessionCard/undoSessionCard for the main study screen. */
+  function rateFlashCard(rating) {
+    var card = fp.cards[fp.i];
+    var moduleId = card._owner || state.moduleId;
+    var snapshot = window.SRS.snapshotBefore(moduleId, card.id);
+    window.SRS.rate(moduleId, card.id, rating);
+    (fp.history = fp.history || []).push({ moduleId: moduleId, cardId: card.id, snapshot: snapshot });
+    fp.i++; fp.revealed = false;
+  }
+  function undoFlashCard() {
+    var last = fp.history && fp.history.pop();
+    if (!last) return false;
+    window.SRS.undoRate(last.moduleId, last.cardId, last.snapshot);
+    fp.i = Math.max(0, fp.i - 1);
+    fp.revealed = false;
+    return true;
   }
 
   /* Spacebar in the flashcard panel: reveal, then rate Easy (the rightmost
@@ -2965,9 +3077,23 @@
   function handleFlashSpace() {
     if (!fp.cards.length || fp.i >= fp.cards.length) return false;
     if (!fp.revealed) { fp.revealed = true; renderFlash(); return true; }
-    var card = fp.cards[fp.i];
-    window.SRS.rate(card._owner || state.moduleId, card.id, "easy");
-    fp.i++; fp.revealed = false; renderFlash();
+    rateFlashCard("easy");
+    renderFlash();
+    return true;
+  }
+
+  /* 1/2/3 shortcuts in the flashcard panel: rate Again/Good/Easy directly
+   * once the answer is revealed (Anki-style), and Z to undo the last rating. */
+  function handleFlashNumberKey(n) {
+    if (!fp.cards.length || fp.i >= fp.cards.length || !fp.revealed) return false;
+    var rating = n === "1" ? "again" : n === "2" ? "good" : "easy";
+    rateFlashCard(rating);
+    renderFlash();
+    return true;
+  }
+  function handleFlashUndo() {
+    if (!undoFlashCard()) return false;
+    renderFlash();
     return true;
   }
 
@@ -3136,6 +3262,21 @@
     return true;
   }
 
+  /* Spacebar in a case stepper: at any moment the stepper renders exactly one
+   * primary forward-action button -- Show answer / Show teaching point (class
+   * .case-reveal) or Next question / Next case / Back to all cases (class
+   * .case-next) -- so driving it is just clicking whichever one is present,
+   * the same step the click handlers already implement. */
+  function handleCaseSpace() {
+    if (state.screen !== "module" || state.tab !== "cases" || !state.caseSession) return false;
+    var pane = el("pane-cases");
+    if (!pane) return false;
+    var btn = pane.querySelector(".case-reveal") || pane.querySelector(".case-next");
+    if (!btn) return false;
+    btn.click();
+    return true;
+  }
+
   /* One global keydown wires the spacebar into whichever card view is active:
    * the flashcard panel if it is open, then the FAQ panel if it is open,
    * otherwise a running study session, otherwise the full-page FAQ quiz.
@@ -3143,17 +3284,32 @@
    * typing still work. */
   function initQuizKeys() {
     document.addEventListener("keydown", function (e) {
-      if (e.code !== "Space" && e.key !== " " && e.keyCode !== 32) return;
       var t = e.target, tag = t && t.tagName;
       /* Leave typing and native control widgets alone. Buttons are NOT excluded:
-       * Space should drive the card even when a control still holds focus, and
-       * the preventDefault below stops the focused button from also firing. */
+       * these shortcuts should drive the card even when a control still holds
+       * focus, and the preventDefault below stops the focused button from
+       * also firing. */
       if (tag === "INPUT" || tag === "SELECT" || tag === "TEXTAREA" || (t && t.isContentEditable)) return;
+      var isSpace = e.code === "Space" || e.key === " " || e.keyCode === 32;
+      var isUndo = e.key === "z" || e.key === "Z";
+      var isNumber = e.key === "1" || e.key === "2" || e.key === "3";
+      if (!isSpace && !isUndo && !isNumber) return;
       var handled = false;
-      if (document.body.classList.contains("flash-open")) handled = handleFlashSpace();
-      else if (document.body.classList.contains("pimp-open")) handled = handlePimpPanelSpace();
-      else if ((state.screen === "module" || state.screen === "study") && state.session && !state.session.done) handled = handleStudySpace();
-      else if (state.screen === "pimp") handled = handlePimpSpace();
+      if (document.body.classList.contains("flash-open")) {
+        if (isSpace) handled = handleFlashSpace();
+        else if (isNumber) handled = handleFlashNumberKey(e.key);
+        else if (isUndo) handled = handleFlashUndo();
+      } else if (document.body.classList.contains("pimp-open")) {
+        if (isSpace) handled = handlePimpPanelSpace();
+      } else if ((state.screen === "module" || state.screen === "study") && state.session) {
+        if (isSpace && !state.session.done) handled = handleStudySpace();
+        else if (isNumber && !state.session.done) handled = handleStudyNumberKey(e.key);
+        else if (isUndo) handled = handleStudyUndo();
+      } else if (state.screen === "module" && state.tab === "cases" && state.caseSession) {
+        if (isSpace) handled = handleCaseSpace();
+      } else if (state.screen === "pimp") {
+        if (isSpace) handled = handlePimpSpace();
+      }
       if (handled) e.preventDefault();
     });
   }

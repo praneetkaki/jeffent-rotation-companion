@@ -190,6 +190,27 @@
       return s;
     },
 
+    /* Snapshot a card's scheduling state right before rating it, so a
+     * following "undo" (the Z-key shortcut) can put it back exactly as it
+     * was -- including removing it again if it was a brand-new card, and
+     * uncounting it against today's new-card cap. */
+    snapshotBefore: function (moduleId, cardId) {
+      var state = loadState(moduleId);
+      var s = state[cardId];
+      return { prev: s ? { box: s.box, due: s.due, seen: s.seen } : null, wasNew: !s };
+    },
+    undoRate: function (moduleId, cardId, snapshot) {
+      if (!snapshot) return;
+      var state = loadState(moduleId);
+      if (snapshot.prev) state[cardId] = snapshot.prev; else delete state[cardId];
+      saveState(moduleId, state);
+      if (snapshot.wasNew) {
+        var count = Math.max(0, getNewCountToday(moduleId) - 1);
+        try { localStorage.setItem(newCountKey(moduleId), JSON.stringify({ date: todayStr(), count: count })); }
+        catch (e) { /* degrade to session-only */ }
+      }
+    },
+
     /* Last `days` days of review counts (oldest first), for the home
      * dashboard's streak sparkline. */
     dailyActivity: function (days) {
