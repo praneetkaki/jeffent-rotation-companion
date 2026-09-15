@@ -551,6 +551,15 @@ main.wrap { padding-top: 48px; padding-bottom: 60px; min-height: 60vh; }
 }
 
 .lesson-main { min-width: 0; }
+
+/* Clinical tab jump nav: same sidebar look as the anatomy lesson nav above,
+   but the clinical pane is one long scroll of every block rather than a
+   series of separate detail pages, so this copy is sticky (under the
+   sticky .page-head strip) and its active item tracks scroll position via
+   initClinicalScrollspy() instead of which page is currently open. */
+.clinical-shell .lesson-nav { position: sticky; top: calc(var(--topbar-h, 73px) + 50px); max-height: calc(100vh - var(--topbar-h, 73px) - 66px); }
+.clinical-shell .lesson-nav-list { max-height: none; overflow-y: auto; }
+@media (max-width: 899px) { .clinical-shell .lesson-nav { position: static; max-height: none; } }
 .lesson-hero { position: relative; overflow: hidden; border: 1px solid var(--line-soft); border-radius: var(--radius-lg);
   padding: 18px 22px 20px; margin-bottom: 24px;
   background: radial-gradient(130% 170% at 100% 0%, color-mix(in srgb, var(--track-color, var(--primary)) 10%, transparent), transparent 65%), var(--surface); }

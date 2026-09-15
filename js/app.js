@@ -1869,7 +1869,13 @@
     return panel;
   }
 
-  /* ---- Clinical tab ---- */
+  /* ---- Clinical tab ----
+   * When a subspecialty has more than a couple of clinical blocks, a jump
+   * nav sits alongside them (same .lesson-nav look as the anatomy detail
+   * sidebar) so a learner can skip straight to a topic instead of scrolling
+   * past everything before it -- and a scrollspy keeps the active item in
+   * sync with whatever block is actually in view. */
+  var clinicalScrollspyIO = null;
   function buildClinicalPane(mod) {
     var pane = h('<div class="tabpane" data-pane="clinical"></div>');
     var c = mod.clinical || {};
@@ -1878,8 +1884,25 @@
       pane.appendChild(emptyNote("Clinical content for this module is in progress."));
       return pane;
     }
-    blocks.forEach(function (b) {
-      var p = h('<div class="panel" data-anchor="clinical-block-' + esc(b.id || "") + '"><h3>' + esc(b.title) + '</h3>' +
+
+    var trackObj = trackById(mod.track);
+    var trackStyle = trackObj && trackObj.color ? ' style="--track-color:' + trackObj.color + '"' : "";
+    var showNav = blocks.length > 2;
+    var shell = showNav ? h('<div class="clinical-shell lesson-shell"></div>') : null;
+    var nav = null, navList = null;
+
+    if (showNav) {
+      nav = h('<nav class="lesson-nav" aria-label="Jump to a topic in this section"' + trackStyle + '></nav>');
+      nav.appendChild(h('<div class="lesson-nav-label mono">' + esc(mod.trackName || mod.track) + ' &middot; Clinical</div>'));
+      navList = h('<div class="lesson-nav-list"></div>');
+      nav.appendChild(navList);
+      shell.appendChild(nav);
+    }
+
+    var main = showNav ? h('<div class="lesson-main"></div>') : pane;
+    blocks.forEach(function (b, i) {
+      var anchor = "clinical-block-" + esc(b.id || "");
+      var p = h('<div class="panel" data-anchor="' + anchor + '"><h3>' + esc(b.title) + '</h3>' +
         (b.tagline ? '<p class="detail-tagline">' + esc(b.tagline) + '</p>' : '') + '</div>');
       if (b.html) p.appendChild(h('<div>' + b.html + '</div>'));
       if (b.table) {
@@ -1891,10 +1914,48 @@
           '</tbody></table></div>'
         ));
       }
-      pane.appendChild(p);
+      main.appendChild(p);
+
+      if (showNav) {
+        var btn = h(
+          '<button type="button" class="lesson-nav-item' + (i === 0 ? ' active' : '') + '"' + (i === 0 ? ' aria-current="page"' : '') + ' data-anchor-target="' + anchor + '">' +
+            '<span class="lesson-nav-dot"></span><span class="lesson-nav-item-title">' + esc(b.title) + '</span>' +
+          '</button>'
+        );
+        btn.addEventListener("click", function () {
+          if (p.scrollIntoView) p.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+        navList.appendChild(btn);
+      }
     });
+
+    if (showNav) {
+      shell.appendChild(main);
+      pane.appendChild(shell);
+    }
+
     linkGlossaryTerms(pane);
+    if (showNav) initClinicalScrollspy(pane, nav);
     return pane;
+  }
+
+  function initClinicalScrollspy(pane, nav) {
+    if (clinicalScrollspyIO) { clinicalScrollspyIO.disconnect(); clinicalScrollspyIO = null; }
+    if (!("IntersectionObserver" in window)) return;
+    var blocks = Array.prototype.slice.call(pane.querySelectorAll(".lesson-main > [data-anchor]"));
+    if (!blocks.length) return;
+    clinicalScrollspyIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var anchor = entry.target.getAttribute("data-anchor");
+        nav.querySelectorAll(".lesson-nav-item").forEach(function (item) {
+          var isActive = item.getAttribute("data-anchor-target") === anchor;
+          item.classList.toggle("active", isActive);
+          if (isActive) item.setAttribute("aria-current", "page"); else item.removeAttribute("aria-current");
+        });
+      });
+    }, { rootMargin: "-15% 0px -70% 0px", threshold: 0 });
+    blocks.forEach(function (b) { clinicalScrollspyIO.observe(b); });
   }
 
   /* ---- Cases tab ----
