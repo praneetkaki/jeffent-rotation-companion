@@ -589,7 +589,10 @@ main.wrap { padding-top: 48px; padding-bottom: 60px; min-height: 60vh; }
 .lesson-next-arrow { flex: 0 0 auto; font-size: 1.3rem; color: var(--track-color, var(--primary)); transition: transform .16s var(--ease-out); }
 .lesson-next:hover .lesson-next-arrow { transform: translateX(3px); }
 @media (prefers-reduced-motion: reduce) { .lesson-next:hover .lesson-next-arrow { transform: none; } }
-div.anatomy-detail-body:not(.panel) { max-width: 720px; color: var(--ink-soft); font-size: 15.5px; line-height: 1.65; }
+/* Full width of the lesson column (matching the hero card above it) rather
+   than a fixed 720px cap -- tables in particular were reading as needlessly
+   cramped next to a much wider heading card. */
+div.anatomy-detail-body:not(.panel) { max-width: none; color: var(--ink-soft); font-size: 15.5px; line-height: 1.65; }
 div.anatomy-detail-body:not(.panel) strong { color: var(--ink); }
 div.anatomy-detail-body:not(.panel) ul { padding-left: 1.2em; margin: .5em 0; }
 div.anatomy-detail-body:not(.panel) li { margin: .3em 0; }
