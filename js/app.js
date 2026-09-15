@@ -656,19 +656,15 @@
 
   /* The due-queue carousel: `n` cards arranged evenly around a real 3D
    * cylinder (each card gets a fixed rotateY(i * step) translateZ(radius)
-   * transform), with the whole ring slowly auto-rotating by animating the
-   * track's own rotateY every frame -- true circular motion, so it loops
-   * forever with no "rewind the scroll position" hack needed. Auto-rotation
-   * pauses on hover/focus (mouse users) and via an explicit pause/play
-   * button (keyboard/touch users, and the accessibility requirement that
-   * auto-rotating content have a real stop control); it never starts at all
-   * under prefers-reduced-motion, leaving the prev/next buttons as the only
-   * way to move between cards. */
+   * transform). It never moves on its own -- no auto-rotation -- so it stays
+   * readable and doesn't fight WCAG's "stop moving content" guidance. The
+   * learner moves it themselves: drag/swipe anywhere on the carousel to spin
+   * it (snapping to the nearest card on release), or use the small prev/next
+   * arrows as a keyboard- and touch-free-reachable fallback. */
   function initDueCarousel(track, wrap, n) {
     var rows = Array.prototype.slice.call(track.children);
     var prevBtn = wrap.querySelector(".sr-prev");
     var nextBtn = wrap.querySelector(".sr-next");
-    var playBtn = wrap.querySelector(".sr-playpause");
     if (n < 2) { track.style.transform = "none"; return; }
 
     var angleStep = 360 / n;
@@ -681,32 +677,58 @@
       row.style.transform = "rotateY(" + (i * angleStep) + "deg) translateZ(" + radius + "px)";
     });
 
-    var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    var angle = 0, paused = reduceMotion, raf = null;
+    var angle = 0;
     function apply() { track.style.transform = "rotateY(" + angle + "deg)"; }
-    function tick() {
-      if (!paused) { angle -= 0.05; apply(); }
-      raf = requestAnimationFrame(tick);
-    }
     apply();
-    raf = requestAnimationFrame(tick);
-
-    function setPlaying(playing) {
-      paused = !playing;
-      if (playBtn) {
-        playBtn.setAttribute("aria-pressed", String(!playing));
-        playBtn.setAttribute("aria-label", playing ? "Pause auto-rotation" : "Resume auto-rotation");
-        playBtn.innerHTML = playing ? "&#10074;&#10074;" : "&#9654;";
-      }
+    function step(dir) {
+      track.style.transition = "transform .3s var(--ease-out)";
+      angle += dir * angleStep;
+      apply();
     }
-    if (playBtn) playBtn.addEventListener("click", function () { setPlaying(paused); });
-    wrap.addEventListener("mouseenter", function () { if (!reduceMotion) paused = true; });
-    wrap.addEventListener("mouseleave", function () {
-      if (!reduceMotion && !(playBtn && playBtn.getAttribute("aria-pressed") === "true")) paused = false;
-    });
-    if (prevBtn) prevBtn.addEventListener("click", function () { angle += angleStep; apply(); setPlaying(false); });
-    if (nextBtn) nextBtn.addEventListener("click", function () { angle -= angleStep; apply(); setPlaying(false); });
-    if (reduceMotion) setPlaying(false);
+    if (prevBtn) prevBtn.addEventListener("click", function () { step(1); });
+    if (nextBtn) nextBtn.addEventListener("click", function () { step(-1); });
+
+    /* Drag/swipe: track the pointer, spin 1:1 with horizontal movement while
+     * dragging, then snap to the nearest card on release. `moved` guards
+     * against a drag ending up misread as a click on whatever card the drag
+     * happened to end on. */
+    var dragging = false, moved = false, startX = 0, startAngle = 0;
+    var SENSITIVITY = 0.4; /* degrees rotated per pixel dragged */
+    function pointerX(e) { return e.touches ? e.touches[0].clientX : e.clientX; }
+    function dragStart(e) {
+      dragging = true; moved = false;
+      startX = pointerX(e); startAngle = angle;
+      track.style.transition = "none";
+      wrap.classList.add("dragging");
+    }
+    function dragMove(e) {
+      if (!dragging) return;
+      var dx = pointerX(e) - startX;
+      if (Math.abs(dx) > 3) moved = true;
+      angle = startAngle + dx * SENSITIVITY;
+      apply();
+      if (e.cancelable) e.preventDefault();
+    }
+    function dragEnd() {
+      if (!dragging) return;
+      dragging = false;
+      wrap.classList.remove("dragging");
+      track.style.transition = "transform .3s var(--ease-out)";
+      angle = Math.round(angle / angleStep) * angleStep;
+      apply();
+    }
+    wrap.addEventListener("mousedown", dragStart);
+    window.addEventListener("mousemove", dragMove);
+    window.addEventListener("mouseup", dragEnd);
+    wrap.addEventListener("touchstart", dragStart, { passive: true });
+    wrap.addEventListener("touchmove", dragMove, { passive: false });
+    wrap.addEventListener("touchend", dragEnd);
+    /* Swallow the click a drag would otherwise trigger on whichever card it
+     * released over -- captured ahead of the row's own bubbling click
+     * handler so it can stop it before that handler ever runs. */
+    wrap.addEventListener("click", function (e) {
+      if (moved) { e.stopPropagation(); e.preventDefault(); moved = false; }
+    }, true);
   }
 
   /* One deliberate load moment for the Home stat row: numbers count up from
@@ -878,7 +900,6 @@
         var nav = h(
           '<div class="sr-carousel-controls">' +
             '<button type="button" class="sr-nav sr-prev" aria-label="Previous subspecialty">&lsaquo;</button>' +
-            '<button type="button" class="sr-playpause" aria-label="Pause auto-rotation" aria-pressed="false">&#10074;&#10074;</button>' +
             '<button type="button" class="sr-nav sr-next" aria-label="Next subspecialty">&rsaquo;</button>' +
           '</div>'
         );
