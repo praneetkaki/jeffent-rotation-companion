@@ -654,6 +654,58 @@
     '</svg>';
   }
 
+  /* The due-queue carousel: `n` cards arranged evenly around a real 3D
+   * cylinder (each card gets a fixed rotateY(i * step) translateZ(radius)
+   * transform), with the whole ring slowly auto-rotating by animating the
+   * track's own rotateY every frame -- true circular motion, so it loops
+   * forever with no "rewind the scroll position" hack needed. Auto-rotation
+   * pauses on hover/focus (mouse users) and via an explicit pause/play
+   * button (keyboard/touch users, and the accessibility requirement that
+   * auto-rotating content have a real stop control); it never starts at all
+   * under prefers-reduced-motion, leaving the prev/next buttons as the only
+   * way to move between cards. */
+  function initDueCarousel(track, wrap, n) {
+    var rows = Array.prototype.slice.call(track.children);
+    var prevBtn = wrap.querySelector(".sr-prev");
+    var nextBtn = wrap.querySelector(".sr-next");
+    var playBtn = wrap.querySelector(".sr-playpause");
+    if (n < 2) { track.style.transform = "none"; return; }
+
+    var angleStep = 360 / n;
+    var cardW = 232; /* must match .sr-row's fixed width in styles.css */
+    var radius = Math.round((cardW / 2) / Math.tan(Math.PI / n));
+    rows.forEach(function (row, i) {
+      row.style.transform = "rotateY(" + (i * angleStep) + "deg) translateZ(" + radius + "px)";
+    });
+
+    var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var angle = 0, paused = reduceMotion, raf = null;
+    function apply() { track.style.transform = "rotateY(" + angle + "deg)"; }
+    function tick() {
+      if (!paused) { angle -= 0.05; apply(); }
+      raf = requestAnimationFrame(tick);
+    }
+    apply();
+    raf = requestAnimationFrame(tick);
+
+    function setPlaying(playing) {
+      paused = !playing;
+      if (playBtn) {
+        playBtn.setAttribute("aria-pressed", String(!playing));
+        playBtn.setAttribute("aria-label", playing ? "Pause auto-rotation" : "Resume auto-rotation");
+        playBtn.innerHTML = playing ? "&#10074;&#10074;" : "&#9654;";
+      }
+    }
+    if (playBtn) playBtn.addEventListener("click", function () { setPlaying(paused); });
+    wrap.addEventListener("mouseenter", function () { if (!reduceMotion) paused = true; });
+    wrap.addEventListener("mouseleave", function () {
+      if (!reduceMotion && !(playBtn && playBtn.getAttribute("aria-pressed") === "true")) paused = false;
+    });
+    if (prevBtn) prevBtn.addEventListener("click", function () { angle += angleStep; apply(); setPlaying(false); });
+    if (nextBtn) nextBtn.addEventListener("click", function () { angle -= angleStep; apply(); setPlaying(false); });
+    if (reduceMotion) setPlaying(false);
+  }
+
   /* One deliberate load moment for the Home stat row: numbers count up from
      zero instead of appearing static. Respects prefers-reduced-motion. */
   function animateStatCounts(scope) {
@@ -765,10 +817,10 @@
     });
 
     /* hero: spaced-repetition queue, deep-midnight card + a highest-due-first
-       list of every track (mastery ring + direct Review button per row) in a
-       fixed-height, continuously-scrollable strip. The row set is tripled so
-       scrolling past the last track (or before the first) loops seamlessly
-       back around instead of dead-ending in a "+N more" link. */
+       carousel of every track (mastery ring + direct Review button per card).
+       Cards sit around a real 3D cylinder (rotateY + translateZ on each card,
+       the whole ring auto-rotating) rather than a tall scrolling list, so the
+       card stays short regardless of how many subspecialties are due. */
     var dueTracks = TRACKS.map(function (t) {
       var mods = modulesFor(t.id);
       return { track: t, mods: mods, due: aggregateStats(mods).due };
@@ -784,62 +836,52 @@
             '<div class="cta-sub">' + agg.due + ' card' + (agg.due === 1 ? '' : 's') + ' due across ' + allMods.length + ' modules.</div>' +
             '<div class="cta-actions"></div>' +
           '</div>' +
-          '<div class="sr-list-wrap"><div class="sr-list" id="srList"></div></div>' +
+          '<div class="sr-carousel-wrap" id="srCarouselWrap">' +
+            '<div class="sr-carousel" id="srCarousel"><div class="sr-track" id="srTrack"></div></div>' +
+          '</div>' +
         '</div>' +
       '</div>'
     );
     var heroBtn = h('<button class="btn">Start due queue (' + agg.due + ') &rarr;</button>');
     heroBtn.addEventListener("click", goStudyAll);
     hero.querySelector(".cta-actions").appendChild(heroBtn);
-    var listWrap = hero.querySelector(".sr-list");
+    var carouselWrap = hero.querySelector("#srCarouselWrap");
+    var track = hero.querySelector("#srTrack");
     if (dueTracks.length) {
-      var loop = dueTracks.length > 1;
-      var copies = loop ? [dueTracks, dueTracks, dueTracks] : [dueTracks];
-      copies.forEach(function (copy, copyIdx) {
-        var isRealCopy = !loop || copyIdx === 1; /* middle copy is the accessible one */
-        copy.forEach(function (x) {
-          var s = aggregateStats(x.mods);
-          var tpct = s.total ? Math.round((s.mastered / s.total) * 100) : 0;
-          var color = x.track.color || '#fff';
-          var row = h(
-            '<div class="sr-row"' + (isRealCopy ? ' tabindex="0" role="button"' : ' tabindex="-1" aria-hidden="true"') +
-              ' aria-label="Review ' + esc(x.track.name) + ': ' + x.due + ' due, ' + tpct + '% mastered">' +
-              '<div class="sr-ring">' + masteryRing(tpct, color, 38) + '</div>' +
-              '<div class="sr-info">' +
-                '<div class="sr-name">' + esc(x.track.name) + '</div>' +
-                '<div class="sr-meta">' + x.due + ' due &middot; ' + tpct + '% mastered</div>' +
-              '</div>' +
-              '<button type="button" class="sr-review-btn"' + (isRealCopy ? '' : ' tabindex="-1"') + '>Review</button>' +
-            '</div>'
-          );
-          var openTrack = function () { goTrack(x.track.id); };
-          row.querySelector(".sr-review-btn").addEventListener("click", function (e) {
-            e.stopPropagation();
-            openTrack();
-          });
-          row.addEventListener("click", openTrack);
-          row.addEventListener("keydown", function (e) {
-            if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openTrack(); }
-          });
-          listWrap.appendChild(row);
+      dueTracks.forEach(function (x) {
+        var s = aggregateStats(x.mods);
+        var tpct = s.total ? Math.round((s.mastered / s.total) * 100) : 0;
+        var color = x.track.color || '#fff';
+        var row = h(
+          '<div class="sr-row" tabindex="0" role="button"' +
+            ' aria-label="Review ' + esc(x.track.name) + ': ' + x.due + ' due, ' + tpct + '% mastered">' +
+            '<div class="sr-ring">' + masteryRing(tpct, color, 34) + '</div>' +
+            '<div class="sr-info">' +
+              '<div class="sr-name">' + esc(x.track.name) + '</div>' +
+              '<div class="sr-meta">' + x.due + ' due &middot; ' + tpct + '% mastered</div>' +
+            '</div>' +
+          '</div>'
+        );
+        var openTrack = function () { goTrack(x.track.id); };
+        row.addEventListener("click", openTrack);
+        row.addEventListener("keydown", function (e) {
+          if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openTrack(); }
         });
+        track.appendChild(row);
       });
-      if (loop) {
-        requestAnimationFrame(function () {
-          var copyHeight = listWrap.scrollHeight / 3;
-          if (!copyHeight) return;
-          listWrap.scrollTop = copyHeight;
-          listWrap.addEventListener("scroll", function () {
-            if (listWrap.scrollTop <= 1) {
-              listWrap.scrollTop += copyHeight;
-            } else if (listWrap.scrollTop >= copyHeight * 2 - 1) {
-              listWrap.scrollTop -= copyHeight;
-            }
-          });
-        });
+      if (dueTracks.length > 1) {
+        var nav = h(
+          '<div class="sr-carousel-controls">' +
+            '<button type="button" class="sr-nav sr-prev" aria-label="Previous subspecialty">&lsaquo;</button>' +
+            '<button type="button" class="sr-playpause" aria-label="Pause auto-rotation" aria-pressed="false">&#10074;&#10074;</button>' +
+            '<button type="button" class="sr-nav sr-next" aria-label="Next subspecialty">&rsaquo;</button>' +
+          '</div>'
+        );
+        carouselWrap.appendChild(nav);
       }
+      initDueCarousel(track, carouselWrap, dueTracks.length);
     } else {
-      listWrap.appendChild(h('<div class="sr-row sr-empty"><div class="sr-info"><div class="sr-name">All caught up</div><div class="sr-meta">Nothing due right now</div></div></div>'));
+      track.appendChild(h('<div class="sr-row sr-empty"><div class="sr-info"><div class="sr-name">All caught up</div><div class="sr-meta">Nothing due right now</div></div></div>'));
     }
     root.appendChild(hero);
 

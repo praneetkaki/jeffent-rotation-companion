@@ -612,37 +612,43 @@ div.anatomy-detail-body:not(.panel) li { margin: .3em 0; }
 .study-cta .btn.ghost { background: transparent; border-color: #ffffff55; color: #fff; border-radius: 999px; }
 .study-cta .btn.ghost:hover { background: #ffffff1a; }
 
-/* ---- hero: due-count column on top, then a continuously-scrollable list of
-   every track with the most cards due first -- mastery ring + direct Review
-   button per row. The row set is rendered 3x by app.js and the scroll
-   position is silently rewound each time it nears either end, so scrolling
-   past the last track (or above the first) loops back around instead of
-   dead-ending. ---- */
+/* ---- hero: due-count column on top, then a horizontal carousel of every
+   track with the most cards due first -- mastery ring + direct Review button
+   per card. Cards sit at fixed rotateY/translateZ positions around a real 3D
+   cylinder (radius computed in app.js from the card width and count), and
+   the whole ring auto-rotates by animating the track's own rotateY every
+   frame in initDueCarousel() -- genuine circular motion, so it loops forever
+   with no scroll-position bookkeeping needed, and stays one card tall
+   regardless of how many subspecialties are due. ---- */
 .hero-body { display: flex; flex-direction: column; gap: 18px; width: 100%; }
 .hero-left { max-width: 480px; }
-.sr-list-wrap { position: relative; }
-.sr-list-wrap::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 22px; pointer-events: none;
-  background: linear-gradient(to bottom, transparent, var(--hero-bg)); border-radius: 0 0 var(--radius-lg) var(--radius-lg); }
-.sr-list { display: flex; flex-direction: column; gap: 8px; max-height: 322px; overflow-y: auto; scroll-behavior: auto;
-  -webkit-overflow-scrolling: touch; }
-.sr-list::-webkit-scrollbar { width: 6px; }
-.sr-list::-webkit-scrollbar-thumb { background: rgba(255,255,255,.18); border-radius: 99px; }
-.sr-row { display: flex; align-items: center; gap: 14px; background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.12); border-radius: var(--radius); padding: 10px 14px;
-  cursor: pointer; text-align: left; width: 100%; flex: 0 0 auto;
-  transition: background-color .16s var(--ease-out), transform .16s var(--ease-out); }
-.sr-row:hover, .sr-row:focus-visible { background: rgba(255,255,255,.11); transform: translateY(-1px); }
-.sr-row.sr-empty { cursor: default; }
-.sr-row.sr-empty:hover { background: rgba(255,255,255,.06); transform: none; }
+.sr-carousel-wrap { position: relative; padding: 0 40px; }
+.sr-carousel { position: relative; height: 100px; perspective: 1100px; }
+.sr-carousel-wrap::before, .sr-carousel-wrap::after { content: ""; position: absolute; top: 0; bottom: 0; width: 40px;
+  pointer-events: none; z-index: 2; }
+.sr-carousel-wrap::before { left: 40px; background: linear-gradient(to right, var(--hero-bg), transparent); }
+.sr-carousel-wrap::after { right: 40px; background: linear-gradient(to left, var(--hero-bg), transparent); }
+.sr-track { position: absolute; top: 0; left: 50%; width: 0; height: 100%; transform-style: preserve-3d; }
+.sr-row { position: absolute; top: 0; left: 0; margin-left: -116px; display: flex; align-items: center; gap: 12px;
+  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: var(--radius);
+  padding: 10px 16px; cursor: pointer; text-align: left; width: 232px; height: 80px; box-sizing: border-box;
+  backface-visibility: hidden;
+  transition: background-color .16s var(--ease-out); }
+.sr-row:hover, .sr-row:focus-visible { background: rgba(255,255,255,.13); }
+.sr-row.sr-empty { position: static; cursor: default; width: 100%; margin-left: 0; }
+.sr-row.sr-empty:hover { background: rgba(255,255,255,.06); }
 .sr-ring { flex: 0 0 auto; line-height: 0; }
 .sr-info { flex: 1 1 auto; min-width: 0; }
-.sr-name { font-size: 13.5px; font-weight: 600; color: var(--hero-ink); line-height: 1.25;
-  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.sr-meta { font-size: 11.5px; color: var(--hero-ink-soft); margin-top: 3px; font-family: "JetBrains Mono", monospace; }
-.sr-review-btn { flex: 0 0 auto; border: 1px solid rgba(255,255,255,.35); background: transparent; color: #fff;
-  border-radius: 999px; padding: 6px 14px; font-size: 12.5px; font-weight: 600; cursor: pointer;
+.sr-name { font-size: 13px; font-weight: 600; color: var(--hero-ink); line-height: 1.25;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.sr-meta { font-size: 11px; color: var(--hero-ink-soft); margin-top: 4px; font-family: "JetBrains Mono", monospace; }
+.sr-carousel-controls { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 12px; }
+.sr-nav, .sr-playpause { border: 1px solid rgba(255,255,255,.3); background: rgba(255,255,255,.06); color: #fff;
+  border-radius: 999px; cursor: pointer; display: grid; place-items: center;
   transition: background-color .15s var(--ease-out), border-color .15s var(--ease-out); }
-.sr-review-btn:hover { background: rgba(255,255,255,.16); border-color: #fff; }
+.sr-nav { width: 30px; height: 30px; font-size: 17px; }
+.sr-playpause { width: 26px; height: 26px; font-size: 9px; }
+.sr-nav:hover, .sr-playpause:hover { background: rgba(255,255,255,.16); border-color: #fff; }
 @media (max-width: 640px) {
   .sr-name { max-width: 44vw; }
   .sr-meta { font-size: 11px; }
@@ -1333,10 +1339,9 @@ body.js-motion .reveal-init.in { opacity: 1; transform: none;
   transition: opacity .5s var(--ease-out), transform .5s var(--ease-out); }
 /* Small per-group cascade so cards in the same row/grid settle in sequence,
    not all at once -- mirrors the tile-grid's load-in stagger. */
-.progress-strip .pcard:nth-child(2), .sr-list .sr-row:nth-child(2) { transition-delay: 60ms; }
-.progress-strip .pcard:nth-child(3), .sr-list .sr-row:nth-child(3) { transition-delay: 120ms; }
-.progress-strip .pcard:nth-child(4), .sr-list .sr-row:nth-child(4) { transition-delay: 180ms; }
-.sr-list .sr-row:nth-child(5) { transition-delay: 240ms; }
+.progress-strip .pcard:nth-child(2) { transition-delay: 60ms; }
+.progress-strip .pcard:nth-child(3) { transition-delay: 120ms; }
+.progress-strip .pcard:nth-child(4) { transition-delay: 180ms; }
 .roadmap-list .rm-row:nth-child(2), .mod-list .mod-row:nth-child(2) { transition-delay: 50ms; }
 .roadmap-list .rm-row:nth-child(3), .mod-list .mod-row:nth-child(3) { transition-delay: 100ms; }
 .roadmap-list .rm-row:nth-child(4) { transition-delay: 150ms; }
