@@ -621,27 +621,33 @@ div.anatomy-detail-body:not(.panel) li { margin: .3em 0; }
    with no scroll-position bookkeeping needed, and stays one card tall
    regardless of how many subspecialties are due. ---- */
 .hero-body { display: flex; flex-direction: column; gap: 18px; width: 100%; }
+/* Title/count on the left, the CTA button pinned to the top-right corner of
+   the card instead of stacked underneath the subtitle -- keeps it clear of
+   the carousel row entirely regardless of card count. */
+.hero-top-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.hero-top-row .cta-actions { margin-top: 2px; }
 .hero-left { max-width: 480px; }
 .sr-carousel-wrap { position: relative; padding: 0 40px; }
-.sr-carousel { position: relative; height: 100px; perspective: 1100px; }
+.sr-carousel { position: relative; height: 72px; perspective: 1100px; }
 .sr-carousel-wrap::before, .sr-carousel-wrap::after { content: ""; position: absolute; top: 0; bottom: 0; width: 40px;
   pointer-events: none; z-index: 2; }
 .sr-carousel-wrap::before { left: 40px; background: linear-gradient(to right, var(--hero-bg), transparent); }
 .sr-carousel-wrap::after { right: 40px; background: linear-gradient(to left, var(--hero-bg), transparent); }
 .sr-track { position: absolute; top: 0; left: 50%; width: 0; height: 100%; transform-style: preserve-3d; }
-.sr-row { position: absolute; top: 0; left: 0; margin-left: -116px; display: flex; align-items: center; gap: 12px;
+.sr-row { position: absolute; top: 0; left: 0; margin-left: -84px; display: flex; align-items: center; gap: 8px;
   background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: var(--radius);
-  padding: 10px 16px; cursor: pointer; text-align: left; width: 232px; height: 80px; box-sizing: border-box;
+  padding: 7px 10px; cursor: pointer; text-align: left; width: 168px; height: 58px; box-sizing: border-box;
   backface-visibility: hidden;
   transition: background-color .16s var(--ease-out); }
 .sr-row:hover, .sr-row:focus-visible { background: rgba(255,255,255,.13); }
 .sr-row.sr-empty { position: static; cursor: default; width: 100%; margin-left: 0; }
 .sr-row.sr-empty:hover { background: rgba(255,255,255,.06); }
 .sr-ring { flex: 0 0 auto; line-height: 0; }
+.sr-ring svg { display: block; width: 24px; height: 24px; }
 .sr-info { flex: 1 1 auto; min-width: 0; }
-.sr-name { font-size: 13px; font-weight: 600; color: var(--hero-ink); line-height: 1.25;
+.sr-name { font-size: 11.5px; font-weight: 600; color: var(--hero-ink); line-height: 1.18;
   display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-.sr-meta { font-size: 11px; color: var(--hero-ink-soft); margin-top: 4px; font-family: "JetBrains Mono", monospace; }
+.sr-meta { font-size: 9.5px; color: var(--hero-ink-soft); margin-top: 2px; font-family: "JetBrains Mono", monospace; }
 .sr-carousel-controls { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 12px; }
 .sr-nav, .sr-playpause { border: 1px solid rgba(255,255,255,.3); background: rgba(255,255,255,.06); color: #fff;
   border-radius: 999px; cursor: pointer; display: grid; place-items: center;

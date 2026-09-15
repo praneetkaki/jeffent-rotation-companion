@@ -672,8 +672,11 @@
     if (n < 2) { track.style.transform = "none"; return; }
 
     var angleStep = 360 / n;
-    var cardW = 232; /* must match .sr-row's fixed width in styles.css */
-    var radius = Math.round((cardW / 2) / Math.tan(Math.PI / n));
+    var cardW = 168; /* must match .sr-row's fixed width in styles.css */
+    /* The 1.5x factor pushes cards further apart than the bare tangent
+     * formula (which places them edge-to-edge) so a real gap shows between
+     * neighboring cards instead of them touching. */
+    var radius = Math.round((cardW / 2) / Math.tan(Math.PI / n) * 1.5);
     rows.forEach(function (row, i) {
       row.style.transform = "rotateY(" + (i * angleStep) + "deg) translateZ(" + radius + "px)";
     });
@@ -830,10 +833,12 @@
     var hero = h(
       '<div class="study-cta all-due-cta">' +
         '<div class="hero-body">' +
-          '<div class="hero-left">' +
-            '<div class="eyebrow">Spaced repetition queue</div>' +
-            '<div class="n">Ready for your daily review</div>' +
-            '<div class="cta-sub">' + agg.due + ' card' + (agg.due === 1 ? '' : 's') + ' due across ' + allMods.length + ' modules.</div>' +
+          '<div class="hero-top-row">' +
+            '<div class="hero-left">' +
+              '<div class="eyebrow">Spaced repetition queue</div>' +
+              '<div class="n">Ready for your daily review</div>' +
+              '<div class="cta-sub">' + agg.due + ' card' + (agg.due === 1 ? '' : 's') + ' due across ' + allMods.length + ' modules.</div>' +
+            '</div>' +
             '<div class="cta-actions"></div>' +
           '</div>' +
           '<div class="sr-carousel-wrap" id="srCarouselWrap">' +
@@ -855,7 +860,7 @@
         var row = h(
           '<div class="sr-row" tabindex="0" role="button"' +
             ' aria-label="Review ' + esc(x.track.name) + ': ' + x.due + ' due, ' + tpct + '% mastered">' +
-            '<div class="sr-ring">' + masteryRing(tpct, color, 34) + '</div>' +
+            '<div class="sr-ring">' + masteryRing(tpct, color, 24) + '</div>' +
             '<div class="sr-info">' +
               '<div class="sr-name">' + esc(x.track.name) + '</div>' +
               '<div class="sr-meta">' + x.due + ' due &middot; ' + tpct + '% mastered</div>' +
