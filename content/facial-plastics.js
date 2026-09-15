@@ -115,7 +115,7 @@ window.JEFFENT.register({
         title: "Pitanguy's line and the frontal branch",
         note: "Lateral face, not to scale. Name each landmark, then reveal.",
         src: "assets/img/figures/pitanguy_line.png",
-        source: "Pitanguy's Line and the Frontal Branch of the Facial Nerve. Jawad, Hohman, &amp; Raggio (2025). StatPearls.",
+        source: "Pitanguy's Line and the Frontal Branch of the Facial Nerve. Jawad, Hohman, & Raggio (2025). StatPearls.",
         labels: [
           { id:"measurement-5mm", text:"Inferior landmark: 0.5 cm (5 mm) below the tragus, the starting point of Pitanguy's line for the frontal branch's surface course.", box:{x:3.2,y:81.3,w:21.7,h:7.6} },
           { id:"measurement-15mm", text:"Superior landmark: 1.5 cm (15 mm) above the lateral eyebrow, the endpoint of Pitanguy's line; incisions crossing this corridor risk the frontal branch and brow ptosis.", box:{x:70.2,y:41.0,w:29.3,h:9.7} }
@@ -148,19 +148,16 @@ window.JEFFENT.register({
       {
         id: "facial-nerve-injury-timing",
         title: "Facial nerve injury after trauma: when to explore",
-        accent: "redflag",
         html: "<p><strong>Immediate, complete facial weakness after penetrating trauma lateral to the lateral canthus</strong> is the classic indication for <strong>urgent surgical exploration and nerve repair</strong> (nerve stimulation can still identify distal branches within ~72 hours before Wallerian degeneration). <strong>Delayed-onset</strong> or <strong>incomplete</strong> weakness is more often due to edema/neurapraxia and can typically be observed.</p>"
       },
       {
         id: "duct-and-nerve-not-to-miss",
         title: "Structures not to miss in a cheek/parotid laceration",
-        accent: "redflag",
         html: "<figure class='note-fig' data-credit='Source not yet cited, added by the project owner, replace credit before sharing.'><img class='zoomable' src='assets/img/figures/parotid_facial_nerve.png' alt='Parotid facial nerve' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Stensen&#39;s duct and buccal branch of the facial nerve at risk along the tragus-to-upper-lip line.</figcaption></figure><p>Any laceration crossing the line from tragus to the midpoint of the upper lip should raise concern for injury to <strong>Stensen's (parotid) duct</strong> and/or <strong>buccal branch of the facial nerve</strong>. Clear, salivary fluid from a facial wound, or an asymmetric smile, should prompt exploration ± duct cannulation before closure.</p>"
       },
       {
         id: "reconstructive-ladder",
         title: "The reconstructive ladder",
-        accent: "pearl",
         html: "<p>A framework for choosing the simplest option that achieves a good functional/cosmetic result, escalating only as needed:</p><ol><li><strong>Healing by secondary intention</strong></li><li><strong>Primary closure</strong></li><li><strong>Skin graft</strong> (split- or full-thickness)</li><li><strong>Local flap</strong></li><li><strong>Regional flap</strong></li><li><strong>Free tissue transfer</strong> (microvascular free flap)</li></ol><p>Choice depends on defect size/location, tissue match, and patient factors, not simply 'use the most advanced option.'</p><figure class='note-fig' data-credit='Source not yet cited, added by the project owner, replace credit before sharing.'><img class='zoomable' src='assets/img/figures/reconstructive_ladder.png' alt='Reconstructive ladder' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Stepwise reconstructive options from secondary intention through free tissue transfer.</figcaption></figure>"
       },
       {
@@ -176,7 +173,6 @@ window.JEFFENT.register({
       {
         id: "mandible-fracture-antibiotics",
         title: "Antibiotic prophylaxis for mandible fractures",
-        accent: "pearl",
         html: "<p>Fractures through the <strong>dentate (tooth-bearing) segment</strong> &mdash; angle, body, parasymphysis, symphysis &mdash; communicate with the oral cavity and are open/contaminated, with infection rates reported as high as <strong>~50% untreated</strong>. Give <strong>perioperative antibiotics</strong> (e.g., a penicillin covering oral flora, or clindamycin if penicillin-allergic). Evidence supports continuing prophylaxis for <strong>no more than 24 hours after repair</strong> &mdash; prolonged post-operative courses add no benefit and increase resistance/<em>C. difficile</em> risk. Prolonged pre-operative antibiotics likewise show no benefit. <strong>Condylar/subcondylar and ramus fractures</strong> (non-dentate) are generally closed and do not require the same prophylaxis.</p>"
       },
       {

@@ -37,8 +37,6 @@
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
   --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1); /* slight overshoot -- tabs, dropdowns, FAB press */
-  --pearl: var(--accent);      /* semantic: surgical pearl / high-yield technique */
-  --pearl-tint: var(--accent-tint);
   --scroll-tint: #2f6ff0;  /* light mode: a genuinely saturated blue -- mixed in at a low
                                percentage this reads as "tinted", not "went dark/gray" the
                                way a desaturated navy would at the same lightness drop */
@@ -462,17 +460,6 @@ main.wrap { padding-top: 48px; padding-bottom: 60px; min-height: 60vh; }
 .panel ul { padding-left: 1.15em; margin: .4em 0; }
 .panel li { margin: .28em 0; }
 .panel strong { color: var(--ink); }
-/* Accent-bordered panel variants, set via data-accent on the clinical
-   block panel -- a soft left rule + faint corner wash instead of a solid
-   colored fill, so it reads as "flagged", not "warning banner". */
-.panel[data-accent="redflag"] { border-left: 3px solid var(--flag);
-  background: linear-gradient(120deg, color-mix(in srgb, var(--flag) 6%, var(--surface)) 0%, color-mix(in srgb, var(--surface) 90%, transparent) 55%); }
-.panel[data-accent="pearl"] { border-left: 3px solid var(--pearl);
-  background: linear-gradient(120deg, color-mix(in srgb, var(--pearl) 7%, var(--surface)) 0%, color-mix(in srgb, var(--surface) 90%, transparent) 55%); }
-.panel-accent-label { display: inline-flex; align-items: center; gap: 5px; font-size: 10.5px; font-weight: 700;
-  text-transform: uppercase; letter-spacing: .05em; padding: 3px 9px; border-radius: 999px; margin-bottom: 10px; }
-.panel[data-accent="redflag"] .panel-accent-label { background: var(--flag-tint); color: var(--flag); }
-.panel[data-accent="pearl"] .panel-accent-label { background: var(--pearl-tint); color: var(--pearl); }
 .empty-note { color: var(--ink-faint); font-size: 14px; font-style: italic; padding: 6px 0; }
 
 /* ---- anatomy tab: SaaS-dashboard topic grid -> full-width detail page ----
@@ -1505,3 +1492,107 @@ body.js-motion .study-cta.all-due-cta.reveal-init.in .cta-actions .btn:first-chi
 
 /* ---- Home hero stat count-up: one deliberate load moment, not a scattered effect ---- */
 .pcard .big.count-live { transition: none; }
+
+/* ===== 2-Minute Procedure Prep: subspecialty accordion + card-within-card
+   briefs (js/app.js buildProceduresPane()) ===== */
+.proc-shell .lesson-nav { padding-top: 12px; }
+.proc-chips { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 6px 12px; }
+.proc-chip { font-family: "JetBrains Mono", monospace; font-size: 10.5px; border: 1px solid var(--line-soft);
+  background: var(--surface-2); color: var(--ink-soft); border-radius: 999px; padding: 4px 10px;
+  transition: background-color .15s var(--ease-out), color .15s var(--ease-out), border-color .15s var(--ease-out); }
+.proc-chip:hover { color: var(--ink); }
+.proc-chip.active { background: color-mix(in srgb, var(--track-color, var(--primary)) 16%, var(--surface-2));
+  color: var(--track-color, var(--primary)); border-color: transparent; font-weight: 600; }
+.proc-nav-list { display: flex; flex-direction: column; gap: 4px; max-height: 62vh; overflow-y: auto; }
+.proc-nav-group-head { display: flex; align-items: center; gap: 6px; width: 100%; text-align: left; border: 0;
+  background: none; padding: 7px 6px; border-radius: 8px; font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .04em; color: var(--ink-faint); }
+.proc-nav-group-head:hover { background: var(--surface-2); color: var(--ink-soft); }
+.proc-nav-caret { width: 12px; height: 12px; flex: 0 0 auto; transition: transform .18s var(--ease-out); }
+.proc-nav-group.open .proc-nav-caret { transform: rotate(90deg); }
+.proc-nav-group-head span:nth-child(2) { flex: 1 1 auto; }
+.proc-nav-group-count { font-family: "JetBrains Mono", monospace; font-weight: 500; color: var(--ink-faint); }
+.proc-nav-group-items { display: none; flex-direction: column; gap: 2px; padding-left: 4px; }
+.proc-nav-group.open .proc-nav-group-items { display: flex; animation: dropdownSpring .2s var(--ease-spring); transform-origin: top; }
+@media (prefers-reduced-motion: reduce) { .proc-nav-group.open .proc-nav-group-items { animation: none; } }
+
+.proc-intro .proc-matcher-search { position: relative; margin: 14px 0 12px; }
+.proc-matcher-search svg { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); width: 16px; height: 16px;
+  color: var(--ink-faint); pointer-events: none; }
+.proc-matcher-input { width: 100%; padding: 9px 12px 9px 36px; border: 1px solid var(--line); border-radius: 10px;
+  background: var(--surface-2); color: var(--ink); font-size: 13.5px; font-family: inherit; }
+.proc-matcher-input:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.proc-matcher-table th { white-space: nowrap; }
+.proc-matcher-empty { margin-top: 10px; }
+
+.proc-checkbar { display: flex; justify-content: flex-end; margin: -6px 0 18px; }
+.proc-check-toggle { display: inline-flex; align-items: center; gap: 7px; border: 1px solid var(--line-soft);
+  background: var(--surface); color: var(--ink-soft); border-radius: 999px; padding: 7px 14px 7px 12px;
+  font-size: 12.5px; font-weight: 600; box-shadow: var(--shadow);
+  transition: background-color .18s var(--ease-out), color .18s var(--ease-out), border-color .18s var(--ease-out), transform .18s var(--ease-spring); }
+.proc-check-toggle svg { width: 15px; height: 15px; }
+.proc-check-toggle:hover { color: var(--ink); }
+.proc-check-toggle.active { background: var(--accent); color: #fff; border-color: transparent; }
+.proc-check-toggle:active { transform: scale(.96); }
+
+/* Card-within-card procedure brief */
+.proc-card { padding: 22px 24px; }
+.proc-topbar { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; flex-wrap: wrap;
+  padding-bottom: 14px; margin-bottom: 16px; border-bottom: 1px solid var(--line-soft); }
+.proc-topbar h3 { margin: 0; flex: 1 1 auto; min-width: 200px; }
+.proc-badges { display: flex; align-items: center; gap: 8px; flex: 0 0 auto; }
+.proc-tag { font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em;
+  color: var(--track-color, var(--primary)); background: color-mix(in srgb, var(--track-color, var(--primary)) 14%, var(--surface-2));
+  border-radius: 999px; padding: 4px 10px; white-space: nowrap; }
+.proc-readtime { font-size: 11px; color: var(--ink-faint); white-space: nowrap; }
+.proc-audio-btn { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px;
+  border: 1px solid var(--line-soft); border-radius: 999px; background: var(--surface-2); color: var(--ink-faint);
+  cursor: not-allowed; }
+.proc-audio-btn svg { width: 14px; height: 14px; }
+
+.proc-section { margin: 18px 0; }
+.proc-section h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em;
+  color: var(--ink-faint); margin: 0 0 8px; }
+.proc-scenario { display: flex; flex-direction: column; gap: 8px; background: var(--surface-2);
+  border: 1px solid var(--line-soft); border-radius: var(--radius); padding: 14px 16px; margin-bottom: 4px; }
+.proc-scenario p { margin: 0; color: var(--ink-soft); font-style: italic; }
+.proc-badge-pill { align-self: flex-start; font-size: 10px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .05em; color: var(--primary-deep); background: var(--primary-tint); border-radius: 999px;
+  padding: 3px 9px; }
+
+/* Numbered vertical stepper, connected by a thin line down the left edge */
+.proc-steps { list-style: none; margin: 0; padding: 0; position: relative; }
+.proc-steps::before { content: ""; position: absolute; left: 11px; top: 10px; bottom: 10px; width: 2px; background: var(--line-soft); }
+.proc-step { position: relative; padding: 0 0 16px 34px; }
+.proc-step:last-child { padding-bottom: 0; }
+.proc-step::before { counter-increment: proc-step; content: counter(proc-step); position: absolute; left: 0; top: -1px;
+  width: 23px; height: 23px; border-radius: 50%; background: var(--track-color, var(--primary)); color: #fff;
+  font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+.proc-steps { counter-reset: proc-step; }
+.proc-step-body { color: var(--ink-soft); }
+
+/* Danger-structures / pearl callouts */
+.proc-callout { position: relative; border-radius: var(--radius); padding: 14px 16px; margin: 14px 0; }
+.proc-callout-label { display: flex; align-items: center; gap: 7px; font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .05em; margin-bottom: 8px; }
+.proc-callout-label svg { width: 15px; height: 15px; flex: 0 0 auto; }
+.proc-callout-body { color: var(--ink-soft); }
+.proc-danger { border: 1px solid color-mix(in srgb, var(--flag) 35%, var(--line-soft)); border-left: 3px solid var(--flag);
+  background: color-mix(in srgb, var(--flag) 5%, var(--surface)); }
+.proc-danger .proc-callout-label { color: var(--flag); }
+.proc-pearl { border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--line-soft)); border-left: 3px solid var(--accent);
+  background: color-mix(in srgb, var(--accent) 6%, var(--surface)); }
+.proc-pearl .proc-callout-label { color: var(--accent); }
+
+/* Pre-Scrub Check Mode: hide the callout body behind an overlay button
+   until clicked, so the brief doubles as a blind self-test. */
+.proc-check-overlay { display: none; }
+.prescrub-mode .proc-checkable:not(.revealed) .proc-callout-body { display: none; }
+.prescrub-mode .proc-checkable:not(.revealed) .proc-check-overlay {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 4px; width: 100%; border: 1px dashed currentColor;
+  background: transparent; border-radius: 8px; padding: 12px 14px; font-size: 13.5px; font-weight: 600;
+  color: inherit; cursor: pointer; opacity: .85; transition: opacity .15s var(--ease-out); }
+.prescrub-mode .proc-checkable:not(.revealed) .proc-check-overlay:hover { opacity: 1; }
+.prescrub-mode .proc-checkable:not(.revealed) .proc-check-overlay span { font-size: 11px; font-weight: 500;
+  text-transform: uppercase; letter-spacing: .04em; opacity: .8; }
+.proc-checkable.revealed .proc-callout-body { animation: cardReveal .22s var(--ease-out); }

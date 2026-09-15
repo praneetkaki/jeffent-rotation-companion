@@ -71,7 +71,7 @@ window.JEFFENT.register(
    },
    {
     "id": "pta-dnsi",
-    "title": "Peritonsillar abscess &amp; deep neck infections",
+    "title": "Peritonsillar abscess & deep neck infections",
     "html": "<p class='sub'>Airway first, then source control plus antibiotics.</p><p>These infections are <strong>polymicrobial</strong> (aerobic gram-positives plus oral anaerobes). Cover <em>Streptococcus pyogenes</em>, the <em>S. anginosus</em> group, <em>S. aureus</em>, and anaerobes (<em>Fusobacterium</em>, <em>Prevotella</em>). <strong>Drainage plus IV antibiotics</strong> is the paradigm.</p>",
     "table": {
      "head": [
@@ -105,7 +105,7 @@ window.JEFFENT.register(
    {
     "id": "pta-points",
     "title": "Deep neck infections: practical points",
-    "html": "<ul><li><strong>Drainage</strong> (needle aspiration or I&amp;D for PTA; surgical drainage for a DNSI abscess, typically over 2 to 2.5 cm, airway compromise, or medical failure) is essential; antibiotics alone are often not enough.</li><li>Metronidazole is <strong>not needed</strong> with ampicillin-sulbactam (already covers anaerobes); add it to a regimen that lacks anaerobic activity (e.g. a cephalosporin).</li><li>Typical course about <strong>7 to 14 days</strong>: initial IV, then oral step-down (e.g. amoxicillin-clavulanate) guided by response.</li><li>Watch for <strong>Lemierre syndrome</strong> (<em>Fusobacterium</em> septic internal jugular thrombophlebitis) and mediastinal or airway extension.</li></ul>"
+    "html": "<ul><li><strong>Drainage</strong> (needle aspiration or I&D for PTA; surgical drainage for a DNSI abscess, typically over 2 to 2.5 cm, airway compromise, or medical failure) is essential; antibiotics alone are often not enough.</li><li>Metronidazole is <strong>not needed</strong> with ampicillin-sulbactam (already covers anaerobes); add it to a regimen that lacks anaerobic activity (e.g. a cephalosporin).</li><li>Typical course about <strong>7 to 14 days</strong>: initial IV, then oral step-down (e.g. amoxicillin-clavulanate) guided by response.</li><li>Watch for <strong>Lemierre syndrome</strong> (<em>Fusobacterium</em> septic internal jugular thrombophlebitis) and mediastinal or airway extension.</li></ul>"
    },
    {
     "id": "abx-classes",
@@ -208,7 +208,7 @@ window.JEFFENT.register(
    },
    {
     "id": "antifungals",
-    "title": "Antifungals for invasive head &amp; neck disease",
+    "title": "Antifungals for invasive head & neck disease",
     "html": "",
     "table": {
      "head": [

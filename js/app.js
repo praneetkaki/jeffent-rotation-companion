@@ -18,6 +18,8 @@
    * initActiveRecall()/applyActiveRecallMask() below) before considering a
    * wider rollout. Drug list is curated from what actually appears in
    * content/facial-plastics.js rather than a generic dictionary. */
+  var PROCEDURES_MODULE_ID = "procedures-2min";
+  var ACTIVE_RECALL_ENABLED = false; /* paused per user feedback 9/17 -- flip true to resume the trial */
   var ACTIVE_RECALL_MODULE_ID = "facial-plastics-trauma";
   var ACTIVE_RECALL_DRUGS = [
     "Amoxicillin-clavulanate", "Augmentin", "Cefazolin", "doxycycline", "metronidazole",
@@ -1233,7 +1235,10 @@
       renderModule(mod.id);
     });
     pageHead.appendChild(phCurrent);
-    if (mod.id === ACTIVE_RECALL_MODULE_ID) appendActiveRecallControls(pageHead, mod);
+    /* Active Recall Mode is paused (feature complete, just not exposed in
+     * the UI right now) -- re-enable by restoring this call, and the
+     * initActiveRecall() call in boot() below. */
+    if (ACTIVE_RECALL_ENABLED && mod.id === ACTIVE_RECALL_MODULE_ID) appendActiveRecallControls(pageHead, mod);
     root.appendChild(pageHead);
 
     /* The subspecialty name + icon already appear one line up in the sticky
@@ -1247,7 +1252,8 @@
       '</div>'
     ));
 
-    var builders = { anatomy: buildAnatomyPane, clinical: buildClinicalPane, cases: buildCasesPane, cards: buildCardsPane };
+    var clinicalBuilder = mod.id === PROCEDURES_MODULE_ID ? buildProceduresPane : buildClinicalPane;
+    var builders = { anatomy: buildAnatomyPane, clinical: clinicalBuilder, cases: buildCasesPane, cards: buildCardsPane };
     var avail = availableTabs(mod);
     if (avail.indexOf(state.tab) === -1) state.tab = avail[0];
     var tabbar = h('<div class="tabs" role="tablist"></div>');
@@ -2029,10 +2035,7 @@
     var main = showNav ? h('<div class="lesson-main"></div>') : pane;
     blocks.forEach(function (b, i) {
       var anchor = "clinical-block-" + esc(b.id || "");
-      var accentAttr = (b.accent === "redflag" || b.accent === "pearl") ? ' data-accent="' + b.accent + '"' : "";
-      var accentLabel = b.accent === "redflag" ? '<div class="panel-accent-label">Red Flag</div>'
-                       : b.accent === "pearl" ? '<div class="panel-accent-label">Surgical Pearl</div>' : "";
-      var p = h('<div class="panel" data-anchor="' + anchor + '"' + accentAttr + '>' + accentLabel + '<h3>' + esc(b.title) + '</h3>' +
+      var p = h('<div class="panel" data-anchor="' + anchor + '"><h3>' + esc(b.title) + '</h3>' +
         (b.tagline ? '<p class="detail-tagline">' + esc(b.tagline) + '</p>' : '') + '</div>');
       if (b.html) p.appendChild(h('<div>' + b.html + '</div>'));
       if (b.table) {
@@ -2118,6 +2121,264 @@
       });
     }, { rootMargin: "-15% 0px -70% 0px", threshold: 0 });
     blocks.forEach(function (b) { clinicalScrollspyIO.observe(b); });
+  }
+
+  /* ---- 2-Minute Procedure Prep: bespoke Clinical-tab renderer ----
+   * A dedicated layout for this one module instead of the generic
+   * buildClinicalPane -- structured card-within-card briefs (scenario /
+   * key-steps stepper / danger-structures / pearl), a subspecialty
+   * accordion + filter chips in the sidebar, a "Pre-Scrub Check Mode"
+   * click-to-reveal toggle, and a searchable quick-matcher table. Reads
+   * procedures.js's structured block shape (subspecialty/scenario/
+   * decisionPoints/keySteps/dangerStructures/pearl) rather than a single
+   * html blob. */
+  function loadPrescrubMode() {
+    try { return localStorage.getItem("jeffent.prescrub") === "1"; } catch (e) { return false; }
+  }
+  function savePrescrubMode(on) {
+    try { localStorage.setItem("jeffent.prescrub", on ? "1" : "0"); } catch (e) {}
+  }
+
+  function procReadTime(b) {
+    var words = countWords(b.scenario) +
+      (b.decisionPoints || []).reduce(function (a, t) { return a + countWords(t); }, 0) +
+      (b.keySteps || []).reduce(function (a, t) { return a + countWords(t); }, 0) +
+      countWords(b.dangerStructures) + countWords(b.pearl);
+    var secs = Math.round(words / 200 * 60 / 15) * 15;
+    return Math.max(30, secs);
+  }
+
+  function buildProceduresPane(mod) {
+    var pane = h('<div class="tabpane proc-pane" data-pane="clinical"></div>');
+    var c = mod.clinical || {};
+    var blocks = c.blocks || [];
+    if (blocks.length === 0) {
+      pane.appendChild(emptyNote("Clinical content for this module is in progress."));
+      return pane;
+    }
+
+    var groups = [];
+    var byGroup = {};
+    blocks.forEach(function (b) {
+      var g = b.subspecialty || "Other";
+      if (!byGroup[g]) { byGroup[g] = []; groups.push(g); }
+      byGroup[g].push(b);
+    });
+
+    var shell = h('<div class="proc-shell lesson-shell"></div>');
+
+    var nav = h('<nav class="lesson-nav proc-nav" aria-label="Browse procedures by subspecialty"></nav>');
+    nav.appendChild(h('<div class="lesson-nav-label mono">2-Minute Procedure Prep</div>'));
+    var chipRow = h('<div class="proc-chips"></div>');
+    var chipAll = h('<button type="button" class="proc-chip active" data-filter="all">All</button>');
+    chipRow.appendChild(chipAll);
+    groups.forEach(function (g) {
+      chipRow.appendChild(h('<button type="button" class="proc-chip" data-filter="' + esc(g) + '">' + esc(g) + '</button>'));
+    });
+    nav.appendChild(chipRow);
+
+    var navList = h('<div class="proc-nav-list"></div>');
+    groups.forEach(function (g) {
+      var groupWrap = h('<div class="proc-nav-group open" data-group="' + esc(g) + '"></div>');
+      var head = h(
+        '<button type="button" class="proc-nav-group-head">' +
+          '<svg class="proc-nav-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>' +
+          '<span>' + esc(g) + '</span><span class="proc-nav-group-count">' + byGroup[g].length + '</span>' +
+        '</button>'
+      );
+      head.addEventListener("click", function () { groupWrap.classList.toggle("open"); });
+      groupWrap.appendChild(head);
+      var sub = h('<div class="proc-nav-group-items"></div>');
+      byGroup[g].forEach(function (b) {
+        var anchor = "clinical-block-" + esc(b.id || "");
+        var item = h(
+          '<button type="button" class="lesson-nav-item" data-anchor-target="' + anchor + '">' +
+            '<span class="lesson-nav-dot"></span><span class="lesson-nav-item-title">' + esc(b.title) + '</span>' +
+          '</button>'
+        );
+        item.addEventListener("click", function () {
+          var target = pane.querySelector('[data-anchor="' + anchor + '"]');
+          if (target && target.scrollIntoView) target.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+        sub.appendChild(item);
+      });
+      groupWrap.appendChild(sub);
+      navList.appendChild(groupWrap);
+    });
+    nav.appendChild(navList);
+    shell.appendChild(nav);
+
+    var main = h('<div class="lesson-main"></div>');
+
+    /* Intro + searchable quick-matcher, replacing the old static table. */
+    if (c.matcher) {
+      var introCard = h('<div class="panel proc-intro"></div>');
+      introCard.appendChild(h('<h3>How to use these briefs</h3>'));
+      if (c.intro) introCard.appendChild(h("<p class='sub'>" + c.intro + "</p>"));
+      var searchWrap = h(
+        '<div class="proc-matcher-search">' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>' +
+          '<input type="text" class="proc-matcher-input" placeholder="Type a danger structure — RLN, carotid, chorda tympani…" aria-label="Filter procedures by danger structure">' +
+        '</div>'
+      );
+      introCard.appendChild(searchWrap);
+      var tbl = h(
+        '<div class="tbl-scroll"><table class="proc-matcher-table"><thead><tr>' +
+          c.matcher.head.map(function (x) { return "<th>" + esc(x) + "</th>"; }).join("") +
+        "</tr></thead><tbody>" +
+          c.matcher.rows.map(function (r) {
+            return "<tr>" + r.map(function (cell) { return "<td>" + esc(cell) + "</td>"; }).join("") + "</tr>";
+          }).join("") +
+        "</tbody></table></div>"
+      );
+      introCard.appendChild(tbl);
+      var matcherInput = searchWrap.querySelector(".proc-matcher-input");
+      var matcherEmpty = h('<p class="empty-note proc-matcher-empty" hidden>No procedure has that danger structure listed.</p>');
+      introCard.appendChild(matcherEmpty);
+      matcherInput.addEventListener("input", function () {
+        var q = matcherInput.value.trim().toLowerCase();
+        var shown = 0;
+        tbl.querySelectorAll("tbody tr").forEach(function (tr) {
+          var hit = !q || tr.textContent.toLowerCase().indexOf(q) !== -1;
+          tr.hidden = !hit;
+          if (hit) shown++;
+        });
+        matcherEmpty.hidden = shown !== 0;
+      });
+      main.appendChild(introCard);
+    }
+
+    /* Pre-Scrub Check Mode: collapses danger-structures/pearl behind a
+     * click-to-reveal overlay so the brief can double as a blind self-test
+     * right before walking into the room. */
+    var checkBar = h(
+      '<div class="proc-checkbar">' +
+        '<button type="button" class="proc-check-toggle' + (loadPrescrubMode() ? " active" : "") + '" aria-pressed="' + (loadPrescrubMode() ? "true" : "false") + '">' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>' +
+          "<span>Pre-Scrub Check Mode</span>" +
+        "</button>" +
+      "</div>"
+    );
+    main.appendChild(checkBar);
+    var checkToggle = checkBar.querySelector(".proc-check-toggle");
+    checkToggle.addEventListener("click", function () {
+      var on = !pane.classList.contains("prescrub-mode");
+      pane.classList.toggle("prescrub-mode", on);
+      checkToggle.classList.toggle("active", on);
+      checkToggle.setAttribute("aria-pressed", on ? "true" : "false");
+      savePrescrubMode(on);
+      if (!on) pane.querySelectorAll(".proc-checkable").forEach(function (el2) { el2.classList.remove("revealed"); });
+    });
+    if (loadPrescrubMode()) pane.classList.add("prescrub-mode");
+
+    blocks.forEach(function (b) {
+      var anchor = "clinical-block-" + esc(b.id || "");
+      var card = h('<div class="panel proc-card" data-anchor="' + anchor + '" data-group="' + esc(b.subspecialty || "") + '"></div>');
+
+      var secs = procReadTime(b);
+      var mins = secs / 60;
+      var readLabel = secs >= 60 ? (mins % 1 === 0 ? mins : mins.toFixed(1)) + " min" : secs + " sec";
+      card.appendChild(h(
+        '<div class="proc-topbar">' +
+          "<h3>" + esc(b.title) + "</h3>" +
+          '<div class="proc-badges">' +
+            '<span class="proc-tag">' + esc(b.subspecialty || "") + "</span>" +
+            '<span class="proc-readtime mono">~' + readLabel + " read</span>" +
+            '<button type="button" class="proc-audio-btn" disabled aria-label="Read aloud (coming soon)" title="Read aloud — coming soon">' +
+              '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/></svg>' +
+            "</button>" +
+          "</div>" +
+        "</div>"
+      ));
+
+      if (b.scenario) {
+        card.appendChild(h(
+          '<div class="proc-scenario"><span class="proc-badge-pill">Patient Vignette</span><p>' + b.scenario + "</p></div>"
+        ));
+      }
+
+      if (b.decisionPoints && b.decisionPoints.length) {
+        var dpSection = h('<div class="proc-section"><h4>Decision points</h4></div>');
+        dpSection.appendChild(h("<ul>" + b.decisionPoints.map(function (t) { return "<li>" + t + "</li>"; }).join("") + "</ul>"));
+        card.appendChild(dpSection);
+      }
+
+      if (b.keySteps && b.keySteps.length) {
+        var stepSection = h('<div class="proc-section"><h4>Key steps</h4></div>');
+        var stepList = h('<ol class="proc-steps"></ol>');
+        b.keySteps.forEach(function (s) {
+          stepList.appendChild(h('<li class="proc-step"><span class="proc-step-body">' + s + "</span></li>"));
+        });
+        stepSection.appendChild(stepList);
+        card.appendChild(stepSection);
+      }
+
+      if (b.dangerStructures) {
+        var dangerCard = h(
+          '<div class="proc-callout proc-danger proc-checkable">' +
+            '<div class="proc-callout-label">' +
+              '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6.5v5c0 4.7 3.2 8.9 8 10 4.8-1.1 8-5.3 8-10v-5L12 3Z"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg>' +
+              "<span>Danger structures</span>" +
+            "</div>" +
+            '<div class="proc-callout-body">' + b.dangerStructures + "</div>" +
+            '<button type="button" class="proc-check-overlay">Can you name the danger structures before looking? <span>Click to reveal</span></button>' +
+          "</div>"
+        );
+        dangerCard.querySelector(".proc-check-overlay").addEventListener("click", function () { dangerCard.classList.add("revealed"); });
+        card.appendChild(dangerCard);
+      }
+
+      if (b.pearl) {
+        var pearlCard = h(
+          '<div class="proc-callout proc-pearl proc-checkable">' +
+            '<div class="proc-callout-label">' +
+              '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2.05V17h6v-.25c0-.85.4-1.55 1-2.05A7 7 0 0 0 12 2Z"/></svg>' +
+              "<span>High-yield pearl</span>" +
+            "</div>" +
+            '<div class="proc-callout-body">' + b.pearl + "</div>" +
+            '<button type="button" class="proc-check-overlay">Can you recall the pearl before looking? <span>Click to reveal</span></button>' +
+          "</div>"
+        );
+        pearlCard.querySelector(".proc-check-overlay").addEventListener("click", function () { pearlCard.classList.add("revealed"); });
+        card.appendChild(pearlCard);
+      }
+
+      main.appendChild(card);
+    });
+
+    shell.appendChild(main);
+    pane.appendChild(shell);
+    linkGlossaryTerms(pane);
+
+    function applyProcFilter(val) {
+      pane.querySelectorAll(".proc-chip").forEach(function (chip) { chip.classList.toggle("active", chip.getAttribute("data-filter") === val); });
+      pane.querySelectorAll(".proc-nav-group").forEach(function (g) { g.hidden = val !== "all" && g.getAttribute("data-group") !== val; });
+      pane.querySelectorAll(".proc-card").forEach(function (p) { p.hidden = val !== "all" && p.getAttribute("data-group") !== val; });
+    }
+    chipRow.querySelectorAll(".proc-chip").forEach(function (chip) {
+      chip.addEventListener("click", function () { applyProcFilter(chip.getAttribute("data-filter")); });
+    });
+
+    initProceduresScrollspy(pane, nav);
+    return pane;
+  }
+
+  var proceduresScrollspyIO = null;
+  function initProceduresScrollspy(pane, nav) {
+    if (proceduresScrollspyIO) { proceduresScrollspyIO.disconnect(); proceduresScrollspyIO = null; }
+    if (!("IntersectionObserver" in window)) return;
+    var cards = Array.prototype.slice.call(pane.querySelectorAll(".proc-card[data-anchor]"));
+    if (!cards.length) return;
+    proceduresScrollspyIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var anchor = entry.target.getAttribute("data-anchor");
+        nav.querySelectorAll(".lesson-nav-item").forEach(function (item) {
+          item.classList.toggle("active", item.getAttribute("data-anchor-target") === anchor);
+        });
+      });
+    }, { rootMargin: "-15% 0px -70% 0px", threshold: 0 });
+    cards.forEach(function (c2) { proceduresScrollspyIO.observe(c2); });
   }
 
   /* ---- Cases tab ----
@@ -2521,7 +2782,7 @@
       });
       var c = m.clinical || {};
       (c.blocks || []).forEach(function (b) {
-        idx.push({ type: "clinical", modId: m.id, title: b.title, snippet: stripHtml(b.html || "").slice(0, 140), tab: "clinical", anchor: "clinical-block-" + b.id });
+        idx.push({ type: "clinical", modId: m.id, title: b.title, snippet: stripHtml(b.html || b.scenario || "").slice(0, 140), tab: "clinical", anchor: "clinical-block-" + b.id });
       });
       (m.cases || []).forEach(function (cs) {
         idx.push({ type: "case", modId: m.id, title: stripHtml(cs.stem).slice(0, 90), snippet: cs.teaching || "", tab: "cases", anchor: "case-" + cs.id });
@@ -3841,7 +4102,7 @@
     initSearchShortcut();
     initFlashShortcut();
     initScrollTint();
-    initActiveRecall();
+    if (ACTIVE_RECALL_ENABLED) initActiveRecall();
     bumpStreak();
     var brand = el("brandHome");
     on(brand, "click", goHome);

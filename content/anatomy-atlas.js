@@ -164,7 +164,7 @@ window.JEFFENT.register({
         title: "The neck as fascial layers and triangles",
         note: "Two ways to read the same neck: by surface triangle, and by deep fascial plane. Name each, then reveal.",
         src: "assets/img/figures/neck-triangles-colored.png",
-        source: "Fascial Layers and Triangles of the Neck. Scholes &amp; Ramakrishnan (2015) ENT Secrets / Wikimedia Commons CC BY-SA 4.0.",
+        source: "Fascial Layers and Triangles of the Neck. Scholes & Ramakrishnan (2015) ENT Secrets / Wikimedia Commons CC BY-SA 4.0.",
         labels: [
           { id:"mandibula", text:"Mandibula (mandible): forms the superior boundary of the anterior triangle of the neck.", box:{x:10.7,y:39.4,w:8.0,h:3.5} },
           { id:"os-hyoideum", text:"Os hyoideum (hyoid bone): U-shaped bone at the C3 level that anchors suprahyoid and infrahyoid muscles and marks the boundary between the submental/submandibular and carotid/muscular triangles.", box:{x:10.7,y:50.2,w:9.0,h:3.3} },
