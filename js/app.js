@@ -641,16 +641,17 @@
 
   /* Small circular mastery ring (SVG) used in the spaced-repetition queue --
      replaces a linear bar with a compact at-a-glance percentage. */
-  function masteryRing(pct, color, size) {
+  function masteryRing(pct, color, size, showLabel) {
     size = size || 40;
-    var stroke = 4, r = (size - stroke) / 2, c = 2 * Math.PI * r;
+    if (showLabel === undefined) showLabel = true;
+    var stroke = size < 24 ? 2.5 : 4, r = (size - stroke) / 2, c = 2 * Math.PI * r;
     var offset = c * (1 - Math.max(0, Math.min(100, pct)) / 100);
     var cx = size / 2, cy = size / 2;
     return '<svg class="mastery-ring" width="' + size + '" height="' + size + '" viewBox="0 0 ' + size + ' ' + size + '" aria-hidden="true">' +
       '<circle cx="' + cx + '" cy="' + cy + '" r="' + r + '" fill="none" stroke="rgba(255,255,255,.16)" stroke-width="' + stroke + '"></circle>' +
       '<circle cx="' + cx + '" cy="' + cy + '" r="' + r + '" fill="none" stroke="' + esc(color) + '" stroke-width="' + stroke + '" stroke-linecap="round" ' +
         'stroke-dasharray="' + c.toFixed(1) + '" stroke-dashoffset="' + offset.toFixed(1) + '" transform="rotate(-90 ' + cx + ' ' + cy + ')"></circle>' +
-      '<text x="' + cx + '" y="' + (cy + 4) + '" text-anchor="middle" font-size="11" fill="#fff" font-family="JetBrains Mono, monospace">' + Math.round(pct) + '</text>' +
+      (showLabel ? '<text x="' + cx + '" y="' + (cy + 4) + '" text-anchor="middle" font-size="11" fill="#fff" font-family="JetBrains Mono, monospace">' + Math.round(pct) + '</text>' : '') +
     '</svg>';
   }
 
@@ -668,7 +669,7 @@
     if (n < 2) { track.style.transform = "none"; return; }
 
     var angleStep = 360 / n;
-    var cardW = 168; /* must match .sr-row's fixed width in styles.css */
+    var cardW = 144; /* must match .sr-row's fixed width in styles.css */
     /* The 1.5x factor pushes cards further apart than the bare tangent
      * formula (which places them edge-to-edge) so a real gap shows between
      * neighboring cards instead of them touching. */
@@ -678,7 +679,26 @@
     });
 
     var angle = 0;
-    function apply() { track.style.transform = "rotateY(" + angle + "deg)"; }
+    /* No card silhouette to carry the "this one is off to the side" cue
+     * anymore, so opacity does that job instead: each card fades out the
+     * further its current angular distance from dead-center (0deg, facing
+     * the viewer), all the way to fully transparent by ~100deg off --
+     * recomputed here on every apply() so it tracks live during a drag. */
+    function apply() {
+      track.style.transform = "rotateY(" + angle + "deg)";
+      rows.forEach(function (row, i) {
+        var rowAngle = ((i * angleStep + angle) % 360 + 360) % 360;
+        var dist = rowAngle > 180 ? 360 - rowAngle : rowAngle;
+        var opacity = Math.max(0, 1 - dist / 100);
+        row.style.opacity = opacity.toFixed(2);
+        /* Faded-out cards are visually gone -- take them out of the tab
+         * order and off the hit-test list too, so keyboard focus and drag
+         * gestures don't land on something the eye can't find. */
+        var reachable = opacity > 0.05;
+        row.tabIndex = reachable ? 0 : -1;
+        row.style.pointerEvents = reachable ? "" : "none";
+      });
+    }
     apply();
     function step(dir) {
       track.style.transition = "transform .3s var(--ease-out)";
@@ -882,7 +902,7 @@
         var row = h(
           '<div class="sr-row" tabindex="0" role="button"' +
             ' aria-label="Review ' + esc(x.track.name) + ': ' + x.due + ' due, ' + tpct + '% mastered">' +
-            '<div class="sr-ring">' + masteryRing(tpct, color, 24) + '</div>' +
+            '<div class="sr-ring">' + masteryRing(tpct, color, 18, false) + '</div>' +
             '<div class="sr-info">' +
               '<div class="sr-name">' + esc(x.track.name) + '</div>' +
               '<div class="sr-meta">' + x.due + ' due &middot; ' + tpct + '% mastered</div>' +

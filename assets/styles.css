@@ -627,28 +627,31 @@ div.anatomy-detail-body:not(.panel) li { margin: .3em 0; }
 .hero-top-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 .hero-top-row .cta-actions { margin-top: 2px; }
 .hero-left { max-width: 480px; }
-.sr-carousel-wrap { position: relative; padding: 0 40px; cursor: grab; touch-action: pan-y; user-select: none; -webkit-user-select: none; }
+.sr-carousel-wrap { position: relative; padding: 0 36px; cursor: grab; touch-action: pan-y; user-select: none; -webkit-user-select: none; }
 .sr-carousel-wrap.dragging { cursor: grabbing; }
-.sr-carousel { position: relative; height: 72px; perspective: 1100px; }
-.sr-carousel-wrap::before, .sr-carousel-wrap::after { content: ""; position: absolute; top: 0; bottom: 0; width: 40px;
+.sr-carousel { position: relative; height: 56px; perspective: 1400px; }
+.sr-carousel-wrap::before, .sr-carousel-wrap::after { content: ""; position: absolute; top: 0; bottom: 0; width: 36px;
   pointer-events: none; z-index: 2; }
-.sr-carousel-wrap::before { left: 40px; background: linear-gradient(to right, var(--hero-bg), transparent); }
-.sr-carousel-wrap::after { right: 40px; background: linear-gradient(to left, var(--hero-bg), transparent); }
+.sr-carousel-wrap::before { left: 36px; background: linear-gradient(to right, var(--hero-bg), transparent); }
+.sr-carousel-wrap::after { right: 36px; background: linear-gradient(to left, var(--hero-bg), transparent); }
 .sr-track { position: absolute; top: 0; left: 50%; width: 0; height: 100%; transform-style: preserve-3d; }
-.sr-row { position: absolute; top: 0; left: 0; margin-left: -84px; display: flex; align-items: center; gap: 8px;
-  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: var(--radius);
-  padding: 7px 10px; cursor: pointer; text-align: left; width: 168px; height: 58px; box-sizing: border-box;
-  backface-visibility: hidden;
-  transition: background-color .16s var(--ease-out); }
-.sr-row:hover, .sr-row:focus-visible { background: rgba(255,255,255,.13); }
-.sr-row.sr-empty { position: static; cursor: default; width: 100%; margin-left: 0; }
-.sr-row.sr-empty:hover { background: rgba(255,255,255,.06); }
-.sr-ring { flex: 0 0 auto; line-height: 0; }
-.sr-ring svg { display: block; width: 24px; height: 24px; }
+/* No box, no border, no fill -- just the ring and text sitting directly on
+   the hero background. Depth comes from opacity (set inline by
+   initDueCarousel's apply(), based on each card's live angular distance
+   from the front) fading everything but the centered card toward
+   transparent, instead of a card silhouette doing that work. */
+.sr-row { position: absolute; top: 0; left: 0; margin-left: -72px; display: flex; align-items: center; gap: 7px;
+  padding: 4px 2px; cursor: pointer; text-align: left; width: 144px; height: 48px; box-sizing: border-box;
+  backface-visibility: hidden; }
+.sr-row.sr-empty { position: static; cursor: default; width: 100%; margin-left: 0; opacity: 1 !important; }
+.sr-ring { flex: 0 0 auto; line-height: 0; opacity: .85; }
+.sr-ring svg { display: block; width: 18px; height: 18px; }
 .sr-info { flex: 1 1 auto; min-width: 0; }
-.sr-name { font-size: 11.5px; font-weight: 600; color: var(--hero-ink); line-height: 1.18;
-  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-.sr-meta { font-size: 9.5px; color: var(--hero-ink-soft); margin-top: 2px; font-family: "JetBrains Mono", monospace; }
+.sr-name { font-size: 10.5px; font-weight: 600; color: var(--hero-ink); line-height: 1.15;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  transition: color .15s var(--ease-out); }
+.sr-row:hover .sr-name, .sr-row:focus-visible .sr-name { color: #fff; }
+.sr-meta { font-size: 8.5px; color: var(--hero-ink-soft); margin-top: 1px; font-family: "JetBrains Mono", monospace; }
 .sr-carousel-controls { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 10px; }
 /* Small and quiet by default -- a hint that more cards exist, not a
    competing call to action next to the carousel itself. */
