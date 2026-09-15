@@ -197,7 +197,8 @@ window.JEFFENT.register({
       {
         id: "hpv-oropharyngeal",
         title: "HPV-associated oropharyngeal cancer",
-        html: "<p>Rising incidence, typically in <strong>younger, non-smoking</strong> patients. <strong>p16 immunohistochemistry</strong> is the standard surrogate marker for HPV-driven tumors (types 16/18 most implicated) and carries a <strong>better prognosis</strong> than HPV-negative disease at the same stage, reflected in a separate staging system. <strong>Pitfall:</strong> a cystic neck node from an HPV+ oropharyngeal primary can look radiologically and even cytologically like a benign branchial cleft cyst. A new 'branchial cleft cyst' in an adult over ~40 needs the primary excluded, not just drained.</p>"
+        html: "<p>Rising incidence, typically in <strong>younger, non-smoking</strong> patients. <strong>p16 immunohistochemistry</strong> is the standard surrogate marker for HPV-driven tumors (types 16/18 most implicated) and carries a <strong>better prognosis</strong> than HPV-negative disease at the same stage, reflected in a separate staging system.</p>" +
+          "<p><strong>Pitfall:</strong> a cystic neck node from an HPV+ oropharyngeal primary can look radiologically and even cytologically like a benign branchial cleft cyst. A new 'branchial cleft cyst' in an adult over ~40 needs the primary excluded, not just drained.</p>"
       },
       {
         id: "nasopharyngeal-carcinoma",
