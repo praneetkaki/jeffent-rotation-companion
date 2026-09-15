@@ -216,14 +216,6 @@
     try { localStorage.setItem("jeffent.activeRecall", on ? "1" : "0"); } catch (e) {}
   }
 
-  /* ---------- home dashboard minimize state ---------- */
-  function getDashCollapsed() {
-    try { return localStorage.getItem("jeffent.dashCollapsed") === "1"; } catch (e) { return false; }
-  }
-  function setDashCollapsed(v) {
-    try { localStorage.setItem("jeffent.dashCollapsed", v ? "1" : "0"); } catch (e) {}
-  }
-
   /* ---------- personal card edits + notes (this browser only) ----------
    * Cards are shared curriculum content (content/*.js, faculty-reviewed --
    * see CLAUDE.md), so a learner's own edits and notes are never written
@@ -661,114 +653,33 @@
 
   /* Small circular mastery ring (SVG) used in the spaced-repetition queue --
      replaces a linear bar with a compact at-a-glance percentage. */
-  function masteryRing(pct, color, size, showLabel) {
+  function masteryRing(pct, color, size, showLabel, trackColor, textColor) {
     size = size || 40;
     if (showLabel === undefined) showLabel = true;
     var stroke = size < 24 ? 2.5 : 4, r = (size - stroke) / 2, c = 2 * Math.PI * r;
     var offset = c * (1 - Math.max(0, Math.min(100, pct)) / 100);
     var cx = size / 2, cy = size / 2;
     return '<svg class="mastery-ring" width="' + size + '" height="' + size + '" viewBox="0 0 ' + size + ' ' + size + '" aria-hidden="true">' +
-      '<circle cx="' + cx + '" cy="' + cy + '" r="' + r + '" fill="none" stroke="rgba(255,255,255,.16)" stroke-width="' + stroke + '"></circle>' +
-      '<circle cx="' + cx + '" cy="' + cy + '" r="' + r + '" fill="none" stroke="' + esc(color) + '" stroke-width="' + stroke + '" stroke-linecap="round" ' +
-        'stroke-dasharray="' + c.toFixed(1) + '" stroke-dashoffset="' + offset.toFixed(1) + '" transform="rotate(-90 ' + cx + ' ' + cy + ')"></circle>' +
-      (showLabel ? '<text x="' + cx + '" y="' + (cy + 4) + '" text-anchor="middle" font-size="11" fill="#fff" font-family="JetBrains Mono, monospace">' + Math.round(pct) + '</text>' : '') +
+      '<circle cx="' + cx + '" cy="' + cy + '" r="' + r + '" fill="none" stroke="' + esc(trackColor || "rgba(255,255,255,.16)") + '" stroke-width="' + stroke + '"></circle>' +
+      '<circle class="mastery-ring-fill" cx="' + cx + '" cy="' + cy + '" r="' + r + '" fill="none" stroke="' + esc(color) + '" stroke-width="' + stroke + '" stroke-linecap="round" ' +
+        'stroke-dasharray="' + c.toFixed(1) + '" stroke-dashoffset="' + c.toFixed(1) + '" transform="rotate(-90 ' + cx + ' ' + cy + ')" data-target-offset="' + offset.toFixed(1) + '"></circle>' +
+      (showLabel ? '<text x="' + cx + '" y="' + (cy + 4) + '" text-anchor="middle" font-size="11" fill="' + esc(textColor || "#fff") + '" font-family="JetBrains Mono, monospace">' + Math.round(pct) + '</text>' : '') +
     '</svg>';
   }
-
-  /* The due-queue carousel: `n` cards arranged evenly around a real 3D
-   * cylinder (each card gets a fixed rotateY(i * step) translateZ(radius)
-   * transform). It never moves on its own -- no auto-rotation -- so it stays
-   * readable and doesn't fight WCAG's "stop moving content" guidance. The
-   * learner moves it themselves: drag/swipe anywhere on the carousel to spin
-   * it (snapping to the nearest card on release), or use the small prev/next
-   * arrows as a keyboard- and touch-free-reachable fallback. */
-  function initDueCarousel(track, wrap, n) {
-    var rows = Array.prototype.slice.call(track.children);
-    var prevBtn = wrap.querySelector(".sr-prev");
-    var nextBtn = wrap.querySelector(".sr-next");
-    if (n < 2) { track.style.transform = "none"; return; }
-
-    var angleStep = 360 / n;
-    var cardW = 144; /* must match .sr-row's fixed width in styles.css */
-    /* The 1.5x factor pushes cards further apart than the bare tangent
-     * formula (which places them edge-to-edge) so a real gap shows between
-     * neighboring cards instead of them touching. */
-    var radius = Math.round((cardW / 2) / Math.tan(Math.PI / n) * 1.5);
-    rows.forEach(function (row, i) {
-      row.style.transform = "rotateY(" + (i * angleStep) + "deg) translateZ(" + radius + "px)";
-    });
-
-    var angle = 0;
-    /* No card silhouette to carry the "this one is off to the side" cue
-     * anymore, so opacity does that job instead: each card fades out the
-     * further its current angular distance from dead-center (0deg, facing
-     * the viewer), all the way to fully transparent by ~100deg off --
-     * recomputed here on every apply() so it tracks live during a drag. */
-    function apply() {
-      track.style.transform = "rotateY(" + angle + "deg)";
-      rows.forEach(function (row, i) {
-        var rowAngle = ((i * angleStep + angle) % 360 + 360) % 360;
-        var dist = rowAngle > 180 ? 360 - rowAngle : rowAngle;
-        var opacity = Math.max(0, 1 - dist / 100);
-        row.style.opacity = opacity.toFixed(2);
-        /* Faded-out cards are visually gone -- take them out of the tab
-         * order and off the hit-test list too, so keyboard focus and drag
-         * gestures don't land on something the eye can't find. */
-        var reachable = opacity > 0.05;
-        row.tabIndex = reachable ? 0 : -1;
-        row.style.pointerEvents = reachable ? "" : "none";
+  /* Animates a masteryRing()'s stroke from empty to its target percentage --
+     called after the SVG is actually in the DOM (a transition on
+     stroke-dashoffset needs the "from" value painted on one frame before
+     the "to" value is set on the next). */
+  function animateMasteryRing(container) {
+    if (!container) return;
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    container.querySelectorAll(".mastery-ring-fill[data-target-offset]").forEach(function (circle) {
+      var target = circle.getAttribute("data-target-offset");
+      if (reduce) { circle.style.strokeDashoffset = target; return; }
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () { circle.style.strokeDashoffset = target; });
       });
-    }
-    apply();
-    function step(dir) {
-      track.style.transition = "transform .3s var(--ease-out)";
-      angle += dir * angleStep;
-      apply();
-    }
-    if (prevBtn) prevBtn.addEventListener("click", function () { step(1); });
-    if (nextBtn) nextBtn.addEventListener("click", function () { step(-1); });
-
-    /* Drag/swipe: track the pointer, spin 1:1 with horizontal movement while
-     * dragging, then snap to the nearest card on release. `moved` guards
-     * against a drag ending up misread as a click on whatever card the drag
-     * happened to end on. */
-    var dragging = false, moved = false, startX = 0, startAngle = 0;
-    var SENSITIVITY = 0.4; /* degrees rotated per pixel dragged */
-    function pointerX(e) { return e.touches ? e.touches[0].clientX : e.clientX; }
-    function dragStart(e) {
-      dragging = true; moved = false;
-      startX = pointerX(e); startAngle = angle;
-      track.style.transition = "none";
-      wrap.classList.add("dragging");
-    }
-    function dragMove(e) {
-      if (!dragging) return;
-      var dx = pointerX(e) - startX;
-      if (Math.abs(dx) > 3) moved = true;
-      angle = startAngle + dx * SENSITIVITY;
-      apply();
-      if (e.cancelable) e.preventDefault();
-    }
-    function dragEnd() {
-      if (!dragging) return;
-      dragging = false;
-      wrap.classList.remove("dragging");
-      track.style.transition = "transform .3s var(--ease-out)";
-      angle = Math.round(angle / angleStep) * angleStep;
-      apply();
-    }
-    wrap.addEventListener("mousedown", dragStart);
-    window.addEventListener("mousemove", dragMove);
-    window.addEventListener("mouseup", dragEnd);
-    wrap.addEventListener("touchstart", dragStart, { passive: true });
-    wrap.addEventListener("touchmove", dragMove, { passive: false });
-    wrap.addEventListener("touchend", dragEnd);
-    /* Swallow the click a drag would otherwise trigger on whichever card it
-     * released over -- captured ahead of the row's own bubbling click
-     * handler so it can stop it before that handler ever runs. */
-    wrap.addEventListener("click", function (e) {
-      if (moved) { e.stopPropagation(); e.preventDefault(); moved = false; }
-    }, true);
+    });
   }
 
   /* One deliberate load moment for the Home stat row: numbers count up from
@@ -800,6 +711,7 @@
     { id: "atlas", label: "Atlas & high-yield tools" }
   ];
   var homeFilter = "all";
+  var homeFilterIndicatorResizeHandler = null;
 
   function applyHomeFilter(grid, list) {
     [grid, list].forEach(function (container) {
@@ -807,6 +719,40 @@
       container.querySelectorAll(".tile, .feature-row").forEach(function (el) {
         var show = homeFilter === "all" || el.dataset.category === homeFilter;
         el.style.display = show ? "" : "none";
+      });
+    });
+  }
+
+  /* Glides the filter-bar's background pill behind whichever tab is active
+   * -- measured (not hardcoded) so it works with any label/count width and
+   * survives reflow (also called on window resize). Positioned with
+   * left/top rather than transform so it still lands correctly if the bar
+   * wraps to a second line on a narrow screen. */
+  function moveFilterIndicator(bar) {
+    var indicator = bar.querySelector(".filter-pill-indicator");
+    var activePill = bar.querySelector(".filter-pill.active");
+    if (!indicator || !activePill) return;
+    indicator.style.width = activePill.offsetWidth + "px";
+    indicator.style.height = activePill.offsetHeight + "px";
+    indicator.style.left = activePill.offsetLeft + "px";
+    indicator.style.top = activePill.offsetTop + "px";
+  }
+
+  /* Re-triggers a staggered fade-in-up on whichever tiles/rows are visible
+   * after a filter switch (inline animation-delay per visible index, since
+   * nth-child delays defined in CSS can't skip elements hidden by the
+   * previous filter). */
+  function restaggerHomeGrid(grid, list) {
+    [grid, list].forEach(function (container) {
+      if (!container) return;
+      var visible = Array.prototype.filter.call(container.querySelectorAll(".tile, .feature-row"), function (el) {
+        return el.style.display !== "none";
+      });
+      visible.forEach(function (el, i) {
+        el.classList.remove("filter-pop");
+        void el.offsetWidth; /* force reflow so the animation restarts */
+        el.style.animationDelay = Math.min(i * 30, 240) + "ms";
+        el.classList.add("filter-pop");
       });
     });
   }
@@ -822,47 +768,41 @@
     root.innerHTML = "";
     root.appendChild(h('<div class="eyebrow">Your ENT rotation, topic by topic</div>'));
 
-    var dashCollapsed = getDashCollapsed();
-    var dashSummary = pct + "% mastered · " + agg.due + " due today · " + reviewedCount + " / " + allMods.length +
-      " modules reviewed · " + streak + (streak === 1 ? " day" : " days") + " streak";
-    var dashPanel = h(
-      '<div class="dash-panel' + (dashCollapsed ? " collapsed" : "") + '" id="dashPanel">' +
-        '<div class="dash-head">' +
-          '<span class="dash-title">Your progress</span>' +
-          '<button type="button" class="dash-toggle" id="dashToggle" aria-expanded="' + (!dashCollapsed) + '" aria-controls="dashBody">' +
-            '<span class="dash-toggle-label">' + (dashCollapsed ? "Expand" : "Minimize") + '</span>' +
-            '<span class="dash-chev" aria-hidden="true">&#9652;</span>' +
-          '</button>' +
-        '</div>' +
-        '<div class="progress-strip" id="dashBody">' +
-          '<button type="button" class="pcard" data-dash="mastery" aria-label="Overall mastery: ' + pct + ' percent. Open curriculum roadmap.">' +
-            '<div class="lbl">Overall mastery</div><div class="big" data-count="' + pct + '" data-suffix="%">0%</div>' +
-            '<div class="bar"><i style="width:' + pct + '%"></i></div><div class="cta-hint">View roadmap &rarr;</div>' +
-          '</button>' +
-          '<button type="button" class="pcard" data-dash="due" aria-label="' + agg.due + ' cards due today. Start due queue.">' +
-            '<div class="lbl">Due today</div><div class="big" data-count="' + agg.due + '" data-suffix="">0</div>' +
-            '<div class="cta-hint">Start queue &rarr;</div>' +
-          '</button>' +
-          '<button type="button" class="pcard" data-dash="reviewed" aria-label="' + reviewedCount + ' of ' + allMods.length + ' modules reviewed. Open curriculum roadmap.">' +
-            '<div class="lbl">Modules reviewed</div><div class="big" data-count="' + reviewedCount + '" data-suffix="' + esc(' / ' + allMods.length) + '">0</div>' +
-            '<div class="cta-hint">View roadmap &rarr;</div>' +
-          '</button>' +
-          '<button type="button" class="pcard pcard-streak" data-dash="streak" aria-label="' + streak + (streak === 1 ? " day" : " days") + ' study streak. Open study settings.">' +
-            '<div class="lbl">Study streak</div><div class="big" data-count="' + streak + '" data-suffix="' + esc(streak === 1 ? ' day' : ' days') + '">0</div>' +
-            '<div class="spark-row">' + sparklineSvg(window.SRS.dailyActivity(7)) + '<span class="spark-lbl">7d</span></div>' +
-            '<div class="cta-hint">Settings &rarr;</div>' +
-          '</button>' +
-        '</div>' +
-        '<div class="dash-summary mono" id="dashSummary">' + esc(dashSummary) + '</div>' +
-      '</div>'
-    );
-    root.appendChild(dashPanel);
-    animateStatCounts(dashPanel);
+    /* Unified bento dashboard: one dark hero action tile (queue CTA + streak
+     * + top-3-due chip rack) beside two light stat tiles (mastery ring,
+     * due-today + 7-day activity), replacing the old two-stacked-boxes
+     * layout (a collapsible progress strip above a separate dark carousel
+     * card) with a single cohesive grid. */
+    var dueTracks = TRACKS.map(function (t) {
+      var mods = modulesFor(t.id);
+      return { track: t, mods: mods, due: aggregateStats(mods).due };
+    }).filter(function (x) { return x.mods.length && x.due > 0; })
+      .sort(function (a, b) { return b.due - a.due; });
 
-    dashPanel.querySelector('[data-dash="mastery"]').addEventListener("click", goRoadmap);
-    dashPanel.querySelector('[data-dash="reviewed"]').addEventListener("click", goRoadmap);
-    dashPanel.querySelector('[data-dash="due"]').addEventListener("click", goStudyAll);
-    dashPanel.querySelector('[data-dash="streak"]').addEventListener("click", function (e) {
+    var bento = h('<div class="home-bento"></div>');
+
+    var heroTile = h(
+      '<div class="bento-tile bento-hero">' +
+        '<div class="bento-hero-top">' +
+          '<div class="bento-hero-copy">' +
+            '<div class="eyebrow">Spaced repetition queue</div>' +
+            '<h2 class="bento-hero-title">Ready for your daily review</h2>' +
+            '<div class="bento-hero-sub">' + agg.due + ' card' + (agg.due === 1 ? '' : 's') + ' due across ' + allMods.length + ' modules.</div>' +
+          '</div>' +
+          '<div class="bento-streak-chip" data-dash="streak" role="button" tabindex="0" aria-label="' + streak + (streak === 1 ? ' day' : ' days') + ' study streak. Open study settings.">' +
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a6 6 0 1 1-12 0c0-1.088.348-2.05.5-2.5"/></svg>' +
+            '<span>' + streak + (streak === 1 ? " day" : " days") + " streak</span>" +
+          "</div>" +
+        "</div>" +
+        '<div class="bento-hero-bottom">' +
+          '<button type="button" class="btn bento-start-btn">Start due queue (' + agg.due + ') &rarr;</button>' +
+          '<div class="bento-chip-rack"></div>' +
+        "</div>" +
+      "</div>"
+    );
+    heroTile.querySelector(".bento-start-btn").addEventListener("click", goStudyAll);
+    var streakChip = heroTile.querySelector(".bento-streak-chip");
+    var openStreakSettings = function (e) {
       /* Simulating a click on the real settingsToggle opens the panel
        * synchronously, but the *original* click event is still bubbling
        * -- without stopping it here, it reaches initSettings()'s
@@ -871,101 +811,85 @@
       e.stopPropagation();
       var t = el("settingsToggle");
       if (t) t.click();
-    });
-    on(el("dashToggle"), "click", function () {
-      var next = !dashPanel.classList.contains("collapsed");
-      dashPanel.classList.toggle("collapsed", next);
-      setDashCollapsed(next);
-      var toggleBtn = el("dashToggle");
-      toggleBtn.setAttribute("aria-expanded", String(!next));
-      toggleBtn.querySelector(".dash-toggle-label").textContent = next ? "Expand" : "Minimize";
-    });
+    };
+    streakChip.addEventListener("click", openStreakSettings);
+    streakChip.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openStreakSettings(e); } });
 
-    /* hero: spaced-repetition queue, deep-midnight card + a highest-due-first
-       carousel of every track (mastery ring + direct Review button per card).
-       Cards sit around a real 3D cylinder (rotateY + translateZ on each card,
-       the whole ring auto-rotating) rather than a tall scrolling list, so the
-       card stays short regardless of how many subspecialties are due. */
-    var dueTracks = TRACKS.map(function (t) {
-      var mods = modulesFor(t.id);
-      return { track: t, mods: mods, due: aggregateStats(mods).due };
-    }).filter(function (x) { return x.mods.length; })
-      .sort(function (a, b) { return b.due - a.due; });
-
-    var hero = h(
-      '<div class="study-cta all-due-cta">' +
-        '<div class="hero-body">' +
-          '<div class="hero-top-row">' +
-            '<div class="hero-left">' +
-              '<div class="eyebrow">Spaced repetition queue</div>' +
-              '<div class="n">Ready for your daily review</div>' +
-              '<div class="cta-sub">' + agg.due + ' card' + (agg.due === 1 ? '' : 's') + ' due across ' + allMods.length + ' modules.</div>' +
-            '</div>' +
-            '<div class="cta-actions"></div>' +
-          '</div>' +
-          '<div class="sr-carousel-wrap" id="srCarouselWrap">' +
-            '<div class="sr-carousel" id="srCarousel"><div class="sr-track" id="srTrack"></div></div>' +
-          '</div>' +
-        '</div>' +
-      '</div>'
-    );
-    var heroBtn = h('<button class="btn">Start due queue (' + agg.due + ') &rarr;</button>');
-    heroBtn.addEventListener("click", goStudyAll);
-    hero.querySelector(".cta-actions").appendChild(heroBtn);
-    var carouselWrap = hero.querySelector("#srCarouselWrap");
-    var track = hero.querySelector("#srTrack");
+    var chipRack = heroTile.querySelector(".bento-chip-rack");
     if (dueTracks.length) {
-      dueTracks.forEach(function (x) {
-        var s = aggregateStats(x.mods);
-        var tpct = s.total ? Math.round((s.mastered / s.total) * 100) : 0;
-        var color = x.track.color || '#fff';
-        var row = h(
-          '<div class="sr-row" tabindex="0" role="button"' +
-            ' aria-label="Review ' + esc(x.track.name) + ': ' + x.due + ' due, ' + tpct + '% mastered">' +
-            '<div class="sr-ring">' + masteryRing(tpct, color, 18, false) + '</div>' +
-            '<div class="sr-info">' +
-              '<div class="sr-name">' + esc(x.track.name) + '</div>' +
-              '<div class="sr-meta">' + x.due + ' due &middot; ' + tpct + '% mastered</div>' +
-            '</div>' +
-          '</div>'
+      dueTracks.slice(0, 3).forEach(function (x) {
+        var chip = h(
+          '<button type="button" class="bento-chip" style="--track-color:' + (x.track.color || "#fff") + '">' +
+            esc(x.track.name) + '<span class="bento-chip-count">' + x.due + "</span>" +
+          "</button>"
         );
-        var openTrack = function () { goTrack(x.track.id); };
-        row.addEventListener("click", openTrack);
-        row.addEventListener("keydown", function (e) {
-          if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openTrack(); }
-        });
-        track.appendChild(row);
+        chip.addEventListener("click", function () { goTrack(x.track.id); });
+        chipRack.appendChild(chip);
       });
-      if (dueTracks.length > 1) {
-        var nav = h(
-          '<div class="sr-carousel-controls">' +
-            '<button type="button" class="sr-nav sr-prev" aria-label="Previous subspecialty">&lsaquo;</button>' +
-            '<button type="button" class="sr-nav sr-next" aria-label="Next subspecialty">&rsaquo;</button>' +
-          '</div>'
-        );
-        carouselWrap.appendChild(nav);
-      }
-      initDueCarousel(track, carouselWrap, dueTracks.length);
     } else {
-      track.appendChild(h('<div class="sr-row sr-empty"><div class="sr-info"><div class="sr-name">All caught up</div><div class="sr-meta">Nothing due right now</div></div></div>'));
+      chipRack.appendChild(h('<div class="bento-chip bento-chip-empty">All caught up — nothing due right now</div>'));
     }
-    root.appendChild(hero);
+    bento.appendChild(heroTile);
+
+    var masteryTile = h(
+      '<button type="button" class="bento-tile bento-mastery" aria-label="Overall mastery: ' + pct + ' percent. Open curriculum roadmap.">' +
+        '<div class="bento-label">Overall mastery</div>' +
+        '<div class="bento-ring">' + masteryRing(pct, "var(--primary)", 84, true, "var(--surface-2)", "var(--ink)") + '</div>' +
+        '<div class="bento-sub"><strong class="big" data-count="' + reviewedCount + '" data-suffix="' + esc("/" + allMods.length) + '">0</strong> modules reviewed</div>' +
+      "</button>"
+    );
+    masteryTile.addEventListener("click", goRoadmap);
+    bento.appendChild(masteryTile);
+
+    var activity7 = window.SRS.dailyActivity(7);
+    var statsTile = h(
+      '<div class="bento-tile bento-stats">' +
+        '<button type="button" class="bento-stats-due" data-dash="due" aria-label="' + agg.due + ' cards due today. Start due queue.">' +
+          '<div class="bento-label">Cards due today</div>' +
+          '<div class="bento-big big" data-count="' + agg.due + '">0</div>' +
+        "</button>" +
+        '<button type="button" class="bento-stats-streak" data-dash="streak" aria-label="7-day study activity.">' +
+          '<div class="bento-label">7-day streak</div>' +
+          '<div class="bento-week">' + sparklineSvg(activity7, 120, 30) + "</div>" +
+        "</button>" +
+      "</div>"
+    );
+    statsTile.querySelector(".bento-stats-due").addEventListener("click", goStudyAll);
+    statsTile.querySelector(".bento-stats-streak").addEventListener("click", openStreakSettings);
+    bento.appendChild(statsTile);
+
+    root.appendChild(bento);
+    animateStatCounts(bento);
+    animateMasteryRing(bento);
 
     root.appendChild(h('<div class="section-head"><h2>Browse by subspecialty</h2></div>'));
 
-    var filterBar = h('<div class="filter-bar"></div>');
+    var filterBar = h('<div class="filter-bar filter-bar-sliding"><i class="filter-pill-indicator"></i></div>');
     var grid = h('<div class="tile-grid"></div>');
     var list = h('<div class="feature-list"></div>');
+    var activeTrackCount = TRACKS.filter(function (t) { return modulesFor(t.id).length > 0; }).length;
     HOME_FILTERS.forEach(function (f) {
-      var pill = h('<button type="button" class="filter-pill' + (f.id === homeFilter ? ' active' : '') + '" data-filter="' + f.id + '">' + esc(f.label) + '</button>');
+      var count = f.id === "all" ? activeTrackCount :
+        TRACKS.filter(function (t) { return modulesFor(t.id).length > 0 && (t.category || "subspecialty") === f.id; }).length;
+      var pill = h(
+        '<button type="button" class="filter-pill' + (f.id === homeFilter ? ' active' : '') + '" data-filter="' + f.id + '">' +
+          esc(f.label) + '<span class="filter-pill-count">' + count + '</span>' +
+        '</button>'
+      );
       pill.addEventListener("click", function () {
         homeFilter = f.id;
         filterBar.querySelectorAll(".filter-pill").forEach(function (p) { p.classList.toggle("active", p.getAttribute("data-filter") === homeFilter); });
+        moveFilterIndicator(filterBar);
         applyHomeFilter(grid, list);
+        restaggerHomeGrid(grid, list);
       });
       filterBar.appendChild(pill);
     });
     root.appendChild(filterBar);
+    moveFilterIndicator(filterBar);
+    if (homeFilterIndicatorResizeHandler) window.removeEventListener("resize", homeFilterIndicatorResizeHandler);
+    homeFilterIndicatorResizeHandler = function () { moveFilterIndicator(filterBar); };
+    window.addEventListener("resize", homeFilterIndicatorResizeHandler);
 
     TRACKS.forEach(function (t) {
       var mods = modulesFor(t.id);
@@ -4121,7 +4045,7 @@
     if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     if (!("IntersectionObserver" in window)) return;
     document.body.classList.add("js-motion");
-    var SEL = ".note-fig, .callout, .case, .tbl-scroll, .tg-card, .study-cta, .pcard, .sr-row, .rm-row, .mod-row, .panel, .feature-row";
+    var SEL = ".note-fig, .callout, .case, .tbl-scroll, .tg-card, .study-cta, .bento-tile, .rm-row, .mod-row, .panel, .feature-row";
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
     }, { rootMargin: "0px 0px -6% 0px", threshold: 0.04 });
