@@ -36,6 +36,9 @@
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
   --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1); /* slight overshoot -- tabs, dropdowns, FAB press */
+  --pearl: var(--accent);      /* semantic: surgical pearl / high-yield technique */
+  --pearl-tint: var(--accent-tint);
   --scroll-tint: #2f6ff0;  /* light mode: a genuinely saturated blue -- mixed in at a low
                                percentage this reads as "tinted", not "went dark/gray" the
                                way a desaturated navy would at the same lightness drop */
@@ -379,6 +382,35 @@ main.wrap { padding-top: 48px; padding-bottom: 60px; min-height: 60vh; }
   background: none; border: 0; padding: 2px 0; cursor: pointer; transition: color .15s ease; }
 .page-head .ph-current:hover { color: var(--primary); }
 @media (max-width: 640px) { .page-head { margin: 0 -16px 0; padding: 8px 16px; } }
+/* The recall FAB/reveal-all controls (Facial Plastics trial only) are the
+   one thing allowed to wrap this otherwise single-row strip onto a second
+   line -- everything else here still truncates instead of wrapping. */
+.page-head:has(.recall-fab) { flex-wrap: wrap; overflow: visible; row-gap: 8px; }
+
+/* ---- Active Recall Mode (trial: Facial Plastics & Trauma) ---- */
+.recall-fab { display: inline-flex; align-items: center; gap: 7px; margin-left: auto; flex: 0 0 auto;
+  border: 1px solid var(--line-soft); background: var(--surface); color: var(--ink-soft); border-radius: 999px;
+  padding: 7px 14px 7px 12px; font-size: 12.5px; font-weight: 600; box-shadow: var(--shadow);
+  transition: background-color .18s var(--ease-out), color .18s var(--ease-out), border-color .18s var(--ease-out), transform .18s var(--ease-spring); }
+.recall-fab svg { width: 15px; height: 15px; flex: 0 0 auto; }
+.recall-fab:hover { color: var(--ink); }
+.recall-fab.active { background: var(--accent); color: #fff; border-color: transparent; }
+.recall-fab:active { transform: scale(.96); }
+.recall-reveal-all { flex: 0 0 auto; border: 0; background: none; color: var(--accent); font-size: 12px; font-weight: 600;
+  padding: 4px 2px; text-decoration: underline; text-underline-offset: 2px; cursor: pointer; }
+.recall-reveal-all:hover { color: var(--ink); }
+
+/* Blurred "spoiler" pill: masks drug names / diagnostic cutoffs in prose
+ * until clicked (or Enter/Space while focused, or the page-wide Reveal
+ * all). Blurring the glyphs themselves (rather than hiding the text) keeps
+ * word-shape/length cues, matching a typical spoiler-tag interaction. */
+.recall-mask { display: inline-block; cursor: pointer; border-radius: 4px; padding: 0 4px; margin: 0 1px;
+  background: var(--surface-2); box-shadow: inset 0 0 0 1px var(--line-soft); filter: blur(5px);
+  transition: filter .18s var(--ease-out), background-color .18s var(--ease-out), box-shadow .18s var(--ease-out); }
+.recall-mask:hover { background: color-mix(in srgb, var(--accent) 14%, var(--surface-2)); }
+.recall-mask:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; filter: blur(3px); }
+.recall-mask.revealed { filter: none; background: var(--accent-tint); box-shadow: none; cursor: text; }
+@media (prefers-reduced-motion: reduce) { .recall-mask { transition: none; } }
 
 /* ---- module / track view ---- */
 .crumb { background: none; border: 0; color: var(--primary); font-size: 14px; padding: 0; margin-bottom: 14px; font-weight: 500; }
@@ -407,22 +439,40 @@ main.wrap { padding-top: 48px; padding-bottom: 60px; min-height: 60vh; }
   .panel { padding: 20px 18px; }
 }
 .tab[aria-selected="true"] { color: var(--primary-deep); background: var(--surface);
-  box-shadow: 0 1px 2px rgba(15,23,42,.06), 0 1px 0 rgba(15,23,42,.03); font-weight: 600; }
+  box-shadow: 0 1px 2px rgba(15,23,42,.06), 0 1px 0 rgba(15,23,42,.03); font-weight: 600;
+  animation: tabPop .28s var(--ease-spring); }
 :root[data-theme="dark"] .tab[aria-selected="true"], :root:not([data-theme="light"]) .tab[aria-selected="true"] {
   box-shadow: 0 1px 2px rgba(0,0,0,.3); }
+@keyframes tabPop { from { transform: scale(.92); } to { transform: scale(1); } }
+@media (prefers-reduced-motion: reduce) { .tab[aria-selected="true"] { animation: none; } }
 .tabpane { display: none; }
 .tabpane.active { display: block; animation: fade .25s ease; }
 @media (prefers-reduced-motion: reduce) { .tabpane.active { animation: none; } }
 
-.panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg);
+/* Softened, faintly glassy card surface -- a translucent mix of --surface
+   over the page's own background-gradient (see body's --scroll-tint rule)
+   plus a subtle blur, instead of a flat opaque fill. */
+.panel { background: color-mix(in srgb, var(--surface) 90%, transparent); backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px); border: 1px solid var(--line-soft); border-radius: var(--radius-lg);
   padding: 28px 30px; box-shadow: var(--shadow); margin-bottom: 28px;
-  transition: box-shadow .18s var(--ease-out), transform .18s var(--ease-out); }
+  transition: box-shadow .18s var(--ease-out), transform .18s var(--ease-out), border-color .18s var(--ease-out); }
 .panel:last-child { margin-bottom: 0; }
 .panel h3 { font-size: 1.18rem; margin-bottom: 10px; }
 .panel p.panel li { color: var(--ink-soft); font-size: 15px; }
 .panel ul { padding-left: 1.15em; margin: .4em 0; }
 .panel li { margin: .28em 0; }
 .panel strong { color: var(--ink); }
+/* Accent-bordered panel variants, set via data-accent on the clinical
+   block panel -- a soft left rule + faint corner wash instead of a solid
+   colored fill, so it reads as "flagged", not "warning banner". */
+.panel[data-accent="redflag"] { border-left: 3px solid var(--flag);
+  background: linear-gradient(120deg, color-mix(in srgb, var(--flag) 6%, var(--surface)) 0%, color-mix(in srgb, var(--surface) 90%, transparent) 55%); }
+.panel[data-accent="pearl"] { border-left: 3px solid var(--pearl);
+  background: linear-gradient(120deg, color-mix(in srgb, var(--pearl) 7%, var(--surface)) 0%, color-mix(in srgb, var(--surface) 90%, transparent) 55%); }
+.panel-accent-label { display: inline-flex; align-items: center; gap: 5px; font-size: 10.5px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .05em; padding: 3px 9px; border-radius: 999px; margin-bottom: 10px; }
+.panel[data-accent="redflag"] .panel-accent-label { background: var(--flag-tint); color: var(--flag); }
+.panel[data-accent="pearl"] .panel-accent-label { background: var(--pearl-tint); color: var(--pearl); }
 .empty-note { color: var(--ink-faint); font-size: 14px; font-style: italic; padding: 6px 0; }
 
 /* ---- anatomy tab: SaaS-dashboard topic grid -> full-width detail page ----
@@ -529,7 +579,20 @@ main.wrap { padding-top: 48px; padding-bottom: 60px; min-height: 60vh; }
 
 .lesson-nav { order: -1; border: 1px solid var(--line-soft); border-radius: var(--radius); background: var(--surface); padding: 14px; }
 .lesson-nav-label { font-size: 10.5px; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-faint); padding: 0 6px 10px; }
-.lesson-nav-list { display: flex; flex-direction: column; gap: 2px; max-height: 60vh; overflow-y: auto; }
+/* "~N min left" read-time estimate, recomputed from the remaining blocks'
+   word count whenever the active block changes (setClinicalNavActive()). */
+.lesson-nav-time { font-size: 11.5px; color: var(--track-color, var(--primary)); font-weight: 600;
+  padding: 0 6px 10px; margin-top: -6px; }
+.lesson-nav-list { position: relative; display: flex; flex-direction: column; gap: 2px; max-height: 60vh;
+  overflow-y: auto; padding-left: 10px; }
+/* Vertical trackline: a static rail the full height of the list, with a
+   thumb that glides to the active item's position (both scrollspy-driven
+   and click-driven, via setClinicalNavActive()) instead of jumping. */
+.lesson-nav-track { position: absolute; left: 0; top: 2px; bottom: 2px; width: 2px; background: var(--line-soft); border-radius: 2px; }
+.lesson-nav-thumb { position: absolute; left: -1px; top: 0; width: 4px; height: 18px; border-radius: 3px;
+  background: var(--track-color, var(--primary)); transform: translateY(-50%);
+  transition: top .3s var(--ease-out); }
+@media (prefers-reduced-motion: reduce) { .lesson-nav-thumb { transition: none; } }
 .lesson-nav-group { font-size: 10px; text-transform: uppercase; letter-spacing: .05em; color: var(--ink-faint);
   padding: 10px 6px 4px; }
 .lesson-nav-group:first-child { padding-top: 0; }
@@ -711,6 +774,8 @@ div.anatomy-detail-body:not(.panel) li { margin: .3em 0; }
 .card-tags { display: flex; gap: 7px; flex-wrap: wrap; margin-bottom: 16px; }
 .pill { font-family: "JetBrains Mono", monospace; font-size: 11px; padding: 3px 9px; border-radius: 4px;
   background: var(--surface-2); color: var(--ink-soft); border: 1px solid var(--line-soft); }
+/* High-contrast content-type variant for the flashcard's topic pill. */
+.pill.anatomy { background: var(--good-tint, var(--accent-tint)); color: var(--good); border-color: transparent; font-weight: 600; }
 .card-front { font-size: 1.28rem; font-family: "Source Serif 4", serif; font-weight: 600; line-height: 1.35;
   letter-spacing: -.005em; }
 .card-back { margin-top: 18px; padding-top: 18px; border-top: 1px dashed var(--line); color: var(--ink-soft); }
@@ -952,7 +1017,9 @@ td.flag { color: var(--flag); font-weight: 600; }
   border-radius: 5px; padding: 3px 6px; pointer-events: none; }
 .search-results { position: absolute; top: calc(100% + 8px); right: 0; width: 360px; max-width: 80vw;
   max-height: 70vh; overflow-y: auto; background: var(--surface); border: 1px solid var(--line);
-  border-radius: 12px; box-shadow: var(--shadow); padding: 8px; z-index: 30; }
+  border-radius: 12px; box-shadow: var(--shadow); padding: 8px; z-index: 30;
+  animation: dropdownSpring .22s var(--ease-spring); transform-origin: top right; }
+@media (prefers-reduced-motion: reduce) { .search-results { animation: none; } }
 .search-group-label { font-family: "JetBrains Mono", monospace; font-size: 10.5px; letter-spacing: .08em;
   text-transform: uppercase; color: var(--ink-faint); padding: 8px 8px 4px; }
 .search-item { display: flex; align-items: flex-start; gap: 10px; width: 100%; text-align: left;
@@ -976,8 +1043,11 @@ td.flag { color: var(--flag); font-weight: 600; }
 .settings-panel { position: absolute; top: calc(100% + 8px); right: 0; width: 300px; max-width: 88vw;
   max-height: 80vh; overflow-y: auto;
   background: var(--surface); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow);
-  padding: 16px; z-index: 30; }
-.settings-panel:not([hidden]) { display: flex; flex-direction: column; gap: 14px; }
+  padding: 16px; z-index: 30; transform-origin: top right; }
+.settings-panel:not([hidden]) { display: flex; flex-direction: column; gap: 14px;
+  animation: dropdownSpring .22s var(--ease-spring); }
+@media (prefers-reduced-motion: reduce) { .settings-panel:not([hidden]) { animation: none; } }
+@keyframes dropdownSpring { from { opacity: 0; transform: scale(.94) translateY(-4px); } to { opacity: 1; transform: none; } }
 .settings-title { font-size: 13px; font-weight: 700; color: var(--ink); }
 .settings-row { display: flex; flex-direction: column; gap: 8px; }
 .settings-row label, .settings-row .settings-label { display: flex; align-items: center; justify-content: space-between;
@@ -1170,7 +1240,8 @@ body.pimp-open .pimppanel { transform: none; }
 .sn-caret { font-size: 10px; color: var(--ink-faint); transition: transform .15s ease; }
 .sn-group.open .sn-caret { transform: rotate(90deg); }
 .sn-sub { display: none; margin: 2px 0 6px; }
-.sn-group.open .sn-sub { display: block; }
+.sn-group.open .sn-sub { display: block; animation: dropdownSpring .22s var(--ease-spring); transform-origin: top; }
+@media (prefers-reduced-motion: reduce) { .sn-group.open .sn-sub { animation: none; } }
 .sn-subitem { display: block; width: 100%; text-align: left; border: 0; background: none; color: var(--ink-soft);
   padding: 7px 10px 7px 40px; border-radius: 8px; font-size: 13px; }
 .sn-subitem { transition: background-color .15s var(--ease-out), color .15s var(--ease-out); }

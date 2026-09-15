@@ -14,7 +14,17 @@
   var TAB_LABELS = { anatomy: "Anatomy", clinical: "Clinical", cases: "Cases", cards: "Cards" };
   var SCREENS = ["home", "track", "module", "study", "pimp", "roadmap", "about", "library"];
 
-  var state = { screen: "home", trackId: null, moduleId: null, tab: "anatomy", session: null, anatomyTopic: null, caseSession: null };
+  /* Active Recall Mode: trial run on Facial Plastics & Trauma only (see
+   * initActiveRecall()/applyActiveRecallMask() below) before considering a
+   * wider rollout. Drug list is curated from what actually appears in
+   * content/facial-plastics.js rather than a generic dictionary. */
+  var ACTIVE_RECALL_MODULE_ID = "facial-plastics-trauma";
+  var ACTIVE_RECALL_DRUGS = [
+    "Amoxicillin-clavulanate", "Augmentin", "Cefazolin", "doxycycline", "metronidazole",
+    "clindamycin", "penicillin", "fluoroquinolone", "azithromycin", "ceftriaxone"
+  ];
+
+  var state = { screen: "home", trackId: null, moduleId: null, tab: "anatomy", session: null, anatomyTopic: null, caseSession: null, activeRecall: false };
 
   /* ---------- helpers ---------- */
   function el(id) { return document.getElementById(id); }
@@ -194,6 +204,14 @@
   }
   function saveLastTab(moduleId, tab) {
     try { localStorage.setItem("jeffent.tab." + moduleId, tab); } catch (e) {}
+  }
+
+  /* ---------- Active Recall Mode memory ---------- */
+  function loadActiveRecall() {
+    try { return localStorage.getItem("jeffent.activeRecall") === "1"; } catch (e) { return false; }
+  }
+  function saveActiveRecall(on) {
+    try { localStorage.setItem("jeffent.activeRecall", on ? "1" : "0"); } catch (e) {}
   }
 
   /* ---------- home dashboard minimize state ---------- */
@@ -1215,6 +1233,7 @@
       renderModule(mod.id);
     });
     pageHead.appendChild(phCurrent);
+    if (mod.id === ACTIVE_RECALL_MODULE_ID) appendActiveRecallControls(pageHead, mod);
     root.appendChild(pageHead);
 
     /* The subspecialty name + icon already appear one line up in the sticky
@@ -1265,6 +1284,110 @@
 
   function emptyNote(text) { return h('<p class="empty-note">' + esc(text) + '</p>'); }
 
+  /* ---- Active Recall Mode (trial: Facial Plastics & Trauma only) ----
+   * A floating toggle in the sticky page-head strip. When on, drug names
+   * and diagnostic percentage cutoffs in the Anatomy/Clinical prose get
+   * wrapped as blurred "spoiler" pills a learner has to actively recall
+   * before revealing -- rather than letting the answer sit in view while
+   * reading. Toggling re-renders the whole module screen (cheap here) so
+   * on/off never needs separate mask/unmask bookkeeping. */
+  function appendActiveRecallControls(pageHead, mod) {
+    var btn = h(
+      '<button type="button" class="recall-fab' + (state.activeRecall ? " active" : "") + '" aria-pressed="' + (state.activeRecall ? "true" : "false") + '">' +
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>' +
+        '<span>Active Recall Mode</span>' +
+      '</button>'
+    );
+    btn.addEventListener("click", function () {
+      state.activeRecall = !state.activeRecall;
+      saveActiveRecall(state.activeRecall);
+      renderModule(mod.id);
+    });
+    pageHead.appendChild(btn);
+    if (state.activeRecall) {
+      var revealAll = h('<button type="button" class="recall-reveal-all" title="Shift+R">Reveal all</button>');
+      revealAll.addEventListener("click", revealAllRecallMasks);
+      pageHead.appendChild(revealAll);
+    }
+  }
+
+  function revealAllRecallMasks() {
+    document.querySelectorAll(".recall-mask").forEach(function (s) { s.classList.add("revealed"); });
+  }
+
+  var recallMaskRegex = null;
+  function buildRecallRegex() {
+    if (recallMaskRegex) return recallMaskRegex;
+    var terms = ACTIVE_RECALL_DRUGS.map(function (t) { return t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); });
+    var drugPattern = "\\b(?:" + terms.join("|") + ")\\b";
+    var cutoffPattern = "[<>]\\s?\\d{1,3}%(?:\\s+(?:ENoG|on\\s+[A-Za-z]+))?";
+    recallMaskRegex = new RegExp("(" + drugPattern + ")|(" + cutoffPattern + ")", "gi");
+    return recallMaskRegex;
+  }
+
+  /* Walks every text node under container, wrapping regex matches in a
+   * clickable/keyboard-focusable blurred pill. Skips text already inside a
+   * mask (re-render safe) and script/style nodes. */
+  function applyActiveRecallMask(container) {
+    if (!container) return;
+    var re = buildRecallRegex();
+    var walker = document.createTreeWalker(container, NodeFilter.SHOW_TEXT, null, false);
+    var targets = [];
+    var node;
+    while ((node = walker.nextNode())) {
+      var p = node.parentNode;
+      if (!p || p.nodeName === "SCRIPT" || p.nodeName === "STYLE") continue;
+      if (p.classList && p.classList.contains("recall-mask")) continue;
+      re.lastIndex = 0;
+      if (re.test(node.nodeValue)) targets.push(node);
+    }
+    targets.forEach(function (tn) {
+      var text = tn.nodeValue;
+      re.lastIndex = 0;
+      var frag = document.createDocumentFragment();
+      var last = 0, m;
+      while ((m = re.exec(text))) {
+        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+        var span = document.createElement("span");
+        span.className = "recall-mask";
+        span.tabIndex = 0;
+        span.setAttribute("role", "button");
+        span.setAttribute("aria-label", "Masked term, activate to reveal");
+        span.textContent = m[0];
+        frag.appendChild(span);
+        last = re.lastIndex;
+        if (m.index === re.lastIndex) re.lastIndex++;
+      }
+      if (last === 0) return;
+      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+      tn.parentNode.replaceChild(frag, tn);
+    });
+  }
+
+  /* Click-to-reveal delegation + the Shift+R "reveal all" shortcut, wired
+   * once at boot (works across every module re-render). */
+  function initActiveRecall() {
+    state.activeRecall = loadActiveRecall();
+    document.addEventListener("click", function (e) {
+      var m = e.target.closest && e.target.closest(".recall-mask");
+      if (m) m.classList.toggle("revealed");
+    });
+    document.addEventListener("keydown", function (e) {
+      if (document.activeElement && document.activeElement.classList &&
+          document.activeElement.classList.contains("recall-mask") && (e.key === "Enter" || e.key === " ")) {
+        e.preventDefault();
+        document.activeElement.classList.toggle("revealed");
+        return;
+      }
+      var tag = e.target && e.target.tagName;
+      if (tag === "INPUT" || tag === "TEXTAREA") return;
+      if (e.shiftKey && (e.key === "R" || e.key === "r") &&
+          state.screen === "module" && state.moduleId === ACTIVE_RECALL_MODULE_ID && state.activeRecall) {
+        revealAllRecallMasks();
+      }
+    });
+  }
+
   /* ---- Anatomy tab ----
    * Landing view is a clickable topic list (one card per note, one per
    * diagram), each opens into its own full-width detail page instead of
@@ -1295,6 +1418,7 @@
       appendFigureSources(built.main);
       appendNextLessonNav(built.main, mod, pane, notes, diagrams, topic);
       linkGlossaryTerms(built.main);
+      if (mod.id === ACTIVE_RECALL_MODULE_ID && state.activeRecall) applyActiveRecallMask(built.main);
       pane.appendChild(built.shell);
       return;
     }
@@ -1875,7 +1999,6 @@
    * sidebar) so a learner can skip straight to a topic instead of scrolling
    * past everything before it -- and a scrollspy keeps the active item in
    * sync with whatever block is actually in view. */
-  var clinicalScrollspyIO = null;
   function buildClinicalPane(mod) {
     var pane = h('<div class="tabpane" data-pane="clinical"></div>');
     var c = mod.clinical || {};
@@ -1889,12 +2012,16 @@
     var trackStyle = trackObj && trackObj.color ? ' style="--track-color:' + trackObj.color + '"' : "";
     var showNav = blocks.length > 2;
     var shell = showNav ? h('<div class="clinical-shell lesson-shell"></div>') : null;
-    var nav = null, navList = null;
+    var nav = null, navList = null, timeLabel = null;
+    var wordCounts = [];
 
     if (showNav) {
       nav = h('<nav class="lesson-nav" aria-label="Jump to a topic in this section"' + trackStyle + '></nav>');
       nav.appendChild(h('<div class="lesson-nav-label mono">' + esc(mod.trackName || mod.track) + ' &middot; Clinical</div>'));
+      timeLabel = h('<div class="lesson-nav-time mono"></div>');
+      nav.appendChild(timeLabel);
       navList = h('<div class="lesson-nav-list"></div>');
+      navList.appendChild(h('<div class="lesson-nav-track"><i class="lesson-nav-thumb"></i></div>'));
       nav.appendChild(navList);
       shell.appendChild(nav);
     }
@@ -1902,7 +2029,10 @@
     var main = showNav ? h('<div class="lesson-main"></div>') : pane;
     blocks.forEach(function (b, i) {
       var anchor = "clinical-block-" + esc(b.id || "");
-      var p = h('<div class="panel" data-anchor="' + anchor + '"><h3>' + esc(b.title) + '</h3>' +
+      var accentAttr = (b.accent === "redflag" || b.accent === "pearl") ? ' data-accent="' + b.accent + '"' : "";
+      var accentLabel = b.accent === "redflag" ? '<div class="panel-accent-label">Red Flag</div>'
+                       : b.accent === "pearl" ? '<div class="panel-accent-label">Surgical Pearl</div>' : "";
+      var p = h('<div class="panel" data-anchor="' + anchor + '"' + accentAttr + '>' + accentLabel + '<h3>' + esc(b.title) + '</h3>' +
         (b.tagline ? '<p class="detail-tagline">' + esc(b.tagline) + '</p>' : '') + '</div>');
       if (b.html) p.appendChild(h('<div>' + b.html + '</div>'));
       if (b.table) {
@@ -1916,14 +2046,19 @@
       }
       main.appendChild(p);
 
+      var blockWords = countWords(b.title) + countWords(stripHtml(b.html)) +
+        (b.table ? countWords(b.table.head.join(" ")) + countWords(b.table.rows.map(function (r) { return r.join(" "); }).join(" ")) : 0);
+      wordCounts.push(blockWords);
+
       if (showNav) {
         var btn = h(
-          '<button type="button" class="lesson-nav-item' + (i === 0 ? ' active' : '') + '"' + (i === 0 ? ' aria-current="page"' : '') + ' data-anchor-target="' + anchor + '">' +
+          '<button type="button" class="lesson-nav-item' + (i === 0 ? ' active' : '') + '"' + (i === 0 ? ' aria-current="page"' : '') + ' data-anchor-target="' + anchor + '" data-nav-index="' + i + '">' +
             '<span class="lesson-nav-dot"></span><span class="lesson-nav-item-title">' + esc(b.title) + '</span>' +
           '</button>'
         );
         btn.addEventListener("click", function () {
           if (p.scrollIntoView) p.scrollIntoView({ behavior: "smooth", block: "start" });
+          setClinicalNavActive(nav, timeLabel, wordCounts, i);
         });
         navList.appendChild(btn);
       }
@@ -1932,14 +2067,45 @@
     if (showNav) {
       shell.appendChild(main);
       pane.appendChild(shell);
+      setClinicalNavActive(nav, timeLabel, wordCounts, 0);
     }
 
     linkGlossaryTerms(pane);
-    if (showNav) initClinicalScrollspy(pane, nav);
+    if (mod.id === ACTIVE_RECALL_MODULE_ID && state.activeRecall) applyActiveRecallMask(main);
+    if (showNav) initClinicalScrollspy(pane, nav, timeLabel, wordCounts);
     return pane;
   }
 
-  function initClinicalScrollspy(pane, nav) {
+  function countWords(text) {
+    if (!text) return 0;
+    var m = text.trim().match(/\S+/g);
+    return m ? m.length : 0;
+  }
+
+  /* Shared by the scrollspy IO callback and by a nav click (so the reading
+   * time and trackline update immediately on click, without waiting for the
+   * smooth-scroll to actually cross the intersection threshold). */
+  function setClinicalNavActive(nav, timeLabel, wordCounts, index) {
+    var items = nav.querySelectorAll(".lesson-nav-item");
+    items.forEach(function (item) {
+      var isActive = parseInt(item.getAttribute("data-nav-index"), 10) === index;
+      item.classList.toggle("active", isActive);
+      if (isActive) item.setAttribute("aria-current", "page"); else item.removeAttribute("aria-current");
+    });
+    if (timeLabel) {
+      var remaining = wordCounts.slice(index).reduce(function (a, b) { return a + b; }, 0);
+      var mins = Math.max(1, Math.round(remaining / 200));
+      timeLabel.textContent = "~" + mins + " min left";
+    }
+    var thumb = nav.querySelector(".lesson-nav-thumb");
+    if (thumb && items.length > 1) {
+      var pct = index / (items.length - 1);
+      thumb.style.top = (pct * 100) + "%";
+    }
+  }
+
+  var clinicalScrollspyIO = null;
+  function initClinicalScrollspy(pane, nav, timeLabel, wordCounts) {
     if (clinicalScrollspyIO) { clinicalScrollspyIO.disconnect(); clinicalScrollspyIO = null; }
     if (!("IntersectionObserver" in window)) return;
     var blocks = Array.prototype.slice.call(pane.querySelectorAll(".lesson-main > [data-anchor]"));
@@ -1947,12 +2113,8 @@
     clinicalScrollspyIO = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
-        var anchor = entry.target.getAttribute("data-anchor");
-        nav.querySelectorAll(".lesson-nav-item").forEach(function (item) {
-          var isActive = item.getAttribute("data-anchor-target") === anchor;
-          item.classList.toggle("active", isActive);
-          if (isActive) item.setAttribute("aria-current", "page"); else item.removeAttribute("aria-current");
-        });
+        var index = blocks.indexOf(entry.target);
+        if (index !== -1) setClinicalNavActive(nav, timeLabel, wordCounts, index);
       });
     }, { rootMargin: "-15% 0px -70% 0px", threshold: 0 });
     blocks.forEach(function (b) { clinicalScrollspyIO.observe(b); });
@@ -2251,7 +2413,7 @@
                : "Clinical";
     var tags = "";
     if (_ab) { tags += '<span class="pill track" title="' + esc(_abTitle) + '">' + esc(_ab) + '</span>'; }
-    tags += '<span class="pill">' + esc(_topic) + '</span>';
+    tags += '<span class="pill' + (_topic === "Anatomy" ? " anatomy" : "") + '">' + esc(_topic) + '</span>';
 
     var _ownerId = cardOwnerId(card, _ownerMod.id);
     var _note = cardNote(_ownerId, card);
@@ -3679,6 +3841,7 @@
     initSearchShortcut();
     initFlashShortcut();
     initScrollTint();
+    initActiveRecall();
     bumpStreak();
     var brand = el("brandHome");
     on(brand, "click", goHome);
