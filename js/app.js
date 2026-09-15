@@ -1389,9 +1389,12 @@
     ));
     if (tagline) heroTop.appendChild(h('<span class="lesson-tagline">' + esc(tagline) + '</span>'));
     hero.appendChild(heroTop);
+    if (!skipTitle) hero.appendChild(h('<h2 class="anatomy-detail-title lesson-title">' + esc(title) + '</h2>'));
     /* Same "next lesson" jump as the footer nav, offered here too so a
      * learner working through a module in order doesn't have to scroll past
-     * the whole note/diagram body just to advance. */
+     * the whole note/diagram body just to advance. Appended last (after the
+     * title) and pinned to the hero's bottom-right corner via CSS, so it
+     * never crowds or displaces the title above it. */
     if (list.length > 1) {
       var topPos = anatomyListPos(list, topic);
       if (topPos !== -1) {
@@ -1408,9 +1411,9 @@
           window.scrollTo(0, 0);
         });
         hero.appendChild(topNextBtn);
+        hero.classList.add("has-next-top");
       }
     }
-    if (!skipTitle) hero.appendChild(h('<h2 class="anatomy-detail-title lesson-title">' + esc(title) + '</h2>'));
     main.appendChild(hero);
 
     main.appendChild(buildBody());
@@ -1661,29 +1664,53 @@
 
   /* A labeled diagram: kind "svg" (author-drawn, default) or "image" (a real
    * raster image with percent-coordinate labels + a required source line). */
+  /* A structure present in both halves of a side-by-side comparison diagram
+   * (e.g. pediatric vs adult airway) can appear as two entries in `labels`
+   * that share one `id` -- grouping them here means they get one shared
+   * display number, one shared sidebar row, and reveal/hide together as a
+   * single click target, with their descriptions combined once revealed,
+   * instead of the old one-row-per-array-entry behavior (which left the
+   * second same-id entry's row permanently stuck showing "?"). */
+  function groupDiagramLabels(labels) {
+    var order = [], byId = {};
+    labels.forEach(function (L) {
+      if (!byId[L.id]) { byId[L.id] = []; order.push(L.id); }
+      byId[L.id].push(L);
+    });
+    function numberOf(id) { return order.indexOf(id) + 1; }
+    function textOf(id) {
+      var seen = {}, out = [];
+      byId[id].forEach(function (L) { if (!seen[L.text]) { seen[L.text] = true; out.push(L.text); } });
+      return out.join(" ");
+    }
+    return { order: order, byId: byId, numberOf: numberOf, textOf: textOf };
+  }
+
   function buildDiagramPanel(dg) {
     var revealed = {};
+    var grouped = groupDiagramLabels(dg.labels);
     var panel = h('<div class="panel" data-anchor="anatomy-diagram-' + esc(dg.id || "") + '"></div>');
     panel.appendChild(h('<h3>' + esc(dg.title) + '</h3>'));
     if (dg.note) panel.appendChild(h('<p class="sub" style="margin:6px 0 14px;font-size:13.5px">' + esc(dg.note) + '</p>'));
 
     var list = h('<ul class="label-list"></ul>');
-    function updateRow(id, isOn, text, num) {
+    function updateRow(id, isOn) {
       var row = list.querySelector('[data-row="' + id + '"]');
       row.classList.toggle("revealed", isOn);
-      row.querySelector("span").textContent = isOn ? text : ("Landmark " + num);
+      row.querySelector("span").textContent = isOn ? grouped.textOf(id) : ("Landmark " + grouped.numberOf(id));
       row.querySelector("button").textContent = isOn ? "✓" : "?";
     }
 
-    var built = dg.kind === "image" ? buildImageDiagramStage(dg, revealed, updateRow) : buildSvgDiagramStage(dg, revealed, updateRow);
+    var built = dg.kind === "image" ? buildImageDiagramStage(dg, grouped, revealed, updateRow) : buildSvgDiagramStage(dg, grouped, revealed, updateRow);
     panel.appendChild(built.stage);
 
     var toggle = h('<button class="btn small">Reveal all labels</button>');
     panel.appendChild(toggle);
 
-    dg.labels.forEach(function (L, i) {
-      var li = h('<li data-row="' + L.id + '"><button aria-label="Reveal ' + esc(L.text) + '">?</button><span>Landmark ' + (i + 1) + '</span></li>');
-      li.querySelector("button").addEventListener("click", function () { built.toggleLabel(L.id); });
+    grouped.order.forEach(function (id) {
+      var num = grouped.numberOf(id);
+      var li = h('<li data-row="' + id + '"><button aria-label="Reveal landmark ' + num + '">?</button><span>Landmark ' + num + '</span></li>');
+      li.querySelector("button").addEventListener("click", function () { built.toggleLabel(id); });
       list.appendChild(li);
     });
     panel.appendChild(list);
@@ -1691,7 +1718,7 @@
     var allOn = false;
     toggle.addEventListener("click", function () {
       allOn = !allOn;
-      dg.labels.forEach(function (L) { if (!!revealed[L.id] !== allOn) built.toggleLabel(L.id); });
+      grouped.order.forEach(function (id) { if (!!revealed[id] !== allOn) built.toggleLabel(id); });
       toggle.textContent = allOn ? "Hide all labels" : "Reveal all labels";
     });
 
@@ -1700,11 +1727,12 @@
   }
 
   /* kind:"svg", author-drawn shapes with point-anchored leader-line labels. */
-  function buildSvgDiagramStage(dg, revealed, updateRow) {
-    var hotspots = dg.labels.map(function (L, i) {
-      return '<g class="hotspot" tabindex="0" role="button" aria-label="Reveal ' + esc(L.text) + '" data-hot="' + L.id + '">' +
+  function buildSvgDiagramStage(dg, grouped, revealed, updateRow) {
+    var hotspots = dg.labels.map(function (L) {
+      var num = grouped.numberOf(L.id);
+      return '<g class="hotspot" tabindex="0" role="button" aria-label="Reveal landmark ' + num + '" data-hot="' + L.id + '">' +
         '<circle cx="' + L.px + '" cy="' + L.py + '" r="9"/>' +
-        '<text class="hot-num" x="' + L.px + '" y="' + (L.py + 3) + '" text-anchor="middle">' + (i + 1) + '</text></g>';
+        '<text class="hot-num" x="' + L.px + '" y="' + (L.py + 3) + '" text-anchor="middle">' + num + '</text></g>';
     }).join("");
 
     var stage = h(
@@ -1716,11 +1744,9 @@
     );
 
     function toggleLabel(id) {
-      var L = dg.labels.filter(function (x) { return x.id === id; })[0];
       revealed[id] = !revealed[id];
-      var g = stage.querySelector('[data-hot="' + id + '"]');
-      if (g) g.classList.toggle("revealed", revealed[id]);
-      updateRow(id, revealed[id], L.text, dg.labels.indexOf(L) + 1);
+      stage.querySelectorAll('[data-hot="' + id + '"]').forEach(function (g) { g.classList.toggle("revealed", revealed[id]); });
+      updateRow(id, revealed[id]);
     }
 
     stage.querySelectorAll(".hotspot").forEach(function (g) {
@@ -1734,14 +1760,15 @@
 
   /* kind:"image", a real raster image; labels are percent-positioned dots
    * so they scale with the image at any size. */
-  function buildImageDiagramStage(dg, revealed, updateRow) {
-    var dots = dg.labels.map(function (L, i) {
+  function buildImageDiagramStage(dg, grouped, revealed, updateRow) {
+    var dots = dg.labels.map(function (L) {
+      var num = grouped.numberOf(L.id);
       if (dg.occlude && L.box) {
         var b = L.box;
-        return '<button type="button" class="img-occ" style="left:' + b.x + '%;top:' + b.y + '%;width:' + b.w + '%;height:' + b.h + '%" data-hot="' + L.id + '" aria-label="Reveal ' + esc(L.text) + '"><span class="occ-num">' + (i + 1) + '</span></button>';
+        return '<button type="button" class="img-occ" style="left:' + b.x + '%;top:' + b.y + '%;width:' + b.w + '%;height:' + b.h + '%" data-hot="' + L.id + '" aria-label="Reveal landmark ' + num + '"><span class="occ-num">' + num + '</span></button>';
       }
-      return '<button type="button" class="img-dot" style="left:' + L.xPct + '%;top:' + L.yPct + '%" data-hot="' + L.id + '" aria-label="Reveal ' + esc(L.text) + '">' +
-        '<span class="dot">' + (i + 1) + '</span>' +
+      return '<button type="button" class="img-dot" style="left:' + L.xPct + '%;top:' + L.yPct + '%" data-hot="' + L.id + '" aria-label="Reveal landmark ' + num + '">' +
+        '<span class="dot">' + num + '</span>' +
       '</button>';
     }).join("");
     var stage = h(
@@ -1754,11 +1781,9 @@
     );
 
     function toggleLabel(id) {
-      var L = dg.labels.filter(function (x) { return x.id === id; })[0];
       revealed[id] = !revealed[id];
-      var btn = stage.querySelector('[data-hot="' + id + '"]');
-      btn.classList.toggle("revealed", revealed[id]);
-      updateRow(id, revealed[id], L.text, dg.labels.indexOf(L) + 1);
+      stage.querySelectorAll('[data-hot="' + id + '"]').forEach(function (btn) { btn.classList.toggle("revealed", revealed[id]); });
+      updateRow(id, revealed[id]);
     }
 
     stage.querySelectorAll(".img-dot, .img-occ").forEach(function (btn) {

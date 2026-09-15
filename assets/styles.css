@@ -554,6 +554,7 @@ main.wrap { padding-top: 48px; padding-bottom: 60px; min-height: 60vh; }
 .lesson-hero { position: relative; overflow: hidden; border: 1px solid var(--line-soft); border-radius: var(--radius-lg);
   padding: 18px 22px 20px; margin-bottom: 24px;
   background: radial-gradient(130% 170% at 100% 0%, color-mix(in srgb, var(--track-color, var(--primary)) 10%, transparent), transparent 65%), var(--surface); }
+.lesson-hero.has-next-top { padding-bottom: 52px; }
 .lesson-hero::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
   background: var(--track-color, var(--primary)); }
 /* kicker top-left, tagline top-right, on one row when there's room; the
@@ -567,7 +568,11 @@ main.wrap { padding-top: 48px; padding-bottom: 60px; min-height: 60vh; }
 
 /* Compact top-of-page mirror of .lesson-next below, so advancing to the next
    lesson doesn't require scrolling past the whole note/diagram body first. */
-.lesson-next-top { display: inline-flex; align-items: center; gap: 6px; margin-top: 12px;
+/* Bottom-right corner of the hero card, out of the title's way entirely
+   (it used to sit inline between the kicker row and the title, pushing the
+   title down and reading as "tacked onto" it). */
+.lesson-next-top { position: absolute; right: 16px; bottom: 14px;
+  display: inline-flex; align-items: center; gap: 6px;
   border: 1px solid var(--line-soft); border-radius: 999px; padding: 6px 12px 6px 14px;
   background: color-mix(in srgb, var(--track-color, var(--primary)) 6%, var(--surface));
   color: var(--track-color, var(--primary)); font-size: 12.5px; font-weight: 600;
@@ -575,7 +580,11 @@ main.wrap { padding-top: 48px; padding-bottom: 60px; min-height: 60vh; }
 .lesson-next-top::before { content: "Next:"; color: var(--ink-faint); font-weight: 500; }
 .lesson-next-top:hover { border-color: color-mix(in srgb, var(--track-color, var(--primary)) 45%, var(--line)); transform: translateX(1px); }
 @media (prefers-reduced-motion: reduce) { .lesson-next-top:hover { transform: none; } }
-.lesson-next-top-title { max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lesson-next-top-title { max-width: 180px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+@media (max-width: 560px) {
+  .lesson-next-top { position: static; margin-top: 12px; }
+  .lesson-hero.has-next-top { padding-bottom: 20px; }
+}
 
 .lesson-next { display: flex; align-items: center; justify-content: space-between; gap: 14px; width: 100%;
   margin-top: 28px; padding: 16px 20px; border: 1px solid var(--line-soft); border-radius: var(--radius-lg);
