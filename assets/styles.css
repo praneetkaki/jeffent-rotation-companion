@@ -414,9 +414,18 @@ main.wrap { padding-top: 48px; padding-bottom: 60px; min-height: 60vh; }
    screen that opts in (module, anatomy detail, ...). Deliberately quiet --
    a translucent one-line strip, not a second header competing with the
    real title below it, which scrolls away normally. ---- */
-.page-head { position: sticky; top: var(--topbar-h, 73px); z-index: 8;
-  background: color-mix(in srgb, var(--surface) 72%, transparent); backdrop-filter: blur(10px);
-  margin: 0 -20px 0; padding: 10px 20px; border-bottom: 1px solid var(--line-soft);
+/* One sticky block holding the breadcrumb, title, and sub-tabs together --
+   see .mod-sticky-head below for the shared background/position. Each row
+   here is just layout; the visual treatment (blur, bg, border) lives on
+   the wrapper so the three rows read as one surface, not three stacked
+   ones. */
+.mod-sticky-head { position: sticky; top: var(--topbar-h, 73px); z-index: 8;
+  background: color-mix(in srgb, var(--surface) 88%, transparent); backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  margin: 0 -20px; padding: 0 20px; border-bottom: 1px solid var(--line-soft); }
+@media (max-width: 640px) { .mod-sticky-head { margin: 0 -16px; padding: 0 16px; } }
+
+.page-head { padding: 10px 0;
   display: flex; align-items: center; gap: 10px; flex-wrap: nowrap; overflow: hidden; }
 .page-head .crumb, .page-head .ph-eyebrow, .page-head .crumb-sep { flex: 0 0 auto; }
 .page-head .crumb { margin-bottom: 0; font-size: 12.5px; font-weight: 500; color: var(--ink-faint); opacity: .85; }
@@ -433,7 +442,7 @@ main.wrap { padding-top: 48px; padding-bottom: 60px; min-height: 60vh; }
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex: 1 1 auto; min-width: 0; text-align: left;
   background: none; border: 0; padding: 2px 0; cursor: pointer; transition: color .15s ease; }
 .page-head .ph-current:hover { color: var(--primary); }
-@media (max-width: 640px) { .page-head { margin: 0 -16px 0; padding: 8px 16px; } }
+@media (max-width: 640px) { .page-head { padding: 8px 0; } }
 /* The recall FAB/reveal-all controls (Facial Plastics trial only) are the
    one thing allowed to wrap this otherwise single-row strip onto a second
    line -- everything else here still truncates instead of wrapping. */
@@ -467,8 +476,8 @@ main.wrap { padding-top: 48px; padding-bottom: 60px; min-height: 60vh; }
 /* ---- module / track view ---- */
 .crumb { background: none; border: 0; color: var(--primary); font-size: 14px; padding: 0; margin-bottom: 14px; font-weight: 500; }
 .crumb:hover { text-decoration: underline; }
-.mod-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 18px; flex-wrap: wrap; padding-top: 24px; }
-.mod-head h1 { font-size: clamp(1.7rem, 4vw, 2.3rem); letter-spacing: -.01em; }
+.mod-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 18px; flex-wrap: wrap; padding: 2px 0 12px; }
+.mod-head h1 { font-size: clamp(1.3rem, 2.6vw, 1.7rem); letter-spacing: -.01em; }
 .mod-head .sub { color: var(--ink-soft); margin-top: 8px; max-width: 52ch; }
 .status-chip { font-family: "JetBrains Mono", monospace; font-size: 11px; padding: 5px 11px; border-radius: 999px;
   background: var(--accent-tint); color: var(--accent); white-space: nowrap; }
@@ -476,13 +485,10 @@ main.wrap { padding-top: 48px; padding-bottom: 60px; min-height: 60vh; }
 /* Segmented capsule controller: one pill-shaped track holding all segments,
    the active one lifted onto its own white chip -- reads as "one control
    with a position", not a row of independent underlined links. */
-/* Sticky wrapper: full-bleed translucent strip pinned below the (also
-   sticky) .page-head, same frosted treatment, so the tabs stay reachable
-   while a long Anatomy/Clinical page scrolls underneath. */
-.tabs-sticky { position: sticky; top: calc(var(--topbar-h, 73px) + var(--pagehead-h, 44px)); z-index: 7;
-  background: color-mix(in srgb, var(--surface) 72%, transparent); backdrop-filter: blur(10px);
-  margin: 0 -20px; padding: 14px 20px 10px; }
-@media (max-width: 640px) { .tabs-sticky { margin: 0 -16px; padding: 14px 16px 10px; } }
+/* Bottom row inside .mod-sticky-head -- no longer independently sticky or
+   backgrounded, since the whole header (breadcrumb + title + tabs) now
+   scrolls and pins together as one surface. */
+.tabs-sticky { padding: 0 0 14px; }
 
 .tabs { position: relative; display: flex; gap: 2px; background: var(--surface-2); border: 1px solid var(--line-soft);
   border-radius: 12px; padding: 4px; margin: 0; overflow-x: auto; width: fit-content; max-width: 100%;
@@ -671,9 +677,11 @@ main.wrap { padding-top: 48px; padding-bottom: 60px; min-height: 60vh; }
 /* Clinical tab jump nav: same sidebar look as the anatomy lesson nav above,
    but the clinical pane is one long scroll of every block rather than a
    series of separate detail pages, so this copy is sticky (under the
-   sticky .page-head strip) and its active item tracks scroll position via
-   initClinicalScrollspy() instead of which page is currently open. */
-.clinical-shell .lesson-nav { position: sticky; top: calc(var(--topbar-h, 73px) + 50px); max-height: calc(100vh - var(--topbar-h, 73px) - 66px);
+   sticky .mod-sticky-head block) and its active item tracks scroll
+   position via initClinicalScrollspy() instead of which page is currently
+   open. --head-h is measured in app.js (syncHeadHeightVar) since the
+   header's real height varies with breadcrumb/title length and viewport. */
+.clinical-shell .lesson-nav { position: sticky; top: calc(var(--topbar-h, 73px) + var(--head-h, 118px) + 16px); max-height: calc(100vh - var(--topbar-h, 73px) - var(--head-h, 118px) - 32px);
   display: flex; flex-direction: column; }
 /* max-height: none + flex:1 1 auto + min-height:0 makes the list fill
    whatever's left inside .lesson-nav's own capped height and scroll

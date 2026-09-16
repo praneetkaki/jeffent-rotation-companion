@@ -1139,8 +1139,11 @@
     if (modTrack && modTrack.color) root.style.setProperty("--track-color", modTrack.color);
     else root.style.removeProperty("--track-color");
 
-    /* slim sticky wayfinding strip: back link + track + current section,
-       pinned under the topbar; the big title/tabs below scroll away normally */
+    /* One unified sticky header: breadcrumb + title + sub-tabs pinned
+       together under the topbar as a single block, rather than a sticky
+       breadcrumb strip, a plain title that scrolls away, and a second
+       sticky tab strip re-appearing below it (which used to read as the
+       title being awkwardly sandwiched between two translucent bars). */
     var pageHead = h('<div class="page-head" id="modPageHead"></div>');
     var crumb = h('<button class="crumb">&larr; All topics</button>');
     crumb.addEventListener("click", mods.length > 1 ? function () { goTrack(mod.track); } : goHome);
@@ -1161,18 +1164,17 @@
      * the UI right now) -- re-enable by restoring this call, and the
      * initActiveRecall() call in boot() below. */
     if (ACTIVE_RECALL_ENABLED && mod.id === ACTIVE_RECALL_MODULE_ID) appendActiveRecallControls(pageHead, mod);
-    root.appendChild(pageHead);
 
-    /* The subspecialty name + icon already appear one line up in the sticky
-       .page-head breadcrumb (ph-eyebrow) -- repeating it here as its own
-       eyebrow row read as a duplicated label directly above the H1. */
-    root.appendChild(h(
+    /* The subspecialty name + icon already appear one line up in the
+       breadcrumb (ph-eyebrow) -- repeating it here as its own eyebrow row
+       read as a duplicated label directly above the H1. */
+    var modHead = h(
       '<div class="mod-head"' + modHeadStyle + '>' +
         '<div>' +
           '<h1>' + esc(mod.title) + '</h1>' +
         '</div>' +
       '</div>'
-    ));
+    );
 
     var clinicalBuilder = mod.id === PROCEDURES_MODULE_ID ? buildProceduresPane : buildClinicalPane;
     var builders = { anatomy: buildAnatomyPane, clinical: clinicalBuilder, cases: buildCasesPane, cards: buildCardsPane };
@@ -1189,22 +1191,31 @@
       tabbar.appendChild(btn);
     });
     tabbarWrap.appendChild(tabbar);
-    root.appendChild(tabbarWrap);
-    /* pageHead.offsetHeight reads 0 here (and on any resize while the
+
+    /* Breadcrumb, title, and sub-tabs now live inside one sticky block so
+       they read as a single clean header instead of three separately
+       floating strips. */
+    var stickyHead = h('<div class="mod-sticky-head"></div>');
+    stickyHead.appendChild(pageHead);
+    stickyHead.appendChild(modHead);
+    stickyHead.appendChild(tabbarWrap);
+    root.appendChild(stickyHead);
+
+    /* stickyHead.offsetHeight reads 0 here (and on any resize while the
      * module screen is briefly [hidden] mid-render) since renderModule()
      * builds this DOM before showScreen() unhides it -- a synchronous
-     * measurement would pin --pagehead-h at "0px" (a *set* value, so the
-     * var()'s 44px fallback never kicks in) and the sticky tab bar would
-     * stick right under the topbar, behind the real page-head strip.
-     * Deferring to the next frame (and re-measuring on resize, since the
-     * strip's own height changes at the 640px breakpoint) keeps the tab
-     * bar's sticky offset accurate. */
-    function syncPageHeadHeightVar() {
-      document.documentElement.style.setProperty("--pagehead-h", pageHead.offsetHeight + "px");
+     * measurement would pin --head-h at "0px" (a *set* value, so the
+     * var()'s fallback never kicks in), which would make anything below
+     * the header (e.g. the clinical-pane side nav) stick too high, under
+     * the header instead of below it. Deferring to the next frame (and
+     * re-measuring on resize, since the header's own height changes at
+     * the 640px breakpoint) keeps that offset accurate. */
+    function syncHeadHeightVar() {
+      document.documentElement.style.setProperty("--head-h", stickyHead.offsetHeight + "px");
     }
-    requestAnimationFrame(syncPageHeadHeightVar);
+    requestAnimationFrame(syncHeadHeightVar);
     if (tabIndicatorResizeHandler) window.removeEventListener("resize", tabIndicatorResizeHandler);
-    tabIndicatorResizeHandler = function () { syncPageHeadHeightVar(); moveTabIndicator(tabbar); };
+    tabIndicatorResizeHandler = function () { syncHeadHeightVar(); moveTabIndicator(tabbar); };
     window.addEventListener("resize", tabIndicatorResizeHandler);
 
     var panes = h('<div class="tab-panes"></div>');
