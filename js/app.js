@@ -1162,7 +1162,6 @@
      * initActiveRecall() call in boot() below. */
     if (ACTIVE_RECALL_ENABLED && mod.id === ACTIVE_RECALL_MODULE_ID) appendActiveRecallControls(pageHead, mod);
     root.appendChild(pageHead);
-    document.documentElement.style.setProperty("--pagehead-h", pageHead.offsetHeight + "px");
 
     /* The subspecialty name + icon already appear one line up in the sticky
        .page-head breadcrumb (ph-eyebrow) -- repeating it here as its own
@@ -1191,8 +1190,21 @@
     });
     tabbarWrap.appendChild(tabbar);
     root.appendChild(tabbarWrap);
+    /* pageHead.offsetHeight reads 0 here (and on any resize while the
+     * module screen is briefly [hidden] mid-render) since renderModule()
+     * builds this DOM before showScreen() unhides it -- a synchronous
+     * measurement would pin --pagehead-h at "0px" (a *set* value, so the
+     * var()'s 44px fallback never kicks in) and the sticky tab bar would
+     * stick right under the topbar, behind the real page-head strip.
+     * Deferring to the next frame (and re-measuring on resize, since the
+     * strip's own height changes at the 640px breakpoint) keeps the tab
+     * bar's sticky offset accurate. */
+    function syncPageHeadHeightVar() {
+      document.documentElement.style.setProperty("--pagehead-h", pageHead.offsetHeight + "px");
+    }
+    requestAnimationFrame(syncPageHeadHeightVar);
     if (tabIndicatorResizeHandler) window.removeEventListener("resize", tabIndicatorResizeHandler);
-    tabIndicatorResizeHandler = function () { moveTabIndicator(tabbar); };
+    tabIndicatorResizeHandler = function () { syncPageHeadHeightVar(); moveTabIndicator(tabbar); };
     window.addEventListener("resize", tabIndicatorResizeHandler);
 
     var panes = h('<div class="tab-panes"></div>');
