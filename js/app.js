@@ -3943,98 +3943,78 @@
     });
   }
 
-  /* ---------- REFERENCE TABLE -> CARD ROWS ----------
+  /* ---------- REFERENCE TABLE CELL LISTIFY ----------
    * Content authors hand-write plain <table> markup for dense multi-column
    * reference tables (region/structures/pathologies, cranial nerve exits,
-   * grading scales, ...). That reads fine with short 2-3 column tables, but
-   * once a cell holds a long semicolon- or comma-separated list, the column
-   * gets squeezed into an awkward horizontally-scrolled wall of text.
-   * Rather than hand-editing every table's markup across every content
-   * file, this walks the *rendered* DOM after any note/clinical/card HTML
-   * is injected and turns each row into a labeled card: first column
-   * becomes the card's header, every other column becomes a micro-labeled
-   * field with its list-like text broken into pills. Content keeps
-   * authoring plain <table> HTML per the content model -- this is a pure
-   * rendering enhancement, so every existing and future table benefits
-   * with no content changes. */
+   * grading scales, ...), and a real <table> is the right shape for that --
+   * an earlier pass here replaced the whole table with a card-per-row
+   * layout, but the plain table reads better once the actual problem is
+   * fixed: a cell holding a long semicolon- or comma-separated list reads
+   * as a hard-to-scan wall of prose. This walks the *rendered* DOM after
+   * any note/clinical/card HTML is injected and turns just that kind of
+   * cell into a vertical bulleted list, keeping the table itself intact.
+   * Content keeps authoring plain <table> HTML per the content model --
+   * this is a pure rendering enhancement, so every existing and future
+   * table benefits with no content changes. */
   function enhanceReferenceTables(root) {
     if (!root) return;
     root.querySelectorAll("table").forEach(function (table) {
       /* The 2-Minute Procedure Prep quick-matcher is a live, JS-filtered
-         table (search input toggles row.hidden by reference) -- converting
-         it to cards would silently break that filter, since the search
-         handler's closured row references would no longer be the ones on
-         screen. It's the only interactive table in the app; everything
-         else is static reference content. */
+         table (search input toggles row.hidden by reference) -- rewriting
+         its cells would risk the search handler matching against
+         restructured markup. It's the only interactive table in the app;
+         everything else is static reference content. */
       if (table.classList.contains("proc-matcher-table")) return;
-      var theadRow = table.querySelector("thead tr");
-      var bodyRows = table.querySelectorAll("tbody tr");
-      if (!theadRow || !bodyRows.length) return;
-      if (table.querySelector("[colspan],[rowspan]")) return; // merged cells don't map to one card per row
-      var headers = Array.prototype.map.call(theadRow.children, function (th) { return th.innerHTML; });
-      if (headers.length < 2) return;
-
-      var wrap = h('<div class="tbl-cards"></div>');
-      Array.prototype.forEach.call(bodyRows, function (tr) {
-        var cells = tr.children;
-        if (!cells.length) return;
-        var card = h('<div class="tbl-card"></div>');
-        var head = h('<div class="tbl-card-head"></div>');
-        while (cells[0].firstChild) head.appendChild(cells[0].firstChild);
-        card.appendChild(head);
-
-        var body = h('<div class="tbl-card-body"></div>');
-        for (var i = 1; i < cells.length; i++) {
-          var field = h('<div class="tbl-card-field"></div>');
-          if (headers[i]) field.appendChild(h('<div class="tbl-card-label">' + headers[i] + '</div>'));
-          var pillsWrap = h('<div class="tbl-card-pills"></div>');
-          tableCellToPills(cells[i]).forEach(function (pill) { pillsWrap.appendChild(pill); });
-          field.appendChild(pillsWrap);
-          body.appendChild(field);
-        }
-        card.appendChild(body);
-        wrap.appendChild(card);
-      });
-
-      var host = table.closest(".tbl-scroll") || table;
-      host.parentNode.replaceChild(wrap, host);
+      if (table.dataset.listified) return; // don't reprocess on a second render pass
+      table.dataset.listified = "1";
+      table.querySelectorAll("tbody td").forEach(listifyTableCell);
     });
   }
 
-  /* Splits one <td>'s content into pills at the DOM level (not by slicing
-   * markup strings), so embedded elements like <a class="xref"> or <strong>
-   * survive intact inside whichever pill they land in. Prefers splitting on
-   * "; " (the separator content authors use *between* distinct structures/
-   * concepts); falls back to ", " only when the cell has no semicolons, so
-   * a parenthetical sub-list like "ossicles (malleus, incus, stapes)" stays
-   * one pill while a flat list like "AOM, cholesteatoma, otosclerosis"
-   * still breaks into separate ones. */
-  function tableCellToPills(cell) {
+  /* Splits one <td>'s content into list items at the DOM level (not by
+   * slicing markup strings), so embedded elements like <a class="xref"> or
+   * <strong> survive intact inside whichever item they land in. Prefers
+   * splitting on "; " (the separator content authors use *between* distinct
+   * structures/concepts); falls back to ", " only when the cell has no
+   * semicolons, so a parenthetical sub-list like "ossicles (malleus,
+   * incus, stapes)" stays one item while a flat list like "AOM,
+   * cholesteatoma, otosclerosis" still breaks into separate ones. A cell
+   * that doesn't actually contain a list (no separator, or only one item
+   * after splitting) is left exactly as authored. */
+  function listifyTableCell(cell) {
     var text = cell.textContent || "";
-    var sep = /;\s+/.test(text) ? /;\s+/ : /,\s+/;
-    var pills = [];
-    var current = h('<span class="tbl-card-pill"></span>');
+    var sep = /;\s+/.test(text) ? /;\s+/ : (/,\s+/.test(text) ? /,\s+/ : null);
+    if (!sep) return;
+    var items = [];
+    var current = document.createDocumentFragment();
+    var currentHasText = false;
     function commit() {
-      if (current.textContent.trim()) pills.push(current);
-      current = h('<span class="tbl-card-pill"></span>');
+      if (currentHasText) items.push(current);
+      current = document.createDocumentFragment();
+      currentHasText = false;
     }
     Array.prototype.forEach.call(cell.childNodes, function (node) {
       if (node.nodeType === 3) {
         node.textContent.split(sep).forEach(function (part, idx) {
           if (idx > 0) commit();
-          if (part) current.appendChild(document.createTextNode(part));
+          if (part) { current.appendChild(document.createTextNode(part)); if (part.trim()) currentHasText = true; }
         });
       } else {
         current.appendChild(node.cloneNode(true));
+        currentHasText = true;
       }
     });
     commit();
-    if (!pills.length) {
-      var fallback = h('<span class="tbl-card-pill"></span>');
-      fallback.innerHTML = cell.innerHTML;
-      pills.push(fallback);
-    }
-    return pills;
+    if (items.length < 2) return; // not actually a list -- leave the cell alone
+    var ul = document.createElement("ul");
+    ul.className = "tbl-list";
+    items.forEach(function (item) {
+      var li = document.createElement("li");
+      li.appendChild(item);
+      ul.appendChild(li);
+    });
+    cell.innerHTML = "";
+    cell.appendChild(ul);
   }
 
   /* ---------- UNIVERSAL INLINE GLOSSARY ----------
@@ -4247,7 +4227,7 @@
     if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     if (!("IntersectionObserver" in window)) return;
     document.body.classList.add("js-motion");
-    var SEL = ".note-fig, .callout, .case, .tbl-scroll, .tbl-card, .tg-card, .study-cta, .bento-tile, .rm-row, .mod-row, .panel, .feature-row";
+    var SEL = ".note-fig, .callout, .case, .tbl-scroll, .tg-card, .study-cta, .bento-tile, .rm-row, .mod-row, .panel, .feature-row";
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
     }, { rootMargin: "0px 0px -6% 0px", threshold: 0.04 });
