@@ -45,7 +45,7 @@ window.JEFFENT.register({
     notes: [
       {
         title: "The ENT regions at a glance",
-        tagline: "The five linked ENT regions, and the module each one opens into for deeper study.",
+        tagline: "Five ENT regions",
         html: "<div class=\"fig-row\"><figure class='note-fig' data-credit='Source not yet cited, added by the project owner, replace credit before sharing.'><img class='zoomable' src='assets/img/figures/ENT_regions_glance.png' alt='ENT regions glance' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Overview map of the five linked ENT anatomical regions (ear, nose/sinuses, oral cavity/pharynx, larynx, neck).</figcaption></figure></div><p>ENT anatomy breaks down into five linked regions. Learn the map here, then go deep in each track.</p>" +
           "<div class='tbl-scroll'><table><thead><tr><th>Region</th><th>Key structures</th><th>High-yield pathologies</th></tr></thead><tbody>" +
           "<tr><td><strong><a class='xref' data-mod='otology-ear' data-tab='anatomy'>Ear</a></strong></td><td>Auricle (pinna) and external auditory canal; tympanic membrane; ossicles (malleus, incus, stapes); Eustachian tube; cochlea, vestibule, semicircular canals; CN VII and CN VIII</td><td>AOM/OME, cholesteatoma, otosclerosis, sudden SNHL, vestibular schwannoma, BPPV</td></tr>" +
@@ -58,7 +58,7 @@ window.JEFFENT.register({
       },
       {
         title: "Cranial nerves",
-        tagline: "All twelve cranial nerves, in order, with the skull-base exit and function of each.",
+        tagline: "Cranial nerves · Skull-base exit · Function",
         html: "<div class=\"fig-row\"><figure class='note-fig' data-credit='Source not yet cited, added by the project owner, replace credit before sharing.'><img class='zoomable' src='assets/img/figures/cranial-nerves-inferior-view.svg' alt='Cranial nerves inferior view' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>All twelve cranial nerves with their skull-base exit foramen and function.</figcaption></figure></div><p>All twelve cranial nerves, in order, with the skull base foramen or canal each one exits through and why it matters clinically. This is the complete reference; see the diagram below for where each foramen actually sits.</p>" +
           "<div class=\"tbl-scroll\"><table><thead><tr><th>Nerve</th><th>Skull base exit</th><th>Type</th><th>Function</th><th>If injured</th></tr></thead><tbody>" +
           "<tr><td><strong>I</strong> &middot; Olfactory</td><td>Cribriform plate</td><td>Sensory</td><td>Smell</td><td>Anosmia; classic after an anterior skull-base fracture through the cribriform plate</td></tr>" +
@@ -79,7 +79,7 @@ window.JEFFENT.register({
       },
       {
         title: "Nose & paranasal sinuses",
-        tagline: "Turbinates, the ostiomeatal complex, and why the sinuses sit close enough to the orbit and brain to matter.",
+        tagline: "Turbinates · Ostiomeatal complex · Orbit/brain proximity",
         html: "<div class=\"fig-row\"><figure class='note-fig' data-credit='Source not yet cited, added by the project owner, replace credit before sharing.'><img class='zoomable' src='assets/img/figures/paranasal_sinus_drainage_danger_zones.png' alt='Paranasal sinus drainage danger zones' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Turbinates/meatuses, ostiomeatal complex drainage, and proximity of sinuses to orbit/skull base.</figcaption></figure></div>" +
           "<ul><li><strong>Turbinates (conchae):</strong> the inferior, middle, and superior turbinates are scroll-shaped bony shelves projecting from the lateral nasal wall, covered in vascular mucosa; they warm, humidify, and filter inspired air, and each one creates the space (meatus) beneath it. \"Turbinate\" and \"concha\" are the same structure -- turbinate is the more common clinical term, concha the anatomical one.</li>" +
           "<li><strong>Meatuses:</strong> the grooves underneath each turbinate. The <strong>inferior meatus</strong> receives the nasolacrimal duct. The <strong>middle meatus</strong> is where the frontal, anterior ethmoid, and maxillary sinuses all drain via the <strong>ostiomeatal complex (OMC)</strong>; block it and you get sinusitis. The <strong>superior meatus</strong> receives drainage from the <strong>posterior ethmoid</strong> air cells. The <strong>sphenoid sinus</strong> drains separately, via the <strong>sphenoethmoidal recess</strong> above and behind the superior turbinate, not into any of the three meatuses.</li>" +
@@ -87,7 +87,7 @@ window.JEFFENT.register({
       },
       {
         title: "Larynx: essentials",
-        tagline: "Epiglottis, cartilage framework, vocal folds, and why the recurrent laryngeal nerve's long course explains so much hoarseness.",
+        tagline: "Epiglottis · Vocal folds · Recurrent laryngeal nerve",
         html: "<figure class='note-fig' data-credit='Source not yet cited, added by the project owner, replace credit before sharing.'><img class='zoomable' src='assets/img/figures/larynx-openstax.png' alt='Larynx openstax' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Epiglottis, thyroid/cricoid cartilage framework, true/false vocal folds, recurrent laryngeal nerve.</figcaption></figure>" +
           "<ul><li><strong>Epiglottis:</strong> the cartilage leaf that folds down over the laryngeal inlet to protect the airway on swallowing.</li>" +
           "<li><strong>Cartilage framework -- unpaired:</strong> <strong>thyroid</strong> (the largest, forms the laryngeal prominence/Adam's apple), <strong>cricoid</strong> (the only complete cartilage ring in the airway), and the <strong>epiglottis</strong> itself. <strong>Paired:</strong> <strong>arytenoid</strong> (the vocal folds attach to these and they rotate/slide to open and close the airway), plus the small <strong>corniculate</strong> and <strong>cuneiform</strong> cartilages sitting within the aryepiglottic folds.</li>" +
@@ -96,7 +96,7 @@ window.JEFFENT.register({
       },
       {
         title: "Neck: triangles, levels & glands",
-        tagline: "Anterior/posterior triangles, nodal levels I-VII, and the three glands every neck exam should account for.",
+        tagline: "Neck triangles · Nodal levels I-VII · Salivary glands",
         html: "<div class=\"fig-row\"><figure class='note-fig' data-credit='Source not yet cited, added by the project owner, replace credit before sharing.'><img class='zoomable' src='assets/img/figures/neck-triangles-colored.png' alt='Neck triangles colored' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Anterior/posterior neck triangles, cervical nodal levels I-VII, and key neck glands.</figcaption></figure></div><ul><li><strong>Triangles:</strong> the <strong>sternocleidomastoid</strong> splits the neck into <strong>anterior</strong> and <strong>posterior</strong> triangles.</li>" +
           "<li><strong>Nodal levels:</strong> lymph nodes are mapped as <strong>levels I-VI</strong>, used for every neck mass and cancer.</li>" +
           "<li><strong>Key glands:</strong> <strong>thyroid</strong> (midline, moves with swallowing), <strong>parotid</strong> (the facial nerve runs through it), and <strong>submandibular</strong> (a common site for stones).</li></ul>" +
@@ -115,7 +115,7 @@ window.JEFFENT.register({
       },
       {
         title: "Tympanic membrane landmarks",
-        tagline: "The otoscopy landmarks to name on every exam -- cone of light, umbo, manubrium, pars tensa vs flaccida.",
+        tagline: "Cone of light · Umbo · Pars tensa vs flaccida",
         html: "<figure class='note-fig' data-credit='Source not yet cited, added by the project owner, replace credit before sharing.'><img class='zoomable' src='assets/img/figures/tympanic_membrane_landmarks.png' alt='Tympanic membrane landmarks' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Naming otoscopic TM landmarks: cone of light, umbo, manubrium, pars tensa/flaccida.</figcaption></figure>" +
           "<p>On otoscopy, name these landmarks:</p><ul>" +
           "<li><strong>Cone of light</strong> (antero-inferior): the triangular reflection of the otoscope light off the pars tensa; a normal finding that blunts or fragments with effusion or retraction.</li>" +

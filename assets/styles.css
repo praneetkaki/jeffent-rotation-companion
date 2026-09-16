@@ -126,14 +126,8 @@ button { font-family: inherit; cursor: pointer; }
    viewport width, instead of the old fixed 1.5rem block wrapping onto a
    second/third line and pushing the icon cluster off-screen once the
    window narrows past the point where "ENT Rotation Companion" fits. */
-.brand-title-row { display: flex; align-items: center; gap: 8px; min-width: 0; }
 .brand-name { font-family: "Source Serif 4", serif; font-weight: 600; font-size: 1.28rem; line-height: 1.1; color: var(--ink);
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: min(40vw, 280px); }
-/* Small pill instead of a second line of spaced-out uppercase text --
-   same information (this is the spaced-repetition study tool), less
-   visual weight beside the logo. */
-.brand-badge { flex: 0 0 auto; font-size: 10px; font-weight: 700; letter-spacing: .04em; color: var(--primary-deep);
-  background: var(--primary-tint); border-radius: 999px; padding: 3px 8px; }
 .tb-right { display: flex; align-items: center; gap: 8px; flex: 0 1 auto; min-width: 0; }
 .search { display: flex; align-items: center; gap: 8px; background: var(--surface-2); border: 1px solid var(--line);
   border-radius: 6px; padding: 7px 12px; color: var(--ink-faint); font-size: 13.5px; min-width: 190px; }
@@ -167,7 +161,6 @@ button { font-family: inherit; cursor: pointer; }
   .brand .mark { width: 36px; height: 36px; border-radius: 9px; }
   .brand > div { min-width: 0; overflow: hidden; }
   .brand-name { font-size: 1rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .brand-badge { display: none; }
   .tb-right { gap: 6px; flex: 0 0 auto; }
   .icon-btn { width: 34px; height: 34px; font-size: 14.5px; }
 }
@@ -222,24 +215,22 @@ main.wrap { padding-top: 48px; padding-bottom: 60px; min-height: 60vh; }
 .section-head.feed-head { margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--line-soft); }
 
 /* ---- home: unified bento dashboard ----
-   One grid combining what used to be two stacked, unrelated boxes (a
-   collapsible progress strip + a separate dark due-queue card): a large
-   dark hero action tile (queue CTA, streak, top-3-due chip rack) beside two
-   light stat tiles (mastery ring, due-today + 7-day activity). */
-.home-bento { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 16px; margin: 26px 0 8px; align-items: stretch; }
-@media (max-width: 900px) { .home-bento { grid-template-columns: 1fr 1fr; } .bento-hero { grid-column: 1 / -1; } }
-@media (max-width: 560px) { .home-bento { grid-template-columns: 1fr; } .bento-hero { grid-column: auto; } }
+   A single dark hero card holds everything: queue CTA + streak up top, a
+   horizontally swipeable rack of every subspecialty with cards due, and the
+   mastery ring + due-today stat along the bottom -- one cohesive panel
+   instead of the hero card sitting beside two separate light stat tiles. */
+.home-bento { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; margin: 26px 0 8px; }
 .bento-tile { border-radius: var(--radius-lg); box-shadow: var(--shadow);
   transition: box-shadow .18s var(--ease-out), transform .18s var(--ease-out); }
 .bento-tile:hover { box-shadow: var(--shadow-lift); }
 .bento-tile:active { transform: translateY(1px); }
 
-/* Tile 1: the dark hero action card -- sleek gradient + a subtle glass
-   border, replacing the old flat --hero-bg fill so it reads as one
-   deliberate "premium" surface rather than a plain dark rectangle. */
-.bento-hero { grid-column: span 2; background: linear-gradient(135deg, #0f1226 0%, #1b1f3b 55%, #241c4d 100%);
+/* The dark hero action card -- sleek gradient + a subtle glass border,
+   replacing the old flat --hero-bg fill so it reads as one deliberate
+   "premium" surface rather than a plain dark rectangle. */
+.bento-hero { background: linear-gradient(135deg, #0f1226 0%, #1b1f3b 55%, #241c4d 100%);
   border: 1px solid rgba(255,255,255,.1); padding: 24px 26px; display: flex; flex-direction: column; gap: 18px;
-  cursor: default; }
+  cursor: default; min-width: 0; }
 .bento-hero-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 .bento-hero .eyebrow { color: var(--hero-ink-soft); }
 .bento-hero-title { font-family: "Source Serif 4", serif; font-size: 1.5rem; color: var(--hero-ink); margin: 6px 0 0; }
@@ -249,16 +240,23 @@ main.wrap { padding-top: 48px; padding-bottom: 60px; min-height: 60vh; }
   font-weight: 600; white-space: nowrap; cursor: pointer; transition: background-color .16s var(--ease-out); }
 .bento-streak-chip:hover, .bento-streak-chip:focus-visible { background: rgba(255,255,255,.18); }
 .bento-streak-chip svg { width: 15px; height: 15px; flex: 0 0 auto; color: #ffb020; }
-.bento-hero-bottom { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: auto; }
 .bento-start-btn { border-color: #fff; background: #fff; color: var(--hero-bg); border-radius: 999px;
-  padding: 11px 20px; font-weight: 600; }
+  padding: 11px 20px; font-weight: 600; white-space: nowrap; }
 .bento-start-btn:hover { background: #e2e8f0; border-color: #e2e8f0; }
-/* Chip rack: replaces the old cramped 3D carousel with high-contrast,
-   glowing pills for the top 3 subspecialties with the most due cards. */
-.bento-chip-rack { display: flex; gap: 8px; flex-wrap: wrap; flex: 1 1 auto; }
+
+/* Subspecialty rack: a native horizontal scroller (touch-swipeable, and
+   trackpad/shift-wheel scrollable) listing every subspecialty with cards
+   due, not just the top few -- replaces the old cramped 3D carousel with
+   high-contrast, glowing pills and snap-to-chip scrolling. */
+.bento-hero-scroller { display: flex; gap: 8px; overflow-x: auto; overflow-y: hidden; min-width: 0;
+  scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; padding: 2px 2px 10px;
+  margin: -2px -2px -8px; -ms-overflow-style: none; scrollbar-width: thin; scrollbar-color: rgba(255,255,255,.25) transparent; }
+.bento-hero-scroller::-webkit-scrollbar { height: 6px; }
+.bento-hero-scroller::-webkit-scrollbar-thumb { background: rgba(255,255,255,.22); border-radius: 99px; }
+.bento-hero-scroller::-webkit-scrollbar-track { background: transparent; }
 .bento-chip { display: inline-flex; align-items: center; gap: 7px; background: rgba(255,255,255,.1);
   border: 1px solid rgba(255,255,255,.12); color: #fff; border-radius: 999px; padding: 8px 8px 8px 14px;
-  font-size: 12.5px; font-weight: 500; white-space: nowrap;
+  font-size: 12.5px; font-weight: 500; white-space: nowrap; flex: 0 0 auto; scroll-snap-align: start;
   transition: background-color .16s var(--ease-out), box-shadow .16s var(--ease-out); }
 .bento-chip:hover, .bento-chip:focus-visible { background: rgba(255,255,255,.2);
   box-shadow: 0 0 0 1px color-mix(in srgb, var(--track-color, #fff) 50%, transparent); }
@@ -267,25 +265,28 @@ main.wrap { padding-top: 48px; padding-bottom: 60px; min-height: 60vh; }
   font-family: "JetBrains Mono", monospace; }
 .bento-chip-empty { background: none; border-style: dashed; color: var(--hero-ink-soft); cursor: default; }
 
-/* Tiles 2 + 3: light stat surfaces, muted uppercase micro-labels. */
-.bento-mastery, .bento-stats { background: var(--surface); border: 1px solid var(--line-soft); padding: 20px 22px;
-  display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; width: 100%; }
-.bento-mastery { cursor: pointer; font: inherit; color: inherit; }
-.bento-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--ink-faint); }
-.bento-ring { margin: 4px 0; }
-.bento-sub { font-size: 13px; color: var(--ink-soft); }
-.bento-sub strong { color: var(--ink); font-variant-numeric: tabular-nums; }
-.bento-stats { padding: 0; justify-content: stretch; gap: 0; }
-.bento-stats-due, .bento-stats-streak { background: none; border: 0; width: 100%; padding: 18px 22px;
-  display: flex; flex-direction: column; align-items: center; gap: 6px; cursor: pointer; font: inherit; color: inherit;
+/* Metrics row: mastery ring + due-today, now integrated into the dark card
+   as two inline stat buttons rather than separate light tiles. */
+.bento-hero-metrics { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: auto;
+  padding-top: 16px; border-top: 1px solid rgba(255,255,255,.1); }
+.bento-metric { display: flex; align-items: center; gap: 10px; background: none; border: 0; padding: 4px 6px;
+  border-radius: var(--radius); cursor: pointer; font: inherit; color: inherit; text-align: left;
   transition: background-color .15s var(--ease-out); }
-.bento-stats-due:hover, .bento-stats-streak:hover { background: var(--surface-2); }
-.bento-stats-due { border-bottom: 1px solid var(--line-soft); }
-.bento-big { font-family: "Source Serif 4", serif; font-size: 2rem; color: var(--ink); font-variant-numeric: tabular-nums; }
-.bento-week { line-height: 0; }
-.bento-week svg.spark rect { fill: var(--primary); filter: drop-shadow(0 0 4px color-mix(in srgb, var(--primary) 55%, transparent)); }
+.bento-metric:hover, .bento-metric:focus-visible { background: rgba(255,255,255,.08); }
+.bento-metric-ring { line-height: 0; flex: 0 0 auto; }
+.bento-metric-copy { display: flex; flex-direction: column; gap: 1px; }
+.bento-metric-value { font-family: "Source Serif 4", serif; font-size: 1.3rem; color: var(--hero-ink);
+  font-variant-numeric: tabular-nums; line-height: 1.1; }
+.bento-metric-label { font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em;
+  color: var(--hero-ink-soft); }
+.bento-metric-sub { font-size: 11.5px; color: var(--hero-ink-soft); font-variant-numeric: tabular-nums; }
+.bento-metric-divider { width: 1px; align-self: stretch; background: rgba(255,255,255,.12); flex: 0 0 auto; }
+.bento-metric-due { margin-right: auto; }
+.bento-metric-spark { line-height: 0; margin-left: 2px; }
+.bento-metric-spark svg.spark rect { fill: #9fc1ff; filter: drop-shadow(0 0 4px rgba(159,193,255,.5)); }
 .mastery-ring-fill { transition: stroke-dashoffset 1s var(--ease-out); }
 @media (prefers-reduced-motion: reduce) { .mastery-ring-fill { transition: none; } }
+@media (max-width: 560px) { .bento-hero-metrics { padding-top: 14px; } .bento-start-btn { flex: 1 1 100%; text-align: center; } }
 .bar { height: 6px; background: var(--surface-2); overflow: hidden; margin-top: 10px; border-radius: 99px; }
 .bar > i { display: block; height: 100%; background: var(--primary); transition: width .5s var(--ease-out); border-radius: 99px; }
 @media (prefers-reduced-motion: reduce) { .bar > i { transition: none; } }
@@ -663,8 +664,14 @@ main.wrap { padding-top: 48px; padding-bottom: 60px; min-height: 60vh; }
    series of separate detail pages, so this copy is sticky (under the
    sticky .page-head strip) and its active item tracks scroll position via
    initClinicalScrollspy() instead of which page is currently open. */
-.clinical-shell .lesson-nav { position: sticky; top: calc(var(--topbar-h, 73px) + 50px); max-height: calc(100vh - var(--topbar-h, 73px) - 66px); }
-.clinical-shell .lesson-nav-list { max-height: none; overflow-y: auto; }
+.clinical-shell .lesson-nav { position: sticky; top: calc(var(--topbar-h, 73px) + 50px); max-height: calc(100vh - var(--topbar-h, 73px) - 66px);
+  display: flex; flex-direction: column; }
+/* max-height: none + flex:1 1 auto + min-height:0 makes the list fill
+   whatever's left inside .lesson-nav's own capped height and scroll
+   internally there, instead of growing past the card's rounded corners
+   (max-height alone with no flex parent has nothing to be relative to,
+   so overflow-y: auto never actually engages). */
+.clinical-shell .lesson-nav-list { max-height: none; flex: 1 1 auto; min-height: 0; overflow-y: auto; }
 @media (max-width: 899px) { .clinical-shell .lesson-nav { position: static; max-height: none; } }
 .lesson-hero { position: relative; overflow: hidden; border: 1px solid var(--line-soft); border-radius: var(--radius-lg);
   padding: 18px 22px 20px; margin-bottom: 24px;
@@ -677,9 +684,12 @@ main.wrap { padding-top: 48px; padding-bottom: 60px; min-height: 60vh; }
    the card gets too narrow to fit both side by side. */
 .lesson-hero-top { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 .lesson-kicker { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--track-color, var(--primary)); font-weight: 600; }
-.lesson-tagline { color: var(--ink-faint); font-size: 12px; line-height: 1.4; text-align: right; max-width: 300px; }
+.lesson-tagline { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px; max-width: 320px; }
+.lesson-tagline-kw { font-size: 11px; font-weight: 600; color: var(--track-color, var(--primary-deep));
+  background: color-mix(in srgb, var(--track-color, var(--primary)) 12%, var(--surface-2));
+  border-radius: 999px; padding: 4px 10px; white-space: nowrap; }
 .lesson-title { font-size: 1.4rem; margin: 10px 0 0; }
-@media (max-width: 640px) { .lesson-tagline { text-align: left; max-width: none; } }
+@media (max-width: 640px) { .lesson-tagline { justify-content: flex-start; max-width: none; } }
 
 /* Compact top-of-page mirror of .lesson-next below, so advancing to the next
    lesson doesn't require scrolling past the whole note/diagram body first. */
@@ -1186,10 +1196,6 @@ body.nav-open .nav-backdrop { opacity: 1; pointer-events: auto; }
     transition: margin-left .28s var(--ease-drawer), margin-right .28s var(--ease-drawer), width .28s var(--ease-drawer); }
   main.wrap { max-width: 1180px; }
   .foot .wrap { max-width: 1180px; }
-  /* Home gets a little extra breathing room when the viewport has it to
-     spare; still shrinks with the rest of .wrap as the side rails open
-     and claim their padding-left/right on <body>. */
-  body.on-home main.wrap { max-width: 1320px; }
 }
 
 /* ---- right flashcards panel ----
@@ -1431,8 +1437,6 @@ body.js-motion .reveal-init.in { opacity: 1; transform: none;
   transition: opacity .5s var(--ease-out), transform .5s var(--ease-out); }
 /* Small per-group cascade so cards in the same row/grid settle in sequence,
    not all at once -- mirrors the tile-grid's load-in stagger. */
-.home-bento .bento-mastery { transition-delay: 60ms; }
-.home-bento .bento-stats { transition-delay: 120ms; }
 .roadmap-list .rm-row:nth-child(2), .mod-list .mod-row:nth-child(2) { transition-delay: 50ms; }
 .roadmap-list .rm-row:nth-child(3), .mod-list .mod-row:nth-child(3) { transition-delay: 100ms; }
 .roadmap-list .rm-row:nth-child(4) { transition-delay: 150ms; }

@@ -634,6 +634,19 @@
     update();
   }
 
+  /* Again/Good/Easy rating-button hints, read live from the configured
+     Study Settings intervals (15 min / 1 day / 3 days by default) instead
+     of the old hardcoded "< 1 day"/"step up"/"skip ahead" copy, so the
+     buttons always say exactly when the card comes back. */
+  function rateHintLabels() {
+    var s = window.SRS.getSettings();
+    return {
+      again: s.againMinutes + " min",
+      good: s.goodDays + (s.goodDays === 1 ? " day" : " days"),
+      easy: s.easyDays + (s.easyDays === 1 ? " day" : " days")
+    };
+  }
+
   /* Tiny bar-sparkline (SVG) for the last N days of review activity, shown
      under the streak stat. Pure decoration -- no interactivity. */
   function sparklineSvg(values, w, h) {
@@ -768,11 +781,11 @@
     root.innerHTML = "";
     root.appendChild(h('<div class="eyebrow">Your ENT rotation, topic by topic</div>'));
 
-    /* Unified bento dashboard: one dark hero action tile (queue CTA + streak
-     * + top-3-due chip rack) beside two light stat tiles (mastery ring,
-     * due-today + 7-day activity), replacing the old two-stacked-boxes
-     * layout (a collapsible progress strip above a separate dark carousel
-     * card) with a single cohesive grid. */
+    /* Unified bento dashboard: a single dark hero card holds the queue CTA,
+     * streak, a horizontally swipeable rack of every subspecialty with cards
+     * due, and the mastery ring + due-today stat -- replacing the earlier
+     * "hero beside two light stat tiles" split so mastery/due-today read as
+     * part of the same at-a-glance panel instead of separate boxes. */
     var dueTracks = TRACKS.map(function (t) {
       var mods = modulesFor(t.id);
       return { track: t, mods: mods, due: aggregateStats(mods).due };
@@ -780,9 +793,10 @@
       .sort(function (a, b) { return b.due - a.due; });
 
     var bento = h('<div class="home-bento"></div>');
+    var activity7 = window.SRS.dailyActivity(7);
 
     var heroTile = h(
-      '<div class="bento-tile bento-hero">' +
+      '<div class="bento-tile bento-hero bento-hero-unified">' +
         '<div class="bento-hero-top">' +
           '<div class="bento-hero-copy">' +
             '<div class="eyebrow">Spaced repetition queue</div>' +
@@ -794,9 +808,25 @@
             '<span>' + streak + (streak === 1 ? " day" : " days") + " streak</span>" +
           "</div>" +
         "</div>" +
-        '<div class="bento-hero-bottom">' +
+        '<div class="bento-hero-scroller" role="list" aria-label="Subspecialties with cards due"></div>' +
+        '<div class="bento-hero-metrics">' +
+          '<button type="button" class="bento-metric bento-metric-mastery" aria-label="Overall mastery ' + pct + ' percent. ' + reviewedCount + ' of ' + allMods.length + ' modules reviewed. Open curriculum roadmap.">' +
+            '<span class="bento-metric-ring">' + masteryRing(pct, "#9fc1ff", 46, false, "rgba(255,255,255,.16)") + '</span>' +
+            '<span class="bento-metric-copy">' +
+              '<span class="bento-metric-value">' + pct + '%</span>' +
+              '<span class="bento-metric-label">Overall mastery</span>' +
+              '<span class="bento-metric-sub">' + reviewedCount + '/' + allMods.length + ' modules reviewed</span>' +
+            '</span>' +
+          '</button>' +
+          '<div class="bento-metric-divider" aria-hidden="true"></div>' +
+          '<button type="button" class="bento-metric bento-metric-due" data-dash="due" aria-label="' + agg.due + ' cards due today. Start due queue.">' +
+            '<span class="bento-metric-copy">' +
+              '<span class="bento-metric-value big" data-count="' + agg.due + '">0</span>' +
+              '<span class="bento-metric-label">Cards due today</span>' +
+            '</span>' +
+            '<span class="bento-metric-spark">' + sparklineSvg(activity7, 84, 26) + '</span>' +
+          '</button>' +
           '<button type="button" class="btn bento-start-btn">Start due queue (' + agg.due + ') &rarr;</button>' +
-          '<div class="bento-chip-rack"></div>' +
         "</div>" +
       "</div>"
     );
@@ -815,11 +845,11 @@
     streakChip.addEventListener("click", openStreakSettings);
     streakChip.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openStreakSettings(e); } });
 
-    var chipRack = heroTile.querySelector(".bento-chip-rack");
+    var chipRack = heroTile.querySelector(".bento-hero-scroller");
     if (dueTracks.length) {
-      dueTracks.slice(0, 3).forEach(function (x) {
+      dueTracks.forEach(function (x) {
         var chip = h(
-          '<button type="button" class="bento-chip" style="--track-color:' + (x.track.color || "#fff") + '">' +
+          '<button type="button" class="bento-chip" role="listitem" style="--track-color:' + (x.track.color || "#fff") + '">' +
             esc(x.track.name) + '<span class="bento-chip-count">' + x.due + "</span>" +
           "</button>"
         );
@@ -829,35 +859,11 @@
     } else {
       chipRack.appendChild(h('<div class="bento-chip bento-chip-empty">All caught up — nothing due right now</div>'));
     }
+
+    heroTile.querySelector(".bento-metric-mastery").addEventListener("click", goRoadmap);
+    heroTile.querySelector(".bento-metric-due").addEventListener("click", goStudyAll);
+
     bento.appendChild(heroTile);
-
-    var masteryTile = h(
-      '<button type="button" class="bento-tile bento-mastery" aria-label="Overall mastery: ' + pct + ' percent. Open curriculum roadmap.">' +
-        '<div class="bento-label">Overall mastery</div>' +
-        '<div class="bento-ring">' + masteryRing(pct, "var(--primary)", 84, true, "var(--surface-2)", "var(--ink)") + '</div>' +
-        '<div class="bento-sub"><strong class="big" data-count="' + reviewedCount + '" data-suffix="' + esc("/" + allMods.length) + '">0</strong> modules reviewed</div>' +
-      "</button>"
-    );
-    masteryTile.addEventListener("click", goRoadmap);
-    bento.appendChild(masteryTile);
-
-    var activity7 = window.SRS.dailyActivity(7);
-    var statsTile = h(
-      '<div class="bento-tile bento-stats">' +
-        '<button type="button" class="bento-stats-due" data-dash="due" aria-label="' + agg.due + ' cards due today. Start due queue.">' +
-          '<div class="bento-label">Cards due today</div>' +
-          '<div class="bento-big big" data-count="' + agg.due + '">0</div>' +
-        "</button>" +
-        '<button type="button" class="bento-stats-streak" data-dash="streak" aria-label="7-day study activity.">' +
-          '<div class="bento-label">7-day streak</div>' +
-          '<div class="bento-week">' + sparklineSvg(activity7, 120, 30) + "</div>" +
-        "</button>" +
-      "</div>"
-    );
-    statsTile.querySelector(".bento-stats-due").addEventListener("click", goStudyAll);
-    statsTile.querySelector(".bento-stats-streak").addEventListener("click", openStreakSettings);
-    bento.appendChild(statsTile);
-
     root.appendChild(bento);
     animateStatCounts(bento);
     animateMasteryRing(bento);
@@ -1441,7 +1447,17 @@
     heroTop.appendChild(h(
       '<span class="lesson-kicker mono">' + esc(topic.kind === "note" ? "Anatomy note" : "Anatomy diagram") + '</span>'
     ));
-    if (tagline) heroTop.appendChild(h('<span class="lesson-tagline">' + esc(tagline) + '</span>'));
+    if (tagline) {
+      /* tagline is authored as up to 3 short key structures/terms joined by
+       * " · " (e.g. "Zygoma · Four-point articulation · ZMC fracture") --
+       * rendered as compact keyword chips instead of the old full sentence
+       * so the header reads as an at-a-glance topic tag, not a caption. */
+      var kwWrap = h('<span class="lesson-tagline"></span>');
+      tagline.split(/\s*·\s*/).slice(0, 3).forEach(function (kw) {
+        if (kw) kwWrap.appendChild(h('<span class="lesson-tagline-kw">' + esc(kw) + '</span>'));
+      });
+      heroTop.appendChild(kwWrap);
+    }
     hero.appendChild(heroTop);
     if (!skipTitle) hero.appendChild(h('<h2 class="anatomy-detail-title lesson-title">' + esc(title) + '</h2>'));
     /* Same "next lesson" jump as the footer nav, offered here too so a
@@ -2623,11 +2639,12 @@
       shell.appendChild(rv);
     } else {
       back.classList.remove("hidden");
+      var hints = rateHintLabels();
       var ctr = h(
         '<div class="answer-controls">' +
-          '<button class="rate again" data-r="again">Again<small>&lt; 1 day</small></button>' +
-          '<button class="rate good" data-r="good">Good<small>step up</small></button>' +
-          '<button class="rate easy" data-r="easy">Easy<small>skip ahead</small></button>' +
+          '<button class="rate again" data-r="again">Again<small>' + esc(hints.again) + '</small></button>' +
+          '<button class="rate good" data-r="good">Good<small>' + esc(hints.good) + '</small></button>' +
+          '<button class="rate easy" data-r="easy">Easy<small>' + esc(hints.easy) + '</small></button>' +
         '</div>'
       );
       ctr.querySelectorAll(".rate").forEach(function (btn) {
@@ -3557,7 +3574,14 @@
       rv.addEventListener("click", function () { fp.revealed = true; renderFlash(); });
       stage.appendChild(rv);
     } else {
-      var ctr = h('<div class="answer-controls fp-controls"><button class="rate again" data-r="again">Again</button><button class="rate good" data-r="good">Good</button><button class="rate easy" data-r="easy">Easy</button></div>');
+      var fpHints = rateHintLabels();
+      var ctr = h(
+        '<div class="answer-controls fp-controls">' +
+          '<button class="rate again" data-r="again">Again<small>' + esc(fpHints.again) + '</small></button>' +
+          '<button class="rate good" data-r="good">Good<small>' + esc(fpHints.good) + '</small></button>' +
+          '<button class="rate easy" data-r="easy">Easy<small>' + esc(fpHints.easy) + '</small></button>' +
+        '</div>'
+      );
       ctr.querySelectorAll(".rate").forEach(function (btn) {
         btn.addEventListener("click", function () {
           rateFlashCard(btn.dataset.r);

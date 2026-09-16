@@ -37,7 +37,7 @@ window.JEFFENT.register({
     notes: [
       {
         title: "Neck levels I-VII",
-        tagline: "Nodal levels, boundaries, dissections.",
+        tagline: "Nodal levels · Boundaries · Dissections",
         html: "<p>The <strong>neck levels</strong> are a standardized map of the neck's lymph node basins (the Robbins classification). Head & neck cancers spread in fairly predictable nodal patterns depending on the primary site, so the levels give surgeons, radiologists, and pathologists a common language for describing where nodal disease is, staging it (the N in TNM), and planning exactly which basins a neck dissection needs to cover.</p><figure class='note-fig' data-credit='Source not yet cited, added by the project owner, replace credit before sharing.'><img class='zoomable' src='assets/img/figures/neck_levels_colored.png' alt='Neck levels colored' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Cervical lymph node level classification (I-VII, including IIA/IIB and VA/VB) for head & neck cancer staging.</figcaption></figure><ul><li>Beyond levels I-VI, add <strong>level VII</strong> (superior mediastinal nodes, below the sternal notch), which matters for thyroid and lower-neck cancer staging.</li><li>Level II is often split into <strong>IIA/IIB</strong> by the spinal accessory nerve, and level V into <strong>VA/VB</strong>.</li></ul>" + "<p><strong>Cervical nodal levels (Robbins classification), with surgical boundaries:</strong></p><div class='tbl-scroll'><table><thead><tr><th>Level</th><th>Superior</th><th>Inferior</th><th>Anterior</th><th>Posterior</th><th>Main nodal contents</th><th>Primary drainage</th><th>Structures to watch</th></tr></thead><tbody>" +
           "<tr><td><strong>Ia</strong> (submental)</td><td>Mandibular symphysis</td><td>Hyoid bone</td><td>Contralateral anterior digastric</td><td>Ipsilateral anterior digastric</td><td>Submental nodes</td><td>Chin, lower lip, floor of mouth, tongue tip</td><td>Anterior jugular veins</td></tr>" +
           "<tr><td><strong>Ib</strong> (submandibular)</td><td>Body of mandible</td><td>Posterior belly of digastric</td><td>Anterior belly of digastric</td><td>Stylohyoid muscle</td><td>Submandibular gland and nodes</td><td>Oral cavity, anterior face</td><td><strong>Marginal mandibular branch of CN VII</strong>, lingual and hypoglossal nerves</td></tr>" +
@@ -52,7 +52,7 @@ window.JEFFENT.register({
       },
       {
         title: "The salivary glands",
-        tagline: "Parotid, submandibular, sublingual glands.",
+        tagline: "Parotid · Submandibular · Sublingual glands",
         html: "<figure class='note-fig' data-credit='Source not yet cited, added by the project owner, replace credit before sharing.'><img class='zoomable' src='assets/img/figures/salivary-glands-openstax.png' alt='Salivary glands openstax' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Major salivary gland anatomy: parotid (Stensen&#39;s duct) and submandibular (Wharton&#39;s duct).</figcaption></figure><ul><li><strong>Parotid</strong>: the largest gland; the <strong>facial nerve</strong> runs through it, dividing it into superficial and deep lobes, so facial-nerve function must be documented before and after any parotid surgery. Duct: <strong>Stensen's</strong>, opens opposite the upper second molar.</li><li><strong>Submandibular</strong>: duct is <strong>Wharton's</strong>, opening at the sublingual caruncle; its uphill course makes it the classic site for salivary stones (sialolithiasis).</li><li><strong>Sublingual</strong>: the smallest major gland, sitting in the floor of the mouth; drains via multiple small ducts (ducts of Rivinus) near the sublingual caruncle rather than one dominant duct.</li></ul>" +
           "<p><strong>The three major glands compared:</strong></p><div class='tbl-scroll'><table><thead><tr><th>Gland</th><th>Location</th><th>Secretion type</th><th>Clinical pearls</th></tr></thead><tbody>" +
           "<tr><td><strong>Parotid</strong></td><td>Overlies the mandibular ramus, below and in front of the ear</td><td>Serous</td><td>Facial nerve runs through it; ~80% of tumors are benign, mostly pleomorphic adenoma; stones are uncommon because serous saliva is thin</td></tr>" +
@@ -63,7 +63,7 @@ window.JEFFENT.register({
       },
       {
         title: "Thyroid & parathyroid anatomy",
-        tagline: "Gland, RLN, parathyroids.",
+        tagline: "Thyroid gland · RLN · Parathyroids",
         html: "<figure class='note-fig' data-credit='Source not yet cited, added by the project owner, replace credit before sharing.'><img class='zoomable' src='assets/img/figures/thyroid_adjacent_structures.png' alt='Thyroid adjacent structures' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Thyroid lobes/isthmus, parathyroid glands, and recurrent laryngeal nerve relationships relevant to thyroidectomy risk.</figcaption></figure>" +
           "<h4>The gland itself</h4><ul>" +
           "<li><strong>Butterfly-shaped</strong>: two lobes joined by an <strong>isthmus</strong>, sitting in the anterior neck across roughly C5-T1. The isthmus drapes over the 2nd-4th tracheal rings, just below the cricoid cartilage.</li>" +
@@ -82,7 +82,7 @@ window.JEFFENT.register({
       },
       {
         title: "Oral cavity vs oropharynx",
-        tagline: "Tobacco-driven vs HPV-driven cancer.",
+        tagline: "Tobacco-driven cancer · HPV-driven cancer",
         html: "<figure class='note-fig' data-credit='Source not yet cited, added by the project owner, replace credit before sharing.'><img class='zoomable' src='assets/img/figures/oral_cavity_oropharynx_anatomy.png' alt='Oral cavity oropharynx anatomy' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Anatomic distinction between oral cavity and oropharynx subsites and its oncologic significance (tobacco vs HPV driven cancer).</figcaption></figure>" +
           "<p>A single anatomic boundary separates two different cancers. The plane running from the <strong>junction of the hard and soft palate</strong> to the <strong>circumvallate papillae</strong> of the tongue (and along the anterior tonsillar pillars) divides the oral cavity in front from the oropharynx behind.</p>" +
           "<p>Everything anterior is classically tobacco- and alcohol-driven disease; everything posterior is increasingly HPV-driven disease with a markedly better prognosis. Knowing which side of that line a lesion sits on reframes the risk factors, staging system, treatment, and expected outcome.</p>" +

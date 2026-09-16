@@ -37,7 +37,7 @@ window.JEFFENT.register({
     notes: [
       {
         title: "Airway triage: look, listen, act",
-        tagline: "The one question that comes before any differential: is the airway patent, at risk, or failing right now?",
+        tagline: "Airway assessment · Airway patency",
         html: "<figure class='note-fig' data-credit=\"The larynx. OpenStax Anatomy and Physiology, Fig. 23.6, CC BY 4.0.\"><img class='zoomable' src='assets/1024px-2306_The_Larynx.jpg' alt='The larynx' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Landmarks: Cricothyroid membrane surface anatomy for the emergency surgical airway.</figcaption></figure><ul><li>The airway question comes first, before any differential: <strong>is it patent, at risk, or failing right now?</strong></li><li><strong>Signs of impending obstruction</strong>: stridor, drooling or inability to handle secretions, tripod positioning, agitation or lethargy from hypoxia, voice change.</li><li>Securing or protecting the airway (positioning, urgent ENT/anesthesia, sometimes a surgical airway) always comes before definitive diagnosis.</li></ul><figure class='note-fig' data-credit=\"Airway Triage: Signs of Impending Obstruction (Look, Listen, Act). Wikimedia Commons.\"><img class='zoomable' src='assets/img/mc/85_airway_triage_signs_obstruction_wikimedia.png' alt='Airway triage signs' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Airway triage: signs of impending obstruction.</figcaption></figure>" +
           "<p><strong>Stridor localizes the obstruction</strong> (the highest-yield sign here). Stridor is turbulent airflow through a narrowed airway, and its timing tells you the level:</p><ul>" +
           "<li><strong>Inspiratory stridor → supraglottic/glottic</strong> (above or at the cords): the extrathoracic airway collapses inward on inspiration (e.g. epiglottitis, laryngomalacia, a supraglottic mass).</li>" +
@@ -60,7 +60,7 @@ window.JEFFENT.register({
       },
       {
         title: "The 'danger triangle' of deep-space infection",
-        tagline: "Why a tonsil or dental infection can end up threatening the airway, carotid sheath, or mediastinum.",
+        tagline: "Tonsil/dental infection · Carotid sheath · Mediastinum",
         html: "<figure class='note-fig' data-credit='Source not yet cited, added by the project owner, replace credit before sharing.'><img class='zoomable' src='assets/img/figures/cervical_fascia_danger_space.png' alt='Cervical fascia danger space' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Deep cervical fascial spaces communicate (peritonsillar/parapharyngeal/retropharyngeal) and can carry infection down the &#39;danger space&#39; toward the mediastinum.</figcaption></figure><ul><li>Neck and facial infections track along fascial planes into spaces next to the airway, great vessels, and mediastinum.</li><li>The deep neck spaces <strong>communicate</strong> (peritonsillar, parapharyngeal, retropharyngeal, mediastinum).</li><li>This is why a localized infection (quinsy, dental abscess) can escalate to airway compromise, carotid sheath involvement, or descending mediastinitis if not treated promptly.</li><li>Note this is a <strong>different concept</strong> from the \"danger triangle of the face\" (the mid-face region drained by the facial vein, with retrograde spread risking cavernous sinus thrombosis) — both are worth knowing, but they are not the same danger triangle.</li></ul>" +
           "<p><strong>The clinically important deep neck spaces</strong>, organized by relationship to the hyoid:</p><div class='tbl-scroll'><table><thead><tr><th>Space</th><th>Key boundaries/location</th><th>Extends to</th><th>Classic source &amp; why it matters</th></tr></thead><tbody>" +
           "<tr><td><strong>Peritonsillar</strong></td><td>Between the tonsillar capsule and the superior constrictor</td><td>Can spread laterally into the parapharyngeal space</td><td>Tonsillitis → quinsy; trismus, uvular deviation, \"hot potato\" voice</td></tr>" +
@@ -88,7 +88,7 @@ window.JEFFENT.register({
       },
       {
         title: "Why ENT emergencies escalate fast",
-        tagline: "Small airways, rich vascular connections to the orbit/brain, and cartilage that necroses fast -- the anatomy behind every ENT red flag.",
+        tagline: "Small airways · Orbit/brain vascular connections · Cartilage necrosis",
         html: "<figure class='note-fig' data-credit=\"Head and neck (sagittal). NCI SEER via Wikimedia Commons. Public domain.\"><img class='zoomable' src='assets/1024px-Illu01_head_neck.jpg' alt='Head and neck overview' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Landmarks: Airway bottlenecks and rich vascular and fascial connections.</figcaption></figure><p>Several anatomic facts recur across ENT emergencies:</p><ul>" +
           "<li>Airway lumens are small, so a little swelling causes a lot of obstruction (more so in children; see Pediatric ENT).</li>" +
           "<li>The head and neck have rich vascular and lymphatic connections to the orbit and intracranial space (sinusitis → orbital/intracranial complications; otitis media → intracranial complications).</li>" +
@@ -96,7 +96,7 @@ window.JEFFENT.register({
       },
       {
         title: "Zones of the neck",
-        tagline: "Zone I-III of the neck, and why surgical accessibility (not anatomy alone) drives how penetrating trauma is approached.",
+        tagline: "Neck zones I-III · Penetrating trauma",
         html: "<figure class='note-fig' data-credit='Source not yet cited, added by the project owner, replace credit before sharing.'><img class='zoomable' src='assets/img/figures/neck_zones_trauma.png' alt='Neck zones trauma' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Zones I, II, III of the neck for penetrating trauma and how surgical accessibility differs by zone.</figcaption></figure><p>For <strong>penetrating neck trauma</strong>, the neck is divided into three horizontal zones, not because the anatomy changes character at each boundary, but because <strong>surgical accessibility</strong> does, and that access drives the initial management algorithm (see Clinical tab):</p><ul>" +
           "<li><strong>Zone I</strong>: cricoid cartilage to the thoracic outlet/clavicles. Contains the great vessel origins (proximal carotids, subclavian vessels), trachea, esophagus, thoracic duct, apex of the lung. <strong>Least accessible</strong> surgically: injuries here may need a sternotomy/thoracotomy approach.</li>" +
           "<li><strong>Zone II</strong>: cricoid cartilage to the angle of the mandible. Contains the carotid arteries, jugular veins, larynx, trachea, esophagus, vagus and recurrent laryngeal nerves. The <strong>largest zone and the most surgically accessible</strong>, and most penetrating neck injuries occur here.</li>" +

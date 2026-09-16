@@ -37,13 +37,13 @@ window.JEFFENT.register({
     notes: [
       {
         title: "Sites of upper airway obstruction in OSA",
-        tagline: "Nasal, retropalatal, or retroglossal -- identifying where the airway collapses determines which surgery, if any, is right.",
+        tagline: "Nasal collapse · Retropalatal collapse · Retroglossal collapse",
         html: "<figure class='note-fig' data-credit='Source not yet cited, added by the project owner, replace credit before sharing.'><img class='zoomable' src='assets/img/figures/level_upper_airway_obstruction_labeled.png' alt='Level upper airway obstruction labeled' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>The three anatomic levels where the upper airway can collapse in OSA: nasal, retropalatal, and retroglossal.</figcaption></figure><p>Collapse can occur at multiple levels, often more than one at once.</p><ul><li>The <strong>nasal cavity</strong> (septal deviation, turbinate hypertrophy) raises upstream resistance and drives CPAP intolerance.</li><li>The <strong>retropalatal region</strong> (soft palate, uvula, lateral pharyngeal walls) is the classic UPPP target.</li><li>The <strong>retroglossal/hypopharyngeal region</strong> (tongue base, epiglottis) is where tongue-base and hypoglossal nerve procedures work.</li></ul><p>Identifying <em>where</em> collapse occurs determines which surgery, if any, is appropriate.</p>"
       },
       {
         id: "friedman-tongue-position-note",
         title: "Friedman tongue position and staging",
-        tagline: "How much the tongue base obscures the oropharynx on a relaxed exam, and what that predicts about UPPP (palate surgery) response.",
+        tagline: "Tongue base · Oropharynx exam · UPPP response",
         html: "<figure class='note-fig' data-credit='Source not yet cited, added by the project owner, replace credit before sharing.'><img class='zoomable' src='assets/img/figures/Friedman_tongue.png' alt='Friedman tongue' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Friedman tongue position grades I-IV and how they predict UPPP response.</figcaption></figure>" +
           "<p><strong>The exam &mdash; how it's done:</strong> the Friedman tongue position (FTP), sometimes called the modified Mallampati index in this context, grades how much the tongue base obscures the palate, tonsils, and uvula on oral exam.</p>" +
           "<p>The single most important technical point, and the one that separates it from the classic (anesthesia) Mallampati score: mouth open wide, tongue resting <strong>in</strong> the mouth, <strong>not</strong> protruded, and <strong>not</strong> phonating. Keeping the tongue in its natural resting position mimics how it behaves during sleep, which is the whole point.</p>" +
@@ -73,7 +73,7 @@ window.JEFFENT.register({
       {
         id: "hgns-anatomy",
         title: "The hypoglossal nerve and tongue protrusion",
-        tagline: "How CN XII protrudes the tongue, and the medial/lateral branch split that makes selective hypoglossal stimulation work.",
+        tagline: "CN XII · Medial/lateral branch split · Hypoglossal stimulation",
         html: "<figure class='note-fig' data-credit='Source not yet cited, added by the project owner, replace credit before sharing.'><img class='zoomable' src='assets/img/figures/hypoglossal_nerve_branches.png' alt='Hypoglossal nerve branches' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>CN XII course and genioglossus innervation underlying tongue protrusion and its role in OSA/airway patency.</figcaption></figure>" +
           "<p><strong>CN XII is the pure motor nerve of the tongue</strong> &mdash; the nerve that keeps the tongue from falling back and blocking the airway in sleep.</p>" +
           "<ul><li><strong>Pure motor nerve:</strong> CN XII supplies all intrinsic tongue muscles and all extrinsic tongue muscles <strong>except</strong> the palatoglossus, which is innervated by the vagus (CN X) via the pharyngeal plexus.</li></ul>" +
@@ -96,7 +96,7 @@ window.JEFFENT.register({
       {
         id: "cpap-how-it-works",
         title: "How CPAP works",
-        tagline: "Why pneumatic splinting works at every collapse level at once, and why sleep surgery is usually a CPAP adjunct, not a replacement.",
+        tagline: "Pneumatic splinting · CPAP · Surgical adjunct",
         html: "<figure class='note-fig' data-credit='Source not yet cited, added by the project owner, replace credit before sharing.'><img class='zoomable' src='assets/img/figures/CPAP_therapy.png' alt='CPAP therapy' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>CPAP as pneumatic splinting of the collapsible upper airway.</figcaption></figure>" +
           "<p><strong>How CPAP works:</strong> continuous positive airway pressure delivers a constant column of pressurized room air through a mask, acting as a <strong>pneumatic splint</strong> &mdash; positive intraluminal pressure holds the collapsible pharyngeal airway open throughout the respiratory cycle.</p>" +
           "<p>Because pressure props the airway from the inside, it works at every level of collapse simultaneously (nasopharynx, retropalatal, retroglossal) regardless of where the primary obstruction sits. That's why CPAP is first-line for essentially all severities of OSA and can start before the exact collapse site is known, unlike surgery, which must target a specific level.</p>" +

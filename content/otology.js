@@ -34,7 +34,7 @@ window.JEFFENT.register({
     notes: [
       {
         title: "Three compartments, one organ",
-        tagline: "The external, middle, and inner ear at a glance, and the structure each one contributes to hearing or balance.",
+        tagline: "External ear · Middle ear · Inner ear",
         html:
           "<figure class='note-fig' data-credit='Source not yet cited, added by the project owner, replace credit before sharing.'><img class='zoomable' src='assets/img/figures/ear_anatomy_physiology_overview.png' alt='Ear anatomy physiology overview' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Overview of the ear&#39;s three compartments (external/sound-gathering, middle/amplification, inner/transduction) and how CN VIII reads out the inner ear.</figcaption></figure><p>Work outside-in: <strong>external</strong> (sound gathering), <strong>middle</strong> (sound amplification & transmission), <strong>inner</strong> (transduction + balance).</p>" +
           "<ul>" +
@@ -45,7 +45,7 @@ window.JEFFENT.register({
       },
       {
         title: "The clinically dangerous relationships",
-        tagline: "Why ear disease can cause facial weakness, referred pain from elsewhere, or taste disturbance -- the nerves and muscles that share this small space.",
+        tagline: "Facial nerve · Referred otalgia · Chorda tympani",
         html:
           "<figure class='note-fig' data-credit='Source not yet cited, added by the project owner, replace credit before sharing.'><img class='zoomable' src='assets/img/figures/middle_ear_dangerous_relationships.png' alt='Middle ear dangerous relationships' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Middle-ear/mastoid danger zone: facial nerve, tensor tympani/stapedius, chorda tympani, and referred otalgia via CN V/VII/IX/X.</figcaption></figure><ul>" +
           "<li><strong>Facial nerve (CN VII)</strong> runs through the temporal bone next to the middle/inner ear, so facial weakness with ear disease is a red flag.</li>" +
