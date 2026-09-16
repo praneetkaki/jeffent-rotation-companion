@@ -194,13 +194,14 @@ main.wrap { padding-top: 48px; padding-bottom: 60px; min-height: 60vh; }
 /* ---- home dashboard ---- */
 .btn { border: 1px solid var(--primary); background: var(--primary); color: #fff; padding: 11px 20px; border-radius: 6px; font-weight: 600; font-size: 15px;
   transition: background-color .16s var(--ease-out), border-color .16s var(--ease-out), transform .12s var(--ease-out); }
-:root[data-theme="dark"] .btn, :root:not([data-theme="light"]) .btn { color: #06211f; }
+:root[data-theme="dark"] .btn:not(.ghost), :root:not([data-theme="light"]) .btn:not(.ghost) { color: #06211f; }
 @media (prefers-color-scheme: light){ :root:not([data-theme="dark"]) .btn { color: #fff; } }
 .btn:hover { background: var(--primary-deep); border-color: var(--primary-deep); }
 .btn:active { transform: translateY(1px); }
 .btn.ghost { background: transparent; color: var(--primary); }
 .btn.ghost:hover { background: var(--primary-tint); }
 .btn.small { padding: 8px 14px; font-size: 14px; }
+.btn[disabled] { opacity: .45; cursor: not-allowed; pointer-events: none; }
 
 .callout { display: grid; grid-template-columns: auto 1fr; gap: 14px; align-items: start;
   background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--accent);
@@ -524,10 +525,13 @@ main.wrap { padding-top: 48px; padding-bottom: 60px; min-height: 60vh; }
    plus a subtle blur, instead of a flat opaque fill. */
 .panel { background: color-mix(in srgb, var(--surface) 90%, transparent); backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px); border: 1px solid var(--line-soft); border-radius: var(--radius-lg);
-  padding: 28px 30px; box-shadow: var(--shadow); margin-bottom: 28px;
+  padding: 28px 30px; box-shadow: var(--shadow); margin-bottom: 28px; position: relative;
   transition: box-shadow .18s var(--ease-out), transform .18s var(--ease-out), border-color .18s var(--ease-out); }
 .panel:last-child { margin-bottom: 0; }
-.panel h3 { font-size: 1.18rem; margin-bottom: 10px; }
+.panel h3 { font-size: 1.18rem; margin-bottom: 10px; padding-right: 76px; }
+/* Bookmark + listen icons for a clinical block, absolutely pinned to the
+   panel's top-right so they never compete with a long title for space. */
+.panel-actions { position: absolute; top: 24px; right: 26px; display: flex; align-items: center; gap: 6px; }
 .panel p.panel li { color: var(--ink-soft); font-size: 15px; }
 .panel ul { padding-left: 1.15em; margin: .4em 0; }
 .panel li { margin: .28em 0; }
@@ -1608,8 +1612,10 @@ body.js-motion .bento-hero.reveal-init.in .bento-start-btn {
   border-radius: 999px; padding: 4px 10px; white-space: nowrap; }
 .proc-readtime { font-size: 11px; color: var(--ink-faint); white-space: nowrap; }
 .proc-audio-btn { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px;
-  border: 1px solid var(--line-soft); border-radius: 999px; background: var(--surface-2); color: var(--ink-faint);
-  cursor: not-allowed; }
+  border: 1px solid var(--line-soft); border-radius: 999px; background: var(--surface-2); color: var(--ink-soft);
+  cursor: pointer; transition: background-color .15s var(--ease-out), color .15s var(--ease-out), border-color .15s var(--ease-out); }
+.proc-audio-btn:hover { color: var(--primary); border-color: var(--primary); }
+.proc-audio-btn.playing { background: var(--accent); border-color: transparent; color: #fff; }
 .proc-audio-btn svg { width: 14px; height: 14px; }
 
 .proc-section { margin: 18px 0; }
@@ -1645,6 +1651,7 @@ body.js-motion .bento-hero.reveal-init.in .bento-start-btn {
 .proc-pearl { border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--line-soft)); border-left: 3px solid var(--accent);
   background: color-mix(in srgb, var(--accent) 6%, var(--surface)); }
 .proc-pearl .proc-callout-label { color: var(--accent); }
+.proc-callout-label .pearl-bookmark-btn { margin-left: auto; }
 
 /* Pre-Scrub Check Mode: hide the callout body behind an overlay button
    until clicked, so the brief doubles as a blind self-test. */
@@ -1658,3 +1665,125 @@ body.js-motion .bento-hero.reveal-init.in .bento-start-btn {
 .prescrub-mode .proc-checkable:not(.revealed) .proc-check-overlay span { font-size: 11px; font-weight: 500;
   text-transform: uppercase; letter-spacing: .04em; opacity: .8; }
 .proc-checkable.revealed .proc-callout-body { animation: cardReveal .22s var(--ease-out); }
+
+/* ================================================================
+   TOAST -- tiny transient confirmation ("Saved to your Pocket Log")
+   ================================================================ */
+.app-toast { position: fixed; left: 50%; bottom: 28px; transform: translate(-50%, 12px); z-index: 1200;
+  background: var(--ink); color: var(--ground); font-size: 13px; font-weight: 600; padding: 10px 18px;
+  border-radius: 999px; box-shadow: var(--shadow-lg, var(--shadow)); opacity: 0; pointer-events: none;
+  transition: opacity .2s var(--ease-out), transform .2s var(--ease-out); }
+.app-toast.show { opacity: 1; transform: translate(-50%, 0); }
+@media (prefers-reduced-motion: reduce) { .app-toast { transition: opacity .15s linear; } }
+
+/* ================================================================
+   Bookmark / listen / split-view icon buttons -- shared small round
+   button look used in the anatomy lesson hero and clinical/procedure
+   block headers.
+   ================================================================ */
+.pearl-bookmark-btn, .audio-brief-btn, .lesson-split-btn {
+  display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; flex: 0 0 auto;
+  border: 1px solid var(--line-soft); border-radius: 999px; background: var(--surface); color: var(--ink-faint);
+  cursor: pointer; transition: background-color .15s var(--ease-out), color .15s var(--ease-out), border-color .15s var(--ease-out), transform .15s var(--ease-spring); }
+.pearl-bookmark-btn svg, .audio-brief-btn svg, .lesson-split-btn svg { width: 16px; height: 16px; }
+.pearl-bookmark-btn:hover, .audio-brief-btn:hover, .lesson-split-btn:hover { color: var(--primary); border-color: var(--primary); }
+.pearl-bookmark-btn:active, .audio-brief-btn:active, .lesson-split-btn:active { transform: scale(.92); }
+.pearl-bookmark-btn.saved { background: var(--accent); border-color: transparent; color: #fff; }
+.audio-brief-btn.playing { background: var(--accent); border-color: transparent; color: #fff; }
+.lesson-split-btn.active { background: var(--primary); border-color: transparent; color: #fff; }
+.lesson-hero-actions { display: inline-flex; align-items: center; gap: 6px; margin-left: auto; }
+.lesson-hero-top { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+
+/* ================================================================
+   Split-pane anatomy workspace -- figure pinned in a sticky left rail,
+   prose scrolling on the right. Only meaningful with real width to
+   split, so it collapses back to a normal stacked column on narrow
+   screens regardless of the toggle state.
+   ================================================================ */
+@media (min-width: 900px) {
+  .split-pane-wrap { display: flex; align-items: flex-start; gap: 28px; }
+  .split-pane-figure { position: sticky; top: calc(var(--topbar-h, 73px) + var(--head-h, 118px) + 16px); flex: 0 0 42%; max-width: 42%; }
+  .split-pane-figure .note-fig { margin: 0; }
+  .split-pane-text { flex: 1 1 auto; min-width: 0; }
+}
+.split-pane-figure .note-fig img { width: 100%; }
+
+/* ================================================================
+   OR POCKET LOG -- floating tab + slide-over drawer (Saved Pearls /
+   Quick Log), same fixed-drawer pattern as .flashpanel/.pimppanel.
+   ================================================================ */
+.pocketlog-tab { position: fixed; right: 0; top: 68%; transform: translateY(-50%) rotate(180deg); writing-mode: vertical-rl;
+  display: flex; align-items: center; gap: 7px; padding: 12px 8px; background: var(--primary); color: #fff;
+  border: 0; border-radius: 10px 0 0 10px; box-shadow: var(--shadow); z-index: 8; cursor: pointer; font-size: 12px; font-weight: 700;
+  letter-spacing: .02em; transition: padding .15s var(--ease-out), background-color .15s var(--ease-out); }
+.pocketlog-tab:hover { padding-right: 12px; background: var(--primary-deep); }
+.pocketlog-tab svg { width: 15px; height: 15px; flex: 0 0 auto; }
+body.pocketlog-open .pocketlog-tab { display: none; }
+.pocketlog-panel { position: fixed; top: var(--topbar-h, 73px); right: 0; bottom: 0; width: min(400px, 88vw); max-width: 92vw;
+  background: var(--surface); border-left: 1px solid var(--line); overflow-y: auto; z-index: 9;
+  transform: translateX(100%); transition: transform .32s var(--ease-drawer); }
+body.pocketlog-open .pocketlog-panel { transform: none; }
+.pl-head { display: flex; align-items: center; justify-content: space-between; padding: 13px 16px; border-bottom: 1px solid var(--line);
+  position: sticky; top: 0; background: var(--surface); z-index: 1; }
+.pl-title { font-family: "Source Serif 4", serif; font-weight: 600; font-size: 1.05rem; display: flex; align-items: center; gap: 10px; }
+.pl-title .mark { width: 30px; height: 30px; border-radius: 9px; background: var(--primary-tint); color: var(--primary);
+  display: grid; place-items: center; flex: 0 0 auto; }
+.pl-title .mark svg { width: 60%; height: 60%; display: block; }
+.pl-tabs { display: flex; gap: 4px; padding: 10px 16px 0; border-bottom: 1px solid var(--line-soft); position: sticky; top: 60px; background: var(--surface); z-index: 1; }
+.pl-tabbtn { flex: 1 1 auto; border: 0; background: none; padding: 9px 6px; font-size: 12.5px; font-weight: 600; color: var(--ink-faint);
+  border-bottom: 2px solid transparent; cursor: pointer; transition: color .15s var(--ease-out), border-color .15s var(--ease-out); }
+.pl-tabbtn:hover { color: var(--ink-soft); }
+.pl-tabbtn.active { color: var(--primary); border-color: var(--primary); }
+.pl-body { padding: 16px; }
+.pl-actions { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+.pl-pearl, .pl-logentry { border: 1px solid var(--line-soft); border-radius: 10px; padding: 12px 14px; margin-bottom: 10px;
+  background: var(--surface-2); cursor: pointer; transition: border-color .15s var(--ease-out); }
+.pl-pearl:hover { border-color: var(--primary); }
+.pl-pearl-head, .pl-logentry-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 6px; }
+.pl-pearl-mod, .pl-logentry-date { font-size: 10.5px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: .03em; }
+.pl-pearl-del, .pl-logentry-del { width: 22px; height: 22px; border: 0; background: none; color: var(--ink-faint); cursor: pointer;
+  border-radius: 6px; flex: 0 0 auto; }
+.pl-pearl-del:hover, .pl-logentry-del:hover { color: var(--flag); background: var(--surface); }
+.pl-pearl-title { font-weight: 600; font-size: 13.5px; margin-bottom: 3px; }
+.pl-pearl-snippet, .pl-logentry-text { font-size: 12.5px; color: var(--ink-soft); line-height: 1.5; white-space: pre-wrap; }
+.pl-logform { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+.pl-log-input { resize: vertical; min-height: 64px; border: 1px solid var(--line-soft); border-radius: 10px; padding: 10px 12px;
+  font: inherit; font-size: 13px; background: var(--surface); color: var(--ink); }
+.pl-log-input:focus-visible { outline: 2px solid var(--primary); outline-offset: 1px; }
+
+/* ================================================================
+   AUDIO BRIEF -- floating mini-player, fixed above the footer.
+   ================================================================ */
+.audio-brief-bar { position: fixed; left: 50%; bottom: 20px; transform: translateX(-50%); z-index: 20;
+  display: flex; align-items: center; gap: 6px; background: var(--surface); border: 1px solid var(--line-soft);
+  border-radius: 999px; box-shadow: var(--shadow-lg, var(--shadow)); padding: 8px 10px; max-width: min(480px, 92vw); }
+.audio-brief-bar[hidden] { display: none; }
+.ab-btn { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; flex: 0 0 auto;
+  border: 0; background: none; color: var(--ink-soft); border-radius: 999px; cursor: pointer; }
+.ab-btn:hover { background: var(--surface-2); color: var(--ink); }
+.ab-btn svg { width: 15px; height: 15px; }
+.ab-playpause { background: var(--primary); color: #fff; }
+.ab-playpause:hover { background: var(--primary-deep); color: #fff; }
+.ab-info { flex: 1 1 auto; min-width: 90px; max-width: 180px; }
+.ab-label { font-size: 10.5px; color: var(--ink-faint); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 4px; }
+.ab-progress { height: 3px; background: var(--surface-2); border-radius: 3px; overflow: hidden; }
+.ab-progress i { display: block; height: 100%; background: var(--accent); transition: width .15s linear; }
+.ab-rate { width: auto; padding: 0 8px; font-size: 11px; font-weight: 700; }
+@media (max-width: 560px) { .audio-brief-bar { left: 10px; right: 10px; bottom: 12px; transform: none; max-width: none; } .ab-info { display: none; } }
+
+/* ================================================================
+   KEYBOARD SHORTCUTS CHEATSHEET (the "?" modal)
+   ================================================================ */
+.shortcuts-modal { position: fixed; inset: 0; z-index: 1000; background: rgba(8,12,16,.55); backdrop-filter: blur(2px);
+  display: flex; align-items: center; justify-content: center; padding: 20px; }
+.shortcuts-modal[hidden] { display: none; }
+.sk-panel { background: var(--surface); border-radius: 14px; box-shadow: var(--shadow-lg, var(--shadow)); max-width: 480px; width: 100%;
+  max-height: 84vh; overflow-y: auto; }
+.sk-head { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border-bottom: 1px solid var(--line-soft); }
+.sk-head h3 { margin: 0; font-size: 1.1rem; }
+.sk-body { padding: 8px 20px 20px; }
+.sk-group { margin-top: 16px; }
+.sk-group h4 { font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: var(--ink-faint); margin: 0 0 8px; }
+.sk-row { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 6px 0; font-size: 13px; color: var(--ink-soft); }
+.sk-row kbd { font-family: "JetBrains Mono", monospace; font-size: 11.5px; background: var(--surface-2); border: 1px solid var(--line-soft);
+  border-radius: 6px; padding: 3px 7px; color: var(--ink); white-space: nowrap; }

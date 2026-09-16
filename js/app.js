@@ -1494,6 +1494,40 @@
     heroTop.appendChild(h(
       '<span class="lesson-kicker mono">' + esc(topic.kind === "note" ? "Anatomy note" : "Anatomy diagram") + '</span>'
     ));
+
+    /* Body is built up front (rather than after the hero, as before) so the
+     * hero's action row can tell whether there's a figure to offer a split
+     * view for, and so the audio brief has real text to read without a
+     * second DOM pass. */
+    var bodyEl = buildBody();
+    var item = topic.kind === "note" ? notes[topic.index] : diagrams[topic.index];
+    var briefText = item ? (item.html ? stripHtml(item.html) : (item.note || "")) : "";
+    var hasFigure = !!bodyEl.querySelector(".note-fig");
+
+    var heroActions = h('<div class="lesson-hero-actions"></div>');
+    heroActions.appendChild(bookmarkButton({
+      id: mod.id + "::anatomy::" + topic.kind + topic.index,
+      title: title, moduleId: mod.id, moduleTitle: mod.title, tab: "anatomy",
+      snippet: briefText.slice(0, 220)
+    }));
+    if (briefText) heroActions.appendChild(audioBriefButton(function () { return briefText; }, title));
+    if (hasFigure) {
+      var splitBtn = h('<button type="button" class="lesson-split-btn" data-tip="Split view" aria-pressed="false" aria-label="Toggle split view"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M12 4v16"/></svg></button>');
+      var splitOn = loadSplitViewPref();
+      if (splitOn) splitBtn.classList.add("active");
+      splitBtn.setAttribute("aria-pressed", splitOn ? "true" : "false");
+      splitBtn.addEventListener("click", function () {
+        var on = !bodyEl.classList.contains("split-mode");
+        applySplitView(bodyEl, on);
+        splitBtn.classList.toggle("active", on);
+        splitBtn.setAttribute("aria-pressed", on ? "true" : "false");
+        saveSplitViewPref(on);
+      });
+      heroActions.appendChild(splitBtn);
+      if (splitOn) applySplitView(bodyEl, true);
+    }
+    heroTop.appendChild(heroActions);
+
     if (tagline) {
       /* tagline is authored as up to 3 short key structures/terms joined by
        * " · " (e.g. "Zygoma · Four-point articulation · ZMC fracture") --
@@ -1533,7 +1567,7 @@
     }
     main.appendChild(hero);
 
-    main.appendChild(buildBody());
+    main.appendChild(bodyEl);
     shell.appendChild(main);
     setStickyCurrent(title);
     return { shell: shell, main: main };
@@ -2049,6 +2083,15 @@
       var anchor = "clinical-block-" + esc(b.id || "");
       var p = h('<div class="panel" data-anchor="' + anchor + '"><h3>' + esc(b.title) + '</h3>' +
         (b.tagline ? '<p class="detail-tagline">' + esc(b.tagline) + '</p>' : '') + '</div>');
+      var blockText = stripHtml(b.html || "");
+      var blockActions = h('<div class="panel-actions"></div>');
+      blockActions.appendChild(bookmarkButton({
+        id: mod.id + "::clinical::" + (b.id || i),
+        title: b.title, moduleId: mod.id, moduleTitle: mod.title, tab: "clinical", anchor: anchor,
+        snippet: blockText.slice(0, 220)
+      }));
+      if (blockText) blockActions.appendChild(audioBriefButton(function () { return blockText; }, b.title));
+      p.appendChild(blockActions);
       if (b.html) p.appendChild(h('<div>' + b.html + '</div>'));
       if (b.table) {
         p.appendChild(h(
@@ -2297,12 +2340,20 @@
           '<div class="proc-badges">' +
             '<span class="proc-tag">' + esc(b.subspecialty || "") + "</span>" +
             '<span class="proc-readtime mono">~' + readLabel + " read</span>" +
-            '<button type="button" class="proc-audio-btn" disabled aria-label="Read aloud (coming soon)" title="Read aloud — coming soon">' +
+            '<button type="button" class="proc-audio-btn" aria-label="Listen to 2-Min Brief" data-tip="Listen to 2-Min Brief">' +
               '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/></svg>' +
             "</button>" +
           "</div>" +
         "</div>"
       ));
+      var briefParts = [b.scenario, (b.decisionPoints || []).join(". "), (b.keySteps || []).join(". "), b.dangerStructures, b.pearl];
+      var briefText = stripHtml(briefParts.filter(function (s) { return s; }).join(". "));
+      var procAudioBtn = card.querySelector(".proc-audio-btn");
+      procAudioBtn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        if (audioBrief.activeBtn === procAudioBtn) { stopBrief(); return; }
+        startBrief(briefText, b.title, procAudioBtn);
+      });
 
       if (b.scenario) {
         card.appendChild(h(
@@ -2353,6 +2404,12 @@
           "</div>"
         );
         pearlCard.querySelector(".proc-check-overlay").addEventListener("click", function () { pearlCard.classList.add("revealed"); });
+        var pearlBookmark = bookmarkButton({
+          id: mod.id + "::pearl::" + (b.id || b.title),
+          title: b.title, moduleId: mod.id, moduleTitle: mod.title, tab: "clinical",
+          snippet: stripHtml(b.pearl).slice(0, 220)
+        });
+        pearlCard.querySelector(".proc-callout-label").appendChild(pearlBookmark);
         card.appendChild(pearlCard);
       }
 
@@ -2596,8 +2653,29 @@
     b1.addEventListener("click", function () { startSession(pane, mod, "due"); });
     var b2 = h('<button class="btn ghost">Review all ' + s.total + '</button>');
     b2.addEventListener("click", function () { startSession(pane, mod, "all"); });
-    actions.appendChild(b1); actions.appendChild(b2);
+    var b3 = h('<button class="btn ghost" data-tip="Download a tab-separated deck for Anki\'s desktop import">Export to Anki</button>');
+    b3.addEventListener("click", function () { exportModuleToAnki(mod); });
+    actions.appendChild(b1); actions.appendChild(b2); actions.appendChild(b3);
     pane.appendChild(cta);
+  }
+
+  /* Anki's desktop "Import File" dialog reads plain tab-separated text (no
+   * header row) as Front \t Back \t Tags -- multiple tags in one field are
+   * space-separated, and Anki fields happily render basic HTML, so front/
+   * back are kept as HTML (through effectiveFront/Back, so a learner's own
+   * card-text overrides travel with the export too) rather than stripped
+   * to plain text -- only literal tabs/newlines are collapsed, since those
+   * are the row/field delimiters in this format. */
+  function tsvSafe(s) { return String(s || "").replace(/\r?\n+/g, " ").replace(/\t/g, " ").trim(); }
+  function exportModuleToAnki(mod) {
+    var lines = (mod.cards || []).map(function (c) {
+      var front = tsvSafe(effectiveFront(mod.id, c));
+      var back = tsvSafe(effectiveBack(mod.id, c));
+      var tags = (c.tags || []).join(" ");
+      return front + "\t" + back + "\t" + tags;
+    });
+    downloadTextFile(mod.id + "-anki-export.txt", lines.join("\n"), "text/plain");
+    showToast("Downloaded " + lines.length + " cards for Anki import");
   }
 
   /* startSession normally computes its own card list from mod.id (per-module
@@ -3530,6 +3608,467 @@
     return true;
   }
 
+  /* ---------- TOAST (tiny transient confirmation, e.g. "Pearl saved") ---------- */
+  var toastTimer = null;
+  function showToast(msg) {
+    var t = el("appToast");
+    if (!t) {
+      t = document.createElement("div");
+      t.id = "appToast"; t.className = "app-toast"; t.setAttribute("role", "status"); t.setAttribute("aria-live", "polite");
+      document.body.appendChild(t);
+    }
+    t.textContent = msg;
+    t.classList.remove("show"); void t.offsetWidth; t.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { t.classList.remove("show"); }, 2600);
+  }
+
+  /* ---------- DOWNLOAD HELPER (client-side export, no server) ---------- */
+  function downloadTextFile(filename, content, mime) {
+    var blob = new Blob([content], { type: (mime || "text/plain") + ";charset=utf-8" });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url; a.download = filename; a.style.display = "none";
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+  }
+  function csvField(v) {
+    v = String(v == null ? "" : v);
+    return /[",\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v;
+  }
+
+  /* ---------- OR POCKET LOG: Saved Pearls + Quick Log (local-only, no PII) ----------
+   * Two independent localStorage lists a learner builds up themselves --
+   * pearls bookmarked from clinical/procedure content (togglePearl, called
+   * from bookmarkButton()) and free-text case notes they type themselves
+   * (addLogEntry). Both are per-browser only, exportable as Markdown/CSV,
+   * and never sent anywhere -- same "no accounts, no PII" posture as the
+   * rest of the app. See CLAUDE.md "Not this project's job". */
+  var PEARLS_KEY = "jeffent.pearls";
+  var CASELOG_KEY = "jeffent.caselog";
+  function loadPearls() { try { return JSON.parse(localStorage.getItem(PEARLS_KEY) || "[]"); } catch (e) { return []; } }
+  function savePearls(list) { try { localStorage.setItem(PEARLS_KEY, JSON.stringify(list)); } catch (e) {} }
+  function isPearlSaved(id) {
+    var list = loadPearls();
+    for (var i = 0; i < list.length; i++) { if (list[i].id === id) return true; }
+    return false;
+  }
+  /* Returns the new saved state (true = just saved, false = just removed). */
+  function togglePearl(meta) {
+    var list = loadPearls();
+    var idx = -1;
+    for (var i = 0; i < list.length; i++) { if (list[i].id === meta.id) { idx = i; break; } }
+    if (idx !== -1) {
+      list.splice(idx, 1);
+      savePearls(list);
+      showToast("Pearl removed");
+      renderPocketLogIfOpen();
+      return false;
+    }
+    meta.ts = Date.now();
+    list.unshift(meta);
+    savePearls(list);
+    showToast("Saved to your Pocket Log");
+    renderPocketLogIfOpen();
+    return true;
+  }
+  function deletePearl(id) {
+    var list = loadPearls().filter(function (p) { return p.id !== id; });
+    savePearls(list);
+    renderPocketLogIfOpen();
+  }
+  function loadCaseLog() { try { return JSON.parse(localStorage.getItem(CASELOG_KEY) || "[]"); } catch (e) { return []; } }
+  function saveCaseLog(list) { try { localStorage.setItem(CASELOG_KEY, JSON.stringify(list)); } catch (e) {} }
+  function addLogEntry(text) {
+    text = (text || "").trim();
+    if (!text) return;
+    var list = loadCaseLog();
+    list.unshift({ id: "log-" + Date.now() + "-" + Math.random().toString(36).slice(2, 7), ts: Date.now(), text: text });
+    saveCaseLog(list);
+    renderPocketLogIfOpen();
+  }
+  function deleteLogEntry(id) {
+    var list = loadCaseLog().filter(function (e) { return e.id !== id; });
+    saveCaseLog(list);
+    renderPocketLogIfOpen();
+  }
+  function fmtLogDate(ts) {
+    var d = new Date(ts);
+    return d.toLocaleDateString(undefined, { month: "short", day: "numeric" }) + " · " + d.toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" });
+  }
+
+  /* A small star/bookmark button, reused next to every pearl / clinical
+   * block / anatomy lesson. `meta` is the pearl record it saves: { id
+   * (stable + unique), title, snippet (plain text), moduleId, moduleTitle,
+   * tab, anchor (for jump-back-to-source) }. */
+  function bookmarkButton(meta) {
+    var saved = isPearlSaved(meta.id);
+    var btn = h(
+      '<button type="button" class="pearl-bookmark-btn' + (saved ? " saved" : "") + '" aria-pressed="' + (saved ? "true" : "false") + '" data-tip="' + (saved ? "Saved" : "Save as pearl") + '" aria-label="' + (saved ? "Remove from Pocket Log" : "Save as pearl") + '">' +
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1Z"/></svg>' +
+      '</button>'
+    );
+    btn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      var nowSaved = togglePearl(meta);
+      btn.classList.toggle("saved", nowSaved);
+      btn.setAttribute("aria-pressed", nowSaved ? "true" : "false");
+      btn.setAttribute("aria-label", nowSaved ? "Remove from Pocket Log" : "Save as pearl");
+      btn.setAttribute("data-tip", nowSaved ? "Saved" : "Save as pearl");
+    });
+    return btn;
+  }
+  /* Bookmarks the pearl/lesson currently open, for the "B" keyboard
+   * shortcut -- mirrors whatever bookmarkButton() would have built for the
+   * page's primary content, since there's no single focused button to
+   * click. Returns true if it found something bookmarkable. */
+  function bookmarkCurrentContext() {
+    if (state.screen !== "module" || !state.moduleId) return false;
+    var mod = window.JEFFENT.get(state.moduleId);
+    if (!mod) return false;
+    if (state.tab === "anatomy" && state.anatomyTopic) {
+      var a = mod.anatomy || {}, topic = state.anatomyTopic;
+      var item = topic.kind === "note" ? (a.notes || [])[topic.index] : (a.diagrams || [])[topic.index];
+      if (!item) return false;
+      var nowSaved = togglePearl({
+        id: mod.id + "::anatomy::" + topic.kind + topic.index,
+        title: item.title, moduleId: mod.id, moduleTitle: mod.title, tab: "anatomy",
+        snippet: stripHtml(item.html || item.note || "").slice(0, 220)
+      });
+      /* Keep the on-page bookmark button's visual state in sync -- it was
+       * built (and its "saved" look decided) before this shortcut ran. */
+      var onPageBtn = document.querySelector(".lesson-hero-actions .pearl-bookmark-btn");
+      if (onPageBtn) {
+        onPageBtn.classList.toggle("saved", nowSaved);
+        onPageBtn.setAttribute("aria-pressed", nowSaved ? "true" : "false");
+        onPageBtn.setAttribute("data-tip", nowSaved ? "Saved" : "Save as pearl");
+      }
+      return true;
+    }
+    return false;
+  }
+
+  var pocketLog = { tab: "pearls" };
+  function initPocketLog() {
+    var tabBtn = document.createElement("button");
+    tabBtn.type = "button"; tabBtn.id = "pocketLogTab"; tabBtn.className = "pocketlog-tab";
+    tabBtn.setAttribute("aria-label", "Open OR Pocket Log"); tabBtn.setAttribute("aria-expanded", "false");
+    tabBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1Z"/></svg><span>Pocket Log</span>';
+    document.body.appendChild(tabBtn);
+    tabBtn.addEventListener("click", togglePocketLog);
+
+    var aside = document.createElement("aside");
+    aside.id = "pocketLogPanel"; aside.className = "pocketlog-panel"; aside.setAttribute("aria-label", "OR Pocket Log");
+    aside.innerHTML =
+      '<div class="pl-head"><div class="pl-title"><span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1Z"/></svg></span>OR Pocket Log</div><button type="button" class="pl-close icon-btn" aria-label="Close">✕</button></div>' +
+      '<div class="pl-tabs" role="tablist"><button type="button" class="pl-tabbtn" data-pltab="pearls" role="tab">Saved Pearls</button><button type="button" class="pl-tabbtn" data-pltab="log" role="tab">Quick Log</button></div>' +
+      '<div class="pl-body"></div>';
+    document.body.appendChild(aside);
+    aside.querySelector(".pl-close").addEventListener("click", closePocketLog);
+    aside.querySelectorAll(".pl-tabbtn").forEach(function (b) {
+      b.addEventListener("click", function () { pocketLog.tab = b.dataset.pltab; renderPocketLog(); });
+    });
+  }
+  function openPocketLog() {
+    document.body.classList.add("pocketlog-open");
+    var t = el("pocketLogTab"); if (t) t.setAttribute("aria-expanded", "true");
+    renderPocketLog();
+  }
+  function closePocketLog() {
+    document.body.classList.remove("pocketlog-open");
+    var t = el("pocketLogTab"); if (t) t.setAttribute("aria-expanded", "false");
+  }
+  function togglePocketLog() { if (document.body.classList.contains("pocketlog-open")) closePocketLog(); else openPocketLog(); }
+  function renderPocketLogIfOpen() { if (document.body.classList.contains("pocketlog-open")) renderPocketLog(); }
+
+  function renderPocketLog() {
+    var aside = el("pocketLogPanel");
+    if (!aside) return;
+    aside.querySelectorAll(".pl-tabbtn").forEach(function (b) {
+      var active = b.dataset.pltab === pocketLog.tab;
+      b.classList.toggle("active", active);
+      b.setAttribute("aria-selected", active ? "true" : "false");
+    });
+    var body = aside.querySelector(".pl-body");
+    body.innerHTML = "";
+    if (pocketLog.tab === "pearls") renderPearlsTab(body); else renderQuickLogTab(body);
+  }
+  function renderPearlsTab(body) {
+    var pearls = loadPearls();
+    var actions = h('<div class="pl-actions"></div>');
+    var exportBtn = h('<button type="button" class="btn ghost small" ' + (pearls.length ? "" : "disabled") + '>Export as Markdown</button>');
+    exportBtn.addEventListener("click", function () { exportPearlsMarkdown(pearls); });
+    actions.appendChild(exportBtn);
+    body.appendChild(actions);
+    if (!pearls.length) {
+      body.appendChild(h('<p class="empty-note">No pearls saved yet. Click the bookmark icon next to a clinical pearl, procedure block, or anatomy lesson to pin it here.</p>'));
+      return;
+    }
+    pearls.forEach(function (p) {
+      var row = h(
+        '<div class="pl-pearl">' +
+          '<div class="pl-pearl-head"><span class="pl-pearl-mod mono">' + esc(p.moduleTitle || "") + '</span><button type="button" class="pl-pearl-del icon-btn" aria-label="Remove pearl">✕</button></div>' +
+          '<div class="pl-pearl-title">' + esc(p.title || "") + '</div>' +
+          (p.snippet ? '<div class="pl-pearl-snippet">' + esc(p.snippet) + '</div>' : '') +
+        '</div>'
+      );
+      row.querySelector(".pl-pearl-del").addEventListener("click", function () { deletePearl(p.id); });
+      row.addEventListener("click", function (e) {
+        if (e.target.closest(".pl-pearl-del")) return;
+        if (!p.moduleId) return;
+        closePocketLog();
+        goModuleTab(p.moduleId, p.tab || "clinical");
+      });
+      body.appendChild(row);
+    });
+  }
+  function exportPearlsMarkdown(pearls) {
+    var lines = ["# Saved Pearls — JeffENT Rotation Companion", ""];
+    pearls.forEach(function (p) {
+      lines.push("## " + (p.title || "Untitled"));
+      lines.push("_" + (p.moduleTitle || "") + "_");
+      lines.push("");
+      if (p.snippet) { lines.push(p.snippet); lines.push(""); }
+    });
+    downloadTextFile("pocket-log-pearls.md", lines.join("\n"), "text/markdown");
+  }
+  function renderQuickLogTab(body) {
+    var entries = loadCaseLog();
+    var form = h(
+      '<div class="pl-logform">' +
+        '<textarea class="pl-log-input" rows="3" placeholder="e.g. T&amp;A with Dr. X — Coblation settings 7/3, anterior pillar tear management" aria-label="New case log entry"></textarea>' +
+        '<button type="button" class="btn small">Add entry</button>' +
+      '</div>'
+    );
+    var input = form.querySelector(".pl-log-input");
+    form.querySelector("button").addEventListener("click", function () { addLogEntry(input.value); input.value = ""; });
+    input.addEventListener("keydown", function (e) { if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) { addLogEntry(input.value); input.value = ""; } });
+    body.appendChild(form);
+    var actions = h('<div class="pl-actions"></div>');
+    var mdBtn = h('<button type="button" class="btn ghost small" ' + (entries.length ? "" : "disabled") + '>Export .md</button>');
+    var csvBtn = h('<button type="button" class="btn ghost small" ' + (entries.length ? "" : "disabled") + '>Export .csv</button>');
+    mdBtn.addEventListener("click", function () { exportLogMarkdown(entries); });
+    csvBtn.addEventListener("click", function () { exportLogCsv(entries); });
+    actions.appendChild(mdBtn); actions.appendChild(csvBtn);
+    body.appendChild(actions);
+    if (!entries.length) {
+      body.appendChild(h('<p class="empty-note">Nothing logged yet — jot down a case you saw today.</p>'));
+      return;
+    }
+    entries.forEach(function (e) {
+      var row = h(
+        '<div class="pl-logentry">' +
+          '<div class="pl-logentry-head"><span class="pl-logentry-date mono">' + esc(fmtLogDate(e.ts)) + '</span><button type="button" class="pl-logentry-del icon-btn" aria-label="Delete entry">✕</button></div>' +
+          '<div class="pl-logentry-text"></div>' +
+        '</div>'
+      );
+      row.querySelector(".pl-logentry-text").textContent = e.text;
+      row.querySelector(".pl-logentry-del").addEventListener("click", function () { deleteLogEntry(e.id); });
+      body.appendChild(row);
+    });
+  }
+  function exportLogMarkdown(entries) {
+    var lines = ["# Quick Log — JeffENT Rotation Companion", ""];
+    entries.forEach(function (e) { lines.push("- **" + fmtLogDate(e.ts) + "** — " + e.text); });
+    downloadTextFile("pocket-log-cases.md", lines.join("\n"), "text/markdown");
+  }
+  function exportLogCsv(entries) {
+    var lines = ["date,entry"];
+    entries.forEach(function (e) { lines.push(csvField(fmtLogDate(e.ts)) + "," + csvField(e.text)); });
+    downloadTextFile("pocket-log-cases.csv", lines.join("\n"), "text/csv");
+  }
+
+  /* ---------- AUDIO BRIEF (Web Speech API) ----------
+   * A floating mini-player that reads a lesson/procedure/clinical block
+   * aloud. speechSynthesis has no seek/currentTime, so "±15s" is
+   * approximated by skipping whole sentences (roughly 2 sentences at a
+   * natural reading pace) rather than a literal time seek. */
+  var audioBrief = { sentences: [], idx: 0, rate: 1, playing: false, label: "", activeBtn: null };
+  function splitIntoSentences(text) {
+    var cleaned = String(text || "").replace(/\s+/g, " ").trim();
+    if (!cleaned) return [];
+    var matches = cleaned.match(/[^.!?]+[.!?]+(?:\s+|$)/g);
+    return matches ? matches.map(function (s) { return s.trim(); }).filter(function (s) { return s; }) : [cleaned];
+  }
+  function ensureBriefPlayer() {
+    var bar = el("audioBriefBar");
+    if (bar) return bar;
+    bar = document.createElement("div");
+    bar.id = "audioBriefBar"; bar.className = "audio-brief-bar"; bar.hidden = true; bar.setAttribute("role", "region"); bar.setAttribute("aria-label", "Audio brief player");
+    bar.innerHTML =
+      '<button type="button" class="ab-btn ab-skip" data-dir="-1" aria-label="Back 15 seconds">' +
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 17 6 12l5-5"/><path d="M18 17l-5-5 5-5"/></svg></button>' +
+      '<button type="button" class="ab-btn ab-playpause" aria-label="Play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7Z"/></svg></button>' +
+      '<button type="button" class="ab-btn ab-skip" data-dir="1" aria-label="Forward 15 seconds">' +
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m13 17 5-5-5-5"/><path d="M6 17l5-5-5-5"/></svg></button>' +
+      '<div class="ab-info"><div class="ab-label mono"></div><div class="ab-progress"><i></i></div></div>' +
+      '<button type="button" class="ab-btn ab-rate mono" aria-label="Playback speed">1x</button>' +
+      '<button type="button" class="ab-btn ab-close" aria-label="Stop listening">✕</button>';
+    document.body.appendChild(bar);
+    bar.querySelector(".ab-playpause").addEventListener("click", toggleBriefPlayback);
+    bar.querySelectorAll(".ab-skip").forEach(function (b) {
+      b.addEventListener("click", function () { skipBrief(parseInt(b.getAttribute("data-dir"), 10) * 2); });
+    });
+    bar.querySelector(".ab-rate").addEventListener("click", cycleBriefRate);
+    bar.querySelector(".ab-close").addEventListener("click", stopBrief);
+    return bar;
+  }
+  function renderBriefPlayer() {
+    var bar = ensureBriefPlayer();
+    bar.hidden = audioBrief.sentences.length === 0;
+    bar.querySelector(".ab-label").textContent = audioBrief.label;
+    bar.querySelector(".ab-rate").textContent = audioBrief.rate === 1 ? "1x" : audioBrief.rate + "x";
+    var pct = audioBrief.sentences.length ? Math.round((audioBrief.idx / audioBrief.sentences.length) * 100) : 0;
+    bar.querySelector(".ab-progress i").style.width = pct + "%";
+    var pp = bar.querySelector(".ab-playpause");
+    pp.setAttribute("aria-label", audioBrief.playing ? "Pause" : "Play");
+    pp.innerHTML = audioBrief.playing
+      ? '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14"/><rect x="14" y="5" width="4" height="14"/></svg>'
+      : '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7Z"/></svg>';
+  }
+  function playBriefFrom(idx) {
+    if (!window.speechSynthesis) return;
+    window.speechSynthesis.cancel();
+    if (idx < 0) idx = 0;
+    if (idx >= audioBrief.sentences.length) { stopBrief(); return; }
+    audioBrief.idx = idx;
+    var u = new SpeechSynthesisUtterance(audioBrief.sentences[idx]);
+    u.rate = audioBrief.rate;
+    u.onend = function () { if (audioBrief.playing) playBriefFrom(audioBrief.idx + 1); };
+    window.speechSynthesis.speak(u);
+    audioBrief.playing = true;
+    renderBriefPlayer();
+  }
+  function startBrief(text, label, triggerBtn) {
+    if (!window.speechSynthesis) { showToast("Read-aloud isn't supported in this browser"); return; }
+    var sentences = splitIntoSentences(text);
+    if (!sentences.length) return;
+    if (audioBrief.activeBtn && audioBrief.activeBtn !== triggerBtn) audioBrief.activeBtn.classList.remove("playing");
+    audioBrief.sentences = sentences;
+    audioBrief.label = label;
+    audioBrief.rate = audioBrief.rate || 1;
+    audioBrief.activeBtn = triggerBtn || null;
+    if (triggerBtn) triggerBtn.classList.add("playing");
+    playBriefFrom(0);
+  }
+  function toggleBriefPlayback() {
+    if (!audioBrief.sentences.length || !window.speechSynthesis) return;
+    if (audioBrief.playing) { window.speechSynthesis.pause(); audioBrief.playing = false; renderBriefPlayer(); }
+    else if (window.speechSynthesis.paused) { window.speechSynthesis.resume(); audioBrief.playing = true; renderBriefPlayer(); }
+    else { playBriefFrom(audioBrief.idx); }
+  }
+  function skipBrief(deltaSentences) {
+    if (!audioBrief.sentences.length) return;
+    playBriefFrom(audioBrief.idx + deltaSentences);
+  }
+  function cycleBriefRate() {
+    var rates = [1, 1.25, 1.5];
+    var i = rates.indexOf(audioBrief.rate);
+    audioBrief.rate = rates[(i + 1) % rates.length];
+    if (audioBrief.playing) playBriefFrom(audioBrief.idx); else renderBriefPlayer();
+  }
+  function stopBrief() {
+    if (window.speechSynthesis) window.speechSynthesis.cancel();
+    if (audioBrief.activeBtn) audioBrief.activeBtn.classList.remove("playing");
+    audioBrief = { sentences: [], idx: 0, rate: audioBrief.rate, playing: false, label: "", activeBtn: null };
+    renderBriefPlayer();
+  }
+  /* Generic "Listen" icon button for anatomy lessons / clinical blocks.
+   * getTextFn is called lazily (only once clicked) so building the button
+   * never has to strip HTML up front for content that's never played. */
+  function audioBriefButton(getTextFn, label) {
+    var btn = h(
+      '<button type="button" class="audio-brief-btn" aria-label="Listen to ' + esc(label) + '" data-tip="Listen">' +
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>' +
+      '</button>'
+    );
+    btn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      if (audioBrief.activeBtn === btn) { stopBrief(); return; }
+      startBrief(getTextFn(), label, btn);
+    });
+    return btn;
+  }
+
+  /* ---------- KEYBOARD SHORTCUTS CHEATSHEET (the "?" modal) ---------- */
+  var SHORTCUT_GROUPS = [
+    { title: "Flashcards & quizzes", items: [["Space", "Flip / reveal"], ["1 · 2 · 3", "Rate Again · Good · Easy"], ["Z", "Undo last rating"]] },
+    { title: "Reading a lesson", items: [["[ or J", "Previous lesson"], ["] or K", "Next lesson"], ["B", "Save/remove this lesson as a pearl"]] },
+    { title: "Anywhere", items: [["Ctrl/⌘ K", "Search"], ["Ctrl/⌘ ⇧ F", "Toggle flashcards"], ["?", "Show this cheatsheet"], ["Esc", "Close the open panel"]] }
+  ];
+  function initShortcutsModal() {
+    var box = h('<div class="shortcuts-modal" hidden role="dialog" aria-modal="true" aria-label="Keyboard shortcuts"></div>');
+    var groupsHtml = SHORTCUT_GROUPS.map(function (g) {
+      return '<div class="sk-group"><h4>' + esc(g.title) + '</h4><dl>' +
+        g.items.map(function (it) { return '<div class="sk-row"><dt><kbd>' + esc(it[0]) + '</kbd></dt><dd>' + esc(it[1]) + '</dd></div>'; }).join("") +
+        '</dl></div>';
+    }).join("");
+    box.innerHTML =
+      '<div class="sk-panel"><div class="sk-head"><h3>Keyboard shortcuts</h3><button type="button" class="sk-close icon-btn" aria-label="Close">✕</button></div>' +
+      '<div class="sk-body">' + groupsHtml + '</div></div>';
+    document.body.appendChild(box);
+    box.querySelector(".sk-close").addEventListener("click", closeShortcutsModal);
+    box.addEventListener("click", function (e) { if (e.target === box) closeShortcutsModal(); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeShortcutsModal(); });
+    var t = el("shortcutsToggle"); if (t) t.addEventListener("click", toggleShortcutsModal);
+  }
+  function openShortcutsModal() { var box = el2q(".shortcuts-modal"); if (box) box.hidden = false; }
+  function closeShortcutsModal() { var box = el2q(".shortcuts-modal"); if (box) box.hidden = true; }
+  function toggleShortcutsModal() { var box = el2q(".shortcuts-modal"); if (box) { if (box.hidden) openShortcutsModal(); else closeShortcutsModal(); } }
+  function el2q(sel) { return document.querySelector(sel); }
+
+  /* Moves to the previous/next anatomy lesson from the currently open note
+   * or diagram (wrapping at the ends) -- shared by the "[ ] / J K" shortcut
+   * and could back a future prev/next button too. */
+  function stepAnatomyLesson(delta) {
+    if (state.screen !== "module" || state.tab !== "anatomy" || !state.anatomyTopic || !state.moduleId) return false;
+    var mod = window.JEFFENT.get(state.moduleId);
+    if (!mod) return false;
+    var a = mod.anatomy || {};
+    var list = combinedAnatomyList(a.notes || [], a.diagrams || []);
+    if (list.length < 2) return false;
+    var pos = anatomyListPos(list, state.anatomyTopic);
+    if (pos === -1) return false;
+    var next = list[(pos + delta + list.length) % list.length];
+    state.anatomyTopic = { kind: next.kind, index: next.index };
+    var pane = document.querySelector('.tabpane[data-pane="anatomy"]');
+    if (pane) { renderAnatomyPane(pane, mod); window.scrollTo(0, 0); }
+    return true;
+  }
+
+  /* ---------- SPLIT-PANE ANATOMY WORKSPACE (opt-in toggle) ----------
+   * Anchors a lesson's first figure in a sticky left rail while the prose
+   * scrolls on the right, so a visual landmark stays in view while reading.
+   * Real DOM nodes are moved (not cloned), so any listeners already bound
+   * to the figure (e.g. the lightbox's zoomable <img>) keep working; the
+   * original innerHTML is cached on the element so turning split view back
+   * off is a plain, lossless restore. */
+  var SPLIT_VIEW_KEY = "jeffent.splitView";
+  function loadSplitViewPref() { try { return localStorage.getItem(SPLIT_VIEW_KEY) === "1"; } catch (e) { return false; } }
+  function saveSplitViewPref(on) { try { localStorage.setItem(SPLIT_VIEW_KEY, on ? "1" : "0"); } catch (e) {} }
+  function applySplitView(bodyEl, on) {
+    if (!bodyEl) return;
+    var isSplit = bodyEl.classList.contains("split-mode");
+    if (on === isSplit) return;
+    if (!on) {
+      if (bodyEl._splitOriginalHtml != null) bodyEl.innerHTML = bodyEl._splitOriginalHtml;
+      bodyEl._splitOriginalHtml = null;
+      bodyEl.classList.remove("split-mode");
+      return;
+    }
+    var fig = bodyEl.querySelector(".note-fig");
+    if (!fig) return;
+    bodyEl._splitOriginalHtml = bodyEl.innerHTML;
+    var rest = document.createDocumentFragment();
+    Array.prototype.slice.call(bodyEl.childNodes).forEach(function (n) { if (n !== fig) rest.appendChild(n); });
+    bodyEl.innerHTML = "";
+    var wrap = h('<div class="split-pane-wrap"><div class="split-pane-figure"></div><div class="split-pane-text"></div></div>');
+    wrap.querySelector(".split-pane-figure").appendChild(fig);
+    wrap.querySelector(".split-pane-text").appendChild(rest);
+    bodyEl.appendChild(wrap);
+    bodyEl.classList.add("split-mode");
+  }
+
   /* ---------- FLASHCARDS SIDE PANEL (self-contained, independent of state.session) ----------
    * The panel now carries a SCOPE (All modules, or one subspecialty track) and a
    * MODE (Due today / All cards), both chosen from controls at the top of the
@@ -3954,6 +4493,22 @@
     });
   }
 
+  /* Second global keydown, separate from initQuizKeys() above: lesson
+   * navigation ([ ] or J K), bookmarking (B), and the shortcuts cheatsheet
+   * (?) -- none of these overlap with the Space/1-2-3/Z dispatch table, so
+   * they're kept in their own listener rather than threading more cases
+   * into that one. */
+  function initLessonNavKeys() {
+    document.addEventListener("keydown", function (e) {
+      var t = e.target, tag = t && t.tagName;
+      if (tag === "INPUT" || tag === "SELECT" || tag === "TEXTAREA" || (t && t.isContentEditable)) return;
+      if (e.key === "?") { e.preventDefault(); toggleShortcutsModal(); return; }
+      if (e.key === "[" || e.key === "j" || e.key === "J") { if (stepAnatomyLesson(-1)) e.preventDefault(); return; }
+      if (e.key === "]" || e.key === "k" || e.key === "K") { if (stepAnatomyLesson(1)) e.preventDefault(); return; }
+      if (e.key === "b" || e.key === "B") { if (bookmarkCurrentContext()) e.preventDefault(); return; }
+    });
+  }
+
   /* ---------- REFERENCE TABLE CELL LISTIFY ----------
    * Content authors hand-write plain <table> markup for dense multi-column
    * reference tables (region/structures/pathologies, cranial nerve exits,
@@ -4214,7 +4769,10 @@
     initSideNav();
     initFlashPanel();
     initPimpPanel();
+    initPocketLog();
+    initShortcutsModal();
     initQuizKeys();
+    initLessonNavKeys();
     initXrefs();
     initSearchShortcut();
     initFlashShortcut();
