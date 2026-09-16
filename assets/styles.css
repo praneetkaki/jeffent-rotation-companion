@@ -366,9 +366,6 @@ main.wrap { padding-top: 48px; padding-bottom: 60px; min-height: 60vh; }
 .fr-progress .fr-pct { font-size: 12px; color: var(--ink-soft); font-family: "JetBrains Mono", monospace; margin-bottom: 5px; }
 .fr-pill { font-family: "JetBrains Mono", monospace; font-size: 11px; font-weight: 600; white-space: nowrap;
   padding: 5px 11px; border-radius: 999px; background: var(--primary-tint); color: var(--primary-deep); }
-.fr-emergency { font-family: "JetBrains Mono", monospace; font-size: 10.5px; font-weight: 700; text-transform: uppercase;
-  letter-spacing: .04em; white-space: nowrap; padding: 5px 10px; border-radius: 999px;
-  background: var(--flag-tint); color: var(--flag); }
 .fr-cta { flex: 0 0 auto; font-size: 13.5px; font-weight: 600; color: var(--ink-soft); white-space: nowrap;
   padding: 9px 16px; border-radius: 999px; border: 1px solid var(--line);
   transition: color .16s var(--ease-out), border-color .16s var(--ease-out), background-color .16s var(--ease-out); }
@@ -479,27 +476,39 @@ main.wrap { padding-top: 48px; padding-bottom: 60px; min-height: 60vh; }
 /* Segmented capsule controller: one pill-shaped track holding all segments,
    the active one lifted onto its own white chip -- reads as "one control
    with a position", not a row of independent underlined links. */
-.tabs { display: flex; gap: 2px; background: var(--surface-2); border: 1px solid var(--line-soft);
-  border-radius: 12px; padding: 4px; margin: 28px 0 32px; overflow-x: auto; width: fit-content; max-width: 100%;
+/* Sticky wrapper: full-bleed translucent strip pinned below the (also
+   sticky) .page-head, same frosted treatment, so the tabs stay reachable
+   while a long Anatomy/Clinical page scrolls underneath. */
+.tabs-sticky { position: sticky; top: calc(var(--topbar-h, 73px) + var(--pagehead-h, 44px)); z-index: 7;
+  background: color-mix(in srgb, var(--surface) 72%, transparent); backdrop-filter: blur(10px);
+  margin: 0 -20px; padding: 14px 20px 10px; }
+@media (max-width: 640px) { .tabs-sticky { margin: 0 -16px; padding: 14px 16px 10px; } }
+
+.tabs { position: relative; display: flex; gap: 2px; background: var(--surface-2); border: 1px solid var(--line-soft);
+  border-radius: 12px; padding: 4px; margin: 0; overflow-x: auto; width: fit-content; max-width: 100%;
   -webkit-overflow-scrolling: touch;
   -webkit-mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 14px), transparent 100%);
   mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 14px), transparent 100%); }
-.tab { border: 0; background: none; padding: 9px 18px; font-size: 14.5px; font-weight: 500; color: var(--ink-soft);
+/* Sliding pill indicator: one positioned element gliding behind whichever
+   tab is active (moveTabIndicator() in app.js measures the active tab and
+   sets left/top/width/height), replacing the old per-tab background swap
+   so switching tabs reads as one control moving, not two states popping. */
+.tab-pill-indicator { position: absolute; background: var(--surface); border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(15,23,42,.06), 0 1px 0 rgba(15,23,42,.03); z-index: 0;
+  transition: left .3s var(--ease-spring), top .3s var(--ease-spring), width .3s var(--ease-spring), height .3s var(--ease-spring); }
+:root[data-theme="dark"] .tab-pill-indicator, :root:not([data-theme="light"]) .tab-pill-indicator {
+  box-shadow: 0 1px 2px rgba(0,0,0,.3); }
+@media (prefers-reduced-motion: reduce) { .tab-pill-indicator { transition: none; } }
+.tab { position: relative; z-index: 1; border: 0; background: none; padding: 9px 18px; font-size: 14.5px; font-weight: 500; color: var(--ink-soft);
   border-radius: 8px; white-space: nowrap; flex: 0 0 auto;
-  transition: color .16s var(--ease-out), background-color .16s var(--ease-out), box-shadow .16s var(--ease-out); }
+  transition: color .16s var(--ease-out); }
 .tab:hover { color: var(--ink); }
 @media (max-width: 560px) {
-  .tabs { margin: 20px 0 20px; width: 100%; }
+  .tabs { width: 100%; }
   .tab { padding: 9px 14px; font-size: 13.5px; flex: 1 1 auto; text-align: center; }
   .panel { padding: 20px 18px; }
 }
-.tab[aria-selected="true"] { color: var(--primary-deep); background: var(--surface);
-  box-shadow: 0 1px 2px rgba(15,23,42,.06), 0 1px 0 rgba(15,23,42,.03); font-weight: 600;
-  animation: tabPop .28s var(--ease-spring); }
-:root[data-theme="dark"] .tab[aria-selected="true"], :root:not([data-theme="light"]) .tab[aria-selected="true"] {
-  box-shadow: 0 1px 2px rgba(0,0,0,.3); }
-@keyframes tabPop { from { transform: scale(.92); } to { transform: scale(1); } }
-@media (prefers-reduced-motion: reduce) { .tab[aria-selected="true"] { animation: none; } }
+.tab[aria-selected="true"] { color: var(--primary-deep); font-weight: 600; }
 .tabpane { display: none; }
 .tabpane.active { display: block; animation: fade .25s ease; }
 @media (prefers-reduced-motion: reduce) { .tabpane.active { animation: none; } }
@@ -618,7 +627,7 @@ main.wrap { padding-top: 48px; padding-bottom: 60px; min-height: 60vh; }
    Same "one considered accent color" language as .tg-hero, so a lesson page
    reads as a continuation of the topic-grid overview it was opened from,
    not a plainer sub-page. */
-.lesson-shell { display: grid; grid-template-columns: 1fr; gap: 22px; align-items: start; }
+.lesson-shell { display: grid; grid-template-columns: minmax(0, 1fr); gap: 22px; align-items: start; }
 @media (min-width: 900px) { .lesson-shell { grid-template-columns: 216px minmax(0, 1fr); gap: 32px; } }
 
 .lesson-nav { order: -1; border: 1px solid var(--line-soft); border-radius: var(--radius); background: var(--surface); padding: 14px; }
@@ -830,6 +839,39 @@ div.anatomy-detail-body:not(.panel) li { margin: .3em 0; }
 tbody tr:nth-child(even) td { background: var(--surface-2); }
 tbody tr:hover td { background: color-mix(in srgb, var(--primary) 9%, var(--surface)); }
 
+/* ---- reference-table cards: what enhanceReferenceTables() in app.js turns
+   a dense <table> into -- one row-card per <tr>, its first column as the
+   header and every other column as a micro-labeled pill group, so long
+   structure/pathology lists read as scannable tags instead of a
+   horizontally-cramped column of comma-separated prose. ---- */
+/* Every nested flex/grid box here gets an explicit min-width: 0. Without
+   it, a wrapping flex-wrap pill row's *max-content* size (computed as if
+   laid out on one unwrapped line) can bubble all the way up and blow out
+   the single-column .lesson-shell grid track that has no ancestor
+   constraining it below auto -- the same class of overflow bug as the
+   home bento hero's chip rack, just nested one layer deeper. Plain
+   flexbox (not a nested auto-fit grid) for .tbl-card-body sidesteps grid's
+   own max-content amplification on top of that. */
+.tbl-cards { display: flex; flex-direction: column; gap: 10px; margin: 14px 0; min-width: 0; }
+.tbl-card { border: 1px solid var(--line-soft); border-radius: var(--radius); background: var(--surface);
+  padding: 14px 18px; display: grid; grid-template-columns: minmax(120px, 170px) minmax(0, 1fr); gap: 4px 20px;
+  min-width: 0; transition: border-color .15s var(--ease-out), box-shadow .15s var(--ease-out); }
+.tbl-card:hover { border-color: var(--track-color, var(--primary)); box-shadow: var(--shadow); }
+.tbl-card-head { grid-column: 1; font-weight: 700; color: var(--ink); line-height: 1.35; padding-top: 1px; }
+.tbl-card-head a.xref { color: inherit; }
+.tbl-card-body { grid-column: 2; min-width: 0; display: flex; flex-wrap: wrap; gap: 10px 18px; }
+.tbl-card-field { min-width: 0; flex: 1 1 180px; }
+.tbl-card-label { font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em;
+  color: var(--ink-faint); margin-bottom: 5px; }
+.tbl-card-pills { display: flex; flex-wrap: wrap; gap: 5px 6px; min-width: 0; }
+.tbl-card-pill { display: inline-block; background: var(--surface-2); border: 1px solid var(--line-soft);
+  border-radius: 999px; padding: 3px 10px; font-size: 12.5px; line-height: 1.4; color: var(--ink-soft); }
+@media (max-width: 640px) {
+  .tbl-card { grid-template-columns: minmax(0, 1fr); }
+  .tbl-card-head { grid-column: 1; margin-bottom: 4px; }
+  .tbl-card-body { grid-column: 1; }
+}
+
 /* ---- table lightbox: click any table to read it enlarged ---- */
 .table-lightbox { position: fixed; inset: 0; z-index: 1000; background: rgba(8,12,16,.82);
   display: flex; align-items: center; justify-content: center; padding: 40px; cursor: zoom-out; }
@@ -992,12 +1034,40 @@ td.flag { color: var(--flag); font-weight: 600; }
 .about-body { max-width: 62ch; margin-top: 18px; color: var(--ink-soft); font-size: 15.5px; line-height: 1.7; }
 .about-body p { margin: 0 0 1em; }
 
-/* ---- anatomy topic -> flashcard test-yourself CTA ---- */
-.topic-study-cta { display: flex; align-items: center; justify-content: space-between; gap: 16px;
-  background: var(--primary-tint); border: 1px solid var(--line); border-radius: var(--radius);
-  padding: 16px 20px; margin-top: 24px; flex-wrap: wrap; }
-.topic-study-cta .n { font-family: "Source Serif 4", serif; font-size: 1.05rem; color: var(--primary-deep); }
+/* ---- anatomy topic -> flashcard "Test yourself" banner ----
+   A gradient-bordered card (padding-box surface fill + border-box gradient
+   ring, so the border reads as a subtle accent frame rather than a flat
+   line) holding a one-click "Quick reveal" mini flashcard -- answerable
+   right here -- above the CTA into the full related-cards session. */
+.topic-study-cta { margin-top: 24px; padding: 22px 24px; border-radius: var(--radius-lg); border: 1px solid transparent;
+  background: linear-gradient(var(--surface), var(--surface)) padding-box,
+    linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%) border-box;
+  box-shadow: var(--shadow); }
+.tsc-head { display: flex; align-items: flex-start; gap: 12px; }
+.tsc-icon { flex: 0 0 auto; width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); color: #fff; }
+.tsc-icon svg { width: 18px; height: 18px; }
+.topic-study-cta .n { font-family: "Source Serif 4", serif; font-size: 1.1rem; color: var(--ink); }
 .topic-study-cta .cta-sub { color: var(--ink-soft); font-size: 13px; margin-top: 2px; }
+.tsc-quick { margin: 16px 0; padding: 16px 18px; border: 1px solid var(--line-soft); border-radius: var(--radius);
+  background: var(--surface-2); }
+.tsc-quick-label { font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em;
+  color: var(--ink-faint); margin-bottom: 8px; }
+.tsc-quick-front { font-size: 14.5px; color: var(--ink); line-height: 1.5; }
+.tsc-quick-back { font-size: 14.5px; color: var(--primary-deep); line-height: 1.5; margin-top: 10px;
+  padding-top: 10px; border-top: 1px dashed var(--line); }
+.tsc-quick-back.hidden { display: none; }
+.tsc-reveal-btn { margin-top: 12px; border: 1px solid var(--line); background: var(--surface); color: var(--ink-soft);
+  border-radius: 999px; padding: 7px 14px; font-size: 12.5px; font-weight: 600;
+  transition: color .16s var(--ease-out), border-color .16s var(--ease-out), transform .1s var(--ease-out); }
+.tsc-reveal-btn:hover { color: var(--primary-deep); border-color: var(--primary); }
+.tsc-reveal-btn:active { transform: scale(.96); }
+.tsc-quick.revealed { background: color-mix(in srgb, var(--primary) 6%, var(--surface-2)); }
+.tsc-launch { display: block; width: 100%; text-align: center; border-color: var(--primary); background: var(--primary);
+  border-radius: 999px; font-weight: 600; padding: 12px 20px;
+  transition: background-color .16s var(--ease-out), border-color .16s var(--ease-out), transform .1s var(--ease-out); }
+.tsc-launch:hover { background: var(--primary-deep); border-color: var(--primary-deep); }
+.tsc-launch:active { transform: scale(.98); }
 
 :focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; border-radius: 4px; }
 

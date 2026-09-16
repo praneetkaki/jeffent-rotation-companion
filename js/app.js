@@ -454,6 +454,7 @@
         body.appendChild(h('<div class="lib-face"><div class="lib-face-label mono">Front</div><div class="lib-face-content">' + effectiveFront(mod.id, card) + '</div></div>'));
         body.appendChild(h('<div class="lib-face"><div class="lib-face-label mono">Back</div><div class="lib-face-content">' + effectiveBack(mod.id, card) + '</div></div>'));
         linkGlossaryTerms(body);
+        enhanceReferenceTables(body);
         var noteVal = cardNote(mod.id, card);
         if (noteVal) body.appendChild(h('<div class="card-note"><strong>Your note:</strong> ' + esc(noteVal) + '</div>'));
         var actions = h('<div class="lib-row-actions"></div>');
@@ -934,7 +935,6 @@
       var category = t.category || "subspecialty";
       var rowStyle = t.color ? ' style="--track-color:' + t.color + '"' : "";
       var anchors = topicAnchors(mods[0]);
-      var emergency = hasEmergency(mods[0]);
       var row = h(
         '<button class="feature-row" type="button" data-category="' + category + '" data-track="' + t.id + '"' + rowStyle + (disabled ? ' disabled aria-disabled="true"' : '') + '>' +
           trackBadge(t, "fr-icon", 24) +
@@ -946,7 +946,6 @@
             '<div class="fr-stats">' +
               '<div class="fr-progress"><div class="fr-pct">' + tpct + '% mastered</div><div class="bar"><i style="width:' + tpct + '%"></i></div></div>' +
               '<span class="fr-pill">' + s.due + ' due</span>' +
-              (emergency ? '<span class="fr-emergency">Red flags</span>' : '') +
               '<span class="fr-cta">Study module &rarr;</span>' +
             '</div>'
           ) +
@@ -967,13 +966,6 @@
     if (!mod || !mod.anatomy || !mod.anatomy.notes) return "";
     return mod.anatomy.notes.slice(0, 4).map(function (n) { return n.title; }).filter(Boolean).join(" • ");
   }
-  function hasEmergency(mod) {
-    if (!mod) return false;
-    if ((mod.cards || []).some(function (c) { return c.redFlag; })) return true;
-    if (mod.clinical && mod.clinical.redFlags && mod.clinical.redFlags.length) return true;
-    return false;
-  }
-
   /* Scrollspy: as feature-rows cross a band near the top of the viewport,
      highlight the filter pill matching that row's category. Visual sync
      only -- it never changes the actual filter, just where the eye already
@@ -1170,6 +1162,7 @@
      * initActiveRecall() call in boot() below. */
     if (ACTIVE_RECALL_ENABLED && mod.id === ACTIVE_RECALL_MODULE_ID) appendActiveRecallControls(pageHead, mod);
     root.appendChild(pageHead);
+    document.documentElement.style.setProperty("--pagehead-h", pageHead.offsetHeight + "px");
 
     /* The subspecialty name + icon already appear one line up in the sticky
        .page-head breadcrumb (ph-eyebrow) -- repeating it here as its own
@@ -1186,7 +1179,8 @@
     var builders = { anatomy: buildAnatomyPane, clinical: clinicalBuilder, cases: buildCasesPane, cards: buildCardsPane };
     var avail = availableTabs(mod);
     if (avail.indexOf(state.tab) === -1) state.tab = avail[0];
-    var tabbar = h('<div class="tabs" role="tablist"></div>');
+    var tabbarWrap = h('<div class="tabs-sticky"></div>');
+    var tabbar = h('<div class="tabs" role="tablist"><i class="tab-pill-indicator"></i></div>');
     avail.forEach(function (t) {
       var btn = h('<button class="tab" role="tab" id="tab-' + t + '" aria-controls="pane-' + t + '" aria-selected="' + (t === state.tab ? "true" : "false") + '" data-tab="' + t + '">' + TAB_LABELS[t] + '</button>');
       btn.addEventListener("click", function () {
@@ -1195,7 +1189,11 @@
       });
       tabbar.appendChild(btn);
     });
-    root.appendChild(tabbar);
+    tabbarWrap.appendChild(tabbar);
+    root.appendChild(tabbarWrap);
+    if (tabIndicatorResizeHandler) window.removeEventListener("resize", tabIndicatorResizeHandler);
+    tabIndicatorResizeHandler = function () { moveTabIndicator(tabbar); };
+    window.addEventListener("resize", tabIndicatorResizeHandler);
 
     var panes = h('<div class="tab-panes"></div>');
     avail.forEach(function (t) { panes.appendChild(builders[t](mod)); });
@@ -1216,6 +1214,30 @@
     root.querySelectorAll(".tabpane").forEach(function (p) {
       p.classList.toggle("active", p.dataset.pane === state.tab);
     });
+    var tabbar = root.querySelector(".tabs");
+    if (tabbar) {
+      moveTabIndicator(tabbar);
+      /* The very first render can happen while the module screen is still
+         [hidden] (renderModule() runs before showScreen() unhides it), when
+         every offset measurement reads 0 -- re-measure one frame later so
+         the indicator still lands correctly instead of collapsing to 0x0. */
+      requestAnimationFrame(function () { moveTabIndicator(tabbar); });
+    }
+  }
+
+  /* Glides the sub-tab bar's pill indicator behind whichever tab is active
+   * -- same measured left/top/width/height technique as the home filter
+   * bar's moveFilterIndicator(), just keyed off aria-selected instead of a
+   * .active class. */
+  var tabIndicatorResizeHandler = null;
+  function moveTabIndicator(tabbar) {
+    var indicator = tabbar.querySelector(".tab-pill-indicator");
+    var activeTab = tabbar.querySelector('.tab[aria-selected="true"]');
+    if (!indicator || !activeTab) return;
+    indicator.style.width = activeTab.offsetWidth + "px";
+    indicator.style.height = activeTab.offsetHeight + "px";
+    indicator.style.left = activeTab.offsetLeft + "px";
+    indicator.style.top = activeTab.offsetTop + "px";
   }
 
   function emptyNote(text) { return h('<p class="empty-note">' + esc(text) + '</p>'); }
@@ -1351,9 +1373,10 @@
         return h('<div class="anatomy-detail-body" data-anchor="anatomy-note-' + topic.index + '">' + notes[topic.index].html + '</div>');
       }, false, notes[topic.index].tagline);
       appendRelatedCardsCta(built.main, mod, noteTitle, topic);
-      appendFigureSources(built.main);
       appendNextLessonNav(built.main, mod, pane, notes, diagrams, topic);
+      appendFigureSources(built.main);
       linkGlossaryTerms(built.main);
+      enhanceReferenceTables(built.main);
       if (mod.id === ACTIVE_RECALL_MODULE_ID && state.activeRecall) applyActiveRecallMask(built.main);
       pane.appendChild(built.shell);
       return;
@@ -1368,6 +1391,7 @@
       appendRelatedCardsCta(built2.main, mod, dgTitle, topic);
       appendNextLessonNav(built2.main, mod, pane, notes, diagrams, topic);
       linkGlossaryTerms(built2.main);
+      enhanceReferenceTables(built2.main);
       pane.appendChild(built2.shell);
       return;
     }
@@ -1547,19 +1571,44 @@
     return res;
   }
 
+  /* "Test yourself" banner: a gradient-bordered card with a one-click
+   * "Quick reveal" mini flashcard (the first related card, answerable right
+   * here without leaving the page) plus a prominent CTA into the full
+   * related-cards study session. */
   function appendRelatedCardsCta(wrap, mod, title, topicRef) {
     var related = relatedCardsForTopic(title);
     if (!related.length) return;
+    var sample = related[0];
+    var sampleOwner = cardOwnerId(sample, mod.id);
+    var n = related.length;
     var cta = h(
       '<div class="topic-study-cta">' +
-        '<div><div class="n">Test yourself</div><div class="cta-sub">' + related.length + ' flashcard' + (related.length === 1 ? '' : 's') + ' touching on this topic, from across the app</div></div>' +
-        '<button type="button" class="btn small">Study these &rarr;</button>' +
+        '<div class="tsc-head">' +
+          '<span class="tsc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h8l-1 8 10-12h-8l1-8Z"/></svg></span>' +
+          '<div class="tsc-head-copy"><div class="n">Test yourself</div><div class="cta-sub">' + n + ' flashcard' + (n === 1 ? '' : 's') + ' touching on this topic, from across the app</div></div>' +
+        '</div>' +
+        '<div class="tsc-quick">' +
+          '<div class="tsc-quick-label mono">Quick reveal</div>' +
+          '<div class="tsc-quick-front">' + effectiveFront(sampleOwner, sample) + '</div>' +
+          '<div class="tsc-quick-back hidden">' + effectiveBack(sampleOwner, sample) + '</div>' +
+          '<button type="button" class="tsc-reveal-btn">Reveal answer</button>' +
+        '</div>' +
+        '<button type="button" class="btn tsc-launch">Launch ' + n + ' Flashcard' + (n === 1 ? '' : 's') + ' &rarr;</button>' +
       '</div>'
     );
-    cta.querySelector("button").addEventListener("click", function () {
+    var quick = cta.querySelector(".tsc-quick");
+    var back = quick.querySelector(".tsc-quick-back");
+    var revealBtn = quick.querySelector(".tsc-reveal-btn");
+    revealBtn.addEventListener("click", function () {
+      back.classList.remove("hidden");
+      quick.classList.add("revealed");
+      revealBtn.remove();
+    });
+    cta.querySelector(".tsc-launch").addEventListener("click", function () {
       startAnatomyTopicSession(mod, related, title, topicRef);
     });
     wrap.appendChild(cta);
+    linkGlossaryTerms(quick);
   }
 
   function appendFigureSources(wrap) {
@@ -2014,6 +2063,7 @@
     }
 
     linkGlossaryTerms(pane);
+    enhanceReferenceTables(pane);
     if (mod.id === ACTIVE_RECALL_MODULE_ID && state.activeRecall) applyActiveRecallMask(main);
     if (showNav) initClinicalScrollspy(pane, nav, timeLabel, wordCounts);
     return pane;
@@ -2289,6 +2339,7 @@
     shell.appendChild(main);
     pane.appendChild(shell);
     linkGlossaryTerms(pane);
+    enhanceReferenceTables(pane);
 
     function applyProcFilter(val) {
       pane.querySelectorAll(".proc-chip").forEach(function (chip) { chip.classList.toggle("active", chip.getAttribute("data-filter") === val); });
@@ -2492,6 +2543,7 @@
 
     pane.appendChild(card);
     linkGlossaryTerms(card);
+    enhanceReferenceTables(card);
   }
 
   /* ---- Cards tab (SRS study flow) ---- */
@@ -2630,6 +2682,7 @@
     fc.appendChild(h('<div class="card-source">' + srcLine + '</div>'));
     shell.appendChild(fc);
     linkGlossaryTerms(fc);
+    enhanceReferenceTables(fc);
 
     if (!ses.revealed) {
       var rv = h('<div style="text-align:center"><button class="btn reveal-btn">Show answer</button></div>');
@@ -3412,6 +3465,7 @@
     }
     shell.appendChild(card);
     linkGlossaryTerms(card);
+    enhanceReferenceTables(card);
 
     if (!pq.revealed) {
       var rv = h('<div style="text-align:center"><button class="btn reveal-btn">Show answer</button></div>');
@@ -3569,6 +3623,7 @@
     if (fpNote) fc.appendChild(h('<div class="card-note"><strong>Your note:</strong> ' + esc(fpNote) + '</div>'));
     stage.appendChild(fc);
     linkGlossaryTerms(fc);
+    enhanceReferenceTables(fc);
     if (!fp.revealed) {
       var rv = h('<button class="btn reveal-btn" style="width:100%">Show answer</button>');
       rv.addEventListener("click", function () { fp.revealed = true; renderFlash(); });
@@ -3782,6 +3837,7 @@
     }
     body.appendChild(card);
     linkGlossaryTerms(card);
+    enhanceReferenceTables(card);
 
     if (!ppq.revealed) {
       var rv = h('<button class="btn reveal-btn" style="width:100%">Show answer</button>');
@@ -3857,6 +3913,100 @@
       }
       if (handled) e.preventDefault();
     });
+  }
+
+  /* ---------- REFERENCE TABLE -> CARD ROWS ----------
+   * Content authors hand-write plain <table> markup for dense multi-column
+   * reference tables (region/structures/pathologies, cranial nerve exits,
+   * grading scales, ...). That reads fine with short 2-3 column tables, but
+   * once a cell holds a long semicolon- or comma-separated list, the column
+   * gets squeezed into an awkward horizontally-scrolled wall of text.
+   * Rather than hand-editing every table's markup across every content
+   * file, this walks the *rendered* DOM after any note/clinical/card HTML
+   * is injected and turns each row into a labeled card: first column
+   * becomes the card's header, every other column becomes a micro-labeled
+   * field with its list-like text broken into pills. Content keeps
+   * authoring plain <table> HTML per the content model -- this is a pure
+   * rendering enhancement, so every existing and future table benefits
+   * with no content changes. */
+  function enhanceReferenceTables(root) {
+    if (!root) return;
+    root.querySelectorAll("table").forEach(function (table) {
+      /* The 2-Minute Procedure Prep quick-matcher is a live, JS-filtered
+         table (search input toggles row.hidden by reference) -- converting
+         it to cards would silently break that filter, since the search
+         handler's closured row references would no longer be the ones on
+         screen. It's the only interactive table in the app; everything
+         else is static reference content. */
+      if (table.classList.contains("proc-matcher-table")) return;
+      var theadRow = table.querySelector("thead tr");
+      var bodyRows = table.querySelectorAll("tbody tr");
+      if (!theadRow || !bodyRows.length) return;
+      if (table.querySelector("[colspan],[rowspan]")) return; // merged cells don't map to one card per row
+      var headers = Array.prototype.map.call(theadRow.children, function (th) { return th.innerHTML; });
+      if (headers.length < 2) return;
+
+      var wrap = h('<div class="tbl-cards"></div>');
+      Array.prototype.forEach.call(bodyRows, function (tr) {
+        var cells = tr.children;
+        if (!cells.length) return;
+        var card = h('<div class="tbl-card"></div>');
+        var head = h('<div class="tbl-card-head"></div>');
+        while (cells[0].firstChild) head.appendChild(cells[0].firstChild);
+        card.appendChild(head);
+
+        var body = h('<div class="tbl-card-body"></div>');
+        for (var i = 1; i < cells.length; i++) {
+          var field = h('<div class="tbl-card-field"></div>');
+          if (headers[i]) field.appendChild(h('<div class="tbl-card-label">' + headers[i] + '</div>'));
+          var pillsWrap = h('<div class="tbl-card-pills"></div>');
+          tableCellToPills(cells[i]).forEach(function (pill) { pillsWrap.appendChild(pill); });
+          field.appendChild(pillsWrap);
+          body.appendChild(field);
+        }
+        card.appendChild(body);
+        wrap.appendChild(card);
+      });
+
+      var host = table.closest(".tbl-scroll") || table;
+      host.parentNode.replaceChild(wrap, host);
+    });
+  }
+
+  /* Splits one <td>'s content into pills at the DOM level (not by slicing
+   * markup strings), so embedded elements like <a class="xref"> or <strong>
+   * survive intact inside whichever pill they land in. Prefers splitting on
+   * "; " (the separator content authors use *between* distinct structures/
+   * concepts); falls back to ", " only when the cell has no semicolons, so
+   * a parenthetical sub-list like "ossicles (malleus, incus, stapes)" stays
+   * one pill while a flat list like "AOM, cholesteatoma, otosclerosis"
+   * still breaks into separate ones. */
+  function tableCellToPills(cell) {
+    var text = cell.textContent || "";
+    var sep = /;\s+/.test(text) ? /;\s+/ : /,\s+/;
+    var pills = [];
+    var current = h('<span class="tbl-card-pill"></span>');
+    function commit() {
+      if (current.textContent.trim()) pills.push(current);
+      current = h('<span class="tbl-card-pill"></span>');
+    }
+    Array.prototype.forEach.call(cell.childNodes, function (node) {
+      if (node.nodeType === 3) {
+        node.textContent.split(sep).forEach(function (part, idx) {
+          if (idx > 0) commit();
+          if (part) current.appendChild(document.createTextNode(part));
+        });
+      } else {
+        current.appendChild(node.cloneNode(true));
+      }
+    });
+    commit();
+    if (!pills.length) {
+      var fallback = h('<span class="tbl-card-pill"></span>');
+      fallback.innerHTML = cell.innerHTML;
+      pills.push(fallback);
+    }
+    return pills;
   }
 
   /* ---------- UNIVERSAL INLINE GLOSSARY ----------
@@ -4069,7 +4219,7 @@
     if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     if (!("IntersectionObserver" in window)) return;
     document.body.classList.add("js-motion");
-    var SEL = ".note-fig, .callout, .case, .tbl-scroll, .tg-card, .study-cta, .bento-tile, .rm-row, .mod-row, .panel, .feature-row";
+    var SEL = ".note-fig, .callout, .case, .tbl-scroll, .tbl-card, .tg-card, .study-cta, .bento-tile, .rm-row, .mod-row, .panel, .feature-row";
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
     }, { rootMargin: "0px 0px -6% 0px", threshold: 0.04 });
