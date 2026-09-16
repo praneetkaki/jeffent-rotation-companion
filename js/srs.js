@@ -1,7 +1,8 @@
 /* srs.js, a small, dependency-free spaced-repetition scheduler.
  *
  * Ratings map straight to a fixed, user-configurable interval:
- *   "again" -> back in a short number of MINUTES (default 15)
+ *   "again" -> back in a short number of MINUTES (default 10, i.e. under
+ *     15 -- same spirit as Anki's own sub-15-minute default learning step)
  *   "good"  -> back in a number of DAYS (default 1)
  *   "easy"  -> back in a longer number of DAYS (default 3)
  *
@@ -35,7 +36,7 @@
   var DAY = 24 * 60 * MINUTE;
 
   var SETTINGS_KEY = "jeffent.settings";
-  var DEFAULT_SETTINGS = { againMinutes: 15, goodDays: 1, easyDays: 3, newCardsPerDay: 0 }; // newCardsPerDay 0 = unlimited
+  var DEFAULT_SETTINGS = { againMinutes: 10, goodDays: 1, easyDays: 3, newCardsPerDay: 0 }; // newCardsPerDay 0 = unlimited
   var MIN_MINUTES = 1, MAX_MINUTES = 1440;   // cap "again" at 24h
   var MIN_DAYS = 1, MAX_DAYS = 365;
 

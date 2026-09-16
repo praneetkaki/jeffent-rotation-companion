@@ -636,7 +636,7 @@
   }
 
   /* Again/Good/Easy rating-button hints, read live from the configured
-     Study Settings intervals (15 min / 1 day / 3 days by default) instead
+     Study Settings intervals (10 min / 1 day / 3 days by default) instead
      of the old hardcoded "< 1 day"/"step up"/"skip ahead" copy, so the
      buttons always say exactly when the card comes back. */
   function rateHintLabels() {
@@ -2605,6 +2605,20 @@
     renderStudy(pane, mod);
   }
 
+  /* Anki-style "learn ahead": a card rated Again gets a sub-day interval
+   * (see srs.js), so it's back in seconds/minutes, not days. Rather than
+   * either dropping it from this session (it just silently vanishes until
+   * its real due time passes, hours or days from now the next time this
+   * module is opened) or literally blocking the student for the full
+   * interval, requeue a fresh copy onto the end of the CURRENT session's
+   * card list -- it resurfaces for another pass before the session ends,
+   * same intent as Anki's learn-ahead-limit pulling a near-due card
+   * forward instead of leaving you stuck at a blank "congratulations"
+   * screen. */
+  function requeueIfAgain(cardsArray, card, rating) {
+    if (rating === "again") cardsArray.push(card);
+  }
+
   /* Rate the current card in a study session (main Cards tab, cross-module due
    * queue, or a search-jump session), recording a snapshot of its prior
    * scheduling state first so the Z-key shortcut can undo it. Shared by the
@@ -2615,6 +2629,7 @@
     var snapshot = window.SRS.snapshotBefore(moduleId, card.id);
     window.SRS.rate(moduleId, card.id, rating);
     (ses.history = ses.history || []).push({ moduleId: moduleId, cardId: card.id, snapshot: snapshot });
+    requeueIfAgain(ses.cards, card, rating);
     ses.i++; ses.revealed = false;
     if (ses.i >= ses.cards.length) ses.done = true;
   }
@@ -3673,6 +3688,7 @@
     var snapshot = window.SRS.snapshotBefore(moduleId, card.id);
     window.SRS.rate(moduleId, card.id, rating);
     (fp.history = fp.history || []).push({ moduleId: moduleId, cardId: card.id, snapshot: snapshot });
+    requeueIfAgain(fp.cards, card, rating);
     fp.i++; fp.revealed = false;
   }
   function undoFlashCard() {
