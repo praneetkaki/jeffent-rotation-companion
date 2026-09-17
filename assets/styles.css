@@ -144,11 +144,12 @@ button { font-family: inherit; cursor: pointer; }
 .icon-btn:active { transform: translateY(1px); }
 .icon-btn[aria-expanded="true"] { color: var(--primary-deep); background: var(--surface); box-shadow: inset 0 0 0 1px var(--line); }
 .icon-btn svg { width: 17px; height: 17px; display: block; }
+.icon-btn[disabled] { opacity: .35; cursor: not-allowed; pointer-events: none; }
 /* nav-toggle stands alone (not inside .icon-cluster), so it keeps its own
    border/surface treatment rather than relying on a shared group container. */
-.nav-toggle { border-color: var(--line); background: var(--surface); }
-.nav-toggle:hover { background: var(--surface-2); }
-.nav-toggle svg { width: 18px; height: 18px; }
+.nav-toggle, .nav-back { border-color: var(--line); background: var(--surface); }
+.nav-toggle:hover, .nav-back:hover { background: var(--surface-2); }
+.nav-toggle svg, .nav-back svg { width: 18px; height: 18px; }
 
 /* ---- mobile topbar: everything above wraps to 3 lines and overflows the
    viewport below ~480px (fixed 56px brand mark + 1.5rem name + 4 full-size
@@ -1137,6 +1138,7 @@ td.flag { color: var(--flag); font-weight: 600; }
 .search-item:hover.search-item:focus-visible { background: var(--surface-2); }
 .si-type { flex: 0 0 auto; font-family: "JetBrains Mono", monospace; font-size: 10.5px; font-weight: 600;
   color: var(--primary-deep); background: var(--primary-tint); border-radius: 6px; padding: 3px 6px; margin-top: 1px; }
+.search-item-action .si-type { color: var(--good); background: var(--good-tint, var(--accent-tint)); }
 .si-body { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 .si-title { font-size: 13.5px; color: var(--ink); font-weight: 500; }
 .si-snippet { font-size: 12px; color: var(--ink-faint); overflow: hidden; text-overflow: ellipsis;
@@ -1752,6 +1754,45 @@ body.js-motion .bento-hero.reveal-init.in .bento-start-btn {
   transition: opacity .2s var(--ease-out), transform .2s var(--ease-out); }
 .app-toast.show { opacity: 1; transform: translate(-50%, 0); }
 @media (prefers-reduced-motion: reduce) { .app-toast { transition: opacity .15s linear; } }
+.app-toast-milestone { background: linear-gradient(135deg, #f59e0b, #f97316); color: #241705; font-weight: 700; }
+
+/* ================================================================
+   FIRST-RUN TOUR -- a spotlight ring (a giant box-shadow doubles as the
+   dimmed backdrop, so one element does both jobs) plus a small callout
+   card, shown once per browser the very first time the app is opened.
+   ================================================================ */
+.tour-overlay { position: fixed; inset: 0; z-index: 500; }
+.tour-ring { position: fixed; border-radius: 12px; box-shadow: 0 0 0 9999px rgba(8,10,20,.6), 0 0 0 3px var(--primary);
+  pointer-events: none; z-index: 501;
+  transition: top .25s var(--ease-out), left .25s var(--ease-out), width .25s var(--ease-out), height .25s var(--ease-out); }
+@media (prefers-reduced-motion: reduce) { .tour-ring { transition: none; } }
+.tour-card { position: fixed; width: 300px; max-width: calc(100vw - 24px); background: var(--surface);
+  border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow-lg, var(--shadow)); padding: 16px; z-index: 502; }
+.tour-step { font-family: "JetBrains Mono", monospace; font-size: 10.5px; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--primary); margin-bottom: 6px; }
+.tour-title { font-family: "Source Serif 4", serif; font-weight: 600; font-size: 1.05rem; color: var(--ink); margin-bottom: 6px; }
+.tour-body { font-size: 13.5px; color: var(--ink-soft); line-height: 1.5; margin-bottom: 14px; }
+.tour-actions { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+
+/* ================================================================
+   WEAK SPOTS -- cross-module dashboard combining the flashcard "weak"
+   heuristic and the FAQ quiz's exact missed-question tally.
+   ================================================================ */
+.weak-lede { color: var(--ink-soft); font-size: 14.5px; line-height: 1.6; max-width: 62ch; margin: 4px 0 26px; }
+.weak-section { margin-bottom: 34px; }
+.weak-section .section-head { margin-bottom: 12px; }
+.weak-section .section-head h2 { font-size: 1.1rem; }
+.weak-section > .btn { margin-bottom: 14px; }
+.weak-list { display: flex; flex-direction: column; gap: 6px; }
+.weak-row { display: flex; align-items: center; justify-content: space-between; gap: 14px; width: 100%;
+  text-align: left; background: var(--surface); border: 1px solid var(--line-soft); border-radius: 10px;
+  padding: 12px 14px; transition: border-color .15s var(--ease-out), background-color .15s var(--ease-out); }
+.weak-row:hover { border-color: var(--primary); background: var(--surface-2); }
+.weak-row-main { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.weak-row-title { font-size: 14px; color: var(--ink); line-height: 1.4; }
+.weak-row-mod { font-size: 11px; color: var(--ink-faint); }
+.weak-row-tag { flex: 0 0 auto; font-family: "JetBrains Mono", monospace; font-size: 10.5px; font-weight: 600;
+  color: var(--flag); background: var(--flag-tint, var(--accent-tint)); border-radius: 999px; padding: 4px 10px; white-space: nowrap; }
 
 /* ================================================================
    Bookmark / listen / split-view icon buttons -- shared small round

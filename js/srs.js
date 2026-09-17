@@ -242,6 +242,23 @@
       return { total: cards.length, seen: seen, due: due, mastered: mastered };
     },
 
+    /* Cards that keep coming back as "again": seen at least twice but still
+     * sitting at box <= 2 (no clean run of good/easy since). box resets to 1
+     * on every "again", so a low box after several reviews is the only
+     * lapse signal this scheduler keeps -- there's no separate lifetime
+     * miss counter. Sorted worst-first (lowest box, then most attempts),
+     * for the cross-module weak-spot dashboard. */
+    weakCards: function (moduleId, cards) {
+      var state = loadState(moduleId);
+      var out = [];
+      cards.forEach(function (c) {
+        var s = state[c.id];
+        if (s && (s.seen || 0) >= 2 && (s.box || 0) <= 2) out.push({ card: c, seen: s.seen, box: s.box });
+      });
+      out.sort(function (a, b) { return (a.box - b.box) || (b.seen - a.seen); });
+      return out;
+    },
+
     /* Reset one module's progress: clears its card state and its daily
      * new-card counter, so it studies exactly like a fresh module again. */
     reset: function (moduleId) {

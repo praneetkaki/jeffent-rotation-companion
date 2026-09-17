@@ -12,7 +12,7 @@
   var TRACKS = window.JEFFENT.tracks || [];
   var TABS = ["anatomy", "clinical", "cases", "cards"];
   var TAB_LABELS = { anatomy: "Anatomy", clinical: "Clinical", cases: "Cases", cards: "Cards" };
-  var SCREENS = ["home", "track", "module", "study", "pimp", "roadmap", "about", "library"];
+  var SCREENS = ["home", "track", "module", "study", "pimp", "roadmap", "about", "library", "weak"];
 
   /* Active Recall Mode: trial run on Facial Plastics & Trauma only (see
    * initActiveRecall()/applyActiveRecallMask() below) before considering a
@@ -187,17 +187,18 @@
   }
 
   /* ---------- theme ---------- */
+  function toggleTheme() {
+    var cur = document.documentElement.getAttribute("data-theme");
+    var next = cur === "dark" ? "light" : cur === "light" ? "dark"
+      : (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "dark");
+    document.documentElement.setAttribute("data-theme", next);
+    try { localStorage.setItem("jeffent.theme", next); } catch (e) {}
+  }
   function initTheme() {
     var saved;
     try { saved = localStorage.getItem("jeffent.theme"); } catch (e) {}
     if (saved) document.documentElement.setAttribute("data-theme", saved);
-    el("themeToggle").addEventListener("click", function () {
-      var cur = document.documentElement.getAttribute("data-theme");
-      var next = cur === "dark" ? "light" : cur === "light" ? "dark"
-        : (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "dark");
-      document.documentElement.setAttribute("data-theme", next);
-      try { localStorage.setItem("jeffent.theme", next); } catch (e) {}
-    });
+    el("themeToggle").addEventListener("click", toggleTheme);
   }
 
   /* ---------- last-tab memory ---------- */
@@ -274,7 +275,56 @@
     if (typeof refreshSideNav === "function") refreshSideNav();
   }
 
+  /* ---------- back/forward history ----------
+   * A lightweight in-app breadcrumb stack (not the browser's own history),
+   * so a "back" control can retrace where the learner actually came from
+   * across every top-level screen. Each go*() records a snapshot of the
+   * screen it's LEAVING before it navigates away; goBack() pops the most
+   * recent one and replays it. navSuppress guards goBack()'s own replay so
+   * stepping back doesn't also push a new forward-facing entry. */
+  var navStack = [];
+  var navSuppress = false;
+  function navSnapshot() {
+    if (state.screen === "home") return { fn: "home" };
+    if (state.screen === "track" && state.trackId) return { fn: "track", id: state.trackId };
+    if (state.screen === "module" && state.moduleId) return { fn: "module", id: state.moduleId };
+    if (state.screen === "study") return { fn: "study" };
+    if (state.screen === "pimp") return { fn: "pimp" };
+    if (state.screen === "roadmap") return { fn: "roadmap" };
+    if (state.screen === "library") return { fn: "library" };
+    if (state.screen === "about") return { fn: "about" };
+    if (state.screen === "weak") return { fn: "weak" };
+    return null;
+  }
+  function pushNav() {
+    if (navSuppress) return;
+    var snap = navSnapshot();
+    if (snap) navStack.push(snap);
+    updateBackButton();
+  }
+  function updateBackButton() {
+    var b = el("navBack");
+    if (b) b.disabled = navStack.length === 0;
+  }
+  function goBack() {
+    if (!navStack.length) return;
+    var prev = navStack.pop();
+    navSuppress = true;
+    if (prev.fn === "home") goHome();
+    else if (prev.fn === "track") goTrack(prev.id);
+    else if (prev.fn === "module") goModule(prev.id);
+    else if (prev.fn === "study") goStudyAll();
+    else if (prev.fn === "pimp") goPimp();
+    else if (prev.fn === "roadmap") goRoadmap();
+    else if (prev.fn === "library") goCardLibrary();
+    else if (prev.fn === "about") goAbout();
+    else if (prev.fn === "weak") goWeakSpots();
+    navSuppress = false;
+    updateBackButton();
+  }
+
   function goHome() {
+    pushNav();
     state.screen = "home"; state.session = null;
     renderHome();
     showScreen("home");
@@ -284,6 +334,7 @@
     var mods = modulesFor(trackId);
     if (mods.length === 0) return;
     if (mods.length === 1) { goModule(mods[0].id); return; }
+    pushNav();
     state.screen = "track"; state.trackId = trackId; state.session = null;
     renderTrack(trackId);
     showScreen("track");
@@ -292,6 +343,7 @@
   function goModule(moduleId) {
     var mod = window.JEFFENT.get(moduleId);
     if (!mod) return;
+    pushNav();
     state.screen = "module"; state.moduleId = moduleId; state.session = null; state.anatomyTopic = null; state.caseSession = null;
     state.tab = loadLastTab(moduleId) || "anatomy";
     if (TABS.indexOf(state.tab) === -1) state.tab = "anatomy";
@@ -300,33 +352,163 @@
   }
 
   function goStudyAll() {
+    pushNav();
     state.screen = "study"; state.session = null;
     renderStudyAllIntro();
     showScreen("study");
   }
 
   function goPimp() {
+    pushNav();
     state.screen = "pimp"; state.session = null; pq = null;
     renderPimpIntro();
     showScreen("pimp");
   }
 
   function goAbout() {
+    pushNav();
     state.screen = "about"; state.session = null;
     renderAbout();
     showScreen("about");
   }
 
   function goRoadmap() {
+    pushNav();
     state.screen = "roadmap"; state.session = null;
     renderRoadmap();
     showScreen("roadmap");
   }
 
   function goCardLibrary() {
+    pushNav();
     state.screen = "library"; state.session = null;
     renderCardLibrary();
     showScreen("library");
+  }
+
+  function goWeakSpots() {
+    pushNav();
+    state.screen = "weak"; state.session = null;
+    renderWeakSpots();
+    showScreen("weak");
+  }
+
+  /* Jump straight into the full-page FAQ quiz with a specific question list
+   * (e.g. the cross-module missed set, or a single question from the weak-
+   * spot dashboard) instead of landing on the set-picker intro first. */
+  function goPimpWithQuestions(questions, label) {
+    pushNav();
+    state.screen = "pimp"; state.session = null;
+    showScreen("pimp");
+    startPimpQuiz(questions, label);
+  }
+
+  /* Open the flashcard panel with an explicit, already-built card list (the
+   * weak-spot queue) instead of going through setFlashQueue()'s track/mode
+   * scoping -- same tail as openFlash(), just skipping the scope lookup. */
+  function openFlashQueueDirect(cards, ctx) {
+    closePimpPanel();
+    fp = { cards: cards.slice(), i: 0, revealed: false, ctx: ctx, mode: "all", scope: "all", history: [] };
+    document.body.classList.add("flash-open");
+    var t = el("flashToggle"); if (t) t.setAttribute("aria-expanded", "true");
+    renderFlash();
+  }
+
+  /* Cross-module weak-spot aggregation: flashcards stuck at a low box after
+   * repeated reviews (see SRS.weakCards' header comment for why box/seen is
+   * the only signal available, not a lifetime miss count), worst first. */
+  function aggregateWeakCards(limit) {
+    var out = [];
+    window.JEFFENT.modules.forEach(function (m) {
+      window.SRS.weakCards(m.id, m.cards || []).forEach(function (w) {
+        out.push({ mod: m, card: w.card, seen: w.seen, box: w.box });
+      });
+    });
+    out.sort(function (a, b) { return (a.box - b.box) || (b.seen - a.seen); });
+    return limit ? out.slice(0, limit) : out;
+  }
+
+  /* ---------- WEAK SPOTS ----------
+   * A cross-module dashboard combining the two weakness signals the app
+   * already tracks: flashcards you keep rating "again" (SRS.weakCards) and
+   * FAQ questions you keep missing (the pqmiss tally, already cross-module
+   * and exact -- see pqMissAdjust's header comment). Nothing new is
+   * measured here, it's just surfaced in one place instead of buried inside
+   * each panel's own "review missed" button. */
+  function renderWeakSpots() {
+    var root = el("screen-weak");
+    root.innerHTML = "";
+    var crumb = h('<button class="crumb">&larr; Home</button>');
+    crumb.addEventListener("click", goHome);
+    root.appendChild(crumb);
+    root.appendChild(h('<div class="eyebrow">Cross-module review</div>'));
+    root.appendChild(h('<h1 class="h-lead">Weak spots</h1>'));
+    root.appendChild(h('<p class="weak-lede">Flashcards you keep rating &ldquo;again,&rdquo; and FAQ questions you keep missing, pulled from every module into one place.</p>'));
+
+    var weakCardEntries = aggregateWeakCards(40);
+    var missMap = pqMissLoad();
+    var missedQs = pqMissedQuestions().slice(0, 40);
+
+    var cardSec = h('<div class="weak-section"></div>');
+    cardSec.appendChild(h('<div class="section-head"><h2>Flashcards (' + weakCardEntries.length + ')</h2></div>'));
+    if (!weakCardEntries.length) {
+      cardSec.appendChild(h('<p class="empty-note">No struggling flashcards yet, nice work.</p>'));
+    } else {
+      var reviewCardsBtn = h('<button type="button" class="btn">Review all (' + weakCardEntries.length + ') &rarr;</button>');
+      reviewCardsBtn.addEventListener("click", function () {
+        openFlashQueueDirect(weakCardEntries.map(function (e) { return e.card; }), "Weak spots");
+      });
+      cardSec.appendChild(reviewCardsBtn);
+      var cardList = h('<div class="weak-list"></div>');
+      weakCardEntries.forEach(function (e) {
+        var row = h(
+          '<button type="button" class="weak-row">' +
+            '<span class="weak-row-main">' +
+              '<span class="weak-row-title">' + esc(stripHtml(effectiveFront(e.mod.id, e.card))) + '</span>' +
+              '<span class="weak-row-mod mono">' + esc(e.mod.title) + '</span>' +
+            '</span>' +
+            '<span class="weak-row-tag">' + (e.box <= 1 ? "Recently missed" : "Still shaky") + '</span>' +
+          '</button>'
+        );
+        row.addEventListener("click", function () {
+          goModule(e.mod.id);
+          state.tab = "cards"; saveLastTab(e.mod.id, "cards");
+          renderTabState(el("screen-module"), e.mod);
+          var cardsPane = el("pane-cards");
+          if (cardsPane) startSession(cardsPane, e.mod, "search", [e.card]);
+        });
+        cardList.appendChild(row);
+      });
+      cardSec.appendChild(cardList);
+    }
+    root.appendChild(cardSec);
+
+    var qSec = h('<div class="weak-section"></div>');
+    qSec.appendChild(h('<div class="section-head"><h2>FAQ questions (' + missedQs.length + ')</h2></div>'));
+    if (!missedQs.length) {
+      qSec.appendChild(h('<p class="empty-note">No missed FAQ questions yet.</p>'));
+    } else {
+      var reviewQBtn = h('<button type="button" class="btn">Review all (' + missedQs.length + ') &rarr;</button>');
+      reviewQBtn.addEventListener("click", function () { goPimpWithQuestions(pqMissedQuestions(), "Most missed"); });
+      qSec.appendChild(reviewQBtn);
+      var qList = h('<div class="weak-list"></div>');
+      missedQs.forEach(function (item) {
+        var n = missMap[item.qid] || 0;
+        var row = h(
+          '<button type="button" class="weak-row">' +
+            '<span class="weak-row-main">' +
+              '<span class="weak-row-title">' + esc(item.q) + '</span>' +
+              '<span class="weak-row-mod mono">' + esc(item.setTitle || "") + '</span>' +
+            '</span>' +
+            '<span class="weak-row-tag">missed ' + n + (n === 1 ? " time" : " times") + '</span>' +
+          '</button>'
+        );
+        row.addEventListener("click", function () { goPimpWithQuestions([item], item.setTitle || "Question"); });
+        qList.appendChild(row);
+      });
+      qSec.appendChild(qList);
+    }
+    root.appendChild(qSec);
   }
 
   /* ---------- CARD LIBRARY ----------
@@ -585,9 +767,18 @@
       localStorage.setItem("jeffent.streak.last", todayKey);
       localStorage.setItem("jeffent.streak.count", String(count));
     } catch (e) {}
+    announceStreakMilestone(count);
   }
   function getStreak() {
     try { return parseInt(localStorage.getItem("jeffent.streak.count"), 10) || 1; } catch (e) { return 1; }
+  }
+  /* A short celebratory toast the moment a streak crosses a round number --
+   * only fires the day it's first reached, since bumpStreak() only reaches
+   * this line on a day that actually advances the count. */
+  var STREAK_MILESTONES = [7, 30, 100, 200, 365];
+  function announceStreakMilestone(count) {
+    if (STREAK_MILESTONES.indexOf(count) === -1) return;
+    showToast(count + "-day streak! Keep it going.", "milestone");
   }
 
   /* Cmd/Ctrl+K jumps straight to the topbar search, same convention as the
@@ -844,6 +1035,7 @@
 
     var bento = h('<div class="home-bento"></div>');
     var activity7 = window.SRS.dailyActivity(7);
+    var weakN = aggregateWeakCards().length + pqMissCount();
 
     var heroTile = h(
       '<div class="bento-tile bento-hero bento-hero-unified">' +
@@ -866,6 +1058,14 @@
               '<span class="bento-metric-value">' + pct + '%</span>' +
               '<span class="bento-metric-label">Overall mastery</span>' +
               '<span class="bento-metric-sub">' + reviewedCount + '/' + allMods.length + ' modules reviewed</span>' +
+            '</span>' +
+          '</button>' +
+          '<div class="bento-metric-divider" aria-hidden="true"></div>' +
+          '<button type="button" class="bento-metric bento-metric-weak" aria-label="' + weakN + ' weak spot' + (weakN === 1 ? '' : 's') + '. Open weak spots.">' +
+            '<span class="bento-metric-copy">' +
+              '<span class="bento-metric-value">' + weakN + '</span>' +
+              '<span class="bento-metric-label">Weak spots</span>' +
+              '<span class="bento-metric-sub">cards + questions</span>' +
             '</span>' +
           '</button>' +
           '<div class="bento-metric-divider" aria-hidden="true"></div>' +
@@ -900,6 +1100,7 @@
     }
 
     heroTile.querySelector(".bento-metric-mastery").addEventListener("click", goRoadmap);
+    heroTile.querySelector(".bento-metric-weak").addEventListener("click", goWeakSpots);
     heroTile.querySelector(".bento-metric-due").addEventListener("click", goStudyAll);
 
     bento.appendChild(heroTile);
@@ -2990,11 +3191,31 @@
     "abbreviations": ["abbreviation", "abbreviations", "abbrev", "acronym", "acronyms"],
     "pharm-pocket": ["pharm", "pharmacology", "rx", "drug", "drugs", "dose", "dosing"]
   };
+  /* Command-palette entries: the same search box also jumps straight to an
+   * action instead of a piece of content. Built lazily (not at parse time)
+   * so it can freely reference other functions/DOM regardless of source
+   * order in this file. */
+  function buildActionIndex() {
+    return [
+      { type: "action", title: "Go home", snippet: "Your ENT Rotation dashboard", run: goHome },
+      { type: "action", title: "Start due queue", snippet: "Study every card due today, across modules", run: goStudyAll },
+      { type: "action", title: "Open flashcards", snippet: "Flashcard panel", run: toggleFlash },
+      { type: "action", title: "Open FAQ quiz", snippet: "Frequently asked questions panel", run: togglePimpPanel },
+      { type: "action", title: "Open OR Pocket Log", snippet: "Saved pearls and quick case log", run: togglePocketLog },
+      { type: "action", title: "Weak spots", snippet: "Your most-missed cards and questions", run: goWeakSpots },
+      { type: "action", title: "Curriculum roadmap", snippet: "Full curriculum anchor coverage map", run: goRoadmap },
+      { type: "action", title: "Card library", snippet: "Every flashcard across every module", run: goCardLibrary },
+      { type: "action", title: "Study settings", snippet: "Again/Good/Easy intervals, new-card cap", run: function () { var b = el("settingsToggle"); if (b) b.click(); } },
+      { type: "action", title: "Keyboard shortcuts", snippet: "View every shortcut", run: openShortcutsModal },
+      { type: "action", title: "Toggle theme", snippet: "Switch light / dark", run: toggleTheme },
+      { type: "action", title: "About this project", snippet: "", run: goAbout }
+    ];
+  }
   function initSearch() {
     var input = el("searchInput");
     var results = el("searchResults");
     if (!input || !results) return;
-    var index = buildSearchIndex();
+    var index = buildSearchIndex().concat(buildActionIndex());
 
     function closeResults() { results.hidden = true; results.innerHTML = ""; }
 
@@ -3028,24 +3249,25 @@
         results.hidden = false;
         return;
       }
-      var order = ["module", "anatomy", "diagram", "clinical", "case", "card"];
-      var groupLabels = { module: "Topics", anatomy: "Anatomy notes", diagram: "Diagrams", clinical: "Clinical", case: "Cases", card: "Cards" };
+      var order = ["action", "module", "anatomy", "diagram", "clinical", "case", "card"];
+      var groupLabels = { action: "Actions", module: "Topics", anatomy: "Anatomy notes", diagram: "Diagrams", clinical: "Clinical", case: "Cases", card: "Cards" };
       var groups = {};
       matches.forEach(function (e) { (groups[e.type] = groups[e.type] || []).push(e); });
       order.forEach(function (type) {
         if (!groups[type] || !groups[type].length) return;
         results.appendChild(h('<div class="search-group-label">' + groupLabels[type] + '</div>'));
         groups[type].slice(0, 8).forEach(function (e) {
-          var mod = window.JEFFENT.get(e.modId);
+          var mod = e.type === "action" ? null : window.JEFFENT.get(e.modId);
+          var badge = e.type === "action" ? "GO" : (mod ? esc(mod.trackAbbr || "") : "");
           var item = h(
-            '<button type="button" class="search-item">' +
-              '<span class="si-type">' + (mod ? esc(mod.trackAbbr || "") : "") + '</span>' +
+            '<button type="button" class="search-item' + (e.type === "action" ? " search-item-action" : "") + '">' +
+              '<span class="si-type">' + badge + '</span>' +
               '<span class="si-body"><span class="si-title">' + highlightText(e.title, q) + '</span>' +
               (e.snippet ? '<span class="si-snippet">' + highlightText(e.snippet, q) + '</span>' : '') + '</span>' +
             '</button>'
           );
           item.addEventListener("click", function () {
-            openSearchResult(e);
+            if (e.type === "action") { e.run(); } else { openSearchResult(e); }
             input.value = ""; closeResults(); input.blur();
             document.body.classList.remove("mobile-search-open");
             var toggleBtn = el("mobileSearchToggle");
@@ -3418,6 +3640,7 @@
   }
   function goModuleTab(moduleId, tab) {
     var mod = window.JEFFENT.get(moduleId); if (!mod) return;
+    pushNav();
     state.screen = "module"; state.moduleId = moduleId; state.session = null; state.anatomyTopic = null; state.caseSession = null;
     var av = availableTabs(mod);
     state.tab = (av.indexOf(tab) === -1 ? av[0] : tab);
@@ -3793,15 +4016,16 @@
 
   /* ---------- TOAST (tiny transient confirmation, e.g. "Pearl saved") ---------- */
   var toastTimer = null;
-  function showToast(msg) {
+  function showToast(msg, variant) {
     var t = el("appToast");
     if (!t) {
       t = document.createElement("div");
-      t.id = "appToast"; t.className = "app-toast"; t.setAttribute("role", "status"); t.setAttribute("aria-live", "polite");
+      t.id = "appToast"; t.setAttribute("role", "status"); t.setAttribute("aria-live", "polite");
       document.body.appendChild(t);
     }
     t.textContent = msg;
-    t.classList.remove("show"); void t.offsetWidth; t.classList.add("show");
+    t.className = "app-toast" + (variant ? " app-toast-" + variant : "");
+    void t.offsetWidth; t.classList.add("show");
     clearTimeout(toastTimer);
     toastTimer = setTimeout(function () { t.classList.remove("show"); }, 2600);
   }
@@ -4199,6 +4423,85 @@
   function closeShortcutsModal() { var box = el2q(".shortcuts-modal"); if (box) box.hidden = true; }
   function toggleShortcutsModal() { var box = el2q(".shortcuts-modal"); if (box) { if (box.hidden) openShortcutsModal(); else closeShortcutsModal(); } }
   function el2q(sel) { return document.querySelector(sel); }
+
+  /* ---------- first-run tour ----------
+   * A short spotlight walkthrough shown once, the very first time the app
+   * is opened in a browser, pointing at the handful of features that are
+   * easy to miss otherwise (search, the two study panels, the streak).
+   * Marked seen as soon as it starts, not only on completion, so a reload
+   * mid-tour doesn't repeat it on every visit. */
+  var TOUR_STEPS = [
+    { sels: ["#searchInput", "#mobileSearchToggle"], title: "Search everything",
+      body: 'Find any topic, card, or reference tool. Try typing something like "quick prep thyroidectomy" to jump straight into 2-Minute Procedure Prep.' },
+    { sels: ["#flashToggle"], title: "Flashcards, anywhere",
+      body: "Study due cards from a side panel without ever leaving the page you're on." },
+    { sels: ["#pimpToggle"], title: "FAQ quiz",
+      body: "Board-style questions with an automatic most-missed list. Press Z any time to undo your last answer." },
+    { sels: [".bento-streak-chip"], title: "Your streak",
+      body: "Counts consecutive days you've studied. Hover or tap it any time to see a day-by-day activity heatmap." }
+  ];
+  function pickVisibleTarget(sels) {
+    for (var i = 0; i < sels.length; i++) {
+      var node = document.querySelector(sels[i]);
+      if (node) {
+        var r = node.getBoundingClientRect();
+        if (r.width > 0 && r.height > 0) return node;
+      }
+    }
+    return null;
+  }
+  function initFirstRunTour() {
+    var seen;
+    try { seen = localStorage.getItem("jeffent.tourSeen"); } catch (e) { seen = "1"; }
+    if (seen) return;
+    try { localStorage.setItem("jeffent.tourSeen", "1"); } catch (e) {}
+
+    var i = 0;
+    var overlay = h('<div class="tour-overlay" role="dialog" aria-modal="true" aria-label="Quick tour"></div>');
+    var ring = h('<div class="tour-ring"></div>');
+    var card = h('<div class="tour-card"></div>');
+    overlay.appendChild(ring); overlay.appendChild(card);
+
+    function render() {
+      var step = TOUR_STEPS[i];
+      var target = pickVisibleTarget(step.sels);
+      if (!target) { advance(); return; }
+      var r = target.getBoundingClientRect();
+      var pad = 8;
+      ring.style.top = (r.top - pad) + "px";
+      ring.style.left = (r.left - pad) + "px";
+      ring.style.width = (r.width + pad * 2) + "px";
+      ring.style.height = (r.height + pad * 2) + "px";
+      card.innerHTML =
+        '<div class="tour-step mono">Step ' + (i + 1) + ' of ' + TOUR_STEPS.length + '</div>' +
+        '<div class="tour-title">' + esc(step.title) + '</div>' +
+        '<div class="tour-body">' + esc(step.body) + '</div>' +
+        '<div class="tour-actions">' +
+          '<button type="button" class="btn ghost tour-skip">Skip tour</button>' +
+          '<button type="button" class="btn tour-next">' + (i === TOUR_STEPS.length - 1 ? "Done" : "Next") + '</button>' +
+        '</div>';
+      var cardW = Math.min(300, window.innerWidth - 24);
+      var cardTop = r.bottom + pad * 2;
+      if (cardTop + 170 > window.innerHeight) cardTop = Math.max(12, r.top - pad * 2 - 170);
+      card.style.top = cardTop + "px";
+      card.style.left = Math.min(Math.max(12, r.left), window.innerWidth - cardW - 12) + "px";
+      card.querySelector(".tour-skip").addEventListener("click", end);
+      card.querySelector(".tour-next").addEventListener("click", advance);
+    }
+    function advance() {
+      i++;
+      if (i >= TOUR_STEPS.length) { end(); return; }
+      render();
+    }
+    function end() {
+      overlay.remove();
+      document.removeEventListener("keydown", onKey);
+    }
+    function onKey(e) { if (e.key === "Escape") end(); }
+    document.addEventListener("keydown", onKey);
+    document.body.appendChild(overlay);
+    render();
+  }
 
   /* Moves to the previous/next anatomy lesson from the currently open note
    * or diagram (wrapping at the ends) -- shared by the "[ ] / J K" shortcut
@@ -5004,6 +5307,15 @@
     on(brand, "click", goHome);
     on(brand, "keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); goHome(); } });
     goHome();
+    /* goHome() above just pushed a bogus pre-boot "home" snapshot onto the
+     * back-history stack (state.screen defaults to "home" before anything
+     * has actually rendered) -- clear it so the back button starts genuinely
+     * disabled instead of one tap away from a no-op. */
+    navStack = [];
+    updateBackButton();
+    var navBackBtn = el("navBack");
+    on(navBackBtn, "click", goBack);
+    initFirstRunTour();
   }
   document.addEventListener("DOMContentLoaded", boot);
 })();
