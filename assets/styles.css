@@ -250,10 +250,10 @@ main.wrap { padding-top: 48px; padding-bottom: 60px; min-height: 60vh; }
 
 /* Streak popover: a small grid of 30 color-intensity cells (darker/more
    saturated = more cards reviewed that day), positioned under the chip. */
-.streak-pop { position: absolute; top: calc(100% + 10px); right: 0; z-index: 30; width: 220px; max-width: 80vw;
+.streak-pop { position: absolute; top: calc(100% + 10px); left: 0; z-index: 30; width: 220px; max-width: 80vw;
   background: var(--surface); color: var(--ink); border: 1px solid var(--line-soft); border-radius: 12px;
   box-shadow: var(--shadow-lg, var(--shadow)); padding: 12px 14px; cursor: default; white-space: normal;
-  animation: dropdownSpring .18s var(--ease-spring); transform-origin: top right; }
+  animation: dropdownSpring .18s var(--ease-spring); transform-origin: top left; }
 @media (prefers-reduced-motion: reduce) { .streak-pop { animation: none; } }
 .streak-pop-title { font-size: 10.5px; color: var(--ink-faint); margin-bottom: 8px; }
 .streak-pop-grid { display: grid; grid-template-columns: repeat(10, 1fr); gap: 4px; }
@@ -1094,6 +1094,25 @@ td.flag { color: var(--flag); font-weight: 600; }
 /* ---- functional search (topbar) ---- */
 .search-wrap { position: relative; min-width: 150px; flex: 1 1 340px; max-width: 480px; margin-right: 20px; }
 @media (max-width: 640px) { .search-wrap { display: none; } }
+
+/* Search is hidden below 640px (no room in one topbar row) so phones get an
+   icon that opens the exact same input as its own row, instead of just
+   losing search entirely. .mobile-search-toggle is hidden on wider screens,
+   where the real search box is already visible. */
+.mobile-search-toggle { display: none; }
+@media (max-width: 640px) {
+  .mobile-search-toggle { display: inline-flex; align-items: center; justify-content: center; }
+  /* .tb-right is normally flex:0 0 auto (sized to its max-content width) so
+     the icon row never gets squeezed; once search wraps in, that same rule
+     stops it from shrinking to fit the topbar at all, which is what was
+     pushing the whole page into horizontal scroll. Let it size to the row
+     instead while search is open. */
+  body.mobile-search-open .tb-right { flex: 1 1 100%; min-width: 0; flex-wrap: wrap; justify-content: flex-end; }
+  body.mobile-search-open .search-wrap { display: block; order: 10; flex: 1 1 100%;
+    min-width: 0; max-width: none; margin: 8px 0 0; }
+  body.mobile-search-open .search-kbd { display: none; }
+  body.mobile-search-open .search-results { width: 100%; max-width: none; }
+}
 .search-input { width: 100%; background: var(--surface-2); border: 1px solid var(--line);
   border-radius: 999px; padding: 10.5px 52px 10.5px 40px; color: var(--ink); font-size: 14.5px;
   transition: border-color .15s var(--ease-out), background-color .15s var(--ease-out); }
@@ -1752,6 +1771,13 @@ body.js-motion .bento-hero.reveal-init.in .bento-start-btn {
 .pocketlog-tab:hover { padding-right: 12px; background: var(--primary-deep); }
 .pocketlog-tab svg { width: 15px; height: 15px; flex: 0 0 auto; }
 body.pocketlog-open .pocketlog-tab { display: none; }
+/* On phones this tab's vertical text label makes it ~110px tall, enough to
+   sit on top of and obscure a whole list row wherever it lands down the
+   page. Icon-only keeps the same tap target in a corner-sized footprint. */
+@media (max-width: 560px) {
+  .pocketlog-tab span { display: none; }
+  .pocketlog-tab { padding: 10px 9px; }
+}
 .pocketlog-panel { position: fixed; top: var(--topbar-h, 73px); right: 0; bottom: 0; width: min(400px, 88vw); max-width: 92vw;
   background: var(--surface); border-left: 1px solid var(--line); overflow-y: auto; z-index: 9;
   transform: translateX(100%); transition: transform .32s var(--ease-drawer); }

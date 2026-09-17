@@ -3047,6 +3047,9 @@
           item.addEventListener("click", function () {
             openSearchResult(e);
             input.value = ""; closeResults(); input.blur();
+            document.body.classList.remove("mobile-search-open");
+            var toggleBtn = el("mobileSearchToggle");
+            if (toggleBtn) toggleBtn.setAttribute("aria-expanded", "false");
           });
           results.appendChild(item);
         });
@@ -3103,6 +3106,33 @@
     document.addEventListener("click", function (e) {
       if (e.target !== input && !results.contains(e.target)) closeResults();
     });
+
+    /* Phones hide the topbar search box entirely (no room in one row), so
+     * this toggle expands it onto its own row instead of leaving mobile
+     * users with no way to search at all. */
+    var mobileToggle = el("mobileSearchToggle");
+    if (mobileToggle) {
+      function closeMobileSearch() {
+        document.body.classList.remove("mobile-search-open");
+        mobileToggle.setAttribute("aria-expanded", "false");
+        input.blur(); closeResults();
+      }
+      mobileToggle.addEventListener("click", function (e) {
+        e.stopPropagation();
+        var opening = !document.body.classList.contains("mobile-search-open");
+        document.body.classList.toggle("mobile-search-open", opening);
+        mobileToggle.setAttribute("aria-expanded", opening ? "true" : "false");
+        if (opening) input.focus(); else closeMobileSearch();
+      });
+      document.addEventListener("click", function (e) {
+        if (document.body.classList.contains("mobile-search-open") &&
+            e.target !== mobileToggle && !mobileToggle.contains(e.target) &&
+            e.target !== input && !results.contains(e.target)) closeMobileSearch();
+      });
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && document.body.classList.contains("mobile-search-open")) closeMobileSearch();
+      });
+    }
   }
 
   /* ---------- study settings (again/good/easy intervals, new-card cap, resets) ---------- */
@@ -3741,6 +3771,14 @@
       ctr.appendChild(missBtn); ctr.appendChild(gotBtn);
       shell.appendChild(ctr);
       shell.appendChild(h('<div class="kbd-hint mono">Space = Got it &middot; Z = Undo</div>'));
+    }
+    /* Z is a keyboard-only shortcut, so phones (and anyone else without a
+     * keyboard) need an actual tappable undo control too, same as the
+     * regular flashcard session already provides. */
+    if (pq.history.length) {
+      var pqUndoRow = h('<div style="text-align:center;margin-top:10px"><button type="button" class="undo-btn mono">&#8617; Undo last answer</button></div>');
+      pqUndoRow.querySelector("button").addEventListener("click", handlePimpUndo);
+      shell.appendChild(pqUndoRow);
     }
     root.appendChild(shell);
   }
@@ -4585,6 +4623,11 @@
       ctr.appendChild(missBtn); ctr.appendChild(gotBtn);
       body.appendChild(ctr);
       body.appendChild(h('<div class="kbd-hint mono">Space = Got it &middot; Z = Undo</div>'));
+    }
+    if (ppq.history.length) {
+      var ppqUndoRow = h('<div style="text-align:center;margin-top:10px"><button type="button" class="undo-btn mono">&#8617; Undo last answer</button></div>');
+      ppqUndoRow.querySelector("button").addEventListener("click", handlePimpPanelUndo);
+      body.appendChild(ppqUndoRow);
     }
   }
 
