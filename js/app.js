@@ -665,6 +665,55 @@
     return '<svg class="spark" viewBox="0 0 ' + w + ' ' + h + '" width="' + w + '" height="' + h + '" aria-hidden="true">' + bars + '</svg>';
   }
 
+  /* Streak chip -> a small hover/click popover showing the last 30 days of
+   * review activity as a color-intensity grid (darker/more saturated = more
+   * cards that day), the same window.SRS.dailyActivity() feed that already
+   * backs the home dashboard's sparkline. Click toggles it (and keeps it
+   * open, e.g. for touch devices without hover); hovering the chip or the
+   * popover itself shows it, with a short close delay so the mouse can
+   * travel from one to the other without it vanishing. */
+  function wireStreakHeatmap(chip) {
+    var pop = null, closeTimer = null;
+    function build() {
+      var days = 30;
+      var activity = window.SRS.dailyActivity(days);
+      var max = Math.max.apply(null, activity.concat([1]));
+      var box = h('<div class="streak-pop" role="tooltip"></div>');
+      box.appendChild(h('<div class="streak-pop-title mono">Cards reviewed, last ' + days + ' days</div>'));
+      var grid = h('<div class="streak-pop-grid"></div>');
+      var today = new Date();
+      activity.forEach(function (count, i) {
+        var daysAgo = days - 1 - i;
+        var d = new Date(today.getFullYear(), today.getMonth(), today.getDate() - daysAgo);
+        var pct = count > 0 ? Math.round(15 + (count / max) * 80) : 0;
+        var cell = h('<div class="streak-cell"></div>');
+        cell.style.background = count > 0 ? "color-mix(in srgb, var(--primary) " + pct + "%, var(--surface-2))" : "";
+        cell.title = d.toLocaleDateString(undefined, { month: "short", day: "numeric" }) + ": " + count + " card" + (count === 1 ? "" : "s");
+        grid.appendChild(cell);
+      });
+      box.appendChild(grid);
+      box.appendChild(h('<div class="streak-pop-legend mono">Less &rarr; more</div>'));
+      return box;
+    }
+    function open() {
+      clearTimeout(closeTimer);
+      if (pop) return;
+      pop = build();
+      pop.addEventListener("mouseenter", function () { clearTimeout(closeTimer); });
+      pop.addEventListener("mouseleave", scheduleClose);
+      chip.appendChild(pop);
+    }
+    function close() { if (pop) { pop.remove(); pop = null; } }
+    function scheduleClose() { clearTimeout(closeTimer); closeTimer = setTimeout(close, 220); }
+    chip.addEventListener("mouseenter", open);
+    chip.addEventListener("mouseleave", scheduleClose);
+    chip.addEventListener("click", function (e) { e.stopPropagation(); if (pop) close(); else open(); });
+    chip.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); if (pop) close(); else open(); }
+      else if (e.key === "Escape") close();
+    });
+  }
+
   /* Small circular mastery ring (SVG) used in the spaced-repetition queue --
      replaces a linear bar with a compact at-a-glance percentage. */
   function masteryRing(pct, color, size, showLabel, trackColor, textColor) {
@@ -780,7 +829,7 @@
 
     var root = el("screen-home");
     root.innerHTML = "";
-    root.appendChild(h('<div class="eyebrow">Your ENT rotation, topic by topic</div>'));
+    root.appendChild(h('<div class="eyebrow">Your ENT Rotation</div>'));
 
     /* Unified bento dashboard: a single dark hero card holds the queue CTA,
      * streak, a horizontally swipeable rack of every subspecialty with cards
@@ -804,7 +853,7 @@
             '<h2 class="bento-hero-title">Ready for your daily review</h2>' +
             '<div class="bento-hero-sub">' + agg.due + ' card' + (agg.due === 1 ? '' : 's') + ' due across ' + allMods.length + ' modules.</div>' +
           '</div>' +
-          '<div class="bento-streak-chip" data-dash="streak" role="button" tabindex="0" aria-label="' + streak + (streak === 1 ? ' day' : ' days') + ' study streak. Open study settings.">' +
+          '<div class="bento-streak-chip" data-dash="streak" role="button" tabindex="0" aria-label="' + streak + (streak === 1 ? ' day' : ' days') + ' study streak. Show daily review activity.">' +
             '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a6 6 0 1 1-12 0c0-1.088.348-2.05.5-2.5"/></svg>' +
             '<span>' + streak + (streak === 1 ? " day" : " days") + " streak</span>" +
           "</div>" +
@@ -833,18 +882,7 @@
     );
     heroTile.querySelector(".bento-start-btn").addEventListener("click", goStudyAll);
     var streakChip = heroTile.querySelector(".bento-streak-chip");
-    var openStreakSettings = function (e) {
-      /* Simulating a click on the real settingsToggle opens the panel
-       * synchronously, but the *original* click event is still bubbling
-       * -- without stopping it here, it reaches initSettings()'s
-       * outside-click listener on document and immediately closes the
-       * panel it just opened. */
-      e.stopPropagation();
-      var t = el("settingsToggle");
-      if (t) t.click();
-    };
-    streakChip.addEventListener("click", openStreakSettings);
-    streakChip.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openStreakSettings(e); } });
+    wireStreakHeatmap(streakChip);
 
     var chipRack = heroTile.querySelector(".bento-hero-scroller");
     if (dueTracks.length) {
@@ -869,7 +907,19 @@
     animateStatCounts(bento);
     animateMasteryRing(bento);
 
-    root.appendChild(h('<div class="section-head"><h2>Browse by subspecialty</h2></div>'));
+    var sectionHead = h(
+      '<div class="section-head"><h2>Browse by subspecialty</h2>' +
+        '<div class="home-view-toggle" role="group" aria-label="Layout">' +
+          '<button type="button" class="hv-btn" data-view="grid" aria-label="Grid view" data-tip="Grid">' +
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></svg>' +
+          '</button>' +
+          '<button type="button" class="hv-btn" data-view="list" aria-label="Scroll view" data-tip="Scroll">' +
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13"/><path d="M3 6h.01M3 12h.01M3 18h.01"/></svg>' +
+          '</button>' +
+        '</div>' +
+      '</div>'
+    );
+    root.appendChild(sectionHead);
 
     var filterBar = h('<div class="filter-bar filter-bar-sliding"><i class="filter-pill-indicator"></i></div>');
     var grid = h('<div class="tile-grid"></div>');
@@ -924,8 +974,6 @@
     });
     root.appendChild(grid);
 
-    root.appendChild(h('<div class="section-head feed-head"><h2>Every subspecialty, in one scroll</h2><span class="hint">Same tracks, laid out for a longer read</span></div>'));
-
     TRACKS.forEach(function (t) {
       var mods = modulesFor(t.id);
       var cardCount = mods.reduce(function (n, m) { return n + (m.cards || []).length; }, 0);
@@ -957,7 +1005,33 @@
     root.appendChild(list);
     applyHomeFilter(grid, list);
     initHomeScrollspy(list, filterBar);
+
+    var viewMode = loadHomeViewMode();
+    function applyHomeViewMode() {
+      grid.hidden = viewMode !== "grid";
+      list.hidden = viewMode !== "list";
+      sectionHead.querySelectorAll(".hv-btn").forEach(function (b) {
+        var active = b.getAttribute("data-view") === viewMode;
+        b.classList.toggle("active", active);
+        b.setAttribute("aria-pressed", active ? "true" : "false");
+      });
+    }
+    sectionHead.querySelectorAll(".hv-btn").forEach(function (b) {
+      b.addEventListener("click", function () {
+        viewMode = b.getAttribute("data-view");
+        saveHomeViewMode(viewMode);
+        applyHomeViewMode();
+        restaggerHomeGrid(grid, list);
+      });
+    });
+    applyHomeViewMode();
   }
+
+  var HOME_VIEW_KEY = "jeffent.homeView";
+  function loadHomeViewMode() {
+    try { var v = localStorage.getItem(HOME_VIEW_KEY); return v === "list" ? "list" : "grid"; } catch (e) { return "grid"; }
+  }
+  function saveHomeViewMode(mode) { try { localStorage.setItem(HOME_VIEW_KEY, mode); } catch (e) {} }
 
   /* First 3-4 anatomy note titles as a compact "high-yield anchors" line,
      e.g. "Three compartments, one organ - The clinically dangerous...".
@@ -2904,6 +2978,18 @@
     return idx;
   }
 
+  /* Colloquial words a student might type that really mean "search inside
+   * this specific module", not literal query text -- e.g. typing "quick
+   * prep thyroidectomy" should scope to 2-Minute Procedure Prep and match
+   * "thyroidectomy" within it, not fail to find a title containing the
+   * literal word "quick". Matched as whole tokens only (never a prefix),
+   * so it can't accidentally swallow an unrelated word that merely starts
+   * the same way. */
+  var SEARCH_MODULE_ALIASES = {
+    "procedures-2min": ["quick", "prep", "preps", "procedure", "procedures", "brief", "briefs", "or", "2min", "2-min"],
+    "abbreviations": ["abbreviation", "abbreviations", "abbrev", "acronym", "acronyms"],
+    "pharm-pocket": ["pharm", "pharmacology", "rx", "drug", "drugs", "dose", "dosing"]
+  };
   function initSearch() {
     var input = el("searchInput");
     var results = el("searchResults");
@@ -2915,10 +3001,27 @@
     function renderResults(query) {
       var q = query.trim().toLowerCase();
       if (q.length < 2) { closeResults(); return; }
-      var terms = q.split(/\s+/).filter(function (x) { return x; });
-      var matches = index.filter(function (e) {
-        return matchesWordPrefix(e.title, terms) || matchesWordPrefix(e.snippet, terms);
+      var allTerms = q.split(/\s+/).filter(function (x) { return x; });
+      /* Split the query into "scope" words (recognized module aliases) and
+       * the real search terms left over, so "quick prep thyroidectomy"
+       * narrows to the Procedures module and then matches "thyroidectomy"
+       * within it, instead of requiring every word to appear in one title. */
+      var scopeModIds = [];
+      var terms = [];
+      allTerms.forEach(function (term) {
+        var matchedMod = null;
+        for (var modId in SEARCH_MODULE_ALIASES) {
+          if (SEARCH_MODULE_ALIASES.hasOwnProperty(modId) && SEARCH_MODULE_ALIASES[modId].indexOf(term) !== -1) { matchedMod = modId; break; }
+        }
+        if (matchedMod) { if (scopeModIds.indexOf(matchedMod) === -1) scopeModIds.push(matchedMod); }
+        else terms.push(term);
       });
+      var pool = scopeModIds.length ? index.filter(function (e) { return scopeModIds.indexOf(e.modId) !== -1; }) : index;
+      var matches = !terms.length
+        ? (scopeModIds.length ? pool.slice() : [])
+        : pool.filter(function (e) {
+            return matchesWordPrefix(e.title, terms) || matchesWordPrefix(e.snippet, terms);
+          });
       results.innerHTML = "";
       if (matches.length === 0) {
         results.appendChild(h('<div class="search-empty">No matches for "' + esc(query.trim()) + '".</div>'));
@@ -3514,16 +3617,53 @@
 
   function startPimpQuiz(questions, label) {
     var qs = pimpShuffleOn() ? shuffled(questions) : questions.slice();
-    pq = { qs: qs, i: 0, revealed: false, label: label || "Questions", got: 0, missed: 0, missedQs: [] };
+    pq = { qs: qs, i: 0, revealed: false, label: label || "Questions", got: 0, missed: 0, missedQs: [], history: [] };
     renderPimpQuiz();
   }
 
   /* Grading, shared by the buttons and the spacebar shortcut. "Got it" walks the
    * most-missed count down; "Missed" bumps it and remembers the item for a
-   * same-session redo. */
+   * same-session redo. Each answer is also pushed onto `history` (rating +
+   * the item) so the Z-key shortcut can undo it and so the progress bar can
+   * render a green/red segment per answered question, not just a percentage. */
   function pimpAdvance() { pq.i++; pq.revealed = false; renderPimpQuiz(); }
-  function pimpMarkGot(item) { pq.got++; pqMissAdjust(item, -1); pimpAdvance(); }
-  function pimpMarkMissed(item) { pq.missed++; pq.missedQs.push(item); pqMissAdjust(item, 1); pimpAdvance(); }
+  function pimpMarkGot(item) { pq.history.push({ item: item, rating: "got" }); pq.got++; pqMissAdjust(item, -1); pimpAdvance(); }
+  function pimpMarkMissed(item) { pq.history.push({ item: item, rating: "missed" }); pq.missed++; pq.missedQs.push(item); pqMissAdjust(item, 1); pimpAdvance(); }
+
+  /* Undo the most recent grading: reverses the got/missed tallies and the
+   * most-missed adjustment, drops the item from missedQs if it was just
+   * added there, and steps back to that question (front-side-first, same
+   * convention as the flashcard session's Z-key undo). */
+  function undoPimpQuiz(q) {
+    if (!q || !q.history || !q.history.length) return false;
+    var last = q.history.pop();
+    if (last.rating === "got") { q.got = Math.max(0, q.got - 1); pqMissAdjust(last.item, 1); }
+    else {
+      q.missed = Math.max(0, q.missed - 1); pqMissAdjust(last.item, -1);
+      for (var i = q.missedQs.length - 1; i >= 0; i--) { if (q.missedQs[i] === last.item) { q.missedQs.splice(i, 1); break; } }
+    }
+    q.i = Math.max(0, q.i - 1);
+    q.revealed = false;
+    return true;
+  }
+  function handlePimpUndo() {
+    if (!pq || !undoPimpQuiz(pq)) return false;
+    renderPimpQuiz();
+    return true;
+  }
+
+  /* A row of one segment per answered question (green = got, red = missed),
+   * with the remaining unanswered length left as bare track -- same total
+   * width as the old single percentage bar, but the outcome of each answer
+   * stays visible instead of collapsing into one number. */
+  function pqProgressBar(history, total) {
+    var bar = h('<div class="pq-progress" role="img" aria-label="' + history.length + ' of ' + total + ' answered"></div>');
+    var segPct = 100 / total;
+    history.forEach(function (entry) {
+      bar.appendChild(h('<i class="pq-seg ' + (entry.rating === "got" ? "seg-got" : "seg-missed") + '" style="width:' + segPct + '%"></i>'));
+    });
+    return bar;
+  }
 
   function renderPimpQuiz() {
     var root = el("screen-pimp");
@@ -3555,15 +3695,19 @@
       back.addEventListener("click", renderPimpIntro);
       acts.appendChild(back);
       summary.appendChild(acts);
+      if (pq.history.length) {
+        var undoDone = h('<div style="text-align:center;margin-top:10px"><button type="button" class="undo-btn mono">&#8617; Undo last answer (Z)</button></div>');
+        undoDone.querySelector("button").addEventListener("click", handlePimpUndo);
+        summary.appendChild(undoDone);
+      }
       root.appendChild(summary);
       return;
     }
 
     /* ---- one question ---- */
     var item = pq.qs[pq.i];
-    var pctDone = Math.round(pq.i / total * 100);
     var shell = h('<div class="study-shell"></div>');
-    shell.appendChild(h('<div class="progress"><i style="width:' + pctDone + '%"></i></div>'));
+    shell.appendChild(pqProgressBar(pq.history, total));
     shell.appendChild(h('<div class="mono" style="font-size:12px;color:var(--ink-faint);margin-bottom:12px">Question ' + (pq.i + 1) + ' of ' + total + ' &middot; ' + esc(pq.label) + '</div>'));
 
     var card = h('<div class="flashcard pq-card"></div>');
@@ -3587,6 +3731,7 @@
       var rv = h('<div style="text-align:center"><button class="btn reveal-btn">Show answer</button></div>');
       rv.querySelector("button").addEventListener("click", function () { pq.revealed = true; renderPimpQuiz(); });
       shell.appendChild(rv);
+      if (pq.history.length) shell.appendChild(h('<div class="kbd-hint mono">Z = Undo last answer</div>'));
     } else {
       var ctr = h('<div class="answer-controls pq-controls"></div>');
       var missBtn = h('<button class="rate again">Missed</button>');
@@ -3595,7 +3740,7 @@
       gotBtn.addEventListener("click", function () { pimpMarkGot(item); });
       ctr.appendChild(missBtn); ctr.appendChild(gotBtn);
       shell.appendChild(ctr);
-      shell.appendChild(h('<div class="kbd-hint mono">Space = Got it</div>'));
+      shell.appendChild(h('<div class="kbd-hint mono">Space = Got it &middot; Z = Undo</div>'));
     }
     root.appendChild(shell);
   }
@@ -4357,12 +4502,17 @@
 
   function startPimpPanelQuiz(questions, label) {
     var qs = pimpShuffleOn() ? shuffled(questions) : questions.slice();
-    ppq = { qs: qs, i: 0, revealed: false, label: label || "Questions", got: 0, missed: 0, missedQs: [] };
+    ppq = { qs: qs, i: 0, revealed: false, label: label || "Questions", got: 0, missed: 0, missedQs: [], history: [] };
     renderPimpPanel();
   }
   function pimpPanelAdvance() { ppq.i++; ppq.revealed = false; renderPimpPanel(); }
-  function pimpPanelMarkGot(item) { ppq.got++; pqMissAdjust(item, -1); pimpPanelAdvance(); }
-  function pimpPanelMarkMissed(item) { ppq.missed++; ppq.missedQs.push(item); pqMissAdjust(item, 1); pimpPanelAdvance(); }
+  function pimpPanelMarkGot(item) { ppq.history.push({ item: item, rating: "got" }); ppq.got++; pqMissAdjust(item, -1); pimpPanelAdvance(); }
+  function pimpPanelMarkMissed(item) { ppq.history.push({ item: item, rating: "missed" }); ppq.missed++; ppq.missedQs.push(item); pqMissAdjust(item, 1); pimpPanelAdvance(); }
+  function handlePimpPanelUndo() {
+    if (!ppq || !undoPimpQuiz(ppq)) return false;
+    renderPimpPanel();
+    return true;
+  }
 
   function renderPimpPanelQuiz(body) {
     var total = ppq.qs.length;
@@ -4391,13 +4541,17 @@
       back.addEventListener("click", function () { ppq = null; renderPimpPanel(); });
       acts.appendChild(back);
       summary.appendChild(acts);
+      if (ppq.history.length) {
+        var undoDone = h('<div style="text-align:center;margin-top:10px"><button type="button" class="undo-btn mono">&#8617; Undo last answer (Z)</button></div>');
+        undoDone.querySelector("button").addEventListener("click", handlePimpPanelUndo);
+        summary.appendChild(undoDone);
+      }
       body.appendChild(summary);
       return;
     }
 
     var item = ppq.qs[ppq.i];
-    var pctDone = Math.round(ppq.i / total * 100);
-    body.appendChild(h('<div class="fp-prog"><i style="width:' + pctDone + '%"></i></div>'));
+    body.appendChild(pqProgressBar(ppq.history, total));
     body.appendChild(h('<div class="fp-count mono">Question ' + (ppq.i + 1) + ' of ' + total + ' &middot; ' + esc(ppq.label) + '</div>'));
 
     var card = h('<div class="flashcard pq-card"></div>');
@@ -4421,6 +4575,7 @@
       var rv = h('<button class="btn reveal-btn" style="width:100%">Show answer</button>');
       rv.addEventListener("click", function () { ppq.revealed = true; renderPimpPanel(); });
       body.appendChild(rv);
+      if (ppq.history.length) body.appendChild(h('<div class="kbd-hint mono">Z = Undo last answer</div>'));
     } else {
       var ctr = h('<div class="answer-controls pq-controls"></div>');
       var missBtn = h('<button class="rate again">Missed</button>');
@@ -4429,7 +4584,7 @@
       gotBtn.addEventListener("click", function () { pimpPanelMarkGot(item); });
       ctr.appendChild(missBtn); ctr.appendChild(gotBtn);
       body.appendChild(ctr);
-      body.appendChild(h('<div class="kbd-hint mono">Space = Got it</div>'));
+      body.appendChild(h('<div class="kbd-hint mono">Space = Got it &middot; Z = Undo</div>'));
     }
   }
 
@@ -4480,6 +4635,7 @@
         else if (isUndo) handled = handleFlashUndo();
       } else if (document.body.classList.contains("pimp-open")) {
         if (isSpace) handled = handlePimpPanelSpace();
+        else if (isUndo) handled = handlePimpPanelUndo();
       } else if ((state.screen === "module" || state.screen === "study") && state.session) {
         if (isSpace && !state.session.done) handled = handleStudySpace();
         else if (isNumber && !state.session.done) handled = handleStudyNumberKey(e.key);
@@ -4488,6 +4644,7 @@
         if (isSpace) handled = handleCaseSpace();
       } else if (state.screen === "pimp") {
         if (isSpace) handled = handlePimpSpace();
+        else if (isUndo) handled = handlePimpUndo();
       }
       if (handled) e.preventDefault();
     });

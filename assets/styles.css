@@ -213,6 +213,12 @@ main.wrap { padding-top: 48px; padding-bottom: 60px; min-height: 60vh; }
 .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin: 40px 0 4px; flex-wrap: wrap; }
 .section-head h2 { font-size: 1.5rem; }
 .section-head .count, .section-head .hint { font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--ink-faint); }
+.home-view-toggle { display: inline-flex; gap: 3px; background: var(--surface-2); border: 1px solid var(--line-soft); border-radius: 10px; padding: 3px; }
+.hv-btn { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 28px; border: 0; background: none;
+  color: var(--ink-faint); border-radius: 7px; cursor: pointer; transition: background-color .15s var(--ease-out), color .15s var(--ease-out); }
+.hv-btn svg { width: 15px; height: 15px; }
+.hv-btn:hover { color: var(--ink-soft); }
+.hv-btn.active { background: var(--surface); color: var(--primary); box-shadow: var(--shadow); }
 .section-head.feed-head { margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--line-soft); }
 
 /* ---- home: unified bento dashboard ----
@@ -236,11 +242,23 @@ main.wrap { padding-top: 48px; padding-bottom: 60px; min-height: 60vh; }
 .bento-hero .eyebrow { color: var(--hero-ink-soft); }
 .bento-hero-title { font-family: "Source Serif 4", serif; font-size: 1.5rem; color: var(--hero-ink); margin: 6px 0 0; }
 .bento-hero-sub { color: var(--hero-ink-soft); font-size: 14px; margin-top: 6px; }
-.bento-streak-chip { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,.1);
+.bento-streak-chip { position: relative; display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,.1);
   border: 1px solid rgba(255,255,255,.14); color: #fff; border-radius: 999px; padding: 7px 13px; font-size: 12.5px;
   font-weight: 600; white-space: nowrap; cursor: pointer; transition: background-color .16s var(--ease-out); }
 .bento-streak-chip:hover, .bento-streak-chip:focus-visible { background: rgba(255,255,255,.18); }
 .bento-streak-chip svg { width: 15px; height: 15px; flex: 0 0 auto; color: #ffb020; }
+
+/* Streak popover: a small grid of 30 color-intensity cells (darker/more
+   saturated = more cards reviewed that day), positioned under the chip. */
+.streak-pop { position: absolute; top: calc(100% + 10px); right: 0; z-index: 30; width: 220px; max-width: 80vw;
+  background: var(--surface); color: var(--ink); border: 1px solid var(--line-soft); border-radius: 12px;
+  box-shadow: var(--shadow-lg, var(--shadow)); padding: 12px 14px; cursor: default; white-space: normal;
+  animation: dropdownSpring .18s var(--ease-spring); transform-origin: top right; }
+@media (prefers-reduced-motion: reduce) { .streak-pop { animation: none; } }
+.streak-pop-title { font-size: 10.5px; color: var(--ink-faint); margin-bottom: 8px; }
+.streak-pop-grid { display: grid; grid-template-columns: repeat(10, 1fr); gap: 4px; }
+.streak-cell { width: 100%; aspect-ratio: 1; border-radius: 3px; background: var(--surface-2); }
+.streak-pop-legend { margin-top: 8px; font-size: 10px; color: var(--ink-faint); text-align: right; }
 .bento-start-btn { border-color: #fff; background: #fff; color: var(--hero-bg); border-radius: 999px;
   padding: 11px 20px; font-weight: 600; white-space: nowrap; }
 .bento-start-btn:hover { background: #e2e8f0; border-color: #e2e8f0; }
@@ -299,6 +317,7 @@ main.wrap { padding-top: 48px; padding-bottom: 60px; min-height: 60vh; }
 
 /* ---- home: subspecialty tile grid ---- */
 .tile-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 18px; }
+.tile-grid[hidden] { display: none; }
 @media (min-width: 1180px) { .tile-grid { grid-template-columns: repeat(4, 1fr); } }
 @media (max-width: 820px) { .tile-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 520px) { .tile-grid { grid-template-columns: 1fr; } }
@@ -347,6 +366,7 @@ main.wrap { padding-top: 48px; padding-bottom: 60px; min-height: 60vh; }
    site's card language on purpose, per spec: 8px radius cap, flat elevation,
    4px left accent border keyed to the track's own color. ---- */
 .feature-list { display: flex; flex-direction: column; gap: 24px; margin-top: 20px; }
+.feature-list[hidden] { display: none; }
 .feature-row { display: flex; align-items: center; gap: 20px; width: 100%; text-align: left;
   background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--track-color, var(--primary));
   border-radius: 8px; padding: 22px 24px; cursor: pointer;
@@ -786,6 +806,14 @@ div.anatomy-detail-body:not(.panel) li { margin: .3em 0; }
 .study-shell { max-width: 620px; margin: 0 auto; }
 .progress { height: 6px; background: var(--surface-2); border-radius: 99px; overflow: hidden; margin-bottom: 20px; }
 .progress > i { display: block; height: 100%; background: var(--primary); border-radius: 99px; transition: width .5s var(--ease-out); }
+
+/* FAQ quiz progress: one segment per answered question (green = got, red =
+   missed) instead of one plain percentage fill, so the mix of hits/misses
+   stays visible at a glance during the session. */
+.pq-progress { display: flex; height: 6px; background: var(--surface-2); border-radius: 99px; overflow: hidden; margin-bottom: 20px; }
+.pq-seg { display: block; height: 100%; flex: 0 0 auto; }
+.pq-seg.seg-got { background: var(--good); }
+.pq-seg.seg-missed { background: var(--flag); }
 .flashcard { position: relative; background: var(--surface);
   background-image: linear-gradient(155deg, color-mix(in srgb, var(--primary) 5%, transparent), transparent 55%);
   border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow-lift);
@@ -1561,7 +1589,12 @@ body.js-motion .bento-hero.reveal-init.in .bento-start-btn {
 
 /* ===== 2-Minute Procedure Prep: subspecialty accordion + card-within-card
    briefs (js/app.js buildProceduresPane()) ===== */
-.proc-shell .lesson-nav { padding-top: 12px; }
+.proc-shell .lesson-nav { padding-top: 12px; position: sticky;
+  top: calc(var(--topbar-h, 73px) + var(--head-h, 118px) + 16px);
+  max-height: calc(100vh - var(--topbar-h, 73px) - var(--head-h, 118px) - 32px);
+  display: flex; flex-direction: column; }
+.proc-shell .proc-nav-list { max-height: none; flex: 1 1 auto; min-height: 0; overflow-y: auto; }
+@media (max-width: 899px) { .proc-shell .lesson-nav { position: static; max-height: none; } }
 .proc-chips { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 6px 12px; }
 .proc-chip { font-family: "JetBrains Mono", monospace; font-size: 10.5px; border: 1px solid var(--line-soft);
   background: var(--surface-2); color: var(--ink-soft); border-radius: 999px; padding: 4px 10px;

@@ -15,7 +15,7 @@ window.JEFFENT.register(
  "clinical": {
   "intro": "Each brief is a two-minute pre-scrub read: the indication, the key steps, the danger structures, and one pearl. Work the decision points before you look, then lock in the pearl.",
   "matcher": {
-   "head": ["Procedure", "Subspecialty", "Watch out for"],
+   "head": ["Procedure", "Subspecialty", "Key structures"],
    "rows": [
     ["Myringotomy & tubes", "Otology", "Ossicles, chorda tympani, jugular bulb"],
     ["Tympanoplasty / mastoidectomy", "Otology", "Facial nerve, lateral SCC, sigmoid sinus, tegmen"],

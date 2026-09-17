@@ -62,5 +62,8 @@ window.JEFFENT.tracks = [
     icon: '<path d="M5 19l9-9"></path><path d="M14 10l2-6 4 4-6 2z"></path>' },
   { id: "pharmacology", symbol: "💊",    name: "Pharmacology Pocket Guide",       abbr: "RX",
     category: "atlas", color: "#9333ea",
-    icon: '<rect x="4" y="9" width="16" height="6" rx="3"></rect><path d="M12 9v6"></path>' }
+    icon: '<rect x="4" y="9" width="16" height="6" rx="3"></rect><path d="M12 9v6"></path>' },
+  { id: "abbreviations", symbol: "🔤",   name: "Key Abbreviations",               abbr: "AB",
+    category: "atlas", color: "#0f766e",
+    icon: '<path d="M4 7V5a1 1 0 0 1 1-1h4"></path><path d="M4 17v2a1 1 0 0 0 1 1h4"></path><path d="M20 7V5a1 1 0 0 0-1-1h-4"></path><path d="M20 17v2a1 1 0 0 1-1 1h-4"></path><path d="M8 9v6M16 9v6M8 12h8"></path>' }
 ];
