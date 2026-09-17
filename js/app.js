@@ -4261,9 +4261,30 @@
   function initFlashPanel() {
     var aside = document.createElement("aside");
     aside.id = "flashpanel"; aside.className = "flashpanel"; aside.setAttribute("aria-label", "Flashcards");
-    aside.innerHTML = '<div class="fp-resize" data-tip="Drag to resize"></div><div class="fp-head"><div class="fp-title"><span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="13" height="16" rx="2"></rect><path d="M8 2.5v4M13 2.5v4"></path><path d="M7 20.5h9a2 2 0 0 0 2-2V9"></path></svg></span>Flashcards</div><button type="button" class="fp-close icon-btn" data-tip="Close" aria-label="Close flashcards">✕</button></div><div class="fp-body"></div>';
+    aside.innerHTML =
+      '<div class="fp-resize" data-tip="Drag to resize"></div>' +
+      '<div class="fp-head">' +
+        '<button type="button" class="fp-back icon-btn" data-tip="Back" aria-label="Back">' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg>' +
+        '</button>' +
+        '<div class="fp-title"><span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="13" height="16" rx="2"></rect><path d="M8 2.5v4M13 2.5v4"></path><path d="M7 20.5h9a2 2 0 0 0 2-2V9"></path></svg></span>Flashcards</div>' +
+        /* Anki-style mobile top bar: full-screen study mode replaces the site
+         * topbar entirely, so this is the only way back to Home while it's open. */
+        '<div class="fp-brandhome" role="button" tabindex="0" aria-label="Go to home">' +
+          '<span class="mark" aria-hidden="true"><svg viewBox="0 0 32 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0-6 6c0 2 1 3 1 5a3 3 0 0 0 3 3"></path><path d="M12 3a6 6 0 0 1 6 6c0 3-2 4-2 7a3 3 0 0 1-3 3 3 3 0 0 1-3-3v-1"></path><path d="M19.5 8.5a5 5 0 0 1 0 7"></path><path d="M22.5 6.5a8.5 8.5 0 0 1 0 11"></path></svg></span>' +
+          '<span class="fp-brandhome-name">ENT Rotation Companion</span>' +
+        '</div>' +
+        '<button type="button" class="fp-close icon-btn" data-tip="Close" aria-label="Close flashcards">✕</button>' +
+      '</div>' +
+      '<div class="fp-body"></div>';
     document.body.appendChild(aside);
     aside.querySelector(".fp-close").addEventListener("click", closeFlash);
+    aside.querySelector(".fp-back").addEventListener("click", closeFlash);
+    var brandhome = aside.querySelector(".fp-brandhome");
+    brandhome.addEventListener("click", function () { closeFlash(); goHome(); });
+    brandhome.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); closeFlash(); goHome(); }
+    });
     var t = el("flashToggle"); if (t) t.addEventListener("click", toggleFlash);
     var rez = aside.querySelector(".fp-resize"), dragging = false;
     rez.addEventListener("mousedown", function (e) { e.preventDefault(); dragging = true; document.body.style.userSelect = "none"; });

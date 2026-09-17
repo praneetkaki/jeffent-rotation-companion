@@ -1321,6 +1321,28 @@ body.pimp-open .pimppanel { transform: none; }
   .flashpanel { width: var(--flashpanel-w); }
   .pimppanel { width: var(--pimppanel-w); }
 }
+
+/* Flashcards on a phone: a proper full-screen Anki-style study mode instead
+   of a drawer that shares the screen with whatever was underneath. Replaces
+   the site topbar entirely with its own bar (back chevron + tappable
+   brand/home), same idea as a native app's dedicated review screen. */
+@media (max-width: 700px) {
+  body.flash-open .topbar { display: none; }
+  .flashpanel { top: 0; left: 0; width: 100%; max-width: none; border-left: 0; z-index: 20; }
+  .flashpanel .fp-resize { display: none; }
+  .flashpanel .fp-head { justify-content: flex-start; gap: 10px; }
+  .flashpanel .fp-back { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 auto; }
+  .flashpanel .fp-title { display: none; }
+  .flashpanel .fp-brandhome { display: flex; align-items: center; gap: 8px; cursor: pointer; padding: 3px 6px 3px 3px;
+    border-radius: 9px; min-width: 0; }
+  .flashpanel .fp-brandhome:hover, .flashpanel .fp-brandhome:focus-visible { background: var(--surface-2); }
+  .flashpanel .fp-brandhome .mark { color: var(--primary); display: grid; place-items: center; width: 28px; height: 28px;
+    background: var(--primary-tint); border-radius: 8px; flex: 0 0 auto; }
+  .flashpanel .fp-brandhome .mark svg { width: 60%; height: 60%; display: block; }
+  .flashpanel .fp-brandhome-name { font-family: "Source Serif 4", serif; font-weight: 600; font-size: 1rem; color: var(--ink);
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .flashpanel .fp-close { display: none; }
+}
 .fp-head, .pp-head { display: flex; align-items: center; justify-content: space-between; padding: 13px 16px; border-bottom: 1px solid var(--line);
   position: sticky; top: 0; background: var(--surface); z-index: 1; }
 .fp-title, .pp-title { font-family: "Source Serif 4", serif; font-weight: 600; font-size: 1.05rem;
@@ -1328,6 +1350,9 @@ body.pimp-open .pimppanel { transform: none; }
 .fp-title .mark, .pp-title .mark { width: 30px; height: 30px; border-radius: 9px; background: var(--primary-tint);
   color: var(--primary); display: grid; place-items: center; flex: 0 0 auto; }
 .fp-title .mark svg, .pp-title .mark svg { width: 60%; height: 60%; display: block; }
+/* Back button + brand/home link only make sense in the full-screen mobile
+   presentation below; the desktop side panel keeps its plain title + ✕. */
+.fp-back, .fp-brandhome { display: none; }
 .fp-body, .pp-body { padding: 16px; }
 .fp-ctx { font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: var(--primary); font-weight: 700;
   margin-bottom: 12px; display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px 3px 0; }
