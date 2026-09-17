@@ -347,7 +347,7 @@
     root.appendChild(h('<h1 class="h-lead">Card Library</h1>'));
     root.appendChild(h(
       '<p class="sub">Browse every card by specialty, or search across all of them. ' +
-      'Add a personal note or edit a card’s wording for your own review — saved to this browser only, ' +
+      'Add a personal note or edit a card’s wording for your own review. It saves to this browser only, ' +
       'the shared card is never changed.</p>'
     ));
 
@@ -858,7 +858,7 @@
         chipRack.appendChild(chip);
       });
     } else {
-      chipRack.appendChild(h('<div class="bento-chip bento-chip-empty">All caught up — nothing due right now</div>'));
+      chipRack.appendChild(h('<div class="bento-chip bento-chip-empty">All caught up, nothing due right now</div>'));
     }
 
     heroTile.querySelector(".bento-metric-mastery").addEventListener("click", goRoadmap);
@@ -2274,7 +2274,7 @@
       var searchWrap = h(
         '<div class="proc-matcher-search">' +
           '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>' +
-          '<input type="text" class="proc-matcher-input" placeholder="Type a danger structure — RLN, carotid, chorda tympani…" aria-label="Filter procedures by danger structure">' +
+          '<input type="text" class="proc-matcher-input" placeholder="Type a danger structure: RLN, carotid, chorda tympani…" aria-label="Filter procedures by danger structure">' +
         '</div>'
       );
       introCard.appendChild(searchWrap);
@@ -3823,7 +3823,7 @@
     });
   }
   function exportPearlsMarkdown(pearls) {
-    var lines = ["# Saved Pearls — JeffENT Rotation Companion", ""];
+    var lines = ["# Saved Pearls (JeffENT Rotation Companion)", ""];
     pearls.forEach(function (p) {
       lines.push("## " + (p.title || "Untitled"));
       lines.push("_" + (p.moduleTitle || "") + "_");
@@ -3836,7 +3836,7 @@
     var entries = loadCaseLog();
     var form = h(
       '<div class="pl-logform">' +
-        '<textarea class="pl-log-input" rows="3" placeholder="e.g. T&amp;A with Dr. X — Coblation settings 7/3, anterior pillar tear management" aria-label="New case log entry"></textarea>' +
+        '<textarea class="pl-log-input" rows="3" placeholder="e.g. Neck dissection with Dr. X, level II-IV, spinal accessory nerve preserved" aria-label="New case log entry"></textarea>' +
         '<button type="button" class="btn small">Add entry</button>' +
       '</div>'
     );
@@ -3852,7 +3852,7 @@
     actions.appendChild(mdBtn); actions.appendChild(csvBtn);
     body.appendChild(actions);
     if (!entries.length) {
-      body.appendChild(h('<p class="empty-note">Nothing logged yet — jot down a case you saw today.</p>'));
+      body.appendChild(h('<p class="empty-note">Nothing logged yet. Jot down a case you saw today.</p>'));
       return;
     }
     entries.forEach(function (e) {
@@ -3868,8 +3868,8 @@
     });
   }
   function exportLogMarkdown(entries) {
-    var lines = ["# Quick Log — JeffENT Rotation Companion", ""];
-    entries.forEach(function (e) { lines.push("- **" + fmtLogDate(e.ts) + "** — " + e.text); });
+    var lines = ["# Quick Log (JeffENT Rotation Companion)", ""];
+    entries.forEach(function (e) { lines.push("- **" + fmtLogDate(e.ts) + "**: " + e.text); });
     downloadTextFile("pocket-log-cases.md", lines.join("\n"), "text/markdown");
   }
   function exportLogCsv(entries) {

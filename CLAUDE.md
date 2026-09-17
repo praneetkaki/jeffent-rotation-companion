@@ -22,18 +22,19 @@ A dependency-free **static web app** for ENT rotation study (active recall + spa
 `front`/`back`/`html`/`t` may contain trusted HTML (it's local content, rendered via innerHTML).
 
 ## Hard rules for content
-1. **Every clinical item is DRAFT until a faculty reviewer signs off.** Set `status` and per-card `reviewer` — do not silently mark things reviewed.
-2. **Cite the curriculum anchor** for each module (`curriculumAnchors`) — AAO-HNS Core Curriculum item and/or the department's Delphi priority list.
+1. **Every clinical item is DRAFT until a faculty reviewer signs off.** Set `status` and per-card `reviewer`, do not silently mark things reviewed.
+2. **Cite the curriculum anchor** for each module (`curriculumAnchors`): AAO-HNS Core Curriculum item and/or the department's Delphi priority list.
 3. **Images must be author-drawn SVG, faculty-provided, or explicitly open-licensed (CC).** Never embed copyrighted figures or atlas screenshots. When in doubt, draw a schematic SVG like the tympanic-membrane diagram.
 4. **No patient data, ever.** No real cases, names, MRNs, images of real patients. Cases are fictional teaching vignettes.
-5. **Not a clinical decision tool** — keep the footer disclaimer intact.
+5. **Not a clinical decision tool**, keep the footer disclaimer intact.
+6. **No em dashes (—), anywhere, in any user-facing copy** (content strings, UI microcopy, headings, labels). Use a period, comma, colon, or parentheses instead, whichever reads most naturally. This applies to `content/*.js` and `js/app.js` alike; internal-only fields never shown in the UI (e.g. a module's `status` changelog) are exempt.
 
 ## Code conventions
 - Plain ES5-compatible JS (works everywhere, easy for students to read). No `import`, no bundler.
 - Adding a module = new `content/<name>.js` + one `<script>` tag in `index.html` (before `js/srs.js`).
 - Keep `srs.js` and `app.js` free of clinical content.
 - Preserve keyboard accessibility (hotspots are focusable; `:focus-visible` styles exist) and `prefers-reduced-motion`.
-- Themes are token-based in `:root` / `[data-theme]` — add colors as tokens, not literals.
+- Themes are token-based in `:root` / `[data-theme]`, add colors as tokens, not literals.
 
 ## Good tasks to ask Claude Code for
 - "Draft cards for a new module on <topic>, following the content model, all marked DRAFT with the AAO-HNS anchor." (Then route to faculty for review.)

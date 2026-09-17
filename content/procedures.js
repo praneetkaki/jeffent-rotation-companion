@@ -43,17 +43,17 @@ window.JEFFENT.register(
      "Criteria met: recurrent AOM (3 in 6 months, or 4 in 12 months with one recent) OR bilateral OME for 3 months with a hearing or developmental concern.",
      "Get an audiogram and tympanometry first to document baseline hearing and effusion.",
      "Incision goes in the anteroinferior quadrant, away from ossicles, chorda tympani, and jugular bulb.",
-     "Tube choice: short-term (grommet) tubes for typical cases vs. long-term (T-tubes) when prolonged ventilation is needed &mdash; long-term tubes carry a much higher persistent perforation rate (~20% vs. ~2%)."
+     "Tube choice: short-term (grommet) tubes for typical cases vs. long-term (T-tubes) when prolonged ventilation is needed: long-term tubes carry a much higher persistent perforation rate (~20% vs. ~2%)."
     ],
     "keySteps": [
      "Position, place the ear speculum, clear cerumen under the microscope.",
      "Bring the drum into full view; orient to the malleus and light reflex.",
-     "Make a small radial incision in the anteroinferior (or inferior) quadrant &mdash; radial to spare the drum's circular fibers.",
+     "Make a small radial incision in the anteroinferior (or inferior) quadrant: radial to spare the drum's circular fibers.",
      "Aspirate the effusion (serous, mucoid, or purulent).",
      "Insert the tube and seat both flanges; instill ototopical drops if indicated."
     ],
     "dangerStructures": "Ossicular chain and chorda tympani (posterosuperior quadrant), a dehiscent or high jugular bulb (posteroinferior floor), and the round window niche.",
-    "pearl": "The most common postoperative problem is tube otorrhea &mdash; occurs in up to ~50% of closely monitored children. Treat with ototopical fluoroquinolone drops, not systemic antibiotics."
+    "pearl": "The most common postoperative problem is tube otorrhea: occurs in up to ~50% of closely monitored children. Treat with ototopical fluoroquinolone drops, not systemic antibiotics."
    },
    {
     "id": "chole",
@@ -84,7 +84,7 @@ window.JEFFENT.register(
     "scenario": "A 45-year-old with 6 months of congestion, facial pressure, and anosmia after failed medical therapy; CT shows osteomeatal complex (OMC) obstruction and ethmoid opacification.",
     "decisionPoints": [
      "Indication: failure of appropriate medical therapy plus objective disease on CT/endoscopy.",
-     "Read the CT for danger zones: Keros classification of skull-base height &mdash; Type 1 (1&ndash;3 mm), Type 2 (4&ndash;7 mm), Type 3 (8&ndash;16 mm, the longest lateral lamella and highest skull-base injury risk) &mdash; plus lamina papyracea integrity, anterior ethmoid artery course, and any dehiscence.",
+     "Read the CT for danger zones: Keros classification of skull-base height: Type 1 (1&ndash;3 mm), Type 2 (4&ndash;7 mm), Type 3 (8&ndash;16 mm, the longest lateral lamella and highest skull-base injury risk): plus lamina papyracea integrity, anterior ethmoid artery course, and any dehiscence.",
      "Most feared complications: CSF leak (cribriform/fovea ethmoidalis), orbital injury (medial rectus, optic nerve), carotid injury near the sphenoid.",
      "Overall context: ESS has an ~0.5% overall complication rate, with CSF leak and orbital injury each ~0.09%."
     ],
@@ -95,7 +95,7 @@ window.JEFFENT.register(
      "Anterior then posterior ethmoidectomy through the basal lamella, identifying skull base and lamina papyracea.",
      "Sphenoidotomy (ostium medial to the superior turbinate); frontal recess last as needed."
     ],
-    "dangerStructures": "Lamina papyracea/orbit (medial rectus, optic nerve), skull base at the cribriform/fovea (CSF leak), the anterior ethmoid artery &mdash; which can run in a mesentery below the skull base rather than always within bone, which is exactly why it retracts into the orbit when transected &mdash; and the carotid in the lateral sphenoid wall.",
+    "dangerStructures": "Lamina papyracea/orbit (medial rectus, optic nerve), skull base at the cribriform/fovea (CSF leak), the anterior ethmoid artery: which can run in a mesentery below the skull base rather than always within bone, which is exactly why it retracts into the orbit when transected: and the carotid in the lateral sphenoid wall.",
     "pearl": "Suspected clear rhinorrhea: send fluid for beta-2 transferrin, the most specific test for CSF."
    },
    {
@@ -106,7 +106,7 @@ window.JEFFENT.register(
     "decisionPoints": [
      "Anterior vs. posterior: failure of firm compression plus posterior bleeding or no visible anterior source suggests a posterior (sphenopalatine) bleed.",
      "Escalate: topical vasoconstrictor, then cautery of a seen source, then anterior/posterior packing, then sphenopalatine artery (SPA) ligation or embolization.",
-     "Transnasal endoscopic sphenopalatine artery ligation (TESPAL) is favored over repeat packing &mdash; ~98% success with a low (~3.4%) rebleed rate.",
+     "Transnasal endoscopic sphenopalatine artery ligation (TESPAL) is favored over repeat packing: ~98% success with a low (~3.4%) rebleed rate.",
      "Correct the coagulopathy and check hemodynamics; posterior packs need monitoring for airway compromise and hypoxia."
     ],
     "keySteps": [
@@ -116,7 +116,7 @@ window.JEFFENT.register(
      "Anterior packing if diffuse; add posterior packing for posterior bleeds.",
      "Endoscopic sphenopalatine artery ligation, or IR embolization, for refractory bleeding."
     ],
-    "dangerStructures": "Sphenopalatine artery (posterior source), anterior and posterior ethmoid arteries (skull base, can retract into the orbit). <strong>Ethmoid artery embolization is contraindicated</strong> &mdash; they arise from the ophthalmic artery, so embolization risks blindness; refractory ethmoidal bleeds need surgical ligation, not IR. Also watch the septal cartilage (perforation with bilateral cautery).",
+    "dangerStructures": "Sphenopalatine artery (posterior source), anterior and posterior ethmoid arteries (skull base, can retract into the orbit). <strong>Ethmoid artery embolization is contraindicated</strong>: they arise from the ophthalmic artery, so embolization risks blindness; refractory ethmoidal bleeds need surgical ligation, not IR. Also watch the septal cartilage (perforation with bilateral cautery).",
     "pearl": "Unilateral recurrent epistaxis with obstruction in an adolescent male suggests juvenile nasopharyngeal angiofibroma: image it, do not biopsy in clinic."
    },
    {
@@ -147,7 +147,7 @@ window.JEFFENT.register(
     "scenario": "A 30-year-old teacher with 3 months of hoarseness; scope shows symmetric bilateral lesions at the anterior/middle-third junction.",
     "decisionPoints": [
      "Diagnosis: vocal fold nodules (bilateral, at the point of maximal contact, from overuse).",
-     "Videostroboscopy is the key office assessment before the OR &mdash; it evaluates the mucosal wave and identifies whether a lesion is epithelial vs. involves the deeper lamina propria, which changes the operative plan (microflap vs. simple excision) more than a white-light scope alone.",
+     "Videostroboscopy is the key office assessment before the OR: it evaluates the mucosal wave and identifies whether a lesion is epithelial vs. involves the deeper lamina propria, which changes the operative plan (microflap vs. simple excision) more than a white-light scope alone.",
      "Optimize reflux and vocal hygiene first; many nodules and mild lesions improve with voice therapy alone over 6&ndash;12 weeks, avoiding surgery entirely.",
      "Contrast with a paramedian immobile cord (recurrent laryngeal nerve, RLN, injury) or a unilateral polyp/cyst."
     ],
@@ -155,10 +155,10 @@ window.JEFFENT.register(
      "Suspension microlaryngoscopy under GA (or awake injection for medialization).",
      "Assess the lesion and vibratory margin with a rigid endoscope and microscope.",
      "For a benign lesion: raise a subepithelial microflap, preserving the vocal ligament and superficial lamina propria.",
-     "Excise with cold instruments, preferred over laser for benign disease &mdash; cold-steel microflap avoids thermal injury to the superficial lamina propria (Reinke's space); laser is reserved for select vascular lesions/papilloma, not routine benign lesions.",
+     "Excise with cold instruments, preferred over laser for benign disease: cold-steel microflap avoids thermal injury to the superficial lamina propria (Reinke's space); laser is reserved for select vascular lesions/papilloma, not routine benign lesions.",
      "For glottic insufficiency: inject a medialization material lateral to the vocalis until midline closure."
     ],
-    "dangerStructures": "The layered lamina propria and vocal ligament (over-resection causes scar); the anterior commissure &mdash; avoid operating on both folds there in the same setting, since opposing raw surfaces cause an anterior glottic web (stage bilateral lesions if needed); and the superior laryngeal nerve (SLN) bundle in the supraglottic danger triangle during CO2 laser work.",
+    "dangerStructures": "The layered lamina propria and vocal ligament (over-resection causes scar); the anterior commissure: avoid operating on both folds there in the same setting, since opposing raw surfaces cause an anterior glottic web (stage bilateral lesions if needed); and the superior laryngeal nerve (SLN) bundle in the supraglottic danger triangle during CO2 laser work.",
     "pearl": "Breathy hoarseness with a paramedian fixed cord after neck/thyroid surgery points to recurrent laryngeal nerve (RLN) injury; a normal-appearing cord with loss of pitch/projection and vocal fatigue points to external branch of the superior laryngeal nerve (SLN) injury (cricothyroid weakness). Both can follow thyroid/neck surgery."
    },
    {
@@ -191,17 +191,17 @@ window.JEFFENT.register(
     "decisionPoints": [
      "Nerves at risk: recurrent laryngeal nerve (RLN) (near the inferior thyroid artery and ligament of Berry) and the external branch of the superior laryngeal nerve (SLN).",
      "Find the RLN in the tracheoesophageal (TE) groove within Beahrs' triangle; the tubercle of Zuckerkandl points to it.",
-     "Intraoperative nerve monitoring (IONM, endotracheal-tube based) is widely used to map and confirm RLN integrity; a loss of signal on the first side may prompt staging the contralateral lobectomy to avoid bilateral RLN injury/airway catastrophe &mdash; not a substitute for anatomic dissection.",
+     "Intraoperative nerve monitoring (IONM, endotracheal-tube based) is widely used to map and confirm RLN integrity; a loss of signal on the first side may prompt staging the contralateral lobectomy to avoid bilateral RLN injury/airway catastrophe: not a substitute for anatomic dissection.",
      "Anticipate transient hypocalcemia: check calcium/PTH; watch for perioral numbness and Chvostek/Trousseau signs."
     ],
     "keySteps": [
      "Curvilinear incision two fingerbreadths above the sternal notch; divide platysma; separate straps in the midline.",
      "Rotate the lobe medially; ligate the middle thyroid vein.",
      "Take the superior pole close to the capsule to protect the external SLN branch.",
-     "Identify and preserve both parathyroids with their blood supply; if one is devascularized or inadvertently removed, confirm it is parathyroid (not cancer) by frozen section, then autotransplant into the SCM or strap muscle &mdash; inspect the specimen before it leaves the field to salvage glands.",
+     "Identify and preserve both parathyroids with their blood supply; if one is devascularized or inadvertently removed, confirm it is parathyroid (not cancer) by frozen section, then autotransplant into the SCM or strap muscle: inspect the specimen before it leaves the field to salvage glands.",
      "Trace the RLN in the TE groove; reidentify it at Berry's ligament and dissect off the trachea; repeat contralaterally."
     ],
-    "dangerStructures": "RLN (especially at Berry's ligament and near the inferior thyroid artery), external branch of the SLN (superior pole), the parathyroids and their pedicles, the trachea/esophagus, and a postoperative neck hematoma &mdash; an expanding neck hematoma with airway compromise is a bedside emergency: open the wound/evacuate the clot immediately, before returning to the OR.",
+    "dangerStructures": "RLN (especially at Berry's ligament and near the inferior thyroid artery), external branch of the SLN (superior pole), the parathyroids and their pedicles, the trachea/esophagus, and a postoperative neck hematoma: an expanding neck hematoma with airway compromise is a bedside emergency: open the wound/evacuate the clot immediately, before returning to the OR.",
     "pearl": "Postoperative stridor and airway obstruction on extubation suggests bilateral RLN injury: be ready to reintubate or perform tracheostomy. Postoperative hypocalcemia is the most common cause of prolonged stay; PTH-directed calcium/vitamin D supplementation after total thyroidectomy reduces symptomatic hypocalcemia."
    },
    {
@@ -215,13 +215,13 @@ window.JEFFENT.register(
      "Counsel on Frey syndrome (gustatory sweating) as a delayed complication."
     ],
     "keySteps": [
-     "Modified Blair incision; raise a thick skin&ndash;SMAS (superficial musculoaponeurotic system) flap &mdash; and consider SMAS reapproximation &mdash; which lowers both skin necrosis and Frey syndrome rates.",
+     "Modified Blair incision; raise a thick skin&ndash;SMAS (superficial musculoaponeurotic system) flap: and consider SMAS reapproximation: which lowers both skin necrosis and Frey syndrome rates.",
      "Identify the great auricular nerve and external jugular vein; free the parotid tail from the SCM.",
-     "Locate the facial nerve main trunk at the standard landmarks (tragal pointer, tympanomastoid suture, posterior belly of digastric) &mdash; it lies ~1 cm deep and inferior to the tragal pointer, with the retromandibular vein and external carotid artery running deep to the nerve (dissection deep to those vessels, e.g. for deep-lobe tumors, is safe for the nerve).",
+     "Locate the facial nerve main trunk at the standard landmarks (tragal pointer, tympanomastoid suture, posterior belly of digastric): it lies ~1 cm deep and inferior to the tragal pointer, with the retromandibular vein and external carotid artery running deep to the nerve (dissection deep to those vessels, e.g. for deep-lobe tumors, is safe for the nerve).",
      "Dissect the branches anteriorly, separating superficial from deep lobe along the nerve plane.",
      "Remove the tumor with a cuff of normal gland; confirm nerve integrity with a stimulator; close over a drain."
     ],
-    "dangerStructures": "Facial nerve (trunk and branches, especially marginal mandibular), the retromandibular vein and external carotid within the gland, the great auricular nerve, and the auriculotemporal nerve (Frey syndrome &mdash; aberrant reinnervation of skin sweat glands by severed parasympathetic fibers; confirmed with Minor's starch-iodine test).",
+    "dangerStructures": "Facial nerve (trunk and branches, especially marginal mandibular), the retromandibular vein and external carotid within the gland, the great auricular nerve, and the auriculotemporal nerve (Frey syndrome: aberrant reinnervation of skin sweat glands by severed parasympathetic fibers; confirmed with Minor's starch-iodine test).",
     "pearl": "A cystic neck mass in a middle-aged adult is metastatic HPV-associated oropharyngeal SCC until proven otherwise: do FNA and imaging, never assume a branchial cleft cyst."
    },
    {
@@ -237,12 +237,12 @@ window.JEFFENT.register(
     ],
     "keySteps": [
      "Inspect intranasally for septal hematoma; if present, incise, drain, and quilt/pack to prevent reaccumulation.",
-     "Time the closed reduction: reduce before swelling sets in, or after swelling subsides &mdash; ~3&ndash;5 days in children, up to 7&ndash;10 days (some say 14) in adults, before fragments fixate.",
+     "Time the closed reduction: reduce before swelling sets in, or after swelling subsides: ~3&ndash;5 days in children, up to 7&ndash;10 days (some say 14) in adults, before fragments fixate.",
      "Anesthetize (local or general).",
      "Reduce the nasal bones with a Boies elevator plus external molding.",
      "Reduce the septum; apply internal and external splints."
     ],
-    "dangerStructures": "The septal cartilage blood supply (necrosis and saddle-nose from untreated hematoma), the cribriform plate (CSF leak), and the medial canthal/lacrimal apparatus in naso-orbito-ethmoid injury. Red flag: a widened intercanthal distance or a flattened/splayed nasal bridge suggests an NOE fracture with medial canthal tendon disruption (bowstring test) &mdash; refer, do not treat as a simple nasal fracture.",
+    "dangerStructures": "The septal cartilage blood supply (necrosis and saddle-nose from untreated hematoma), the cribriform plate (CSF leak), and the medial canthal/lacrimal apparatus in naso-orbito-ethmoid injury. Red flag: a widened intercanthal distance or a flattened/splayed nasal bridge suggests an NOE fracture with medial canthal tendon disruption (bowstring test): refer, do not treat as a simple nasal fracture.",
     "pearl": "A child with an orbital trapdoor fracture and bradycardia/nausea (oculocardiac reflex from muscle entrapment) is a surgical urgency, not a delayed repair. Refer to a subspecialist for: septal hematoma, CSF rhinorrhea, malocclusion, or an extraocular movement deficit."
    },
    {
