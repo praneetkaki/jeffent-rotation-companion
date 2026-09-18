@@ -4436,7 +4436,7 @@
     { sels: ["#flashToggle"], title: "Flashcards, anywhere",
       body: "Study due cards from a side panel without ever leaving the page you're on." },
     { sels: ["#pimpToggle"], title: "FAQ quiz",
-      body: "Board-style questions with an automatic most-missed list. Press Z any time to undo your last answer." },
+      body: "Commonly asked questions from rounds and procedures, with an automatic most-missed list. Press Z any time to undo your last answer." },
     { sels: [".bento-streak-chip"], title: "Your streak",
       body: "Counts consecutive days you've studied. Hover or tap it any time to see a day-by-day activity heatmap." }
   ];
