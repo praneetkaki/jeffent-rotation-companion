@@ -1724,7 +1724,20 @@
     var trackObj = trackById(mod.track);
     var trackStyle = trackObj && trackObj.color ? ' style="--track-color:' + trackObj.color + '"' : "";
 
-    var shell = h('<div class="anatomy-detail lesson-shell"></div>');
+    var shell = h('<div class="anatomy-detail"></div>');
+    var back = h('<button type="button" class="crumb anatomy-back">← Back to anatomy overview</button>');
+    back.addEventListener("click", function () {
+      state.anatomyTopic = null;
+      renderAnatomyPane(pane, mod);
+      setStickyCurrent(mod.title);
+    });
+    shell.appendChild(back);
+
+    /* The nav sidebar and the main content column are siblings in their own
+     * grid, appended below the back-link, so their top edges align with
+     * each other regardless of the crumb's height above them. */
+    var grid = h('<div class="lesson-shell"></div>');
+    shell.appendChild(grid);
 
     if (list.length > 1) {
       var nav = h('<nav class="lesson-nav" aria-label="Other anatomy lessons in this subspecialty"' + trackStyle + '></nav>');
@@ -1752,17 +1765,10 @@
         navList.appendChild(btn);
       });
       nav.appendChild(navList);
-      shell.appendChild(nav);
+      grid.appendChild(nav);
     }
 
     var main = h('<div class="lesson-main"></div>');
-    var back = h('<button type="button" class="crumb anatomy-back">← Back to anatomy overview</button>');
-    back.addEventListener("click", function () {
-      state.anatomyTopic = null;
-      renderAnatomyPane(pane, mod);
-      setStickyCurrent(mod.title);
-    });
-    main.appendChild(back);
 
     var hero = h('<div class="lesson-hero"' + trackStyle + '></div>');
     var heroTop = h('<div class="lesson-hero-top"></div>');
@@ -1843,7 +1849,7 @@
     main.appendChild(hero);
 
     main.appendChild(bodyEl);
-    shell.appendChild(main);
+    grid.appendChild(main);
     setStickyCurrent(title);
     return { shell: shell, main: main };
   }
@@ -3191,6 +3197,61 @@
     "abbreviations": ["abbreviation", "abbreviations", "abbrev", "acronym", "acronyms"],
     "pharm-pocket": ["pharm", "pharmacology", "rx", "drug", "drugs", "dose", "dosing"]
   };
+  /* "@" filter prefixes for the command palette (e.g. "@cards", "@sleep",
+   * "@anatomy") -- explicit versions of the same scoping SEARCH_MODULE_ALIASES
+   * already does implicitly, so a student can jump straight to a content
+   * type or a module without clicking through it. Matched as a whole token
+   * after the "@" (case-insensitive), never a prefix. */
+  var TYPE_FILTER_ALIASES = {
+    card: ["card", "cards", "flashcard", "flashcards"],
+    anatomy: ["anatomy", "anatomies"],
+    diagram: ["diagram", "diagrams", "figure", "figures"],
+    clinical: ["clinical", "note", "notes"],
+    case: ["case", "cases"],
+    module: ["module", "modules", "topic", "topics"],
+    action: ["action", "actions", "go"]
+  };
+  /* Built lazily the first time a "@" module filter is typed, since it needs
+   * window.JEFFENT.modules to already be registered. */
+  var moduleAliasMap = null;
+  function buildModuleAliasMap() {
+    var map = {};
+    window.JEFFENT.modules.forEach(function (m) {
+      map[m.id.toLowerCase()] = m.id;
+      map[m.id.toLowerCase().replace(/-/g, "")] = m.id;
+      (m.title || "").toLowerCase().split(/[^a-z0-9]+/).forEach(function (w) {
+        if (w.length > 2 && !map[w]) map[w] = m.id;
+      });
+    });
+    for (var modId in SEARCH_MODULE_ALIASES) {
+      if (!SEARCH_MODULE_ALIASES.hasOwnProperty(modId)) continue;
+      SEARCH_MODULE_ALIASES[modId].forEach(function (a) { map[a] = modId; });
+    }
+    return map;
+  }
+  /* Splits a raw query into: "@"-prefixed type filters (card/anatomy/etc.),
+   * "@"-prefixed module filters (matched module id), and the remaining plain
+   * search terms. An unrecognized "@token" is treated as a literal search
+   * term (with the "@" stripped) rather than silently dropped. */
+  function parseAtFilters(q) {
+    if (!moduleAliasMap) moduleAliasMap = buildModuleAliasMap();
+    var typeFilters = [], modFilters = [], terms = [];
+    q.split(/\s+/).filter(function (x) { return x; }).forEach(function (tok) {
+      if (tok.charAt(0) === "@" && tok.length > 1) {
+        var key = tok.slice(1).toLowerCase();
+        var matchedType = null;
+        for (var t in TYPE_FILTER_ALIASES) {
+          if (TYPE_FILTER_ALIASES[t].indexOf(key) !== -1) { matchedType = t; break; }
+        }
+        if (matchedType) { typeFilters.push(matchedType); return; }
+        if (moduleAliasMap[key]) { modFilters.push(moduleAliasMap[key]); return; }
+        terms.push(key);
+        return;
+      }
+      terms.push(tok);
+    });
+    return { typeFilters: typeFilters, modFilters: modFilters, terms: terms };
+  }
   /* Command-palette entries: the same search box also jumps straight to an
    * action instead of a piece of content. Built lazily (not at parse time)
    * so it can freely reference other functions/DOM regardless of source
@@ -3220,16 +3281,17 @@
     function closeResults() { results.hidden = true; results.innerHTML = ""; }
 
     function renderResults(query) {
-      var q = query.trim().toLowerCase();
+      var qRaw = query.trim();
+      var q = qRaw.toLowerCase();
       if (q.length < 2) { closeResults(); return; }
-      var allTerms = q.split(/\s+/).filter(function (x) { return x; });
-      /* Split the query into "scope" words (recognized module aliases) and
-       * the real search terms left over, so "quick prep thyroidectomy"
-       * narrows to the Procedures module and then matches "thyroidectomy"
-       * within it, instead of requiring every word to appear in one title. */
-      var scopeModIds = [];
+      /* "@"-prefixed tokens (explicit "@cards", "@sleep", "@anatomy" filters)
+       * are parsed out first; whatever's left is handled the same way as
+       * before, including the implicit module-alias scoping below. */
+      var atParsed = parseAtFilters(q);
+      var scopeModIds = atParsed.modFilters.slice();
+      var scopeTypes = atParsed.typeFilters;
       var terms = [];
-      allTerms.forEach(function (term) {
+      atParsed.terms.forEach(function (term) {
         var matchedMod = null;
         for (var modId in SEARCH_MODULE_ALIASES) {
           if (SEARCH_MODULE_ALIASES.hasOwnProperty(modId) && SEARCH_MODULE_ALIASES[modId].indexOf(term) !== -1) { matchedMod = modId; break; }
@@ -3237,9 +3299,12 @@
         if (matchedMod) { if (scopeModIds.indexOf(matchedMod) === -1) scopeModIds.push(matchedMod); }
         else terms.push(term);
       });
-      var pool = scopeModIds.length ? index.filter(function (e) { return scopeModIds.indexOf(e.modId) !== -1; }) : index;
+      var pool = index;
+      if (scopeTypes.length) pool = pool.filter(function (e) { return scopeTypes.indexOf(e.type) !== -1; });
+      if (scopeModIds.length) pool = pool.filter(function (e) { return scopeModIds.indexOf(e.modId) !== -1; });
+      var hasScope = scopeTypes.length || scopeModIds.length;
       var matches = !terms.length
-        ? (scopeModIds.length ? pool.slice() : [])
+        ? (hasScope ? pool.slice() : [])
         : pool.filter(function (e) {
             return matchesWordPrefix(e.title, terms) || matchesWordPrefix(e.snippet, terms);
           });
