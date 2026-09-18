@@ -3366,6 +3366,69 @@
     else if (state.screen === "study") renderStudyAllIntro();
   }
 
+  /* ---------- cross-device sync (username, no password; see js/sync.js) ---------- */
+  function renderSyncSection() {
+    var mount = el("settingsSync");
+    if (!mount) return;
+    var sync = window.JEFFENT_SYNC;
+    if (!sync || !sync.isConfigured() || !sync.isReady()) {
+      mount.innerHTML = '<p class="settings-sync-note">Cross-device sync isn’t set up for this site yet. Your progress still saves normally, just to this browser only.</p>';
+      return;
+    }
+    var username = sync.getUsername();
+    if (!username) {
+      mount.innerHTML =
+        '<p class="settings-sync-note">Pick a username to carry your progress to another device. There’s no password, so don’t use anything you’d reuse as a real one.</p>' +
+        '<div class="settings-sync-row">' +
+          '<input type="text" id="syncUsernameInput" placeholder="e.g. otter-quiz-8452" maxlength="40" autocomplete="off" spellcheck="false">' +
+          '<button type="button" class="btn" id="syncLinkBtn">Link this device</button>' +
+        '</div>' +
+        '<div class="settings-sync-status mono" id="syncStatus" hidden></div>';
+      on(el("syncLinkBtn"), "click", function () {
+        var name = sync.normalizeUsername(el("syncUsernameInput").value);
+        var status = el("syncStatus");
+        status.hidden = false;
+        if (name.length < 3) { status.textContent = "Username needs at least 3 characters (letters, numbers, - or _)."; return; }
+        status.textContent = "Checking…";
+        sync.lookup(name, function (err, remote) {
+          if (err) { status.textContent = "Couldn’t reach sync right now. Try again in a moment."; return; }
+          if (remote) {
+            if (!window.confirm('"' + name + '" already has synced progress. Link this device to it? This REPLACES everything currently on this device with that synced progress.')) {
+              status.textContent = "Not linked.";
+              return;
+            }
+            sync.setUsername(name);
+            sync.pullAndApply(name, function (err2) {
+              if (err2) { status.textContent = "Linked, but couldn’t pull progress yet. Try Sync now in a moment."; renderSyncSection(); return; }
+              location.reload();
+            });
+          } else {
+            sync.setUsername(name);
+            sync.startAutoSync();
+            sync.pushNow(function () { renderSyncSection(); });
+          }
+        });
+      });
+    } else {
+      mount.innerHTML =
+        '<p class="settings-sync-note">Synced as <strong>' + esc(username) + '</strong>. This device’s progress saves under that username automatically.</p>' +
+        '<div class="settings-sync-row">' +
+          '<button type="button" class="btn ghost" id="syncNowBtn">Sync now</button>' +
+          '<button type="button" class="settings-danger mono" id="syncUnlinkBtn">Unlink this device</button>' +
+        '</div>' +
+        '<div class="settings-sync-status mono" id="syncStatus" hidden></div>';
+      on(el("syncNowBtn"), "click", function () {
+        var status = el("syncStatus"); status.hidden = false; status.textContent = "Syncing…";
+        sync.pushNow(function (err) { status.textContent = err ? "Couldn’t sync right now." : "Synced just now."; });
+      });
+      on(el("syncUnlinkBtn"), "click", function () {
+        if (!window.confirm('Unlink this device from "' + username + '"? Your progress stays saved under that username, this device just won’t sync anymore unless you link again.')) return;
+        sync.clearUsername();
+        renderSyncSection();
+      });
+    }
+  }
+
   function initSettings() {
     var toggle = el("settingsToggle");
     var panel = el("settingsPanel");
@@ -3381,6 +3444,9 @@
       var newCapOptions = [0, 5, 10, 15, 20, 30];
       var lastModuleId = state.moduleId || (window.JEFFENT.modules[0] && window.JEFFENT.modules[0].id) || "";
       panel.innerHTML =
+        '<div class="settings-title">Sync across devices</div>' +
+        '<div class="settings-sync" id="settingsSync"></div>' +
+        '<div class="settings-divider"></div>' +
         '<div class="settings-title">Study settings</div>' +
         '<div class="settings-row">' +
           '<label for="againInput">Again <span class="settings-preview mono">minutes</span></label>' +
@@ -3426,6 +3492,7 @@
         onChange: function () {}
       });
       el("resetModuleSelectMount").appendChild(resetModuleSel);
+      renderSyncSection();
 
       function flash(msg) {
         var note = el("settingsNote");
@@ -5316,6 +5383,15 @@
     var navBackBtn = el("navBack");
     on(navBackBtn, "click", goBack);
     initFirstRunTour();
+    /* If this device is already linked, quietly pull whatever's newest in
+     * the cloud before the student starts studying this session -- only
+     * reloads if that actually changed anything on this device. */
+    if (window.JEFFENT_SYNC && window.JEFFENT_SYNC.isConfigured() && window.JEFFENT_SYNC.getUsername()) {
+      window.JEFFENT_SYNC.startAutoSync();
+      window.JEFFENT_SYNC.pullAndApply(window.JEFFENT_SYNC.getUsername(), function (err, changed) {
+        if (!err && changed) location.reload();
+      });
+    }
   }
   document.addEventListener("DOMContentLoaded", boot);
 })();

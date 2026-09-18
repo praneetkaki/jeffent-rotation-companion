@@ -3,7 +3,7 @@
 Read this first. It tells Claude Code how this project is built and the rules to keep it maintainable and safe.
 
 ## What this is
-A dependency-free **static web app** for ENT rotation study (active recall + spaced repetition). No build step, no framework, no backend. Vanilla HTML/CSS/JS so any medical student can maintain it.
+A dependency-free **static web app** for ENT rotation study (active recall + spaced repetition). No build step, no framework. Vanilla HTML/CSS/JS so any medical student can maintain it. Progress is local-first (`localStorage`, per browser) by default; an optional, explicitly opt-in cross-device sync layer exists (`js/sync.js`, see "Sync" below) but nothing about the core app depends on it.
 
 ## Architecture — the one rule that matters
 - **Content** = `content/*.js` (data only). Each module calls `window.JEFFENT.register({...})`.
@@ -42,5 +42,12 @@ A dependency-free **static web app** for ENT rotation study (active recall + spa
 - "Wire in the pre/post-test flow that links to a Google Form and records only an anonymous session id."
 - "Write a short script that lists every card whose `reviewer` field is still empty." (review tracker)
 
+## Sync (opt-in, no password)
+`js/sync.js` + `js/firebase-config.js` let a student carry their progress to a second device via a self-chosen **username, deliberately with no password** (see `js/sync.js`'s header comment for the full trust model: a username isn't a password, it's last-write-wins with no merge). This is a narrow, explicit exception to "no accounts, no backend" below, not a reopening of it. Ground rules for touching this code:
+- It must stay fully optional. If `js/firebase-config.js` still has its placeholder values, or a student never sets a username, the app must behave exactly as it does with no backend at all.
+- Never add a password, email, or real Firebase Auth flow here without the project owner explicitly asking, that would be a different, much bigger feature (real accounts), not this one.
+- Anything synced is whatever's under the `jeffent.` `localStorage` prefix, matching every other module's own convention, don't invent a second storage convention for synced data.
+- See `docs/SYNC-SETUP.md` for the Firebase project setup and security rules this depends on.
+
 ## Not this project's job
-No accounts, analytics that identify users, ad code, or anything that stores personal data. Keep it boring, static, and legible.
+Real user accounts (passwords, email, login flows), analytics that identify users, ad code, or anything that stores personal data beyond the opt-in sync username above. Keep it boring, static, and legible.
