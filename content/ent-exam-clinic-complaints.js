@@ -186,7 +186,7 @@ window.JEFFENT.register({
           { id:"thyrohyoid", text:"Thyrohyoid membrane: connects the hyoid bone to the thyroid cartilage; pierced by the superior laryngeal neurovascular bundle.", box:{x:0.5,y:18.0,w:27.0,h:9.5} },
           { id:"ff", text:"False (vestibular) vocal cords: mucosal folds above the true cords that protect the airway but do not normally phonate.", box:{x:0.5,y:37.5,w:24.0,h:7.5} },
           { id:"ventricle", text:"Ventricle (of Morgagni): the space between the false and true cords; a common site for laryngocele formation.", box:{x:83.0,y:44.5,w:16.5,h:4.5} },
-          { id:"tf", text:"True vocal cords: the folds that vibrate to produce voice; their free edge is exam room zero for any hoarseness workup.", box:{x:0.5,y:54.5,w:24.0,h:7.0} },
+          { id:"tf", text:"True vocal cords: the folds that vibrate to produce voice; their free edge is the primary site examined in any hoarseness workup.", box:{x:0.5,y:54.5,w:24.0,h:7.0} },
           { id:"vocalis", text:"Vocalis muscle: the medial belly of thyroarytenoid that tenses and fine-tunes the vocal fold for pitch.", box:{x:83.0,y:54.0,w:16.5,h:6.5} },
           { id:"thy", text:"Thyroid cartilage: the largest laryngeal cartilage, forming the laryngeal prominence (Adam's apple); the framework for the vocal cords.", box:{x:2.0,y:70.5,w:22.0,h:8.0} },
           { id:"cric", text:"Cricoid cartilage: the only complete cartilage ring in the airway; cricothyrotomy is performed just above it.", box:{x:82.0,y:71.0,w:18.0,h:8.5} },
@@ -276,7 +276,7 @@ window.JEFFENT.register({
           { id:"nostril", text:"Nostril (naris): the external opening of the nasal cavity.", box:{x:79.5,y:31.0,w:7.0,h:3.0} },
           { id:"hard-palate", text:"Hard palate: the bony anterior roof of the mouth; a cleft here causes nasal regurgitation of food and speech problems.", box:{x:79.5,y:34.5,w:11.0,h:3.5} },
           { id:"soft-palate", text:"Soft palate: the mobile posterior palate that elevates on swallowing (CN X) to seal off the nasopharynx; deviates away from a peritonsillar abscess.", box:{x:79.5,y:38.5,w:11.0,h:3.5} },
-          { id:"tongue", text:"Tongue: its posterior third (base) belongs to the oropharynx and is a common blind spot for early cancer.", box:{x:79.5,y:42.0,w:7.0,h:3.5} },
+          { id:"tongue", text:"Tongue: its posterior third (base) belongs to the oropharynx and is frequently missed on routine oral exam, delaying early cancer detection.", box:{x:79.5,y:42.0,w:7.0,h:3.5} },
           { id:"lingual-tonsil", text:"Lingual tonsil: lymphoid tissue at the tongue base, part of Waldeyer's ring; can hide an HPV-related primary tumor presenting as an unknown-primary neck node.", box:{x:79.5,y:46.0,w:13.5,h:3.5} },
           { id:"epiglottis", text:"Epiglottis: the cartilage leaf that folds over the laryngeal inlet during swallowing; a floppy, swollen epiglottis is the airway emergency of epiglottitis.", box:{x:79.5,y:51.0,w:9.0,h:3.5} },
           { id:"hyoid-bone", text:"Hyoid bone: the free-floating U-shaped bone anchoring the tongue base and larynx; the surface landmark separating neck level II (above) from level III (below).", box:{x:79.5,y:61.0,w:9.0,h:3.5} },
@@ -460,7 +460,7 @@ window.JEFFENT.register({
         { q: "What does the duration + smoking mandate?", a: "Hoarseness &gt;2-4 weeks in a smoker requires <b>laryngoscopy to exclude laryngeal cancer</b>: do not keep treating it as laryngitis." },
         { q: "If the vocal fold is immobile, what else must you consider?", a: "Vocal-fold paralysis from a lesion along the <b>recurrent laryngeal nerve</b> (lung apex, thyroid, mediastinum): image the whole nerve course." }
       ],
-      teaching: "<figure class='note-fig' data-credit='Source not yet cited, added by the project owner, replace credit before sharing.'><img class='zoomable' src='assets/img/figures/recurrent_laryngeal_nerve_course_2.png' alt='Recurrent laryngeal nerve course' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Persistent hoarseness in a smoker requiring laryngoscopy, with vocal-fold paralysis raised via recurrent laryngeal nerve course.</figcaption></figure>Persistent hoarseness in a smoker = scope. Voice change is the larynx's warning light."
+      teaching: "<figure class='note-fig' data-credit='Source not yet cited, added by the project owner, replace credit before sharing.'><img class='zoomable' src='assets/img/figures/recurrent_laryngeal_nerve_course_2.png' alt='Recurrent laryngeal nerve course' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Persistent hoarseness in a smoker requiring laryngoscopy, with vocal-fold paralysis raised via recurrent laryngeal nerve course.</figcaption></figure><strong>Clinical Pearl:</strong> Persistent hoarseness in a smoker requires flexible laryngoscopy; voice change is often the earliest sign of laryngeal malignancy."
     },
     {
       id: "case-orbital-cellulitis",
