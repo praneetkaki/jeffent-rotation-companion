@@ -442,7 +442,7 @@
     crumb.addEventListener("click", goHome);
     root.appendChild(crumb);
     root.appendChild(h('<div class="eyebrow">Cross-module review</div>'));
-    root.appendChild(h('<h1 class="h-lead">Weak spots</h1>'));
+    root.appendChild(h('<h1 class="h-lead">Areas for Improvement</h1>'));
     root.appendChild(h('<p class="weak-lede">Flashcards you keep rating &ldquo;again,&rdquo; and FAQ questions you keep missing, pulled from every module into one place.</p>'));
 
     var weakCardEntries = aggregateWeakCards(40);
@@ -456,7 +456,7 @@
     } else {
       var reviewCardsBtn = h('<button type="button" class="btn">Review all (' + weakCardEntries.length + ') &rarr;</button>');
       reviewCardsBtn.addEventListener("click", function () {
-        openFlashQueueDirect(weakCardEntries.map(function (e) { return e.card; }), "Weak spots");
+        openFlashQueueDirect(weakCardEntries.map(function (e) { return e.card; }), "Areas for Improvement");
       });
       cardSec.appendChild(reviewCardsBtn);
       var cardList = h('<div class="weak-list"></div>');
@@ -1061,10 +1061,10 @@
             '</span>' +
           '</button>' +
           '<div class="bento-metric-divider" aria-hidden="true"></div>' +
-          '<button type="button" class="bento-metric bento-metric-weak" aria-label="' + weakN + ' weak spot' + (weakN === 1 ? '' : 's') + '. Open weak spots.">' +
+          '<button type="button" class="bento-metric bento-metric-weak" aria-label="' + weakN + ' area' + (weakN === 1 ? '' : 's') + ' for improvement. Open areas for improvement.">' +
             '<span class="bento-metric-copy">' +
               '<span class="bento-metric-value">' + weakN + '</span>' +
-              '<span class="bento-metric-label">Weak spots</span>' +
+              '<span class="bento-metric-label">Areas for Improvement</span>' +
               '<span class="bento-metric-sub">cards + questions</span>' +
             '</span>' +
           '</button>' +
@@ -3263,7 +3263,7 @@
       { type: "action", title: "Open flashcards", snippet: "Flashcard panel", run: toggleFlash },
       { type: "action", title: "Open FAQ quiz", snippet: "Frequently asked questions panel", run: togglePimpPanel },
       { type: "action", title: "Open OR Pocket Log", snippet: "Saved pearls and quick case log", run: togglePocketLog },
-      { type: "action", title: "Weak spots", snippet: "Your most-missed cards and questions", run: goWeakSpots },
+      { type: "action", title: "Areas for Improvement", snippet: "Your most-missed cards and questions", run: goWeakSpots },
       { type: "action", title: "Curriculum roadmap", snippet: "Full curriculum anchor coverage map", run: goRoadmap },
       { type: "action", title: "Card library", snippet: "Every flashcard across every module", run: goCardLibrary },
       { type: "action", title: "Study settings", snippet: "Again/Good/Easy intervals, new-card cap", run: function () { var b = el("settingsToggle"); if (b) b.click(); } },
