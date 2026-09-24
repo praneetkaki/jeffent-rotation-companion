@@ -520,6 +520,7 @@
   var libraryState = { filter: "all", query: "", openKey: null, editingKey: null };
 
   function renderCardLibrary() {
+    ensureLibraryMenuOutsideClose();
     var root = el("screen-library");
     root.innerHTML = "";
     var crumb = h('<button class="crumb">&larr; Home</button>');
@@ -606,15 +607,55 @@
     });
   }
 
+  /* Anki-style status label for a card's current scheduling state, shown as
+   * a small pill in the Card Library row (New / Learning / Review / Due now
+   * / Due in Xd / Suspended), so a learner can see their own SRS state
+   * without opening each card. */
+  function fmtCardStatus(info) {
+    if (info.status === "suspended") return { label: "Suspended", cls: "suspended" };
+    if (info.status === "new") return { label: "New", cls: "new" };
+    var now = Date.now();
+    if (info.due != null && info.due <= now) return { label: "Due now", cls: "due" };
+    var mins = info.due != null ? Math.round((info.due - now) / 60000) : 0;
+    if (mins < 60) return { label: "Due in " + Math.max(1, mins) + "m", cls: "upcoming" };
+    var days = Math.round(mins / 1440);
+    if (days < 1) return { label: "Due in " + Math.round(mins / 60) + "h", cls: "upcoming" };
+    return { label: "Due in " + days + "d", cls: info.status === "learning" ? "learning" : "review" };
+  }
+
+  /* One shared document-level listener (attached once, lazily, the first
+   * time the Card Library renders) that closes any open row action menu on
+   * an outside click or Escape. Queries the live DOM each time rather than
+   * closing over specific elements, so it stays correct across re-renders
+   * without needing to be re-attached on every renderLibraryList() call. */
+  var libraryMenuListenerAttached = false;
+  function ensureLibraryMenuOutsideClose() {
+    if (libraryMenuListenerAttached) return;
+    libraryMenuListenerAttached = true;
+    document.addEventListener("click", function (e) {
+      if (e.target.closest && (e.target.closest(".lib-row-menu") || e.target.closest(".lib-row-menu-btn"))) return;
+      document.querySelectorAll(".lib-row-menu:not([hidden])").forEach(function (m) { m.hidden = true; });
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") document.querySelectorAll(".lib-row-menu:not([hidden])").forEach(function (m) { m.hidden = true; });
+    });
+  }
+
   function buildLibraryRow(mod, card, listWrap) {
     var key = cardOverrideKey(mod.id, card.id);
     var isOpen = libraryState.openKey === key;
-    var row = h('<div class="lib-row' + (isOpen ? " open" : "") + '"></div>');
+    var info = window.SRS.cardInfo(mod.id, card.id);
+    var status = fmtCardStatus(info);
+    var row = h('<div class="lib-row' + (isOpen ? " open" : "") + (info.suspended ? " suspended" : "") + '"></div>');
+
+    var top = h('<div class="lib-row-top"></div>');
 
     var head = h(
       '<button type="button" class="lib-row-head">' +
-        '<span class="lib-row-front">' + esc(teaserOf(effectiveFront(mod.id, card), 130)) + '</span>' +
+        '<span class="lib-row-front">' + esc(teaserOf(effectiveFront(mod.id, card), 110)) + '</span>' +
         '<span class="lib-row-flags">' +
+          '<span class="pill status-pill ' + status.cls + '">' + status.label + '</span>' +
+          (info.flagged ? '<span class="lib-flag-dot" aria-label="Flagged" title="Flagged"></span>' : "") +
           (cardIsEdited(mod.id, card) ? '<span class="pill edited">Edited</span>' : "") +
           (cardNote(mod.id, card) ? '<span class="pill noted">Note</span>' : "") +
         '</span>' +
@@ -626,7 +667,74 @@
       libraryState.editingKey = null;
       renderLibraryList(listWrap);
     });
-    row.appendChild(head);
+    top.appendChild(head);
+
+    /* Anki-style per-card actions menu: suspend, flag, reset progress, and
+     * the existing edit/reset-wording actions (moved here from the old
+     * always-visible body buttons so they're reachable without expanding
+     * the card first, closer to how a desktop card browser behaves). */
+    var menuWrap = h('<div class="lib-row-menu-wrap"></div>');
+    var menuBtn = h('<button type="button" class="lib-row-menu-btn" aria-haspopup="true" aria-label="Card actions">&#8942;</button>');
+    var menuEl = h('<div class="lib-row-menu" hidden role="menu"></div>');
+
+    function addMenuItem(label, onClick, extraClass) {
+      var item = h('<button type="button" class="lib-row-menu-item' + (extraClass ? " " + extraClass : "") + '" role="menuitem">' + esc(label) + '</button>');
+      item.addEventListener("click", function (e) {
+        e.stopPropagation();
+        menuEl.hidden = true;
+        onClick();
+      });
+      menuEl.appendChild(item);
+    }
+
+    addMenuItem(info.suspended ? "Unsuspend" : "Suspend", function () {
+      window.SRS.setSuspended(mod.id, card.id, !info.suspended);
+      renderLibraryList(listWrap);
+    });
+    addMenuItem(info.flagged ? "Remove flag" : "Flag card", function () {
+      window.SRS.setFlagged(mod.id, card.id, !info.flagged);
+      renderLibraryList(listWrap);
+    });
+    if (info.status !== "new") {
+      addMenuItem("Reset progress", function () {
+        if (!window.confirm("Reset this card's study progress (due date, box, history)? This can't be undone.")) return;
+        window.SRS.resetCard(mod.id, card.id);
+        renderLibraryList(listWrap);
+      }, "danger");
+    }
+    addMenuItem("Edit card & note", function () {
+      libraryState.openKey = key;
+      libraryState.editingKey = key;
+      renderLibraryList(listWrap);
+    });
+    if (cardIsEdited(mod.id, card)) {
+      addMenuItem("Reset wording to original", function () {
+        if (!window.confirm("Reset this card's wording to the original? Your note, if any, is kept.")) return;
+        clearCardEditOverride(mod.id, card.id);
+        renderLibraryList(listWrap);
+      });
+    }
+
+    menuBtn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      var wasHidden = menuEl.hidden;
+      document.querySelectorAll(".lib-row-menu:not([hidden])").forEach(function (m) { if (m !== menuEl) m.hidden = true; });
+      if (wasHidden) {
+        /* position:fixed (so the menu can't be clipped by .lib-row's
+         * overflow:hidden, used for its rounded corners) means it isn't
+         * positioned by CSS alone: anchor it to the "..." button's own
+         * position each time it opens. */
+        var rect = menuBtn.getBoundingClientRect();
+        menuEl.style.top = (rect.bottom + 4) + "px";
+        menuEl.style.right = (window.innerWidth - rect.right) + "px";
+      }
+      menuEl.hidden = !wasHidden;
+    });
+    menuWrap.appendChild(menuBtn);
+    menuWrap.appendChild(menuEl);
+    top.appendChild(menuWrap);
+
+    row.appendChild(top);
 
     if (isOpen) {
       var body = h('<div class="lib-row-body"></div>');
@@ -639,20 +747,6 @@
         enhanceReferenceTables(body);
         var noteVal = cardNote(mod.id, card);
         if (noteVal) body.appendChild(h('<div class="card-note"><strong>Your note:</strong> ' + esc(noteVal) + '</div>'));
-        var actions = h('<div class="lib-row-actions"></div>');
-        var editBtn = h('<button type="button" class="btn ghost small">Edit card &amp; note</button>');
-        editBtn.addEventListener("click", function () { libraryState.editingKey = key; renderLibraryList(listWrap); });
-        actions.appendChild(editBtn);
-        if (cardIsEdited(mod.id, card)) {
-          var resetBtn = h('<button type="button" class="link-btn">Reset to original</button>');
-          resetBtn.addEventListener("click", function () {
-            if (!window.confirm("Reset this card's wording to the original? Your note, if any, is kept.")) return;
-            clearCardEditOverride(mod.id, card.id);
-            renderLibraryList(listWrap);
-          });
-          actions.appendChild(resetBtn);
-        }
-        body.appendChild(actions);
       }
       row.appendChild(body);
     }

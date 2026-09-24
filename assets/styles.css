@@ -971,14 +971,44 @@ td.flag { color: var(--flag); font-weight: 600; }
 .lib-rows { display: flex; flex-direction: column; gap: 8px; }
 .lib-row { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--track-color, var(--primary));
   border-radius: 9px; overflow: hidden; }
-.lib-row-head { display: flex; align-items: center; gap: 12px; width: 100%; text-align: left;
+.lib-row-top { display: flex; align-items: stretch; }
+.lib-row-head { display: flex; align-items: center; gap: 12px; width: 100%; flex: 1 1 auto; min-width: 0; text-align: left;
   background: none; border: 0; padding: 13px 16px; cursor: pointer; }
 .lib-row-front { flex: 1 1 auto; min-width: 0; font-size: 14px; color: var(--ink); overflow: hidden;
   text-overflow: ellipsis; white-space: nowrap; }
-.lib-row-flags { flex: 0 0 auto; display: flex; gap: 6px; }
+.lib-row-flags { flex: 0 0 auto; display: flex; align-items: center; gap: 6px; }
 .lib-row-chev { flex: 0 0 auto; color: var(--ink-faint); font-size: 12px; }
 .lib-row.open .lib-row-head { background: var(--surface-2); }
 .lib-row-body { padding: 4px 16px 18px; }
+.lib-row.suspended { opacity: .6; }
+.lib-row.suspended .lib-row-front { text-decoration: line-through; }
+
+/* ---- card library row actions menu (Anki-style suspend/flag/reset) ---- */
+.lib-row-menu-wrap { position: relative; flex: 0 0 auto; display: flex; align-items: stretch;
+  border-left: 1px solid var(--line-soft); }
+.lib-row-menu-btn { background: none; border: 0; width: 40px; color: var(--ink-faint); font-size: 17px;
+  line-height: 1; cursor: pointer; transition: background-color .14s var(--ease-out), color .14s var(--ease-out); }
+.lib-row-menu-btn:hover { background: var(--surface-2); color: var(--ink); }
+.lib-row-menu { position: fixed; min-width: 190px; background: var(--surface);
+  border: 1px solid var(--line); border-radius: 10px; box-shadow: var(--shadow); padding: 6px; z-index: 40;
+  display: flex; flex-direction: column; animation: dropdownSpring .18s var(--ease-spring); transform-origin: top right; }
+.lib-row-menu[hidden] { display: none; }
+@media (prefers-reduced-motion: reduce) { .lib-row-menu { animation: none; } }
+.lib-row-menu-item { text-align: left; background: none; border: 0; border-radius: 7px; padding: 8px 10px;
+  font-size: 13px; color: var(--ink); cursor: pointer; }
+.lib-row-menu-item:hover { background: var(--surface-2); }
+.lib-row-menu-item.danger { color: var(--flag); }
+.lib-row-menu-item.danger:hover { background: var(--flag-tint); }
+
+.status-pill { font-family: "JetBrains Mono", monospace; font-size: 10.5px; padding: 3px 8px; border-radius: 999px;
+  border: 1px solid var(--line); color: var(--ink-faint); font-weight: 600; white-space: nowrap; }
+.status-pill.new { background: var(--primary-tint); color: var(--primary-deep); border-color: transparent; }
+.status-pill.learning { background: var(--accent-tint); color: var(--accent); border-color: transparent; }
+.status-pill.review { background: var(--good-tint, var(--accent-tint)); color: var(--good); border-color: transparent; }
+.status-pill.due { background: var(--flag); color: #fff; border-color: transparent; }
+.status-pill.upcoming { background: var(--surface-2); color: var(--ink-faint); border-color: transparent; }
+.status-pill.suspended { background: var(--surface-2); color: var(--ink-faint); border-color: transparent; text-decoration: line-through; }
+.lib-flag-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--flag); flex: 0 0 auto; }
 .lib-face { margin-top: 12px; }
 .lib-face-label { font-size: 10.5px; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-faint); margin-bottom: 5px; }
 .lib-face-content { font-size: 14.5px; color: var(--ink-soft); line-height: 1.55; }

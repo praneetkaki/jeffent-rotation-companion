@@ -149,6 +149,7 @@
     cards.forEach(function (c) {
       var s = state[c.id];
       if (s) {
+        if (s.suspended) return;
         if (s.due <= now) out.push(c);
       } else {
         if (newUsed < newBudget) { out.push(c); newUsed++; }
@@ -253,10 +254,72 @@
       var out = [];
       cards.forEach(function (c) {
         var s = state[c.id];
-        if (s && (s.seen || 0) >= 2 && (s.box || 0) <= 2) out.push({ card: c, seen: s.seen, box: s.box });
+        if (s && !s.suspended && (s.seen || 0) >= 2 && (s.box || 0) <= 2) out.push({ card: c, seen: s.seen, box: s.box });
       });
       out.sort(function (a, b) { return (a.box - b.box) || (b.seen - a.seen); });
       return out;
+    },
+
+    /* Per-card scheduling snapshot for display (Card Library table): status
+     * is "new" (never studied), "learning" (box <= 1, i.e. never graduated
+     * or just reset by an "again"), "review" (box >= 2), or "suspended"
+     * (excluded from every study queue above regardless of due date). */
+    cardInfo: function (moduleId, cardId) {
+      var state = loadState(moduleId);
+      var s = state[cardId];
+      /* A card can carry a state record with seen=0 (e.g. it was suspended
+       * or flagged before ever being rated), which must still read as "new"
+       * rather than "learning": only an actual rating (seen > 0) graduates
+       * it out of the new-card bucket. */
+      if (!s || !s.seen) {
+        return {
+          status: (s && s.suspended) ? "suspended" : "new",
+          due: null, box: 0, seen: 0,
+          suspended: !!(s && s.suspended),
+          flagged: !!(s && s.flag)
+        };
+      }
+      var suspended = !!s.suspended;
+      return {
+        status: suspended ? "suspended" : ((s.box || 0) <= 1 ? "learning" : "review"),
+        due: s.due || null,
+        box: s.box || 0,
+        seen: s.seen || 0,
+        suspended: suspended,
+        flagged: !!s.flag
+      };
+    },
+
+    /* Suspending pulls a card out of dueCards()/weakCards() (so study
+     * sessions and the due count skip it) without touching its box/due/seen
+     * history, which picks back up right where it left off once unsuspended. */
+    setSuspended: function (moduleId, cardId, val) {
+      var state = loadState(moduleId);
+      var s = state[cardId] || { box: 0, due: 0, seen: 0 };
+      s.suspended = !!val;
+      state[cardId] = s;
+      saveState(moduleId, state);
+    },
+
+    /* A single, optional per-card visual flag (like Anki's flags, but one
+     * color) for a learner's own "come back to this" marking in the Card
+     * Library -- unrelated to a card's own `redFlag` clinical-content tag. */
+    setFlagged: function (moduleId, cardId, val) {
+      var state = loadState(moduleId);
+      var s = state[cardId] || { box: 0, due: 0, seen: 0 };
+      s.flag = !!val;
+      state[cardId] = s;
+      saveState(moduleId, state);
+    },
+
+    /* Wipe a single card's scheduling history (box/due/seen/suspended/flag)
+     * so it studies exactly like a brand-new card again -- distinct from the
+     * Card Library's "reset wording to original," which only reverts edited
+     * text and leaves study progress untouched. */
+    resetCard: function (moduleId, cardId) {
+      var state = loadState(moduleId);
+      delete state[cardId];
+      saveState(moduleId, state);
     },
 
     /* Reset one module's progress: clears its card state and its daily
