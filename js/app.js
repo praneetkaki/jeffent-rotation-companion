@@ -629,15 +629,23 @@
    * closing over specific elements, so it stays correct across re-renders
    * without needing to be re-attached on every renderLibraryList() call. */
   var libraryMenuListenerAttached = false;
+  function closeAllLibraryMenus(exceptEl) {
+    document.querySelectorAll(".lib-row-menu:not([hidden])").forEach(function (m) {
+      if (m === exceptEl) return;
+      m.hidden = true;
+      var btn = m.previousElementSibling;
+      if (btn && btn.classList.contains("lib-row-menu-btn")) btn.setAttribute("aria-expanded", "false");
+    });
+  }
   function ensureLibraryMenuOutsideClose() {
     if (libraryMenuListenerAttached) return;
     libraryMenuListenerAttached = true;
     document.addEventListener("click", function (e) {
       if (e.target.closest && (e.target.closest(".lib-row-menu") || e.target.closest(".lib-row-menu-btn"))) return;
-      document.querySelectorAll(".lib-row-menu:not([hidden])").forEach(function (m) { m.hidden = true; });
+      closeAllLibraryMenus();
     });
     document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape") document.querySelectorAll(".lib-row-menu:not([hidden])").forEach(function (m) { m.hidden = true; });
+      if (e.key === "Escape") closeAllLibraryMenus();
     });
   }
 
@@ -655,7 +663,7 @@
         '<span class="lib-row-front">' + esc(teaserOf(effectiveFront(mod.id, card), 110)) + '</span>' +
         '<span class="lib-row-flags">' +
           '<span class="pill status-pill ' + status.cls + '">' + status.label + '</span>' +
-          (info.flagged ? '<span class="lib-flag-dot" aria-label="Flagged" title="Flagged"></span>' : "") +
+          (info.flagged ? '<span class="lib-flag-dot" role="img" aria-label="Flagged" title="Flagged"></span>' : "") +
           (cardIsEdited(mod.id, card) ? '<span class="pill edited">Edited</span>' : "") +
           (cardNote(mod.id, card) ? '<span class="pill noted">Note</span>' : "") +
         '</span>' +
@@ -674,7 +682,7 @@
      * always-visible body buttons so they're reachable without expanding
      * the card first, closer to how a desktop card browser behaves). */
     var menuWrap = h('<div class="lib-row-menu-wrap"></div>');
-    var menuBtn = h('<button type="button" class="lib-row-menu-btn" aria-haspopup="true" aria-label="Card actions">&#8942;</button>');
+    var menuBtn = h('<button type="button" class="lib-row-menu-btn" aria-haspopup="true" aria-expanded="false" aria-label="Card actions">&#8942;</button>');
     var menuEl = h('<div class="lib-row-menu" hidden role="menu"></div>');
 
     function addMenuItem(label, onClick, extraClass) {
@@ -718,7 +726,7 @@
     menuBtn.addEventListener("click", function (e) {
       e.stopPropagation();
       var wasHidden = menuEl.hidden;
-      document.querySelectorAll(".lib-row-menu:not([hidden])").forEach(function (m) { if (m !== menuEl) m.hidden = true; });
+      closeAllLibraryMenus(menuEl);
       if (wasHidden) {
         /* position:fixed (so the menu can't be clipped by .lib-row's
          * overflow:hidden, used for its rounded corners) means it isn't
@@ -729,6 +737,7 @@
         menuEl.style.right = (window.innerWidth - rect.right) + "px";
       }
       menuEl.hidden = !wasHidden;
+      menuBtn.setAttribute("aria-expanded", wasHidden ? "true" : "false");
     });
     menuWrap.appendChild(menuBtn);
     menuWrap.appendChild(menuEl);
@@ -837,8 +846,11 @@
     root.appendChild(h(
       '<div class="about-body">' +
         '<p>Active-recall flashcards, real clinical cases, and anatomy drills anchored to the UKMLA curriculum and ACGME milestones, for every stop on the ENT rotation.</p>' +
-        '<p>Foundations covers the cross-cutting exam and complaint breadth every rotation touches; each subspecialty track then goes deeper on those same topics rather than repeating them. Every card and case is drafted from named clinical guidelines and standard teaching, never lifted from a single textbook, and stays labeled draft, pending faculty review, until it\u2019s signed off.</p>' +
-        '<p>Spaced repetition uses a five-box Leitner system: cards you rate \u201cagain\u201d come back sooner, cards you rate \u201cgood\u201d or \u201ceasy\u201d get pushed further out. The \u2699 settings panel in the header lets you speed that up or slow it down, and cap how many new cards show up per day, both apply across every module at once.</p>' +
+        '<p>Foundations covers the cross-cutting exam and complaint breadth every rotation touches; each subspecialty track then goes deeper on those same topics rather than repeating them.</p>' +
+        '<h2>How the content was drafted</h2>' +
+        '<p>Every card and case was written from named clinical guidelines, the AAO-HNS Core Curriculum, and standard teaching references, cross-checked against the department\u2019s own Delphi priority list rather than lifted from a single textbook. Each module tracks its curriculum anchors and a per-card reviewer field, and stays labeled draft, pending faculty review, until a supervising attending signs off on it. Diagrams are either drawn from scratch or pending a faculty-provided or openly licensed source; the About screen won\u2019t claim a figure is finished until it has a real citation.</p>' +
+        '<h2>Spaced repetition</h2>' +
+        '<p>Review uses a five-box Leitner system: cards you rate \u201cagain\u201d come back sooner, cards you rate \u201cgood\u201d or \u201ceasy\u201d get pushed further out. The \u2699 settings panel in the header lets you speed that up or slow it down, and cap how many new cards show up per day; both apply across every module at once. The Card Library also lets you suspend a card you\u2019ve already mastered, flag one to revisit, or reset its progress back to new.</p>' +
       '</div>'
     ));
   }
@@ -873,6 +885,27 @@
   function announceStreakMilestone(count) {
     if (STREAK_MILESTONES.indexOf(count) === -1) return;
     showToast(count + "-day streak! Keep it going.", "milestone");
+  }
+
+  /* ---------- OFFLINE BADGE ----------
+   * The service worker already caches the app shell + content for offline
+   * use (see index.html's registration and sw.js); this just makes that
+   * fact visible so a student on OR wifi trusts the app instead of
+   * wondering why nothing looks "connected." Toggles on the browser's own
+   * online/offline events, plus a one-time check at load. */
+  function initConnectivityBadge() {
+    var badge = el("connBadge");
+    if (!badge) return;
+    function update(showToastMsg) {
+      var offline = !navigator.onLine;
+      badge.hidden = !offline;
+      if (showToastMsg) {
+        showToast(offline ? "You're offline: showing saved content" : "Back online", offline ? "warn" : null);
+      }
+    }
+    update(false);
+    window.addEventListener("online", function () { update(true); });
+    window.addEventListener("offline", function () { update(true); });
   }
 
   /* Cmd/Ctrl+K jumps straight to the topbar search, same convention as the
@@ -5527,6 +5560,7 @@
     initSearchShortcut();
     initFlashShortcut();
     initScrollTint();
+    initConnectivityBadge();
     if (ACTIVE_RECALL_ENABLED) initActiveRecall();
     bumpStreak();
     var brand = el("brandHome");

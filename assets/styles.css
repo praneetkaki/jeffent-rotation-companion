@@ -23,6 +23,7 @@
   --hero-ink-soft: #b9bfe0;
   --flag: #dc2626;         /* semantic: red-flag / don't-miss */
   --flag-tint: #fef2f2;
+  --flag-ink: #ffffff;     /* text/icon color placed directly on --flag; recomputed per theme so it always meets 4.5:1 */
   --good: #059669;
   --muted-label: #94a3b8;  /* eyebrow / section-label color, replaces the old amber */
   --shadow: 0 1px 2px rgba(15,23,42,.04), 0 6px 16px -8px rgba(15,23,42,.10);
@@ -50,7 +51,7 @@
     --primary: #7fa6ff; --primary-deep: #9db6ff; --primary-tint: #202a4d;
     --accent: #67c9f2; --accent-tint: #182a38;
     --hero-bg: #0d0f22; --hero-ink: #f4f6ff; --hero-ink-soft: #9aa2d6;
-    --flag: #f0847a; --flag-tint: #34211f;
+    --flag: #f0847a; --flag-tint: #34211f; --flag-ink: #2b0705;
     --good: #6cd6ab;
     --muted-label: #767ea8;
     --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 24px -16px rgba(0,0,0,.5);
@@ -65,7 +66,7 @@
   --primary: #7fa6ff; --primary-deep: #9db6ff; --primary-tint: #202a4d;
   --accent: #67c9f2; --accent-tint: #182a38;
   --hero-bg: #0d0f22; --hero-ink: #f4f6ff; --hero-ink-soft: #9aa2d6;
-  --flag: #f0847a; --flag-tint: #34211f;
+  --flag: #f0847a; --flag-tint: #34211f; --flag-ink: #2b0705;
   --good: #6cd6ab;
   --muted-label: #767ea8;
   --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 24px -16px rgba(0,0,0,.5);
@@ -986,7 +987,7 @@ td.flag { color: var(--flag); font-weight: 600; }
 /* ---- card library row actions menu (Anki-style suspend/flag/reset) ---- */
 .lib-row-menu-wrap { position: relative; flex: 0 0 auto; display: flex; align-items: stretch;
   border-left: 1px solid var(--line-soft); }
-.lib-row-menu-btn { background: none; border: 0; width: 40px; color: var(--ink-faint); font-size: 17px;
+.lib-row-menu-btn { background: none; border: 0; width: 44px; min-height: 44px; color: var(--ink-faint); font-size: 17px;
   line-height: 1; cursor: pointer; transition: background-color .14s var(--ease-out), color .14s var(--ease-out); }
 .lib-row-menu-btn:hover { background: var(--surface-2); color: var(--ink); }
 .lib-row-menu { position: fixed; min-width: 190px; background: var(--surface);
@@ -994,8 +995,8 @@ td.flag { color: var(--flag); font-weight: 600; }
   display: flex; flex-direction: column; animation: dropdownSpring .18s var(--ease-spring); transform-origin: top right; }
 .lib-row-menu[hidden] { display: none; }
 @media (prefers-reduced-motion: reduce) { .lib-row-menu { animation: none; } }
-.lib-row-menu-item { text-align: left; background: none; border: 0; border-radius: 7px; padding: 8px 10px;
-  font-size: 13px; color: var(--ink); cursor: pointer; }
+.lib-row-menu-item { text-align: left; background: none; border: 0; border-radius: 7px; padding: 10px;
+  min-height: 40px; font-size: 13px; color: var(--ink); cursor: pointer; }
 .lib-row-menu-item:hover { background: var(--surface-2); }
 .lib-row-menu-item.danger { color: var(--flag); }
 .lib-row-menu-item.danger:hover { background: var(--flag-tint); }
@@ -1005,7 +1006,7 @@ td.flag { color: var(--flag); font-weight: 600; }
 .status-pill.new { background: var(--primary-tint); color: var(--primary-deep); border-color: transparent; }
 .status-pill.learning { background: var(--accent-tint); color: var(--accent); border-color: transparent; }
 .status-pill.review { background: var(--good-tint, var(--accent-tint)); color: var(--good); border-color: transparent; }
-.status-pill.due { background: var(--flag); color: #fff; border-color: transparent; }
+.status-pill.due { background: var(--flag); color: var(--flag-ink); border-color: transparent; }
 .status-pill.upcoming { background: var(--surface-2); color: var(--ink-faint); border-color: transparent; }
 .status-pill.suspended { background: var(--surface-2); color: var(--ink-faint); border-color: transparent; text-decoration: line-through; }
 .lib-flag-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--flag); flex: 0 0 auto; }
@@ -1082,6 +1083,7 @@ td.flag { color: var(--flag); font-weight: 600; }
 /* ---- about page ---- */
 .about-body { max-width: 62ch; margin-top: 18px; color: var(--ink-soft); font-size: 15.5px; line-height: 1.7; }
 .about-body p { margin: 0 0 1em; }
+.about-body h2 { font-size: 1.05rem; font-weight: 600; color: var(--ink); margin: 1.6em 0 .6em; letter-spacing: -.01em; }
 
 /* ---- anatomy topic -> flashcard "Test yourself" banner ----
    A gradient-bordered card (padding-box surface fill + border-box gradient
@@ -1550,7 +1552,7 @@ body.pimp-open .pimppanel { transform: none; }
   transition: border-color .15s var(--ease-out), color .15s var(--ease-out); }
 .undo-btn:hover { border-color: var(--primary); color: var(--primary); border-style: solid; }
 /* Most-missed CTA uses the flag (red) accent instead of the default gold. */
-.study-cta.pq-misscta .btn { border-color: var(--flag); background: var(--flag); color: #fff; }
+.study-cta.pq-misscta .btn { border-color: var(--flag); background: var(--flag); color: var(--flag-ink); }
 .study-cta.pq-misscta .btn:hover { background: color-mix(in srgb, var(--flag) 85%, black); border-color: color-mix(in srgb, var(--flag) 85%, black); }
 
 /* Occlusion labels: opaque covers over printed labels, revealed on click */
@@ -1792,6 +1794,19 @@ body.js-motion .bento-hero.reveal-init.in .bento-start-btn {
 .app-toast.show { opacity: 1; transform: translate(-50%, 0); }
 @media (prefers-reduced-motion: reduce) { .app-toast { transition: opacity .15s linear; } }
 .app-toast-milestone { background: linear-gradient(135deg, #f59e0b, #f97316); color: #241705; font-weight: 700; }
+.app-toast-warn { background: var(--flag); color: var(--flag-ink); }
+
+/* ================================================================
+   CONNECTIVITY BADGE -- shown only while offline; the service worker
+   still serves cached screens, so this just tells the student why a
+   network-dependent action (sync) might be stale, not that anything
+   is broken.
+   ================================================================ */
+.conn-badge { display: flex; align-items: center; gap: 6px; padding: 5px 10px; border-radius: 999px;
+  background: var(--flag-tint); color: var(--flag); font-size: 12px; font-weight: 600; white-space: nowrap;
+  flex: 0 0 auto; }
+.conn-badge svg { width: 15px; height: 15px; flex: 0 0 auto; }
+@media (max-width: 720px) { .conn-badge-label { display: none; } .conn-badge { padding: 5px; } }
 
 /* ================================================================
    FIRST-RUN TOUR -- a spotlight ring (a giant box-shadow doubles as the
