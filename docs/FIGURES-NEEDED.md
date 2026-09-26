@@ -1,158 +1,193 @@
-# Figures Needed
+# Figures Needed (Citations, Not Images)
 
-Every figure in the app right now uses a local placeholder image, none of them are real, licensed figures yet. This document lists every one of those placeholders, grouped by module, so you (or whoever is helping source images) can go find or commission a real replacement for each. Per the project rules, a replacement must be either an author-drawn SVG, a faculty-provided image, or something explicitly open-licensed (CC), never a copyrighted textbook or atlas screenshot.
+An earlier version of this document assumed the app's figures were still placeholder images waiting to be sourced. That assumption was wrong. The real images are already deployed under `assets/img/figures/` (and a few module-specific folders like `assets/img/facial-plastics/`), and they were verified byte-identical against a staging pool. Nothing here is about finding or replacing images anymore.
 
-**Total: 95 distinct placeholder images to replace** (they show up in 149 places across cards/reference pages/cases, since the same diagram is often reused in more than one spot, once you drop in the real file it fixes every place that image appears).
+The actual gap is smaller and purely textual: a number of `<figure>` tags in `content/*.js` still carry the literal placeholder string `data-credit="Add figure citation"` (or single-quoted) instead of a real citation. The image is fine and already showing in the app; it just doesn't have an attribution line yet. Two non-figure `source:` fields have the same placeholder text.
 
-## Anatomy Atlas
+One more note on display: citations are no longer shown in an always-visible list at the bottom of a page. They now appear only when a student clicks or taps a figure to open it in the lightbox viewer, as small italic text under the image. So there's nothing to build here either, just the citation text itself.
 
-| Image filename | What it should show | Source/link |
-|---|---|---|
-| `temporal_bone_anatomy.png` | Overview of the temporal bone's four parts (squamous, tympanic, petrous, mastoid) and the TMJ formed by its squamous portion. | |
-| `paranasal_sinus_drainage.png` | The four paranasal sinuses and where each one drains. | |
-| `fascial_layers_neck.png` | Deep cervical fascial layers, the carotid sheath, and the surface triangles of the neck, plus a nodal-level table. | |
-| `cranial-nerves-inferior-view.svg` | The twelve cranial nerves, with emphasis on the seven relevant to ENT, and their skull-base exits. | |
-| `facial_nerve_course.png` | The labyrinthine, tympanic, and mastoid intratemporal segments of the facial nerve and the geniculate ganglion (Ramsay Hunt syndrome). | |
-| `sphenoid_sinus_cavernous_sinus.png` | The pituitary, optic nerve, and cavernous sinus as sphenoid sinus neighbors and their clinical significance. | |
-| `neck-triangles-colored.png` | Recall of the boundaries and contents of the anterior and posterior neck triangles. | |
-| `ear_cross_section.png` | What separates the external, middle, and inner ear compartments anatomically. | |
-| `laryngeal_subsites_supraglottis.png` | Recall of the three laryngeal subsites (supraglottis, glottis, subglottis). | |
-| `parotid_facial_nerve.png` | How the facial nerve runs through and divides the parotid gland. | |
-| `skullbase_foramen.png` | Matching skull-base foramina (ovale, rotundum, spinosum, internal acoustic meatus) to what passes through them. | |
-| `tmj-wikimedia.png` | The TMJ's proximity to the ear canal as a cause of referred otalgia. | |
+AI-generated figures (for example anything with "gemini" in the filename) are fine as-is per the project owner; this checklist does not flag them as a problem.
 
-## ENT Exam & Clinic Complaints
-
-| Image filename | What it should show | Source/link |
-|---|---|---|
-| `ENT_regions_glance.png` | Overview map of the five linked ENT anatomical regions (ear, nose/sinuses, oral cavity/pharynx, larynx, neck). | |
-| `cranial-nerves-inferior-view.svg` | All twelve cranial nerves with their skull-base exit foramen and function. | |
-| `paranasal_sinus_drainage_danger_zones.png` | Turbinates/meatuses, ostiomeatal complex drainage, and proximity of sinuses to orbit/skull base. | |
-| `larynx-openstax.png` | Epiglottis, thyroid/cricoid cartilage framework, true/false vocal folds, recurrent laryngeal nerve. | |
-| `neck-triangles-colored.png` | Anterior/posterior neck triangles, cervical nodal levels I-VII, and key neck glands. | |
-| `tympanic_membrane_landmarks.png` | Naming otoscopic TM landmarks: cone of light, umbo, manubrium, pars tensa/flaccida. | |
-| `peritonsilllar abscess.png` | Peritonsillar abscess presenting with trismus, muffled voice, and drooling; airway first, then drainage. | |
-| `epistaxis_mgmt.png` | Anterior epistaxis on anticoagulation managed with compression, topical vasoconstrictor, and INR check. | |
-| `recurrent_laryngeal_nerve_course_2.png` | Persistent hoarseness in a smoker requiring laryngoscopy, with vocal-fold paralysis raised via recurrent laryngeal nerve course. | |
-| `acute_sinusitis_complications.png` | Orbital cellulitis/subperiosteal abscess complicating pediatric ethmoid sinusitis via the lamina papyracea. | |
-| `facial_nerve_course.png` | Distinguishing peripheral (Bell's) from central facial palsy using forehead involvement/sparing. | |
-| `neck_levels_colored.png` | Structuring the neck exam by nodal levels I-VI plus thyroid/parotid/supraclavicular. | |
-| `audiogram_interpretation.png` | Reading an audiogram: axes, symbols, air-bone gap vs bilateral threshold drop. | |
-| `tympanograms.png` | Tympanogram types A, B, C and the ear conditions each indicates. | |
-| `kiesselbach_plexus.png` | Kiesselbach's plexus as the source of most anterior nosebleeds. | |
-| `sore_throat_centor.png` | Approach to acute sore throat using the Centor score. | |
-| `acute_epiglottitis.png` | Classic epiglottitis presentation (drooling, tripod, muffled voice, stridor) and the rule against examining the throat. | |
+**Current count: 149 placeholder occurrences across `content/*.js`, covering 69 distinct image files, plus 2 `source:` field placeholders.**
 
 ## Otology
 
-| Image filename | What it should show | Source/link |
+| Image filename | What it should show | Real citation |
 |---|---|---|
-| `ear_anatomy_physiology_overview.png` | Overview of the ear's three compartments (external/sound-gathering, middle/amplification, inner/transduction) and how CN VIII reads out. | |
-| `middle_ear_dangerous_relationships.png` | Middle-ear/mastoid danger zone: facial nerve, tensor tympani/stapedius, chorda tympani, and referred otalgia via CN V/VII/IX/X. | |
+| `ear_anatomy_physiology_overview.png` | Overview of the ear's three compartments (external, middle, inner) and how CN VIII reads out. | |
+| `middle_ear_dangerous_relationships.png` | Middle-ear/mastoid danger zone: facial nerve, tensor tympani/stapedius, chorda tympani, referred otalgia via CN V/VII/IX/X. | |
 | `hearing_loss_ear.png` | Conductive vs sensorineural hearing loss, localized by lesion site along the auditory pathway. | |
 | `otoscopy-comparison-gemini.png` | Side-by-side otoscopic comparison of otitis externa, AOM, cholesteatoma, and necrotizing otitis externa. | |
-| `tympanograms.png` | Differentiating otosclerosis (Type As), OME (Type B), and ossicular discontinuity (Type Ad) by tympanogram pattern. | |
-| `cholesteatoma_TM_perforation.png` | Cholesteatoma pathophysiology (retraction pocket, keratin accumulation, bone erosion) and why mastoidectomy is required. | |
-| `vestibular_schwannoma_MRI.png` | Vestibular schwannoma presentation, MRI IAC workup, and the observation/radiosurgery/microsurgery management ladder. | |
-| `necrotizing_otitis_externa.png` | Necrotizing otitis externa pathogen, cranial-nerve progression from skull-base osteomyelitis, and treatment. | |
-| `tympanic_membrane_landmarks.png` | Naming tympanic membrane landmarks (cone of light, umbo, manubrium, pars tensa/flaccida) on otoscopy. | |
-| `ossicles_joints.png` | The ossicular chain (malleus, incus, stapes) and its mechanical connection from TM to oval window. | |
+| `tympanograms.png` | Tympanogram types A, B, C and the ear conditions each indicates. | |
+| `cholesteatoma_TM_perforation.png` | Cholesteatoma pathophysiology (retraction pocket, keratin accumulation, bone erosion). | |
+| `vestibular_schwannoma_MRI.png` | Vestibular schwannoma presentation, MRI IAC workup, management ladder. | |
+| `necrotizing_otitis_externa.png` | Necrotizing otitis externa pathogen, cranial-nerve progression, treatment. | |
+| `tympanic_membrane_landmarks.png` | Naming TM landmarks (cone of light, umbo, manubrium, pars tensa/flaccida). | |
+| `ossicles_joints.png` | Ossicular chain (malleus, incus, stapes) and its mechanical connection from TM to oval window. | |
 | `facial_nerve_ear_otology.png` | Facial nerve course through the temporal bone and vulnerability to otologic disease. | |
-| `inner_ear_anatomy.png` | Dividing the inner ear by function: cochlea (hearing) vs vestibule + semicircular canals (balance), both read by CN VIII. | |
-| `audiogram_interpretation.png` | Interpreting the Rinne tuning-fork test (AC vs BC) alongside the Weber/Rinne comparison table. | |
-| `cholesteatoma_ear.png` | Congenital cholesteatoma: a white mass behind an intact, normal-looking TM in a child. | |
+| `inner_ear_anatomy.png` | Cochlea (hearing) vs vestibule + semicircular canals (balance), both read by CN VIII. | |
+| `audiogram_interpretation.png` | Rinne tuning-fork test (AC vs BC) alongside Weber/Rinne comparison. | |
+| `cholesteatoma_ear.png` | Congenital cholesteatoma: white mass behind an intact, normal-looking TM in a child. | |
 
 ## Rhinology
 
-| Image filename | What it should show | Source/link |
+| Image filename | What it should show | Real citation |
 |---|---|---|
-| `osteomeatal_complex.png` | Anatomy of the middle meatus/uncinate process/ethmoid bulla forming the ostiomeatal complex, the shared drainage funnel for frontal, anterio. | |
-| `paranasal_sinus_drainage_danger_zones.png` | Drainage pathways of frontal/maxillary/ethmoid/sphenoid sinuses and the adjacent danger zones (orbit, skull base, cavernous sinus). | |
-| `kiesselbach_plexus.png` | Little's area/Kiesselbach's plexus vascular convergence and anterior vs posterior epistaxis sources. | |
-| `nasal-septum-openstax.png` | Septal skeleton (quadrangular cartilage, perpendicular plate of ethmoid, vomer) and septal hematoma risk. | |
+| `osteomeatal_complex.png` | Middle meatus/uncinate process/ethmoid bulla forming the ostiomeatal complex. | |
+| `paranasal_sinus_drainage_danger_zones.png` | Drainage pathways of the four paranasal sinuses and adjacent danger zones (orbit, skull base, cavernous sinus). | |
+| `kiesselbach_plexus.png` | Little's area/Kiesselbach's plexus and anterior vs posterior epistaxis sources. | |
+| `nasal-septum-openstax.png` | **Already fixed this session.** Septal skeleton anatomy; credit now reads "OpenStax, Anatomy and Physiology 2e. CC BY 4.0." |
 | `FESS_anatomy_variants_sinus_CT.png` | Pneumatization variants relevant to FESS: concha bullosa, Haller cells, Onodi cells. | |
-| `chronic_rhinosinusitis.png` | Formal CRS definition and CRSsNP/CRSwNP/AERD subtypes with first-line management. | |
+| `chronic_rhinosinusitis.png` | CRS definition and CRSsNP/CRSwNP/AERD subtypes with first-line management. | |
 | `ARIA_allergic_rhinitis_management.png` | ARIA's duration/severity classification grid for allergic rhinitis. | |
-| `ARIA_allergic_rhinitis_stepwise.png` | Stepwise escalation of allergic rhinitis therapy from avoidance through immunotherapy. | |
-| `epistaxis_mgmt.png` | Stepwise epistaxis management from first aid through cautery, packing, and arterial ligation/embolization. | |
+| `ARIA_allergic_rhinitis_stepwise.png` | Stepwise escalation of allergic rhinitis therapy. | |
+| `epistaxis_mgmt.png` | Stepwise epistaxis management from first aid through cautery, packing, ligation/embolization. | |
 | `unilateral_sinonasal_masses.png` | Age-based pattern for unilateral sinonasal masses: JNA, inverted papilloma, esthesioneuroblastoma/malignancy. | |
-| `acute_sinusitis_complications.png` | Subperiosteal orbital abscess as a Chandler stage III complication of pediatric sinusitis. | |
+| `acute_sinusitis_complications.png` | Subperiosteal orbital abscess as a Chandler stage III complication. | |
 | `nasal_septum.png` | Composition of the nasal septum and why septal hematoma causes saddle-nose deformity. | |
 
 ## Head & Neck
 
-| Image filename | What it should show | Source/link |
+| Image filename | What it should show | Real citation |
 |---|---|---|
-| `neck_levels_colored.png` | Cervical lymph node level classification (I-VII, including IIA/IIB and VA/VB) for head & neck cancer staging. | |
-| `salivary-glands-openstax.png` | Major salivary gland anatomy: parotid (Stensen's duct) and submandibular (Wharton's duct). | |
-| `thyroid_adjacent_structures.png` | Thyroid lobes/isthmus, parathyroid glands, and recurrent laryngeal nerve relationships relevant to thyroidectomy risk. | |
-| `oral_cavity_oropharynx_anatomy.png` | Anatomic distinction between oral cavity and oropharynx subsites and its oncologic significance (tobacco vs HPV driven cancer). | |
-| `parotid_facial_nerve.png` | Enlarging parotid mass with new facial weakness signifying likely malignant nerve invasion. | |
-| `thyroid_diagnostic_steps.png` | Suspicious thyroid nodule ultrasound features (TI-RADS) driving FNA, then Bethesda-reported cytology. | |
-| `salivary_gland_ducts.png` | Wharton's duct's uphill course explaining why the submandibular gland is the classic site for salivary stones. | |
-| `parotid_pathology.png` | Parotid tumor prevalence: pleomorphic adenoma most common benign, mucoepidermoid carcinoma most common malignant. | |
+| `neck_levels_colored.png` | Cervical lymph node level classification (I-VII, including IIA/IIB and VA/VB). | |
+| `salivary-glands-openstax.png` | **Already fixed this session.** Major salivary gland anatomy; credit now reads "OpenStax, Anatomy and Physiology 2e. CC BY 4.0." |
+| `thyroid_adjacent_structures.png` | Thyroid lobes/isthmus, parathyroid glands, recurrent laryngeal nerve relationships. | |
+| `oral_cavity_oropharynx_anatomy.png` | Oral cavity vs oropharynx subsites and oncologic significance (tobacco vs HPV driven). | |
+| `parotid_facial_nerve.png` | Facial nerve running through and dividing the parotid gland. | |
+| `thyroid_diagnostic_steps.png` | TI-RADS ultrasound features driving FNA, then Bethesda-reported cytology. | |
+| `salivary_gland_ducts.png` | Wharton's duct's uphill course and submandibular gland stone risk. | |
+| `parotid_pathology.png` | Parotid tumor prevalence: pleomorphic adenoma (benign), mucoepidermoid carcinoma (malignant). | |
 
 ## Facial Plastics
 
-| Image filename | What it should show | Source/link |
+| Image filename | What it should show | Real citation |
 |---|---|---|
-| `facial_buttresses.png` | Vertical and horizontal facial buttress columns that absorb/transmit force and that reconstructive plating restores. | |
-| `parotid_facial_nerve.png` | Facial nerve trunk and its five branches running through the parotid gland, plus Stensen's duct course. | |
-| `pitanguy_line.png` | The temporal (frontal) branch of the facial nerve and Pitanguy's surface-marking line that approximates its course. | |
+| `facial_buttresses.png` | Vertical/horizontal facial buttress columns and reconstructive plating. | |
+| `parotid_facial_nerve.png` | Facial nerve trunk and its five branches through the parotid, plus Stensen's duct. | |
+| `pitanguy_line.png` | Temporal (frontal) branch of the facial nerve and Pitanguy's surface-marking line. | |
 | `mandible_anatomy.png` | Mandible subunits and common fracture sites (condyle, angle, body, parasymphysis). | |
-| `le_fort_fractures.png` | Le Fort I, II, and III midface fracture patterns distinguished by fracture line level. | |
+| `le_fort_fractures.png` | Le Fort I, II, III midface fracture patterns. | |
 | `reconstructive_ladder.png` | Stepwise reconstructive options from secondary intention through free tissue transfer. | |
-| `facial_nerve_course.png` | Immediate complete facial paralysis after a penetrating preauricular knife wound indicating nerve transection needing urgent exploration. | |
+| `facial_nerve_course.png` | Immediate complete facial paralysis after penetrating preauricular injury indicating transection. | |
+
+Already correctly cited in this module, no action needed: `skull-anterior-openstax.png` ("OpenStax, Anatomy and Physiology 2e (Ch. 7). CC BY 4.0.") and the orbital blowout figure ("Orbital Floor Blowout Fracture and Muscle Entrapment. Wikimedia Commons.").
 
 ## Laryngology
 
-| Image filename | What it should show | Source/link |
+| Image filename | What it should show | Real citation |
 |---|---|---|
-| `laryngeal_cartilages.png` | Overview of the thyroid, cricoid, arytenoid cartilages and epiglottis forming the laryngeal skeleton. | |
-| `laryngeal_subsites_supraglottis.png` | Coronal division of the larynx into supraglottis, glottis, and subglottis, the basis for cancer staging and airway localization. | |
-| `vocal_fold_layers.png` | Layered cover-body microarchitecture of the vocal fold (epithelium, lamina propria, vocalis muscle). | |
-| `recurrent_laryngeal_nerve_course_2.png` | Superior laryngeal nerve and recurrent laryngeal nerve innervation of the larynx and their courses. | |
-| `vocal_process_granuloma.png` | Contact granuloma at the vocal process of the arytenoid, usually from intubation trauma or reflux. | |
-| `tracheostomy_tube.png` | Tracheostomy tube types, the first-postoperative-week dislodgement emergency, and decannulation pathway. | |
-| `acute_epiglottitis.png` | Differentiating croup from epiglottitis in a young child by onset speed, fever, and toxicity. | |
+| `laryngeal_cartilages.png` | Thyroid, cricoid, arytenoid cartilages and epiglottis forming the laryngeal skeleton. | |
+| `laryngeal_subsites_supraglottis.png` | Coronal division into supraglottis, glottis, subglottis (cancer staging/airway localization). | |
+| `vocal_fold_layers.png` | Layered cover-body microarchitecture of the vocal fold. | |
+| `recurrent_laryngeal_nerve_course_2.png` | Superior laryngeal nerve and recurrent laryngeal nerve courses. | |
+| `vocal_process_granuloma.png` | Contact granuloma at the vocal process, usually from intubation trauma or reflux. | |
+| `tracheostomy_tube.png` | Tracheostomy tube types, first-postoperative-week dislodgement, decannulation pathway. | |
+| `acute_epiglottitis.png` | Differentiating croup from epiglottitis by onset speed, fever, toxicity. | |
+| `larynx-openstax.png` | **Already fixed this session.** Epiglottis/cartilage/vocal fold framework; credit now reads "OpenStax, Anatomy and Physiology 2e. CC BY 4.0." (referenced from `content/ent-exam-clinic-complaints.js`) |
+
+## Anatomy Atlas
+
+| Image filename | What it should show | Real citation |
+|---|---|---|
+| `temporal_bone_anatomy.png` | Temporal bone's four parts (squamous, tympanic, petrous, mastoid) and the TMJ. | |
+| `paranasal_sinus_drainage.png` | The four paranasal sinuses and where each drains. | |
+| `fascial_layers_neck.png` | Deep cervical fascial layers, carotid sheath, neck triangles, nodal-level table. | |
+| `cranial-nerves-inferior-view.svg` | Twelve cranial nerves, emphasis on the seven relevant to ENT, skull-base exits. | |
+| `facial_nerve_course.png` | Labyrinthine/tympanic/mastoid intratemporal segments of the facial nerve, geniculate ganglion. | |
+| `sphenoid_sinus_cavernous_sinus.png` | Pituitary, optic nerve, cavernous sinus as sphenoid sinus neighbors. | |
+| `neck-triangles-colored.png` | Boundaries and contents of anterior/posterior neck triangles. | |
+| `ear_cross_section.png` | External, middle, and inner ear compartments. | |
+| `laryngeal_subsites_supraglottis.png` | The three laryngeal subsites (supraglottis, glottis, subglottis). | |
+| `parotid_facial_nerve.png` | Facial nerve running through and dividing the parotid gland. | |
+| `skullbase_foramen.png` | Skull-base foramina (ovale, rotundum, spinosum, internal acoustic meatus) and contents. | |
+
+## ENT Exam & Clinic Complaints
+
+| Image filename | What it should show | Real citation |
+|---|---|---|
+| `ENT_regions_glance.png` | Overview map of the five linked ENT anatomical regions. | |
+| `cranial-nerves-inferior-view.svg` | Twelve cranial nerves with skull-base exit foramen and function. | |
+| `paranasal_sinus_drainage_danger_zones.png` | Turbinates/meatuses, ostiomeatal drainage, proximity to orbit/skull base. | |
+| `neck-triangles-colored.png` | Anterior/posterior neck triangles, cervical nodal levels I-VII, key neck glands. | |
+| `tympanic_membrane_landmarks.png` | Otoscopic TM landmarks: cone of light, umbo, manubrium, pars tensa/flaccida. | |
+| `peritonsilllar abscess.png` | Peritonsillar abscess: trismus, muffled voice, drooling; airway first, then drainage. | |
+| `epistaxis_mgmt.png` | Anterior epistaxis on anticoagulation: compression, topical vasoconstrictor, INR check. | |
+| `recurrent_laryngeal_nerve_course_2.png` | Persistent hoarseness in a smoker, vocal-fold paralysis via RLN course. | |
+| `acute_sinusitis_complications.png` | Orbital cellulitis/subperiosteal abscess complicating pediatric ethmoid sinusitis. | |
+| `facial_nerve_course.png` | Peripheral (Bell's) vs central facial palsy using forehead sparing. | |
+| `neck_levels_colored.png` | Neck exam structured by nodal levels I-VI plus thyroid/parotid/supraclavicular. | |
+| `audiogram_interpretation.png` | Reading an audiogram: axes, symbols, air-bone gap vs bilateral threshold drop. | |
+| `tympanograms.png` | Tympanogram types A, B, C and the ear conditions each indicates. | |
+| `kiesselbach_plexus.png` | Kiesselbach's plexus as the source of most anterior nosebleeds. | |
+| `sore_throat_centor.png` | Approach to acute sore throat using the Centor score. | |
+| `acute_epiglottitis.png` | Classic epiglottitis presentation and the rule against examining the throat. | |
+
+Note: `peritonsilllar abscess.png` has a filename typo (extra "l", stray space) but is left as-is here since renaming the file is out of scope for a citations-only pass; flag separately if you want it cleaned up.
 
 ## Pediatric
 
-| Image filename | What it should show | Source/link |
+| Image filename | What it should show | Real citation |
 |---|---|---|
-| `pediatric_adult_airway.png` | Explains why a child's funnel-shaped airway (narrowest at the subglottis, cephalad larynx, floppy omega-shaped epiglottis) makes small a. | |
-| `eustachian_tube_child_adult.png` | Contrasts the child's shorter, more horizontal Eustachian tube with the adult's steeper tube to explain why otitis media is a childh. | |
-| `branchial_cleft_cyst.png` | Explains second branchial cleft anomalies and the classic tract from a neck pit anterior to the SCM up to the tonsillar fossa. | |
-| `waldeyer_ring.png` | Describes the ring of lymphoid tissue (adenoids, tubal tonsils, palatine tonsils, lingual tonsil) guarding the aerodigestive entrance. | |
-| `congenital_neck_masses.png` | Uses anatomic location (midline, lateral anterior to SCM, posterior triangle, preauricular) to differentiate congenital neck mass diagnoses. | |
-| `cervical_fascia_danger_space.png` | Young child with fever, rigid neck extension, muffled voice, and drooling from a retropharyngeal abscess, diagnosed with contrast CT disting. | |
+| `pediatric_adult_airway.png` | Child's funnel-shaped airway (narrowest at subglottis, cephalad larynx, omega epiglottis). | |
+| `eustachian_tube_child_adult.png` | Child's shorter, more horizontal Eustachian tube vs adult's steeper tube. | |
+| `branchial_cleft_cyst.png` | Second branchial cleft anomaly tract from a neck pit anterior to SCM to the tonsillar fossa. | |
+| `waldeyer_ring.png` | Ring of lymphoid tissue (adenoids, tubal tonsils, palatine tonsils, lingual tonsil). | |
+| `congenital_neck_masses.png` | Anatomic location differentiating congenital neck mass diagnoses. | |
+| `cervical_fascia_danger_space.png` | Retropharyngeal abscess in a child, diagnosed with contrast CT. | |
 
 ## Sleep Medicine
 
-| Image filename | What it should show | Source/link |
+| Image filename | What it should show | Real citation |
 |---|---|---|
-| `level_upper_airway_obstruction_labeled.png` | The three anatomic levels where the upper airway can collapse in OSA: nasal, retropalatal, and retroglossal. | |
-| `Friedman_tongue.png` | Friedman tongue position grades I-IV and how they predict UPPP response. | |
-| `hypoglossal_nerve_branches.png` | CN XII course and genioglossus innervation underlying tongue protrusion and its role in OSA/airway patency. | |
+| `level_upper_airway_obstruction_labeled.png` | Three anatomic levels of upper airway collapse in OSA: nasal, retropalatal, retroglossal. | |
+| `Friedman_tongue.png` | Friedman tongue position grades I-IV and UPPP response prediction. | |
+| `hypoglossal_nerve_branches.png` | CN XII course and genioglossus innervation underlying tongue protrusion/OSA. | |
 | `CPAP_therapy.png` | CPAP as pneumatic splinting of the collapsible upper airway. | |
-| `hypoglossal_nerve_stimulator_diagram.png` | FDA/STAR-trial candidacy criteria for hypoglossal nerve stimulation, with an embedded figure of the generator/lead/cuff components. | |
+| `hypoglossal_nerve_stimulator_diagram.png` | STAR-trial candidacy criteria; embedded generator/lead/cuff figure. | |
 
 ## Emergencies
 
-| Image filename | What it should show | Source/link |
+| Image filename | What it should show | Real citation |
 |---|---|---|
-| `cervical_fascia_danger_space.png` | Deep cervical fascial spaces communicate (peritonsillar/parapharyngeal/retropharyngeal) and can carry infection down the 'danger space&#. | |
-| `neck_zones_trauma.png` | Zones I, II, III of the neck for penetrating trauma and how surgical accessibility differs by zone. | |
-| `acute_epiglottitis.png` | Adult epiglottitis presenting with muffled voice/drooling despite a deceptively normal-looking oropharynx, confirmed by flexible laryngoscop. | |
-| `acute_sinusitis_complications.png` | Sinusitis progressing to orbital (postseptal) cellulitis with proptosis and painful eye movement. | |
-| `thyroid_adjacent_structures.png` | Expanding neck hematoma after thyroidectomy compressing the airway, requiring bedside wound opening. | |
-| `audiogram_interpretation.png` | Sudden sensorineural hearing loss confirmed by urgent audiogram, with a time-sensitive steroid treatment window. | |
-| `fascial_layers_neck.png` | Ludwig's angina: odontogenic bilateral floor-of-mouth/submandibular space cellulitis threatening the airway via tongue displacement. | |
+| `cervical_fascia_danger_space.png` | Deep cervical fascial spaces communicating (peritonsillar/parapharyngeal/retropharyngeal), the "danger space" for spreading infection. | |
+| `neck_zones_trauma.png` | Zones I, II, III of the neck for penetrating trauma, surgical accessibility by zone. | |
+| `acute_epiglottitis.png` | Adult epiglottitis, muffled voice/drooling despite normal-looking oropharynx. | |
+| `acute_sinusitis_complications.png` | Sinusitis progressing to orbital (postseptal) cellulitis, proptosis and painful eye movement. | |
+| `thyroid_adjacent_structures.png` | Expanding neck hematoma after thyroidectomy compressing the airway. | |
+| `audiogram_interpretation.png` | Sudden sensorineural hearing loss confirmed by urgent audiogram, steroid treatment window. | |
+| `fascial_layers_neck.png` | Ludwig's angina: odontogenic floor-of-mouth/submandibular cellulitis threatening the airway. | |
 
-## How to send me these
+## Needs a specific license lookup (Wikimedia-sourced)
 
-**Easiest option: just drop the image files into `assets/img/figures/` using the exact filenames from the tables above.** Since every filename already exists in the code, you don't need to type or match anything, if you save your replacement image as, say, `temporal_bone_anatomy.png`, it automatically slots into every card and reference page that uses it. PNG, JPG, or SVG all work; just keep the same base filename (or tell me if you renamed one and I'll update the code to match).
+Checked all four Wikimedia-named files directly against the current content files. Only one still needs work:
 
-Once the real images are in place, tell me the source for each one (a CC license and its author/site, a textbook page your faculty reviewer approved, or "faculty-provided, drawn by Dr. X") and I can batch-update the `data-credit` attributes from the placeholder text to real citations in one pass.
+| Image filename | Status |
+|---|---|
+| `tmj-wikimedia.png` | Still a placeholder, referenced in `content/anatomy-atlas.js` (TMJ's proximity to the ear canal, referred otalgia). This is the one that needs a license lookup. |
+| `larynx-coronal-wikimedia.png` | Already has a real citation in `content/ent-exam-clinic-complaints.js`: `"Larynx: Coronal Section Showing Airway Framework and Vocal Folds. Wikimedia Commons."` Not an action item. |
+| `middle-ear-wikimedia.png` | Not referenced anywhere in `content/*.js`. Available in the image pool but unused. |
+| `paranasal-3d-wikimedia.png` | Not referenced anywhere in `content/*.js`. Available in the image pool but unused. |
 
-**Alternative if you'd rather license first and swap images later:** keep a simple checklist (a spreadsheet or even a plain text list) mapping filename to where you found it, e.g. a CC-licensed source URL, a journal figure and page number, or a note that faculty is drawing it. Hand that list back to me and I can fetch/insert the images (for ones with a direct downloadable open-licensed URL) or just wire up the citations while you or faculty supply the art. Option one above is simpler and needs no typing, so it's the one to reach for unless you're licensing a batch of images before you have the files in hand.
+So the actual to-do here is just `tmj-wikimedia.png`. Wikimedia Commons licensing varies per file (CC BY-SA, CC BY, public domain, etc.), so it needs the specific file looked up on Commons (or supplied by the student) rather than a generic OpenStax-style auto-fill. Match the existing precedent from `content/facial-plastics.js`: format `Title. Wikimedia Commons.` (or a more specific license line if available, like the `Fig. 907, ... Public domain. Via Wikimedia Commons (...)` style already used in `content/otology.js`).
+
+Also available in the image pool but not currently referenced by any content file (nothing to fix, just noting they exist): `pharynx-regions-openstax.png`, `skull-lateral-openstax.png`.
+
+## The two `source:` field placeholders
+
+These aren't `<figure data-credit>` markup, they're `source:` fields on image-hotspot blocks (the labeled-diagram lightbox type), but they carry the same placeholder text and need the same fix.
+
+| File | Context |
+|---|---|
+| `content/facial-plastics.js` (~line 129) | The "Orbital floor blow-out fracture" hotspot image (`assets/img/figures/orbital_blowout_fracture.png`), a coronal CT of the right orbit showing a trapdoor fracture with soft tissue herniation. |
+| `content/emergencies.js` (~line 135) | The "Zones I, II, and III of the neck in penetrating trauma" hotspot image (`assets/img/figures/neck_zones_trauma.png`), reused from the anatomy lecture, with zone boundaries as the labeled hotspots. |
+
+## Easiest way to send me the real sources
+
+No image files need to move this time, everything is already in place. The fastest path is just to tell me, in chat or as a short pasted list, where each image came from: a textbook name and edition, a named clinical guideline, "my own drawing," a Wikimedia Commons file name or URL, or "faculty-provided, drawn by Dr. X." For example:
+
+- `temporal_bone_anatomy.png`: my own drawing
+- `tmj-wikimedia.png`: Wikimedia Commons, [file name or URL], [license if known]
+- `chronic_rhinosinusitis.png`: EPOS 2020 guideline, Figure 2
+
+Once I have that, I'll write the citation text and update the `data-credit` (or `source:`) attribute directly in the relevant `content/*.js` file, matching the existing `Title. Wikimedia Commons.` / `OpenStax, Anatomy and Physiology 2e (Ch. N). CC BY 4.0.` style already used elsewhere in the codebase. You don't need to batch everything at once, sending sources for a few images at a time works fine too.
