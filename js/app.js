@@ -1799,7 +1799,6 @@
       }, false, notes[topic.index].tagline);
       appendRelatedCardsCta(built.main, mod, noteTitle, topic);
       appendNextLessonNav(built.main, mod, pane, notes, diagrams, topic);
-      appendFigureSources(built.main);
       linkGlossaryTerms(built.main);
       enhanceReferenceTables(built.main);
       if (mod.id === ACTIVE_RECALL_MODULE_ID && state.activeRecall) applyActiveRecallMask(built.main);
@@ -2074,16 +2073,6 @@
     });
     wrap.appendChild(cta);
     linkGlossaryTerms(quick);
-  }
-
-  function appendFigureSources(wrap) {
-    var figs = wrap.querySelectorAll("figure.note-fig[data-credit]");
-    if (!figs.length) return;
-    var box = h('<div class="fig-sources"></div>');
-    box.appendChild(h('<div class="fig-sources-h">Figure sources</div>'));
-    var ul = h("<ul></ul>");
-    figs.forEach(function (f) { ul.appendChild(h("<li>" + esc(f.getAttribute("data-credit")) + "</li>")); });
-    box.appendChild(ul); wrap.appendChild(box);
   }
 
   function startAnatomyTopicSession(mod, cards, title, topicRef) {
