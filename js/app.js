@@ -341,12 +341,16 @@
       '<div class="welcome-stage">' +
         '<button type="button" class="welcome-card" aria-label="Enter ENT Rotation Companion">' +
           '<span class="welcome-mark-wrap">' +
-            '<span class="welcome-glow" aria-hidden="true"></span>' +
-            '<img class="welcome-mark" src="assets/icons/jeffent-mark.png" alt="" width="220" height="220">' +
+            '<span class="welcome-ring" aria-hidden="true"></span>' +
+            '<span class="welcome-mark-plate">' +
+              '<img class="welcome-mark" src="assets/icons/jeffent-mark.png" alt="" width="220" height="220">' +
+            '</span>' +
           '</span>' +
           '<span class="welcome-wordmark">ENT Rotation Companion</span>' +
+          '<span class="welcome-cta" aria-hidden="true">' +
+            '<svg viewBox="0 0 24 24" fill="none" stroke="#05060f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>' +
+          '</span>' +
         '</button>' +
-        '<div class="welcome-hint" aria-hidden="true">Tap to begin</div>' +
       '</div>'
     );
     stage.querySelector(".welcome-card").addEventListener("click", goHome);
