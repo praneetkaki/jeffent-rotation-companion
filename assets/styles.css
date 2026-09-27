@@ -116,15 +116,13 @@ button { font-family: inherit; cursor: pointer; }
   min-width: 0; flex: 1 1 auto; }
 .brand:hover { background: var(--surface-2); }
 .brand > div { min-width: 0; overflow: hidden; }
-/* Illustrated head-profile mark (own line-art, teal-tinted fill) instead of
-   the old plain-stroke ear icon -- reads more like a clinical atlas plate
-   at a glance, pairing with the eyebrow + serif title below. */
-.mark { color: var(--primary-deep); display: grid; place-items: center; width: 46px; height: 46px;
-  background: var(--surface-2); border: 1px solid var(--line); border-radius: 11px; flex: 0 0 auto; }
-.brand-mark { width: 66%; height: 66%; display: block; }
-:root { --brand-mark-fill: #dff3ef; }
-:root[data-theme="dark"] { --brand-mark-fill: #17352f; }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --brand-mark-fill: #17352f; } }
+/* Cropped, chroma-keyed PNG lockup icon (a circular head profile showing
+   the ear-nose-throat pathway in a blue-to-green gradient ring), supplied
+   as the project's real logo mark -- no background/border container so its
+   own ring reads as the tile edge, instead of nesting it inside another
+   flat tinted square. */
+.mark { display: grid; place-items: center; width: 44px; height: 44px; flex: 0 0 auto; }
+.brand-mark { width: 100%; height: 100%; display: block; object-fit: contain; }
 /* Two-line lockup: small mono eyebrow ("JeffENT") over a serif title with
    the primary phrase bolder than the trailing word, matching the reference
    masthead treatment instead of one flat title line. */
