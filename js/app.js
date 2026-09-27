@@ -337,14 +337,20 @@
   function renderWelcome() {
     var root = el("screen-welcome");
     root.innerHTML = "";
-    var card = h(
-      '<button type="button" class="welcome-card" aria-label="Enter ENT Rotation Companion">' +
-        '<img class="welcome-mark" src="assets/icons/jeffent-mark.png" alt="" width="72" height="72">' +
-        '<span class="welcome-wordmark">ENT Rotation Companion</span>' +
-      '</button>'
+    var stage = h(
+      '<div class="welcome-stage">' +
+        '<button type="button" class="welcome-card" aria-label="Enter ENT Rotation Companion">' +
+          '<span class="welcome-mark-wrap">' +
+            '<span class="welcome-glow" aria-hidden="true"></span>' +
+            '<img class="welcome-mark" src="assets/icons/jeffent-mark.png" alt="" width="220" height="220">' +
+          '</span>' +
+          '<span class="welcome-wordmark">ENT Rotation Companion</span>' +
+        '</button>' +
+        '<div class="welcome-hint" aria-hidden="true">Tap to begin</div>' +
+      '</div>'
     );
-    card.addEventListener("click", goHome);
-    root.appendChild(card);
+    stage.querySelector(".welcome-card").addEventListener("click", goHome);
+    root.appendChild(stage);
   }
 
   function goHome() {

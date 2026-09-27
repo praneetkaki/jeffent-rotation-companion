@@ -147,16 +147,42 @@ button { font-family: inherit; cursor: pointer; }
 body.on-welcome .topbar, body.on-welcome .foot, body.on-welcome .pocketlog-tab { display: none; }
 body.on-welcome { background: #05060f; }
 body.on-welcome main.wrap { min-height: 100vh; padding: 0; max-width: none; display: grid; place-items: center; }
-.welcome-card { display: flex; align-items: center; gap: 18px; background: none; border: 0; padding: 20px;
-  cursor: pointer; border-radius: 16px; transition: transform .18s var(--ease-out), background-color .18s var(--ease-out); }
-.welcome-card:hover, .welcome-card:focus-visible { background: rgba(255,255,255,.05); transform: scale(1.015); }
+.welcome-stage { display: flex; flex-direction: column; align-items: center; }
+.welcome-card { display: flex; flex-direction: column; align-items: center; gap: 22px; background: none; border: 0; padding: 20px;
+  cursor: pointer; border-radius: 20px; transition: transform .18s var(--ease-out);
+  opacity: 0; animation: welcomeRise .6s var(--ease-out) .1s forwards; }
+.welcome-card:hover, .welcome-card:focus-visible { transform: scale(1.02); }
+.welcome-card:active { transform: scale(.98); }
 .welcome-card:focus-visible { outline: 2px solid #7fa6ff; outline-offset: 4px; }
-.welcome-mark { width: 72px; height: 72px; display: block; flex: 0 0 auto; }
-.welcome-wordmark { font-family: "Source Serif 4", serif; font-weight: 700; font-size: 1.7rem;
-  line-height: 1.2; color: #f4f6ff; letter-spacing: -.01em; text-align: left; max-width: 320px; }
+/* Icon sits over a soft ambient glow that breathes and slowly rotates, and
+   the icon itself bobs gently -- the only continuous motion on the screen;
+   the wordmark/hint below are a one-time entrance only. */
+.welcome-mark-wrap { position: relative; width: 220px; height: 220px; flex: 0 0 auto; display: grid; place-items: center;
+  animation: welcomeFloat 4.2s ease-in-out infinite; }
+.welcome-glow { position: absolute; inset: -40px; border-radius: 50%;
+  background: conic-gradient(from 0deg, rgba(127,166,255,.4), rgba(20,184,166,.32), rgba(127,166,255,.4));
+  filter: blur(22px); animation: welcomeGlow 3.6s ease-in-out infinite, welcomeSpin 12s linear infinite; }
+.welcome-mark { position: relative; width: 220px; height: 220px; display: block;
+  image-rendering: -webkit-optimize-contrast; filter: drop-shadow(0 8px 32px rgba(127,166,255,.35)); }
+.welcome-wordmark { font-family: "Source Serif 4", serif; font-weight: 700; font-size: 2.1rem;
+  line-height: 1.2; color: #f4f6ff; letter-spacing: -.01em; text-align: center; max-width: 340px;
+  opacity: 0; animation: welcomeRise .6s var(--ease-out) .32s forwards; }
+.welcome-hint { margin-top: 4px; font-family: "JetBrains Mono", monospace; font-size: 11px; font-weight: 600;
+  letter-spacing: .12em; text-transform: uppercase; color: #9aa2d6;
+  opacity: 0; animation: welcomeRise .6s var(--ease-out) .55s forwards, welcomePulse 2.2s ease-in-out 1.2s infinite; }
+@keyframes welcomeRise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes welcomeFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+@keyframes welcomeGlow { 0%, 100% { opacity: .55; transform: scale(1); } 50% { opacity: .95; transform: scale(1.1); } }
+@keyframes welcomeSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes welcomePulse { 0%, 100% { opacity: .55; } 50% { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  .welcome-card, .welcome-wordmark, .welcome-hint { animation: none; opacity: 1; }
+  .welcome-mark-wrap { animation: none; }
+  .welcome-glow { animation: none; opacity: .7; }
+}
 @media (max-width: 480px) {
-  .welcome-card { flex-direction: column; text-align: center; gap: 14px; }
-  .welcome-wordmark { text-align: center; font-size: 1.4rem; max-width: 260px; }
+  .welcome-mark-wrap, .welcome-mark { width: 160px; height: 160px; }
+  .welcome-wordmark { font-size: 1.6rem; max-width: 260px; }
 }
 
 .tb-right { display: flex; align-items: center; gap: 8px; flex: 0 1 auto; min-width: 0; }
