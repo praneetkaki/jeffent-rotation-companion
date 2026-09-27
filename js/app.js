@@ -12,7 +12,7 @@
   var TRACKS = window.JEFFENT.tracks || [];
   var TABS = ["anatomy", "clinical", "cases", "cards"];
   var TAB_LABELS = { anatomy: "Anatomy", clinical: "Clinical", cases: "Cases", cards: "Cards" };
-  var SCREENS = ["home", "track", "module", "study", "pimp", "roadmap", "about", "library", "weak"];
+  var SCREENS = ["welcome", "home", "track", "module", "study", "pimp", "roadmap", "about", "library", "weak"];
 
   /* Active Recall Mode: trial run on Facial Plastics & Trauma only (see
    * initActiveRecall()/applyActiveRecallMask() below) before considering a
@@ -271,6 +271,7 @@
   function showScreen(id) {
     SCREENS.forEach(function (s) { el("screen-" + s).hidden = (s !== id); });
     document.body.classList.toggle("on-home", id === "home");
+    document.body.classList.toggle("on-welcome", id === "welcome");
     window.scrollTo(0, 0);
     if (typeof refreshSideNav === "function") refreshSideNav();
   }
@@ -323,11 +324,41 @@
     updateBackButton();
   }
 
+  /* A plain cover screen shown once at boot, before the dashboard --
+   * separates "opening the app" from "here is today's queue" instead of
+   * landing straight on the bento grid. Not part of the back-stack: it's
+   * an entry gate, not a screen a learner ever navigates back to. */
+  function goWelcome() {
+    state.screen = "welcome"; state.session = null;
+    renderWelcome();
+    showScreen("welcome");
+  }
+
+  function renderWelcome() {
+    var allMods = window.JEFFENT.modules;
+    var agg = aggregateStats(allMods);
+    var root = el("screen-welcome");
+    root.innerHTML = "";
+    root.appendChild(h(
+      '<div class="welcome-card">' +
+        '<div class="welcome-mark"><img src="assets/icons/jeffent-mark.png" alt="" width="88" height="88"></div>' +
+        '<div class="welcome-eyebrow">JeffENT</div>' +
+        '<h1 class="welcome-title"><strong>ENT Rotation</strong> Companion</h1>' +
+        '<div class="welcome-sub">Active-recall flashcards, cases, and anatomy drills for the Otolaryngology rotation.</div>' +
+        '<button type="button" class="btn welcome-cta">Enter' +
+          (agg.due ? ' <span class="welcome-cta-due">' + agg.due + ' due</span>' : '') +
+          ' &rarr;</button>' +
+      '</div>'
+    ));
+    root.querySelector(".welcome-cta").addEventListener("click", goHome);
+  }
+
   function goHome() {
     pushNav();
     state.screen = "home"; state.session = null;
     renderHome();
     showScreen("home");
+    initFirstRunTour();
   }
 
   function goTrack(trackId) {
@@ -5555,16 +5586,11 @@
     var brand = el("brandHome");
     on(brand, "click", goHome);
     on(brand, "keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); goHome(); } });
-    goHome();
-    /* goHome() above just pushed a bogus pre-boot "home" snapshot onto the
-     * back-history stack (state.screen defaults to "home" before anything
-     * has actually rendered) -- clear it so the back button starts genuinely
-     * disabled instead of one tap away from a no-op. */
+    goWelcome();
     navStack = [];
     updateBackButton();
     var navBackBtn = el("navBack");
     on(navBackBtn, "click", goBack);
-    initFirstRunTour();
     /* If this device is already linked, quietly pull whatever's newest in
      * the cloud before the student starts studying this session -- only
      * reloads if that actually changed anything on this device. */

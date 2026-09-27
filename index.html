@@ -14,9 +14,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&family=Work+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
-  <link rel="stylesheet" href="assets/styles.css?v=20260926c">
+  <link rel="stylesheet" href="assets/styles.css?v=20260926e">
 </head>
-<body class="on-home">
+<body class="on-welcome">
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="topbar">
@@ -74,7 +74,8 @@
 
   <main id="main" class="wrap">
     <!-- screens injected by app.js -->
-    <section id="screen-home" class="screen"></section>
+    <section id="screen-welcome" class="screen"></section>
+    <section id="screen-home" class="screen" hidden></section>
     <section id="screen-track" class="screen" hidden></section>
     <section id="screen-module" class="screen" hidden></section>
     <section id="screen-study" class="screen" hidden></section>
@@ -120,7 +121,7 @@
   <script src="js/sync.js?v=20260921a"></script>
   <!-- engine + app -->
   <script src="js/srs.js?v=20260923b"></script>
-  <script src="js/app.js?v=20260925a"></script>
+  <script src="js/app.js?v=20260926a"></script>
   <script>
     // Registers the PWA service worker (see sw.js). Silently no-ops on
     // browsers without support or when served over plain http (not
