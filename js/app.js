@@ -335,22 +335,16 @@
   }
 
   function renderWelcome() {
-    var allMods = window.JEFFENT.modules;
-    var agg = aggregateStats(allMods);
     var root = el("screen-welcome");
     root.innerHTML = "";
-    root.appendChild(h(
-      '<div class="welcome-card">' +
-        '<div class="welcome-mark"><img src="assets/icons/jeffent-mark.png" alt="" width="88" height="88"></div>' +
-        '<div class="welcome-eyebrow">JeffENT</div>' +
-        '<h1 class="welcome-title"><strong>ENT Rotation</strong> Companion</h1>' +
-        '<div class="welcome-sub">Active-recall flashcards, cases, and anatomy drills for the Otolaryngology rotation.</div>' +
-        '<button type="button" class="btn welcome-cta">Enter' +
-          (agg.due ? ' <span class="welcome-cta-due">' + agg.due + ' due</span>' : '') +
-          ' &rarr;</button>' +
-      '</div>'
-    ));
-    root.querySelector(".welcome-cta").addEventListener("click", goHome);
+    var card = h(
+      '<button type="button" class="welcome-card" aria-label="Enter ENT Rotation Companion">' +
+        '<img class="welcome-mark" src="assets/icons/jeffent-mark.png" alt="" width="72" height="72">' +
+        '<span class="welcome-wordmark">ENT Rotation Companion</span>' +
+      '</button>'
+    );
+    card.addEventListener("click", goHome);
+    root.appendChild(card);
   }
 
   function goHome() {
