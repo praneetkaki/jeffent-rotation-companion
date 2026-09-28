@@ -960,6 +960,21 @@ div.anatomy-detail-body:not(.panel) li { margin: .3em 0; }
    freshly rendered card rotates back to face-on (card-flip-in). See
    flipCardThen() in app.js -- front and back can be any height since only
    one is ever painted at a time. */
+/* Deck-metaphor swipe-to-grade: see initCardSwipe() in app.js. The card
+   itself carries the drag transform (set inline per-frame by JS, not by a
+   CSS animation), so only the resting cursor/touch-action and the three
+   grade "stamps" that fade in as the card is dragged live here. */
+.flashcard.swipeable { cursor: grab; touch-action: none; }
+.flashcard.swiping { cursor: grabbing; }
+.swipe-stamp { position: absolute; top: 22px; padding: 5px 14px; border: 3px solid; border-radius: 8px;
+  font-family: "JetBrains Mono", monospace; font-weight: 800; font-size: 13px; letter-spacing: .06em;
+  opacity: 0; pointer-events: none; z-index: 2; background: var(--surface); }
+.swipe-stamp-again { left: 22px; color: var(--flag); border-color: var(--flag); transform: rotate(-10deg); }
+.swipe-stamp-easy { right: 22px; color: var(--good); border-color: var(--good); transform: rotate(10deg); }
+.swipe-stamp-good { left: 50%; transform: translateX(-50%); color: var(--primary); border-color: var(--primary); }
+@media (prefers-reduced-motion: reduce) { .flashcard.swipeable { cursor: default; } }
+@media (hover: none) { .flashcard.swipeable { cursor: default; } }
+
 .flashcard.card-flip-out { animation: cardFlipOut .17s var(--ease-out) forwards; }
 .flashcard.card-flip-in { animation: cardFlipIn .17s var(--ease-out); }
 @keyframes cardFlipOut { from { transform: rotateY(0deg); } to { transform: rotateY(-90deg); } }
@@ -1635,6 +1650,31 @@ body.pimp-open .pimppanel { transform: none; }
 .pq-allrow { border-left: 3px solid var(--track-color, var(--primary)); }
 
 .pq-card { max-width: 720px; margin: 0 auto; position: relative; }
+
+/* Quiz theater mode: while an oral-recall question is on screen (not the
+   set picker or the summary), the page tints toward a soft spotlight
+   centered on the card and the card itself gets a diffuse glow ring --
+   a quieter, more focused backdrop for a format that's meant to be
+   answered out loud, not skimmed. Toggled in renderPimpQuiz(). */
+#screen-pimp.pq-theater {
+  margin: 0 -20px; padding: 0 20px 1px; min-height: calc(100vh - 200px);
+  background: radial-gradient(ellipse 65% 55% at 50% 28%, color-mix(in srgb, var(--primary) 6%, transparent) 0%, transparent 65%);
+  transition: background .4s var(--ease-out);
+}
+@media (max-width: 640px) { #screen-pimp.pq-theater { margin: 0 -16px; padding: 0 16px 1px; } }
+#screen-pimp.pq-theater .pq-card {
+  box-shadow: 0 0 0 1px var(--line-soft), 0 36px 80px -24px color-mix(in srgb, var(--primary) 38%, transparent), var(--shadow-lift);
+  transition: box-shadow .4s var(--ease-out);
+}
+/* Dramatic pause before the answer appears (see pqRevealWithPause() in
+   app.js): a slow, low-amplitude glow pulse on the card while the answer
+   is withheld for one beat, rather than it just popping in instantly. */
+.pq-card.pq-thinking { animation: pqThinking .42s ease-in-out; }
+@keyframes pqThinking {
+  0%, 100% { box-shadow: 0 0 0 1px var(--line-soft), 0 36px 80px -24px color-mix(in srgb, var(--primary) 38%, transparent), var(--shadow-lift); }
+  50% { box-shadow: 0 0 0 1px var(--line-soft), 0 0 0 6px color-mix(in srgb, var(--primary) 22%, transparent), var(--shadow-lift); }
+}
+@media (prefers-reduced-motion: reduce) { #screen-pimp.pq-theater, #screen-pimp.pq-theater .pq-card, .pq-card.pq-thinking { transition: none; animation: none; } }
 
 /* Grading feedback: a checkmark draws in for "Got it", an X badge shakes
    for "Missed" -- shown briefly over the card before pimpAdvance() moves

@@ -296,6 +296,7 @@
     document.body.classList.toggle("on-home", id === "home");
     document.body.classList.toggle("on-welcome", id === "welcome");
     if (id !== "module") document.documentElement.style.removeProperty("--current-track-color");
+    if (id !== "pimp") { var pimpScreen = el("screen-pimp"); if (pimpScreen) pimpScreen.classList.remove("pq-theater"); }
     window.scrollTo(0, 0);
     if (typeof refreshSideNav === "function") refreshSideNav();
     if (typeof measureTopbarHeightVar === "function") measureTopbarHeightVar();
@@ -3275,6 +3276,78 @@
     setTimeout(function () { flipInPending = true; reveal(); }, 170);
   }
 
+  /* Deck-metaphor grading: once a card is revealed, drag it (mouse, touch,
+   * or pen -- Pointer Events unify all three) and fling it off in a
+   * direction to grade it, same physical gesture as flicking a real
+   * flashcard onto a pile. Left = Again, right = Easy, up = Good -- a
+   * three-way spread rather than a plain left/right swipe since the app
+   * has three ratings, not two. The rating buttons stay fully wired and
+   * visible underneath: swipe is an additive shortcut, not a replacement,
+   * so keyboard/switch/screen-reader users and anyone who'd rather tap
+   * lose nothing (dragging-alternative). A drag that doesn't cross a
+   * threshold just springs back -- nothing is graded by an accidental
+   * nudge. Skipped under prefers-reduced-motion or when Pointer Events
+   * aren't available; the buttons are the fallback in both cases. */
+  var SWIPE_X_THRESHOLD = 110, SWIPE_UP_THRESHOLD = 90;
+  function initCardSwipe(fc, onGrade) {
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!window.PointerEvent || !fc) return;
+    var startX = 0, startY = 0, dragging = false, pointerId = null, settled = false;
+    var stampAgain = h('<div class="swipe-stamp swipe-stamp-again" aria-hidden="true">AGAIN</div>');
+    var stampEasy = h('<div class="swipe-stamp swipe-stamp-easy" aria-hidden="true">EASY</div>');
+    var stampGood = h('<div class="swipe-stamp swipe-stamp-good" aria-hidden="true">GOOD</div>');
+    fc.appendChild(stampAgain); fc.appendChild(stampEasy); fc.appendChild(stampGood);
+    fc.classList.add("swipeable");
+    function setStamps(dx, dy) {
+      stampAgain.style.opacity = dx < 0 ? Math.min(1, -dx / SWIPE_X_THRESHOLD) : 0;
+      stampEasy.style.opacity = dx > 0 ? Math.min(1, dx / SWIPE_X_THRESHOLD) : 0;
+      stampGood.style.opacity = (dy < 0 && Math.abs(dx) < SWIPE_X_THRESHOLD * 0.7) ? Math.min(1, -dy / SWIPE_UP_THRESHOLD) : 0;
+    }
+    function settle() {
+      if (settled) return;
+      settled = true;
+      fc.style.transition = "transform .3s var(--ease-spring)";
+      fc.style.transform = "";
+      setStamps(0, 0);
+    }
+    function flingOut(rating, dx, dy) {
+      settled = true;
+      fc.classList.remove("swipeable");
+      fc.style.transition = "transform .3s var(--ease-out), opacity .3s var(--ease-out)";
+      var outX = dx < 0 ? -560 : dx > 0 ? 560 : 0;
+      var outY = dy < 0 ? -640 : 0;
+      fc.style.transform = "translate(" + outX + "px," + outY + "px) rotate(" + (outX / 14) + "deg)";
+      fc.style.opacity = "0";
+      setTimeout(function () { onGrade(rating); }, 260);
+    }
+    fc.addEventListener("pointerdown", function (e) {
+      if (e.button) return;
+      dragging = true; settled = false; pointerId = e.pointerId;
+      startX = e.clientX; startY = e.clientY;
+      try { fc.setPointerCapture(pointerId); } catch (err) {}
+      fc.style.transition = "none";
+      fc.classList.add("swiping");
+    });
+    fc.addEventListener("pointermove", function (e) {
+      if (!dragging || e.pointerId !== pointerId) return;
+      var dx = e.clientX - startX, dy = e.clientY - startY;
+      fc.style.transform = "translate(" + dx + "px," + (dy * 0.4) + "px) rotate(" + (dx / 22) + "deg)";
+      setStamps(dx, dy);
+    });
+    function end(e) {
+      if (!dragging || e.pointerId !== pointerId) return;
+      dragging = false;
+      fc.classList.remove("swiping");
+      var dx = e.clientX - startX, dy = e.clientY - startY;
+      if (dx <= -SWIPE_X_THRESHOLD) { flingOut("again", dx, 0); return; }
+      if (dx >= SWIPE_X_THRESHOLD) { flingOut("easy", dx, 0); return; }
+      if (dy <= -SWIPE_UP_THRESHOLD && Math.abs(dx) < SWIPE_X_THRESHOLD * 0.7) { flingOut("good", 0, dy); return; }
+      settle();
+    }
+    fc.addEventListener("pointerup", end);
+    fc.addEventListener("pointercancel", end);
+  }
+
   function renderStudy(pane, mod) {
     pane.innerHTML = "";
     var ses = state.session;
@@ -3386,7 +3459,8 @@
         });
       });
       shell.appendChild(ctr);
-      shell.appendChild(h('<div class="kbd-hint mono">Space = Easy &middot; 1/2/3 = Again/Good/Easy &middot; Z = Undo</div>'));
+      shell.appendChild(h('<div class="kbd-hint mono">Space = Easy &middot; 1/2/3 = Again/Good/Easy &middot; Z = Undo &middot; drag the card to grade</div>'));
+      initCardSwipe(fc, function (rating) { rateSessionCard(ses, rating); renderStudy(pane, mod); });
     }
     if (ses.history && ses.history.length) {
       var undoRow = h('<div style="text-align:center;margin-top:10px"><button type="button" class="undo-btn mono">&#8617; Undo last card (Z)</button></div>');
@@ -4364,16 +4438,29 @@
     return bar;
   }
 
+  /* Pause before the answer appears: a brief "thinking" beat on the card
+   * (a slow pulse, see .pq-thinking) instead of the answer just popping in
+   * the instant you click -- part of the FAQ quiz's "theater mode" (see
+   * also the .pq-theater vignette toggled in renderPimpQuiz). Skipped
+   * under prefers-reduced-motion. */
+  function pqRevealWithPause(cardEl, next) {
+    var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced || !cardEl) { next(); return; }
+    cardEl.classList.add("pq-thinking");
+    setTimeout(next, 420);
+  }
+
   function renderPimpQuiz() {
     var root = el("screen-pimp");
     root.innerHTML = "";
     pimpHeader(root, "All question sets", renderPimpIntro);
-    if (!pq) { renderPimpIntro(); return; }
+    if (!pq) { root.classList.remove("pq-theater"); renderPimpIntro(); return; }
 
     var total = pq.qs.length;
 
     /* ---- summary ---- */
     if (pq.i >= total) {
+      root.classList.remove("pq-theater");
       var answered = pq.got + pq.missed;
       var pct = answered ? Math.round(pq.got / answered * 100) : 0;
       var summary = h('<div class="pq-summary"></div>');
@@ -4404,6 +4491,7 @@
     }
 
     /* ---- one question ---- */
+    root.classList.add("pq-theater");
     var item = pq.qs[pq.i];
     var shell = h('<div class="study-shell"></div>');
     shell.appendChild(pqProgressBar(pq.history, total));
@@ -4428,7 +4516,9 @@
 
     if (!pq.revealed) {
       var rv = h('<div style="text-align:center"><button class="btn reveal-btn">Show answer</button></div>');
-      rv.querySelector("button").addEventListener("click", function () { pq.revealed = true; renderPimpQuiz(); });
+      rv.querySelector("button").addEventListener("click", function () {
+        pqRevealWithPause(card, function () { pq.revealed = true; renderPimpQuiz(); });
+      });
       shell.appendChild(rv);
       if (pq.history.length) shell.appendChild(h('<div class="kbd-hint mono">Z = Undo last answer</div>'));
     } else {
@@ -4455,7 +4545,10 @@
   /* Spacebar in the FAQ quiz: reveal the answer, then mark it correct. */
   function handlePimpSpace() {
     if (!pq || pq.i >= pq.qs.length) return false;
-    if (!pq.revealed) { pq.revealed = true; renderPimpQuiz(); return true; }
+    if (!pq.revealed) {
+      pqRevealWithPause(document.querySelector("#screen-pimp .pq-card"), function () { pq.revealed = true; renderPimpQuiz(); });
+      return true;
+    }
     pimpMarkGot(pq.qs[pq.i]);
     return true;
   }
@@ -5184,6 +5277,7 @@
       });
       stage.appendChild(ctr);
       stage.appendChild(h('<div class="kbd-hint mono">Space = Easy &middot; 1/2/3 = Again/Good/Easy &middot; Z = Undo</div>'));
+      initCardSwipe(fc, function (rating) { rateFlashCard(rating); renderFlash(); });
       if (fp.history && fp.history.length) {
         var undoRow = h('<button type="button" class="undo-btn mono" style="width:100%;margin-top:8px">&#8617; Undo last card (Z)</button>');
         undoRow.addEventListener("click", function () { undoFlashCard(); renderFlash(); });
