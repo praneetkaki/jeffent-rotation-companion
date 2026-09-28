@@ -184,23 +184,40 @@ window.JEFFENT.register({
         id: "neck-ct-normal",
         title: "Normal neck CT (axial)",
         note: "Scroll superior → inferior with the slider, mouse wheel, or ↑/↓ arrow keys. Toggle labels to test yourself before checking.",
-        source: "SAMPLE placeholder slices: replace with a faculty-provided de-identified normal neck CT before this is used for real study (see docs/MEDIA-GUIDE.md). Not real patient data.",
+        source: "SAMPLE placeholder slices: to be replaced with a faculty-provided de-identified normal neck CT before this is used for real study. Not real patient data.",
+        // 36 slices, matching the full SAMPLE placeholder set actually on disk
+        // (assets/ct/neck/slice-01.png .. slice-36.png, each stamped "Slice N / 36").
+        // An earlier version of this array wired in only the first 12, which
+        // left the slider ("Slice 1/12") and the images' own baked-in counter
+        // ("Slice 01/36") disagreeing -- fixed by using the complete set.
         slices: [
           "assets/ct/neck/slice-01.png", "assets/ct/neck/slice-02.png", "assets/ct/neck/slice-03.png",
           "assets/ct/neck/slice-04.png", "assets/ct/neck/slice-05.png", "assets/ct/neck/slice-06.png",
           "assets/ct/neck/slice-07.png", "assets/ct/neck/slice-08.png", "assets/ct/neck/slice-09.png",
-          "assets/ct/neck/slice-10.png", "assets/ct/neck/slice-11.png", "assets/ct/neck/slice-12.png"
+          "assets/ct/neck/slice-10.png", "assets/ct/neck/slice-11.png", "assets/ct/neck/slice-12.png",
+          "assets/ct/neck/slice-13.png", "assets/ct/neck/slice-14.png", "assets/ct/neck/slice-15.png",
+          "assets/ct/neck/slice-16.png", "assets/ct/neck/slice-17.png", "assets/ct/neck/slice-18.png",
+          "assets/ct/neck/slice-19.png", "assets/ct/neck/slice-20.png", "assets/ct/neck/slice-21.png",
+          "assets/ct/neck/slice-22.png", "assets/ct/neck/slice-23.png", "assets/ct/neck/slice-24.png",
+          "assets/ct/neck/slice-25.png", "assets/ct/neck/slice-26.png", "assets/ct/neck/slice-27.png",
+          "assets/ct/neck/slice-28.png", "assets/ct/neck/slice-29.png", "assets/ct/neck/slice-30.png",
+          "assets/ct/neck/slice-31.png", "assets/ct/neck/slice-32.png", "assets/ct/neck/slice-33.png",
+          "assets/ct/neck/slice-34.png", "assets/ct/neck/slice-35.png", "assets/ct/neck/slice-36.png"
         ],
         // labels keyed by slice index (0-based); percent coords over the image.
+        // Indices scaled proportionally from the old 12-slice set (5/12, 7/12)
+        // since every placeholder is the same generic schematic (not
+        // per-slice real anatomy) -- re-verify placement once a real scan
+        // replaces these.
         labels: {
-          5: [
+          15: [
             { text: "Airway (larynx/trachea)", xPct: 50, yPct: 46 },
             { text: "Carotid a.", xPct: 36, yPct: 48 }, { text: "Carotid a.", xPct: 64, yPct: 48 },
             { text: "Sternocleidomastoid", xPct: 16, yPct: 52 }, { text: "Sternocleidomastoid", xPct: 84, yPct: 52 },
             { text: "Vertebral body", xPct: 50, yPct: 70 },
             { text: "Thyroid lobe", xPct: 40, yPct: 50 }, { text: "Thyroid lobe", xPct: 60, yPct: 50 }
           ],
-          7: [
+          21: [
             { text: "Airway (trachea)", xPct: 50, yPct: 47 },
             { text: "Vertebral body", xPct: 50, yPct: 70 }
           ]

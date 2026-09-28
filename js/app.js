@@ -177,6 +177,24 @@
     return '<span class="track-badge' + (extraClass ? " " + extraClass : "") + '">' + trackSymbol(track, size) + '</span>';
   }
 
+  /* A module's "content count" for tile/roadmap meta lines: normally flashcard
+   * count, but a reference-only module (e.g. Key Abbreviations, no cards of
+   * its own, just lookup tables) has zero cards -- showing "0 cards" there
+   * reads as broken/empty content rather than what it actually is. Falls
+   * back to counting reference/table rows so it still shows a real number. */
+  function contentCountLabel(mods, cardCount) {
+    if (cardCount > 0) return cardCount + " card" + (cardCount === 1 ? "" : "s");
+    var refCount = 0;
+    mods.forEach(function (m) {
+      ((m.clinical && m.clinical.blocks) || []).forEach(function (b) {
+        if (b.table && b.table.rows) refCount += b.table.rows.length;
+      });
+      refCount += (m.reference || []).length;
+    });
+    if (refCount > 0) return refCount + " reference " + (refCount === 1 ? "entry" : "entries");
+    return cardCount + " cards";
+  }
+
   function aggregateStats(mods) {
     var total = 0, due = 0, mastered = 0;
     mods.forEach(function (m) {
@@ -851,7 +869,7 @@
           '<div class="rm-icon">' + trackBadge(t, "rm-badge", 20) + '</div>' +
           '<div class="rm-body">' +
             '<h3>' + esc(t.name) + '</h3>' +
-            '<div class="rm-meta mono">' + (mods.length ? (mods.length + ' module' + (mods.length === 1 ? '' : 's') + ' · ' + cardCount + ' cards') : 'Coming soon') + '</div>' +
+            '<div class="rm-meta mono">' + (mods.length ? (mods.length + ' module' + (mods.length === 1 ? '' : 's') + ' · ' + contentCountLabel(mods, cardCount)) : 'Coming soon') + '</div>' +
             (mods.length ? '<div class="rm-mods"></div>' : '') +
           '</div>' +
         '</div>'
@@ -1320,7 +1338,7 @@
       var category = t.category || "subspecialty";
       var chipLabel = category === "core" ? "core" : category === "atlas" ? "tool" : "specialty";
       var chip = disabled ? '<span class="chip">coming soon</span>' : '<span class="chip">' + chipLabel + '</span>';
-      var meta = disabled ? 'No modules yet' : (mods.length + ' module' + (mods.length === 1 ? '' : 's') + ' · ' + cardCount + ' cards');
+      var meta = disabled ? 'No modules yet' : (mods.length + ' module' + (mods.length === 1 ? '' : 's') + ' · ' + contentCountLabel(mods, cardCount));
       var tileStyle = t.color ? ' style="--track-color:' + t.color + '"' : "";
       var tile = h(
         '<button class="tile" type="button" data-category="' + category + '"' + tileStyle + (disabled ? ' disabled aria-disabled="true"' : '') + '>' +
@@ -1351,7 +1369,7 @@
           trackBadge(t, "fr-icon", 24) +
           '<div class="fr-body">' +
             '<h3>' + esc(t.name) + '</h3>' +
-            (disabled ? '<div class="fr-anchors">Coming soon</div>' : '<div class="fr-anchors">' + esc(anchors || (mods.length + ' module' + (mods.length === 1 ? '' : 's') + ' · ' + cardCount + ' cards')) + '</div>') +
+            (disabled ? '<div class="fr-anchors">Coming soon</div>' : '<div class="fr-anchors">' + esc(anchors || (mods.length + ' module' + (mods.length === 1 ? '' : 's') + ' · ' + contentCountLabel(mods, cardCount))) + '</div>') +
           '</div>' +
           (disabled ? '' :
             '<div class="fr-stats">' +
@@ -1654,6 +1672,19 @@
     if (tabIndicatorResizeHandler) window.removeEventListener("resize", tabIndicatorResizeHandler);
     tabIndicatorResizeHandler = function () { syncHeadHeightVar(); moveTabIndicator(tabbar); };
     window.addEventListener("resize", tabIndicatorResizeHandler);
+    /* --head-h only fed a window "resize" event before this, but the sticky
+     * head's own height also changes with no resize at all -- e.g. the
+     * breadcrumb text changing (and wrapping to a second line) when the
+     * learner switches anatomy topics within the same module. When that
+     * happened, --head-h went stale and undersized, so .split-pane-figure's
+     * sticky offset (topbar-h + head-h) came out too small and it rode up
+     * underneath .mod-sticky-head, burying whatever was at its top (e.g. the
+     * "Reveal all labels" button). A ResizeObserver catches every case, not
+     * just window resizes. */
+    if (window.ResizeObserver) {
+      var headResizeObserver = new ResizeObserver(syncHeadHeightVar);
+      headResizeObserver.observe(stickyHead);
+    }
 
     var panes = h('<div class="tab-panes"></div>');
     avail.forEach(function (t) { panes.appendChild(builders[t](mod)); });
@@ -1668,6 +1699,14 @@
   }
 
   function renderTabState(root, mod) {
+    /* The breadcrumb's current-section label (setStickyCurrent) gets set to
+     * an anatomy topic's own title while browsing Anatomy, but nothing ever
+     * reset it back on leaving that tab -- so it went stale, still showing
+     * the last anatomy topic's title (e.g. "The ear in cross-section") while
+     * the learner was actually on Clinical/Cases/Cards. Anatomy re-sets its
+     * own label when it renders a topic, so only the other tabs need it
+     * reset here to the plain module title. */
+    if (state.tab !== "anatomy") setStickyCurrent(mod.title);
     root.querySelectorAll(".tab").forEach(function (b) {
       b.setAttribute("aria-selected", b.dataset.tab === state.tab ? "true" : "false");
     });
@@ -4458,6 +4497,12 @@
     aside.querySelectorAll(".pl-tabbtn").forEach(function (b) {
       b.addEventListener("click", function () { pocketLog.tab = b.dataset.pltab; renderPocketLog(); });
     });
+    /* A browser back/forward navigation can restore this page from bfcache
+     * instead of re-running boot() -- that replays the DOM exactly as it
+     * was at the moment the tab was frozen, so if the drawer happened to be
+     * open then, it comes back open too, "reopening" a drawer the student
+     * had already closed before navigating away. */
+    window.addEventListener("pageshow", function (e) { if (e.persisted) closePocketLog(); });
   }
   function openPocketLog() {
     document.body.classList.add("pocketlog-open");
@@ -5473,7 +5518,12 @@
    * behind a "Read more" toggle, for entries where that's worth a click. */
   function initXrefs() {
     var prev = null, pop = null, popOwner = null;
-    function ensurePrev() { if (prev) return; prev = h('<div class="xref-preview" hidden></div>'); document.body.appendChild(prev); }
+    /* aria-hidden: this hover card is a mouse-only echo of text a screen
+     * reader already gets from the term/xref span itself (and, for a term,
+     * again from the click-opened .glossary-popover) -- without this it sat
+     * in the accessibility tree as an unlabeled floating duplicate, so
+     * assistive tech announced the same definition twice. */
+    function ensurePrev() { if (prev) return; prev = h('<div class="xref-preview" hidden aria-hidden="true"></div>'); document.body.appendChild(prev); }
     function position(el, box) {
       var r = el.getBoundingClientRect();
       box.hidden = false;
