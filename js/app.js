@@ -2187,17 +2187,6 @@
     var modTrack = trackById(mod.track);
     var trackStyle = modTrack && modTrack.color ? ' style="--track-color:' + modTrack.color + '"' : "";
 
-    wrap.appendChild(h(
-      '<div class="tg-hero"' + trackStyle + '>' +
-        '<div><h2 class="tg-hero-title">Anatomy</h2>' +
-        '<p class="tg-hero-sub">Every anatomy note and labeled diagram for ' + esc(mod.trackName || mod.track) + '.</p></div>' +
-        '<div class="tg-hero-tags">' +
-          (notes.length ? '<span class="tg-tag">' + notes.length + ' note' + (notes.length === 1 ? '' : 's') + '</span>' : '') +
-          (diagrams.length ? '<span class="tg-tag">' + diagrams.length + ' diagram' + (diagrams.length === 1 ? '' : 's') + '</span>' : '') +
-        '</div>' +
-      '</div>'
-    ));
-
     if (!notes.length && !diagrams.length) {
       wrap.appendChild(h('<div class="panel">' + emptyNote("Anatomy content for this module is in progress.").outerHTML + '</div>'));
       return wrap;
