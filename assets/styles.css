@@ -888,6 +888,9 @@ div.anatomy-detail-body:not(.panel) li { margin: .3em 0; }
 /* ---- study card ---- */
 .study-shell { max-width: 620px; margin: 0 auto; perspective: 1200px; }
 .progress { height: 6px; background: var(--surface-2); border-radius: 99px; overflow: hidden; margin-bottom: 20px; }
+.study-progress-line { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.study-mastery-ring { display: inline-flex; align-items: center; gap: 6px; }
+.study-mastery-ring .mastery-ring { flex: 0 0 auto; }
 .progress > i { display: block; height: 100%; background: var(--primary); border-radius: 99px; transition: width .5s var(--ease-out); }
 
 /* FAQ quiz progress: one segment per answered question (green = got, red =
@@ -1925,6 +1928,18 @@ body.js-motion .bento-hero.reveal-init.in .bento-start-btn {
 @media (prefers-reduced-motion: reduce) { .app-toast { transition: opacity .15s linear; } }
 .app-toast-milestone { background: linear-gradient(135deg, #f59e0b, #f97316); color: #241705; font-weight: 700; }
 .app-toast-warn { background: var(--flag); color: var(--flag-ink); }
+
+/* Streak-milestone confetti: see fireConfetti() in app.js. Each piece
+   falls from just under the topbar with a randomized horizontal drift and
+   spin (--drift/--spin custom properties set per-piece), fading out near
+   the end of its fall. Pure CSS, no canvas. */
+.confetti-burst { position: fixed; inset: 0; z-index: 1300; pointer-events: none; overflow: hidden; }
+.confetti-piece { position: absolute; top: 64px; width: 8px; height: 8px; border-radius: 2px;
+  opacity: 0; animation: confettiFall var(--confetti-dur, 1.1s) ease-in forwards; }
+@keyframes confettiFall {
+  0% { opacity: 1; transform: translate(0, 0) rotate(0deg); }
+  100% { opacity: 0; transform: translate(var(--drift, 0), 60vh) rotate(var(--spin, 180deg)); }
+}
 
 /* ================================================================
    CONNECTIVITY BADGE -- shown only while offline; the service worker

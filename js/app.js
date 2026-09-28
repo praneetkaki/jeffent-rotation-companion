@@ -945,6 +945,33 @@
   function announceStreakMilestone(count) {
     if (STREAK_MILESTONES.indexOf(count) === -1) return;
     showToast(count + "-day streak! Keep it going.", "milestone");
+    fireConfetti();
+  }
+
+  /* A small, cheap confetti burst (CSS keyframes, no canvas/library) for the
+   * streak-milestone toast. Pieces are absolutely positioned divs dropped
+   * from just under the topbar, each with a randomized horizontal drift,
+   * rotation, color and delay, then removed once the longest animation can
+   * possibly have finished. Skipped entirely under prefers-reduced-motion
+   * (the toast alone still announces the milestone). */
+  var CONFETTI_COLORS = ["#7fa6ff", "#14b8a6", "#f59e0b", "#f97316", "#f472b6", "#a78bfa"];
+  function fireConfetti() {
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    var wrap = document.createElement("div");
+    wrap.className = "confetti-burst"; wrap.setAttribute("aria-hidden", "true");
+    for (var i = 0; i < 18; i++) {
+      var p = document.createElement("i");
+      p.className = "confetti-piece";
+      p.style.left = (48 + Math.random() * 4 - 2) + "%";
+      p.style.background = CONFETTI_COLORS[i % CONFETTI_COLORS.length];
+      p.style.setProperty("--drift", (Math.random() * 220 - 110) + "px");
+      p.style.setProperty("--spin", (Math.random() * 540 - 270) + "deg");
+      p.style.animationDelay = (Math.random() * 150) + "ms";
+      p.style.animationDuration = (900 + Math.random() * 500) + "ms";
+      wrap.appendChild(p);
+    }
+    document.body.appendChild(wrap);
+    setTimeout(function () { wrap.remove(); }, 1700);
   }
 
   /* ---------- OFFLINE BADGE ----------
@@ -1108,16 +1135,22 @@
 
   /* Small circular mastery ring (SVG) used in the spaced-repetition queue --
      replaces a linear bar with a compact at-a-glance percentage. */
-  function masteryRing(pct, color, size, showLabel, trackColor, textColor) {
+  function masteryRing(pct, color, size, showLabel, trackColor, textColor, fromPct) {
     size = size || 40;
     if (showLabel === undefined) showLabel = true;
     var stroke = size < 24 ? 2.5 : 4, r = (size - stroke) / 2, c = 2 * Math.PI * r;
     var offset = c * (1 - Math.max(0, Math.min(100, pct)) / 100);
+    /* Painted at fromPct (default 0, i.e. empty -- the usual first-load
+       entrance) so animateMasteryRing() has a real "from" state to
+       transition out of on the next frame. Passing the ring's own previous
+       reading as fromPct turns that into an update animation instead of an
+       entrance one -- see the study session's live mastery ring. */
+    var fromOffset = c * (1 - Math.max(0, Math.min(100, fromPct || 0)) / 100);
     var cx = size / 2, cy = size / 2;
     return '<svg class="mastery-ring" width="' + size + '" height="' + size + '" viewBox="0 0 ' + size + ' ' + size + '" aria-hidden="true">' +
       '<circle cx="' + cx + '" cy="' + cy + '" r="' + r + '" fill="none" stroke="' + esc(trackColor || "rgba(255,255,255,.16)") + '" stroke-width="' + stroke + '"></circle>' +
       '<circle class="mastery-ring-fill" cx="' + cx + '" cy="' + cy + '" r="' + r + '" fill="none" stroke="' + esc(color) + '" stroke-width="' + stroke + '" stroke-linecap="round" ' +
-        'stroke-dasharray="' + c.toFixed(1) + '" stroke-dashoffset="' + c.toFixed(1) + '" transform="rotate(-90 ' + cx + ' ' + cy + ')" data-target-offset="' + offset.toFixed(1) + '"></circle>' +
+        'stroke-dasharray="' + c.toFixed(1) + '" stroke-dashoffset="' + fromOffset.toFixed(1) + '" transform="rotate(-90 ' + cx + ' ' + cy + ')" data-target-offset="' + offset.toFixed(1) + '"></circle>' +
       (showLabel ? '<text x="' + cx + '" y="' + (cy + 4) + '" text-anchor="middle" font-size="11" fill="' + esc(textColor || "#fff") + '" font-family="JetBrains Mono, monospace">' + Math.round(pct) + '</text>' : '') +
     '</svg>';
   }
@@ -1427,6 +1460,11 @@
       });
     });
     applyHomeViewMode();
+    /* The filter/view-mode switches already restagger the grid on change
+       (see restaggerHomeGrid() above); this makes the very first paint of
+       Home use the same per-tile cascade instead of the whole grid fading
+       in as one block. */
+    restaggerHomeGrid(grid, list);
   }
 
   var HOME_VIEW_KEY = "jeffent.homeView";
@@ -3269,7 +3307,26 @@
     var modeLabel = ses.mode === "all" ? "review all" : ses.mode === "search" ? "search result" : "due today";
     var shell = h('<div class="study-shell"></div>');
     shell.appendChild(h('<div class="progress"><i style="width:' + pct + '%"></i></div>'));
-    shell.appendChild(h('<div class="mono" style="font-size:12px;color:var(--ink-faint);margin-bottom:12px">Card ' + (ses.i + 1) + ' of ' + ses.cards.length + ' · ' + modeLabel + '</div>'));
+    var progressLine = h('<div class="mono study-progress-line" style="font-size:12px;color:var(--ink-faint);margin-bottom:12px">Card ' + (ses.i + 1) + ' of ' + ses.cards.length + ' · ' + modeLabel + '</div>');
+    /* Live mastery ring for the module being studied: recomputed on every
+     * render, and painted starting from whatever it read last time (see
+     * masteryRing()'s fromPct), so a grade visibly nudges the ring instead
+     * of it only ever updating silently back on Home. Skipped for the
+     * cross-module due queue, where "this module's mastery" isn't a single
+     * number. */
+    if (mod && mod.cards && mod.id !== "__all__") {
+      var mStats = window.SRS.stats(mod.id, mod.cards);
+      var mPct = mStats.total ? Math.round((mStats.mastered / mStats.total) * 100) : 0;
+      var mFromPct = ses.lastMasteryPct != null ? ses.lastMasteryPct : mPct;
+      progressLine.appendChild(h(
+        '<span class="study-mastery-ring" title="' + esc(mod.title) + ' mastery">' +
+          masteryRing(mPct, "var(--track-color, var(--primary))", 26, false, "var(--line-soft)", "", mFromPct) +
+          '<span class="mono">' + mPct + '% mastered</span>' +
+        '</span>'
+      ));
+      ses.lastMasteryPct = mPct;
+    }
+    shell.appendChild(progressLine);
 
     /* Exactly two tags per card: subspecialty (track) + general topic
      * (Anatomy / Clinical / Pharm). All other descriptors, the cloze hint,
@@ -3340,6 +3397,7 @@
       shell.appendChild(undoRow);
     }
     pane.appendChild(shell);
+    animateMasteryRing(shell);
   }
 
   /* Spacebar in a study session (per-module or the cross-module queue): reveal
