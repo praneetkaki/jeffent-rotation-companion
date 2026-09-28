@@ -120,6 +120,17 @@ button { font-family: inherit; cursor: pointer; }
   backdrop-filter: blur(10px); border-bottom: 1px solid var(--line-soft);
   box-shadow: 0 10px 18px -14px rgba(15,23,42,.14);
 }
+/* Whole-page reading progress: a hairline under the topbar scaled by
+   --scroll-progress (0-1, kept in sync by initScrollTint() in app.js,
+   already rAF-throttled for the ambient canvas tint) -- one extra transform
+   write, no separate scroll listener of its own. Complements the per-block
+   "time left" estimate on long clinical pages (.lesson-nav-time) rather
+   than replacing it, since that one tracks reading position within a
+   single module's blocks, not the whole page. */
+.scroll-progress-bar { position: sticky; top: var(--topbar-h, 73px); z-index: 9; height: 2.5px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  transform: scaleX(var(--scroll-progress, 0)); transform-origin: left center; }
+
 .brand { display: flex; align-items: center; gap: 12px; cursor: pointer; padding: 3px; border-radius: 10px;
   min-width: 0; flex: 1 1 auto; }
 .brand:hover { background: var(--surface-2); }
@@ -152,7 +163,7 @@ button { font-family: inherit; cursor: pointer; }
    real home screen. Hides the topbar/footer chrome so it reads as a
    true splash rather than a dashboard with its header stripped.
    ================================================================ */
-body.on-welcome .topbar, body.on-welcome .foot, body.on-welcome .pocketlog-tab { display: none; }
+body.on-welcome .topbar, body.on-welcome .foot, body.on-welcome .pocketlog-tab, body.on-welcome .scroll-progress-bar { display: none; }
 body.on-welcome { background: radial-gradient(ellipse 80% 60% at 50% 32%, #16264a 0%, #070a16 60%, #030308 100%); }
 body.on-welcome main.wrap { min-height: 100vh; padding: 0; max-width: none; display: grid; place-items: center; }
 .welcome-stage { display: flex; flex-direction: column; align-items: center; }
@@ -875,7 +886,7 @@ div.anatomy-detail-body:not(.panel) li { margin: .3em 0; }
 .mod-row p { color: var(--ink-soft); font-size: 14px; margin: 0; }
 
 /* ---- study card ---- */
-.study-shell { max-width: 620px; margin: 0 auto; }
+.study-shell { max-width: 620px; margin: 0 auto; perspective: 1200px; }
 .progress { height: 6px; background: var(--surface-2); border-radius: 99px; overflow: hidden; margin-bottom: 20px; }
 .progress > i { display: block; height: 100%; background: var(--primary); border-radius: 99px; transition: width .5s var(--ease-out); }
 
@@ -940,6 +951,17 @@ div.anatomy-detail-body:not(.panel) li { margin: .3em 0; }
 .done-panel { text-align: center; padding: 40px 20px; }
 .done-panel .big { font-family: "Source Serif 4", serif; font-size: 2rem; color: var(--primary); }
 @media (prefers-reduced-motion: reduce) { .flashcard, .rate, .reveal-btn::after { transition: none; } }
+
+/* Reveal flip: the front-side card rotates edge-on (card-flip-out), the
+   caller swaps in the back-side content while it's invisible, then the
+   freshly rendered card rotates back to face-on (card-flip-in). See
+   flipCardThen() in app.js -- front and back can be any height since only
+   one is ever painted at a time. */
+.flashcard.card-flip-out { animation: cardFlipOut .17s var(--ease-out) forwards; }
+.flashcard.card-flip-in { animation: cardFlipIn .17s var(--ease-out); }
+@keyframes cardFlipOut { from { transform: rotateY(0deg); } to { transform: rotateY(-90deg); } }
+@keyframes cardFlipIn { from { transform: rotateY(90deg); } to { transform: rotateY(0deg); } }
+@media (prefers-reduced-motion: reduce) { .flashcard.card-flip-out, .flashcard.card-flip-in { animation: none; } }
 
 /* ---- clinical tab tables ---- */
 .tbl-scroll { overflow-x: auto; margin: 10px 0; position: relative; border-radius: 8px; }
@@ -1144,6 +1166,22 @@ td.flag { color: var(--flag); font-weight: 600; }
 .stack-counter { font-size: 12.5px; color: var(--ink-faint); white-space: nowrap; }
 
 /* ---- footer ---- */
+/* Global back-to-top: appears after ~1.2 screens of scroll (see
+   initScrollTint() in app.js), tinted to whichever module's track color
+   is current via --current-track-color, falling back to --primary
+   everywhere else (home, roadmap, about, ...). */
+.back-to-top { position: fixed; right: 22px; bottom: 22px; z-index: 12; width: 44px; height: 44px;
+  border-radius: 50%; border: 0; display: grid; place-items: center; cursor: pointer;
+  background: var(--current-track-color, var(--primary)); color: #fff; box-shadow: var(--shadow-lift);
+  opacity: 0; transform: translateY(10px) scale(.9); pointer-events: none;
+  transition: opacity .2s var(--ease-out), transform .2s var(--ease-out), background-color .2s var(--ease-out); }
+.back-to-top:not([hidden]) { opacity: 1; transform: none; pointer-events: auto; }
+.back-to-top svg { width: 20px; height: 20px; }
+.back-to-top:hover { filter: brightness(1.08); }
+.back-to-top:active { transform: scale(.94); }
+@media (max-width: 640px) { .back-to-top { right: 16px; bottom: 16px; } }
+@media (prefers-reduced-motion: reduce) { .back-to-top { transition: none; } }
+
 .foot { border-top: 1px solid var(--line); padding: 26px 0 44px; margin-top: 30px; }
 .foot .mono { font-size: 12px; color: var(--ink-faint); }
 .disclaimer { font-size: 12px; color: var(--ink-faint); margin: 6px 0 0; max-width: 62ch; }
@@ -1575,7 +1613,7 @@ body.pimp-open .pimppanel { transform: none; }
 .fp-mode-btn.active { background: var(--primary); color: #fff; }
 :root[data-theme="dark"] .fp-mode-btn.active, :root:not([data-theme="light"]) .fp-mode-btn.active { color: #06211f; }
 @media (prefers-color-scheme: light){ :root:not([data-theme="dark"]) .fp-mode-btn.active { color: #fff; } }
-.fp-stage { min-height: 40px; }
+.fp-stage { min-height: 40px; perspective: 1200px; }
 
 /* ============================================================
    PIMP QUESTIONS quiz screen (v0.4)

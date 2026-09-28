@@ -295,8 +295,10 @@
     SCREENS.forEach(function (s) { el("screen-" + s).hidden = (s !== id); });
     document.body.classList.toggle("on-home", id === "home");
     document.body.classList.toggle("on-welcome", id === "welcome");
+    if (id !== "module") document.documentElement.style.removeProperty("--current-track-color");
     window.scrollTo(0, 0);
     if (typeof refreshSideNav === "function") refreshSideNav();
+    if (typeof measureTopbarHeightVar === "function") measureTopbarHeightVar();
   }
 
   /* ---------- back/forward history ----------
@@ -997,17 +999,31 @@
    * rAF-throttled so it costs nothing beyond one style write per frame. */
   function initScrollTint() {
     var ticking = false;
+    var backToTop = document.getElementById("backToTop");
+    var wasDeep = false;
     function update() {
       var doc = document.documentElement;
       var scrollable = doc.scrollHeight - doc.clientHeight;
       var progress = scrollable > 0 ? window.scrollY / scrollable : 0;
       if (progress < 0) progress = 0; else if (progress > 1) progress = 1;
       doc.style.setProperty("--scroll-progress", progress.toFixed(3));
+      /* Back-to-top button: appears once the reader is a couple of
+         screens deep, not on the first scroll nudge. */
+      if (backToTop) {
+        var deep = window.scrollY > window.innerHeight * 1.2;
+        if (deep !== wasDeep) { backToTop.hidden = !deep; wasDeep = deep; }
+      }
       ticking = false;
     }
     window.addEventListener("scroll", function () {
       if (!ticking) { ticking = true; requestAnimationFrame(update); }
     }, { passive: true });
+    if (backToTop) {
+      backToTop.addEventListener("click", function () {
+        var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        window.scrollTo({ top: 0, behavior: reduced ? "auto" : "smooth" });
+      });
+    }
     update();
   }
 
@@ -1598,6 +1614,11 @@
        fallbacks without each needing its own inline style. */
     if (modTrack && modTrack.color) root.style.setProperty("--track-color", modTrack.color);
     else root.style.removeProperty("--track-color");
+    /* Mirrored onto <html> too, purely so the global back-to-top button
+       (outside #screen-module, see initBackToTop()) can tint itself to
+       match whichever module the reader is currently in. */
+    if (modTrack && modTrack.color) document.documentElement.style.setProperty("--current-track-color", modTrack.color);
+    else document.documentElement.style.removeProperty("--current-track-color");
 
     /* One unified sticky header: breadcrumb + title + sub-tabs pinned
        together under the topbar as a single block, rather than a sticky
@@ -3199,6 +3220,23 @@
     return true;
   }
 
+  /* Real Y-axis flip for a flashcard reveal: rotates the current .flashcard
+   * edge-on (invisible for a beat), swaps in the back-side content via the
+   * caller's re-render, then rotates the freshly rendered card back to
+   * face-on. Front/back can be any height since only one is ever painted at
+   * a time -- there's no absolutely-positioned dual-face stack to keep in
+   * sync. `container` is whatever ancestor still holds the pre-reveal
+   * .flashcard at the moment this is called. Skipped under
+   * prefers-reduced-motion (reveal happens immediately, no animation). */
+  var flipInPending = false;
+  function flipCardThen(container, reveal) {
+    var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var fcEl = container && container.querySelector(".flashcard");
+    if (reduced || !fcEl) { reveal(); return; }
+    fcEl.classList.add("card-flip-out");
+    setTimeout(function () { flipInPending = true; reveal(); }, 170);
+  }
+
   function renderStudy(pane, mod) {
     pane.innerHTML = "";
     var ses = state.session;
@@ -3262,13 +3300,16 @@
       : '<span class="rev">Reviewer: pending sign-off</span>';
     fc.appendChild(h('<div class="card-source">' + srcLine + '</div>'));
     shell.appendChild(fc);
+    if (flipInPending) { fc.classList.add("card-flip-in"); flipInPending = false; }
     linkGlossaryTerms(fc);
     enhanceReferenceTables(fc);
 
     if (!ses.revealed) {
       var rv = h('<div style="text-align:center"><button class="btn reveal-btn">Show answer</button></div>');
       rv.querySelector("button").addEventListener("click", function () {
-        ses.revealed = true; back.classList.remove("hidden"); renderStudy(pane, mod);
+        flipCardThen(pane, function () {
+          ses.revealed = true; back.classList.remove("hidden"); renderStudy(pane, mod);
+        });
       });
       shell.appendChild(rv);
     } else {
@@ -3307,7 +3348,10 @@
   function handleStudySpace() {
     var ses = state.session;
     if (!ses || ses.done || ses.i >= ses.cards.length) return false;
-    if (!ses.revealed) { ses.revealed = true; renderStudy(ses.pane, ses.mod); return true; }
+    if (!ses.revealed) {
+      flipCardThen(ses.pane, function () { ses.revealed = true; renderStudy(ses.pane, ses.mod); });
+      return true;
+    }
     rateSessionCard(ses, "easy");
     renderStudy(ses.pane, ses.mod);
     return true;
@@ -3854,15 +3898,20 @@
     document.addEventListener("keydown", function(e){ if(e.key==="Escape") close(); });
   }
 
-  /* Sets --topbar-h so the sticky .page-head strip can pin itself exactly
-     below the (also sticky) topbar, on any screen width. */
+  /* Sets --topbar-h so the sticky .page-head strip (and every other sticky
+     element anchored below the topbar -- the scroll progress bar, the side
+     nav, the flashcard/FAQ panels) can pin itself exactly below the (also
+     sticky) topbar, on any screen width. The topbar is display:none on the
+     welcome splash, so a measurement taken while still there reads 0 --
+     measureTopbarHeightVar() is re-run from showScreen() on every screen
+     change (not just resize) so leaving welcome corrects it immediately. */
+  function measureTopbarHeightVar() {
+    var tb = document.querySelector(".topbar");
+    if (tb && tb.offsetHeight) document.documentElement.style.setProperty("--topbar-h", tb.offsetHeight + "px");
+  }
   function initTopbarHeightVar() {
-    function measure() {
-      var tb = document.querySelector(".topbar");
-      if (tb) document.documentElement.style.setProperty("--topbar-h", tb.offsetHeight + "px");
-    }
-    measure();
-    window.addEventListener("resize", measure);
+    measureTopbarHeightVar();
+    window.addEventListener("resize", measureTopbarHeightVar);
   }
 
   /* Click any table (wrapped in .tbl-scroll) to read it enlarged. A second,
@@ -5051,11 +5100,14 @@
     fc.appendChild(back);
     if (fpNote) fc.appendChild(h('<div class="card-note"><strong>Your note:</strong> ' + esc(fpNote) + '</div>'));
     stage.appendChild(fc);
+    if (flipInPending) { fc.classList.add("card-flip-in"); flipInPending = false; }
     linkGlossaryTerms(fc);
     enhanceReferenceTables(fc);
     if (!fp.revealed) {
       var rv = h('<button class="btn reveal-btn" style="width:100%">Show answer</button>');
-      rv.addEventListener("click", function () { fp.revealed = true; renderFlash(); });
+      rv.addEventListener("click", function () {
+        flipCardThen(stage, function () { fp.revealed = true; renderFlash(); });
+      });
       stage.appendChild(rv);
     } else {
       var fpHints = rateHintLabels();
@@ -5106,7 +5158,10 @@
    * option), matching the main study screen. */
   function handleFlashSpace() {
     if (!fp.cards.length || fp.i >= fp.cards.length) return false;
-    if (!fp.revealed) { fp.revealed = true; renderFlash(); return true; }
+    if (!fp.revealed) {
+      flipCardThen(document.querySelector("#flashpanel .fp-body"), function () { fp.revealed = true; renderFlash(); });
+      return true;
+    }
     rateFlashCard("easy");
     renderFlash();
     return true;
