@@ -209,6 +209,11 @@
     var cur = document.documentElement.getAttribute("data-theme");
     var next = cur === "dark" ? "light" : cur === "light" ? "dark"
       : (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "dark");
+    var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!reduceMotion) {
+      document.documentElement.classList.add("theme-crossfade");
+      setTimeout(function () { document.documentElement.classList.remove("theme-crossfade"); }, 320);
+    }
     document.documentElement.setAttribute("data-theme", next);
     try { localStorage.setItem("jeffent.theme", next); } catch (e) {}
   }
@@ -1120,7 +1125,7 @@
      zero instead of appearing static. Respects prefers-reduced-motion. */
   function animateStatCounts(scope) {
     var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    var nodes = scope.querySelectorAll(".big[data-count]");
+    var nodes = scope.querySelectorAll("[data-count]");
     nodes.forEach(function (node) {
       var target = parseInt(node.getAttribute("data-count"), 10) || 0;
       var suffix = node.getAttribute("data-suffix") || "";
@@ -1227,7 +1232,7 @@
           '</div>' +
           '<div class="bento-streak-chip" data-dash="streak" role="button" tabindex="0" aria-label="' + streak + (streak === 1 ? ' day' : ' days') + ' study streak. Show daily review activity.">' +
             '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a6 6 0 1 1-12 0c0-1.088.348-2.05.5-2.5"/></svg>' +
-            '<span>' + streak + (streak === 1 ? " day" : " days") + " streak</span>" +
+            '<span><span data-count="' + streak + '">0</span>' + (streak === 1 ? " day" : " days") + " streak</span>" +
           "</div>" +
         "</div>" +
         '<div class="bento-hero-scroller" role="list" aria-label="Subspecialties with cards due"></div>' +
@@ -1235,7 +1240,7 @@
           '<button type="button" class="bento-metric bento-metric-mastery" aria-label="Overall mastery ' + pct + ' percent. ' + reviewedCount + ' of ' + allMods.length + ' modules reviewed. Open curriculum roadmap.">' +
             '<span class="bento-metric-ring">' + masteryRing(pct, "#9fc1ff", 46, false, "rgba(255,255,255,.16)") + '</span>' +
             '<span class="bento-metric-copy">' +
-              '<span class="bento-metric-value">' + pct + '%</span>' +
+              '<span class="bento-metric-value" data-count="' + pct + '" data-suffix="%">0%</span>' +
               '<span class="bento-metric-label">Overall mastery</span>' +
               '<span class="bento-metric-sub">' + reviewedCount + '/' + allMods.length + ' modules reviewed</span>' +
             '</span>' +
@@ -1243,7 +1248,7 @@
           '<div class="bento-metric-divider" aria-hidden="true"></div>' +
           '<button type="button" class="bento-metric bento-metric-weak" aria-label="' + weakN + ' area' + (weakN === 1 ? '' : 's') + ' for improvement. Open areas for improvement.">' +
             '<span class="bento-metric-copy">' +
-              '<span class="bento-metric-value">' + weakN + '</span>' +
+              '<span class="bento-metric-value" data-count="' + weakN + '">0</span>' +
               '<span class="bento-metric-label">Areas for Improvement</span>' +
               '<span class="bento-metric-sub">cards + questions</span>' +
             '</span>' +
@@ -4191,8 +4196,31 @@
    * the item) so the Z-key shortcut can undo it and so the progress bar can
    * render a green/red segment per answered question, not just a percentage. */
   function pimpAdvance() { pq.i++; pq.revealed = false; renderPimpQuiz(); }
-  function pimpMarkGot(item) { pq.history.push({ item: item, rating: "got" }); pq.got++; pqMissAdjust(item, -1); pimpAdvance(); }
-  function pimpMarkMissed(item) { pq.history.push({ item: item, rating: "missed" }); pq.missed++; pq.missedQs.push(item); pqMissAdjust(item, 1); pimpAdvance(); }
+  /* Draws a checkmark (got it) or shakes an X (missed) over the question
+   * card before advancing, so grading reads as a distinct moment instead
+   * of the next question just popping in. Skips the pause entirely under
+   * prefers-reduced-motion. */
+  function pimpShowGradeFeedback(rating, next) {
+    var card = document.querySelector("#screen-pimp .pq-card");
+    var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!card || reduced) { next(); return; }
+    var ctr = document.querySelector("#screen-pimp .pq-controls");
+    if (ctr) ctr.querySelectorAll("button").forEach(function (b) { b.disabled = true; });
+    var badge = rating === "got"
+      ? h('<div class="pq-grade-badge pq-grade-got"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="pq-grade-check" d="M4 12.5l5 5L20 6.5"/></svg></div>')
+      : h('<div class="pq-grade-badge pq-grade-missed"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></div>');
+    card.appendChild(badge);
+    card.classList.add(rating === "got" ? "pq-card-got" : "pq-card-missed");
+    setTimeout(next, 480);
+  }
+  function pimpMarkGot(item) {
+    pq.history.push({ item: item, rating: "got" }); pq.got++; pqMissAdjust(item, -1);
+    pimpShowGradeFeedback("got", pimpAdvance);
+  }
+  function pimpMarkMissed(item) {
+    pq.history.push({ item: item, rating: "missed" }); pq.missed++; pq.missedQs.push(item); pqMissAdjust(item, 1);
+    pimpShowGradeFeedback("missed", pimpAdvance);
+  }
 
   /* Undo the most recent grading: reverses the got/missed tallies and the
    * most-missed adjustment, drops the item from missedQs if it was just
