@@ -169,7 +169,6 @@
     if (track.icon) {
       return '<svg class="track-symbol" width="' + s + '" height="' + s + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + track.icon + '</svg>';
     }
-    if (track.symbol) return '<span class="track-symbol" style="font-size:' + s + 'px">' + track.symbol + '</span>';
     return "";
   }
   function trackBadge(track, extraClass, size) {
@@ -945,7 +944,7 @@
   var STREAK_MILESTONES = [7, 30, 100, 200, 365];
   function announceStreakMilestone(count) {
     if (STREAK_MILESTONES.indexOf(count) === -1) return;
-    showToast(count + "-day streak! Keep it going.", "milestone");
+    showToast(count + "-day streak.", "milestone");
     fireConfetti();
   }
 
