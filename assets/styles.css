@@ -2149,3 +2149,20 @@ body.pocketlog-open .pocketlog-panel { transform: none; }
 .sk-row { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 6px 0; font-size: 13px; color: var(--ink-soft); }
 .sk-row kbd { font-family: "JetBrains Mono", monospace; font-size: 11.5px; background: var(--surface-2); border: 1px solid var(--line-soft);
   border-radius: 6px; padding: 3px 7px; color: var(--ink); white-space: nowrap; }
+
+/* ================================================================
+   MODULE CHROME UNIFICATION -- one card language, one accent per page.
+   The sticky header becomes the same rounded, softly shadowed surface as
+   the cards below it; navigation accents (active tab, back links,
+   breadcrumb hover) follow the module's track color instead of cobalt,
+   and the sidebar/label styles share the card radius and label style.
+   ================================================================ */
+.mod-sticky-head { border-bottom: 0; border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  box-shadow: var(--shadow); }
+.tab[aria-selected="true"] { color: var(--track-color, var(--primary-deep)); }
+.crumb, .anatomy-back { color: var(--track-color, var(--primary)); }
+.page-head .crumb:hover, .page-head .ph-current:hover, .page-head .ph-eyebrow:hover .eyebrow { color: var(--track-color, var(--primary)); }
+.anatomy-back { display: inline-flex; align-items: center; gap: 6px; margin: 16px 0 14px; font-weight: 600; }
+.lesson-nav { border-radius: var(--radius-lg); box-shadow: var(--shadow); }
+.lesson-nav-label, .lesson-nav-group { font-family: "JetBrains Mono", monospace; font-size: 10.5px;
+  letter-spacing: .08em; text-transform: uppercase; color: var(--ink-faint); }
