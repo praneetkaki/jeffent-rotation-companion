@@ -1646,7 +1646,7 @@
   /* ---------- MODULE (tabbed) ---------- */
   function availableTabs(mod) {
     var a = mod.anatomy || {}, out = [];
-    if ((a.notes && a.notes.length) || (a.diagrams && a.diagrams.length) || (a.stacks && a.stacks.length)) out.push("anatomy");
+    if ((a.notes && a.notes.length) || (a.diagrams && a.diagrams.length) || (a.stacks && a.stacks.some(function (st) { return st.ready; }))) out.push("anatomy");
     if (((mod.clinical || {}).blocks || []).length) out.push("clinical");
     if ((mod.cases || []).length) out.push("cases");
     if ((mod.cards || []).length) out.push("cards");
@@ -1939,7 +1939,7 @@
   function renderAnatomyPane(pane, mod) {
     pane.innerHTML = "";
     var a = mod.anatomy || {};
-    var notes = a.notes || [], diagrams = a.diagrams || [], stacks = a.stacks || [];
+    var notes = a.notes || [], diagrams = a.diagrams || [], stacks = (a.stacks || []).filter(function (st) { return st.ready; });
     if (notes.length === 0 && diagrams.length === 0 && stacks.length === 0) {
       pane.appendChild(emptyNote("Anatomy content for this module is in progress."));
       return;
@@ -3441,10 +3441,7 @@
     var back = h('<div class="card-back hidden">' + effectiveBack(_ownerId, card) + '</div>');
     fc.appendChild(back);
     if (_note) fc.appendChild(h('<div class="card-note"><strong>Your note:</strong> ' + esc(_note) + '</div>'));
-    var srcLine = card.reviewer
-      ? '<span class="rev">Reviewed: ' + esc(card.reviewer) + '</span>'
-      : '<span class="rev">Reviewer: pending sign-off</span>';
-    fc.appendChild(h('<div class="card-source">' + srcLine + '</div>'));
+    if (card.reviewer) fc.appendChild(h('<div class="card-source"><span class="rev">Reviewed: ' + esc(card.reviewer) + '</span></div>'));
     shell.appendChild(fc);
     if (flipInPending) { fc.classList.add("card-flip-in"); flipInPending = false; }
     linkGlossaryTerms(fc);
@@ -4039,7 +4036,8 @@
       var t=e.target;
       if(t && t.tagName==="IMG" && t.classList.contains("zoomable")){
         var fig=t.closest?t.closest("figure"):null;
-        var cap=fig?(fig.getAttribute("data-credit")||""):(t.getAttribute("alt")||"");
+        var fc=fig&&fig.querySelector("figcaption");
+        var cap=fig?(fig.getAttribute("data-credit")||(fc?fc.textContent:"")||t.getAttribute("alt")||""):(t.getAttribute("alt")||"");
         open(t.getAttribute("src"),cap);
       }
     });
