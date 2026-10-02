@@ -2088,6 +2088,7 @@
     }
     heroTop.appendChild(heroActions);
 
+    var tagWrap = null;
     if (tagline) {
       /* tagline is authored as up to 3 short key structures/terms joined by
        * " · " (e.g. "Zygoma · Four-point articulation · ZMC fracture") --
@@ -2097,10 +2098,11 @@
       tagline.split(/\s*·\s*/).slice(0, 3).forEach(function (kw) {
         if (kw) kwWrap.appendChild(h('<span class="lesson-tagline-kw">' + esc(kw) + '</span>'));
       });
-      heroTop.appendChild(kwWrap);
+      tagWrap = kwWrap;
     }
     hero.appendChild(heroTop);
     if (!skipTitle) hero.appendChild(h('<h2 class="anatomy-detail-title lesson-title">' + esc(title) + '</h2>'));
+    if (tagWrap) hero.appendChild(tagWrap);
     /* Same "next lesson" jump as the footer nav, offered here too so a
      * learner working through a module in order doesn't have to scroll past
      * the whole note/diagram body just to advance. Appended last (after the
