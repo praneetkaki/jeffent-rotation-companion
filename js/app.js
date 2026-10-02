@@ -5880,7 +5880,7 @@
     var brand = el("brandHome");
     on(brand, "click", goHome);
     on(brand, "keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); goHome(); } });
-    goWelcome();
+    goHome();
     navStack = [];
     updateBackButton();
     var navBackBtn = el("navBack");
