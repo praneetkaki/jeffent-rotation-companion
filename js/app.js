@@ -879,34 +879,49 @@
     root.appendChild(h('<div class="eyebrow">The full curriculum</div>'));
     root.appendChild(h('<h1 class="h-lead">Curriculum roadmap</h1>'));
 
-    var list = h('<div class="roadmap-list"></div>');
-    TRACKS.forEach(function (t, i) {
-      var mods = modulesFor(t.id);
-      var cardCount = mods.reduce(function (n, m) { return n + (m.cards || []).length; }, 0);
-      var rowStyle = t.color ? ' style="--track-color:' + t.color + '"' : "";
-      var numStr = (i + 1 < 10 ? "0" : "") + (i + 1);
-      var row = h(
-        '<div class="rm-row"' + rowStyle + '>' +
-          '<div class="rm-num mono">' + numStr + '</div>' +
-          '<div class="rm-icon">' + trackBadge(t, "rm-badge", 20) + '</div>' +
-          '<div class="rm-body">' +
-            '<h3>' + esc(t.name) + '</h3>' +
-            '<div class="rm-meta mono">' + (mods.length ? (mods.length + ' module' + (mods.length === 1 ? '' : 's') + ' · ' + contentCountLabel(mods, cardCount)) : 'Coming soon') + '</div>' +
+    /* Tree: one root, a branch per category, a node per track, and module
+     * leaves hanging off each node. Connectors are pure CSS (see .rm-tree). */
+    var CATS = [
+      { id: "core", label: "Core breadth", sub: "Cross-cutting, every rotation" },
+      { id: "subspecialty", label: "Subspecialties", sub: "The deeper tracks" },
+      { id: "atlas", label: "Reference tools", sub: "Lookup, not a clinical domain" }
+    ];
+    var tree = h('<div class="rm-tree roadmap-list"></div>');
+    tree.appendChild(h('<div class="rm-root"><span class="rm-root-dot"></span>ENT rotation</div>'));
+    CATS.forEach(function (cat) {
+      var tracks = TRACKS.filter(function (t) { return (t.category || "subspecialty") === cat.id; });
+      if (!tracks.length) return;
+      var branch = h('<div class="rm-branch"></div>');
+      branch.appendChild(h('<div class="rm-cat"><strong>' + esc(cat.label) + '</strong><span class="mono">' + esc(cat.sub) + '</span></div>'));
+      tracks.forEach(function (t) {
+        var mods = modulesFor(t.id);
+        var cardCount = mods.reduce(function (n, m) { return n + (m.cards || []).length; }, 0);
+        var rowStyle = t.color ? ' style="--track-color:' + t.color + '"' : "";
+        var node = h(
+          '<div class="rm-row rm-node"' + rowStyle + '>' +
+            '<button type="button" class="rm-head">' +
+              '<span class="rm-icon">' + trackBadge(t, "rm-badge", 20) + '</span>' +
+              '<span class="rm-body"><h3>' + esc(t.name) + '</h3>' +
+              '<span class="rm-meta mono">' + (mods.length ? (mods.length + ' module' + (mods.length === 1 ? '' : 's') + ' · ' + contentCountLabel(mods, cardCount)) : 'Coming soon') + '</span></span>' +
+            '</button>' +
             (mods.length ? '<div class="rm-mods"></div>' : '') +
-          '</div>' +
-        '</div>'
-      );
-      if (mods.length) {
-        var modsWrap = row.querySelector(".rm-mods");
-        mods.forEach(function (m) {
-          var chip = h('<button type="button" class="rm-modchip">' + esc(m.title || m.id) +
-            (isReviewed(m) ? '' : '<span class="rm-draft">draft</span>') + '</button>');
-          chip.addEventListener("click", function () { goModule(m.id); });
-          modsWrap.appendChild(chip);
-        });
-      }
-      list.appendChild(row);
+          '</div>'
+        );
+        node.querySelector(".rm-head").addEventListener("click", function () { goTrack(t.id); });
+        if (mods.length) {
+          var modsWrap = node.querySelector(".rm-mods");
+          mods.forEach(function (m) {
+            var chip = h('<button type="button" class="rm-modchip">' + esc(m.title || m.id) +
+              (isReviewed(m) ? '' : '<span class="rm-draft">draft</span>') + '</button>');
+            chip.addEventListener("click", function () { goModule(m.id); });
+            modsWrap.appendChild(chip);
+          });
+        }
+        branch.appendChild(node);
+      });
+      tree.appendChild(branch);
     });
+    var list = tree;
     root.appendChild(list);
   }
 
