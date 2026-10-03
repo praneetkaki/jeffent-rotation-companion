@@ -4108,7 +4108,8 @@
         '<button class="lightbox-close" aria-label="Close figure" title="Close">×</button>'+
         '<div class="lightbox-tools"><button type="button" data-z="out" aria-label="Zoom out">−</button>'+
         '<button type="button" data-z="reset">Reset</button>'+
-        '<button type="button" data-z="in" aria-label="Zoom in">+</button></div>'+
+        '<button type="button" data-z="in" aria-label="Zoom in">+</button>'+
+        '<button type="button" data-z="pop" aria-label="Pop out as a floating window">Pop out</button></div>'+
         '<div class="lightbox-stage"><img alt=""></div>'+
         '<div class="lightbox-cap"></div></div>');
       stage=box.querySelector(".lightbox-stage");
@@ -4116,6 +4117,7 @@
       box.querySelector(".lightbox-close").addEventListener("click", function(e){ e.stopPropagation(); close(); });
       box.querySelector(".lightbox-tools").addEventListener("click", function(e){
         var z=e.target.getAttribute("data-z"); if(!z) return; e.stopPropagation();
+        if(z==="pop"){ var s0=imgEl.getAttribute("src"), c0=capEl.textContent; close(); floatFig(s0,c0); return; }
         if(z==="in") scale=Math.min(scale*1.25,6);
         else if(z==="out") scale=Math.max(scale/1.25,1);
         else scale=1;
@@ -4131,15 +4133,63 @@
     }
     function open(src,cap){ ensure(); resetZoom(); imgEl.src=src; imgEl.alt=cap||""; capEl.textContent=cap||""; box.hidden=false; }
     function close(){ if(box){ box.hidden=true; resetZoom(); } }
+    var clickTimer=null;
+    function figInfo(t){
+      var fig=t.closest?t.closest("figure"):null;
+      var fc=fig&&fig.querySelector("figcaption");
+      var cap=fig?(fig.getAttribute("data-credit")||(fc?fc.textContent:"")||t.getAttribute("alt")||""):(t.getAttribute("alt")||"");
+      return { src:t.getAttribute("src"), cap:cap };
+    }
+    /* single click = lightbox (after a beat, so a double-click can claim it);
+       double-click = small floating window that stays put while you read */
     document.addEventListener("click", function(e){
       var t=e.target;
       if(t && t.tagName==="IMG" && t.classList.contains("zoomable")){
-        var fig=t.closest?t.closest("figure"):null;
-        var fc=fig&&fig.querySelector("figcaption");
-        var cap=fig?(fig.getAttribute("data-credit")||(fc?fc.textContent:"")||t.getAttribute("alt")||""):(t.getAttribute("alt")||"");
-        open(t.getAttribute("src"),cap);
+        var info=figInfo(t);
+        clearTimeout(clickTimer);
+        clickTimer=setTimeout(function(){ open(info.src,info.cap); },260);
       }
     });
+    document.addEventListener("dblclick", function(e){
+      var t=e.target;
+      if(t && t.tagName==="IMG" && t.classList.contains("zoomable")){
+        e.preventDefault(); clearTimeout(clickTimer);
+        var info=figInfo(t); floatFig(info.src,info.cap);
+      }
+    });
+    var winZ=150, wins=[];
+    function floatFig(src,cap){
+      for(var k=0;k<wins.length;k++){ if(wins[k].src===src){ wins[k].el.style.zIndex=++winZ; wins[k].el.querySelector(".figwin-close").focus(); return; } }
+      var n=wins.length%5, title=String(cap||"Figure").replace(/\s+/g," ").trim();
+      var w=h('<div class="figwin" role="dialog" aria-label="Figure window">'+
+        '<div class="figwin-bar"><span class="figwin-title"></span>'+
+        '<button type="button" class="figwin-close" aria-label="Close figure window" title="Close">\u00d7</button></div>'+
+        '<div class="figwin-body"><img alt=""></div></div>');
+      w.querySelector(".figwin-title").textContent=title;
+      var im=w.querySelector("img"); im.src=src; im.alt=title;
+      var width=Math.min(380, window.innerWidth*0.92);
+      w.style.left=Math.max(8, window.innerWidth-width-24-n*28)+"px"; w.style.top=(96+n*28)+"px"; w.style.zIndex=++winZ;
+      var rec={src:src, el:w}; wins.push(rec);
+      function closeWin(){ w.remove(); wins.splice(wins.indexOf(rec),1); }
+      w.querySelector(".figwin-close").addEventListener("click", closeWin);
+      w.addEventListener("keydown", function(e){ if(e.key==="Escape"){ e.stopPropagation(); closeWin(); } });
+      w.addEventListener("pointerdown", function(){ w.style.zIndex=++winZ; });
+      var bar=w.querySelector(".figwin-bar"), d=null;
+      bar.addEventListener("pointerdown", function(e){
+        if(e.target.closest(".figwin-close")) return;
+        var r=w.getBoundingClientRect(); d={dx:e.clientX-r.left, dy:e.clientY-r.top};
+        bar.setPointerCapture(e.pointerId); w.classList.add("dragging");
+      });
+      bar.addEventListener("pointermove", function(e){
+        if(!d) return;
+        var x=Math.min(Math.max(e.clientX-d.dx,-w.offsetWidth+80), window.innerWidth-80);
+        var y=Math.min(Math.max(e.clientY-d.dy,0), window.innerHeight-40);
+        w.style.left=x+"px"; w.style.top=y+"px";
+      });
+      function endDrag(){ d=null; w.classList.remove("dragging"); }
+      bar.addEventListener("pointerup", endDrag); bar.addEventListener("pointercancel", endDrag);
+      document.body.appendChild(w);
+    }
     document.addEventListener("keydown", function(e){ if(e.key==="Escape") close(); });
   }
 
