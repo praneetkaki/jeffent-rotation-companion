@@ -1015,7 +1015,9 @@
     if (!badge) return;
     function update(showToastMsg) {
       var offline = !navigator.onLine;
-      badge.hidden = !offline;
+      var msg = offline ? "Offline: using saved content" : "Online";
+      badge.classList.toggle("offline", offline);
+      badge.setAttribute("aria-label", msg); badge.setAttribute("title", msg);
       if (showToastMsg) {
         showToast(offline ? "You're offline: showing saved content" : "Back online", offline ? "warn" : null);
       }

@@ -594,28 +594,25 @@ main.wrap { padding-top: 48px; padding-bottom: 60px; min-height: 60vh; }
    scrolls and pins together as one surface. */
 .tabs-sticky { padding: 0 0 14px; }
 
-.tabs { position: relative; display: flex; gap: 2px; background: var(--surface-2); border: 1px solid var(--line-soft);
-  border-radius: 12px; padding: 4px; margin: 0; overflow-x: auto; width: fit-content; max-width: 100%;
-  -webkit-overflow-scrolling: touch;
-  -webkit-mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 14px), transparent 100%);
-  mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 14px), transparent 100%); }
+.tabs { position: relative; display: flex; gap: 4px; background: none; border: 0; border-radius: 0; padding: 0; margin: 0;
+  box-shadow: inset 0 -1px 0 var(--line); overflow-x: auto; width: 100%; max-width: 100%;
+  -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+.tabs::-webkit-scrollbar { display: none; }
 /* Sliding pill indicator: one positioned element gliding behind whichever
    tab is active (moveTabIndicator() in app.js measures the active tab and
    sets left/top/width/height), replacing the old per-tab background swap
    so switching tabs reads as one control moving, not two states popping. */
-.tab-pill-indicator { position: absolute; background: var(--surface); border-radius: 8px;
-  box-shadow: 0 1px 2px rgba(15,23,42,.06), 0 1px 0 rgba(15,23,42,.03); z-index: 0;
+.tab-pill-indicator { position: absolute; background: var(--track-color, var(--primary)); border-radius: 2px 2px 0 0;
+  top: auto !important; bottom: 0; height: 2px !important; z-index: 2;
   transition: left .3s var(--ease-spring), top .3s var(--ease-spring), width .3s var(--ease-spring), height .3s var(--ease-spring); }
-:root[data-theme="dark"] .tab-pill-indicator, :root:not([data-theme="light"]) .tab-pill-indicator {
-  box-shadow: 0 1px 2px rgba(0,0,0,.3); }
 @media (prefers-reduced-motion: reduce) { .tab-pill-indicator { transition: none; } }
-.tab { position: relative; z-index: 1; border: 0; background: none; padding: 9px 18px; font-size: 14.5px; font-weight: 500; color: var(--ink-soft);
-  border-radius: 8px; white-space: nowrap; flex: 0 0 auto;
+.tab { position: relative; z-index: 1; border: 0; background: none; padding: 11px 16px; font-size: 14.5px; font-weight: 500; color: var(--ink-soft);
+  border-radius: 6px 6px 0 0; white-space: nowrap; flex: 0 0 auto;
   transition: color .16s var(--ease-out); }
 .tab:hover { color: var(--ink); }
 @media (max-width: 560px) {
   .tabs { width: 100%; }
-  .tab { padding: 9px 14px; font-size: 13.5px; flex: 1 1 auto; text-align: center; }
+  .tab { padding: 10px 12px; font-size: 13.5px; flex: 1 1 auto; text-align: center; }
   .panel { padding: 20px 18px; }
 }
 .tab[aria-selected="true"] { color: var(--primary-deep); font-weight: 600; }
@@ -1588,12 +1585,12 @@ body.panel-dragging, body.panel-dragging .topbar { transition: none !important; 
 .fp-resize:hover, .pp-resize:hover { background: color-mix(in srgb, var(--primary) 40%, transparent); }
 
 /* ---- in-app cross-reference links + hover preview ---- */
-.xref { color: var(--primary-deep); text-decoration: underline; text-underline-offset: 2px; cursor: pointer; }
-.xref:hover { color: var(--primary); }
+.xref { color: var(--primary-deep); text-decoration: underline dotted color-mix(in srgb, var(--primary) 45%, transparent); text-decoration-thickness: 1px; text-underline-offset: 3px; cursor: pointer; }
+.xref:hover { color: var(--primary); text-decoration-color: var(--primary); }
 /* ---- inline glossary terms: same preview-card mechanism as .xref (shared
    #xrefPreview element in JS), but definition-only, no page to open. ---- */
-.term { border-bottom: 1.5px dotted var(--primary); text-underline-offset: 2px; cursor: help; }
-.term:hover, .term:focus-visible { border-bottom-style: solid; color: var(--primary-deep); }
+.term { border-bottom: 1px dotted color-mix(in srgb, var(--primary) 45%, transparent); cursor: help; transition: border-color .15s var(--ease-out); }
+.term:hover, .term:focus-visible { border-bottom-color: var(--primary); color: var(--primary-deep); }
 .xref-preview { position: absolute; z-index: 200; width: 300px; max-width: 86vw; background: var(--surface);
   border: 1px solid var(--line); border-radius: 10px; box-shadow: var(--shadow); padding: 12px 14px; pointer-events: none; }
 .xref-preview[hidden] { display: none; }
@@ -2019,11 +2016,9 @@ body.js-motion .bento-hero.reveal-init.in .bento-start-btn {
    network-dependent action (sync) might be stale, not that anything
    is broken.
    ================================================================ */
-.conn-badge { display: flex; align-items: center; gap: 6px; padding: 5px 10px; border-radius: 999px;
-  background: var(--flag-tint); color: var(--flag); font-size: 12px; font-weight: 600; white-space: nowrap;
-  flex: 0 0 auto; }
-.conn-badge svg { width: 15px; height: 15px; flex: 0 0 auto; }
-@media (max-width: 720px) { .conn-badge-label { display: none; } .conn-badge { padding: 5px; } }
+.conn-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-left: 8px; vertical-align: middle;
+  background: #22c55e; box-shadow: 0 0 0 3px color-mix(in srgb, #22c55e 22%, transparent); flex: 0 0 auto; cursor: default; }
+.conn-dot.offline { background: #f59e0b; box-shadow: 0 0 0 3px color-mix(in srgb, #f59e0b 25%, transparent); }
 
 /* ================================================================
    FIRST-RUN TOUR -- a spotlight ring (a giant box-shadow doubles as the
