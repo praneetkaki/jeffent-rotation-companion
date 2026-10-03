@@ -1484,6 +1484,21 @@ body.pimp-open .pimppanel { transform: none; }
   .pimppanel { width: var(--pimppanel-w); }
 }
 
+/* Live-resize: no easing while a panel edge is being dragged, so the page
+   tracks the pointer instead of lagging behind it. */
+body.panel-dragging, body.panel-dragging .topbar { transition: none !important; }
+/* Optional full-screen flashcards (desktop): the panel fills everything right
+   of the left rail, with the card centered; Esc or the same button exits. */
+.fp-full { margin-left: auto; margin-right: 6px; }
+.fp-head .fp-full + .fp-close { margin-left: 0; }
+@media (min-width: 701px) {
+  body.flash-full .flashpanel { left: var(--tb-l); width: auto !important; border-left: 0; z-index: 12; }
+  body.flash-full .flashpanel .fp-resize { display: none; }
+  body.flash-full .flashpanel .fp-body { max-width: 760px; margin: 0 auto; padding-top: 28px; }
+  body.flash-full .flashpanel .fp-head { padding-left: 28px; padding-right: 28px; }
+}
+@media (max-width: 700px) { .flashpanel .fp-full { display: none; } }
+
 /* Flashcards on a phone: a proper full-screen Anki-style study mode instead
    of a drawer that shares the screen with whatever was underneath. Replaces
    the site topbar entirely with its own bar (back chevron + tappable

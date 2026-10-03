@@ -5151,11 +5151,16 @@
           '<span class="mark" aria-hidden="true"><svg viewBox="0 0 32 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0-6 6c0 2 1 3 1 5a3 3 0 0 0 3 3"></path><path d="M12 3a6 6 0 0 1 6 6c0 3-2 4-2 7a3 3 0 0 1-3 3 3 3 0 0 1-3-3v-1"></path><path d="M19.5 8.5a5 5 0 0 1 0 7"></path><path d="M22.5 6.5a8.5 8.5 0 0 1 0 11"></path></svg></span>' +
           '<span class="fp-brandhome-name">ENT Rotation Companion</span>' +
         '</div>' +
+        '<button type="button" class="fp-full icon-btn" data-tip="Full screen (Esc to exit)" aria-label="Open flashcards full screen" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"></path></svg></button>' +
         '<button type="button" class="fp-close icon-btn" data-tip="Close" aria-label="Close flashcards">✕</button>' +
       '</div>' +
       '<div class="fp-body"></div>';
     document.body.appendChild(aside);
     aside.querySelector(".fp-close").addEventListener("click", closeFlash);
+    aside.querySelector(".fp-full").addEventListener("click", function () { setFlashFull(!document.body.classList.contains("flash-full")); });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && document.body.classList.contains("flash-full")) { e.preventDefault(); setFlashFull(false); }
+    });
     aside.querySelector(".fp-back").addEventListener("click", closeFlash);
     var brandhome = aside.querySelector(".fp-brandhome");
     brandhome.addEventListener("click", function () { closeFlash(); goHome(); });
@@ -5164,10 +5169,12 @@
     });
     var t = el("flashToggle"); if (t) t.addEventListener("click", toggleFlash);
     var rez = aside.querySelector(".fp-resize"), dragging = false;
-    rez.addEventListener("mousedown", function (e) { e.preventDefault(); dragging = true; document.body.style.userSelect = "none"; });
-    window.addEventListener("mousemove", function (e) { if (!dragging) return; var w = window.innerWidth - e.clientX; var maxw = Math.floor(window.innerWidth / 3); w = Math.max(320, Math.min(w, maxw)); aside.style.width = w + "px"; try { localStorage.setItem("fpWidth", String(w)); } catch (_) {} });
-    window.addEventListener("mouseup", function () { if (dragging) { dragging = false; document.body.style.userSelect = ""; } });
-    try { var sw = parseInt(localStorage.getItem("fpWidth"), 10); if (sw) aside.style.width = Math.max(320, Math.min(sw, Math.floor(window.innerWidth / 3))) + "px"; } catch (_) {}
+    function applyWidth(w) { aside.style.width = w + "px"; document.documentElement.style.setProperty("--flashpanel-w", w + "px"); }
+    function clampWidth(w) { return Math.max(320, Math.min(w, Math.floor(window.innerWidth * 0.4))); }
+    rez.addEventListener("mousedown", function (e) { e.preventDefault(); dragging = true; document.body.style.userSelect = "none"; document.body.classList.add("panel-dragging"); });
+    window.addEventListener("mousemove", function (e) { if (!dragging) return; var w = clampWidth(window.innerWidth - e.clientX); applyWidth(w); try { localStorage.setItem("fpWidth", String(w)); } catch (_) {} });
+    window.addEventListener("mouseup", function () { if (dragging) { dragging = false; document.body.style.userSelect = ""; document.body.classList.remove("panel-dragging"); } });
+    try { var sw = parseInt(localStorage.getItem("fpWidth"), 10); if (sw) applyWidth(clampWidth(sw)); } catch (_) {}
   }
   /* Build the flashcard queue for a given scope ("all" or a track id) and mode
    * ("due" | "all"), tagging each card with its owning module so SRS.rate writes
@@ -5207,7 +5214,12 @@
     var t = el("flashToggle"); if (t) t.setAttribute("aria-expanded", "true");
     renderFlash();
   }
-  function closeFlash() { document.body.classList.remove("flash-open"); var t = el("flashToggle"); if (t) t.setAttribute("aria-expanded", "false"); }
+  function setFlashFull(on) {
+    document.body.classList.toggle("flash-full", !!on);
+    var b = document.querySelector("#flashpanel .fp-full");
+    if (b) { b.setAttribute("aria-pressed", on ? "true" : "false"); b.setAttribute("aria-label", on ? "Exit full screen" : "Open flashcards full screen"); b.setAttribute("data-tip", on ? "Exit full screen (Esc)" : "Full screen (Esc to exit)"); }
+  }
+  function closeFlash() { setFlashFull(false); document.body.classList.remove("flash-open"); var t = el("flashToggle"); if (t) t.setAttribute("aria-expanded", "false"); }
   function toggleFlash() { if (document.body.classList.contains("flash-open")) closeFlash(); else openFlash(); }
 
   /* The scope dropdown + Due/All toggle. Always rendered at the top of the panel
@@ -5380,10 +5392,12 @@
     aside.querySelector(".pp-close").addEventListener("click", closePimpPanel);
     var t = el("pimpToggle"); if (t) t.addEventListener("click", togglePimpPanel);
     var rez = aside.querySelector(".pp-resize"), dragging = false;
-    rez.addEventListener("mousedown", function (e) { e.preventDefault(); dragging = true; document.body.style.userSelect = "none"; });
-    window.addEventListener("mousemove", function (e) { if (!dragging) return; var w = window.innerWidth - e.clientX; var maxw = Math.floor(window.innerWidth / 3); w = Math.max(320, Math.min(w, maxw)); aside.style.width = w + "px"; try { localStorage.setItem("ppWidth", String(w)); } catch (_) {} });
-    window.addEventListener("mouseup", function () { if (dragging) { dragging = false; document.body.style.userSelect = ""; } });
-    try { var sw = parseInt(localStorage.getItem("ppWidth"), 10); if (sw) aside.style.width = Math.max(320, Math.min(sw, Math.floor(window.innerWidth / 3))) + "px"; } catch (_) {}
+    function applyWidth(w) { aside.style.width = w + "px"; document.documentElement.style.setProperty("--pimppanel-w", w + "px"); }
+    function clampWidth(w) { return Math.max(320, Math.min(w, Math.floor(window.innerWidth * 0.4))); }
+    rez.addEventListener("mousedown", function (e) { e.preventDefault(); dragging = true; document.body.style.userSelect = "none"; document.body.classList.add("panel-dragging"); });
+    window.addEventListener("mousemove", function (e) { if (!dragging) return; var w = clampWidth(window.innerWidth - e.clientX); applyWidth(w); try { localStorage.setItem("ppWidth", String(w)); } catch (_) {} });
+    window.addEventListener("mouseup", function () { if (dragging) { dragging = false; document.body.style.userSelect = ""; document.body.classList.remove("panel-dragging"); } });
+    try { var sw = parseInt(localStorage.getItem("ppWidth"), 10); if (sw) applyWidth(clampWidth(sw)); } catch (_) {}
   }
   function openPimpPanel() {
     closeFlash();
