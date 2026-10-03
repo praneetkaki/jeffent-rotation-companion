@@ -2193,3 +2193,45 @@ body.pocketlog-open .pocketlog-panel { transform: none; }
 .lesson-nav { border-radius: var(--radius-lg); box-shadow: var(--shadow); }
 .lesson-nav-label, .lesson-nav-group { font-family: "JetBrains Mono", monospace; font-size: 10.5px;
   letter-spacing: .08em; text-transform: uppercase; color: var(--ink-faint); }
+
+
+/* ================================================================
+   LESSON READING EXPERIENCE: measure, hierarchy, outline, learned state
+   ================================================================ */
+div.anatomy-detail-body:not(.panel) { font-size: 16px; line-height: 1.72; }
+div.anatomy-detail-body:not(.panel) > p, div.anatomy-detail-body:not(.panel) > ul, div.anatomy-detail-body:not(.panel) > ol { max-width: 70ch; }
+div.anatomy-detail-body:not(.panel) li::marker { color: color-mix(in srgb, var(--track-color, var(--primary)) 70%, var(--ink-faint)); }
+.note-h { position: relative; margin: 2.1em 0 .6em !important; padding-top: 1.1em; border-top: 1px solid var(--line-soft);
+  font-family: "Source Serif 4", serif; font-size: 1.15rem; line-height: 1.3;
+  scroll-margin-top: calc(var(--topbar-h, 73px) + var(--head-h, 118px) + 18px); }
+.note-h strong { color: var(--ink) !important; font-weight: 600; }
+.note-h::before { content: ""; position: absolute; left: 0; top: -1px; width: 36px; height: 2px; background: var(--track-color, var(--primary)); border-radius: 2px; }
+.note-h.is-clinical + ul, .note-h.is-clinical + ol { background: color-mix(in srgb, var(--track-color, var(--primary)) 7%, var(--surface));
+  border: 1px solid var(--line-soft); border-left: 3px solid var(--track-color, var(--primary)); border-radius: var(--radius);
+  padding: 14px 18px 14px 36px !important; }
+.anatomy-detail-body .note-fig { background: var(--surface-2); border: 1px solid var(--line-soft); border-radius: 14px; padding: 14px 14px 12px; }
+.anatomy-detail-body .note-fig img { border-radius: 8px; }
+.anatomy-detail-body .tbl-scroll { border: 1px solid var(--line-soft); border-radius: var(--radius); }
+.anatomy-detail-body .tbl-scroll tbody tr:nth-child(even) td { background: color-mix(in srgb, var(--surface-2) 60%, transparent); }
+
+.lesson-outline, .lesson-keypoints { margin: 0 0 22px; border: 1px solid var(--line-soft); border-radius: var(--radius-lg); background: var(--surface); box-shadow: var(--shadow); padding: 14px 18px; }
+.lo-label, .lk-label { font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 8px; }
+.lesson-outline ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 6px; }
+.lesson-outline a { display: inline-block; font-size: 13px; color: var(--ink-soft); text-decoration: none; padding: 5px 11px; border-radius: 999px; border: 1px solid transparent;
+  transition: color .15s var(--ease-out), background .15s var(--ease-out), border-color .15s var(--ease-out); }
+.lesson-outline a:hover { color: var(--ink); background: var(--surface-2); }
+.lesson-outline a.on { color: var(--track-color, var(--primary-deep)); background: color-mix(in srgb, var(--track-color, var(--primary)) 11%, var(--surface)); border-color: color-mix(in srgb, var(--track-color, var(--primary)) 30%, transparent); font-weight: 600; }
+.lesson-keypoints { border-left: 3px solid var(--track-color, var(--primary)); }
+.lesson-keypoints ul { margin: 0; padding-left: 1.2em; } .lesson-keypoints li { margin: .35em 0; }
+
+.lesson-learned { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 22px 0 14px; }
+.lesson-learned-btn, .lesson-learned-cards { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; padding: 10px 16px; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--surface); color: var(--ink-soft); cursor: pointer;
+  transition: background .15s var(--ease-out), color .15s var(--ease-out), border-color .15s var(--ease-out), transform .12s var(--ease-out); }
+.lesson-learned-btn:hover, .lesson-learned-cards:hover { border-color: var(--track-color, var(--primary)); color: var(--ink); }
+.lesson-learned-btn:active, .lesson-learned-cards:active { transform: scale(.97); }
+.lesson-learned-btn svg { width: 16px; height: 16px; opacity: .55; }
+.lesson-learned-btn[aria-pressed="true"] { background: var(--track-color, var(--primary)); border-color: transparent; color: #fff; }
+.lesson-learned-btn[aria-pressed="true"] svg { opacity: 1; }
+.lesson-nav-item.learned .lesson-nav-dot { background: #22c55e; }
+@media (prefers-reduced-motion: reduce) { .lesson-learned-btn, .lesson-learned-cards, .lesson-outline a { transition: none; } }

@@ -1967,7 +1967,9 @@
       var built = buildAnatomyDetail(mod, pane, notes, diagrams, topic, noteTitle, function () {
         return h('<div class="anatomy-detail-body" data-anchor="anatomy-note-' + topic.index + '">' + notes[topic.index].html + '</div>');
       }, false, notes[topic.index].tagline);
+      enhanceLessonBody(built.main, notes[topic.index]);
       appendRelatedCardsCta(built.main, mod, noteTitle, topic);
+      appendLearnedBar(built.main, mod, pane, topic);
       appendNextLessonNav(built.main, mod, pane, notes, diagrams, topic);
       linkGlossaryTerms(built.main);
       enhanceReferenceTables(built.main);
@@ -1983,6 +1985,7 @@
         return dgPanel;
       }, true, diagrams[topic.index].tagline);
       appendRelatedCardsCta(built2.main, mod, dgTitle, topic);
+      appendLearnedBar(built2.main, mod, pane, topic);
       appendNextLessonNav(built2.main, mod, pane, notes, diagrams, topic);
       linkGlossaryTerms(built2.main);
       enhanceReferenceTables(built2.main);
@@ -2047,7 +2050,7 @@
         }
         var isActive = item.kind === topic.kind && item.index === topic.index;
         var btn = h(
-          '<button type="button" class="lesson-nav-item' + (isActive ? ' active' : '') + '"' + (isActive ? ' aria-current="page"' : '') + '>' +
+          '<button type="button" class="lesson-nav-item' + (isActive ? ' active' : '') + (isLessonLearned(mod.id, item) ? ' learned' : '') + '"' + (isActive ? ' aria-current="page"' : '') + '>' +
             '<span class="lesson-nav-dot"></span><span class="lesson-nav-item-title">' + esc(item.title) + '</span>' +
           '</button>'
         );
@@ -2150,6 +2153,85 @@
     grid.appendChild(main);
     setStickyCurrent(title);
     return { shell: shell, main: main };
+  }
+
+  /* ---- lesson reading aids: section outline with scroll-spy, optional
+   * authored keyPoints, section-heading styling, and a per-lesson
+   * "Mark as learned" state (local only, same jeffent. prefix as the rest). */
+  function lessonLearnedKey(modId, item) { return modId + "::" + item.kind + item.index; }
+  function loadLearned() { try { return JSON.parse(localStorage.getItem("jeffent.learned") || "{}") || {}; } catch (e) { return {}; } }
+  function isLessonLearned(modId, item) { return !!loadLearned()[lessonLearnedKey(modId, item)]; }
+  function setLessonLearned(modId, item, on) {
+    var m = loadLearned(), k = lessonLearnedKey(modId, item);
+    if (on) m[k] = 1; else delete m[k];
+    try { localStorage.setItem("jeffent.learned", JSON.stringify(m)); } catch (e) {}
+  }
+
+  var lessonSpy = null;
+  function enhanceLessonBody(main, noteItem) {
+    var body = main.querySelector(".anatomy-detail-body");
+    if (!body) return;
+    var heads = [];
+    [].slice.call(body.children).forEach(function (c) {
+      var isHead = /^H[2-4]$/.test(c.tagName) ||
+        (c.tagName === "P" && c.children.length === 1 && c.firstElementChild.tagName === "STRONG" &&
+         c.textContent.trim() === c.firstElementChild.textContent.trim() && c.textContent.trim().length < 80);
+      if (!isHead) return;
+      c.classList.add("note-h");
+      c.id = "lh-" + heads.length;
+      if (/clinical relevance|clinical pearl|pitfall|red flag/i.test(c.textContent)) c.classList.add("is-clinical");
+      heads.push(c);
+    });
+    var anchor = body;
+    if (noteItem && noteItem.keyPoints && noteItem.keyPoints.length) {
+      var kp = h('<aside class="lesson-keypoints" aria-label="Key points"><div class="lk-label mono">Key points</div><ul></ul></aside>');
+      noteItem.keyPoints.forEach(function (t) { kp.querySelector("ul").appendChild(h("<li>" + t + "</li>")); });
+      body.parentNode.insertBefore(kp, body);
+    }
+    if (heads.length < 3) return;
+    var outline = h('<nav class="lesson-outline" aria-label="On this page"><div class="lo-label mono">On this page</div><ol></ol></nav>');
+    var ol = outline.querySelector("ol"), links = [];
+    heads.forEach(function (hd) {
+      var a = h('<a href="#' + hd.id + '"></a>');
+      a.textContent = hd.textContent.replace(/:\s*$/, "");
+      a.addEventListener("click", function (e) {
+        e.preventDefault();
+        hd.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+      var li = document.createElement("li"); li.appendChild(a); ol.appendChild(li); links.push(a);
+    });
+    body.parentNode.insertBefore(outline, body);
+    if (lessonSpy) { lessonSpy.disconnect(); lessonSpy = null; }
+    if ("IntersectionObserver" in window) {
+      lessonSpy = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (!en.isIntersecting) return;
+          var i = heads.indexOf(en.target);
+          links.forEach(function (a, j) { a.classList.toggle("on", j === i); });
+        });
+      }, { rootMargin: "-18% 0px -72% 0px" });
+      heads.forEach(function (hd) { lessonSpy.observe(hd); });
+    }
+  }
+
+  function appendLearnedBar(main, mod, pane, topic) {
+    var item = { kind: topic.kind, index: topic.index };
+    var on = isLessonLearned(mod.id, item);
+    var bar = h('<div class="lesson-learned"><button type="button" class="lesson-learned-btn" aria-pressed="' + on + '">' +
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>' +
+      '<span>' + (on ? "Learned" : "Mark as learned") + '</span></button>' +
+      '<button type="button" class="lesson-learned-cards">Review this module\u2019s cards</button></div>');
+    var btn = bar.querySelector(".lesson-learned-btn");
+    btn.addEventListener("click", function () {
+      var now = btn.getAttribute("aria-pressed") !== "true";
+      setLessonLearned(mod.id, item, now);
+      btn.setAttribute("aria-pressed", now ? "true" : "false");
+      btn.querySelector("span").textContent = now ? "Learned" : "Mark as learned";
+      var navItems = document.querySelectorAll(".lesson-nav-item.active");
+      [].forEach.call(navItems, function (n) { n.classList.toggle("learned", now); });
+    });
+    bar.querySelector(".lesson-learned-cards").addEventListener("click", function () { goModuleTab(mod.id, "cards"); });
+    main.appendChild(bar);
   }
 
   /* Footer nav: jump straight to the next lesson in this module's Notes+
