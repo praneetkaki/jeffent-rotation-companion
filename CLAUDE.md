@@ -28,6 +28,7 @@ A dependency-free **static web app** for ENT rotation study (active recall + spa
 4. **No patient data, ever.** No real cases, names, MRNs, images of real patients. Cases are fictional teaching vignettes.
 5. **Not a clinical decision tool**, keep the footer disclaimer intact.
 6. **No em dashes (—), anywhere, in any user-facing copy** (content strings, UI microcopy, headings, labels). Use a period, comma, colon, or parentheses instead, whichever reads most naturally. This applies to `content/*.js` and `js/app.js` alike; internal-only fields never shown in the UI (e.g. a module's `status` changelog) are exempt.
+7. **No filler microcopy.** Don't add explanatory subtitles, taglines, or descriptive phrases to labels, headings, groups, or tiles (e.g. a "Cross-cutting, every rotation" line under a category name). A label is just the label. Add supporting text only when it carries information the user needs and can't get from the label or the surrounding context.
 
 ## Code conventions
 - Plain ES5-compatible JS (works everywhere, easy for students to read). No `import`, no bundler.

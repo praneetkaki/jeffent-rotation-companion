@@ -882,9 +882,9 @@
     /* Tree: one root, a branch per category, a node per track, and module
      * leaves hanging off each node. Connectors are pure CSS (see .rm-tree). */
     var CATS = [
-      { id: "core", label: "Core breadth", sub: "Cross-cutting, every rotation" },
-      { id: "subspecialty", label: "Subspecialties", sub: "The deeper tracks" },
-      { id: "atlas", label: "Reference tools", sub: "Lookup, not a clinical domain" }
+      { id: "core", label: "Core breadth" },
+      { id: "subspecialty", label: "Subspecialties" },
+      { id: "atlas", label: "Reference tools" }
     ];
     var tree = h('<div class="rm-tree roadmap-list"></div>');
     tree.appendChild(h('<div class="rm-root"><span class="rm-root-dot"></span>ENT rotation</div>'));
@@ -892,7 +892,7 @@
       var tracks = TRACKS.filter(function (t) { return (t.category || "subspecialty") === cat.id; });
       if (!tracks.length) return;
       var branch = h('<div class="rm-branch"></div>');
-      branch.appendChild(h('<div class="rm-cat"><strong>' + esc(cat.label) + '</strong><span class="mono">' + esc(cat.sub) + '</span></div>'));
+      branch.appendChild(h('<div class="rm-cat"><strong>' + esc(cat.label) + '</strong></div>'));
       tracks.forEach(function (t) {
         var mods = modulesFor(t.id);
         var cardCount = mods.reduce(function (n, m) { return n + (m.cards || []).length; }, 0);
