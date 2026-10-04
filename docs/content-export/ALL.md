@@ -967,7 +967,7 @@ LevelSuperiorInferiorAnteriorPosteriorMain contentsPrimary drainageKey surgical 
 - Pars tensa vs pars flaccida: the taut, fibrous-layered main part of the drum (pars tensa) vs the smaller, lax superior part above the lateral process (pars flaccida, or Shrapnell's membrane) -- the classic site for an attic cholesteatoma.Three layers of the tympanic membrane: an outer squamous (skin) layer, continuous with the ear-canal skin, that migrates laterally to keep the drum self-cleaning; a middle fibrous layer that gives the drum its tension and strength (present in the pars tensa, absent in the pars flaccida -- why the flaccida retracts and perforates more easily); and an inner mucosal layer, continuous with the middle-ear mucosa.
 Performing the exam: pull the pinna up and back in an adult (down and back in a young child) to straighten the ear canal, then use the largest speculum the canal will comfortably accept. Note color, translucency, contour, perforation, and mobility (pneumatic otoscopy: a normal drum moves briskly to insufflation; sluggish or absent movement is the most reliable bedside sign of a middle-ear effusion).
 
-**What flex NPL lets you see** (tags: Nasal cavity · Nasopharynx · Larynx)
+**Flexible Nasopharyngolaryngoscopy (NPL)** (tags: Nasal cavity · Nasopharynx · Larynx)
 
 Flexible nasolaryngoscopy (flex NPL) passes a thin fiberoptic or distal-chip scope through the nose to see what anterior rhinoscopy and a tongue depressor cannot reach. In sequence it shows:
 
