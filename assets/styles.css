@@ -2281,3 +2281,8 @@ div.anatomy-detail-body:not(.panel) li::marker { color: color-mix(in srgb, var(-
   .lesson-nav-list > .lesson-nav-item, .lesson-nav-list > .lesson-nav-group { margin-left: 12px; width: calc(100% - 12px); }
   .lesson-nav-group { padding-left: 6px; }
 }
+
+/* Module header card now spans exactly the content column, so its left and
+   right edges line up with the lesson nav and the cards below it. */
+.mod-sticky-head { margin: 0; padding: 0 20px; border: 1px solid var(--line-soft); border-top: 0; border-radius: 0 0 var(--radius-lg) var(--radius-lg); }
+@media (max-width: 640px) { .mod-sticky-head { margin: 0; padding: 0 16px; } }
