@@ -967,6 +967,18 @@ LevelSuperiorInferiorAnteriorPosteriorMain contentsPrimary drainageKey surgical 
 - Pars tensa vs pars flaccida: the taut, fibrous-layered main part of the drum (pars tensa) vs the smaller, lax superior part above the lateral process (pars flaccida, or Shrapnell's membrane) -- the classic site for an attic cholesteatoma.Three layers of the tympanic membrane: an outer squamous (skin) layer, continuous with the ear-canal skin, that migrates laterally to keep the drum self-cleaning; a middle fibrous layer that gives the drum its tension and strength (present in the pars tensa, absent in the pars flaccida -- why the flaccida retracts and perforates more easily); and an inner mucosal layer, continuous with the middle-ear mucosa.
 Performing the exam: pull the pinna up and back in an adult (down and back in a young child) to straighten the ear canal, then use the largest speculum the canal will comfortably accept. Note color, translucency, contour, perforation, and mobility (pneumatic otoscopy: a normal drum moves briskly to insufflation; sluggish or absent movement is the most reliable bedside sign of a middle-ear effusion).
 
+**What flex NPL lets you see** (tags: Nasal cavity · Nasopharynx · Larynx)
+
+Flexible nasolaryngoscopy (flex NPL) passes a thin fiberoptic or distal-chip scope through the nose to see what anterior rhinoscopy and a tongue depressor cannot reach. In sequence it shows:
+
+- Nasal cavity: septum, inferior and middle turbinates, meatuses, mucosa, discharge, polyps, masses.
+- Nasopharynx: adenoid pad, Eustachian tube openings (torus tubarius), and the fossa of Rosenm&uuml;ller, the classic nasopharyngeal carcinoma site.
+- Oropharynx: base of tongue, lingual tonsils, vallecula, posterior pharyngeal wall.
+- Hypopharynx: pyriform sinuses and the postcricoid region.
+- Larynx: epiglottis, aryepiglottic folds, false and true vocal folds, anterior commissure; vocal-fold mobility can be judged dynamically.
+- Subglottis: the narrowest adult laryngeal view; a tongue-pull maneuver is often needed to see the lateral and posterior walls.Why it matters
+Nasal endoscopy reveals pathology missed on anterior rhinoscopy in roughly 39% of patients, and its overall diagnostic accuracy is higher (about 85% vs 74%). It is also the criterion-standard assessment of the posterior nasal cavity and nasopharynx, especially in children.
+
 ### Anatomy diagrams (7)
 
 **Diagram: The ear in cross-section**
@@ -1112,7 +1124,7 @@ _Image source: Skull Base Foramina and Their Cranial Nerves. Radiopaedia._
 - Jugular foramen: transmits CN IX (glossopharyngeal), CN X (vagus), and CN XI (accessory), plus the internal jugular vein; jugular foramen syndrome affects all three nerves together.
 - Hypoglossal canal: transmits CN XII (hypoglossal nerve); a lesion causes ipsilateral tongue weakness, with deviation toward the affected side on protrusion.
 
-### Clinical blocks (4)
+### Clinical blocks (9)
 
 **[exam-flow] A quick, complete ENT exam sequence**
 
@@ -1121,6 +1133,53 @@ _Image source: Skull Base Foramina and Their Cranial Nerves. Radiopaedia._
 - Oral cavity / oropharynx: dentition, tongue (lateral borders), floor of mouth, tonsils, palate elevation (CN IX/X).
 - Neck: systematic nodal levels I-VI (plus level VII, superior mediastinal), thyroid, parotid, salivary glands.
 - Cranial nerves: focused screen, especially CN VII (otologic) and CN X (voice).
+
+**[flex-npl-indications] Flex NPL: when to scope**
+
+Scope whenever the diagnosis cannot be made from history plus anterior rhinoscopy, or a structure beyond their reach must be seen. The most common indications are hoarseness, chronic cough, globus sensation, and nasal obstruction. High-yield indications a sub-I should be able to recite:
+
+- Hoarseness or dysphonia lasting more than 2-4 weeks (exclude vocal-fold lesion, paralysis, or laryngeal cancer).
+- Dysphagia, odynophagia, or globus with red flags.
+- Stridor or any airway concern.
+- Neck mass (scope the mucosal upper aerodigestive tract for a primary).
+- Referred otalgia with a normal ear exam (scope for an aerodigestive source).
+- Unexplained unilateral nasal obstruction, epistaxis, or discharge (exclude a sinonasal or nasopharyngeal mass).
+- Suspected foreign body or epiglottitis (in a controlled setting).
+- Aspiration or swallow assessment (the basis of FEES).
+
+**[flex-npl-technique] Flex NPL: technique and preparation**
+
+- Position: patient upright, leaning slightly forward in a &ldquo;sniffing&rdquo; position.
+- Choose the side: do anterior rhinoscopy first to pick the more patent passage and anticipate a deviated septum.
+- Topical prep is optional: a decongestant (e.g. oxymetazoline or phenylephrine) widens the passage and a topical anesthetic (e.g. 4% lidocaine) reduces sensation, but a placebo-controlled pediatric trial found no clear comfort benefit and some adult data show anesthetic can worsen the experience. Small-caliber scopes are often tolerated with no spray.
+- Scope path: pass along the floor (inferior meatus) or the middle meatus; warm or defog the tip; keep mucosal contact, especially with the septum, to a minimum.
+- Subglottic view: a forward sniffing position plus an anterior tongue-pull (grasp the tongue with gauze) opens the angle for a lateral and posterior subglottic view without topical laryngeal anesthesia.
+- Nasal route blocked (packing, trauma, impassable deviation): a trans-oral adaptor allows flexible laryngoscopy by mouth.
+- Learning curve: competence benefits from a laryngeal simulator or about 6 supervised examinations.
+
+**[flex-npl-systematic-exam] Flex NPL: the systematic examination**
+
+Examine every region in order and record both anatomy and function. Do not skip a subsite.
+
+- Nasal cavity: septum, turbinates, mucosa, discharge, polyps, masses.
+- Nasopharynx: adenoids, Eustachian tube orifices, fossa of Rosenm&uuml;ller; palatal elevation on phonation.
+- Oropharynx: base of tongue, lingual tonsil, vallecula, posterior wall.
+- Hypopharynx: pyriform sinuses, postcricoid region, pooling of secretions.
+- Larynx: epiglottis, false and true folds, anterior commissure; vocal-fold mobility on phonation, laryngeal elevation, penetration or aspiration.
+- Subglottis: patency (tongue-pull view).Functional points to document: palatal elevation, dynamic vocal-cord tension on phonation, vocal-fold mobility (and position if immobile), laryngeal penetration or aspiration, subglottic patency, and any lesion or mass.
+
+**[flex-npl-vs-imaging] Scope first, image for selected cases**
+
+History and nasal endoscopy are the first-line diagnostic tools. Imaging is reserved for specific indications, not routine use.
+
+- Suspected chronic rhinosinusitis: nasal endoscopy is the first-line confirmatory test; CT is reserved for a prolonged or complicated course.
+- Nasal obstruction and epistaxis: endoscopy first. Add CT for structure and bone, MRI for soft-tissue or intracranial extension, and CT angiography for recurrent or posterior bleeds or a vascular lesion, when findings are inconclusive, persistent, severe, or posterior.
+- Adult neck mass: scope and cross-sectional imaging are complementary; imaging plus endoscopy finds subclinical primaries that scope alone misses.
+
+**[flex-npl-pediatric] Flex NPL in children**
+
+In children, awake flexible nasendoscopy is the criterion standard for the posterior nasal cavity and nasopharynx (adenoid hypertrophy, nasopharyngeal mass) and for dynamic airway assessment (laryngomalacia). Topical decongestant with or without anesthetic is commonly used but of unproven benefit.
+Technique relies on calm preparation: let the child touch the scope, use parent-lap positioning, and stabilize the head gently. Imaging (ultrasound, lateral neck radiograph, CT or MRI) is complementary but does not replace direct dynamic visualization.
 
 **[tuning-forks] Tuning-fork interpretation (512 Hz)**
 
@@ -1167,8 +1226,11 @@ Across every ENT emergency, the priority order is the same:
 - Unilateral nasal symptoms + epistaxis (adult): exclude sinonasal neoplasm; unilateral foul discharge in a child: foreign body.
 - Facial palsy with forehead sparing: treat as central/stroke; forehead involved + ear disease: urgent ENT.
 - Otalgia with a normal ear exam in an adult smoker: referred pain; scope the aerodigestive tract.
+- Stridor, drooling, or respiratory distress is an airway assessment, not a routine clinic scope: have ENT, anesthesia, and airway equipment ready, and never provoke a child with suspected epiglottitis.
+- Immobile vocal fold: image the entire recurrent laryngeal nerve course (skull base to mediastinum).
+- Pooling of secretions or penetration/aspiration on scope: an airway-protection and swallow concern.
 
-### Cases (11)
+### Cases (15)
 
 **Case [case-referred-otalgia]**
 
@@ -1305,7 +1367,46 @@ Stem: A 68-year-old on warfarin reports 2 weeks of muffled hearing and fullness 
 
 Teaching: Cerumen impaction is a symptom-or-obstruction diagnosis, and modifying factors (anticoagulation, diabetes, immunocompromise, prior radiation, a non-intact TM, canal stenosis), not just 'there's wax', should steer the removal technique.
 
-### Flashcards (63)
+**Case [case-hoarseness-scope]**
+
+Stem: A 58-year-old ever-smoker has had 8 weeks of progressive hoarseness and intermittent referred right otalgia. The ear exam is normal.
+
+- Q: What is the next step, and why does the normal ear matter?
+  A: Flexible nasolaryngoscopy. Hoarseness beyond 2-4 weeks in a smoker mandates visualizing the larynx to exclude cancer, and otalgia with a normal ear is referred pain from the aerodigestive tract that the scope can source.
+
+- Q: What finding would most change management?
+  A: A true-vocal-fold lesion or an immobile fold. The latter prompts imaging of the whole recurrent laryngeal nerve course.
+
+Teaching: Persistent hoarseness in a smoker is a scope-first presentation.
+
+**Case [case-unilateral-effusion]**
+
+Stem: A 46-year-old adult has a new unilateral serous middle-ear effusion and occasional blood-streaked nasal mucus.
+
+- Q: Why scope the nasopharynx?
+  A: A unilateral adult middle-ear effusion can be the presenting sign of a nasopharyngeal carcinoma obstructing the Eustachian tube. Flex NPL inspects the fossa of Rosenm&uuml;ller directly.
+
+Teaching: Unilateral adult serous otitis media is a red flag: look at the nasopharynx before treating &ldquo;fluid in the ear.&rdquo;
+
+**Case [case-pediatric-stridor]**
+
+Stem: A 6-week-old has inspiratory stridor that is worse supine and with feeding and improves prone. Growth is normal.
+
+- Q: What bedside study confirms the likely diagnosis?
+  A: Awake flexible nasolaryngoscopy showing dynamic supraglottic collapse confirms laryngomalacia, the most common cause of infant stridor.
+
+Teaching: Flex NPL is the criterion standard for dynamic pediatric airway collapse that static imaging cannot capture.
+
+**Case [case-nasal-route-blocked]**
+
+Stem: A patient with bilateral nasal packing after epistaxis now needs urgent laryngeal visualization for a voice change.
+
+- Q: How can the larynx be examined?
+  A: A trans-oral flexible laryngoscopy adaptor allows a flexible laryngeal view by mouth when the nasal route is blocked.
+
+Teaching: A blocked nose is not an absolute barrier: the trans-oral route keeps flexible laryngoscopy available.
+
+### Flashcards (72)
 
 **[otoscope-pinna]** tags: FN, clinical, milestones: MK1, PC4, UKMLA: Painful ear, reviewer: (none)
 - Front: How do you position the pinna for otoscopy in an adult vs. a young child, and why?
@@ -1633,6 +1734,42 @@ Teaching: Cerumen impaction is a symptom-or-obstruction diagnosis, and modifying
 - Front: Emergency surgical airway access, when the patient can't be intubated or oxygenated, is achieved through the [...], located between the thyroid and cricoid cartilages.
 - Back: Emergency surgical airway access, when the patient can't be intubated or oxygenated, is achieved through the cricothyroid membrane, located between the thyroid and cricoid cartilages. This cricothyroidotomy approach is faster and technically simpler than tracheostomy, the planned surgical airway used once the patient is stabilized.
 - Source: Standard emergency airway management teaching.
+
+**[flexnpl-indications]** tags: FN, clinical, milestones: PC4, MK1, UKMLA: Hoarseness and voice change, reviewer: (none)
+- Front: List the most common indications for flexible nasolaryngoscopy.
+- Back: Hoarseness (>2-4 weeks), chronic cough, globus, and nasal obstruction are the most common. Also dysphagia/odynophagia, stridor or airway concern, neck mass, referred otalgia with a normal ear, unilateral nasal symptoms or epistaxis, suspected foreign body or epiglottitis, and swallow assessment.
+
+**[flexnpl-accuracy]** tags: FN, clinical, milestones: PC4, MK1, reviewer: (none)
+- Front: Why is nasal endoscopy preferred over anterior rhinoscopy for posterior disease?
+- Back: Endoscopy reveals pathology missed on anterior rhinoscopy in about 39% of patients and has higher diagnostic accuracy (~85% vs ~74%). It is also the criterion standard for the posterior nasal cavity and nasopharynx.
+
+**[flexnpl-sequence]** tags: FN, clinical, milestones: PC4, MK1, reviewer: (none)
+- Front: Name the systematic sequence of a complete flex NPL exam.
+- Back: Nasal cavity -> nasopharynx -> oropharynx -> hypopharynx -> larynx -> subglottis. Record anatomy and function: palatal elevation, vocal-fold mobility, penetration/aspiration, subglottic patency, and any mass.
+
+**[flexnpl-prep]** tags: FN, clinical, milestones: PC4, reviewer: (none)
+- Front: Before passing the scope, what two preparatory steps improve success and comfort?
+- Back: Do anterior rhinoscopy first to choose the more patent nasal passage, and warm/defog the tip. Topical decongestant &plusmn; anesthetic is optional and of unproven benefit; keep septal mucosal contact minimal.
+
+**[flexnpl-subglottis]** tags: FN, clinical, milestones: PC4, reviewer: (none)
+- Front: What maneuver improves the subglottic view during transnasal flexible laryngoscopy?
+- Back: A forward &ldquo;sniffing&rdquo; position plus an anterior tongue-pull (grasping the tongue with gauze), which opens the angle to see the lateral and posterior subglottis without topical laryngeal anesthesia.
+
+**[flexnpl-imaging]** tags: FN, clinical, milestones: PC4, MK1, reviewer: (none)
+- Front: When does imaging get added after nasal endoscopy?
+- Back: Endoscopy is first-line. Image selected cases: CT for structural/sinus disease or a complicated course, MRI for soft-tissue or intracranial extension, and CT angiography for recurrent, severe, or posterior epistaxis or a suspected vascular lesion.
+
+**[flexnpl-cancer-yield]** tags: FN, clinical, milestones: PC4, MK1, UKMLA: Hoarseness and voice change, RED FLAG, reviewer: (none)
+- Front: What is the yield of scoping persistent hoarseness, and who is highest risk?
+- Back: Even in primary-care series, roughly 1-2% of scoped patients have a laryngeal cancer, and the risk is significantly higher in ever-smokers with hoarseness. Do not dismiss persistent dysphonia.
+
+**[flexnpl-cautions]** tags: FN, clinical, milestones: PC4, reviewer: (none)
+- Front: Name relative cautions before flexible nasendoscopy.
+- Back: Significant nasal obstruction or pathology, active epistaxis, poorly controlled hypertension, and allergy to topical anesthetic. The main practical limitation is patient tolerance.
+
+**[flexnpl-competence]** tags: FN, clinical, milestones: PC4, reviewer: (none)
+- Front: What supports achieving competence in flex NPL?
+- Back: A laryngeal endoscopy simulator or at least about 6 supervised examinations improves efficacy and patient comfort for the novice.
 
 ---
 
