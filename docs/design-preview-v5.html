@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Flashcards preview</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Work+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --paper:#f3efe6; --cream:#fffdf9; --ink:#1f1d18; --soft:#5c584f; --faint:#857f73; --line:#e4ddcc;
+  --forest:#0f3e17;
+  --sage:#b9dcc0; --slate:#b6ced5; --mint:#d3e8d7; --lime:#e3f4e0;
+  --serif:"Cormorant Garamond",Georgia,serif; --sans:"Work Sans",system-ui,sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{box-sizing:border-box;margin:0}
+body{background:var(--paper);color:var(--ink);font:400 15px/1.5 var(--sans);-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+.sw{position:sticky;top:0;z-index:20;background:#1f1d18;color:#f3efe6;display:flex;gap:6px;padding:8px 16px;font-size:13px;align-items:center}
+.sw span{opacity:.6;margin-right:8px}.sw button{padding:5px 12px;border-radius:6px;color:#d4ccbb}
+.sw button[aria-pressed=true]{background:#f3efe6;color:#1f1d18}
+.view{display:none}.view.on{display:block}
+.wrap{max-width:1000px;margin:0 auto;padding:36px 20px 80px}
+h1{font-family:var(--serif);font-weight:500;font-size:44px;line-height:1.05;letter-spacing:-.01em}
+.sub{color:var(--soft);margin:6px 0 26px}
+
+/* DECK TILES (the layered pastel set) */
+.decks{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.deck{border-radius:14px;padding:24px;min-height:230px;display:flex;flex-direction:column;justify-content:space-between;text-align:left;transition:transform .4s var(--ease)}
+.deck:hover{transform:translateY(-4px)}
+.deck h3{font-family:var(--serif);font-weight:500;font-size:30px;line-height:1.05}
+.deck .due{font-family:var(--serif);font-weight:400;font-size:52px;line-height:1;letter-spacing:-.02em;margin-bottom:2px}
+.deck .due small{display:block;font-family:var(--sans);font-size:12px;color:rgba(15,62,23,.7);letter-spacing:0;margin-top:4px}
+.deck .m{font-size:13px;color:rgba(15,62,23,.72);display:flex;justify-content:space-between;margin-bottom:8px}
+.deck .bar{height:3px;background:rgba(15,62,23,.15);border-radius:3px;overflow:hidden}.deck .bar i{display:block;height:100%;background:var(--forest)}
+.c1{background:var(--sage)}.c2{background:var(--slate)}.c3{background:var(--mint)}.c4{background:var(--lime)}
+.all{margin-top:14px;background:var(--forest);color:#fffefc;border-radius:14px;padding:26px 30px;display:flex;justify-content:space-between;align-items:center}
+.all b{font-family:var(--serif);font-weight:500;font-size:30px}
+.all span{opacity:.75;font-size:14px;margin-left:10px}
+.pill{background:#e3f4e0;color:var(--forest);border-radius:14px;padding:11px 20px;font-weight:600;font-size:14px}
+
+/* REVIEW */
+.rev{max-width:720px;margin:0 auto;padding:26px 20px 90px}
+.top{display:flex;align-items:center;gap:16px;margin-bottom:26px}
+.x{font-size:26px;color:var(--faint);line-height:1}
+.trk{flex:1;height:6px;background:rgba(15,62,23,.12);border-radius:6px;overflow:hidden}.trk i{display:block;height:100%;width:38%;background:var(--forest);border-radius:6px}
+.cnt{font-size:13px;color:var(--soft);font-variant-numeric:tabular-nums}
+.stage{border-radius:18px;padding:18px;background:var(--slate);transition:background .5s}
+.stage[data-t="found"]{background:var(--sage)}.stage[data-t="oto"]{background:var(--slate)}.stage[data-t="rhino"]{background:var(--mint)}.stage[data-t="laryn"]{background:var(--lime)}
+.card{background:var(--cream);border-radius:14px;padding:44px 40px;min-height:300px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:18px}
+.tag{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--forest);background:var(--lime);border-radius:999px;padding:3px 12px}
+.q{font-family:var(--serif);font-weight:500;font-size:34px;line-height:1.2;letter-spacing:-.005em}
+.a{display:none;font-size:17px;line-height:1.6;color:var(--soft);max-width:520px;border-top:1px solid var(--line);padding-top:18px}
+.a li{text-align:left;margin:4px 0}
+.card.rev .a{display:block}
+.show{margin-top:16px;display:flex;justify-content:center}
+.show button{background:var(--forest);color:#fffefc;border-radius:14px;padding:14px 34px;font-weight:600}
+.card.rev ~ * {}
+.rate{display:none;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px}
+.rate button{border-radius:14px;padding:13px 6px;font-weight:600;font-size:14px;display:flex;flex-direction:column;align-items:center;gap:2px;color:var(--forest);transition:transform .25s var(--ease)}
+.rate button:hover{transform:translateY(-2px)}
+.rate small{font-weight:400;font-size:12px;opacity:.75}
+.r1{background:#f3d9cf}.r2{background:#f1e6c8}.r3{background:var(--sage)}.r4{background:#a7d3b0}
+.after .rate{display:grid}.after .show{display:none}
+.deckpick{display:flex;gap:8px;margin:0 0 16px;flex-wrap:wrap}
+.deckpick button{border-radius:999px;padding:6px 14px;font-size:13px;font-weight:500;color:var(--forest);border:1px solid rgba(15,62,23,.2)}
+.deckpick button[aria-pressed=true]{background:var(--forest);color:#fffefc;border-color:var(--forest)}
+.note{margin-top:30px;font-size:13px;color:var(--faint);text-align:center}
+@media(max-width:800px){.decks{grid-template-columns:repeat(2,1fr)}.q{font-size:28px}.card{padding:32px 22px}}
+</style>
+</head>
+<body>
+<div class="sw"><span>Flashcards preview, sample content</span>
+  <button id="b1" aria-pressed="true" onclick="go('decks')">Deck list</button>
+  <button id="b2" aria-pressed="false" onclick="go('rev')">Review a card</button>
+</div>
+
+<div class="view on" id="decks"><div class="wrap">
+  <h1>Flashcards</h1>
+  <p class="sub">Pick a deck, or review everything that is due.</p>
+  <div class="decks">
+    <button class="deck c1"><h3>Foundations</h3><div><div class="due">72<small>cards due</small></div><div class="m"><span>72 cards</span><span>42%</span></div><div class="bar"><i style="width:42%"></i></div></div></button>
+    <button class="deck c2"><h3>Otology</h3><div><div class="due">33<small>cards due</small></div><div class="m"><span>64 cards</span><span>18%</span></div><div class="bar"><i style="width:18%"></i></div></div></button>
+    <button class="deck c3"><h3>Rhinology</h3><div><div class="due">28<small>cards due</small></div><div class="m"><span>58 cards</span><span>0%</span></div><div class="bar"><i style="width:0%"></i></div></div></button>
+    <button class="deck c4"><h3>Laryngology</h3><div><div class="due">12<small>cards due</small></div><div class="m"><span>49 cards</span><span>12%</span></div><div class="bar"><i style="width:12%"></i></div></div></button>
+  </div>
+  <div class="all"><div><b>All due cards</b><span>145 across 13 decks</span></div><button class="pill" onclick="go('rev')">Start review</button></div>
+</div></div>
+
+<div class="view" id="rev"><div class="rev">
+  <div class="top"><button class="x" aria-label="Close">&times;</button><div class="trk"><i></i></div><span class="cnt">7 / 18</span></div>
+  <div class="deckpick" role="group" aria-label="Preview deck color">
+    <button aria-pressed="true" data-t="found">Foundations</button><button aria-pressed="false" data-t="oto">Otology</button><button aria-pressed="false" data-t="rhino">Rhinology</button><button aria-pressed="false" data-t="laryn">Laryngology</button>
+  </div>
+  <div class="stage" id="stage" data-t="found">
+    <div class="card" id="card">
+      <span class="tag" id="tag">Foundations</span>
+      <div class="q">Which findings change the plan from routine follow-up to urgent evaluation?</div>
+      <div class="a"><ul><li>Stridor or a compromised airway</li><li>An immobile vocal fold</li><li>Pooling of secretions or aspiration</li></ul></div>
+    </div>
+  </div>
+  <div id="area">
+    <div class="show"><button onclick="reveal()">Show answer</button></div>
+    <div class="rate"><button class="r1">Again<small>10 min</small></button><button class="r2">Hard<small>1 day</small></button><button class="r3">Good<small>3 days</small></button><button class="r4">Easy<small>7 days</small></button></div>
+  </div>
+  <p class="note">The card area takes the color of its deck, so you always know where you are.</p>
+</div></div>
+
+<script>
+function go(id){['decks','rev'].forEach(function(k){document.getElementById(k).classList.toggle('on',k===id)});
+  document.getElementById('b1').setAttribute('aria-pressed',id==='decks');document.getElementById('b2').setAttribute('aria-pressed',id==='rev');scrollTo(0,0)}
+function reveal(){document.getElementById('card').classList.add('rev');document.getElementById('area').classList.add('after')}
+document.querySelectorAll('.deckpick button').forEach(function(b){b.addEventListener('click',function(){
+  document.querySelectorAll('.deckpick button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});
+  document.getElementById('stage').dataset.t=b.dataset.t;document.getElementById('tag').textContent=b.textContent})});
+</script>
+</body>
+</html>

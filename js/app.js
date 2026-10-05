@@ -1277,6 +1277,75 @@
     });
   }
 
+  /* Home showcase under the hero: a slow marquee of every track (links) and a
+   * panel that cycles through real cards from the deck, question then answer. */
+  function buildHomeShowcase(root, mods) {
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var visible = TRACKS.filter(function (t) { return !t.hidden; });
+    if (visible.length) {
+      var mq = h('<div class="home-marquee"><div class="hm-row"></div></div>');
+      var row = mq.querySelector(".hm-row");
+      [0, 1].forEach(function (copy) {
+        visible.forEach(function (t) {
+          var b = h('<button type="button" class="hm-item">' + esc(t.name) + '</button>');
+          if (copy) { b.setAttribute("aria-hidden", "true"); b.tabIndex = -1; }
+          b.addEventListener("click", function () { goTrack(t.id); });
+          row.appendChild(b);
+        });
+      });
+      if (reduce) mq.classList.add("static");
+      root.appendChild(mq);
+    }
+
+    var pool = [];
+    mods.forEach(function (m) {
+      (m.cards || []).forEach(function (c) {
+        var q = stripHtml(c.front), a = stripHtml(c.back);
+        if (q.length >= 25 && q.length <= 120 && a.length >= 8 && a.length <= 130) pool.push({ track: m.trackName || m.title, q: q, a: a });
+      });
+    });
+    if (pool.length < 3) return;
+    var picks = [];
+    while (picks.length < 8 && pool.length) picks.push(pool.splice(Math.floor(Math.random() * pool.length), 1)[0]);
+    var peek = h(
+      '<section class="home-peek" aria-label="Sample flashcards">' +
+        '<div class="peek-card" role="button" tabindex="0" aria-live="polite">' +
+          '<span class="peek-tag"></span><div class="peek-text"></div><small class="peek-hint"></small>' +
+        '</div></section>'
+    );
+    var card = peek.querySelector(".peek-card"), tag = peek.querySelector(".peek-tag"),
+        txt = peek.querySelector(".peek-text"), hint = peek.querySelector(".peek-hint");
+    var idx = 0, showA = false, paused = false, lastTap = 0;
+    function paint() {
+      var p = picks[idx];
+      tag.textContent = p.track;
+      txt.textContent = showA ? p.a : p.q;
+      hint.textContent = showA ? "Answer" : "Tap to reveal";
+      card.classList.toggle("is-answer", showA);
+    }
+    var busy = false;
+    function swap(fn) {
+      if (reduce) { fn(); paint(); return; }
+      if (busy) return;
+      busy = true;
+      txt.classList.add("out");
+      setTimeout(function () { fn(); paint(); txt.classList.remove("out"); busy = false; }, 320);
+    }
+    function step() { swap(function () { if (!showA) showA = true; else { showA = false; idx = (idx + 1) % picks.length; } }); }
+    card.addEventListener("click", function () { lastTap = Date.now(); step(); });
+    card.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); card.click(); } });
+    ["mouseenter", "focusin"].forEach(function (ev) { card.addEventListener(ev, function () { paused = true; }); });
+    ["mouseleave", "focusout"].forEach(function (ev) { card.addEventListener(ev, function () { paused = false; }); });
+    paint();
+    if (!reduce) {
+      var timer = setInterval(function () {
+        if (!document.body.contains(peek)) { clearInterval(timer); return; }
+        if (!paused && !document.hidden && Date.now() - lastTap > 3000) step();
+      }, 4200);
+    }
+    root.appendChild(peek);
+  }
+
   function renderHome() {
     var allMods = window.JEFFENT.modules;
     var agg = aggregateStats(allMods);
@@ -1373,6 +1442,7 @@
     root.appendChild(bento);
     animateStatCounts(bento);
     animateMasteryRing(bento);
+    buildHomeShowcase(root, allMods);
 
     var sectionHead = h(
       '<div class="section-head"><h2>Browse by subspecialty</h2>' +

@@ -2316,3 +2316,46 @@ div.anatomy-detail-body:not(.panel) li::marker { color: color-mix(in srgb, var(-
   background: color-mix(in srgb, var(--track-color, var(--primary)) 6%, var(--surface)); padding: 24px 28px; margin: 18px 0; }
 .lesson-main > .panel.pearl .panel-actions { right: 20px; top: 20px; }
 .lesson-main > .panel.pearl + .panel { border-top: 0; }
+
+/* Display type: a light, high-contrast serif for page and section titles.
+   font-size-adjust keeps its small x-height at the size the old serif had. */
+:root { --display: "Cormorant Garamond", "Source Serif 4", Georgia, serif; }
+h1, h2, .brand-name, .bento-hero-title, .welcome-wordmark, .tile h3, .study-cta .n, .done-panel .big, .rm-root {
+  font-family: var(--display); font-weight: 500; font-size-adjust: .47; letter-spacing: -.005em; }
+h1 { font-weight: 500; }
+.tile h3 { font-size: 1.35rem; font-weight: 500; line-height: 1.12; }
+
+/* Home: marquee of tracks */
+.home-marquee { overflow: hidden; margin: 26px 0 6px; mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); }
+.hm-row { display: flex; gap: 44px; width: max-content; animation: hmSlide 60s linear infinite; }
+.home-marquee:hover .hm-row, .home-marquee:focus-within .hm-row { animation-play-state: paused; }
+.hm-item { background: none; border: 0; padding: 4px 0; font-family: var(--display); font-weight: 500; font-size-adjust: .47;
+  font-size: 1.45rem; color: var(--ink-soft); white-space: nowrap; transition: color .2s var(--ease-out); }
+.hm-item:hover, .hm-item:focus-visible { color: var(--primary); }
+.home-marquee.static .hm-row { animation: none; }
+@keyframes hmSlide { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .hm-row { animation: none; } .home-marquee { overflow-x: auto; } }
+
+/* Home: cycling sample card */
+.home-peek { background: #b6ced5; border-radius: 14px; padding: 12px; max-width: 560px; margin: 14px auto 8px; }
+:root[data-theme="dark"] .home-peek { background: #21333a; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .home-peek { background: #21333a; } }
+.peek-card { background: var(--surface); border-radius: 10px; width: 100%; padding: 22px 24px; text-align: center; cursor: pointer;
+  display: flex; flex-direction: column; align-items: center; gap: 10px; min-height: 168px; justify-content: center; user-select: none; }
+.peek-card:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
+.peek-tag { font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--primary-deep);
+  background: var(--primary-tint); border-radius: 999px; padding: 3px 11px; }
+.peek-text { font-family: var(--display); font-weight: 500; font-size-adjust: .47; font-size: 1.4rem; line-height: 1.25; color: var(--ink);
+  transition: opacity .32s var(--ease-out), transform .32s var(--ease-out); }
+.peek-text.out { opacity: 0; transform: translateY(8px); }
+.peek-card.is-answer .peek-text { font-family: "Work Sans", system-ui, sans-serif; font-size: 1.05rem; font-weight: 400; line-height: 1.5; color: var(--ink-soft); }
+.peek-hint { color: var(--ink-faint); font-size: 13px; }
+@media (prefers-reduced-motion: reduce) { .peek-text { transition: none; } }
+
+/* Clinical block title reads as a heading; the rows under it read as items. */
+.lesson-main > .panel > h3, .tabpane[data-pane="clinical"] > .panel > h3 {
+  font-family: var(--display); font-size: 2rem; font-weight: 500; font-size-adjust: .47; letter-spacing: -.01em;
+  line-height: 1.1; margin-bottom: 16px; }
+.panel details.organ > summary { font-size: 15px; font-weight: 500; color: var(--ink-soft); }
+.panel details.organ[open] > summary { color: var(--ink); }
