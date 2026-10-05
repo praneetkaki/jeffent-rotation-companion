@@ -984,7 +984,7 @@
    * rotation, color and delay, then removed once the longest animation can
    * possibly have finished. Skipped entirely under prefers-reduced-motion
    * (the toast alone still announces the milestone). */
-  var CONFETTI_COLORS = ["#7fa6ff", "#14b8a6", "#f59e0b", "#f97316", "#f472b6", "#a78bfa"];
+  var CONFETTI_COLORS = ["#0f3e17", "#3f7d5a", "#8fd19c", "#b9dcc0", "#b6ced5", "#a0781f"];
   function fireConfetti() {
     if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     var wrap = document.createElement("div");
@@ -3607,7 +3607,7 @@
 
     var _ownerId = cardOwnerId(card, _ownerMod.id);
     var _note = cardNote(_ownerId, card);
-    var fc = h('<div class="flashcard"></div>');
+    var fc = h('<div class="flashcard"' + (_trk && _trk.color ? ' style="--track-color:' + _trk.color + '"' : '') + '></div>');
     fc.appendChild(h('<div class="card-tags">' + tags + (cardIsEdited(_ownerId, card) ? '<span class="pill edited">Edited</span>' : '') + '</div>'));
     fc.appendChild(h('<div class="card-front">' + effectiveFront(_ownerId, card) + '</div>'));
     var back = h('<div class="card-back hidden">' + effectiveBack(_ownerId, card) + '</div>');
@@ -5489,7 +5489,9 @@
     var fpNote = cardNote(cardOwnerModId, card);
     stage.appendChild(h('<div class="fp-prog"><i style="width:' + Math.round(fp.i / fp.cards.length * 100) + '%"></i></div>'));
     stage.appendChild(h('<div class="fp-count mono">Card ' + (fp.i + 1) + ' of ' + fp.cards.length + '</div>'));
-    var fc = h('<div class="flashcard fp-card"></div>');
+    var _fpMod = card._owner ? window.JEFFENT.get(card._owner) : null;
+    var _fpTrk = (_fpMod && _fpMod.track) ? trackById(_fpMod.track) : null;
+    var fc = h('<div class="flashcard fp-card"' + (_fpTrk && _fpTrk.color ? ' style="--track-color:' + _fpTrk.color + '"' : '') + '></div>');
     fc.appendChild(h('<div class="card-front">' + effectiveFront(cardOwnerModId, card) + '</div>'));
     var back = h('<div class="card-back' + (fp.revealed ? '' : ' hidden') + '">' + effectiveBack(cardOwnerModId, card) + '</div>');
     fc.appendChild(back);

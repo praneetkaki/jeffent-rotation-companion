@@ -2366,3 +2366,28 @@ h1 { font-weight: 500; }
   text-transform: none; color: var(--ink-soft); margin: 20px 10px 6px; }
 .sn-trackrow .sn-badge { background: transparent; }
 .sn-trackrow.active { background: color-mix(in srgb, var(--track-color, var(--primary)) 9%, transparent); }
+
+/* Flashcards (card screen and side panel): flat cream card, light serif question,
+   soft tinted rating buttons, in the same language as the rest of the site. */
+.flashcard { background-image: none; box-shadow: none; border-radius: 14px;
+  border: 1px solid color-mix(in srgb, var(--track-color, var(--primary)) 22%, var(--line)); }
+.flashcard::before { display: none; }
+.card-front { font-family: var(--display); font-weight: 500; font-size-adjust: .47; font-size: 1.6rem; line-height: 1.25; letter-spacing: -.005em; }
+.pill { font-family: "Work Sans", system-ui, sans-serif; font-weight: 600; font-size: 11px; letter-spacing: .06em; text-transform: uppercase;
+  border-radius: 999px; padding: 3px 11px; border: 0; background: var(--primary-tint); color: var(--primary-deep); }
+.card-back { border-top: 1px solid var(--line); }
+.rate { border: 0; border-radius: 14px; font-weight: 600; padding: 12px 22px; min-width: 96px; box-shadow: none;
+  background: var(--primary-tint); color: var(--primary-deep); }
+.rate.again { background: color-mix(in srgb, var(--flag) 14%, var(--surface)); color: color-mix(in srgb, var(--flag) 80%, var(--ink)); border: 0; }
+.rate.good { background: color-mix(in srgb, var(--accent) 22%, var(--surface)); color: var(--primary-deep); border: 0; }
+.rate.easy { background: color-mix(in srgb, var(--good) 26%, var(--surface)); color: color-mix(in srgb, var(--good) 70%, var(--ink)); border: 0; }
+.rate:hover, .rate.again:hover, .rate.good:hover, .rate.easy:hover { transform: translateY(-2px); box-shadow: none; border: 0; filter: brightness(.96); }
+.rate.again:hover { background: color-mix(in srgb, var(--flag) 14%, var(--surface)); color: color-mix(in srgb, var(--flag) 80%, var(--ink)); }
+.rate.good:hover { background: color-mix(in srgb, var(--accent) 22%, var(--surface)); color: var(--primary-deep); }
+.rate.easy:hover { background: color-mix(in srgb, var(--good) 26%, var(--surface)); color: color-mix(in srgb, var(--good) 70%, var(--ink)); }
+.rate:active { transform: translateY(0); }
+.rate small { font-family: "Work Sans", system-ui, sans-serif; font-weight: 400; font-size: 12px; opacity: .75; color: inherit; }
+
+/* Deck color frame: each card sits in a band of its track's color. */
+.flashcard { border: 0; margin: 10px 10px 18px;
+  box-shadow: 0 0 0 10px color-mix(in srgb, var(--track-color, var(--primary)) 20%, var(--surface-2)); }
