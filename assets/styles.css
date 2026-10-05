@@ -1,4 +1,4 @@
-/* JeffENT Rotation Companion, clinical editorial: warm paper + deep teal,
+/* JeffENT Rotation Companion, clinical editorial: warm cream + forest green,
    crisp editorial structure (seam-grid layout, flat surfaces), amber accent,
    semantic red-flag preserved in data even though the UI badges were removed. */
 
@@ -13,29 +13,29 @@ html.theme-crossfade, html.theme-crossfade * {
 :root {
   /* Clinical editorial: warm paper canvas, one deep teal primary, deep teal
      hero. Flat surfaces, hairline borders, warm-tinted shadows. */
-  --ground: #f3efe6;
-  --surface: #fffdf9;
-  --surface-2: #f7f3ea;
-  --ink: #1f1d18;
-  --ink-soft: #5c584f;
-  --ink-faint: #857f73;
-  --line: #e4ddcc;
-  --line-soft: #ece6d8;
-  --primary: #0f766e;
-  --primary-deep: #0a5750;
-  --primary-tint: #e3efec;
-  --accent: #0f8b82;
-  --accent-tint: #e6f2ef;
-  --hero-bg: #0d3b3f;      /* deep teal: hero banner + high-emphasis surfaces */
-  --hero-ink: #f3efe6;
-  --hero-ink-soft: #a9c9c4;
+  --ground: #f6f4ec;
+  --surface: #fffefc;
+  --surface-2: #eef6ec;
+  --ink: #14291a;
+  --ink-soft: #4a6150;
+  --ink-faint: #7a8d7e;
+  --line: #e1e6dc;
+  --line-soft: #e9eee5;
+  --primary: #0f3e17;
+  --primary-deep: #0a2c10;
+  --primary-tint: #e3f4e0;
+  --accent: #3f7d5a;
+  --accent-tint: #d3e8d7;
+  --hero-bg: #0f3e17;      /* forest ink: hero banner + high-emphasis surfaces */
+  --hero-ink: #fffefc;
+  --hero-ink-soft: #b9dcc0;
   --flag: #dc2626;         /* semantic: red-flag / don't-miss */
   --flag-tint: #fef2f2;
   --flag-ink: #ffffff;     /* text/icon color placed directly on --flag; recomputed per theme so it always meets 4.5:1 */
-  --good: #2f855a;
-  --muted-label: #857f73;  /* eyebrow / section-label color, replaces the old amber */
-  --shadow: 0 1px 2px rgba(31,29,24,.04), 0 6px 16px -8px rgba(31,29,24,.10);
-  --shadow-lift: 0 4px 10px rgba(31,29,24,.06), 0 22px 40px -20px rgba(31,29,24,.18);
+  --good: #2f7a4a;
+  --muted-label: #7a8d7e;  /* eyebrow / section-label color, replaces the old amber */
+  --shadow: 0 1px 2px rgba(15,62,23,.04), 0 6px 16px -8px rgba(15,62,23,.10);
+  --shadow-lift: 0 4px 10px rgba(15,62,23,.06), 0 22px 40px -20px rgba(15,62,23,.18);
   --radius: 14px;
   --radius-lg: 18px;
   --sidenav-w: 288px;
@@ -46,39 +46,39 @@ html.theme-crossfade, html.theme-crossfade * {
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
   --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1); /* slight overshoot -- tabs, dropdowns, FAB press */
-  --scroll-tint: #0f766e;  /* light mode: a genuinely saturated blue -- mixed in at a low
+  --scroll-tint: #0f3e17;  /* light mode: a genuinely saturated blue -- mixed in at a low
                                percentage this reads as "tinted", not "went dark/gray" the
                                way a desaturated navy would at the same lightness drop */
   --scroll-progress: 0;    /* 0 at top of page, 1 at bottom -- kept in sync by initScrollTint() in app.js */
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --ground: #0f1514; --surface: #182120; --surface-2: #1e2928;
-    --ink: #ece8dd; --ink-soft: #b3b8ae; --ink-faint: #838a82;
-    --line: #2b3735; --line-soft: #243030;
-    --primary: #5fc4b8; --primary-deep: #8dd8cf; --primary-tint: #17302d;
-    --accent: #6fd0c4; --accent-tint: #173030;
-    --hero-bg: #0a2a2d; --hero-ink: #f3efe6; --hero-ink-soft: #8fb5b0;
+    --ground: #0d1510; --surface: #152019; --surface-2: #1b2a20;
+    --ink: #ebf1e6; --ink-soft: #b4c3b6; --ink-faint: #86968a;
+    --line: #263a2c; --line-soft: #1f3025;
+    --primary: #8fd19c; --primary-deep: #b5e3bd; --primary-tint: #1a3322;
+    --accent: #8fd19c; --accent-tint: #1a3322;
+    --hero-bg: #0b2a11; --hero-ink: #fffefc; --hero-ink-soft: #9cc7a4;
     --flag: #f0847a; --flag-tint: #34211f; --flag-ink: #2b0705;
     --good: #6cd6ab;
-    --muted-label: #838a82;
+    --muted-label: #86968a;
     --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 24px -16px rgba(0,0,0,.5);
-    --scroll-tint: #0a2a2d;  /* dark mode: deep indigo -- blue-hued but darker than --ground, so
+    --scroll-tint: #0b2a11;  /* dark mode: deep indigo -- blue-hued but darker than --ground, so
                                  scrolling down still reads as "deeper", not "brighter" */
   }
 }
 :root[data-theme="dark"] {
-  --ground: #0f1514; --surface: #182120; --surface-2: #1e2928;
-  --ink: #ece8dd; --ink-soft: #b3b8ae; --ink-faint: #838a82;
-  --line: #2b3735; --line-soft: #243030;
-  --primary: #5fc4b8; --primary-deep: #8dd8cf; --primary-tint: #17302d;
-  --accent: #6fd0c4; --accent-tint: #173030;
-  --hero-bg: #0a2a2d; --hero-ink: #f3efe6; --hero-ink-soft: #8fb5b0;
+  --ground: #0d1510; --surface: #152019; --surface-2: #1b2a20;
+  --ink: #ebf1e6; --ink-soft: #b4c3b6; --ink-faint: #86968a;
+  --line: #263a2c; --line-soft: #1f3025;
+  --primary: #8fd19c; --primary-deep: #b5e3bd; --primary-tint: #1a3322;
+  --accent: #8fd19c; --accent-tint: #1a3322;
+  --hero-bg: #0b2a11; --hero-ink: #fffefc; --hero-ink-soft: #9cc7a4;
   --flag: #f0847a; --flag-tint: #34211f; --flag-ink: #2b0705;
   --good: #6cd6ab;
-  --muted-label: #838a82;
+  --muted-label: #86968a;
   --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 24px -16px rgba(0,0,0,.5);
-  --scroll-tint: #0a2a2d;
+  --scroll-tint: #0b2a11;
 }
 
 * { box-sizing: border-box; }
@@ -318,7 +318,7 @@ main.wrap { padding-top: 48px; padding-bottom: 60px; min-height: 60vh; }
 /* The dark hero action card -- sleek gradient + a subtle glass border,
    replacing the old flat --hero-bg fill so it reads as one deliberate
    "premium" surface rather than a plain dark rectangle. */
-.bento-hero { background: linear-gradient(135deg, #0a2a2d 0%, #0d3b3f 60%, #124a4c 100%);
+.bento-hero { background: linear-gradient(135deg, #0a2c10 0%, #0f3e17 60%, #1a5226 100%);
   border: 1px solid rgba(255,255,255,.1); padding: 24px 26px; display: flex; flex-direction: column; gap: 18px;
   cursor: default; min-width: 0; }
 .bento-hero-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; flex-wrap: wrap; }

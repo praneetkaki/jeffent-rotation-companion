@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lesson and module preview</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Work+Sans:wght@300;400;500;600&display=swap">
+<style>
+:root{
+  --cream:#fffefc; --ink:#0f3e17; --soft:#3f5c44; --faint:#7d8f80; --line:#e6e5df;
+  --lime:#e3f4e0; --mint:#d3e8d7; --sage:#b9dcc0; --slate:#b6ced5;
+  --serif:"Cormorant Garamond",Georgia,serif; --sans:"Work Sans",system-ui,sans-serif; --ease:cubic-bezier(.22,1,.36,1); --r:14px;
+}
+*{box-sizing:border-box;margin:0}
+body{background:var(--cream);color:var(--ink);font:400 16px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+.sw{position:sticky;top:0;z-index:30;background:#1f1d18;color:#f3efe6;display:flex;gap:6px;padding:8px 16px;font-size:13px;align-items:center}
+.sw span{opacity:.6;margin-right:8px}.sw button{padding:5px 12px;border-radius:6px;color:#d4ccbb}
+.sw button[aria-pressed=true]{background:#f3efe6;color:#1f1d18}
+.view{display:none}.view.on{display:block}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px 80px}
+.bar{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+.wm{font-family:var(--serif);font-size:30px;font-weight:500;letter-spacing:-.02em}
+.nav{display:flex;gap:24px;font-size:14px}
+.btn{background:var(--ink);color:var(--cream);border-radius:var(--r);padding:11px 18px;font-weight:500;font-size:14px}
+.crumb{font-size:13px;color:var(--soft);margin:6px 0 14px}
+.panel{border-radius:var(--r);padding:34px 36px}
+.display{font-family:var(--serif);font-weight:300;letter-spacing:-.03em;line-height:1.02}
+.tabs{display:flex;gap:8px;margin:18px 0 0;flex-wrap:wrap}
+.tabs a{padding:8px 18px;border-radius:999px;font-size:14px;font-weight:500;color:var(--ink);border:1px solid rgba(15,62,23,.18)}
+.tabs a.on{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+
+/* ===== LESSON ===== */
+.hero{background:var(--sage);display:grid;grid-template-columns:1.3fr 1fr;gap:30px;align-items:end;min-height:220px}
+.hero h1{font-size:clamp(40px,5vw,64px)}
+.hero p{color:var(--soft);font-size:15px}
+.lay{display:grid;grid-template-columns:250px minmax(0,1fr);gap:14px;margin-top:14px;align-items:start}
+.side{background:var(--lime);position:sticky;top:50px}
+.side .lb{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:var(--soft);margin-bottom:4px}
+.side .tm{font-family:var(--serif);font-size:26px;font-weight:400;margin-bottom:16px}
+.side a{display:block;padding:8px 12px;margin:0 -12px;border-radius:10px;font-size:14px;color:var(--soft)}
+.side a.on{background:var(--cream);color:var(--ink);font-weight:500}
+.main .blk{padding:34px 4px 30px;border-top:1px solid var(--line)}.main .blk:first-child{border-top:0;padding-top:12px}
+.blk h2{font-family:var(--serif);font-weight:400;font-size:44px;line-height:1.05;letter-spacing:-.02em;margin-bottom:18px}
+details{border-top:1px solid var(--line)}details:last-of-type{border-bottom:1px solid var(--line)}
+summary{list-style:none;display:flex;justify-content:space-between;align-items:center;padding:14px 2px;cursor:pointer;font-size:15px;font-weight:500;color:var(--soft)}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"";width:8px;height:8px;border-right:2px solid var(--faint);border-bottom:2px solid var(--faint);transform:rotate(45deg) translate(-2px,-2px);transition:transform .25s var(--ease)}
+details[open] summary{color:var(--ink)}details[open] summary::after{transform:rotate(-135deg) translate(-2px,-2px)}
+details p{color:var(--soft);padding:0 2px 16px;max-width:640px}
+.pearl{background:var(--slate);border-radius:var(--r);padding:30px 32px;margin:26px 0}
+.pearl .lb{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;margin-bottom:6px}
+.pearl h2{margin-bottom:12px}
+.pearl ul{padding-left:20px;color:var(--ink)}.pearl li{margin:5px 0}
+
+/* ===== MODULE ===== */
+.mhero{background:var(--mint);display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end}
+.mhero h1{font-size:clamp(40px,5vw,64px)}
+.stats{display:flex;gap:34px}.stats b{display:block;font-family:var(--serif);font-weight:300;font-size:46px;line-height:1;letter-spacing:-.02em}
+.stats span{font-size:12px;color:var(--soft)}
+.fig{background:var(--slate);margin-top:14px;display:grid;place-items:center;padding:30px}
+.fig .img{width:min(560px,100%);aspect-ratio:16/9;border-radius:10px;background:radial-gradient(circle at 50% 40%,#2a3a3d,#121a1c);display:grid;place-items:center;color:#8da0a3;font-size:13px}
+.fig .cap{margin-top:12px;font-size:13px;color:var(--ink)}
+.sech{margin:56px 0 16px}.sech h2{font-family:var(--serif);font-weight:300;font-size:clamp(34px,4vw,52px);letter-spacing:-.03em;line-height:1.05}
+.regs{display:grid;gap:12px}
+.reg{border-radius:var(--r);padding:26px 28px;display:grid;grid-template-columns:200px 1fr 1fr;gap:26px;align-items:start;transition:transform .4s var(--ease)}
+.reg:hover{transform:translateY(-3px)}
+.reg h3{font-family:var(--serif);font-weight:500;font-size:32px;line-height:1.05}
+.reg .k{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:var(--soft);margin-bottom:4px}
+.reg p{font-size:14.5px;color:var(--ink)}
+.g1{background:var(--sage)}.g2{background:var(--mint)}.g3{background:var(--slate)}.g4{background:var(--lime)}.g5{background:#d6e3d0}
+@media(max-width:900px){.hero,.mhero,.reg{grid-template-columns:1fr}.lay{grid-template-columns:1fr}.side{position:static}.nav{display:none}}
+</style>
+</head>
+<body>
+<div class="sw"><span>Preview, sample content</span>
+  <button id="b1" aria-pressed="true" onclick="go('lesson')">Clinical lesson</button>
+  <button id="b2" aria-pressed="false" onclick="go('mod')">Module, Anatomy tab</button>
+</div>
+
+<!-- LESSON -->
+<div class="view on" id="lesson"><div class="wrap">
+  <div class="bar"><div class="wm">JeffENT</div><div class="nav"><a href="#">Curriculum</a><a href="#">Cards</a><a href="#">Cases</a><a href="#">Atlas</a></div><a class="btn" href="#">Review cards</a></div>
+  <div class="crumb">All topics / Foundations</div>
+  <section class="panel hero rv">
+    <div><h1 class="display">Exam, approach and emergencies</h1></div>
+    <div><p>6 min left in this section.</p>
+      <div class="tabs"><a href="#">Anatomy</a><a class="on" href="#">Clinical</a><a href="#">Cases</a><a href="#">Cards</a></div></div>
+  </section>
+  <div class="lay">
+    <aside class="panel side rv" style="--d:.08s;padding:26px 26px">
+      <div class="lb">Foundations, clinical</div><div class="tm">6 min left</div>
+      <a class="on" href="#">A quick, complete ENT exam sequence</a><a href="#">Flex NPL: when to scope</a><a href="#">Flex NPL: technique</a><a href="#">Systematic examination</a><a href="#">Tuning-fork interpretation</a>
+    </aside>
+    <main class="main">
+      <section class="blk rv">
+        <h2>A quick, complete ENT exam sequence</h2>
+        <details><summary>Ears</summary><p>Inspect the pinna and periauricular area. Perform otoscopy of both canals and TMs using the largest comfortable speculum, bracing the hand on the cheek.</p></details>
+        <details><summary>Nose</summary><p>Anterior rhinoscopy with a speculum visualizes only the anterior third: septum, turbinates, mucosa, discharge, and polyps.</p></details>
+        <details open><summary>Oral cavity / oropharynx</summary><p>Remove dentures. Inspect dentition, buccal mucosa, palate, and the ventral and lateral tongue and floor of mouth, the highest-risk oral-cancer sites.</p></details>
+        <details><summary>Nasopharynx / hypopharynx / larynx</summary><p>These subsites cannot be seen on routine exam and require flexible laryngoscopy.</p></details>
+        <details><summary>Neck</summary><p>Systematic palpation of nodal levels I to VI, thyroid, and the parotid and submandibular glands.</p></details>
+        <details><summary>Cranial nerves</summary><p>An itemized screen with left-right comparison. Emphasize CN VII in otologic disease and CN X in voice complaints.</p></details>
+      </section>
+      <section class="pearl rv"><div class="lb">High yield</div><h2>Flex NPL: when to scope</h2>
+        <ul><li>Hoarseness or dysphonia lasting more than 2 to 4 weeks.</li><li>Dysphagia, odynophagia, or globus with red flags.</li><li>Stridor or any airway concern.</li><li>Neck mass, to scope the upper aerodigestive tract for a primary.</li></ul></section>
+    </main>
+  </div>
+</div></div>
+
+<!-- MODULE -->
+<div class="view" id="mod"><div class="wrap">
+  <div class="bar"><div class="wm">JeffENT</div><div class="nav"><a href="#">Curriculum</a><a href="#">Cards</a><a href="#">Cases</a><a href="#">Atlas</a></div><a class="btn" href="#">Review cards</a></div>
+  <div class="crumb">All topics / Foundations</div>
+  <section class="panel mhero rv">
+    <div><h1 class="display">Foundations</h1><div class="tabs"><a class="on" href="#">Anatomy</a><a href="#">Clinical</a><a href="#">Cases</a><a href="#">Cards</a></div></div>
+    <div class="stats"><div><b>72</b><span>cards</span></div><div><b>15</b><span>cases</span></div><div><b>6</b><span>of 14 learned</span></div></div>
+  </section>
+  <section class="panel fig rv" style="--d:.08s"><div class="img">Figure placeholder, double-click to pop out</div><div class="cap">Fig. 1 The five ENT regions.</div></section>
+  <div class="sech rv"><h2>The ENT regions at a glance</h2></div>
+  <div class="regs">
+    <article class="reg g1 rv"><div><div class="k">Region</div><h3>Ear</h3></div><div><div class="k">Key structures</div><p>Auricle and external auditory canal; tympanic membrane; ossicles; Eustachian tube; cochlea and vestibule.</p></div><div><div class="k">High-yield pathologies</div><p>Otitis media and externa, cholesteatoma, hearing loss, vestibular disorders.</p></div></article>
+    <article class="reg g2 rv" style="--d:.06s"><div><div class="k">Region</div><h3>Nose and sinuses</h3></div><div><div class="k">Key structures</div><p>Septum; turbinates and meatuses; frontal, ethmoid, maxillary and sphenoid sinuses.</p></div><div><div class="k">High-yield pathologies</div><p>Rhinosinusitis, epistaxis, septal deviation, nasal polyps.</p></div></article>
+    <article class="reg g3 rv" style="--d:.12s"><div><div class="k">Region</div><h3>Oral cavity and pharynx</h3></div><div><div class="k">Key structures</div><p>Tongue and floor of mouth; tonsils; palate; nasopharynx, oropharynx and hypopharynx.</p></div><div><div class="k">High-yield pathologies</div><p>Tonsillitis, peritonsillar abscess, oral and oropharyngeal cancer.</p></div></article>
+    <article class="reg g4 rv" style="--d:.18s"><div><div class="k">Region</div><h3>Larynx</h3></div><div><div class="k">Key structures</div><p>Epiglottis; thyroid and cricoid cartilages; vocal folds; recurrent laryngeal nerve.</p></div><div><div class="k">High-yield pathologies</div><p>Laryngitis, vocal fold paralysis, laryngeal cancer, airway obstruction.</p></div></article>
+    <article class="reg g5 rv" style="--d:.24s"><div><div class="k">Region</div><h3>Neck</h3></div><div><div class="k">Key structures</div><p>Anterior and posterior triangles; nodal levels I to VII; thyroid, parotid and submandibular glands.</p></div><div><div class="k">High-yield pathologies</div><p>Malignant neck mass, thyroid nodule, deep neck infection.</p></div></article>
+  </div>
+</div></div>
+
+<script>
+function go(id){['lesson','mod'].forEach(function(k){document.getElementById(k).classList.toggle('on',k===id)});
+  document.getElementById('b1').setAttribute('aria-pressed',id==='lesson');document.getElementById('b2').setAttribute('aria-pressed',id==='mod');scrollTo(0,0);watch()}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+function watch(){document.querySelectorAll('.view.on .rv:not(.in)').forEach(function(e){io.observe(e)})}watch();
+</script>
+</body>
+</html>
