@@ -2396,3 +2396,23 @@ h1 { font-weight: 500; }
 :root:not([data-theme="dark"]) .study-cta .btn:not(.ghost):not(.bento-start-btn) { color: var(--hero-bg); }
 :root:not([data-theme="dark"]) .study-cta.pq-misscta .btn:not(.ghost):not(.bento-start-btn) { color: var(--flag-ink); }
 .lesson-hero { background: var(--surface); }
+
+/* Sample card on home: no colored frame, just a hairline card. */
+.home-peek, :root[data-theme="dark"] .home-peek { background: none; padding: 0; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .home-peek { background: none; } }
+.peek-card { border: 1px solid var(--line); border-radius: 14px; }
+
+/* Home list view: same flat, tinted language as the tiles. */
+.feature-row { border-left: 1px solid var(--line); border-radius: 14px; padding: 22px 26px;
+  background: color-mix(in srgb, var(--track-color, var(--primary)) 5%, var(--surface));
+  transition: transform .3s var(--ease-out), border-color .16s var(--ease-out), background-color .16s var(--ease-out); }
+.feature-row:hover { border-left-color: var(--line); transform: translateY(-2px); }
+@media (prefers-reduced-motion: reduce) { .feature-row:hover { transform: none; } }
+.fr-icon { background: transparent; width: 44px; height: 44px; }
+.fr-body h3 { font-family: var(--display); font-weight: 500; font-size-adjust: .47; font-size: 1.55rem; line-height: 1.1; }
+.fr-anchors, .fr-progress .fr-pct, .fr-pill { font-family: "Work Sans", system-ui, sans-serif; }
+.fr-anchors { font-size: 13px; color: var(--ink-soft); }
+.fr-progress .fr-pct { font-size: 12.5px; }
+.fr-pill { font-size: 12px; letter-spacing: .02em; }
+.fr-cta { border: 0; border-radius: 14px; padding: 11px 20px; background: var(--primary-tint); color: var(--primary-deep); }
+.feature-row:hover .fr-cta { background: var(--primary); color: var(--surface); border-color: transparent; }
