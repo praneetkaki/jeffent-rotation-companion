@@ -318,7 +318,7 @@ main.wrap { padding-top: 48px; padding-bottom: 60px; min-height: 60vh; }
 /* The dark hero action card -- sleek gradient + a subtle glass border,
    replacing the old flat --hero-bg fill so it reads as one deliberate
    "premium" surface rather than a plain dark rectangle. */
-.bento-hero { background: linear-gradient(135deg, #0a2c10 0%, #0f3e17 60%, #1a5226 100%);
+.bento-hero { background: linear-gradient(135deg, #061a0a 0%, #0a2c10 60%, #0f3b17 100%);
   border: 1px solid rgba(255,255,255,.1); padding: 24px 26px; display: flex; flex-direction: column; gap: 18px;
   cursor: default; min-width: 0; }
 .bento-hero-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
@@ -1782,9 +1782,9 @@ body.panel-dragging, body.panel-dragging .topbar { transition: none !important; 
 @media (hover: hover) and (pointer: fine) { .note-fig img:hover { transform: scale(1.012); } }
 
 /* Scroll-reveal: only active when JS marks the body (so no-JS keeps everything visible) */
-body.js-motion .reveal-init { opacity: 0; transform: translateY(12px); }
+body.js-motion .reveal-init { opacity: 0; transform: translateY(24px); }
 body.js-motion .reveal-init.in { opacity: 1; transform: none;
-  transition: opacity .5s var(--ease-out), transform .5s var(--ease-out); }
+  transition: opacity .9s var(--ease-out), transform .9s var(--ease-out); }
 /* Small per-group cascade so cards in the same row/grid settle in sequence,
    not all at once -- mirrors the tile-grid's load-in stagger. */
 .roadmap-list .rm-row:nth-child(2), .mod-list .mod-row:nth-child(2) { transition-delay: 50ms; }
@@ -2416,3 +2416,41 @@ h1 { font-weight: 500; }
 .fr-pill { font-size: 12px; letter-spacing: .02em; }
 .fr-cta { border: 0; border-radius: 14px; padding: 11px 20px; background: var(--primary-tint); color: var(--primary-deep); }
 .feature-row:hover .fr-cta { background: var(--primary); color: var(--surface); border-color: transparent; }
+
+/* Headline line reveal (see the headline script at the end of app.js). */
+.lr-ln { display: block; overflow: hidden; padding-bottom: .14em; margin-bottom: -.14em; }
+.lr-ln > span { display: block; transform: translateY(108%); transition: transform 1s var(--ease-out); }
+.lr-in .lr-ln > span { transform: none; }
+
+/* Lessons: accents follow the site's forest green instead of each track's color. */
+.lesson-shell, .lesson-main, .clinical-shell { --track-color: var(--primary); }
+.lesson-nav { --track-color: var(--primary) !important; }
+div.anatomy-detail-body:not(.panel) li::marker { color: var(--accent); }
+.note-h::before { background: var(--primary); }
+.note-h.is-clinical + ul, .note-h.is-clinical + ol { background: var(--primary-tint); border: 0; border-left: 2px solid var(--primary); border-radius: 0 14px 14px 0; }
+.screen .note-fig { border: 1px solid var(--line); box-shadow: none; background: var(--surface); }
+.screen .note-fig:focus-within, .screen .note-fig:hover { border-color: color-mix(in srgb, var(--primary) 35%, var(--line)); }
+.screen .note-fig figcaption { background: transparent; border-top: 1px solid var(--line); }
+.screen .note-fig figcaption::before { font-family: "Work Sans", system-ui, sans-serif; font-size: 11px; letter-spacing: .08em; color: var(--primary); }
+.screen .note-fig::after { background: color-mix(in srgb, var(--primary) 88%, #000); }
+.lesson-outline, .lesson-keypoints { box-shadow: none; border-radius: 14px; border-color: var(--line); }
+
+/* "Test yourself" card: flat, hairline, solid forest icon and button. */
+.topic-study-cta { background: var(--surface); border: 1px solid var(--line); box-shadow: none; border-radius: 14px; }
+.tsc-icon { background: var(--primary); color: var(--surface); border-radius: 10px; }
+.tsc-quick { border-radius: 14px; border-color: var(--line); background: var(--surface-2); }
+.topic-study-cta .n { font-family: var(--display); font-weight: 500; font-size-adjust: .47; font-size: 1.4rem; }
+.tsc-launch { border-radius: 14px; background: var(--primary); border-color: var(--primary); color: var(--surface); }
+.tsc-launch:hover { background: var(--primary-deep); border-color: var(--primary-deep); }
+.tsc-reveal-btn { border-radius: 10px; }
+
+/* Home sample card: answer in the same serif as the question. */
+.peek-card.is-answer .peek-text { font-family: var(--display); font-size-adjust: .47; font-weight: 500; font-size: 1.3rem; line-height: 1.3; color: var(--ink); }
+
+/* Module and lesson screens use the site's forest green for every accent (tabs, back links, kickers, hero edge).
+   Track colors stay on the home tiles, list rows, sidebar and flashcard frames. */
+.screen, .lesson-hero { --track-color: var(--primary) !important; }
+.lesson-kicker { color: var(--ink-soft); }
+
+/* Keep the shorter app name from being cut off by the search box. */
+@media (min-width: 641px) { .brand, .brand > div { flex-shrink: 0; overflow: visible; } .search-wrap { flex-shrink: 1; min-width: 120px; } }

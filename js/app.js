@@ -1,4 +1,4 @@
-/* app.js, view logic for the ENT Rotation Companion.
+/* app.js, view logic for the ENT Companion.
  * Reads window.JEFFENT.tracks + window.JEFFENT.modules and renders the
  * topic-browser UI: a subspecialty-tile Home, a track module list (when a
  * track has more than one module), a tabbed module view
@@ -379,14 +379,14 @@
     root.innerHTML = "";
     var stage = h(
       '<div class="welcome-stage">' +
-        '<button type="button" class="welcome-card" aria-label="Enter ENT Rotation Companion">' +
+        '<button type="button" class="welcome-card" aria-label="Enter ENT Companion">' +
           '<span class="welcome-mark-wrap">' +
             '<span class="welcome-ring" aria-hidden="true"></span>' +
             '<span class="welcome-mark-plate">' +
               '<span class="welcome-mark">' + jeffentMarkSvg("jeffentMarkWelcome", 148) + '</span>' +
             '</span>' +
           '</span>' +
-          '<span class="welcome-wordmark">ENT Rotation Companion</span>' +
+          '<span class="welcome-wordmark">ENT Companion</span>' +
           '<span class="welcome-cta" aria-hidden="true">' +
             '<svg viewBox="0 0 24 24" fill="none" stroke="#05060f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>' +
           '</span>' +
@@ -932,7 +932,7 @@
     crumb.addEventListener("click", goHome);
     root.appendChild(crumb);
     root.appendChild(h('<div class="eyebrow">About this project</div>'));
-    root.appendChild(h('<h1 class="h-lead">ENT Rotation Companion</h1>'));
+    root.appendChild(h('<h1 class="h-lead">ENT Companion</h1>'));
     root.appendChild(h(
       '<div class="about-body">' +
         '<p>Active-recall flashcards, real clinical cases, and anatomy drills anchored to the UKMLA curriculum and ACGME milestones, for every stop on the ENT rotation.</p>' +
@@ -5007,7 +5007,7 @@
     });
   }
   function exportPearlsMarkdown(pearls) {
-    var lines = ["# Saved Pearls (JeffENT Rotation Companion)", ""];
+    var lines = ["# Saved Pearls (JeffENT Companion)", ""];
     pearls.forEach(function (p) {
       lines.push("## " + (p.title || "Untitled"));
       lines.push("_" + (p.moduleTitle || "") + "_");
@@ -5052,7 +5052,7 @@
     });
   }
   function exportLogMarkdown(entries) {
-    var lines = ["# Quick Log (JeffENT Rotation Companion)", ""];
+    var lines = ["# Quick Log (JeffENT Companion)", ""];
     entries.forEach(function (e) { lines.push("- **" + fmtLogDate(e.ts) + "**: " + e.text); });
     downloadTextFile("pocket-log-cases.md", lines.join("\n"), "text/markdown");
   }
@@ -5352,7 +5352,7 @@
          * topbar entirely, so this is the only way back to Home while it's open. */
         '<div class="fp-brandhome" role="button" tabindex="0" aria-label="Go to home">' +
           '<span class="mark" aria-hidden="true"><svg viewBox="0 0 32 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0-6 6c0 2 1 3 1 5a3 3 0 0 0 3 3"></path><path d="M12 3a6 6 0 0 1 6 6c0 3-2 4-2 7a3 3 0 0 1-3 3 3 3 0 0 1-3-3v-1"></path><path d="M19.5 8.5a5 5 0 0 1 0 7"></path><path d="M22.5 6.5a8.5 8.5 0 0 1 0 11"></path></svg></span>' +
-          '<span class="fp-brandhome-name">ENT Rotation Companion</span>' +
+          '<span class="fp-brandhome-name">ENT Companion</span>' +
         '</div>' +
         '<button type="button" class="fp-full icon-btn" data-tip="Full screen (Esc to exit)" aria-label="Open flashcards full screen" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"></path></svg></button>' +
         '<button type="button" class="fp-close icon-btn" data-tip="Close" aria-label="Close flashcards">✕</button>' +
@@ -6139,9 +6139,19 @@
     if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     if (!("IntersectionObserver" in window)) return;
     document.body.classList.add("js-motion");
-    var SEL = ".note-fig, .callout, .case, .tbl-scroll, .tg-card, .study-cta, .bento-tile, .rm-row, .mod-row, .panel, .feature-row";
+    var SEL = ".note-fig, .callout, .case, .tbl-scroll, .tg-card, .study-cta, .bento-tile, .rm-row, .mod-row, .panel, .feature-row, .home-marquee, .home-peek, .section-head, .lesson-hero, .lesson-keypoints, .lesson-outline, .lesson-learned";
     var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+      /* Elements that enter together are staggered, so a group settles in sequence. */
+      var k = 0;
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var t = e.target;
+        t.style.transitionDelay = Math.min(k * 70, 350) + "ms";
+        k++;
+        t.classList.add("in");
+        io.unobserve(t);
+        setTimeout(function () { t.style.transitionDelay = ""; }, 1400);
+      });
     }, { rootMargin: "0px 0px -6% 0px", threshold: 0.04 });
     function mark(el) {
       if (el.classList.contains("reveal-init")) return;
@@ -6153,6 +6163,71 @@
       var r = (root && root.querySelectorAll) ? root : document;
       r.querySelectorAll(SEL).forEach(mark);
       if (root && root.nodeType === 1 && root.matches && root.matches(SEL)) mark(root);
+    }
+    function boot() {
+      scan(document);
+      var app = document.getElementById("app") || document.getElementById("main") || document.body;
+      new MutationObserver(function (muts) {
+        muts.forEach(function (m) {
+          if (!m.addedNodes) return;
+          m.addedNodes.forEach(function (n) { if (n.nodeType === 1) scan(n); });
+        });
+      }).observe(app, { childList: true, subtree: true });
+    }
+    if (document.readyState !== "loading") boot();
+    else document.addEventListener("DOMContentLoaded", boot);
+  } catch (e) { /* motion is non-essential; never block the app */ }
+})();
+
+
+/* ===== Headline line reveal: page titles slide up line by line from behind a
+ * mask. The title is split into measured lines only for the animation and
+ * restored to plain text afterwards, so it reflows normally. Skipped for
+ * reduced motion and for titles that contain markup. ===== */
+(function () {
+  try {
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    var SEL = ".h-lead, .mod-sticky-head h1, .lesson-title, .bento-hero-title";
+    function split(el) {
+      if (el.getAttribute("data-lr")) return;
+      el.setAttribute("data-lr", "1");
+      if (el.children.length) return;
+      var text = el.textContent;
+      if (!text.trim()) return;
+      var words = text.trim().split(/\s+/), spans = [];
+      el.textContent = "";
+      words.forEach(function (w, i) {
+        var s = document.createElement("span");
+        s.textContent = w; s.style.display = "inline-block";
+        el.appendChild(s); spans.push(s);
+        if (i < words.length - 1) el.appendChild(document.createTextNode(" "));
+      });
+      var lines = [], top = null;
+      spans.forEach(function (s) {
+        var t = s.offsetTop;
+        if (top === null || Math.abs(t - top) > 4) { lines.push([]); top = t; }
+        lines[lines.length - 1].push(s.textContent);
+      });
+      el.textContent = "";
+      el.classList.add("lr");
+      lines.forEach(function (ws, i) {
+        var ln = document.createElement("span"), inner = document.createElement("span");
+        ln.className = "lr-ln"; inner.textContent = ws.join(" ");
+        inner.style.transitionDelay = (i * 110) + "ms";
+        ln.appendChild(inner); el.appendChild(ln);
+      });
+      el.setAttribute("aria-label", text.trim());
+      requestAnimationFrame(function () { requestAnimationFrame(function () { el.classList.add("lr-in"); }); });
+      setTimeout(function () {
+        el.classList.remove("lr", "lr-in");
+        el.textContent = text.trim();
+        el.removeAttribute("aria-label");
+      }, 1400 + lines.length * 110);
+    }
+    function scan(root) {
+      var r = (root && root.querySelectorAll) ? root : document;
+      r.querySelectorAll(SEL).forEach(split);
+      if (root && root.nodeType === 1 && root.matches && root.matches(SEL)) split(root);
     }
     function boot() {
       scan(document);

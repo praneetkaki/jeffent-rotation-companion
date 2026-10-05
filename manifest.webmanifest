@@ -1,6 +1,6 @@
 {
-  "name": "ENT Rotation Companion",
-  "short_name": "JeffENT",
+  "name": "ENT Companion",
+  "short_name": "ENT Companion",
   "description": "Active-recall flashcards, cases, and anatomy drills for the ENT rotation.",
   "start_url": "./index.html",
   "scope": "./",
