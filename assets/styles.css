@@ -2391,3 +2391,8 @@ h1 { font-weight: 500; }
 /* Deck color frame: each card sits in a band of its track's color. */
 .flashcard { border: 0; margin: 10px 10px 18px;
   box-shadow: 0 0 0 10px color-mix(in srgb, var(--track-color, var(--primary)) 20%, var(--surface-2)); }
+
+/* Banner buttons: keep the white pill's label readable, and drop the gradient on the lesson header card. */
+:root:not([data-theme="dark"]) .study-cta .btn:not(.ghost):not(.bento-start-btn) { color: var(--hero-bg); }
+:root:not([data-theme="dark"]) .study-cta.pq-misscta .btn:not(.ghost):not(.bento-start-btn) { color: var(--flag-ink); }
+.lesson-hero { background: var(--surface); }
