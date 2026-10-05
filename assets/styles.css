@@ -2359,3 +2359,10 @@ h1 { font-weight: 500; }
   line-height: 1.1; margin-bottom: 16px; }
 .panel details.organ > summary { font-size: 15px; font-weight: 500; color: var(--ink-soft); }
 .panel details.organ[open] > summary { color: var(--ink); }
+
+/* Sidebar: line icons throughout, quieter track badges, serif group label. */
+.sn-ic svg { width: 18px; height: 18px; }
+.sn-label { font-family: var(--display); font-size: .95rem; font-weight: 500; font-size-adjust: .47; letter-spacing: 0;
+  text-transform: none; color: var(--ink-soft); margin: 20px 10px 6px; }
+.sn-trackrow .sn-badge { background: transparent; }
+.sn-trackrow.active { background: color-mix(in srgb, var(--track-color, var(--primary)) 9%, transparent); }

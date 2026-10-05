@@ -168,10 +168,10 @@
   function jeffentMarkSvg(gradId, size) {
     return '<svg viewBox="0 0 120 120" width="' + size + '" height="' + size + '" fill="none">' +
       '<defs><linearGradient id="' + gradId + '" x1="0" y1="1" x2="1" y2="0">' +
-        '<stop offset="0" stop-color="#7fa6ff"/><stop offset="1" stop-color="#2dd4bf"/>' +
+        '<stop offset="0" style="stop-color:var(--accent)"/><stop offset="1" style="stop-color:var(--primary)"/>' +
       '</linearGradient></defs>' +
       '<path d="M46 96c-8-8-14-18-14-34 0-22 14-38 32-38s30 14 30 32c0 14-8 20-14 26-5 5-4 12-12 12-6 0-8-4-8-8M52 62c0-9 6-16 13-16s12 6 12 13c0 8-6 10-9 14" stroke="url(#' + gradId + ')" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>' +
-      '<path d="M16 50c-4 8-4 16 0 24M8 42c-8 12-8 28 0 40" stroke="#7fa6ff" stroke-width="3.5" stroke-linecap="round" opacity=".7"/>' +
+      '<path d="M16 50c-4 8-4 16 0 24M8 42c-8 12-8 28 0 40" stroke="currentColor" style="color:var(--accent)" stroke-width="3.5" stroke-linecap="round" opacity=".7"/>' +
     '</svg>';
   }
 
@@ -4337,17 +4337,17 @@
   function buildSideNav() {
     var nav = el("sidenav"); if (!nav) return;
     nav.innerHTML = "";
-    var home = h('<button type="button" class="sn-item sn-home" data-nav="home"><span class="sn-ic">⌂</span><span>Home</span></button>');
+    var home = h('<button type="button" class="sn-item sn-home" data-nav="home"><span class="sn-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11l8-7 8 7v8a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1z"/></svg></span><span>Home</span></button>');
     home.addEventListener("click", function () { goHome(); closeNav(); });
     nav.appendChild(home);
-    var roadmapNav = h('<button type="button" class="sn-item sn-roadmap" data-nav="roadmap"><span class="sn-ic">🗺</span><span>Curriculum roadmap</span></button>');
+    var roadmapNav = h('<button type="button" class="sn-item sn-roadmap" data-nav="roadmap"><span class="sn-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg></span><span>Curriculum roadmap</span></button>');
     roadmapNav.addEventListener("click", function () { goRoadmap(); closeNav(); });
     nav.appendChild(roadmapNav);
-    var libraryNav = h('<button type="button" class="sn-item sn-library" data-nav="library"><span class="sn-ic">🗃</span><span>Card Library</span></button>');
+    var libraryNav = h('<button type="button" class="sn-item sn-library" data-nav="library"><span class="sn-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="5" rx="1"/><path d="M5 9v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9"/><path d="M10 13h4"/></svg></span><span>Card Library</span></button>');
     libraryNav.addEventListener("click", function () { goCardLibrary(); closeNav(); });
     nav.appendChild(libraryNav);
     if (pimpBank() && (pimpBank().sets || []).length) {
-      var pimpNav = h('<button type="button" class="sn-item sn-pimp" data-nav="pimp"><span class="sn-ic">🎓</span><span>Frequently Asked Questions</span></button>');
+      var pimpNav = h('<button type="button" class="sn-item sn-pimp" data-nav="pimp"><span class="sn-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 .9-1 1.7"/><path d="M12 17h.01"/></svg></span><span>Frequently Asked Questions</span></button>');
       pimpNav.addEventListener("click", function () { goPimp(); closeNav(); });
       nav.appendChild(pimpNav);
     }
