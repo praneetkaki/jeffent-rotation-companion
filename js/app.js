@@ -1241,6 +1241,7 @@
         el.style.display = show ? "" : "none";
       });
     });
+    if (grid && grid._tgLayout) grid._tgLayout();
   }
 
   /* Glides the filter-bar's background pill behind whichever tab is active
@@ -1344,6 +1345,79 @@
       }, 4200);
     }
     root.appendChild(peek);
+  }
+
+  /* Thin grid lines between the home tiles. They sit in the gaps, grow outward
+   * from the middle of the grid, and are driven by scroll position so the
+   * whole grid is ruled by the time it has scrolled into view. Positions are
+   * measured from the visible tiles, so filters and the centered last row
+   * are handled. Drawn complete (no scroll link) for reduced motion. */
+  function initTileGridLines(grid) {
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var layer = document.createElement("div");
+    layer.className = "tg-lines"; layer.setAttribute("aria-hidden", "true");
+    grid.appendChild(layer);
+    var lines = [];
+    function update() {
+      var r = grid.getBoundingClientRect(), vh = window.innerHeight || 800;
+      var p = reduce ? 1 : Math.min(1, Math.max(0, (vh * 0.92 - r.top) / Math.max(1, Math.min(r.height, vh * 0.9))));
+      lines.forEach(function (l) {
+        var t = reduce ? 1 : Math.min(1, Math.max(0, (p - l.rank * 0.6) / 0.4));
+        l.el.style.transform = (l.kind === "h" ? "scaleX(" : "scaleY(") + t + ")";
+        l.el.style.opacity = t > 0 ? "1" : "0";
+      });
+    }
+    function layout() {
+      layer.innerHTML = ""; lines = [];
+      var tiles = Array.prototype.filter.call(grid.querySelectorAll(".tile"), function (t) {
+        return t.style.display !== "none" && t.offsetParent !== null;
+      });
+      if (tiles.length < 2) return;
+      var gap = parseFloat(getComputedStyle(grid).columnGap) || 18;
+      var rows = [];
+      tiles.forEach(function (t) {
+        var last = rows[rows.length - 1];
+        if (last && Math.abs(last.top - t.offsetTop) < 4) last.items.push(t); else rows.push({ top: t.offsetTop, items: [t] });
+      });
+      rows.forEach(function (r) {
+        r.bottom = Math.max.apply(null, r.items.map(function (t) { return t.offsetTop + t.offsetHeight; }));
+      });
+      var minL = Math.min.apply(null, tiles.map(function (t) { return t.offsetLeft; }));
+      var maxR = Math.max.apply(null, tiles.map(function (t) { return t.offsetLeft + t.offsetWidth; }));
+      var cx = (minL + maxR) / 2, cy = (rows[0].top + rows[rows.length - 1].bottom) / 2;
+      function add(kind, x, y, len) {
+        var d = document.createElement("i");
+        d.className = "tg-line " + kind;
+        if (kind === "h") { d.style.left = minL + "px"; d.style.top = y + "px"; d.style.width = (maxR - minL) + "px"; }
+        else { d.style.left = x + "px"; d.style.top = y + "px"; d.style.height = len + "px"; }
+        layer.appendChild(d);
+        var mx = kind === "h" ? cx : x, my = kind === "h" ? y : y + len / 2;
+        lines.push({ el: d, kind: kind, dist: Math.sqrt((mx - cx) * (mx - cx) + (my - cy) * (my - cy)) });
+      }
+      for (var i = 1; i < rows.length; i++) add("h", 0, (rows[i - 1].bottom + rows[i].top) / 2, 0);
+      rows.forEach(function (r, ri) {
+        var y0 = r.top - (ri > 0 ? gap / 2 : 0), y1 = r.bottom + (ri < rows.length - 1 ? gap / 2 : 0);
+        for (var k = 1; k < r.items.length; k++) {
+          var a = r.items[k - 1], b = r.items[k];
+          add("v", (a.offsetLeft + a.offsetWidth + b.offsetLeft) / 2, y0, y1 - y0);
+        }
+      });
+      lines.sort(function (a, b) { return a.dist - b.dist; });
+      lines.forEach(function (l, i) { l.rank = i / Math.max(1, lines.length - 1); });
+      update();
+    }
+    grid._tgLayout = layout;
+    var tick = false;
+    function onScroll() {
+      if (!document.body.contains(grid)) { window.removeEventListener("scroll", onScroll); window.removeEventListener("resize", layout); return; }
+      if (tick) return; tick = true;
+      (window.requestAnimationFrame || setTimeout)(function () { tick = false; update(); });
+    }
+    if (!reduce) window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", layout);
+    if (window.ResizeObserver) new ResizeObserver(layout).observe(grid);
+    (window.requestAnimationFrame || setTimeout)(layout);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(layout);
   }
 
   function renderHome() {
@@ -1513,6 +1587,7 @@
       grid.appendChild(tile);
     });
     root.appendChild(grid);
+    initTileGridLines(grid);
 
     TRACKS.forEach(function (t) {
       var mods = modulesFor(t.id);

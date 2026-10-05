@@ -399,11 +399,12 @@ main.wrap { padding-top: 48px; padding-bottom: 60px; min-height: 60vh; }
 .spark-lbl { font-size: 10px; color: var(--ink-faint); font-family: "JetBrains Mono", monospace; }
 
 /* ---- home: subspecialty tile grid ---- */
-.tile-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 18px; }
+.tile-grid { --cols: 3; position: relative; display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; margin-top: 18px; }
+.tile-grid > .tile { flex: 0 0 calc((100% - (var(--cols) - 1) * 18px) / var(--cols)); min-width: 0; }
 .tile-grid[hidden] { display: none; }
-@media (min-width: 1180px) { .tile-grid { grid-template-columns: repeat(4, 1fr); } }
-@media (max-width: 820px) { .tile-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 520px) { .tile-grid { grid-template-columns: 1fr; } }
+@media (min-width: 1180px) { .tile-grid { --cols: 4; } }
+@media (max-width: 820px) { .tile-grid { --cols: 2; } }
+@media (max-width: 520px) { .tile-grid { --cols: 1; } }
 /* Two-tone card: a faintly tinted banner (icon + badge) over a plain body. */
 .tile { text-align: left; border: 1px solid var(--line); border-radius: var(--radius-lg);
   box-shadow: var(--shadow); background: var(--surface); overflow: hidden;
@@ -2469,3 +2470,9 @@ body.js-motion .lesson-main > .panel.rule-in:not(:first-child):not(.pearl)::afte
 body.js-motion .note-h.rule-in::after { transform: scaleX(1); }
 body.js-motion .section-head.feed-head::after { top: 0; }
 body.js-motion .note-h::before { z-index: 1; }
+
+/* Grid lines between the home tiles (see initTileGridLines in app.js). */
+.tg-lines { position: absolute; inset: 0; pointer-events: none; }
+.tg-line { position: absolute; display: block; background: color-mix(in srgb, var(--primary) 28%, var(--line)); transform-origin: center; will-change: transform; }
+.tg-line.h { height: 1px; }
+.tg-line.v { width: 1px; }
