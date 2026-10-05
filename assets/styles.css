@@ -2454,3 +2454,18 @@ div.anatomy-detail-body:not(.panel) li::marker { color: var(--accent); }
 
 /* Keep the shorter app name from being cut off by the search box. */
 @media (min-width: 641px) { .brand, .brand > div { flex-shrink: 0; overflow: visible; } .search-wrap { flex-shrink: 1; min-width: 120px; } }
+
+/* Self-drawing dividers (see the divider script at the end of app.js). */
+body.js-motion .section-head.feed-head,
+body.js-motion .lesson-main > .panel:not(:first-child):not(.pearl) { border-top-color: transparent; position: relative; }
+body.js-motion .note-h { border-top-color: transparent; }
+body.js-motion .section-head.feed-head::after,
+body.js-motion .lesson-main > .panel:not(:first-child):not(.pearl)::after,
+body.js-motion .note-h::after {
+  content: ""; position: absolute; left: 0; right: 0; top: -1px; height: 1px; background: color-mix(in srgb, var(--primary) 22%, var(--line));
+  transform: scaleX(0); transform-origin: left center; transition: transform 1.3s var(--ease-out); pointer-events: none; }
+body.js-motion .rule-in.section-head.feed-head::after,
+body.js-motion .lesson-main > .panel.rule-in:not(:first-child):not(.pearl)::after,
+body.js-motion .note-h.rule-in::after { transform: scaleX(1); }
+body.js-motion .section-head.feed-head::after { top: 0; }
+body.js-motion .note-h::before { z-index: 1; }

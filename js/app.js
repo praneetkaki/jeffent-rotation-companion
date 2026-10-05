@@ -1445,7 +1445,7 @@
     buildHomeShowcase(root, allMods);
 
     var sectionHead = h(
-      '<div class="section-head"><h2>Browse by subspecialty</h2>' +
+      '<div class="section-head feed-head"><h2>Browse by subspecialty</h2>' +
         '<div class="home-view-toggle" role="group" aria-label="Layout">' +
           '<button type="button" class="hv-btn" data-view="grid" aria-label="Grid view" data-tip="Grid">' +
             '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></svg>' +
@@ -6228,6 +6228,44 @@
       var r = (root && root.querySelectorAll) ? root : document;
       r.querySelectorAll(SEL).forEach(split);
       if (root && root.nodeType === 1 && root.matches && root.matches(SEL)) split(root);
+    }
+    function boot() {
+      scan(document);
+      var app = document.getElementById("app") || document.getElementById("main") || document.body;
+      new MutationObserver(function (muts) {
+        muts.forEach(function (m) {
+          if (!m.addedNodes) return;
+          m.addedNodes.forEach(function (n) { if (n.nodeType === 1) scan(n); });
+        });
+      }).observe(app, { childList: true, subtree: true });
+    }
+    if (document.readyState !== "loading") boot();
+    else document.addEventListener("DOMContentLoaded", boot);
+  } catch (e) { /* motion is non-essential; never block the app */ }
+})();
+
+
+/* ===== Self-drawing dividers: thin rules between sections draw across from
+ * the left as they scroll into view. Only active when body.js-motion is set
+ * (so reduced-motion and no-JS keep the plain static rule). ===== */
+(function () {
+  try {
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!("IntersectionObserver" in window)) return;
+    var SEL = ".section-head.feed-head, .lesson-main > .panel:not(:first-child):not(.pearl), .note-h";
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("rule-in"); io.unobserve(e.target); } });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.01 });
+    function mark(el) {
+      if (el.getAttribute("data-rule")) return;
+      el.setAttribute("data-rule", "1");
+      io.observe(el);
+      setTimeout(function () { el.classList.add("rule-in"); }, 2500); /* fail-safe */
+    }
+    function scan(root) {
+      var r = (root && root.querySelectorAll) ? root : document;
+      r.querySelectorAll(SEL).forEach(mark);
+      if (root && root.nodeType === 1 && root.matches && root.matches(SEL)) mark(root);
     }
     function boot() {
       scan(document);
