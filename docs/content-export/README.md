@@ -1,4 +1,4 @@
-# Content export (generated 2026-10-04)
+# Content export (generated 2026-10-05)
 
 Every piece of module content, extracted from `content/*.js`. Regenerate with `node scripts/extract-content-for-review.js`.
 
@@ -11,7 +11,7 @@ Every piece of module content, extracted from `content/*.js`. Regenerate with `n
 | [abbreviations.md](abbreviations.md) | Key Abbreviations | ~4k chars |
 | [anatomy-atlas.md](anatomy-atlas.md) | Anatomy Atlas | ~38k chars |
 | [emergencies-red-flags.md](emergencies-red-flags.md) | Emergencies & Red Flags | ~66k chars |
-| [ent-exam.md](ent-exam.md) | Foundations: Exam, Approach & Emergencies | ~90k chars |
+| [ent-exam.md](ent-exam.md) | Foundations: Exam, Approach & Emergencies | ~92k chars |
 | [facial-plastics-trauma.md](facial-plastics-trauma.md) | Facial Plastics & Trauma | ~70k chars |
 | [frameworks.md](frameworks.md) | Curriculum framework registry | ~1k chars |
 | [glossary.md](glossary.md) | Glossary (inline term popovers) | ~89k chars |

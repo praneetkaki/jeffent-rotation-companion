@@ -1,6 +1,6 @@
 # Foundations: Exam, Approach & Emergencies
 
-_Generated 2026-10-04 from content/*.js_
+_Generated 2026-10-05 from content/*.js_
 
 > **How to use:** paste a module file below (or ALL.md) into OpenEvidence / any reviewer, followed by an instruction such as
 > "Fact-check every claim against current guidelines, flag anything outdated or wrong, and propose exact replacement wording. Keep our style: no em dashes, plain clinical language."
@@ -220,15 +220,16 @@ _Image source: Skull Base Foramina and Their Cranial Nerves. Radiopaedia._
 
 **[exam-flow] A quick, complete ENT exam sequence**
 
-- Ears: pinna/canal, otoscopy of both TMs, tuning forks if hearing concern.
-- Nose: anterior rhinoscopy: septum, turbinates, mucosa, discharge, polyps.
-- Oral cavity / oropharynx: dentition, tongue (lateral borders), floor of mouth, tonsils, palate elevation (CN IX/X).
-- Neck: systematic nodal levels I-VI (plus level VII, superior mediastinal), thyroid, parotid, salivary glands.
-- Cranial nerves: focused screen, especially CN VII (otologic) and CN X (voice).
+EarsInspect the pinna and periauricular area. Perform otoscopy of both canals and TMs using the largest comfortable speculum, bracing the hand on the cheek (pull the pinna up-and-back in adults, down-and-back in young children). Clear obstructing cerumen first, since the TM cannot be assessed through it. Name the landmarks (cone of light, umbo, manubrium/lateral process of malleus, pars tensa vs. flaccida) and note color, position, translucency, perforation, and mobility. Add pneumatic otoscopy to assess mobility and effusion, and tuning forks (512 Hz) if there is a hearing concern. A new unilateral middle-ear effusion in an adult warrants a nasopharyngeal exam to exclude nasopharyngeal carcinoma.
+NoseAnterior rhinoscopy with a speculum (or otoscope) visualizes only the anterior third: septum (deviation, perforation, spurs), inferior/middle turbinates, mucosa (boggy/pale vs. erythematous), discharge, and polyps. A topical decongestant improves the view when mucosa is edematous. Posterior disease requires endoscopy.
+Oral cavity / oropharynxRemove dentures. Inspect dentition, buccal mucosa, hard/soft palate, and the ventral and lateral tongue and floor of mouth (the highest-risk oral-cancer sites), with bimanual palpation of the floor of mouth and digital palpation of the tongue base and tonsillar fossae. Have the patient open the mouth without protruding the tongue (protrusion obscures the oropharynx), and assess symmetric palatal elevation (CN IX/X). Note tonsillar asymmetry, mass, or ulceration.
+Nasopharynx / hypopharynx / larynxThese subsites, including the Eustachian tube orifices, pyriform sinuses, epiglottis, vocal folds (mobility), and subglottis, cannot be seen on routine exam and require flexible (or mirror) laryngoscopy. An incomplete office exam of a symptomatic patient should prompt referral or endoscopy.
+NeckSystematic palpation of nodal levels I-VI (plus level VII, superior mediastinal), thyroid, and the parotid and submandibular glands. Characterize any mass by size, firmness, mobility/fixation, and location. A nontender, firm, fixed mass is more concerning for malignancy. Avoid mistaking normal structures (hyoid, C2 transverse process, carotid bulb, submandibular gland) for pathology.
+Cranial nervesAn itemized screen: ocular motility (III/IV/VI), facial sensation (V), facial movement including forehead (VII), hearing (VIII), palate elevation and gag (IX/X), vocal fold movement (X/RLN), tongue mobility (XII), and shoulder/SCM elevation (XI), with left-right comparison. Emphasize CN VII in otologic disease and CN X in voice complaints.
 
 **[flex-npl-indications] Flex NPL: when to scope**
 
-Scope whenever the diagnosis cannot be made from history plus anterior rhinoscopy, or a structure beyond their reach must be seen. The most common indications are hoarseness, chronic cough, globus sensation, and nasal obstruction. High-yield indications a sub-I should be able to recite:
+Scope whenever the diagnosis cannot be made from history plus anterior rhinoscopy, or a structure beyond their reach must be seen. The most common indications are hoarseness, chronic cough, globus sensation, and nasal obstruction. High yield indications:
 
 - Hoarseness or dysphonia lasting more than 2-4 weeks (exclude vocal-fold lesion, paralysis, or laryngeal cancer).
 - Dysphagia, odynophagia, or globus with red flags.
@@ -238,6 +239,7 @@ Scope whenever the diagnosis cannot be made from history plus anterior rhinoscop
 - Unexplained unilateral nasal obstruction, epistaxis, or discharge (exclude a sinonasal or nasopharyngeal mass).
 - Suspected foreign body or epiglottitis (in a controlled setting).
 - Aspiration or swallow assessment (the basis of FEES).
+- Pearl: true
 
 **[flex-npl-technique] Flex NPL: technique and preparation**
 
@@ -283,6 +285,7 @@ Worked example: a patient reports a muffled right ear. On Weber, the tone sounds
 | Normal / symmetric | Midline | AC > BC (positive) |
 | Conductive loss, right | Lateralizes to right (affected) | BC > AC (negative) |
 | Sensorineural loss, right | Lateralizes to left (better) | AC > BC (positive) |
+- Pearl: true
 
 **[investigations] Core investigations: what and when**
 

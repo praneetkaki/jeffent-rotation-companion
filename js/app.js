@@ -1413,6 +1413,9 @@
     moveFilterIndicator(filterBar);
     if (homeFilterIndicatorResizeHandler) window.removeEventListener("resize", homeFilterIndicatorResizeHandler);
     homeFilterIndicatorResizeHandler = function () { moveFilterIndicator(filterBar); };
+    /* The bar is still detached (all offsets 0) when it is first measured above, so measure again once it is laid out and the web fonts have settled. */
+    requestAnimationFrame(function () { moveFilterIndicator(filterBar); });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { moveFilterIndicator(filterBar); });
     window.addEventListener("resize", homeFilterIndicatorResizeHandler);
 
     TRACKS.forEach(function (t) {
@@ -2721,7 +2724,7 @@
     var main = showNav ? h('<div class="lesson-main"></div>') : pane;
     blocks.forEach(function (b, i) {
       var anchor = "clinical-block-" + esc(b.id || "");
-      var p = h('<div class="panel" data-anchor="' + anchor + '"><h3>' + esc(b.title) + '</h3>' +
+      var p = h('<div class="panel' + (b.pearl ? ' pearl' : '') + '" data-anchor="' + anchor + '"><h3>' + esc(b.title) + '</h3>' +
         (b.tagline ? '<p class="detail-tagline">' + esc(b.tagline) + '</p>' : '') + '</div>');
       var blockText = stripHtml(b.html || "");
       var blockActions = h('<div class="panel-actions"></div>');
@@ -4859,12 +4862,8 @@
 
   var pocketLog = { tab: "pearls" };
   function initPocketLog() {
-    var tabBtn = document.createElement("button");
-    tabBtn.type = "button"; tabBtn.id = "pocketLogTab"; tabBtn.className = "pocketlog-tab";
-    tabBtn.setAttribute("aria-label", "Open OR Pocket Log"); tabBtn.setAttribute("aria-expanded", "false");
-    tabBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1Z"/></svg><span>Pocket Log</span>';
-    document.body.appendChild(tabBtn);
-    tabBtn.addEventListener("click", togglePocketLog);
+    var tabBtn = el("pocketLogTab");
+    if (tabBtn) tabBtn.addEventListener("click", togglePocketLog);
 
     var aside = document.createElement("aside");
     aside.id = "pocketLogPanel"; aside.className = "pocketlog-panel"; aside.setAttribute("aria-label", "OR Pocket Log");
