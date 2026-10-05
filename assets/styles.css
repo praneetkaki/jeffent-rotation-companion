@@ -2476,3 +2476,29 @@ body.js-motion .note-h::before { z-index: 1; }
 .tg-line { position: absolute; display: block; background: color-mix(in srgb, var(--primary) 28%, var(--line)); transform-origin: center; will-change: transform; }
 .tg-line.h { height: 1px; }
 .tg-line.v { width: 1px; }
+
+/* Tooltips from the top bar must stay readable above the flashcards panel. */
+body.flash-open .topbar { z-index: 25; }
+
+/* Custom dropdown: soft rounded trigger, floating menu, check on the chosen option. */
+.csel-trigger, .csel-trigger.mono { font-family: "Work Sans", system-ui, sans-serif; font-size: 14px; font-weight: 500;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 11px 14px;
+  transition: border-color .18s var(--ease-out), box-shadow .18s var(--ease-out); }
+.csel-trigger:hover { border-color: color-mix(in srgb, var(--primary) 40%, var(--line)); }
+.csel-trigger:focus-visible, .csel.open .csel-trigger { border-color: var(--primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 16%, transparent); }
+.csel-chev { font-size: 0; width: 8px; height: 8px; margin-right: 2px; border-right: 1.6px solid var(--ink-soft); border-bottom: 1.6px solid var(--ink-soft);
+  transform: rotate(45deg) translate(-2px, -2px); transition: transform .2s var(--ease-out); }
+.csel.open .csel-chev { transform: rotate(-135deg) translate(-2px, -2px); }
+.csel-list { border-radius: 14px; border: 1px solid var(--line); padding: 6px; max-height: 300px;
+  box-shadow: 0 22px 44px -18px color-mix(in srgb, var(--primary) 34%, rgba(0,0,0,.2)), 0 2px 8px rgba(0,0,0,.05);
+  scrollbar-width: thin; scrollbar-color: var(--line) transparent; animation: cselIn .16s var(--ease-out); transform-origin: top center; }
+@keyframes cselIn { from { opacity: 0; transform: translateY(-4px) scale(.985); } to { opacity: 1; transform: none; } }
+.csel-opt { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 12px; border-radius: 10px;
+  font-size: 14px; color: var(--ink-soft); transition: background-color .12s var(--ease-out), color .12s var(--ease-out); }
+.csel-opt:hover, .csel-opt:focus-visible { background: color-mix(in srgb, var(--primary) 7%, var(--surface)); color: var(--ink); }
+.csel-opt.active { background: var(--primary-tint); color: var(--primary-deep); font-weight: 600; }
+.csel-opt.active::after { content: ""; flex: 0 0 auto; width: 5px; height: 10px; margin-right: 3px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg) translateY(-1px); }
+.fp-scope .csel-trigger { font-size: 13px; padding: 9px 12px; border-radius: 12px; background: var(--surface); }
+.fp-scope .csel-list { font-size: 13px; }
+@media (prefers-reduced-motion: reduce) { .csel-list { animation: none; } }

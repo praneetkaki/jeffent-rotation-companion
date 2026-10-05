@@ -6185,8 +6185,10 @@
     if (ACTIVE_RECALL_ENABLED) initActiveRecall();
     bumpStreak();
     var brand = el("brandHome");
-    on(brand, "click", goHome);
-    on(brand, "keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); goHome(); } });
+    /* In full-screen flashcards the panel would otherwise stay up over the home page, so leave it first. */
+    function brandGoHome() { if (document.body.classList.contains("flash-full")) closeFlash(); goHome(); }
+    on(brand, "click", brandGoHome);
+    on(brand, "keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); brandGoHome(); } });
     goHome();
     navStack = [];
     updateBackButton();
