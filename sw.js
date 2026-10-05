@@ -11,7 +11,7 @@
  * first time it's actually fetched, so this file never needs updating
  * just because index.html's cache-busting ?v= query strings changed.
  */
-var CACHE_NAME = "jeffent-cache-v1";
+var CACHE_NAME = "jeffent-cache-v2";
 
 self.addEventListener("install", function (event) {
   self.skipWaiting();
