@@ -2502,3 +2502,6 @@ body.flash-open .topbar { z-index: 25; }
 .fp-scope .csel-trigger { font-size: 13px; padding: 9px 12px; border-radius: 12px; background: var(--surface); }
 .fp-scope .csel-list { font-size: 13px; }
 @media (prefers-reduced-motion: reduce) { .csel-list { animation: none; } }
+
+/* Lesson text runs the full width of the header card and tables, so the right edges line up. */
+div.anatomy-detail-body:not(.panel) > p, div.anatomy-detail-body:not(.panel) > ul, div.anatomy-detail-body:not(.panel) > ol { max-width: none; }
