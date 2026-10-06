@@ -2316,9 +2316,38 @@
   }
 
   var lessonSpy = null;
+  // Turns the figure + bullets + table pattern into a two-column intro and titled sections.
+  function structureLessonBody(body) {
+    var kids = [].slice.call(body.children);
+    var fig = kids[0], list = kids[1];
+    if (fig && list && fig.classList.contains("fig-row") && list.tagName === "UL") {
+      var intro = document.createElement("div");
+      intro.className = "note-intro";
+      body.insertBefore(intro, fig);
+      list.classList.add("note-points");
+      intro.appendChild(fig);
+      intro.appendChild(list);
+    }
+    [].slice.call(body.children).forEach(function (c) {
+      var next = c.nextElementSibling;
+      if (c.tagName !== "P" || !next || !next.classList.contains("tbl-scroll")) return;
+      var st = c.firstElementChild;
+      if (!st || st.tagName !== "STRONG") return;
+      var hd = document.createElement("h3");
+      hd.className = "note-sec-h";
+      hd.textContent = st.textContent.replace(/[:.,]\s*$/, "");
+      st.parentNode.removeChild(st);
+      var rest = c.textContent.replace(/^[\s,:]+/, "").replace(/^\(/, "").replace(/\)?:?\s*$/, "");
+      body.insertBefore(hd, c);
+      if (rest) { c.className = "note-sec-sub"; c.textContent = rest.charAt(0).toUpperCase() + rest.slice(1) + "."; }
+      else body.removeChild(c);
+    });
+  }
+
   function enhanceLessonBody(main, noteItem) {
     var body = main.querySelector(".anatomy-detail-body");
     if (!body) return;
+    structureLessonBody(body);
     var heads = [];
     [].slice.call(body.children).forEach(function (c) {
       var isHead = /^H[2-4]$/.test(c.tagName) ||

@@ -2505,3 +2505,23 @@ body.flash-open .topbar { z-index: 25; }
 
 /* Lesson text runs the full width of the header card and tables, so the right edges line up. */
 div.anatomy-detail-body:not(.panel) > p, div.anatomy-detail-body:not(.panel) > ul, div.anatomy-detail-body:not(.panel) > ol { max-width: none; }
+
+/* Lesson structure: two-column intro, titled sections, roomier tables. */
+.note-intro { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 28px; align-items: center; margin: 4px 0 8px; }
+.note-intro .fig-row { margin: 0; justify-content: center; }
+.note-intro .fig-row .note-fig { flex: 1 1 auto; max-width: 100%; }
+.note-intro .fig-row .note-fig img { max-height: 320px; }
+div.anatomy-detail-body:not(.panel) > ul.note-points, div.anatomy-detail-body ul.note-points { list-style: none; margin: 0; padding: 0; max-width: none; display: grid; gap: 10px; }
+.note-points li { margin: 0; padding: 14px 18px; background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--primary); border-radius: var(--radius); line-height: 1.55; }
+.note-points li::marker { content: ""; }
+.note-sec-h { font-family: var(--display); font-weight: 500; font-size: 28px; line-height: 1.15; margin: 56px 0 6px; padding-top: 28px; border-top: 1px solid var(--line); color: var(--ink); }
+.note-sec-sub { margin: 0 0 14px; color: var(--ink-soft); }
+.anatomy-detail-body .tbl-scroll table { border-collapse: separate; border-spacing: 0; }
+.anatomy-detail-body .tbl-scroll th { padding: 14px 16px; white-space: nowrap; }
+.anatomy-detail-body .tbl-scroll td { padding: 16px; line-height: 1.55; vertical-align: top; border-top: 1px solid var(--line); }
+.anatomy-detail-body .tbl-scroll td:first-child { font-weight: 600; color: var(--primary-deep); white-space: nowrap; }
+@media (max-width: 760px) { .note-intro { grid-template-columns: 1fr; } .note-sec-h { font-size: 28px; margin-top: 40px; } }
+.anatomy-detail-body .tbl-scroll td, .anatomy-detail-body .tbl-scroll th { min-width: 170px; }
+.anatomy-detail-body .tbl-scroll td:first-child, .anatomy-detail-body .tbl-scroll th:first-child { min-width: 150px; }
+.anatomy-detail-body .tbl-scroll td:last-child, .anatomy-detail-body .tbl-scroll th:last-child { min-width: 300px; }
+.anatomy-detail-body .tbl-scroll td:nth-last-child(2), .anatomy-detail-body .tbl-scroll th:nth-last-child(2) { min-width: 240px; }
