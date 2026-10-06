@@ -2328,9 +2328,42 @@
       intro.appendChild(fig);
       intro.appendChild(list);
     }
+    // Wide tables (many columns) become one card per row so nothing is cut off or needs sideways scrolling.
+    [].slice.call(body.querySelectorAll(".tbl-scroll")).forEach(function (wrap) {
+      var table = wrap.querySelector("table");
+      var ths = table ? [].slice.call(table.querySelectorAll("thead th")) : [];
+      if (ths.length < 6 || wrap.parentNode !== body) return;
+      table.dataset.listified = "1";
+      var cards = document.createElement("div");
+      cards.className = "lvl-cards";
+      [].slice.call(table.querySelectorAll("tbody tr")).forEach(function (tr) {
+        var cells = [].slice.call(tr.children);
+        var card = document.createElement("article");
+        card.className = "lvl-card";
+        var head = document.createElement("h4");
+        head.className = "lvl-title";
+        while (cells[0].firstChild) head.appendChild(cells[0].firstChild);
+        card.appendChild(head);
+        var grid = document.createElement("dl");
+        grid.className = "lvl-grid";
+        var col = 1;
+        cells.slice(1).forEach(function (td) {
+          var span = td.colSpan || 1, labels = [];
+          for (var k = 0; k < span; k++) if (ths[col + k]) labels.push(ths[col + k].textContent);
+          col += span;
+          var dt = document.createElement("dt"); dt.textContent = labels.join(" / ");
+          var dd = document.createElement("dd");
+          while (td.firstChild) dd.appendChild(td.firstChild);
+          var f = document.createElement("div"); f.className = "lvl-f"; f.appendChild(dt); f.appendChild(dd); grid.appendChild(f);
+        });
+        card.appendChild(grid);
+        cards.appendChild(card);
+      });
+      body.replaceChild(cards, wrap);
+    });
     [].slice.call(body.children).forEach(function (c) {
       var next = c.nextElementSibling;
-      if (c.tagName !== "P" || !next || !next.classList.contains("tbl-scroll")) return;
+      if (c.tagName !== "P" || !next || !(next.classList.contains("tbl-scroll") || next.classList.contains("lvl-cards"))) return;
       var st = c.firstElementChild;
       if (!st || st.tagName !== "STRONG") return;
       var hd = document.createElement("h3");
