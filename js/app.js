@@ -2328,17 +2328,21 @@
       intro.appendChild(fig);
       intro.appendChild(list);
     }
-    [].slice.call(body.children).forEach(function (c) {
+    titleTables(body);
+  }
+
+  // A short bold-only line right above a table becomes that table's section heading.
+  function titleTables(container) {
+    [].slice.call(container.children).forEach(function (c) {
       var next = c.nextElementSibling;
-      if (c.tagName !== "P" || !next || !(next.classList.contains("tbl-scroll"))) return;
+      if (c.tagName !== "P" || !next || !next.classList.contains("tbl-scroll")) return;
       var st = c.firstElementChild;
-      if (!st || st.tagName !== "STRONG") return;
+      if (!st || st.tagName !== "STRONG" || c.textContent.trim().length > 90) return;
       var hd = document.createElement("h3");
       hd.className = "note-sec-h";
-      hd.textContent = st.textContent.replace(/[:.,]\s*$/, "").replace(/,\s*defined by .*$/, "");
-      st.parentNode.removeChild(st);
-      body.insertBefore(hd, c);
-      body.removeChild(c);
+      hd.textContent = st.textContent.replace(/[:.,]\s*$/, "");
+      container.insertBefore(hd, c);
+      container.removeChild(c);
     });
   }
 
@@ -5950,6 +5954,7 @@
    * table benefits with no content changes. */
   function enhanceReferenceTables(root) {
     if (!root) return;
+    [].slice.call(root.querySelectorAll(".panel > div")).forEach(titleTables);
     root.querySelectorAll("table").forEach(function (table) {
       /* The 2-Minute Procedure Prep quick-matcher is a live, JS-filtered
          table (search input toggles row.hidden by reference) -- rewriting

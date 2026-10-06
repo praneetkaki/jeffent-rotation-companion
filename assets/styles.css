@@ -2516,16 +2516,20 @@ div.anatomy-detail-body:not(.panel) > ul.note-points, div.anatomy-detail-body ul
 .note-points li::marker { content: ""; }
 .note-sec-h { font-family: var(--display); font-weight: 500; font-size: 28px; line-height: 1.15; margin: 56px 0 6px; padding-top: 28px; border-top: 1px solid var(--line); color: var(--ink); }
 .note-sec-sub { margin: 0 0 14px; color: var(--ink-soft); }
-.anatomy-detail-body .tbl-scroll table { border-collapse: separate; border-spacing: 0; }
-.anatomy-detail-body .tbl-scroll th { padding: 14px 16px; white-space: nowrap; }
-.anatomy-detail-body .tbl-scroll td { padding: 16px; line-height: 1.55; vertical-align: top; border-top: 1px solid var(--line); }
-.anatomy-detail-body .tbl-scroll td:first-child { font-weight: 600; color: var(--primary-deep); white-space: nowrap; }
+.tbl-scroll table { border-collapse: separate; border-spacing: 0; }
+.tbl-scroll th { padding: 14px 16px; white-space: nowrap; }
+.tbl-scroll td { padding: 16px; line-height: 1.55; vertical-align: top; border-top: 1px solid var(--line); }
+.tbl-scroll td:first-child { font-weight: 600; color: var(--primary-deep); white-space: nowrap; }
 @media (max-width: 760px) { .note-intro { grid-template-columns: 1fr; } .note-sec-h { font-size: 28px; margin-top: 40px; } }
 /* Wide lesson tables fill the column and wrap; if still too wide they scroll with a visible bar and edge fade, never a silent cut-off. */
-.anatomy-detail-body .tbl-scroll { overflow-x: auto; scrollbar-width: thin; scrollbar-color: var(--ink-faint) transparent; padding-bottom: 2px;; }
-.anatomy-detail-body .tbl-scroll table { width: 100%; font-size: 14px; }
-.anatomy-detail-body .tbl-scroll th, .anatomy-detail-body .tbl-scroll td { min-width: 112px; padding: 12px 14px; }
-.anatomy-detail-body .tbl-scroll td:first-child, .anatomy-detail-body .tbl-scroll th:first-child { min-width: 130px; }
-.anatomy-detail-body .tbl-scroll td:last-child { min-width: 180px; }
-.anatomy-detail-body .tbl-scroll::-webkit-scrollbar { height: 8px; }
-.anatomy-detail-body .tbl-scroll::-webkit-scrollbar-thumb { background: var(--ink-faint); border-radius: 8px; }
+.tbl-scroll { overflow-x: auto; scrollbar-width: thin; scrollbar-color: var(--ink-faint) transparent; padding-bottom: 2px;; }
+.tbl-scroll table { width: 100%; font-size: 14px; }
+.tbl-scroll th, .tbl-scroll td { min-width: 112px; padding: 12px 14px; }
+.tbl-scroll td:first-child, .tbl-scroll th:first-child { min-width: 130px; }
+.tbl-scroll td:last-child { min-width: 180px; }
+.tbl-scroll::-webkit-scrollbar { height: 8px; }
+.tbl-scroll::-webkit-scrollbar-thumb { background: var(--ink-faint); border-radius: 8px; }
+
+.tbl-scroll:has(.proc-matcher-table) { scrollbar-width: auto; }
+.tbl-scroll td:first-child, .tbl-scroll th:first-child { white-space: normal; }
+.panel .note-sec-h { margin-top: 40px; font-size: 24px; }
