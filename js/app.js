@@ -2335,12 +2335,10 @@
       if (!st || st.tagName !== "STRONG") return;
       var hd = document.createElement("h3");
       hd.className = "note-sec-h";
-      hd.textContent = st.textContent.replace(/[:.,]\s*$/, "");
+      hd.textContent = st.textContent.replace(/[:.,]\s*$/, "").replace(/,\s*defined by .*$/, "");
       st.parentNode.removeChild(st);
-      var rest = c.textContent.replace(/^[\s,:]+/, "").replace(/^\(/, "").replace(/\)?:?\s*$/, "");
       body.insertBefore(hd, c);
-      if (rest) { c.className = "note-sec-sub"; c.textContent = rest.charAt(0).toUpperCase() + rest.slice(1) + "."; }
-      else body.removeChild(c);
+      body.removeChild(c);
     });
   }
 

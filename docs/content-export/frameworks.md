@@ -1,6 +1,6 @@
 # Curriculum framework registry
 
-_Generated 2026-10-05 from content/*.js_
+_Generated 2026-10-06 from content/*.js_
 
 > **How to use:** paste a module file below (or ALL.md) into OpenEvidence / any reviewer, followed by an instruction such as
 > "Fact-check every claim against current guidelines, flag anything outdated or wrong, and propose exact replacement wording. Keep our style: no em dashes, plain clinical language."
