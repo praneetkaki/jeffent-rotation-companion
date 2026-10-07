@@ -1,6 +1,6 @@
 # Foundations: Exam, Approach & Emergencies
 
-_Generated 2026-10-06 from content/*.js_
+_Generated 2026-10-07 from content/*.js_
 
 > **How to use:** paste a module file below (or ALL.md) into OpenEvidence / any reviewer, followed by an instruction such as
 > "Fact-check every claim against current guidelines, flag anything outdated or wrong, and propose exact replacement wording. Keep our style: no em dashes, plain clinical language."
@@ -19,7 +19,7 @@ _Generated 2026-10-06 from content/*.js_
 **The ENT regions at a glance** (tags: Five ENT regions)
 
 [figure: Overview map of the five linked ENT anatomical regions (ear, nose/sinuses, oral cavity/pharynx, larynx, neck).]ENT anatomy breaks down into five linked regions.
-RegionKey structuresHigh-yield pathologiesEarAuricle (pinna) and external auditory canal; tympanic membrane; ossicles (malleus, incus, stapes); Eustachian tube; cochlea, vestibule, semicircular canals; CN VII and CN VIIIAOM/OME, cholesteatoma, otosclerosis, sudden SNHL, vestibular schwannoma, BPPVNose & paranasal sinusesSeptum; inferior/middle/superior turbinates and their meatuses; frontal, ethmoid, maxillary, and sphenoid sinuses; ostiomeatal complex; cribriform plateEpistaxis, chronic rhinosinusitis, nasal polyps, CSF leak, sinonasal malignancyOral cavity & pharynxTongue and floor of mouth; palatine, lingual, and pharyngeal (adenoid) tonsils (Waldeyer's ring); soft and hard palate; naso-, oro-, and hypopharynxTonsillitis / peritonsillar abscess, OSA, oropharyngeal (HPV-related) cancer, nasopharyngeal carcinomaLarynxEpiglottis; thyroid and cricoid cartilages; true and false vocal folds; recurrent laryngeal and superior laryngeal nervesLaryngitis, vocal-fold paralysis, laryngeal cancer, epiglottitis, croupNeckAnterior/posterior triangles (sternocleidomastoid); nodal levels I-VII; thyroid, parotid, and submandibular glandsMalignant neck mass, thyroid nodule, sialadenitis/salivary stones, deep neck space infectionThe nasal septum divides the nasal cavity in the midline; the meatuses are the grooves beneath each turbinate that the sinuses drain into. The salivary glands (parotid, submandibular, sublingual, plus hundreds of minor glands) sit at the crossroads of the oral cavity and neck. The epiglottis is the cartilage leaf that folds down to protect the airway on swallowing -- the hinge between the pharynx above and the larynx below.
+RegionKey structuresHigh-yield pathologiesEarAuricle (pinna) and external auditory canal; tympanic membrane; ossicles (malleus, incus, stapes); Eustachian tube; cochlea, vestibule, semicircular canals; CN VII and CN VIIIAOM/OME, cholesteatoma, otosclerosis, sudden SNHL, vestibular schwannoma, BPPVNose & paranasal sinusesSeptum; inferior/middle/superior turbinates and their meatuses; frontal, ethmoid, maxillary, and sphenoid sinuses; ostiomeatal complex; cribriform plateEpistaxis, chronic rhinosinusitis, nasal polyps, CSF leak, sinonasal malignancyOral cavity & pharynxTongue and floor of mouth; palatine, lingual, pharyngeal (adenoid), and tubal tonsils (Waldeyer's ring); soft and hard palate; naso-, oro-, and hypopharynxTonsillitis / peritonsillar abscess, OSA, oropharyngeal (HPV-related) cancer, nasopharyngeal carcinomaLarynxEpiglottis; thyroid and cricoid cartilages; true and false vocal folds; recurrent laryngeal and superior laryngeal nervesLaryngitis, vocal-fold paralysis, laryngeal cancer, epiglottitis, croupNeckAnterior/posterior triangles (sternocleidomastoid); nodal levels I-VII; thyroid, parotid, and submandibular glandsMalignant neck mass, thyroid nodule, sialadenitis/salivary stones, deep neck space infectionThe nasal septum divides the nasal cavity in the midline; the meatuses are the grooves beneath each turbinate that the sinuses drain into. The salivary glands (parotid, submandibular, sublingual, plus hundreds of minor glands) sit at the crossroads of the oral cavity and neck. The epiglottis is the cartilage leaf that folds down to protect the airway on swallowing -- the hinge between the pharynx above and the larynx below.
 
 **Cranial nerves** (tags: Cranial nerves · Skull-base exit · Function)
 
@@ -39,15 +39,16 @@ NerveSkull base exitTypeFunctionIf injuredI &middot; OlfactoryCribriform plateSe
 - Epiglottis: the cartilage leaf that folds down over the laryngeal inlet to protect the airway on swallowing.
 - Cartilage framework -- unpaired: thyroid (the largest, forms the laryngeal prominence/Adam's apple), cricoid (the only complete cartilage ring in the airway), and the epiglottis itself. Paired: arytenoid (the vocal folds attach to these and they rotate/slide to open and close the airway), plus the small corniculate and cuneiform cartilages sitting within the aryepiglottic folds.
 - True vs false vocal folds: the true vocal folds (vocal cords) sit below the false vocal folds (also called the vestibular folds), separated by the ventricle (of Morgagni). Only the true folds vibrate to produce voice; the false folds protect the airway but don't normally phonate.
+- Bilateral injury: unilateral RLN injury causes hoarseness, but bilateral injury leaves the folds adducted and can cause stridor and airway obstruction needing urgent airway control.
 - Nerve supply: the recurrent laryngeal nerve (RLN) supplies every intrinsic laryngeal muscle except one (cricothyroid) -- both motor to those muscles and sensation below the vocal folds. Its long course through the chest and around the aorta (left) or subclavian artery (right) before ascending back to the larynx explains hoarseness from lung, thyroid, or mediastinal disease along that path. The external branch of the superior laryngeal nerve (EBSLN) supplies the cricothyroid muscle alone (pitch control); the internal branch of the superior laryngeal nerve is purely sensory, supplying the mucosa above the vocal folds down to their level (the afferent limb of the cough/protective reflex when food or liquid threatens the airway).
 
 **Neck: triangles, levels & glands** (tags: Neck triangles · Nodal levels I-VII · Salivary glands)
 
 [figure: Anterior/posterior neck triangles, cervical nodal levels I-VII, and key neck glands.]
 - Triangles: the sternocleidomastoid splits the neck into anterior and posterior triangles.
-- Nodal levels: lymph nodes are mapped as levels I-VI, used for every neck mass and cancer.
+- Nodal levels: lymph nodes are mapped as levels I-VI; level VII (superior mediastinal) is added for thyroid, subglottic, and hypopharyngeal tumors. Levels guide nodal staging and neck dissection planning.
 - Key glands: thyroid (midline, moves with swallowing), parotid (the facial nerve runs through it), and submandibular (a common site for stones).Cervical nodal levels
-LevelSuperiorInferiorAnteriorPosteriorMain contentsPrimary drainageKey surgical riskIa (submental)Symphysis of the mandibleBody of the hyoidContralateral anterior belly of digastricIpsilateral anterior belly of digastricSubmental nodesChin, lower lip, floor of mouth, tongue tipLow; generally safe dissectionIb (submandibular)Body of the mandiblePosterior belly of digastricAnterior belly of digastricStylohyoid muscleSubmandibular gland and nodesOral cavity, anterior faceMarginal mandibular branch of CN VII (lip droop); submandibular duct/gland injuryIIa / IIb (upper jugular)Skull baseInferior body of the hyoidLateral border of sternohyoidPosterior border of sternocleidomastoidUpper deep cervical nodes; IIa/IIb split by the spinal accessory nerveOral cavity, nasopharynx, oropharynx, larynx, parotidSpinal accessory nerve (CN XI) -- shoulder droop/weak shrug from trapezius palsyIII (mid jugular)Inferior body of the hyoidInferior border of the cricoid cartilageLateral border of sternohyoidPosterior border of sternocleidomastoidMiddle deep cervical nodesLarynx, hypopharynx, oropharynxRelatively low; hypoglossal nerve (CN XII) at the superior marginIV (lower jugular)Inferior border of the cricoid cartilageClavicleLateral border of sternohyoidPosterior border of sternocleidomastoidLower deep cervical nodesLarynx, thyroid, hypopharynx, cervical esophagusThoracic duct injury on the left (chyle leak); phrenic nerveVa / Vb (posterior triangle)Convergence of sternocleidomastoid and trapeziusClaviclePosterior border of sternocleidomastoidAnterior border of trapeziusSpinal accessory and transverse cervical nodes; Va/Vb split by the inferior-cricoid planeNasopharynx, posterior scalp and neck, thyroidSpinal accessory nerve (CN XI) is most exposed here, running superficially across the triangleVI (central compartment)Hyoid boneSuprasternal notchBounded laterally by the carotid sheaths (a midline compartment, not flanked anterior/posterior like the lateral levels)Pretracheal, paratracheal, prelaryngeal (Delphian) nodesThyroid, glottic and subglottic larynx, hypopharynx, cervical esophagusRecurrent laryngeal nerve (vocal-fold paralysis/hoarseness); parathyroid glands (hypocalcemia)VII (superior mediastinal)Suprasternal notchInnominate arteryBounded by the trachea and great vesselsSuperior mediastinal nodesThyroid, cervical esophagusGreat vessels, thoracic duct, phrenic and recurrent laryngeal nervesDeep cervical fascia
+LevelSuperiorInferiorAnteriorPosteriorMain contentsPrimary drainageKey surgical riskIa (submental)Symphysis of the mandibleBody of the hyoidContralateral anterior belly of digastricIpsilateral anterior belly of digastricSubmental nodesChin, lower lip, floor of mouth, tongue tipLow; generally safe dissectionIb (submandibular)Body of the mandiblePosterior belly of digastricAnterior belly of digastricStylohyoid muscleSubmandibular gland and nodesOral cavity, anterior faceMarginal mandibular branch of CN VII (lip droop); submandibular duct/gland injuryIIa / IIb (upper jugular)Skull baseInferior body of the hyoidStylohyoid muscle (surgical); posterior edge of the submandibular gland (radiologic)Posterior border of sternocleidomastoidUpper deep cervical nodes; IIa/IIb split by the spinal accessory nerveOral cavity, nasopharynx, oropharynx, larynx, parotidSpinal accessory nerve (CN XI) -- shoulder droop/weak shrug from trapezius palsyIII (mid jugular)Inferior body of the hyoidInferior border of the cricoid cartilageLateral border of sternohyoidPosterior border of sternocleidomastoidMiddle deep cervical nodesLarynx, hypopharynx, oropharynxRelatively low; hypoglossal nerve (CN XII) at the superior marginIV (lower jugular)Inferior border of the cricoid cartilageClavicleLateral border of sternohyoidPosterior border of sternocleidomastoidLower deep cervical nodesLarynx, thyroid, hypopharynx, cervical esophagusThoracic duct injury on the left (chyle leak); phrenic nerveVa / Vb (posterior triangle)Convergence of sternocleidomastoid and trapeziusClaviclePosterior border of sternocleidomastoidAnterior border of trapeziusSpinal accessory and transverse cervical nodes; Va/Vb split by the inferior-cricoid planeNasopharynx, posterior scalp and neck, thyroidSpinal accessory nerve (CN XI) is most exposed here, running superficially across the triangleVI (central compartment)Hyoid boneSuprasternal notchBounded laterally by the carotid sheaths (a midline compartment, not flanked anterior/posterior like the lateral levels)Pretracheal, paratracheal, prelaryngeal (Delphian) nodesThyroid, glottic and subglottic larynx, hypopharynx, cervical esophagusRecurrent laryngeal nerve (vocal-fold paralysis/hoarseness); parathyroid glands (hypocalcemia)VII (superior mediastinal)Suprasternal notchInnominate arteryBounded by the trachea and great vesselsSuperior mediastinal nodesThyroid, cervical esophagusGreat vessels, thoracic duct, phrenic and recurrent laryngeal nervesDeep cervical fascia
 LayerEnclosesKey pointInvesting (superficial)Whole neck; sternocleidomastoid; trapezius; parotid; submandibular glandSplits to envelop these structuresPretrachealThyroid; trachea; esophagusContinues into the mediastinum: an untreated deep neck infection here (or in the retropharyngeal "danger space" behind it) can descend as mediastinitisPrevertebralPrevertebral muscles and vertebral columnForms the floor of the posterior triangleCarotid sheathCommon/internal carotid artery; internal jugular vein; vagus nerveReceives fibers from all three layers
 
 **Tympanic membrane landmarks** (tags: Cone of light · Umbo · Pars tensa vs flaccida)
@@ -67,10 +68,10 @@ Flexible nasolaryngoscopy (flex NPL) passes a thin fiberoptic or distal-chip sco
 - Nasal cavity: septum, inferior and middle turbinates, meatuses, mucosa, discharge, polyps, masses.
 - Nasopharynx: adenoid pad, Eustachian tube openings (torus tubarius), and the fossa of Rosenm&uuml;ller, the classic nasopharyngeal carcinoma site.
 - Oropharynx: base of tongue, lingual tonsils, vallecula, posterior pharyngeal wall.
-- Hypopharynx: pyriform sinuses and the postcricoid region.
+- Hypopharynx: pyriform sinuses and the postcricoid region (best seen during &ldquo;eee&rdquo; phonation or a puffed-cheek maneuver).
 - Larynx: epiglottis, aryepiglottic folds, false and true vocal folds, anterior commissure; vocal-fold mobility can be judged dynamically.
-- Subglottis: the narrowest adult laryngeal view; a tongue-pull maneuver is often needed to see the lateral and posterior walls.Why it matters
-Nasal endoscopy reveals pathology missed on anterior rhinoscopy in roughly 39% of patients, and its overall diagnostic accuracy is higher (about 85% vs 74%). It is also the criterion-standard assessment of the posterior nasal cavity and nasopharynx, especially in children.
+- Subglottis: the narrowest adult laryngeal view, seen only just below the folds.Why it matters
+Nasal endoscopy changes the diagnosis in up to about 20% of patients with nasal disease and reaches the middle meatus, sphenoethmoidal recess, and nasopharynx that anterior rhinoscopy cannot. It is also the criterion-standard assessment of the posterior nasal cavity and nasopharynx, especially in children.
 
 ### Anatomy diagrams (7)
 
@@ -80,7 +81,7 @@ External ear (left) to inner ear (right). Tap each covered label to name the str
 
 _Image source: Parts of the ear. NIDCD / NIH. Public domain._
 - Pinna: cartilage-and-skin auricle that collects and funnels sound into the ear canal.
-- Temporal bone: houses the entire middle and inner ear; its petrous portion is the densest bone in the body.
+- Temporal bone: houses the entire middle and inner ear; its petrous portion is one of the hardest, densest bones in the body.
 - Stapes: smallest bone in the body; its footplate sits in the oval window and drives fluid movement in the inner ear.
 - Malleus: the ossicle attached to the eardrum; its handle (manubrium) is the landmark seen on otoscopy.
 - Semicircular canals: three orthogonal fluid-filled loops that detect angular head rotation for balance.
@@ -122,7 +123,7 @@ _Image source: Larynx: Coronal Section Showing Airway Framework and Vocal Folds.
 - True vocal cords: the folds that vibrate to produce voice; their free edge is the primary site examined in any hoarseness workup.
 - Vocalis muscle: the medial belly of thyroarytenoid that tenses and fine-tunes the vocal fold for pitch.
 - Thyroid cartilage: the largest laryngeal cartilage, forming the laryngeal prominence (Adam's apple); the framework for the vocal cords.
-- Cricoid cartilage: the only complete cartilage ring in the airway; cricothyrotomy is performed just above it.
+- Cricoid cartilage: the only complete cartilage ring in the airway; an emergency cricothyrotomy goes through the membrane just above it (not in young children).
 - Trachea: the cartilage-ringed airway continuing below the cricoid to the carina.
 
 **Diagram: Neck nodal levels I-VI**
@@ -199,7 +200,7 @@ _Image source: The Five Primary ENT Anatomical Regions Overview. Illustration ge
 - Epiglottis: the cartilage leaf that folds over the laryngeal inlet during swallowing; a floppy, swollen epiglottis is the airway emergency of epiglottitis.
 - Hyoid bone: the free-floating U-shaped bone anchoring the tongue base and larynx; the surface landmark separating neck level II (above) from level III (below).
 - Thyroid cartilage: the largest laryngeal cartilage, forming the laryngeal prominence (Adam's apple) and the framework for the vocal cords.
-- Cricoid cartilage: the only complete cartilage ring in the airway; cricothyrotomy is performed through the cricothyroid membrane just above it.
+- Cricoid cartilage: the only complete cartilage ring in the airway; cricothyrotomy is performed through the cricothyroid membrane just above it (avoided in young children; needle cricothyrotomy or tracheostomy is preferred).
 - Thyroid gland: sits over the 2nd-4th tracheal rings; a midline neck mass that moves with swallowing points here.
 - Trachea: the cartilage-ringed airway continuing below the cricoid to the carina.
 
@@ -210,7 +211,7 @@ The skull base viewed from above, from the anterior fossa (top) to the posterior
 _Image source: Skull Base Foramina and Their Cranial Nerves. Radiopaedia._
 - Cribriform plate: transmits the olfactory nerve (CN I); anterior skull-base fracture here causes anosmia and CSF rhinorrhea.
 - Optic canal: transmits the optic nerve (CN II) and ophthalmic artery; compression here causes progressive monocular vision loss.
-- Superior orbital fissure: transmits CN III (oculomotor), CN IV (trochlear), CN V1 (ophthalmic), and CN VI (abducens); a lesion here causes painful ophthalmoplegia (superior orbital fissure syndrome).
+- Superior orbital fissure: transmits CN III (oculomotor), CN IV (trochlear), CN V1 (ophthalmic), and CN VI (abducens); a lesion here causes ophthalmoplegia with V1 sensory loss (superior orbital fissure syndrome); prominent pain points to the cavernous sinus instead.
 - Foramen rotundum: transmits CN V2 (maxillary nerve), the route for perineural spread of some sinonasal and skin cancers.
 - Foramen ovale: transmits CN V3 (mandibular nerve); also a common route for perineural tumor spread from the face and parotid.
 - Internal acoustic (auditory) meatus: transmits CN VII (facial) and CN VIII (vestibulocochlear); site of vestibular schwannoma.
@@ -248,9 +249,7 @@ Scope whenever the diagnosis cannot be made from history plus anterior rhinoscop
 - Choose the side: do anterior rhinoscopy first to pick the more patent passage and anticipate a deviated septum.
 - Topical prep is optional: a decongestant (e.g. oxymetazoline or phenylephrine) widens the passage and a topical anesthetic (e.g. 4% lidocaine) reduces sensation, but a placebo-controlled pediatric trial found no clear comfort benefit and some adult data show anesthetic can worsen the experience. Small-caliber scopes are often tolerated with no spray.
 - Scope path: pass along the floor (inferior meatus) or the middle meatus; warm or defog the tip; keep mucosal contact, especially with the septum, to a minimum.
-- Subglottic view: a forward sniffing position plus an anterior tongue-pull (grasp the tongue with gauze) opens the angle for a lateral and posterior subglottic view without topical laryngeal anesthesia.
-- Nasal route blocked (packing, trauma, impassable deviation): a trans-oral adaptor allows flexible laryngoscopy by mouth.
-- Learning curve: competence benefits from a laryngeal simulator or about 6 supervised examinations.
+- Learning curve: competence improves with simulation and supervised practice.
 
 **[flex-npl-systematic-exam] Flex NPL: the systematic examination**
 
@@ -261,7 +260,7 @@ Examine every region in order and record both anatomy and function. Do not skip 
 - Oropharynx: base of tongue, lingual tonsil, vallecula, posterior wall.
 - Hypopharynx: pyriform sinuses, postcricoid region, pooling of secretions.
 - Larynx: epiglottis, false and true folds, anterior commissure; vocal-fold mobility on phonation, laryngeal elevation, penetration or aspiration.
-- Subglottis: patency (tongue-pull view).Functional points to document: palatal elevation, dynamic vocal-cord tension on phonation, vocal-fold mobility (and position if immobile), laryngeal penetration or aspiration, subglottic patency, and any lesion or mass.
+- Subglottis: patency, as far as it can be seen below the folds.Functional points to document: palatal elevation, dynamic vocal-cord tension on phonation, vocal-fold mobility (and position if immobile), laryngeal penetration or aspiration, subglottic patency, and any lesion or mass.
 
 **[flex-npl-vs-imaging] Scope first, image for selected cases**
 
@@ -293,7 +292,7 @@ Worked example: a patient reports a muffled right ear. On Weber, the tone sounds
 Ear / hearing
 
 - Audiogram: a graph of hearing thresholds (in dB) across frequencies, measured for both air and bone conduction. Normal is &le;25 dB HL. An air-bone gap (air conduction worse than bone) = conductive loss; both lines down together = sensorineural.
-- Tympanometry: an objective bedside measure of TM mobility and middle-ear pressure. Type A normal &middot; Type B flat (effusion or perforation) &middot; Type C negative pressure (Eustachian-tube dysfunction).Imaging
+- Tympanometry: an objective bedside measure of TM mobility and middle-ear pressure. Type A normal &middot; Type B flat (effusion if ear-canal volume is normal; perforation or patent tube if high; wax or probe against the canal wall if low) &middot; Type C negative pressure (Eustachian-tube dysfunction).Imaging
 
 - CT for bone/sinuses/temporal bone, trauma, and infection extent.
 - MRI for soft tissue, retrocochlear lesions (vestibular schwannoma), skull base, and tumor/perineural spread.Neck mass
@@ -310,14 +309,14 @@ Across every ENT emergency, the priority order is the same:
 
 ### Red flags
 - Airway signs (stridor, drooling, tripod, muffled voice): epiglottitis / deep neck infection; secure the airway first.
-- Button battery in nose or esophagus: liquefactive necrosis within hours; immediate removal.
+- Button battery in nose or esophagus: a surgical emergency. Esophageal impaction needs removal immediately (preferably within 2 hours); honey or sucralfate can be considered if ingested within 12 hours but must not delay removal.
 - Sudden SNHL (<72h): otologic emergency, urgent audiogram + MRI (exclude retrocochlear pathology); corticosteroids may be offered but are an option (shared decision-making), not a mandatory treatment.
 - Necrotizing (malignant) otitis externa: diabetic/immunocompromised patient with pain out of proportion and canal granulation tissue that fails standard OE therapy; skull-base osteomyelitis, needs IV antipseudomonal antibiotics.
 - Nasal septal hematoma after trauma: drain urgently or the cartilage necroses (saddle nose).
 - Post-tonsillectomy bleed: can be catastrophic; ABC, ENT, may need to return to the OR.
 - Orbital/intracranial signs with sinusitis (proptosis, painful/limited eye movement, reduced vision): urgent CT + IV antibiotics.
-- Adult neck mass >2-3 weeks: malignancy until proven otherwise; imaging (CT/MRI) AND FNA, FNA preferred over open biopsy. A cystic node in a middle-aged patient can still be HPV-related oropharyngeal cancer: never assume benign.
-- Hoarseness >2-4 weeks (smoker/drinker): laryngoscopy to exclude laryngeal cancer.
+- Adult neck mass present &ge;2 weeks or of uncertain duration: malignancy until proven otherwise; imaging (CT/MRI) AND FNA, FNA preferred over open biopsy. A cystic node in a middle-aged patient can still be HPV-related oropharyngeal cancer: never assume benign.
+- Hoarseness not improving by 4 weeks, or at any duration with alarm features (smoker, neck mass, stridor, recent neck/chest surgery or intubation): laryngoscopy; no imaging, reflux drugs, or steroids before the larynx is seen.
 - Progressive dysphagia + weight loss: exclude esophageal/hypopharyngeal cancer.
 - Unilateral nasal symptoms + epistaxis (adult): exclude sinonasal neoplasm; unilateral foul discharge in a child: foreign body.
 - Facial palsy with forehead sparing: treat as central/stroke; forehead involved + ear disease: urgent ENT.
@@ -326,7 +325,7 @@ Across every ENT emergency, the priority order is the same:
 - Immobile vocal fold: image the entire recurrent laryngeal nerve course (skull base to mediastinum).
 - Pooling of secretions or penetration/aspiration on scope: an airway-protection and swallow concern.
 
-### Cases (15)
+### Cases (13)
 
 **Case [case-referred-otalgia]**
 
@@ -348,7 +347,7 @@ Stem: A 34-year-old notices her right ear went muffled over a day with new ringi
   A: A sensorineural pattern on the right (Weber to the better ear, Rinne positive), not conductive/wax.
 
 - Q: Diagnosis and urgency?
-  A: Sudden SNHL, an otologic emergency: urgent audiogram and MRI to exclude retrocochlear pathology. Oral ± intratympanic corticosteroids may be offered via shared decision-making (2019 AAO-HNS update: an option, not a mandate, since spontaneous recovery is common and the placebo-controlled evidence is weak).
+  A: Sudden SNHL, an otologic emergency: urgent audiogram and MRI (or ABR) to exclude retrocochlear pathology; no routine CT or labs. Oral corticosteroids may be offered within 2 weeks of onset (2019 AAO-HNS update: an option, not a mandate, since spontaneous recovery is common and the placebo-controlled evidence is weak). Intratympanic steroids are salvage if recovery is incomplete at 2 to 6 weeks.
 
 Teaching: Sudden SNHL is time-sensitive and often dismissed as wax; the bedside forks separate them in seconds.
 
@@ -357,12 +356,12 @@ Teaching: Sudden SNHL is time-sensitive and often dismissed as wax; the bedside 
 Stem: A 3-year-old has one day of foul, blood-tinged discharge from the left nostril. On inspection there is a shiny round object high in the nasal cavity.
 
 - Q: What is this until proven otherwise, and why the urgency?
-  A: A button battery: it causes liquefactive necrosis and septal perforation within hours. This is an emergency, not a routine foreign body.
+  A: A button battery: it causes liquefactive necrosis and septal injury quickly. This is an emergency, not a routine foreign body.
 
 - Q: What do you do?
-  A: Immediate removal (ENT); do not irrigate or delay. Any battery in the nose or esophagus is time-critical.
+  A: Immediate removal (ENT); do not irrigate or delay. An esophageal battery should be removed preferably within 2 hours; honey or sucralfate can be considered if ingested within 12 hours but must not delay removal.
 
-Teaching: Unilateral foul nasal discharge in a child = foreign body, and if it's a battery, the clock is in hours.
+Teaching: Unilateral foul nasal discharge in a child = foreign body, and if it's a battery, the clock is short.
 
 **Case [case-airway-pta]**
 
@@ -372,7 +371,7 @@ Stem: A 19-year-old has severe sore throat, trismus, a muffled 'hot potato' voic
   A: Peritonsillar abscess (quinsy): trismus + muffled voice + uvular deviation. Watch the airway and for spread to deep neck spaces.
 
 - Q: What must you assess first, and manage?
-  A: Airway first. Then needle aspiration / incision & drainage plus antibiotics; escalate to ENT.
+  A: Airway first. Then drain (needle aspiration or incision and drainage) plus antibiotics covering streptococci and anaerobes; escalate to ENT and watch for deep neck spread.
 
 Teaching: [figure: Peritonsillar abscess presenting with trismus, muffled voice, and drooling; airway first, then drainage.]Muffled voice + trismus + drooling = think abscess and airway before anything else.
 
@@ -408,7 +407,7 @@ Stem: A 62-year-old gets seconds-long spinning whenever he rolls over in bed or 
   A: BPPV: confirm with the Dix-Hallpike maneuver (reproduces vertigo + characteristic nystagmus).
 
 - Q: Treatment, and one central red flag to screen for?
-  A: Epley repositioning. Screen for central signs (vertical/direction-changing nystagmus, normal head-impulse test, the HINTS exam) before settling on BPPV.
+  A: Epley repositioning. Screen for central signs (pure vertical or direction-changing nystagmus, no latency or fatigue, other neurologic findings) before settling on BPPV. HINTS is for continuous vertigo with nystagmus, not brief positional vertigo.
 
 Teaching: Brief + positional + hearing intact = BPPV; but always rule out the central red flags.
 
@@ -417,7 +416,7 @@ Teaching: Brief + positional + hearing intact = BPPV; but always rule out the ce
 Stem: A 63-year-old smoker has been hoarse for 6 weeks. No sore throat now. He's otherwise well.
 
 - Q: What does the duration + smoking mandate?
-  A: Hoarseness >2-4 weeks in a smoker requires laryngoscopy to exclude laryngeal cancer: do not keep treating it as laryngitis.
+  A: Hoarseness not improving by 4 weeks, or a smoker with new hoarseness at any duration, requires laryngoscopy to exclude laryngeal cancer: do not keep treating it as laryngitis. Otalgia with a normal ear is referred pain from the aerodigestive tract that the scope can source.
 
 - Q: If the vocal fold is immobile, what else must you consider?
   A: Vocal-fold paralysis from a lesion along the recurrent laryngeal nerve (lung apex, thyroid, mediastinum): image the whole nerve course.
@@ -463,18 +462,6 @@ Stem: A 68-year-old on warfarin reports 2 weeks of muffled hearing and fullness 
 
 Teaching: Cerumen impaction is a symptom-or-obstruction diagnosis, and modifying factors (anticoagulation, diabetes, immunocompromise, prior radiation, a non-intact TM, canal stenosis), not just 'there's wax', should steer the removal technique.
 
-**Case [case-hoarseness-scope]**
-
-Stem: A 58-year-old ever-smoker has had 8 weeks of progressive hoarseness and intermittent referred right otalgia. The ear exam is normal.
-
-- Q: What is the next step, and why does the normal ear matter?
-  A: Flexible nasolaryngoscopy. Hoarseness beyond 2-4 weeks in a smoker mandates visualizing the larynx to exclude cancer, and otalgia with a normal ear is referred pain from the aerodigestive tract that the scope can source.
-
-- Q: What finding would most change management?
-  A: A true-vocal-fold lesion or an immobile fold. The latter prompts imaging of the whole recurrent laryngeal nerve course.
-
-Teaching: Persistent hoarseness in a smoker is a scope-first presentation.
-
 **Case [case-unilateral-effusion]**
 
 Stem: A 46-year-old adult has a new unilateral serous middle-ear effusion and occasional blood-streaked nasal mucus.
@@ -493,16 +480,7 @@ Stem: A 6-week-old has inspiratory stridor that is worse supine and with feeding
 
 Teaching: Flex NPL is the criterion standard for dynamic pediatric airway collapse that static imaging cannot capture.
 
-**Case [case-nasal-route-blocked]**
-
-Stem: A patient with bilateral nasal packing after epistaxis now needs urgent laryngeal visualization for a voice change.
-
-- Q: How can the larynx be examined?
-  A: A trans-oral flexible laryngoscopy adaptor allows a flexible laryngeal view by mouth when the nasal route is blocked.
-
-Teaching: A blocked nose is not an absolute barrier: the trans-oral route keeps flexible laryngoscopy available.
-
-### Flashcards (72)
+### Flashcards (75)
 
 **[otoscope-pinna]** tags: FN, clinical, milestones: MK1, PC4, UKMLA: Painful ear, reviewer: (none)
 - Front: How do you position the pinna for otoscopy in an adult vs. a young child, and why?
@@ -534,7 +512,7 @@ Teaching: A blocked nose is not an absolute barrier: the trans-oral route keeps 
 
 **[fork-512]** tags: FN, clinical, milestones: PC4, UKMLA: Hearing loss, reviewer: (none)
 - Front: Why is a 512 Hz fork the standard for hearing tests?
-- Back: It balances vibration decay and tactile perception. 256 Hz is felt too much (false positives); 1024 Hz decays too fast to compare.
+- Back: 512 Hz is the conventional fork for Weber and Rinne: it balances vibration decay and tactile (vibration) sensation.
 - Source: Standard audiologic examination teaching.
 
 **[whisper-test]** tags: FN, clinical, milestones: PC4, UKMLA: Hearing loss, reviewer: (none)
@@ -581,7 +559,7 @@ Teaching: A blocked nose is not an absolute barrier: the trans-oral route keeps 
 
 **[tympanometry]** tags: FN, clinical, milestones: PC4, UKMLA: Hearing loss, reviewer: (none)
 - Front: What do tympanometry types A, B, and C mean?
-- Back: A = normal middle-ear pressure/compliance. B = flat: middle-ear effusion or perforation. [figure: Tympanogram types A, B, C and the ear conditions each indicates.]
+- Back: A = normal middle-ear pressure/compliance. B = flat: effusion if ear-canal volume is normal; perforation or patent tube if high; wax or probe against the canal wall if low. C = negative middle-ear pressure (peak below about -100 daPa), as in Eustachian-tube dysfunction. [figure: Tympanogram types A, B, C and the ear conditions each indicates.]
 - Source: Jerger, tympanogram classification, Archives of Otolaryngology 1970.
 
 **[ct-vs-mri]** tags: FN, clinical, milestones: MK1, PC3, UKMLA: Hearing loss, Neck lump, reviewer: (none)
@@ -612,7 +590,7 @@ Teaching: A blocked nose is not an absolute barrier: the trans-oral route keeps 
 **[otalgia-primary]** tags: FN, clinical, milestones: PC4, UKMLA: Painful ear, Otitis externa, reviewer: (none)
 - Front: In an adult, a new unilateral middle-ear effusion should prompt a nasopharyngeal exam to exclude [...], since acute otitis media is uncommon in this age group.
 - Back: In an adult, a new unilateral middle-ear effusion should prompt a nasopharyngeal exam to exclude nasopharyngeal carcinoma, since acute otitis media is uncommon in this age group.
-- Source: AAO-HNSF Clinical Practice Guideline: Acute Otitis Externa, 2014.
+- Source: Standard head and neck oncology teaching; AAO-HNSF Clinical Practice Guideline: Otitis Media with Effusion (Update), 2016.
 
 **[tinnitus]** tags: FN, clinical, milestones: PC4, UKMLA: Tinnitus, RED FLAG, reviewer: (none)
 - Front: When is tinnitus a red flag rather than benign?
@@ -628,7 +606,7 @@ Teaching: A blocked nose is not an absolute barrier: the trans-oral route keeps 
 
 **[central-vertigo]** tags: FN, clinical, milestones: PC4, UKMLA: Vertigo, RED FLAG, reviewer: (none)
 - Front: What findings suggest a CENTRAL cause of vertigo?
-- Back: HINTS red flags: direction-changing/vertical nystagmus, a normal head-impulse test, skew deviation, plus other neuro signs → image for stroke.
+- Back: HINTS applies only to continuous vertigo with nystagmus, done by a trained examiner. Central pattern: direction-changing or vertical nystagmus, a normal head-impulse test, or skew deviation. Any of these, new hearing loss, severe gait instability, or other neuro signs → MRI for stroke.
 - Source: Kattah et al., HINTS exam, Stroke 2009.
 
 **[facial-palsy]** tags: FN, clinical, milestones: PC4, MK1, UKMLA: Facial weakness, Bell's palsy, RED FLAG, reviewer: (none)
@@ -658,12 +636,32 @@ Teaching: A blocked nose is not an absolute barrier: the trans-oral route keeps 
 
 **[sore-throat-centor]** tags: FN, clinical, milestones: MK3, PC6, UKMLA: Sore throat, reviewer: (none)
 - Front: How do you approach acute sore throat?
-- Back: Most are viral. Use the Centor score for likely GAS (fever, tonsillar exudate, tender anterior nodes, no cough) to guide testing/antibiotic decisions. Escalate for airway/abscess red flags.[figure: Approach to acute sore throat using the Centor score.]
+- Back: Most are viral. Use the modified Centor (McIsaac) score (fever, tonsillar exudate, tender anterior nodes, no cough, age) mainly to identify low-probability patients who need no testing; confirm GAS with a rapid antigen test (culture backup in children). Escalate for airway/abscess red flags.[figure: Approach to acute sore throat using the Centor score.]
 - Source: IDSA Clinical Practice Guideline: Group A Streptococcal Pharyngitis, 2012.
+
+**[ramsay-hunt]** tags: FN, clinical, milestones: PC5, UKMLA: Facial palsy, Painful ear, RED FLAG, reviewer: (none)
+- Front: Facial palsy plus ear pain and vesicles in the ear canal or on the pinna suggests what, and how does management differ from Bell palsy?
+- Back: Ramsay Hunt syndrome (herpes zoster oticus). Treat early with corticosteroids plus an antiviral. Recovery is usually worse than in Bell palsy, and hearing loss or vertigo can accompany it.
+- Source: Standard otolaryngology teaching. DRAFT pending faculty review.
+
+**[auricular-hematoma]** tags: FN, clinical, milestones: PC5, UKMLA: Painful ear, RED FLAG, reviewer: (none)
+- Front: Blunt ear trauma leaves a tense, boggy swelling of the pinna. What is the risk and the treatment?
+- Back: An auricular hematoma. Undrained blood separates the perichondrium from the cartilage and causes cauliflower ear. Drain it promptly and apply a bolster or compressive dressing, like a septal hematoma.
+- Source: Standard otolaryngology teaching. DRAFT pending faculty review.
+
+**[epiglottitis-vs-croup]** tags: FN, clinical, milestones: PC1, PC6, UKMLA: Stridor, Sore throat, RED FLAG, reviewer: (none)
+- Front: How do you tell epiglottitis from croup at the bedside, and what do you do first?
+- Back: Epiglottitis: rapid onset, high fever, drooling, tripod posture, muffled voice, no barky cough. Keep the patient calm and secure the airway in a controlled setting before any instrumentation. Croup: viral, barky cough with stridor; treated with dexamethasone and nebulized epinephrine.
+- Source: Standard otolaryngology teaching. DRAFT pending faculty review.
+
+**[deep-neck-ludwig]** tags: FN, clinical, milestones: PC1, PC6, UKMLA: Neck lump, RED FLAG, reviewer: (none)
+- Front: Which deep neck infection threatens the airway through floor-of-mouth swelling, and what is the first priority?
+- Back: Ludwig angina: bilateral submandibular and sublingual cellulitis (often dental), with an elevated, protruding tongue. Airway first, then contrast CT, IV antibiotics, and drainage. Retropharyngeal (&ldquo;danger space&rdquo;) infection can descend to mediastinitis.
+- Source: Standard otolaryngology teaching. DRAFT pending faculty review.
 
 **[hoarseness]** tags: FN, clinical, milestones: PC6, PC3, UKMLA: Hoarseness and voice change, RED FLAG, reviewer: (none)
 - Front: When does hoarseness require laryngoscopy, and why?
-- Back: Hoarseness >2-4 weeks, especially a smoker/drinker, needs laryngoscopy to exclude laryngeal cancer. Also consider vocal-fold paralysis (RLN course). Most acute hoarseness is viral laryngitis.
+- Back: Hoarseness not improving by 4 weeks, or at any duration with alarm features (smoker, neck mass, stridor, recent neck/chest surgery or intubation), needs laryngoscopy to exclude laryngeal cancer. Do not image or treat empirically for reflux or with steroids before the larynx is seen. Also consider vocal-fold paralysis (RLN course). Most acute hoarseness is viral laryngitis.
 - Source: AAO-HNSF Clinical Practice Guideline: Hoarseness (Dysphonia) (Update), 2018.
 
 **[dysphagia-globus]** tags: FN, clinical, milestones: PC6, PC3, UKMLA: Swallowing problems, RED FLAG, reviewer: (none)
@@ -678,8 +676,8 @@ Teaching: A blocked nose is not an absolute barrier: the trans-oral route keeps 
 
 **[neck-mass-adult]** tags: FN, clinical, milestones: PC3, UKMLA: Neck lump, RED FLAG, reviewer: (none)
 - Front: A firm, persistent adult neck mass present for more than [...] is malignancy until proven otherwise.
-- Back: A firm, persistent adult neck mass present for more than two to three weeks is malignancy until proven otherwise. Workup pairs contrast-enhanced CT or MRI with FNA, which is favored over open excisional biopsy.
-- Source: NCCN Clinical Practice Guidelines in Oncology: Head and Neck Cancers.
+- Back: A firm, persistent adult neck mass present for more than two weeks (or an uncertain duration) is malignancy until proven otherwise. Workup pairs contrast-enhanced CT or MRI with FNA, which is favored over open excisional biopsy.
+- Source: AAO-HNSF Clinical Practice Guideline: Evaluation of the Neck Mass in Adults, 2017; NCCN Clinical Practice Guidelines in Oncology: Head and Neck Cancers.
 
 **[salivary-swelling]** tags: FN, clinical, milestones: PC3, UKMLA: Neck lump, reviewer: (none)
 - Front: Approach to a salivary gland swelling.
@@ -703,7 +701,7 @@ Teaching: A blocked nose is not an absolute barrier: the trans-oral route keeps 
 
 **[pta]** tags: FN, clinical, milestones: PC1, PC6, UKMLA: Sore throat, RED FLAG, reviewer: (none)
 - Front: What triad suggests a peritonsillar abscess?
-- Back: Trismus, 'hot potato' muffled voice, and uvular deviation away from a swollen peritonsil region. Needs drainage (needle/I&D) + antibiotics; watch the airway and deep-neck spread.[figure: Peritonsillar abscess triad (trismus, muffled voice, uvular deviation) and management.]
+- Back: Trismus, 'hot potato' muffled voice, and uvular deviation away from a swollen peritonsil region. Usually drained (needle aspiration or I&D) plus antibiotics; watch the airway and deep-neck spread.[figure: Peritonsillar abscess triad (trismus, muffled voice, uvular deviation) and management.]
 - Source: AAO-HNS patient education: peritonsillar abscess management.
 
 **[deep-neck-infection]** tags: FN, clinical, milestones: PC1, UKMLA: Neck lump, RED FLAG, reviewer: (none)
@@ -728,8 +726,8 @@ Teaching: A blocked nose is not an absolute barrier: the trans-oral route keeps 
 
 **[button-battery]** tags: FN, clinical, milestones: PC7, UKMLA: Ear and nasal discharge, RED FLAG, reviewer: (none)
 - Front: Why is a button battery different from any other foreign body?
-- Back: It causes liquefactive necrosis within hours. A battery in the nose (septal perforation) or esophagus (perforation, fistula) needs immediate removal: do not observe, do not irrigate.
-- Source: National Capital Poison Center / AAP button-battery guidance, 2020.
+- Back: It causes liquefactive necrosis quickly. A battery in the nose (septal perforation) needs urgent removal; one in the esophagus (perforation, fistula) needs removal preferably within 2 hours: do not observe, do not irrigate. Honey or sucralfate can be considered if ingested within 12 hours but must not delay removal.
+- Source: National Capital Poison Center / AAP button-battery guidance, 2020; ESPGHAN position paper, 2021.
 
 **[sinusitis-complications]** tags: FN, clinical, milestones: PC5, UKMLA: Facial/periorbital swelling, Rhinosinusitis, RED FLAG, reviewer: (none)
 - Front: What complications of sinusitis must you not miss?
@@ -773,7 +771,7 @@ Teaching: A blocked nose is not an absolute barrier: the trans-oral route keeps 
 
 **[allergic-rhinitis]** tags: FN, clinical, milestones: MK2, PC5, UKMLA: Allergies, reviewer: (none)
 - Front: First-line treatment for allergic rhinitis, after allergen avoidance, is [...].
-- Back: First-line treatment for allergic rhinitis, after allergen avoidance, is intranasal corticosteroids. It classically presents with clear, itchy rhinorrhea and bilateral nasal obstruction, classified by ARIA as intermittent or persistent rather than by a seasonal/perennial trigger.
+- Back: First-line treatment for allergic rhinitis, after allergen avoidance, is intranasal corticosteroids when symptoms affect quality of life; oral second-generation antihistamines are recommended when sneezing and itching predominate. It classically presents with clear, itchy rhinorrhea and bilateral nasal obstruction, classified by ARIA as intermittent or persistent rather than by a seasonal/perennial trigger.
 - Source: AAO-HNSF Clinical Practice Guideline: Allergic Rhinitis, 2015.
 
 **[facial-pain-differential]** tags: FN, clinical, milestones: PC5, MK3, UKMLA: Facial pain, reviewer: (none)
@@ -792,14 +790,14 @@ Teaching: A blocked nose is not an absolute barrier: the trans-oral route keeps 
 - Source: ACCP/CHEST Cough Guidelines; AAO-HNS teaching on laryngopharyngeal reflux and post-nasal drip.
 
 **[infectious-mononucleosis]** tags: FN, clinical, milestones: MK3, PC6, UKMLA: Sore throat, Infectious mononucleosis, reviewer: (none)
-- Front: Giving [...] for presumed bacterial tonsillitis in a patient who actually has infectious mononucleosis classically triggers a florid morbilliform rash.
-- Back: Giving amoxicillin or ampicillin for presumed bacterial tonsillitis in a patient who actually has infectious mononucleosis classically triggers a florid morbilliform rash. Watch for airway obstruction from tonsillar hypertrophy, and advise avoiding contact sports for three to four weeks given the risk of splenic rupture.
+- Front: Giving [...] for presumed bacterial tonsillitis in a patient who actually has infectious mononucleosis is associated with a maculopapular (morbilliform) rash.
+- Back: Giving amoxicillin or ampicillin for presumed bacterial tonsillitis in a patient who actually has infectious mononucleosis is associated with a maculopapular (morbilliform) rash, less often than classic teaching suggests and sometimes without antibiotics, but aminopenicillins are still best avoided. Watch for airway obstruction from tonsillar hypertrophy, and advise avoiding contact sports for three to four weeks given the risk of splenic rupture.
 - Source: CDC clinical guidance on EBV/infectious mononucleosis.
 
 **[aom-ome-basics]** tags: FN, clinical, milestones: MK1, PC5, UKMLA: Painful ear, Hearing loss, Otitis media, reviewer: (none)
 - Front: Otitis media with effusion, fluid in the middle ear without signs of acute infection, is managed with [...] rather than antibiotics.
 - Back: Otitis media with effusion, fluid in the middle ear without signs of acute infection, is managed with watchful waiting rather than antibiotics. Tympanostomy tubes are added if the effusion persists beyond three months bilaterally or hearing is at risk. For acute otitis media, give antibiotics immediately (rather than observe) if: age <6 months; otorrhea; severe symptoms (T &ge;39&deg;C, or moderate-severe/&ge;48h otalgia); or bilateral AOM in a child 6-23 months. First-line when treating is high-dose amoxicillin (80-90 mg/kg/day).
-- Source: AAO-HNSF/AAP Clinical Practice Guideline: Diagnosis and Management of Acute Otitis Media (Update), 2013; AAO-HNSF CPG: Otitis Media with Effusion (Update), 2016.
+- Source: AAP Clinical Practice Guideline: The Diagnosis and Management of Acute Otitis Media, 2013; AAO-HNSF CPG: Otitis Media with Effusion (Update), 2016.
 
 **[cerumen-impaction-mgmt]** tags: FN, clinical, milestones: PC4, PC7, UKMLA: Hearing loss, Painful ear, reviewer: (none)
 - Front: Cerumen impaction is defined as wax that is [...], not simply wax that is visible on exam.
@@ -837,7 +835,7 @@ Teaching: A blocked nose is not an absolute barrier: the trans-oral route keeps 
 
 **[flexnpl-accuracy]** tags: FN, clinical, milestones: PC4, MK1, reviewer: (none)
 - Front: Why is nasal endoscopy preferred over anterior rhinoscopy for posterior disease?
-- Back: Endoscopy reveals pathology missed on anterior rhinoscopy in about 39% of patients and has higher diagnostic accuracy (~85% vs ~74%). It is also the criterion standard for the posterior nasal cavity and nasopharynx.
+- Back: Endoscopy changes the diagnosis in up to about 20% of patients with nasal disease and reaches areas anterior rhinoscopy cannot. It is also the criterion standard for the posterior nasal cavity and nasopharynx.
 
 **[flexnpl-sequence]** tags: FN, clinical, milestones: PC4, MK1, reviewer: (none)
 - Front: Name the systematic sequence of a complete flex NPL exam.
@@ -846,10 +844,6 @@ Teaching: A blocked nose is not an absolute barrier: the trans-oral route keeps 
 **[flexnpl-prep]** tags: FN, clinical, milestones: PC4, reviewer: (none)
 - Front: Before passing the scope, what two preparatory steps improve success and comfort?
 - Back: Do anterior rhinoscopy first to choose the more patent nasal passage, and warm/defog the tip. Topical decongestant &plusmn; anesthetic is optional and of unproven benefit; keep septal mucosal contact minimal.
-
-**[flexnpl-subglottis]** tags: FN, clinical, milestones: PC4, reviewer: (none)
-- Front: What maneuver improves the subglottic view during transnasal flexible laryngoscopy?
-- Back: A forward &ldquo;sniffing&rdquo; position plus an anterior tongue-pull (grasping the tongue with gauze), which opens the angle to see the lateral and posterior subglottis without topical laryngeal anesthesia.
 
 **[flexnpl-imaging]** tags: FN, clinical, milestones: PC4, MK1, reviewer: (none)
 - Front: When does imaging get added after nasal endoscopy?
@@ -865,4 +859,4 @@ Teaching: A blocked nose is not an absolute barrier: the trans-oral route keeps 
 
 **[flexnpl-competence]** tags: FN, clinical, milestones: PC4, reviewer: (none)
 - Front: What supports achieving competence in flex NPL?
-- Back: A laryngeal endoscopy simulator or at least about 6 supervised examinations improves efficacy and patient comfort for the novice.
+- Back: Simulation and supervised practice improve competence and patient comfort for the novice.
