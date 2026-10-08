@@ -1,6 +1,6 @@
 # The Ear: Anatomy to the Clinic
 
-_Generated 2026-10-07 from content/*.js_
+_Generated 2026-10-08 from content/*.js_
 
 > **How to use:** paste a module file below (or ALL.md) into OpenEvidence / any reviewer, followed by an instruction such as
 > "Fact-check every claim against current guidelines, flag anything outdated or wrong, and propose exact replacement wording. Keep our style: no em dashes, plain clinical language."
@@ -30,7 +30,7 @@ _Generated 2026-10-07 from content/*.js_
 [figure: Middle-ear/mastoid danger zone: facial nerve, tensor tympani/stapedius, chorda tympani, and referred otalgia via CN V/VII/IX/X.]
 - Facial nerve (CN VII) runs through the temporal bone next to the middle/inner ear, so facial weakness with ear disease is a red flag.
 - Referred otalgia: the ear is innervated by CN V, VII, IX, X and C2-C3, so a normal-looking ear can hurt because of pathology elsewhere (TMJ, teeth, tonsil, tongue base, larynx).
-- Middle-ear muscles: tensor tympani (CN V3) and stapedius (CN VII) dampen loud sound.
+- Middle-ear muscles: the stapedius (CN VII) contracts to loud sound (the acoustic reflex); the tensor tympani (CN V3) stiffens the chain in response to touch, startle, and swallowing.
 - Chorda tympani (branch of VII) crosses the middle ear carrying taste from the anterior ⅔ of the tongue.
 
 ### Anatomy diagrams (7)
@@ -51,7 +51,7 @@ _Image source: Fig. 907, “The Auditory Ossicles Etc.” Gray's Anatomy of the 
 - Tympanic part of the temporal bone: forms the bony ext. acoustic meatus and part of the middle-ear floor.
 - Auditory (Eustachian) tube: connects the middle ear to the nasopharynx, equalizing pressure and draining secretions.
 - Nasal part of the pharynx (nasopharynx): where the auditory tube opens, the reason nasopharyngeal disease can cause unilateral middle-ear effusion.
-- Levator veli palatini: runs alongside the auditory tube and helps actively open it on swallowing/yawning, aided by tensor veli palatini.
+- Levator veli palatini (pharyngeal plexus/CN X): lies alongside the auditory tube and elevates the soft palate; the tensor veli palatini (CN V3) is the primary active dilator of the tube on swallowing and yawning.
 - Styloid process: a slender bony projection just anteroinferior to the mastoid, giving attachment to the stylohyoid ligament and several muscles.
 - Tympanic membrane: the three-layered drum that vibrates with sound and transmits energy to the ossicular chain.
 - Bony part of the external acoustic meatus: the inner two-thirds of the canal, thin-skinned and pain-sensitive, why bony-canal manipulation hurts more.
@@ -70,7 +70,7 @@ _Image source: Fig. 909, “Membrana Tympani, Right Side.” Gray's Anatomy of t
 - Manubrium (handle) of malleus: runs from the umbo up to the lateral process, visible as a whitish streak through the drum.
 - Postero-superior quadrant: houses the incus and stapes deep to it, the danger quadrant for ossicular erosion by attic disease.
 - Antero-superior quadrant: overlies the Eustachian tube orifice and tensor tympani anteriorly.
-- Postero-inferior quadrant: the preferred site for a safe myringotomy incision, avoiding the ossicles and chorda tympani.
+- Postero-inferior quadrant: lies over a possible high or dehiscent jugular bulb, so it is avoided for incisions; myringotomy and tube placement use the antero-inferior quadrant, away from the ossicles, chorda tympani (postero-superior), and jugular bulb.
 - Umbo: the most medial (depressed) point of the drum, where the malleus tip inserts, the reference point for the four quadrants.
 - Cone of light (light reflex): the antero-inferior reflection of the otoscope light off the pars tensa, an orientation landmark, not a discrete structure.
 - Antero-inferior quadrant: the most common site for a traumatic or chronic tympanic membrane perforation.
@@ -89,7 +89,7 @@ _Image source: Fig. 912, “Right Membrana Tympani, Viewed from Within.” Gray'
 - Flaccid portion of the membrana tympani (pars flaccida): the lax segment above the lateral process, the classic attic-cholesteatoma origin site.
 - Posterior tympanic spine: a bony projection of the tympanic annulus posteriorly, near the chorda tympani's exit.
 - Insertion of tensor tympani muscle: attaches near the neck of the malleus; contraction dampens ossicular chain movement.
-- Chorda tympani nerve: a branch of CN VII crossing the middle ear medial to the malleus, carrying taste from the anterior two-thirds of the tongue, at risk in middle-ear/mastoid surgery.
+- Chorda tympani nerve: a branch of CN VII crossing the middle ear lateral to the long process of the incus and medial to the handle of the malleus, carrying taste from the anterior two-thirds of the tongue, at risk in middle-ear/mastoid surgery.
 - Glaserian (petrotympanic) fissure: a narrow cleft anterior to the malleus through which the chorda tympani exits the middle ear.
 - Tympanic orifice of the canal for the chorda tympani nerve: where the chorda tympani enters the middle-ear cavity posteriorly.
 - Handle (manubrium) of malleus: embedded within the fibrous layer of the tympanic membrane, seen here from its medial (middle-ear) surface.
@@ -154,16 +154,16 @@ Hand-drawn schematic, not to scale. Shows how closely the facial nerve, tegmen t
 
 _Image source: The Middle Ear and Mastoid Danger Zone Anatomic Relationships. Illustration generated with Google Gemini (adapted from Bagla)._
 - Prominence of the lateral semicircular canal: bulges into the mastoid antrum just above the facial canal: the surgical landmark used to find the facial nerve during mastoidectomy.
-- Prominence of the facial canal: the bony ridge overlying the tympanic segment of CN VII as it runs above the oval window: thin and dehiscent in up to 30% of temporal bones, so it's easily eroded by cholesteatoma or infection.
+- Prominence of the facial canal: the bony ridge overlying the tympanic segment of CN VII as it runs above the oval window: thin and dehiscent in a substantial minority of temporal bones (reported roughly 25% to over 50% across histologic series), so it's easily eroded by cholesteatoma or infection.
 - Tegmen tympani: the thin bony (and dural) plate roofing the middle ear/mastoid; erosion lets infection track into the middle cranial fossa (meningitis, abscess).
 - Promontory: the bulge overlying the cochlea's basal turn, between the oval and round windows; carries the tympanic nerve plexus (Jacobson's nerve) on its surface.
 - Auditory (Eustachian) tube muscle complex: the cartilaginous tube's opening is driven by the tensor veli palatini, not the tensor tympani: dysfunction here drives otitis media with effusion.
-- Tensor tympani: CN V3-innervated muscle that tenses the malleus/eardrum, dampening loud sounds (part of the acoustic reflex).
+- Tensor tympani: CN V3-innervated muscle that tenses the malleus/eardrum; in humans it responds mainly to touch, startle, and swallowing. The sound-evoked acoustic reflex is a stapedius (CN VII) function.
 - Pharyngeal (cartilaginous) end of the auditory tube, opening into the nasopharynx: the route for reflux, infection, and pressure equalization.
 - Aditus ad antrum: the narrow channel connecting the epitympanum to the mastoid antrum: the bottleneck that, when blocked, lets middle-ear infection wall itself off into mastoiditis.
 - Oval (vestibular) window: the stapes footplate seats here and drives cochlear perilymph: the target of stapedotomy in otosclerosis.
 - Pyramidal eminence: a small conical projection housing the stapedius muscle (CN VII), just anterior to the facial recess.
-- Chorda tympani: branches off CN VII and crosses the middle ear medial to the malleus, carrying taste from the anterior 2/3 tongue: at risk in chronic otitis media and ossicular surgery.
+- Chorda tympani: branches off CN VII and crosses the middle ear lateral to the long process of the incus and medial to the handle of the malleus, carrying taste from the anterior 2/3 tongue: at risk in chronic otitis media and ossicular surgery.
 - Lesser petrosal nerve: carries parasympathetic fibers (from CN IX via the tympanic plexus) to the otic ganglion, ultimately supplying the parotid gland.
 - Branch from the internal carotid (sympathetic) plexus joining the tympanic plexus on the promontory: the anatomic basis for Jacobson's/tympanic plexus mixed autonomic-CN IX innervation.
 - Sympathetic plexus draped over the internal carotid artery as it ascends through the carotid canal, immediately anteromedial to the middle ear.
@@ -187,7 +187,7 @@ Conductive (something blocks sound reaching the cochlea) vs sensorineural (cochl
 **[otalgia-primary-referred] Otalgia: primary vs referred**
 
 - Primary (ear pathology): otitis externa (pain on tragal traction, canal edema), acute otitis media (bulging red TM), cerumen, TM perforation.
-- Referred (normal ear exam): pain travels via CN V/VII/IX/X to the TMJ, teeth, tonsil, tongue base, or larynx.Otalgia + normal ear exam in an adult smoker → scope for malignancy.
+- Referred (normal ear exam): pain travels via CN V/VII/IX/X to the TMJ, teeth, tonsil, tongue base, or larynx.Persistent unilateral otalgia with a normal ear exam, especially with smoking, alcohol, dysphagia, hoarseness, weight loss, or a neck mass → flexible nasolaryngoscopy to exclude head and neck malignancy; image the neck, not just the brain.
 
 **[infection-and-danger] Infection, and when it's dangerous**
 
@@ -206,7 +206,7 @@ Conductive (something blocks sound reaching the cochlea) vs sensorineural (cochl
 **[dizziness-peripheral-central] Dizziness: peripheral vs central**
 
 - BPPV: brief positional vertigo; Dix-Hallpike reproduces it; treat with Epley.
-- Vestibular neuritis: acute constant vertigo for days, no hearing loss, often post-viral.
+- Vestibular neuritis: acute constant vertigo for days, no hearing loss, often post-viral. New hearing loss with the same syndrome means labyrinthitis and raises the possibility of an AICA-territory stroke. Vestibular suppressants only for the first 24 to 48 hours (they delay compensation), and meclizine does not treat BPPV.
 - Ménière's: episodic vertigo + fluctuating SNHL + tinnitus + aural fullness; see the dedicated block below for the formal diagnostic criteria and management ladder.
 - Central red flags: for a patient with continuous vertigo and spontaneous nystagmus (acute vestibular syndrome), use HINTS: a normal/negative head-impulse test, direction-changing or vertical nystagmus, or skew deviation each indicate a central cause (any single central component overrides the others). HINTS does not apply to brief positional vertigo (BPPV) or to a patient without spontaneous nystagmus; the head-impulse test in those settings is misleading.
 
@@ -214,7 +214,7 @@ Conductive (something blocks sound reaching the cochlea) vs sensorineural (cochl
 
 When conductive hearing loss is confirmed (Weber lateralizes to the affected ear, Rinne negative) but the tympanic membrane looks completely normal, three diagnoses dominate, and tympanometry usually separates them before imaging is ever needed.
 
-- Otosclerosis: abnormal bone remodeling fixes the stapes footplate in the oval window. Classically a young adult (20s-40s) with a family history (autosomal dominant, variable penetrance), bilateral in roughly 70-80%, and often worsens in pregnancy. Tympanogram is Type As (normal peak pressure, reduced compliance/shallow peak): the drum moves normally but the ossicular chain is stiff. The audiogram classically shows a Carhart notch (an artifactual dip in bone conduction around 2000 Hz that resolves after successful surgery).
+- Otosclerosis: abnormal bone remodeling fixes the stapes footplate in the oval window. Classically a young adult (20s-40s) with a family history (autosomal dominant, variable penetrance), bilateral in roughly 70-80% (female predominance about 2:1), and often worsens in pregnancy. Tympanogram is Type As (normal peak pressure, reduced compliance/shallow peak): the drum moves normally but the ossicular chain is stiff. The audiogram classically shows a Carhart notch (an artifactual dip in bone conduction around 2000 Hz that resolves after successful surgery); stapedial reflexes are reduced or absent, and a reddish promontory (Schwartze sign) is sometimes seen.
 - Otitis media with effusion (OME): fluid behind an intact drum without acute infection signs; Eustachian tube dysfunction is the usual driver. Tympanogram is Type B (flat, no discernible peak). Common in children; a new unilateral effusion in an adult needs the nasopharynx examined to exclude a mass.
 - Ossicular discontinuity: most often the incudostapedial joint, from prior trauma, infection, or cholesteatoma erosion. Tympanogram can show an abnormally high-compliance Type Ad peak (a floppy, hypermobile system), the opposite mechanical picture from otosclerosis.Management follows the diagnosis: OME is watched or ventilated (tubes); otosclerosis and ossicular discontinuity are surgical (stapedectomy/stapedotomy or ossicular reconstruction) or managed with amplification if surgery isn't wanted or appropriate. Stapes surgery for bilateral otosclerosis is typically staged, operating the worse-hearing ear first, given the small risk of a "dead ear": a frequently asked counseling point.
 [figure: Differentiating otosclerosis (Type As), OME (Type B), and ossicular discontinuity (Type Ad) by tympanogram pattern.]
@@ -263,13 +263,13 @@ Step-up management (escalate only as needed):
 
 **[noe-depth] Necrotizing (malignant) otitis externa: the progression to watch**
 
-Pseudomonas aeruginosa is the classic pathogen, invading through the fissures of Santorini and the bony-cartilaginous junction of the canal to cause osteomyelitis of the skull base, almost always in a diabetic (poor glycemic control) or otherwise immunocompromised patient. Pain is disproportionate to exam findings and often worse at night; granulation tissue at the bony-cartilaginous junction of the canal floor is the classic sign.
+Pseudomonas aeruginosa is the classic pathogen, invading through the fissures of Santorini and the bony-cartilaginous junction of the canal to cause osteomyelitis of the skull base, almost always in a diabetic (poor glycemic control) or otherwise immunocompromised patient. Fungal necrotizing otitis externa (Aspergillus) occurs, especially when antipseudomonal therapy fails, and changes treatment; deep tissue biopsy for culture also excludes malignancy. Pain is disproportionate to exam findings and often worse at night; granulation tissue at the bony-cartilaginous junction of the canal floor is the classic sign.
 Cranial nerve progression tracks how far the osteomyelitis has spread: CN VII is affected first and most often (it exits nearby via the stylomastoid foramen); further skull-base spread toward the jugular foramen threatens CN IX, X, XI (dysphagia, hoarseness, shoulder weakness), and CN XII (tongue weakness) if it extends to the hypoglossal canal. New cranial neuropathies signal advancing disease, not a new, separate problem.
 Workup and treatment: CT temporal bone shows bony erosion; MRI better delineates soft-tissue and marrow involvement; a technetium-99m bone scan is sensitive early but stays positive long after cure (not useful for following response), while a gallium-67 scan reflects active inflammation and is used to confirm treatment response. Treatment is prolonged (often 6-8 weeks) IV antipseudomonal antibiotics (e.g., an antipseudomonal fluoroquinolone or a beta-lactam/aminoglycoside combination) plus tight glycemic control and debridement of obvious necrotic tissue. This is not an outpatient-drops problem.
 [figure: Necrotizing otitis externa pathogen, cranial-nerve progression from skull-base osteomyelitis, and treatment.]
 
 ### Red flags
-- Sudden SNHL (<72h), otologic emergency: urgent audiogram, corticosteroids may be offered (shared decision-making), MRI.
+- Sudden SNHL (<72h, &ge;30 dB over &ge;3 contiguous frequencies), otologic emergency: audiogram as soon as possible (within 14 days), MRI or ABR for retrocochlear pathology, no routine CT or labs; corticosteroids may be offered within 2 weeks (shared decision-making). Never assume wax or Eustachian tube dysfunction.
 - Asymmetric SNHL / unilateral tinnitus: MRI for vestibular schwannoma.
 - Facial weakness with ear disease: urgent ENT (cholesteatoma, malignancy, necrotizing OE).
 - Cholesteatoma signs: painless foul otorrhea, attic retraction/crust; erodes bone.
@@ -288,7 +288,7 @@ Stem: A 34-year-old notices her right ear went muffled over a day with new ringi
   A: Weber to the better (left) ear + positive Rinne on the right = a sensorineural pattern on the right, not conductive/wax.
 
 - Q: Diagnosis and urgency?
-  A: Sudden SNHL is an otologic emergency. Urgent audiogram and MRI for retrocochlear pathology are firm recommendations; corticosteroids may be offered within 2 weeks as a shared decision-making option (AAO-HNS 2019), reflecting frequent spontaneous recovery and weak placebo-controlled evidence.
+  A: Sudden SNHL is an otologic emergency. Audiometry as soon as possible (within 14 days) confirms it, and MRI or ABR evaluates for retrocochlear pathology; routine CT and labs are not recommended. Corticosteroids may be offered within 2 weeks as a shared decision-making option (AAO-HNS 2019), reflecting frequent spontaneous recovery and weak placebo-controlled evidence. Intratympanic steroids are recommended for incomplete recovery at 2 to 6 weeks.
 
 Teaching: Sudden SNHL is time-sensitive and often dismissed as wax. The bedside forks separate the two in seconds.
 
@@ -324,7 +324,7 @@ Stem: A 68-year-old with poorly controlled diabetes has three weeks of severe, w
   A: This is progressing necrotizing (malignant) otitis externa: skull-base osteomyelitis, almost always Pseudomonas aeruginosa, in a diabetic patient. The facial droop reflects CN VII involvement near the stylomastoid foramen; the new hoarseness suggests spread toward the jugular foramen affecting CN X, and each new cranial neuropathy marks advancing disease along the skull base.
 
 - Q: Workup and treatment?
-  A: CT temporal bone for bony erosion, MRI for soft-tissue/marrow extent, and later a gallium scan to track treatment response. Admit for prolonged IV antipseudomonal antibiotics (typically 6-8 weeks), tight glycemic control, and ENT debridement; topical drops alone will not control this.
+  A: CT temporal bone for bony erosion, MRI for soft-tissue/marrow extent, and later a gallium scan to track treatment response. Take a deep tissue biopsy for culture (also to exclude carcinoma or fungal disease) and admit for prolonged antipseudomonal antibiotics (typically 6-8 weeks or longer, culture-directed), tight glycemic control, and ENT debridement; topical drops alone will not control this.
 
 Teaching: [figure: Progressive necrotizing otitis externa in a diabetic patient developing facial droop and hoarseness from skull-base spread.]New cranial neuropathies in otitis externa aren't a separate diagnosis to chase. They're the same disease spreading along the skull base, and they demand escalation, not another course of drops.
 
@@ -336,16 +336,16 @@ Stem: A 29-year-old woman, now 20 weeks pregnant, reports progressive hearing lo
   A: Weber lateralizing to the worse (left) ear with a negative Rinne on that side = a conductive pattern. Combined with a normal-looking TM, bilateral involvement, a strong family history, young adult onset, and worsening during pregnancy, the leading diagnosis is otosclerosis.
 
 - Q: What would confirm it, and what are the management options?
-  A: Tympanometry (expect a Type As pattern: reduced compliance, normal peak pressure) and audiometry (look for a Carhart notch). Options are amplification (hearing aids) or surgery (stapedectomy/stapedotomy), with surgery usually deferred until she is no longer pregnant or breastfeeding, since otosclerosis often worsens with pregnancy.
+  A: Tympanometry (expect a Type As pattern: reduced compliance, normal peak pressure), audiometry (look for a Carhart notch), and reduced or absent stapedial reflexes, which also separate it from superior canal dehiscence. Options are amplification (hearing aids) or surgery (stapedectomy/stapedotomy), with surgery usually deferred until she is no longer pregnant or breastfeeding, since otosclerosis often worsens with pregnancy.
 
 Teaching: [figure: Bilateral conductive hearing loss with a normal TM, family history, and pregnancy-related worsening, diagnostic of otosclerosis.]Bilateral conductive loss with a normal drum, a family history, and a young adult: think otosclerosis before you think 'wax I must have missed.'
 
 **Case [case-meniere]**
 
-Stem: A 45-year-old describes recurrent episodes, each lasting about an hour, of spinning vertigo with nausea, accompanied each time by muffled hearing, ringing, and a full sensation in the right ear. Between episodes she feels well. Audiometry obtained during a recent episode confirmed a low-frequency sensorineural hearing loss on the right.
+Stem: A 45-year-old describes recurrent episodes, each lasting about an hour, of spinning vertigo with nausea, accompanied each time by muffled hearing, ringing, and a full sensation in the right ear. Between episodes she feels well. Audiometry obtained during a recent episode confirmed a low- to mid-frequency sensorineural hearing loss on the right.
 
 - Q: Does this meet the diagnostic criteria for Ménière's disease, and which tier?
-  A: Yes, this is definite Ménière's disease: ≥2 spontaneous vertigo episodes of 20 minutes-12 hours, audiometrically documented low-frequency SNHL in the affected ear, and fluctuating aural symptoms (hearing, tinnitus, fullness), with no better explanation.
+  A: Yes, this is definite Ménière's disease: ≥2 spontaneous vertigo episodes of 20 minutes-12 hours, audiometrically documented low- to mid-frequency SNHL in the affected ear, and fluctuating aural symptoms (hearing, tinnitus, fullness), with no better explanation.
 
 - Q: How do you sequence management if dietary sodium restriction alone doesn't control her symptoms?
   A: Step up rather than jumping to ear-destructive options: add a diuretic next, then intratympanic corticosteroids if vertigo persists. Intratympanic gentamicin or surgical labyrinthectomy are reserved for disease refractory to those hearing-preserving steps, given their risk to residual hearing.
@@ -373,7 +373,7 @@ Stem: A 52-year-old reports gradually worsening hearing in his right ear over 18
 
 Teaching: [figure: Progressive asymmetric SNHL and tinnitus worked up with MRI IAC, revealing a vestibular schwannoma, with management options discussed via House-Brackmann.]Vestibular schwannoma is the lesion an asymmetric-SNHL red flag is chasing: progressive unilateral hearing loss, tinnitus, and disequilibrium (not spinning vertigo) should trigger an MRI IAC with contrast, not a repeat audiogram in six months. Once found, the management ladder (observe → radiosurgery → resection) is chosen against the same facial-nerve-preservation tradeoff the House-Brackmann scale is built to describe.
 
-### Flashcards (33)
+### Flashcards (36)
 
 **[eac-anat]** tags: OT, anatomy, milestones: MK1, UKMLA: Painful ear, Hearing loss, reviewer: (none)
 - Front: What innervates the external ear, and why is that clinically relevant?
@@ -400,7 +400,7 @@ Teaching: [figure: Progressive asymmetric SNHL and tinnitus worked up with MRI I
 
 **[me-muscles]** tags: OT, anatomy, milestones: MK1, UKMLA: Hearing loss, reviewer: (none)
 - Front: What are the two middle-ear muscles, their nerves, and their function?
-- Back: Tensor tympani (CN V3) and stapedius (CN VII). They reflexively dampen loud sounds (acoustic reflex). Because the stapedius mediates the acoustic reflex, a facial nerve palsy proximal to the stapedial branch can cause hyperacusis: a common pimp point linking this anatomy to the facial-palsy cards.[figure: Tensor tympani (CN V3) and stapedius (CN VII), the two middle-ear muscles and the acoustic reflex.]
+- Back: Tensor tympani (CN V3) and stapedius (CN VII). The stapedius mediates the sound-evoked acoustic reflex (loud sounds); the tensor tympani responds mainly to touch, startle, and swallowing. Because the stapedius mediates the acoustic reflex, a facial nerve palsy proximal to the stapedial branch can cause hyperacusis: a common pimp point linking this anatomy to the facial-palsy cards.[figure: Tensor tympani (CN V3) and stapedius (CN VII), the two middle-ear muscles and the acoustic reflex.]
 - Source: Standard otologic anatomy teaching.
 
 **[et]** tags: OT, anatomy, milestones: MK1, MK3, UKMLA: Hearing loss, Otitis media, reviewer: (none)
@@ -426,12 +426,12 @@ Teaching: [figure: Progressive asymmetric SNHL and tinnitus worked up with MRI I
 **[weber]** tags: OT, clinical, milestones: PC4, UKMLA: Hearing loss, reviewer: (none)
 - Front: Interpret the Weber test.
 - Back: 512 Hz on the vertex. Conductive loss: lateralizes to the affected ear. SNHL: lateralizes to the better ear.[figure: Tuning-fork testing: Weber and Rinne in conductive vs sensorineural loss.]ScenarioWeberRinne (affected ear)Normal / symmetricMidlineAC > BC (positive)Conductive loss, rightLateralizes to right (affected)BC > AC (negative)Sensorineural loss, rightLateralizes to left (better)AC > BC (positive)
-- Source: AAO-HNSF Clinical Practice Guideline: Sudden Hearing Loss (Update), 2019: tuning-fork triage.
+- Source: Standard audiology and otology teaching; AAO-HNSF Clinical Practice Guideline: Sudden Hearing Loss (Update), 2019 supports tuning-fork triage of SNHL vs CHL.
 
 **[rinne]** tags: OT, clinical, milestones: PC4, UKMLA: Hearing loss, reviewer: (none)
 - Front: Interpret the Rinne test.
 - Back: Mastoid (BC) vs beside the ear (AC). Normal/SNHL: AC > BC (positive). Conductive loss: BC > AC (negative) in the affected ear.ScenarioWeberRinne (affected ear)Normal / symmetricMidlineAC > BC (positive)Conductive loss, rightLateralizes to right (affected)BC > AC (negative)Sensorineural loss, rightLateralizes to left (better)AC > BC (positive)[figure: Interpreting the Rinne tuning-fork test (AC vs BC) alongside the Weber/Rinne comparison table.]
-- Source: AAO-HNSF Clinical Practice Guideline: Sudden Hearing Loss (Update), 2019: tuning-fork triage.
+- Source: Standard audiology and otology teaching; AAO-HNSF Clinical Practice Guideline: Sudden Hearing Loss (Update), 2019 supports tuning-fork triage of SNHL vs CHL.
 
 **[chl-snhl]** tags: OT, clinical, milestones: PC4, MK3, UKMLA: Hearing loss, reviewer: (none)
 - Front: Give the common causes of conductive vs sensorineural hearing loss.
@@ -440,7 +440,7 @@ Teaching: [figure: Progressive asymmetric SNHL and tinnitus worked up with MRI I
 
 **[sudden-snhl]** tags: OT, clinical, milestones: PC4, UKMLA: Hearing loss, RED FLAG, reviewer: (none)
 - Front: Why is sudden SNHL an emergency, and what's the workup?
-- Back: Otologic emergency (≥30 dB over ≥3 frequencies within 72h). Forks show a sensorineural pattern (Weber to better ear, Rinne positive). Urgent audiogram and MRI are firm recommendations; corticosteroids may be offered (shared decision-making) within 2 weeks, per AAO-HNS 2019: not a mandatory step. Don't call it wax.
+- Back: Otologic emergency (≥30 dB over ≥3 frequencies within 72h). Forks show a sensorineural pattern (Weber to better ear, Rinne positive). Audiometry within 14 days and MRI or ABR for retrocochlear pathology; no routine CT or labs. Corticosteroids may be offered (shared decision-making) within 2 weeks, per AAO-HNS 2019: not a mandatory step. Intratympanic steroids are salvage at 2 to 6 weeks. Don't call it wax.
 - Source: AAO-HNSF Clinical Practice Guideline: Sudden Hearing Loss (Update), 2019.
 
 **[asym-snhl]** tags: OT, clinical, milestones: PC4, UKMLA: Hearing loss, Acoustic neuroma, RED FLAG, reviewer: (none)
@@ -480,7 +480,7 @@ Teaching: [figure: Progressive asymmetric SNHL and tinnitus worked up with MRI I
 
 **[central-vertigo]** tags: OT, clinical, milestones: PC4, UKMLA: Vertigo, Dizziness, RED FLAG, reviewer: (none)
 - Front: Which dizziness features point CENTRAL rather than peripheral?
-- Back: HINTS applies only to acute vestibular syndrome (continuous vertigo with spontaneous nystagmus), not to positional vertigo. A central pattern = any ONE of: normal/negative head-impulse test, direction-changing or vertical nystagmus, or skew deviation (mnemonic INFARCT). Any single central component overrides the others → image for posterior-circulation stroke. Do not use HINTS for positional or episodic vertigo.
+- Back: HINTS applies only to acute vestibular syndrome (continuous vertigo with spontaneous nystagmus), not to positional vertigo. A central pattern = any ONE of: normal/negative head-impulse test, direction-changing or vertical nystagmus, or skew deviation (mnemonic INFARCT). Any single central component overrides the others → image for posterior-circulation stroke. Do not use HINTS for positional or episodic vertigo, or when there is no nystagmus at rest (assess gait instead).
 - Source: Kattah et al., HINTS exam, Stroke 2009.
 
 **[facial-palsy]** tags: OT, clinical, milestones: PC4, MK1, UKMLA: Facial weakness, Bell's palsy, RED FLAG, reviewer: (none)
@@ -510,7 +510,7 @@ Teaching: [figure: Progressive asymmetric SNHL and tinnitus worked up with MRI I
 
 **[cholesteatoma-erosion-card]** tags: OT, clinical, milestones: PC4, MK3, UKMLA: Ear and nasal discharge, Facial weakness, RED FLAG, reviewer: (none)
 - Front: Cholesteatoma needs [...] rather than antibiotic drops alone, because the sac's bone-resorbing enzymes keep eroding nearby structures regardless of infection control.
-- Back: Cholesteatoma needs mastoidectomy rather than antibiotic drops alone, because the sac's bone-resorbing enzymes keep eroding nearby structures regardless of infection control. Erosion can reach the ossicular chain, the facial nerve canal, the lateral semicircular canal, or the tegmen tympani.[figure: Cholesteatoma requires mastoidectomy, not drops, because its enzymes keep eroding nearby bone.]
+- Back: Cholesteatoma needs mastoidectomy (typically tympanomastoidectomy) rather than antibiotic drops alone, because the sac keeps eroding nearby bone regardless of infection control. Erosion can reach the ossicular chain, the facial nerve canal, the lateral semicircular canal, or the tegmen tympani.[figure: Cholesteatoma requires mastoidectomy, not drops, because its enzymes keep eroding nearby bone.]
 - Source: Standard otology teaching on cholesteatoma; Cummings Otolaryngology-Head and Neck Surgery, 7th ed.
 
 **[vestibular-schwannoma-workup-card]** tags: OT, clinical, milestones: PC4, UKMLA: Hearing loss, Acoustic neuroma, Tinnitus, RED FLAG, reviewer: (none)
@@ -530,7 +530,7 @@ Teaching: [figure: Progressive asymmetric SNHL and tinnitus worked up with MRI I
 
 **[meniere-management-ladder-card]** tags: OT, clinical, milestones: PC4, UKMLA: Ménière's disease, reviewer: (none)
 - Front: In the Ménière's disease step-up management ladder, [...] is reserved for vertigo refractory to diet, diuretics, and intratympanic steroids, because it risks further hearing loss.
-- Back: In the Ménière's disease step-up management ladder, intratympanic gentamicin is reserved for vertigo refractory to diet, diuretics, and intratympanic steroids, because it risks further hearing loss. This 'chemical labyrinthectomy' controls vertigo well but is only relatively selective for vestibular over cochlear hair cells.
+- Back: In the Ménière's disease step-up management ladder, intratympanic gentamicin is reserved for vertigo refractory to diet, diuretics, and intratympanic steroids, because it risks further hearing loss. This 'chemical labyrinthectomy' controls vertigo well but is only relatively selective for vestibular over cochlear hair cells. Evidence for diet and diuretics is low certainty, so they are conventional practice rather than proven.
 - Source: Standard otology/neurotology teaching on Ménière's disease management.
 
 **[noe-pathogen-progression-card]** tags: OT, clinical, milestones: PC4, UKMLA: Painful ear, Otitis externa, RED FLAG, reviewer: (none)
@@ -538,7 +538,22 @@ Teaching: [figure: Progressive asymmetric SNHL and tinnitus worked up with MRI I
 - Back: The classic pathogen behind necrotizing (malignant) otitis externa, invading the skull base from the canal floor almost always in a diabetic or immunocompromised patient, is Pseudomonas aeruginosa. As osteomyelitis spreads along the skull base, CN VII is affected first, followed by CN IX, X, XI, and then CN XII.
 - Source: Standard otology teaching on necrotizing (malignant) otitis externa.
 
+**[weber-rinne-table]** tags: OT, clinical, milestones: PC4, UKMLA: Hearing loss, reviewer: (none)
+- Front: Give the Weber and Rinne result for a normal ear, a unilateral conductive loss, and a unilateral sensorineural loss.
+- Back: Normal: Weber midline; Rinne positive (air > bone) both ears. Conductive loss: Weber to the affected ear; Rinne negative (bone > air) on that side. Sensorineural loss: Weber to the better ear; Rinne positive (air > bone) bilaterally. Confirm with audiometry.
+- Source: Standard audiology and otology teaching. DRAFT pending faculty review.
+
+**[ear-compartment-hearing-loss]** tags: OT, anatomy, milestones: MK1, UKMLA: Hearing loss, reviewer: (none)
+- Front: Which parts of the ear cause conductive vs sensorineural hearing loss?
+- Back: Conductive: external canal and middle ear (wax, perforation, effusion, ossicular fixation or discontinuity). Sensorineural: cochlea or CN VIII (presbycusis, noise, Ménière's, vestibular schwannoma). The tuning forks and the air-bone gap on the audiogram tell you which.
+- Source: Standard otologic anatomy teaching. DRAFT pending faculty review.
+
+**[aom-management]** tags: OT, clinical, milestones: PC5, UKMLA: Painful ear, Otitis media, reviewer: (none)
+- Front: What is required to diagnose acute otitis media, and what is first-line treatment?
+- Back: A bulging tympanic membrane or new otorrhea (or acute effusion with inflammation), not redness alone. First-line is high-dose amoxicillin; amoxicillin-clavulanate if recent antibiotics, concurrent conjunctivitis, or treatment failure. Observation with analgesia is an option for selected older children with non-severe disease.
+- Source: AAP Clinical Practice Guideline: The Diagnosis and Management of Acute Otitis Media, 2013. DRAFT pending faculty review.
+
 **[cochlear-implant-candidacy-card]** tags: OT, clinical, milestones: PC4, UKMLA: Hearing loss, reviewer: (none)
 - Front: Cochlear implant candidacy requires [...] with limited benefit from appropriately fit hearing aids, confirmed by aided speech-perception testing.
-- Back: Cochlear implant candidacy requires severe-to-profound sensorineural hearing loss with limited benefit from appropriately fit hearing aids, confirmed by aided speech-perception testing. Unlike a hearing aid, an implant bypasses damaged cochlear hair cells and stimulates the auditory nerve directly. Since 2019, FDA-approved indications also include single-sided deafness and asymmetric hearing loss (age &ge;5 years; profound SNHL in the affected ear with near-normal hearing contralaterally), not only bilateral severe-to-profound loss.
+- Back: Cochlear implant candidacy requires moderate-to-profound sensorineural hearing loss (classically severe-to-profound, now extended to moderate sloping to profound loss) with limited benefit from appropriately fit hearing aids, confirmed by aided speech-perception testing. Unlike a hearing aid, an implant bypasses damaged cochlear hair cells and stimulates the auditory nerve directly. Since 2019, FDA-approved indications also include single-sided deafness and asymmetric hearing loss (age &ge;5 years; 4-frequency average above 80 dB HL in the affected ear with the contralateral ear at 30 dB HL or better for single-sided deafness), not only bilateral severe-to-profound loss.
 - Source: Standard neurotology teaching on cochlear implant candidacy (FDA-approved criteria; AAO-HNS Cochlear Implants clinical indicators statement).
