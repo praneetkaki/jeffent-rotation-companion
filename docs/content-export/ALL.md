@@ -6572,7 +6572,7 @@ Each brief is a two-minute pre-scrub read: the indication, the key steps, the da
 
 [figure: Anatomy of the middle meatus/uncinate process/ethmoid bulla forming the ostiomeatal complex, the shared drainage funnel for frontal, anterior ethmoid, and maxillary sinuses.]
 - Three turbinates (inferior, middle, superior) overhang three meatuses; the middle meatus is the key one.
-- The uncinate process and ethmoid bulla form the ethmoid infundibulum, the final common drainage pathway (the ostiomeatal complex) for the frontal, anterior ethmoid, and maxillary sinuses.
+- The ethmoid infundibulum is the groove lateral to the uncinate process; the maxillary sinus, anterior ethmoid cells, and usually the frontal recess drain through it into the middle meatus via the hiatus semilunaris (the cleft between the uncinate and the ethmoid bulla). This functional unit is the ostiomeatal complex.
 - Obstruct the OMC (mucosal edema, deviated septum, concha bullosa) and all three sinuses back up, which is why CRS is usually a disease of the OMC, not of one sinus alone.
 
 **The paranasal sinuses: drainage & danger zones** (tags: Sinus drainage · Orbital danger zone · Cavernous sinus)
@@ -6587,15 +6587,15 @@ Each brief is a two-minute pre-scrub read: the indication, the key steps, the da
 
 [figure: Little's area/Kiesselbach's plexus vascular convergence and anterior vs posterior epistaxis sources.]
 - Little's area (Kiesselbach's plexus) on the anterior septum is where four vessels converge: anterior ethmoidal (internal carotid to ophthalmic), sphenopalatine and greater palatine (external carotid to maxillary), and superior labial (external carotid to facial).
-- Over 90% of nosebleeds are anterior, from this plexus.
-- Posterior bleeds come from the sphenopalatine artery itself: heavier, harder to see, and more likely in older or anticoagulated patients.
+- About 80-90% of nosebleeds are anterior, from this plexus.
+- Posterior bleeds (about 10-20%) come from terminal branches of the sphenopalatine artery: heavier, harder to see, and more likely in older or anticoagulated patients.
 
 **The nasal septum** (tags: Septal cartilage & bone · Septal hematoma)
 
 [figure: Septal skeleton (quadrangular cartilage, perpendicular plate of ethmoid, vomer) and septal hematoma risk.]
 - Cartilage anteriorly (quadrangular cartilage); bone posteriorly (perpendicular plate of the ethmoid above, vomer below).
 - Deviation is very common and often asymptomatic.
-- A septal hematoma or abscess is an emergency: the cartilage has no blood supply of its own and depends entirely on the overlying mucoperichondrium.
+- A septal hematoma or abscess is an emergency: the cartilage has no blood supply of its own and depends entirely on the overlying mucoperichondrium. Treat with urgent incision and drainage plus antistaphylococcal antibiotics; missed hematomas cause cartilage necrosis and saddle-nose.
 
 **FESS anatomy variants** (tags: Concha bullosa · Haller cells · Onodi cells)
 
@@ -6609,16 +6609,15 @@ Each brief is a two-minute pre-scrub read: the indication, the key steps, the da
 
 **Diagram: Little's area (Kiesselbach's plexus)**
 
-The anastomosis behind >90% of nosebleeds. Name each contributing vessel, then reveal.
+The anastomosis behind most nosebleeds. Name each contributing vessel, then reveal.
 
 _Image source: Kiesselbach's Plexus (Little's Area) Arterial Supply. Illustration generated with Google Gemini._
 - Anterior ethmoidal a. (internal carotid → ophthalmic branch): the highest of the four contributing vessels
-- Anterior ethmoidal a. descending to the septum: internal carotid supply to Kiesselbach's plexus
 - Sphenopalatine a. (external carotid → maxillary a.): the posterior bleed source when it bleeds on its own, higher up the septum
 - Greater palatine a. (external carotid → maxillary a.): reaches the anterior septum via the incisive canal
 - Superior labial a., septal branch (external carotid → facial a.): supplies the plexus from below
 - Little's area / Kiesselbach's plexus: the anastomosis on the anterior septum
-- Anterior epistaxis zone: thin, exposed mucosa prone to abrasion and spontaneous bleeding, over 90% of nosebleeds
+- Anterior epistaxis zone: thin, exposed mucosa prone to abrasion and spontaneous bleeding, most nosebleeds
 - Kiesselbach's plexus: confluence of the four arteries above, responsible for the great majority of epistaxis
 
 **Diagram: Ostiomeatal complex: coronal drainage**
@@ -6655,10 +6654,9 @@ _Image source: Paranasal Sinuses Drainage and Adjacent Danger Zones. Illustratio
 - Frontal recess: the hourglass-shaped channel connecting the frontal sinus to the middle meatus, the narrowest and most surgically important part of frontal drainage
 - Ethmoid air cells: thin-walled cells sitting between the nasal cavity and the orbit, separated from it by the paper-thin lamina papyracea
 - Ostium (gravity-independent drainage): the maxillary sinus ostium sits high on the medial wall, so mucus must be cleared by ciliary action rather than gravity, a key reason CRS is so persistent
-- Nasal cavity: the shared airway that all paranasal sinus drainage pathways ultimately empty into via the middle and superior meatuses
 - Maxillary sinus: the largest paranasal sinus; its floor lies close to the molar/premolar tooth roots, the basis of odontogenic sinusitis
 - Molar/premolar tooth roots: separated from the maxillary sinus floor by a thin bony plate (sometimes dehiscent), allowing dental infection or extraction to seed the sinus
-- Odontogenic source: roughly 10-40% of maxillary sinusitis is dental in origin (periapical abscess, extraction, or a displaced root/implant), and it's classically unilateral and foul-smelling
+- Odontogenic source: a substantial share of maxillary sinusitis is dental in origin (periapical abscess, extraction, or a displaced root/implant), and it's classically unilateral and foul-smelling
 - Ostiomeatal complex (middle meatus): the final common drainage channel for the frontal, maxillary, and anterior ethmoid sinuses; obstruction here is the central mechanism of CRS
 - Lamina papyracea (route to orbital complications): paper-thin ethmoid bone separating the sinuses from the orbit; dehiscence or erosion lets infection spread to cause periorbital/orbital cellulitis, abscess, or vision loss
 - Posterior ethmoid air → superior meatus: posterior ethmoid cells drain separately from the anterior/middle group, emptying into the superior meatus rather than the OMC
@@ -6668,7 +6666,6 @@ _Image source: Paranasal Sinuses Drainage and Adjacent Danger Zones. Illustratio
 - Internal carotid artery: courses along the lateral sphenoid sinus wall, sometimes with a dehiscent bony covering; the most feared vascular injury in sphenoid/skull base surgery
 - Cavernous sinus: lies lateral to the sphenoid sinus; sphenoid or posterior ethmoid infection can spread here to cause cavernous sinus thrombosis, a life-threatening emergency
 - Pituitary gland: sits just above/behind the sphenoid sinus, which is why the sphenoid is the surgical corridor for transsphenoidal pituitary surgery
-- Nasal cavity (sagittal view): shown here alongside the sphenoid sinus and its neurovascular neighbors to orient the danger zone in three dimensions
 
 **Diagram: Nasal septum: cartilage and bone**
 
@@ -6720,7 +6717,7 @@ The old "seasonal vs perennial" split has been replaced by ARIA (Allergic Rhinit
 
 - Allergen avoidance + as-needed second-generation oral or intranasal antihistamine for mild/intermittent disease.
 - Intranasal corticosteroid (INCS), the single most effective agent and first-line for persistent or moderate-severe disease. Regular (not as-needed) dosing works best.
-- Combination therapy: INCS + intranasal antihistamine (e.g., fluticasone-azelastine) for inadequate response to INCS alone; add a leukotriene receptor antagonist if there's concurrent asthma, or an intranasal anticholinergic (ipratropium) if rhinorrhea is the dominant symptom.
+- Combination therapy: INCS + intranasal antihistamine (e.g., fluticasone-azelastine) for moderate-to-severe symptoms or inadequate response to INCS alone; reserve a leukotriene receptor antagonist (boxed FDA warning for neuropsychiatric events, no better than an oral antihistamine) for patients with asthma who cannot use preferred agents; add an intranasal anticholinergic (ipratropium) if rhinorrhea is the dominant symptom.
 - Refractory disease: refer for allergen immunotherapy, either SCIT (subcutaneous immunotherapy) or SLIT (sublingual immunotherapy), the only disease-modifying option.[figure: Stepwise escalation of allergic rhinitis therapy from avoidance through immunotherapy.]
 
 **[non-allergic-rhinitis] Non-allergic rhinitis: the mimics of allergic rhinitis**
@@ -6745,16 +6742,16 @@ Pharmacology:
 
 - Second-generation oral antihistamines (cetirizine, loratadine, fexofenadine) are preferred over first-generation agents (diphenhydramine, chlorpheniramine), which cross the blood-brain barrier and cause significant sedation, anticholinergic effects, and impaired driving/psychomotor performance, including "hangover" sedation the next day.
 - Oral decongestants (pseudoephedrine) raise heart rate and blood pressure, so use them with caution in hypertension/cardiovascular disease and avoid them in pregnancy.
-- Topical decongestants (oxymetazoline) work within minutes but must be limited to ≤3 consecutive days to avoid rebound congestion (see rhinitis medicamentosa, next block).
+- Topical decongestants (oxymetazoline) work within minutes but must be limited to a short course (commonly ≤3 days) to avoid rebound congestion (see rhinitis medicamentosa, next block).
 
 **[epistaxis-ladder] The epistaxis escalation ladder**
 
-- First aid: lean forward, firm pressure on the cartilaginous nose 10-15 min, ± topical vasoconstrictor/tranexamic acid.
+- First aid: lean forward, firm, sustained compression of the lower (cartilaginous) third of the nose for 10-15 min, ± topical vasoconstrictor/tranexamic acid.
 - Chemical or electrical cautery of a visible anterior bleeding point.
 - Anterior nasal packing (absorbable or non-absorbable): prefer resorbable packing in patients on anticoagulants/antiplatelets, with bleeding disorders, or in young children.
-- Posterior bleed suspected (heavy, bleeding from both nostrils/posterior pharynx): posterior packing or a balloon device, admit, monitor airway/vagal response.
+- Posterior bleed suspected (heavy, bleeding from both nostrils/posterior pharynx): posterior packing or a balloon device, admit, and monitor for rebleeding and oxygenation.
 - Refractory: endoscopic sphenopalatine artery ligation or interventional embolization.Always check anticoagulation status and reverse if supratherapeutic; consider HHT in recurrent bilateral bleeders with a family history and telangiectasias.
-Posterior packs need inpatient admission with cardiac/airway monitoring because the pack can trigger the nasopulmonary (nasocardiac) vagal reflex (bradycardia and hypotension), and the pack itself carries aspiration and airway-obstruction risk, especially in older patients.
+Posterior packs need inpatient admission to watch for rebleeding and low oxygen (the pack can obstruct the airway, with aspiration risk), especially in older or anticoagulated patients.
 [figure: Stepwise epistaxis management from first aid through cautery, packing, and arterial ligation/embolization.]
 
 **[unilateral-masses] Unilateral nasal masses by age: the pattern to memorize**
@@ -6767,7 +6764,7 @@ Posterior packs need inpatient admission with cardiac/airway monitoring because 
 
 [figure: Three FESS complication sites: orbit (lamina papyracea), skull base (cribriform plate), and internal carotid artery.]Endoscopic sinus surgery works through thin bone next to three critical structures:
 
-- Orbit (via the lamina papyracea): injury causes orbital hematoma, diplopia, or blindness.
+- Orbit (via the lamina papyracea): injury causes orbital hematoma, diplopia, or blindness. An expanding orbital hematoma is a sight-threatening emergency needing immediate lateral canthotomy and decompression.
 - Skull base (via the ethmoid roof/cribriform plate): injury causes a CSF leak.
 - Internal carotid artery (in sphenoid surgery): it can run directly under thin or dehiscent bone in the sphenoid sinus wall.See the Anatomy tab for the pneumatization variants (concha bullosa, Haller cells, Onodi cells) that change where these risks sit on an individual patient's CT.
 
@@ -6777,13 +6774,13 @@ Fungal sinus disease spans a spectrum, and host immune status is what separates 
 
 - Allergic fungal rhinosinusitis (AFRS): a hypersensitivity reaction to fungi (not true infection) in an immunocompetent, atopic patient. Presents as chronic polypoid CRS with thick allergic mucin; not urgent, managed like refractory CRSwNP (steroids, surgery to clear the mucin).
 - Fungal ball (mycetoma): a noninvasive mass of fungal debris colonizing a single sinus (usually maxillary) in an immunocompetent patient. Presents as chronic unilateral sinus pressure/discharge, often found incidentally on CT; not urgent, curative with surgical removal alone (no antifungals needed).
-- Acute invasive fungal rhinosinusitis: true angioinvasive infection in an immunocompromised host, covered in detail below. This is the only one of the three that is a surgical emergency.A rapidly progressive (<4 weeks), angioinvasive fungal infection of the sinuses in immunocompromised patients: poorly controlled diabetes (classically DKA), neutropenia, hematologic malignancy, transplant, or chronic high-dose steroids. Mortality is high (roughly 50%, higher with intracranial spread).
+- Acute invasive fungal rhinosinusitis: true angioinvasive infection in an immunocompromised host, covered in detail below. This is the only one of the three that is a surgical emergency.A rapidly progressive (<4 weeks), angioinvasive fungal infection of the sinuses in immunocompromised patients: poorly controlled diabetes (classically DKA), neutropenia, hematologic malignancy, transplant, or chronic high-dose steroids. Mortality is high (historically around 50%, closer to 30% in recent cohorts with early detection, and higher with intracranial spread).
 
 - Organisms: Mucorales (mucormycosis, classic in diabetic ketoacidosis) and Aspergillus.
 - Exam: facial pain/numbness, fever, nasal congestion; endoscopy shows pale, insensate, or necrotic (black) mucosa/eschar on the turbinates or palate. Facial numbness and cranial neuropathies signal angioinvasive spread.
 - Imaging: MRI is most sensitive (loss of contrast enhancement / "black turbinate" sign, perineural and early extrasinus spread); CT complements it for bony/surgical detail. Note ~40% have minimal or normal CT findings early: a normal CT does not exclude it.
 - Diagnosis: urgent nasal endoscopy with biopsy (frozen section can confirm tissue invasion within ~30 min).
-- Management (all three, urgently): (1) reverse immunosuppression / correct the underlying condition (e.g., treat DKA), (2) immediate systemic antifungals: liposomal amphotericin B for Mucorales, voriconazole for Aspergillus, and (3) urgent surgical debridement. This is a same-day surgical emergency, not a drops-and-observe problem.
+- Management (all three, urgently): (1) reverse immunosuppression / correct the underlying condition (e.g., treat DKA), (2) immediate systemic antifungals: liposomal amphotericin B for Mucorales, voriconazole or isavuconazole for Aspergillus, and (3) urgent surgical debridement.
 
 ### Red flags
 - Immunocompromised/diabetic (DKA) patient with facial pain, numbness, or a necrotic nasal/palatal eschar: acute invasive fungal rhinosinusitis (mucormycosis/Aspergillus); urgent endoscopy + biopsy, MRI, systemic antifungals, and surgical debridement.
@@ -6806,7 +6803,7 @@ Stem: An 81-year-old on apixaban has a heavy nosebleed with blood visible in the
   A: A posterior bleed, typically from the sphenopalatine artery. Heavier, harder to visualize, and higher risk in older/anticoagulated patients.
 
 - Q: Next steps?
-  A: Posterior packing or a balloon device, admission for airway/vagal monitoring, ENT involvement, and consideration of endoscopic sphenopalatine artery ligation or embolization if it persists. Assess whether anticoagulation needs to be held/reversed with the prescribing team. If packing is needed in this anticoagulated patient, resorbable packing is preferred over nonresorbable, since removing a nonresorbable pack can abrade mucosa and provoke rebleeding (AAO-HNS 2020).
+  A: Posterior packing or a balloon device, admission to monitor for rebleeding, oxygenation, and anticoagulation, ENT involvement, and consideration of endoscopic sphenopalatine artery ligation or embolization if it persists. Assess whether anticoagulation needs to be held/reversed with the prescribing team. If packing is needed in this anticoagulated patient, resorbable packing is preferred over nonresorbable, since removing a nonresorbable pack can abrade mucosa and provoke rebleeding (AAO-HNS 2020).
 
 Teaching: When anterior measures fail and blood tracks posteriorly, escalate the ladder. Don't keep repeating anterior pressure.[figure: Posterior epistaxis in an anticoagulated elderly patient, requiring escalation past anterior measures.]
 
@@ -6818,7 +6815,7 @@ Stem: A 38-year-old woman with asthma has recurrent nasal polyps despite three p
   A: Samter's triad (AERD, aspirin-exacerbated respiratory disease): CRS with nasal polyps + asthma + NSAID/aspirin sensitivity.
 
 - Q: Management implications?
-  A: Strict NSAID avoidance, aggressive medical therapy (intranasal/systemic steroids, biologics), and, for refractory cases, aspirin desensitization under specialist supervision, which can reduce polyp recurrence.
+  A: Strict NSAID avoidance, aggressive medical therapy (intranasal/systemic steroids, biologics), and, for refractory cases, aspirin desensitization under specialist supervision, which can reduce polyp recurrence. A type 2 biologic (dupilumab, omalizumab, or mepolizumab) is an option for refractory disease.
 
 Teaching: Recurrent polyps + asthma + an NSAID reaction history = ask about AERD before the fourth polypectomy.
 
@@ -6830,7 +6827,7 @@ Stem: A 14-year-old boy has had three episodes of unilateral nosebleeds over two
   A: Juvenile nasopharyngeal angiofibroma (JNA), a benign but highly vascular tumor that occurs almost exclusively in adolescent males.
 
 - Q: What must you NOT do, and what's the correct next step?
-  A: Do not biopsy in clinic: it is extremely vascular and can bleed catastrophically. Get contrast-enhanced MRI/CT and refer for angiography ± preoperative embolization before surgical excision.
+  A: Do not biopsy in clinic: it is extremely vascular and can bleed catastrophically. Get contrast-enhanced CT and MRI (CT for bone, MRI for soft-tissue and intracranial extent) and refer for angiography ± preoperative embolization before surgical excision.
 
 Teaching: Adolescent male + recurrent unilateral epistaxis + a nasal mass is JNA until imaging says otherwise, and imaging comes before biopsy.
 
@@ -6842,7 +6839,7 @@ Stem: A 7-year-old with known sinusitis develops worsening proptosis; eye moveme
   A: A subperiosteal orbital abscess, a Chandler stage III orbital complication of sinusitis (post-septal disease with a discrete collection).
 
 - Q: Management?
-  A: IV antibiotics and urgent surgical drainage (often endoscopic) are typically required for a subperiosteal abscess, especially with limited eye movement or visual change. This is not managed with antibiotics alone. Empiric IV coverage is typically broad-spectrum until culture data return, e.g., vancomycin (MRSA/streptococcal coverage) plus ceftriaxone or ampicillin-sulbactam (gram-negative and anaerobic coverage), then narrowed based on intraoperative culture and sensitivity results.
+  A: IV antibiotics and urgent surgical drainage (often endoscopic) are typically required for a subperiosteal abscess, especially with limited eye movement, visual change, a large abscess, or no improvement in 24 to 48 hours. A small medial abscess in a young child without visual change may be trialed on IV antibiotics with close monitoring. Empiric IV coverage is typically broad-spectrum until culture data return, e.g., vancomycin (MRSA/streptococcal coverage) plus ceftriaxone plus metronidazole for anaerobes (or ampicillin-sulbactam alone), then narrowed based on intraoperative culture and sensitivity results.
 
 Teaching: [figure: Subperiosteal orbital abscess as a Chandler stage III complication of pediatric sinusitis.]Once there's a discrete collection and limited eye movement, this has moved from 'watch on antibiotics' to 'drain it.'
 
@@ -6851,7 +6848,7 @@ Teaching: [figure: Subperiosteal orbital abscess as a Chandler stage III complic
 Stem: A 29-year-old two weeks after minor facial trauma reports persistent clear, watery drainage from one nostril, worse when leaning forward. He has no other ENT symptoms.
 
 - Q: What must be excluded, and how?
-  A: CSF rhinorrhea from a skull-base fracture. Test the fluid for β2-transferrin (specific to CSF); a 'halo sign' on filter paper is suggestive but not definitive.
+  A: CSF rhinorrhea from a skull-base fracture. Test the fluid for β2-transferrin (specific to CSF; β-trace protein is an alternative); a 'halo sign' on filter paper is suggestive but not definitive.
 
 - Q: What do you avoid while this is being worked up?
   A: Avoid nasal packing, nose-blowing, and instrumentation until a leak is excluded/localized (CT/MRI); there's a risk of ascending meningitis. Most traumatic leaks are managed with bed rest/head elevation first; persistent leaks need surgical repair.
@@ -6882,11 +6879,11 @@ Stem: A 50-year-old describes years of chronic nasal congestion and clear rhinor
 
 Teaching: Congestion and rhinorrhea without itch/sneeze/conjunctivitis, plus negative allergy testing, is the non-allergic rhinitis pattern. Treat the mechanism, not a reflex prescription of an oral antihistamine.
 
-### Flashcards (28)
+### Flashcards (31)
 
 **[omc-anatomy]** tags: RH, anatomy, milestones: MK1, PC5, UKMLA: Nasal obstruction, reviewer: (none)
 - Front: What structures form the ostiomeatal complex, and why does it matter clinically?
-- Back: The uncinate process and ethmoid bulla create the ethmoid infundibulum, the shared drainage channel for the frontal, anterior ethmoid, and maxillary sinuses via the middle meatus. Obstruct the OMC and all three back up together: the anatomic basis of most chronic rhinosinusitis.[figure: Ostiomeatal complex structures (uncinate process, ethmoid bulla, infundibulum) and their role in CRS.]
+- Back: The ethmoid infundibulum is the groove lateral to the uncinate process; the frontal, anterior ethmoid, and maxillary sinuses drain through it into the middle meatus (the ostiomeatal complex). Obstruct the OMC and all three back up together: the anatomic basis of most chronic rhinosinusitis.[figure: Ostiomeatal complex structures (uncinate process, ethmoid bulla, infundibulum) and their role in CRS.]
 - Source: Standard rhinologic anatomy teaching.
 
 **[sinus-danger-zones]** tags: RH, anatomy, milestones: MK1, PC5, UKMLA: Facial pain, reviewer: (none)
@@ -6896,7 +6893,7 @@ Teaching: Congestion and rhinorrhea without itch/sneeze/conjunctivitis, plus neg
 
 **[septal-blood-supply]** tags: RH, anatomy, milestones: MK1, PC5, UKMLA: Epistaxis, reviewer: (none)
 - Front: Which four arteries converge at Little's area (Kiesselbach's plexus)?
-- Back: Anterior ethmoidal (ICA→ophthalmic), sphenopalatine and greater palatine (ECA→maxillary), and superior labial (ECA→facial). This anastomosis on the anterior septum is the source of >90% of nosebleeds.[figure: Four arteries converging at Little's area/Kiesselbach's plexus.]
+- Back: Anterior ethmoidal (ICA→ophthalmic), sphenopalatine and greater palatine (ECA→maxillary), and superior labial (ECA→facial). This anastomosis on the anterior septum is the source of about 80-90% of nosebleeds.[figure: Four arteries converging at Little's area/Kiesselbach's plexus.]
 - Source: Standard rhinologic anatomy teaching.
 
 **[septal-structure]** tags: RH, anatomy, milestones: MK1, UKMLA: Nasal obstruction, reviewer: (none)
@@ -6916,7 +6913,7 @@ Teaching: Congestion and rhinorrhea without itch/sneeze/conjunctivitis, plus neg
 
 **[crs-subtypes-card]** tags: RH, clinical, milestones: PC5, MK3, UKMLA: Rhinosinusitis, reviewer: (none)
 - Front: Contrast CRSsNP and CRSwNP, and name their first-line treatments.
-- Back: CRSsNP (without polyps): mucosal thickening → saline irrigation + intranasal corticosteroid. CRSwNP (with polyps): bilateral polyps on endoscopy → intranasal/short-course oral steroids first; biologics or FESS if refractory.[figure: Contrast of CRSsNP vs CRSwNP and their first-line treatments.]
+- Back: CRSsNP (without polyps): mucosal thickening → saline irrigation + intranasal corticosteroid. CRSwNP (with polyps): bilateral polyps on endoscopy → intranasal/short-course oral steroids first; endoscopic sinus surgery is the usual next step if refractory, with biologics for post-surgical failure or poor surgical candidates.[figure: Contrast of CRSsNP vs CRSwNP and their first-line treatments.]
 - Source: AAO-HNSF Adult Sinusitis CPG, 2015.
 
 **[aerd-card]** tags: RH, clinical, milestones: MK2, PC5, UKMLA: Rhinosinusitis, Allergies, reviewer: (none)
@@ -6926,7 +6923,7 @@ Teaching: Congestion and rhinorrhea without itch/sneeze/conjunctivitis, plus neg
 
 **[nasal-polyp-mgmt]** tags: RH, clinical, milestones: PC5, UKMLA: Rhinosinusitis, reviewer: (none)
 - Front: What is the step-up management ladder for nasal polyps?
-- Back: Intranasal corticosteroids first-line → short oral steroid course for flares → biologic therapy (e.g., anti-IL4/13, anti-IgE) for refractory type-2 inflammation → FESS if medical therapy fails. Polyps commonly recur without ongoing medical maintenance.[figure: Nasal polyposis step-up management ladder.]
+- Back: Intranasal corticosteroids first-line → short oral steroid course for flares → FESS if medical therapy fails → biologic therapy (dupilumab, omalizumab, mepolizumab, or tezepelumab) for refractory or post-surgical type-2 disease. Polyps commonly recur without ongoing medical maintenance.[figure: Nasal polyposis step-up management ladder.]
 - Source: AAO-HNSF Adult Sinusitis CPG, 2015.
 
 **[aria-classification-card]** tags: RH, clinical, milestones: MK2, PC5, UKMLA: Allergies, reviewer: (none)
@@ -6936,7 +6933,7 @@ Teaching: Congestion and rhinorrhea without itch/sneeze/conjunctivitis, plus neg
 
 **[ar-step-therapy-card]** tags: RH, clinical, milestones: MK2, PC5, UKMLA: Allergies, reviewer: (none)
 - Front: For persistent or moderate-severe allergic rhinitis, the single most effective first-line agent is a regularly dosed [...].
-- Back: For persistent or moderate-severe allergic rhinitis, the single most effective first-line agent is a regularly dosed intranasal corticosteroid. Regular, scheduled dosing works better than as-needed use.
+- Back: For persistent or moderate-severe allergic rhinitis, the single most effective first-line agent is a regularly dosed intranasal corticosteroid. Regular, scheduled dosing works better than as-needed use. For moderate-to-severe disease, a combined intranasal corticosteroid and antihistamine is also suggested.
 - Source: AAO-HNSF Clinical Practice Guideline: Allergic Rhinitis, 2015; ARIA guideline.
 
 **[non-allergic-rhinitis-differential]** tags: RH, clinical, milestones: MK2, PC5, UKMLA: Allergies, reviewer: (none)
@@ -6950,8 +6947,8 @@ Teaching: Congestion and rhinorrhea without itch/sneeze/conjunctivitis, plus neg
 - Source: AAO-HNSF Allergic Rhinitis CPG, 2015; standard rhinology teaching.
 
 **[drug-induced-rhinitis-card]** tags: RH, pharm, milestones: MK2, PC5, UKMLA: Allergies, reviewer: (none)
-- Front: Among drugs that can cause or worsen chronic rhinitis, [...] do so through a bradykinin-mediated mechanism.
-- Back: Among drugs that can cause or worsen chronic rhinitis, ACE inhibitors do so through a bradykinin-mediated mechanism. Ask about medication history in any patient with unexplained chronic nasal congestion.
+- Front: Among drugs that can cause or worsen chronic rhinitis, [...] can do so, along with beta-blockers, alpha-blockers, PDE5 inhibitors, and NSAIDs.
+- Back: Among drugs that can cause or worsen chronic rhinitis, ACE inhibitors (along with beta-blockers, alpha-blockers, PDE5 inhibitors, and NSAIDs) can do so. Ask about medication history in any patient with unexplained chronic nasal congestion.
 - Source: ARIA guideline; standard rhinology/pharmacology teaching.
 
 **[allergy-testing-card]** tags: RH, clinical, milestones: MK2, PC5, UKMLA: Allergies, reviewer: (none)
@@ -6959,14 +6956,29 @@ Teaching: Congestion and rhinorrhea without itch/sneeze/conjunctivitis, plus neg
 - Back: A positive allergy test result that doesn't match the clinical history indicates sensitization, not true allergy, so it always needs correlating with symptoms and exposure. Skin-prick testing works fast; serum-specific IgE skips the need to stop antihistamines first.
 - Source: AAO-HNSF Allergic Rhinitis CPG, 2015.
 
+**[chandler-classification]** tags: RH, clinical, milestones: PC5, UKMLA: Facial/periorbital swelling, Rhinosinusitis, RED FLAG, reviewer: (none)
+- Front: Name the five stages of orbital complications of sinusitis, and which signs mean it is behind the orbital septum.
+- Back: I preseptal cellulitis; II orbital (postseptal) cellulitis; III subperiosteal abscess; IV orbital abscess; V cavernous sinus thrombosis. Proptosis, painful or limited eye movement, diplopia, or reduced vision means postseptal disease: urgent contrast CT, IV antibiotics, and ENT/ophthalmology.
+- Source: Chandler et al., Laryngoscope 1970; AAO-HNSF Adult Sinusitis CPG, 2025. DRAFT pending faculty review.
+
+**[abrs-criteria]** tags: RH, clinical, milestones: PC5, UKMLA: Rhinosinusitis, reviewer: (none)
+- Front: When do you suspect acute bacterial rather than viral rhinosinusitis?
+- Back: Symptoms lasting 10 days or more without improvement, severe onset (fever with purulent discharge or facial pain for 3 to 4 days), or double worsening (worse after initial improvement). First-line treatment is amoxicillin-clavulanate; watchful waiting is an option in uncomplicated cases.
+- Source: AAO-HNSF Clinical Practice Guideline: Adult Sinusitis (Update), 2025. DRAFT pending faculty review.
+
+**[septal-perforation-saddle]** tags: RH, clinical, milestones: PC5, UKMLA: Nasal obstruction, RED FLAG, reviewer: (none)
+- Front: What are the main causes of a septal perforation or saddle-nose deformity, and what do you check if there is no trauma?
+- Back: Prior septal surgery, undrained septal hematoma or abscess, intranasal cocaine or topical drug overuse, and granulomatosis with polyangiitis. With no trauma history, think vasculitis and send an ANCA.
+- Source: Standard rhinology teaching. DRAFT pending faculty review.
+
 **[antihistamine-decongestant-pharm-card]** tags: RH, pharm, milestones: MK2, PC5, UKMLA: Allergies, reviewer: (none)
 - Front: Second-generation antihistamines, such as cetirizine, cause far less sedation than first-generation agents like diphenhydramine because they cross the [...] far less.
-- Back: Second-generation antihistamines, such as cetirizine, cause far less sedation than first-generation agents like diphenhydramine because they cross the blood-brain barrier far less. Oral decongestants raise heart rate and blood pressure, so avoid them in pregnancy.
+- Back: Second-generation antihistamines, such as cetirizine, cause far less sedation than first-generation agents like diphenhydramine because they cross the blood-brain barrier far less. Oral decongestants raise heart rate and blood pressure, so avoid them in pregnancy and uncontrolled hypertension. Oral phenylephrine is ineffective; pseudoephedrine is the effective oral agent.
 - Source: AAO-HNSF Allergic Rhinitis CPG, 2015.
 
 **[epistaxis-vessels]** tags: RH, clinical, milestones: PC5, PC1, UKMLA: Epistaxis, reviewer: (none)
 - Front: What vessel is responsible for most anterior bleeds, and which for posterior bleeds?
-- Back: Anterior: Little's area/Kiesselbach's plexus (>90% of bleeds). Posterior: the sphenopalatine artery itself, heavier, harder to see, more common in older/anticoagulated patients.
+- Back: Anterior: Little's area/Kiesselbach's plexus (about 80-90% of bleeds). Posterior: terminal branches of the sphenopalatine artery, heavier, harder to see, more common in older/anticoagulated patients.
 - Source: AAO-HNSF Clinical Practice Guideline: Nosebleed (Epistaxis), 2020.
 
 **[epistaxis-escalation-card]** tags: RH, clinical, milestones: PC5, PC1, UKMLA: Epistaxis, reviewer: (none)

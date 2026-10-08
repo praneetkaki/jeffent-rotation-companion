@@ -22,6 +22,6 @@ Every piece of module content, extracted from `content/*.js`. Regenerate with `n
 | [pharm-pocket.md](pharm-pocket.md) | Pharmacology Pocket Guide | ~11k chars |
 | [pimp-questions.md](pimp-questions.md) | Frequently Asked Questions (rounds/procedures) | ~30k chars |
 | [procedures-2min.md](procedures-2min.md) | 2-Minute Procedure Prep | ~31k chars |
-| [rhinology-sinus.md](rhinology-sinus.md) | Rhinology & Sinus | ~50k chars |
+| [rhinology-sinus.md](rhinology-sinus.md) | Rhinology & Sinus | ~53k chars |
 | [sleep-osa.md](sleep-osa.md) | Sleep Surgery & OSA | ~71k chars |
 | [ukmla.md](ukmla.md) | UKMLA scope registry | ~1k chars |
