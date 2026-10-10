@@ -1,6 +1,6 @@
 # Foundations: Exam, Approach & Emergencies
 
-_Generated 2026-10-08 from content/*.js_
+_Generated 2026-10-10 from content/*.js_
 
 > **How to use:** paste a module file below (or ALL.md) into OpenEvidence / any reviewer, followed by an instruction such as
 > "Fact-check every claim against current guidelines, flag anything outdated or wrong, and propose exact replacement wording. Keep our style: no em dashes, plain clinical language."
@@ -548,7 +548,7 @@ Teaching: Flex NPL is the criterion standard for dynamic pediatric airway collap
 - Source: AAO-HNSF Clinical Practice Guideline: Hoarseness (Dysphonia) (Update), 2018; indications for laryngoscopy.
 
 **[fb-wax-awareness]** tags: FN, clinical, milestones: PC7, PC4, UKMLA: Ear and nasal discharge, reviewer: (none)
-- Front: What should a student know about ear wax and ear/nose foreign bodies?
+- Front: How do you manage ear wax and ear or nose foreign bodies?
 - Back: Wax: softening drops then irrigation: avoid irrigation if perforation/grommet. Ear FB: don't push deeper; immobilize an insect (oil/lidocaine) before removal. Nasal FB (child): positive-pressure 'parent's kiss'. Any battery = emergency (separate card).
 - Source: AAO-HNSF Clinical Practice Guideline: Cerumen Impaction (Update), 2017.
 
