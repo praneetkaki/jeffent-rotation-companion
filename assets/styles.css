@@ -2608,11 +2608,14 @@ div.anatomy-detail-body:not(.panel) > ul.note-points, div.anatomy-detail-body ul
 
 /* Figure + lead sentence + row chips: the table starts sooner. */
 .note-lead { display: flex; flex-direction: column; gap: 16px; align-self: center; }
-div.anatomy-detail-body .note-lead-text { margin: 0; max-width: none; font-size: 17px; line-height: 1.55; color: var(--ink); }
-.note-jump { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 20px; font-size: 14.5px; color: var(--ink-faint); }
-.note-jump::before { content: "Jump to"; flex: 0 0 100%; font: 500 11px/1 "JetBrains Mono", monospace; letter-spacing: .09em; text-transform: uppercase; margin-bottom: 2px; }
-.note-jump-chip { border: 0; background: none; padding: 0; margin: 0; color: var(--primary); font: inherit; cursor: pointer; text-decoration: none; }
-.note-jump-chip:hover { color: var(--primary-deep); text-decoration: underline; text-underline-offset: 3px; }
+div.anatomy-detail-body .note-lead-text { margin: 0; max-width: 22em; font: 500 clamp(24px, 2.4vw, 32px)/1.18 var(--display, "Cormorant Garamond", Georgia, serif); letter-spacing: -.005em; color: var(--ink); }
+.note-jump { display: flex; flex-direction: column; margin-top: 4px; border-bottom: 1px solid var(--line); max-width: 420px; }
+.note-jump::before { content: "Jump to"; font: 500 11px/1 "JetBrains Mono", monospace; letter-spacing: .09em; text-transform: uppercase; color: var(--ink-faint); padding-bottom: 10px; }
+.note-jump-chip { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; text-align: left; border: 0; border-top: 1px solid var(--line);
+  background: none; padding: 11px 2px; margin: 0; color: var(--ink); font: 500 15px/1.3 var(--sans, "Work Sans", system-ui, sans-serif); cursor: pointer; transition: color .15s, padding .2s var(--ease, ease); }
+.note-jump-chip::after { content: "\2192"; color: var(--primary); opacity: .55; transition: transform .2s var(--ease, ease), opacity .2s; }
+.note-jump-chip:hover { color: var(--primary-deep); padding-left: 6px; }
+.note-jump-chip:hover::after { transform: translateX(4px); opacity: 1; }
 .note-jump-chip:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; border-radius: 3px; }
 tr.row-flash td { background: var(--primary-tint) !important; transition: background .4s; }
 /* Enlarge cue on figures that open the lightbox. */
