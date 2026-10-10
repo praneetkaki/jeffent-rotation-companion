@@ -2605,3 +2605,19 @@ div.anatomy-detail-body:not(.panel) > ul.note-points, div.anatomy-detail-body ul
   font: 500 13px/1 var(--sans, "Work Sans", system-ui, sans-serif); cursor: pointer; transition: border-color .15s, background .15s; }
 .sync-chip:hover { border-color: var(--primary); background: var(--primary-tint); }
 .settings-sync-row .settings-danger { flex: 0 0 auto; padding: 8px 14px; }
+
+/* Figure + lead sentence + row chips: the table starts sooner. */
+.note-lead { display: flex; flex-direction: column; gap: 16px; align-self: center; }
+div.anatomy-detail-body .note-lead-text { margin: 0; max-width: none; font-size: 17px; line-height: 1.55; color: var(--ink); }
+.note-jump { display: flex; flex-wrap: wrap; gap: 8px; }
+.note-jump-chip { border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 999px; padding: 8px 14px;
+  font: 500 13.5px/1 var(--sans, "Work Sans", system-ui, sans-serif); cursor: pointer; transition: border-color .15s, background .15s; }
+.note-jump-chip:hover { border-color: var(--primary); background: var(--primary-tint); }
+.note-jump-chip:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+tr.row-flash td { background: var(--primary-tint) !important; transition: background .4s; }
+/* Enlarge cue on figures that open the lightbox. */
+.note-intro .note-fig { position: relative; }
+.note-intro .note-fig::after { content: "Enlarge"; position: absolute; top: 10px; right: 10px; padding: 5px 10px; border-radius: 999px; background: rgba(15,62,23,.82);
+  color: #fff; font: 500 11px/1 "JetBrains Mono", monospace; letter-spacing: .06em; text-transform: uppercase; opacity: 0; transition: opacity .2s; pointer-events: none; }
+.note-intro .note-fig:hover::after, .note-intro .note-fig:focus-within::after { opacity: 1; }
+.note-intro .note-fig img { cursor: zoom-in; }

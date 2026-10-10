@@ -2377,6 +2377,37 @@
       list.classList.add("note-points");
       intro.appendChild(fig);
       intro.appendChild(list);
+    } else if (fig && fig.classList.contains("fig-row") && list && list.tagName === "P" && kids[2] && kids[2].classList.contains("tbl-scroll")) {
+      /* Figure beside its lead sentence and quick-jump chips for each table row,
+         so the table starts higher on the page. */
+      var tbl = kids[2];
+      var rows = [].slice.call(tbl.querySelectorAll("tbody tr"));
+      var intro2 = document.createElement("div");
+      intro2.className = "note-intro";
+      body.insertBefore(intro2, fig);
+      var lead = document.createElement("div");
+      lead.className = "note-lead";
+      list.classList.add("note-lead-text");
+      lead.appendChild(list);
+      if (rows.length >= 3 && rows.length <= 8) {
+        var chips = document.createElement("div");
+        chips.className = "note-jump";
+        rows.forEach(function (tr) {
+          var label = (tr.cells[0] && tr.cells[0].textContent || "").replace(/\s+/g, " ").trim();
+          if (!label) return;
+          var b = document.createElement("button");
+          b.type = "button"; b.className = "note-jump-chip"; b.textContent = label;
+          b.addEventListener("click", function () {
+            tr.scrollIntoView({ behavior: "smooth", block: "center" });
+            tr.classList.add("row-flash");
+            setTimeout(function () { tr.classList.remove("row-flash"); }, 1600);
+          });
+          chips.appendChild(b);
+        });
+        if (chips.childNodes.length) lead.appendChild(chips);
+      }
+      intro2.appendChild(fig);
+      intro2.appendChild(lead);
     }
     titleTables(body);
   }
