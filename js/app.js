@@ -4160,34 +4160,46 @@
       var newCapOptions = [0, 5, 10, 15, 20, 30];
       var lastModuleId = state.moduleId || (window.JEFFENT.modules[0] && window.JEFFENT.modules[0].id) || "";
       panel.innerHTML =
-        '<div class="settings-title">Sync across devices</div>' +
-        '<div class="settings-sync" id="settingsSync"></div>' +
-        '<div class="settings-divider"></div>' +
-        '<div class="settings-title">Study settings</div>' +
-        '<div class="settings-row">' +
-          '<label for="againInput">Again <span class="settings-preview mono">minutes</span></label>' +
-          '<input type="number" id="againInput" min="1" max="1440" step="1" value="' + s.againMinutes + '">' +
-        '</div>' +
-        '<div class="settings-row">' +
-          '<label for="goodInput">Good <span class="settings-preview mono">days</span></label>' +
-          '<input type="number" id="goodInput" min="1" max="365" step="1" value="' + s.goodDays + '">' +
-        '</div>' +
-        '<div class="settings-row">' +
-          '<label for="easyInput">Easy <span class="settings-preview mono">days</span></label>' +
-          '<input type="number" id="easyInput" min="1" max="365" step="1" value="' + s.easyDays + '">' +
-        '</div>' +
-        '<div class="settings-row">' +
-          '<span class="settings-label" id="newCardsLabel">New cards / day</span>' +
-          '<div id="newCardsSelectMount"></div>' +
-        '</div>' +
-        '<button type="button" class="settings-reset mono" id="settingsReset">Reset intervals to defaults</button>' +
-        '<div class="settings-divider"></div>' +
-        '<div class="settings-row">' +
-          '<span class="settings-label" id="resetModuleLabel">Reset one module&rsquo;s cards</span>' +
-          '<div id="resetModuleSelectMount"></div>' +
-          '<button type="button" class="settings-danger mono" id="resetModuleBtn">Reset this module&rsquo;s progress</button>' +
-        '</div>' +
-        '<button type="button" class="settings-danger mono" id="resetAllBtn">Reset ALL progress</button>' +
+        '<section class="settings-section">' +
+          '<div class="settings-title">Sync across devices</div>' +
+          '<div class="settings-sync" id="settingsSync"></div>' +
+        '</section>' +
+        '<section class="settings-section">' +
+          '<div class="settings-title">Study settings</div>' +
+          '<div class="settings-intervals">' +
+            '<div class="settings-field">' +
+              '<label for="againInput">Again</label>' +
+              '<input type="number" id="againInput" min="1" max="1440" step="1" value="' + s.againMinutes + '">' +
+              '<span class="settings-unit">minutes</span>' +
+            '</div>' +
+            '<div class="settings-field">' +
+              '<label for="goodInput">Good</label>' +
+              '<input type="number" id="goodInput" min="1" max="365" step="1" value="' + s.goodDays + '">' +
+              '<span class="settings-unit">days</span>' +
+            '</div>' +
+            '<div class="settings-field">' +
+              '<label for="easyInput">Easy</label>' +
+              '<input type="number" id="easyInput" min="1" max="365" step="1" value="' + s.easyDays + '">' +
+              '<span class="settings-unit">days</span>' +
+            '</div>' +
+          '</div>' +
+          '<div class="settings-row">' +
+            '<span class="settings-label" id="newCardsLabel">New cards per day</span>' +
+            '<div id="newCardsSelectMount"></div>' +
+          '</div>' +
+          '<button type="button" class="settings-reset" id="settingsReset">Reset intervals to defaults</button>' +
+        '</section>' +
+        '<section class="settings-section settings-zone">' +
+          '<div class="settings-title">Reset progress</div>' +
+          '<div class="settings-row">' +
+            '<span class="settings-label" id="resetModuleLabel">Module</span>' +
+            '<div id="resetModuleSelectMount"></div>' +
+          '</div>' +
+          '<div class="settings-danger-row">' +
+            '<button type="button" class="settings-danger" id="resetModuleBtn">Reset this module</button>' +
+            '<button type="button" class="settings-danger" id="resetAllBtn">Reset everything</button>' +
+          '</div>' +
+        '</section>' +
         '<div class="settings-note" id="settingsNote" hidden></div>';
 
       var newCardsSel = buildCustomSelect({

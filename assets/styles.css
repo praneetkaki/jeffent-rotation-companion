@@ -2533,3 +2533,49 @@ div.anatomy-detail-body:not(.panel) > ul.note-points, div.anatomy-detail-body ul
 .tbl-scroll:has(.proc-matcher-table) { scrollbar-width: auto; }
 .tbl-scroll td:first-child, .tbl-scroll th:first-child { white-space: normal; }
 .panel .note-sec-h { margin-top: 40px; font-size: 24px; }
+
+/* Settings popover, Pocket Log drawer, shortcuts modal: same cream/forest theme, sans labels, mono eyebrows. */
+.settings-panel { width: 344px; padding: 0; border-radius: 16px; border-color: var(--line); gap: 0; overflow-x: hidden; }
+.settings-panel:not([hidden]) { gap: 0; }
+.settings-section { display: flex; flex-direction: column; gap: 14px; padding: 18px 20px; }
+.settings-section + .settings-section { border-top: 1px solid var(--line); }
+.settings-title { font: 500 11px/1 "JetBrains Mono", monospace; letter-spacing: .09em; text-transform: uppercase; color: var(--ink-faint); }
+.settings-sync-note { font-size: 13.5px; line-height: 1.55; color: var(--ink-soft); margin: 0; }
+.settings-intervals { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.settings-field { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.settings-field label { font-size: 13px; font-weight: 600; color: var(--ink); }
+.settings-field .settings-unit { font: 400 11px/1 "JetBrains Mono", monospace; color: var(--ink-faint); }
+.settings-panel input[type="number"], .settings-panel input[type="text"], .settings-sync-row input[type="text"] {
+  background: var(--ground); border: 1px solid var(--line); border-radius: 10px; padding: 9px 10px; color: var(--ink);
+  font: 500 14px/1.2 var(--sans, "Work Sans", system-ui, sans-serif); width: 100%; transition: border-color .15s, box-shadow .15s; }
+.settings-field input[type="number"] { text-align: center; }
+.settings-panel input[type="number"]:hover, .settings-panel input[type="text"]:hover { border-color: var(--ink-faint); }
+.settings-panel input[type="number"]:focus, .settings-panel input[type="text"]:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-tint); }
+.settings-row { gap: 8px; }
+.settings-row label, .settings-row .settings-label, .settings-label { font-size: 13px; font-weight: 600; color: var(--ink); }
+.settings-reset { font: 500 13px/1.2 var(--sans, "Work Sans", system-ui, sans-serif); color: var(--primary); text-decoration: none; padding: 0; align-self: flex-start; }
+.settings-reset:hover { color: var(--primary-deep); text-decoration: underline; text-underline-offset: 3px; }
+.settings-danger-row { display: flex; gap: 8px; }
+.settings-danger { flex: 1 1 0; width: auto; background: transparent; color: var(--flag); border: 1px solid color-mix(in srgb, var(--flag) 35%, var(--line));
+  border-radius: 999px; padding: 9px 12px; font: 600 13px/1.2 var(--sans, "Work Sans", system-ui, sans-serif); transition: background .15s, border-color .15s, color .15s; }
+.settings-danger:hover { background: var(--flag-tint); border-color: var(--flag); color: var(--flag); }
+.settings-note { margin: 0; padding: 10px 20px 14px; font-size: 13px; color: var(--primary); border-top: 1px solid var(--line); }
+.settings-sync-status { font: 400 12px/1.4 "JetBrains Mono", monospace; color: var(--ink-faint); margin-top: 10px; }
+.settings-sync-row .btn { border-radius: 999px; }
+
+.pocketlog-panel { background: var(--surface); border-left: 1px solid var(--line); box-shadow: -12px 0 32px rgba(15,62,23,.06); }
+.pl-head { padding: 16px 20px; }
+.pl-title { font: 500 22px/1.1 var(--display, "Cormorant Garamond", Georgia, serif); }
+.pl-title .mark { background: var(--primary-tint); color: var(--primary-deep); }
+.pl-tabs { padding: 4px 20px 0; gap: 18px; }
+.pl-tabbtn { flex: 0 0 auto; padding: 12px 2px; font: 500 13.5px/1 var(--sans, "Work Sans", system-ui, sans-serif); }
+.pl-body { padding: 20px; }
+.pl-pearl, .pl-logentry { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+.pl-pearl:hover { border-color: var(--primary); }
+.pl-pearl-mod, .pl-logentry-date { font-family: "JetBrains Mono", monospace; letter-spacing: .06em; }
+.pl-pearl-title { font-family: var(--sans, "Work Sans", system-ui, sans-serif); font-weight: 600; }
+.pl-log-input { background: var(--ground); border: 1px solid var(--line); border-radius: 12px; }
+.pl-log-input:focus-visible { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-tint); }
+.sk-panel { border: 1px solid var(--line); border-radius: 16px; }
+.sk-head h3 { font: 500 22px/1.1 var(--display, "Cormorant Garamond", Georgia, serif); }
+.sk-group h4 { font-family: "JetBrains Mono", monospace; letter-spacing: .09em; }
