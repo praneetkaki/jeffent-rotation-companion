@@ -48,11 +48,7 @@ _Generated 2026-10-10 from content/*.js_
 
 **FESS anatomy variants** (tags: Concha bullosa · Haller cells · Onodi cells)
 
-[figure: Pneumatization variants relevant to FESS: concha bullosa, Haller cells, Onodi cells.]Three pneumatization variants that every surgeon (and every student reading a preop sinus CT) should be able to name:
-
-- Concha bullosa: an aerated (pneumatized) middle turbinate. Common and often incidental, but a large one can narrow the OMC and contribute to obstruction/CRS, so it's sometimes resected as part of FESS.
-- Haller cells (infraorbital ethmoid cells): ethmoid air cells that extend along the orbital floor, next to the maxillary sinus ostium. They can narrow the ostium (contributing to maxillary sinus disease) and put the orbital floor closer to the surgical field than expected.
-- Onodi cells: the most posterior ethmoid air cell(s), pneumatizing superolaterally alongside or above the sphenoid sinus, close to (sometimes directly overlying) the optic nerve. Missing an Onodi cell on preop CT and mistaking it for the sphenoid sinus proper is a classic setup for optic nerve injury during posterior ethmoid/sphenoid surgery.None of these are diseases on their own. They matter because they change where the danger is on the CT, which is why every preop sinus CT is read systematically before a scope ever goes in.
+[figure: Pneumatization variants relevant to FESS: concha bullosa, Haller cells, Onodi cells.]VariantWhat it isWhy it mattersConcha bullosaAn aerated (pneumatized) middle turbinate. Common and often incidental.A large one can narrow the OMC and contribute to obstruction or CRS, so it is sometimes resected during FESS.Haller cells (infraorbital ethmoid cells)Ethmoid air cells that extend along the orbital floor, next to the maxillary sinus ostium.They can narrow the ostium (maxillary sinus disease) and put the orbital floor closer to the surgical field than expected.Onodi cellsThe most posterior ethmoid air cells, pneumatizing superolaterally alongside or above the sphenoid sinus, close to the optic nerve.Missing one on preop CT and mistaking it for the sphenoid sinus is a classic setup for optic nerve injury in posterior ethmoid or sphenoid surgery.None of these are diseases on their own. They matter because they change where the danger is on the CT, which is why every preop sinus CT is read systematically before a scope ever goes in.
 
 ### Anatomy diagrams (6)
 

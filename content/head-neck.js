@@ -72,13 +72,18 @@ window.JEFFENT.register({
           "<li>Highly vascular: <strong>superior thyroid artery</strong> (first branch of the external carotid artery), <strong>inferior thyroid artery</strong> (from the thyrocervical trunk), and venous drainage via superior, middle, and inferior thyroid veins.</li></ul>" +
           "<h4>Recurrent Laryngeal Nerve Course & Risk</h4><ul>" +
           "<li>The RLN runs in the tracheoesophageal groove in most people, but its course is variable. It passes right where the gland is anchored, near or through branches of the inferior thyroid artery and just deep/lateral to the <strong>ligament of Berry</strong>, its single most common injury site.</li>" +
-          "<li><strong>Left vs right differ</strong>: the left RLN loops under the aortic arch and ascends fairly vertically in the groove; the right RLN loops under the right subclavian artery and takes a more oblique, lateral path. A <strong>non-recurrent nerve</strong> (right side, ~0.6-1.3%) is associated with an aberrant right subclavian artery, a classic surgical trap.</li>" +
           "<li><strong>Consequence of injury</strong>: unilateral &rarr; vocal fold paralysis (hoarse, breathy voice); bilateral &rarr; airway emergency, may require tracheostomy.</li>" +
           "<li>The <strong>external branch of the superior laryngeal nerve</strong>, near the superior pole vessels, is separately at risk and controls pitch via the cricothyroid muscle.</li></ul>" +
+          "<table class=\"tbl-wrap\"><thead><tr><th></th><th>Left RLN</th><th>Right RLN</th></tr></thead><tbody>" +
+          "<tr><td><strong>Course</strong></td><td>Loops under the aortic arch and ascends fairly vertically in the groove.</td><td>Loops under the right subclavian artery and takes a more oblique, lateral path.</td></tr>" +
+          "<tr><td><strong>Variant</strong></td><td>Rarely non-recurrent.</td><td>A <strong>non-recurrent nerve</strong> (about 0.6 to 1.3%) is associated with an aberrant right subclavian artery, a classic surgical trap.</td></tr></tbody></table>" +
           "<h4>Parathyroid Vascularity & Hypocalcemia</h4><ul>" +
           "<li><strong>Four glands</strong> (two superior, two inferior) on the posterior thyroid capsule, each only a few millimeters, secreting <strong>parathyroid hormone (PTH)</strong> for calcium/phosphate balance.</li>" +
-          "<li>Embryology explains their behavior, and it crosses over: <strong>superior glands</strong> come from the <strong>4th pharyngeal pouch</strong> and travel a short distance, so they're more constant in position (typically posterior to the RLN near the cricothyroid junction). <strong>Inferior glands</strong> come from the <strong>3rd pharyngeal pouch</strong> and descend with the thymus, so they're far more variable (occasionally trailing into the thymus or mediastinum). Counterintuitively, the inferior glands arise from the higher-numbered embryologic pouch.</li>" +
-          "<li><strong>Consequence of injury</strong>: small, tan, and sharing blood supply with the thyroid, they can be inadvertently removed or devascularized &rarr; postoperative <strong>hypocalcemia</strong>. Watch for perioral numbness and Chvostek/Trousseau signs. Autotransplantation is an option if a gland is devascularized.</li></ul>"
+          "<li><strong>Consequence of injury</strong>: small, tan, and sharing blood supply with the thyroid, they can be inadvertently removed or devascularized &rarr; postoperative <strong>hypocalcemia</strong>. Watch for perioral numbness and Chvostek/Trousseau signs. Autotransplantation is an option if a gland is devascularized.</li></ul>" +
+          "<p><strong>Embryology explains their behavior, and it crosses over</strong></p>" +
+          "<table class=\"tbl-wrap\"><thead><tr><th></th><th>Superior glands</th><th>Inferior glands</th></tr></thead><tbody>" +
+          "<tr><td><strong>Origin</strong></td><td>4th pharyngeal pouch</td><td>3rd pharyngeal pouch (the higher-numbered pouch gives the lower glands)</td></tr>" +
+          "<tr><td><strong>Position</strong></td><td>Short descent, so more constant: typically posterior to the RLN near the cricothyroid junction.</td><td>Descend with the thymus, so far more variable: occasionally trailing into the thymus or mediastinum.</td></tr></tbody></table>"
       },
       {
         title: "Oral cavity vs oropharynx",

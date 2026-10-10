@@ -84,10 +84,7 @@ Blood supply pearl (bleeding risk): the palatine tonsil is fed mainly by the ton
 
 **The two clinical endpoints** (tags: Recurrent tonsillitis · Obstruction)
 
-The same ring produces two distinct, high-yield problems depending on whether infection or bulk dominates:
-
-- Recurrent tonsillitis: repeated infection/inflammation of the palatine tonsils (histologically: fibrosis, reduced follicles, strong inflammatory infiltrate). Drives the recurrent-infection indication for tonsillectomy (Paradise-criteria frequency).
-- Adenotonsillar hypertrophy -> obstruction: bulk enlargement narrows the nasopharyngeal/oropharyngeal airway, producing mouth breathing, snoring, sleep-disordered breathing, and pediatric OSA (now the leading indication for T&A). Tubal/adenoid hypertrophy also obstructs the Eustachian tube -> otitis media with effusion. Chronic untreated obstruction can cause the "adenoid facies" dentofacial changes and, if severe/prolonged, cor pulmonale.Waldeyer's ring is protective lymphoid tissue that predictably enlarges in early childhood, helpful for immunity, but when it over-enlarges or is chronically infected it becomes the anatomic root of recurrent tonsillitis, middle-ear effusion, and pediatric obstructive sleep apnea.
+EndpointMechanismConsequencesRecurrent tonsillitisRepeated infection and inflammation of the palatine tonsils (histologically fibrosis, reduced follicles, strong inflammatory infiltrate).Drives the recurrent-infection indication for tonsillectomy (Paradise-criteria frequency).Adenotonsillar hypertrophy with obstructionBulk enlargement narrows the nasopharyngeal and oropharyngeal airway. Adenoid hypertrophy also obstructs the Eustachian tube.Mouth breathing, snoring, sleep-disordered breathing, and pediatric OSA (now the leading indication for T&A). Otitis media with effusion. Chronic untreated obstruction can cause adenoid facies and, if severe, cor pulmonale.Waldeyer's ring is protective lymphoid tissue that predictably enlarges in early childhood, helpful for immunity, but when it over-enlarges or is chronically infected it becomes the anatomic root of recurrent tonsillitis, middle-ear effusion, and pediatric obstructive sleep apnea.
 
 ### Anatomy diagrams (4)
 

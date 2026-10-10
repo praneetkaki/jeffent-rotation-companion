@@ -6173,6 +6173,7 @@
    * that doesn't actually contain a list (no separator, or only one item
    * after splitting) is left exactly as authored. */
   function listifyTableCell(cell) {
+    if (cell.closest && cell.closest("table.tbl-wrap")) return;
     var text = cell.textContent || "";
     var sep = /;\s+/.test(text) ? /;\s+/ : (/,\s+/.test(text) ? /,\s+/ : null);
     if (!sep) return;
