@@ -246,6 +246,51 @@
     try { localStorage.setItem("jeffent.tab." + moduleId, tab); } catch (e) {}
   }
 
+  /* ---------- "Jump back in": the last few places the student read ---------- */
+  var RECENT_KEY = "jeffent.lastRead";
+  function loadRecents() {
+    try { var r = JSON.parse(localStorage.getItem(RECENT_KEY) || "[]"); return Array.isArray(r) ? r : []; } catch (e) { return []; }
+  }
+  function recordRecent(moduleId, tab, topic, title) {
+    var list = loadRecents().filter(function (r) { return r && r.m !== moduleId; });
+    list.unshift({ m: moduleId, t: tab || "anatomy", k: topic ? topic.kind : null, i: topic ? topic.index : null, n: title || null, ts: Date.now() });
+    try { localStorage.setItem(RECENT_KEY, JSON.stringify(list.slice(0, 5))); } catch (e) {}
+  }
+  function jumpToRecent(r) {
+    var mod = window.JEFFENT.get(r.m);
+    if (!mod) return;
+    pushNav();
+    state.screen = "module"; state.moduleId = r.m; state.session = null; state.caseSession = null;
+    state.tab = r.t || "anatomy"; if (TABS.indexOf(state.tab) === -1) state.tab = "anatomy";
+    state.anatomyTopic = r.k ? { kind: r.k, index: r.i } : null;
+    renderModule(r.m);
+    showScreen("module");
+  }
+  function buildJumpRow() {
+    var recents = loadRecents().filter(function (r) { return window.JEFFENT.get(r.m); }).slice(0, 2);
+    var starter = !recents.length;
+    if (starter) {
+      var f = window.JEFFENT.get("ent-exam");
+      if (!f) return null;
+      recents = [{ m: f.id, t: "anatomy", k: null, i: null, n: null }];
+    }
+    var tabNames = { anatomy: "Anatomy", clinical: "Clinical", cases: "Cases", cards: "Cards" };
+    var row = h('<section class="jump-row" aria-label="' + (starter ? "Start here" : "Jump back in") + '"><div class="eyebrow">' + (starter ? "Start here" : "Jump back in") + '</div><div class="jump-chips"></div></section>');
+    var chips = row.querySelector(".jump-chips");
+    recents.forEach(function (r) {
+      var mod = window.JEFFENT.get(r.m);
+      var tr = trackById(mod.track);
+      var sub = esc(mod.title) + (r.n ? " &middot; " + esc(tabNames[r.t] || "Anatomy") : "");
+      var b = h('<button type="button" class="jump-chip"' + (tr && tr.color ? ' style="--track-color:' + tr.color + '"' : "") + '>' +
+        '<span class="jump-main">' + esc(r.n || mod.title) + '</span>' +
+        '<span class="jump-sub">' + (r.n ? sub : esc(tabNames[r.t] || "Anatomy")) + '</span>' +
+        '<span class="jump-arrow" aria-hidden="true">&rarr;</span></button>');
+      b.addEventListener("click", function () { jumpToRecent(r); });
+      chips.appendChild(b);
+    });
+    return row;
+  }
+
   /* ---------- Active Recall Mode memory ---------- */
   function loadActiveRecall() {
     try { return localStorage.getItem("jeffent.activeRecall") === "1"; } catch (e) { return false; }
@@ -1514,6 +1559,8 @@
 
     bento.appendChild(heroTile);
     root.appendChild(bento);
+    var jumpRow = buildJumpRow();
+    if (jumpRow) root.appendChild(jumpRow);
     animateStatCounts(bento);
     animateMasteryRing(bento);
     buildHomeShowcase(root, allMods);
@@ -1821,6 +1868,7 @@
   function renderModule(moduleId) {
     var mod = window.JEFFENT.get(moduleId);
     var mods = modulesFor(mod.track);
+    recordRecent(moduleId, state.tab, null, null);
     var root = el("screen-module");
     root.innerHTML = "";
 
@@ -2112,6 +2160,7 @@
     var topic = state.anatomyTopic;
     if (topic && topic.kind === "note" && notes[topic.index]) {
       var noteTitle = notes[topic.index].title;
+      recordRecent(mod.id, "anatomy", { kind: "note", index: topic.index }, noteTitle);
       var built = buildAnatomyDetail(mod, pane, notes, diagrams, topic, noteTitle, function () {
         return h('<div class="anatomy-detail-body" data-anchor="anatomy-note-' + topic.index + '">' + notes[topic.index].html + '</div>');
       }, false, notes[topic.index].tagline);
@@ -2127,6 +2176,7 @@
     }
     if (topic && topic.kind === "diagram" && diagrams[topic.index]) {
       var dgTitle = diagrams[topic.index].title;
+      recordRecent(mod.id, "anatomy", { kind: "diagram", index: topic.index }, dgTitle);
       var built2 = buildAnatomyDetail(mod, pane, notes, diagrams, topic, dgTitle, function () {
         var dgPanel = buildDiagramPanel(diagrams[topic.index]);
         dgPanel.classList.add("anatomy-detail-body");
