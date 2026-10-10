@@ -359,6 +359,7 @@
     window.scrollTo(0, 0);
     if (typeof refreshSideNav === "function") refreshSideNav();
     if (typeof measureTopbarHeightVar === "function") measureTopbarHeightVar();
+    updateHash();
   }
 
   /* ---------- back/forward history ----------
@@ -413,6 +414,60 @@
    * separates "opening the app" from "here is today's queue" instead of
    * landing straight on the bento grid. Not part of the back-stack: it's
    * an entry gate, not a screen a learner ever navigates back to. */
+  /* ---------- URL hash routing ----------
+   * Every screen has its own link (e.g. #/m/ent-exam/anatomy/note/0), so a
+   * refresh, a bookmark, or a shared link lands on the same page, and the
+   * browser's back and forward buttons move between pages. */
+  var routing = false;
+  var lastHash = "";
+  var HASH_SCREENS = { study: "study", pimp: "faq", roadmap: "roadmap", library: "library", about: "about", weak: "weak" };
+  function hashForState() {
+    var sc = state.screen;
+    if (sc === "home") return "#/";
+    if (sc === "track" && state.trackId) return "#/track/" + encodeURIComponent(state.trackId);
+    if (sc === "module" && state.moduleId) {
+      var h = "#/m/" + encodeURIComponent(state.moduleId) + "/" + encodeURIComponent(state.tab || "anatomy");
+      if (state.anatomyTopic && state.tab === "anatomy") h += "/" + state.anatomyTopic.kind + "/" + state.anatomyTopic.index;
+      return h;
+    }
+    if (HASH_SCREENS[sc]) return "#/" + HASH_SCREENS[sc];
+    return null;
+  }
+  function updateHash() {
+    if (routing) return;
+    var h = hashForState();
+    if (h === null) return;
+    var cur = location.hash || "";
+    if (cur === h || (h === "#/" && (cur === "" || cur === "#"))) return;
+    lastHash = h;
+    location.hash = h;
+  }
+  function routeFromHash(hashStr) {
+    var raw = (hashStr === undefined ? location.hash : hashStr) || "";
+    var p = raw.replace(/^#\/?/, "").split("/").map(function (x) { try { return decodeURIComponent(x); } catch (e) { return x; } });
+    var a = p[0];
+    routing = true;
+    try {
+      if (a === "m" && window.JEFFENT.get(p[1])) {
+        var kind = (p[3] === "note" || p[3] === "diagram") ? p[3] : null;
+        jumpToRecent({ m: p[1], t: p[2] || "anatomy", k: kind, i: kind ? (parseInt(p[4], 10) || 0) : null });
+      } else if (a === "track" && trackById(p[1])) goTrack(p[1]);
+      else if (a === "study") goStudyAll();
+      else if (a === "faq") goPimp();
+      else if (a === "roadmap") goRoadmap();
+      else if (a === "library") goCardLibrary();
+      else if (a === "about") goAbout();
+      else if (a === "weak") goWeakSpots();
+      else goHome();
+    } finally { routing = false; }
+    lastHash = "";
+    updateHash();
+  }
+  window.addEventListener("hashchange", function () {
+    if (location.hash === lastHash) { lastHash = ""; return; }
+    routeFromHash();
+  });
+
   function goWelcome() {
     state.screen = "welcome"; state.session = null;
     renderWelcome();
@@ -1869,6 +1924,7 @@
     var mod = window.JEFFENT.get(moduleId);
     var mods = modulesFor(mod.track);
     recordRecent(moduleId, state.tab, null, null);
+    updateHash();
     var root = el("screen-module");
     root.innerHTML = "";
 
@@ -2161,6 +2217,7 @@
     if (topic && topic.kind === "note" && notes[topic.index]) {
       var noteTitle = notes[topic.index].title;
       recordRecent(mod.id, "anatomy", { kind: "note", index: topic.index }, noteTitle);
+      updateHash();
       var built = buildAnatomyDetail(mod, pane, notes, diagrams, topic, noteTitle, function () {
         return h('<div class="anatomy-detail-body" data-anchor="anatomy-note-' + topic.index + '">' + notes[topic.index].html + '</div>');
       }, false, notes[topic.index].tagline);
@@ -2177,6 +2234,7 @@
     if (topic && topic.kind === "diagram" && diagrams[topic.index]) {
       var dgTitle = diagrams[topic.index].title;
       recordRecent(mod.id, "anatomy", { kind: "diagram", index: topic.index }, dgTitle);
+      updateHash();
       var built2 = buildAnatomyDetail(mod, pane, notes, diagrams, topic, dgTitle, function () {
         var dgPanel = buildDiagramPanel(diagrams[topic.index]);
         dgPanel.classList.add("anatomy-detail-body");
@@ -6358,9 +6416,14 @@
     function brandGoHome() { if (document.body.classList.contains("flash-full")) closeFlash(); goHome(); }
     on(brand, "click", brandGoHome);
     on(brand, "keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); brandGoHome(); } });
+    var initialHash = location.hash || "";
+    routing = true;
     goHome();
+    routing = false;
     navStack = [];
     updateBackButton();
+    if (initialHash && initialHash !== "#" && initialHash !== "#/") { routeFromHash(initialHash); navStack = []; updateBackButton(); }
+    else updateHash();
     var navBackBtn = el("navBack");
     on(navBackBtn, "click", goBack);
     /* If this device is already linked, quietly pull whatever's newest in
