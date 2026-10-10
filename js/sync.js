@@ -79,13 +79,21 @@
 
   function docRef(username) { return db.collection("students").doc(username); }
 
+  /* Version of this device's copy: the clientTs of the last push from, or
+   * pull into, this device. Not prefixed "jeffent." so it is never synced. */
+  var VER_KEY = "ent.syncVer";
+  function getVer() { try { return Number(localStorage.getItem(VER_KEY)) || 0; } catch (e) { return 0; } }
+  function setVer(v) { try { localStorage.setItem(VER_KEY, String(v)); } catch (e) {} }
+
   function pushNow(cb) {
     var username = getUsername();
     if (!ready || !username) { cb && cb(new Error("Not linked.")); return; }
+    var ts = Date.now();
     docRef(username).set({
       data: collectLocalData(),
+      clientTs: ts,
       updatedAt: firebase.firestore.FieldValue.serverTimestamp()
-    }).then(function () { cb && cb(null); }).catch(function (err) { cb && cb(err); });
+    }).then(function () { setVer(ts); cb && cb(null); }).catch(function (err) { cb && cb(err); });
   }
 
   /* Look up a username without touching anything locally -- used by the
@@ -94,7 +102,8 @@
   function lookup(username, cb) {
     if (!ready) { cb && cb(new Error("Sync isn't set up for this site yet.")); return; }
     docRef(username).get().then(function (snap) {
-      cb && cb(null, snap.exists ? (snap.data() || {}).data || {} : null);
+      var d = snap.exists ? (snap.data() || {}) : null;
+      cb && cb(null, d ? d.data || {} : null, d ? Number(d.clientTs) || 0 : 0);
     }).catch(function (err) { cb && cb(err); });
   }
 
@@ -102,11 +111,12 @@
    * progress with it. Returns whether anything actually changed, so callers
    * can skip a jarring reload when the two were already identical. */
   function pullAndApply(username, cb) {
-    lookup(username, function (err, remote) {
+    lookup(username, function (err, remote, remoteTs) {
       if (err) { cb && cb(err, false); return; }
       if (!remote) { cb && cb(null, false); return; }
       var before = JSON.stringify(collectLocalData());
       applyRemoteData(remote);
+      setVer(remoteTs || Date.now());
       var after = JSON.stringify(collectLocalData());
       cb && cb(null, before !== after);
     });
@@ -141,6 +151,7 @@
         if (k && k.indexOf("jeffent.") === 0 && k !== USERNAME_KEY && KEEP_ON_CLEAR.indexOf(k) === -1) toRemove.push(k);
       }
       toRemove.forEach(function (k) { localStorage.removeItem(k); });
+      localStorage.removeItem(VER_KEY);
     } catch (e) {}
   }
 
@@ -163,14 +174,28 @@
       clearLocalProgress();
       setUsername(name);
       addKnown(name);
-      lookup(name, function (err, remote) {
+      lookup(name, function (err, remote, remoteTs) {
         if (err) { cb && cb(err); return; }
-        if (remote) { applyRemoteData(remote); cb && cb(null); return; }
+        if (remote) { applyRemoteData(remote); setVer(remoteTs || Date.now()); cb && cb(null); return; }
         pushNow(function (err2) { cb && cb(err2 || null); });
       });
     }
     if (current) pushNow(function (err) { if (err) { cb && cb(err); return; } load(); });
     else load();
+  }
+
+  /* On app open: take the cloud copy only if another device pushed a newer
+   * version than this device has. Comparing contents instead would see this
+   * device's own unsynced edits as "different" every time and reload the
+   * page over and over. */
+  function pullIfNewer(username, cb) {
+    lookup(username, function (err, remote, remoteTs) {
+      if (err) { cb && cb(err, false); return; }
+      if (!remote || !remoteTs || remoteTs <= getVer()) { cb && cb(null, false); return; }
+      applyRemoteData(remote);
+      setVer(remoteTs);
+      cb && cb(null, true);
+    });
   }
 
   var autoTimer = null;
@@ -192,6 +217,7 @@
     normalizeUsername: normalizeUsername,
     lookup: lookup,
     pullAndApply: pullAndApply,
+    pullIfNewer: pullIfNewer,
     pushNow: pushNow,
     getKnown: getKnown,
     addKnown: addKnown,

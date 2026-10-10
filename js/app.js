@@ -6337,9 +6337,16 @@
      * reloads if that actually changed anything on this device. */
     if (window.JEFFENT_SYNC && window.JEFFENT_SYNC.isConfigured() && window.JEFFENT_SYNC.getUsername()) {
       window.JEFFENT_SYNC.startAutoSync();
-      window.JEFFENT_SYNC.pullAndApply(window.JEFFENT_SYNC.getUsername(), function (err, changed) {
-        if (!err && changed) location.reload();
-      });
+      var reloaded = false;
+      try { reloaded = sessionStorage.getItem("ent.syncReloaded") === "1"; } catch (e) {}
+      if (!reloaded) {
+        window.JEFFENT_SYNC.pullIfNewer(window.JEFFENT_SYNC.getUsername(), function (err, changed) {
+          if (!err && changed) {
+            try { sessionStorage.setItem("ent.syncReloaded", "1"); } catch (e) {}
+            location.reload();
+          }
+        });
+      }
     }
   }
   document.addEventListener("DOMContentLoaded", boot);
@@ -6354,7 +6361,7 @@
     if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     if (!("IntersectionObserver" in window)) return;
     document.body.classList.add("js-motion");
-    var SEL = ".note-fig, .callout, .case, .tbl-scroll, .tg-card, .study-cta, .bento-tile, .rm-row, .mod-row, .panel, .feature-row, .home-marquee, .home-peek, .section-head, .lesson-hero, .lesson-keypoints, .lesson-outline, .lesson-learned";
+    var SEL = ".note-fig, .callout, .case, .tbl-scroll, .tg-card, .study-cta, .bento-tile, .rm-row, .mod-row, .panel, .feature-row, .home-marquee, .home-peek, .section-head, .jump-row, .lesson-hero, .lesson-keypoints, .lesson-outline, .lesson-learned";
     var io = new IntersectionObserver(function (entries) {
       /* Elements that enter together are staggered, so a group settles in sequence. */
       var k = 0;
