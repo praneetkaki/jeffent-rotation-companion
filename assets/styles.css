@@ -2609,11 +2609,11 @@ div.anatomy-detail-body:not(.panel) > ul.note-points, div.anatomy-detail-body ul
 /* Figure + lead sentence + row chips: the table starts sooner. */
 .note-lead { display: flex; flex-direction: column; gap: 16px; align-self: center; }
 div.anatomy-detail-body .note-lead-text { margin: 0; max-width: none; font-size: 17px; line-height: 1.55; color: var(--ink); }
-.note-jump { display: flex; flex-wrap: wrap; gap: 8px; }
-.note-jump-chip { border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 999px; padding: 8px 14px;
-  font: 500 13.5px/1 var(--sans, "Work Sans", system-ui, sans-serif); cursor: pointer; transition: border-color .15s, background .15s; }
-.note-jump-chip:hover { border-color: var(--primary); background: var(--primary-tint); }
-.note-jump-chip:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+.note-jump { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 20px; font-size: 14.5px; color: var(--ink-faint); }
+.note-jump::before { content: "Jump to"; flex: 0 0 100%; font: 500 11px/1 "JetBrains Mono", monospace; letter-spacing: .09em; text-transform: uppercase; margin-bottom: 2px; }
+.note-jump-chip { border: 0; background: none; padding: 0; margin: 0; color: var(--primary); font: inherit; cursor: pointer; text-decoration: none; }
+.note-jump-chip:hover { color: var(--primary-deep); text-decoration: underline; text-underline-offset: 3px; }
+.note-jump-chip:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; border-radius: 3px; }
 tr.row-flash td { background: var(--primary-tint) !important; transition: background .4s; }
 /* Enlarge cue on figures that open the lightbox. */
 .note-intro .note-fig { position: relative; }
