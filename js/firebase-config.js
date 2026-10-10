@@ -12,10 +12,10 @@
  * per-browser progress).
  */
 window.JEFFENT_FIREBASE_CONFIG = {
-  apiKey: "REPLACE_ME",
-  authDomain: "REPLACE_ME.firebaseapp.com",
-  projectId: "REPLACE_ME",
-  storageBucket: "REPLACE_ME.appspot.com",
-  messagingSenderId: "REPLACE_ME",
-  appId: "REPLACE_ME"
+  apiKey: "AIzaSyDB6xUAe1LZq8NkTMHhTi13m614tKRhfGo",
+  authDomain: "ent-companion-sync.firebaseapp.com",
+  projectId: "ent-companion-sync",
+  storageBucket: "ent-companion-sync.firebasestorage.app",
+  messagingSenderId: "226439117728",
+  appId: "1:226439117728:web:af7d166bd7275cd84282c5"
 };
