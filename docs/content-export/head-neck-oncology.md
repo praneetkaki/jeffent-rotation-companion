@@ -485,7 +485,7 @@ Teaching: Any persistent oral white or red patch in a smoker gets biopsied. Loca
 - Source: NCCN Head and Neck Cancers Guideline: subsite definitions.
 
 **[unknown-primary-card]** tags: HN, clinical, milestones: PC3, UKMLA: Neck lump, reviewer: (none)
-- Front: Outline the workup for a neck mass with FNA showing squamous cell carcinoma but no obvious primary.
+- Front: How do you work up a neck mass with FNA showing squamous cell carcinoma but no obvious primary?
 - Back: Examine/image the likely primaries: base of tongue, tonsil, nasopharynx, hypopharynx. Test the specimen for p16 (HPV surrogate → oropharyngeal source) and EBV (→ nasopharyngeal source). If still unlocalized: PET-CT and panendoscopy with directed biopsies (± ipsilateral tonsillectomy).
 - Source: NCCN Head and Neck Cancers Guideline: unknown primary workup.
 
@@ -595,7 +595,7 @@ Teaching: Any persistent oral white or red patch in a smoker gets biopsied. Loca
 - Source: Standard oncology teaching on Virchow's node/Troisier's sign.
 
 **[leukoplakia-erythroplakia-card]** tags: HN, clinical, milestones: PC3, UKMLA: Neck lump, RED FLAG, reviewer: (none)
-- Front: Contrast leukoplakia and erythroplakia, and state the required next step for either.
+- Front: How do leukoplakia and erythroplakia differ, and what is the required next step for either?
 - Back: Leukoplakia: a white patch that can't be wiped off/attributed to another cause, premalignant. Erythroplakia: a red patch, less common but a substantially higher rate of dysplasia/carcinoma on biopsy. Either finding, especially in a smoker, requires biopsy, not observation.
 - Source: Standard oral oncology teaching on premalignant lesions.
 

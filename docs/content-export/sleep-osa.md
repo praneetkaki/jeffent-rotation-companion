@@ -407,7 +407,7 @@ Teaching: COPD plus classic OSA symptoms should raise overlap syndrome on the di
 - Source: Standard OSA screening teaching (STOP-BANG, Chung et al.).
 
 **[ahi-severity-card]** tags: SL, clinical, milestones: MK1, PC4, UKMLA: Obstructive sleep apnoea, reviewer: (none)
-- Front: State the AHI severity thresholds for OSA.
+- Front: What are the AHI severity thresholds for OSA?
 - Back: normal, 5-14 mild OSA, 15-29 moderate OSA, ≥30 severe OSA (events/hour of sleep, from PSG or a home sleep apnea test).
 - Source: AASM scoring manual: standard AHI severity grading.
 
@@ -633,7 +633,7 @@ Teaching: COPD plus classic OSA symptoms should raise overlap syndrome on the di
 - Source: FDA hypoglossal nerve stimulation approval criteria (updated); STAR trial inclusion criteria (Strollo et al., NEJM 2014).
 
 **[hgns-unilateral-bilateral-card]** tags: SL, clinical, milestones: PC9, MK2, UKMLA: Obstructive sleep apnoea, reviewer: (none)
-- Front: Contrast unilateral vs. bilateral HGNS.
+- Front: How do unilateral and bilateral HGNS differ?
 - Back: Unilateral stimulates one hypoglossal nerve's medial (protrusor) fibers, synchronized to inspiration via a chest sensing lead; FDA-approved and STAR/ADHERE-validated (~68-83% AHI reduction). Bilateral stimulates both nerves and, in the current device, is breath-rate-independent (no separate sensing lead); supported by newer, less mature single-arm trial data.
 - Source: Strollo et al., NEJM (STAR trial), 2014; Woodson et al., ADHERE registry; single-arm trials of bilateral HGNS (BLAST OSA, DREAM).
 

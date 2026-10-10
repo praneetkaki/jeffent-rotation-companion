@@ -2624,3 +2624,10 @@ tr.row-flash td { background: var(--primary-tint) !important; transition: backgr
   color: #fff; font: 500 11px/1 "JetBrains Mono", monospace; letter-spacing: .06em; text-transform: uppercase; opacity: 0; transition: opacity .2s; pointer-events: none; }
 .note-intro .note-fig:hover::after, .note-intro .note-fig:focus-within::after { opacity: 1; }
 .note-intro .note-fig img { cursor: zoom-in; }
+
+/* Tables with sentence-length cells wrap normally and keep the first column in body weight. */
+.tbl-scroll table.tbl-wrap td:first-child { white-space: normal; font-weight: 400; color: inherit; min-width: 0; }
+.tbl-scroll table.tbl-wrap td:last-child { min-width: 0; }
+.tbl-scroll table.tbl-wrap td strong { color: var(--primary-deep); }
+/* Roomier bullets in lesson text so long items do not read as one block. */
+div.anatomy-detail-body:not(.panel) > ul:not(.note-points) > li { margin-bottom: 14px; line-height: 1.65; }

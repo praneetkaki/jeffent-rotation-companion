@@ -110,12 +110,12 @@ Watery diarrhea with leukocytosis (may precede diarrhea); prior antibiotic use i
 ### Flashcards (11)
 
 **[rx-open-ear]** tags: RX, pharm, reviewer: (none)
-- Front: TM perforation or tube present: which otic drops, and which to avoid?
+- Front: Which otic drops are safe with a TM perforation or tube, and which should be avoided?
 - Back: Use a non-ototoxic fluoroquinolone (ofloxacin, or ciprofloxacin + dexamethasone). Avoid aminoglycosides and alcohol/acidifying drops (ototoxicity).
 - Source: ENT Pharm Pocket Guide.
 
 **[rx-issnhl-dose]** tags: RX, pharm, reviewer: (none)
-- Front: Standard oral steroid regimen for idiopathic sudden SNHL?
+- Front: What is the standard oral steroid regimen for idiopathic sudden SNHL?
 - Back: Prednisone 1 mg/kg/day single morning dose (max ~60 mg), about 10 to 14 days including taper. Treat within 2 weeks of onset.
 - Source: ENT Pharm Pocket Guide.
 
@@ -130,7 +130,7 @@ Watery diarrhea with leukocytosis (may precede diarrhea); prior antibiotic use i
 - Source: ENT Pharm Pocket Guide.
 
 **[rx-penallergy]** tags: RX, pharm, reviewer: (none)
-- Front: Penicillin-allergic patient with a deep neck infection: antibiotic?
+- Front: Which antibiotic treats a deep neck infection in a penicillin-allergic patient?
 - Back: Clindamycin (covers strep, S. aureus, and anaerobes).
 - Source: ENT Pharm Pocket Guide.
 
@@ -155,7 +155,7 @@ Watery diarrhea with leukocytosis (may precede diarrhea); prior antibiotic use i
 - Source: ENT Pharm Pocket Guide.
 
 **[rx-ampho-mucor]** tags: RX, pharm, reviewer: (none)
-- Front: Antifungal for invasive rhinocerebral mucormycosis?
+- Front: Which antifungal treats invasive rhinocerebral mucormycosis?
 - Back: Amphotericin B (liposomal preferred, less nephrotoxic), plus urgent surgical debridement.
 - Source: ENT Pharm Pocket Guide.
 

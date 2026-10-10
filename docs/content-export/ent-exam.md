@@ -37,10 +37,10 @@ NerveSkull base exitTypeFunctionIf injuredI &middot; OlfactoryCribriform plateSe
 
 [figure: Epiglottis, thyroid/cricoid cartilage framework, true/false vocal folds, recurrent laryngeal nerve.]
 - Epiglottis: the cartilage leaf that folds down over the laryngeal inlet to protect the airway on swallowing.
-- Cartilage framework -- unpaired: thyroid (the largest, forms the laryngeal prominence/Adam's apple), cricoid (the only complete cartilage ring in the airway), and the epiglottis itself. Paired: arytenoid (the vocal folds attach to these and they rotate/slide to open and close the airway), plus the small corniculate and cuneiform cartilages sitting within the aryepiglottic folds.
-- True vs false vocal folds: the true vocal folds (vocal cords) sit below the false vocal folds (also called the vestibular folds), separated by the ventricle (of Morgagni). Only the true folds vibrate to produce voice; the false folds protect the airway but don't normally phonate.
-- Bilateral injury: unilateral RLN injury causes hoarseness, but bilateral injury leaves the folds adducted and can cause stridor and airway obstruction needing urgent airway control.
-- Nerve supply: the recurrent laryngeal nerve (RLN) supplies every intrinsic laryngeal muscle except one (cricothyroid) -- both motor to those muscles and sensation below the vocal folds. Its long course through the chest and around the aorta (left) or subclavian artery (right) before ascending back to the larynx explains hoarseness from lung, thyroid, or mediastinal disease along that path. The external branch of the superior laryngeal nerve (EBSLN) supplies the cricothyroid muscle alone (pitch control); the internal branch of the superior laryngeal nerve is purely sensory, supplying the mucosa above the vocal folds down to their level (the afferent limb of the cough/protective reflex when food or liquid threatens the airway).
+- True vs false vocal folds: the true vocal folds sit below the false (vestibular) folds, separated by the ventricle (of Morgagni). Only the true folds vibrate to produce voice. The false folds protect the airway but do not normally phonate.
+- Bilateral RLN injury: unilateral injury causes hoarseness, but bilateral injury leaves the folds adducted and can cause stridor and airway obstruction needing urgent airway control.Laryngeal cartilages
+UnpairedPairedThyroid: the largest cartilage and forms the laryngeal prominence (Adam's apple)Arytenoid: the vocal folds attach here and it rotates and slides to open and close the airwayCricoid: the only complete cartilage ring in the airwayCorniculate: small cartilage within the aryepiglottic foldEpiglottis: the leaf that covers the inlet on swallowingCuneiform: small cartilage within the aryepiglottic foldLaryngeal nerve supply
+NerveSuppliesClinical pointRecurrent laryngeal nerve (RLN)Every intrinsic laryngeal muscle except cricothyroid and sensation below the vocal foldsLong course around the aorta (left) or subclavian artery (right) explains hoarseness from lung or thyroid or mediastinal diseaseExternal branch of the superior laryngeal nerve (EBSLN)Cricothyroid muscle only (pitch control)Injury causes a weak voice that cannot reach high pitchInternal branch of the superior laryngeal nerveSensory only: mucosa above the vocal foldsAfferent limb of the cough reflex when food or liquid threatens the airway
 
 **Neck: triangles, levels & glands** (tags: Neck triangles · Nodal levels I-VII · Salivary glands)
 
@@ -496,7 +496,7 @@ Teaching: Flex NPL is the criterion standard for dynamic pediatric airway collap
 - Source: Bailey's Head & Neck Surgery: Otolaryngology, 6th ed.; tympanic membrane landmarks.
 
 **[weber]** tags: FN, clinical, milestones: PC4, UKMLA: Hearing loss, reviewer: (none)
-- Front: Describe the Weber test and interpret lateralization.
+- Front: How do you perform the Weber test, and how do you interpret lateralization?
 - Back: 512 Hz on the vertex. 
 - Conductive loss: lateralizes to the affected ear.
 - SNHL: lateralizes to the better ear.
@@ -504,7 +504,7 @@ Teaching: Flex NPL is the criterion standard for dynamic pediatric airway collap
 - Source: AAO-HNSF Clinical Practice Guideline: Sudden Hearing Loss (Update), 2019; tuning-fork triage.
 
 **[rinne]** tags: FN, clinical, milestones: PC4, UKMLA: Hearing loss, reviewer: (none)
-- Front: Describe the Rinne test and what a 'negative' Rinne means.
+- Front: How do you perform the Rinne test, and what does a 'negative' Rinne mean?
 - Back: 512 Hz on the mastoid (BC) then beside the ear (AC). 
 - Normal / SNHL: AC > BC = positive.
 - Conductive loss: BC > AC = negative in the affected ear.ScenarioWeberRinne (affected ear)Normal / symmetricMidlineAC > BC (positive)Conductive loss, rightLateralizes to right (affected)BC > AC (negative)Sensorineural loss, rightLateralizes to left (better)AC > BC (positive)
@@ -568,7 +568,7 @@ Teaching: Flex NPL is the criterion standard for dynamic pediatric airway collap
 - Source: ACR Appropriateness Criteria: Hearing Loss and/or Vertigo; Neck Mass.
 
 **[chl-vs-snhl]** tags: FN, clinical, milestones: PC4, MK3, UKMLA: Hearing loss, reviewer: (none)
-- Front: Contrast the common causes of conductive vs sensorineural hearing loss.
+- Front: What are the common causes of conductive vs sensorineural hearing loss?
 - Back: Conductive: cerumen, effusion, TM perforation, otosclerosis, ossicular problems. Sensorineural: presbycusis, noise, ototoxicity, sudden SNHL, and (if asymmetric) retrocochlear lesions.
 - Source: Standard otologic pathophysiology teaching.
 
@@ -578,12 +578,12 @@ Teaching: Flex NPL is the criterion standard for dynamic pediatric airway collap
 - Source: AAO-HNSF Clinical Practice Guideline: Sudden Hearing Loss (Update), 2019.
 
 **[asymmetric-snhl]** tags: FN, clinical, milestones: PC4, UKMLA: Hearing loss, Acoustic neuroma, RED FLAG, reviewer: (none)
-- Front: Asymmetric SNHL or unilateral tinnitus: what must you exclude?
+- Front: What must you exclude in asymmetric SNHL or unilateral tinnitus?
 - Back: Vestibular schwannoma and other retrocochlear lesions: get an MRI of the internal auditory canals.
 - Source: ACR Appropriateness Criteria: Hearing Loss and/or Vertigo (asymmetric SNHL imaging).
 
 **[otalgia-referred]** tags: FN, clinical, milestones: PC4, PC3, UKMLA: Painful ear, RED FLAG, reviewer: (none)
-- Front: Ear pain but a completely NORMAL ear exam: what must you consider?
+- Front: What must you consider in ear pain with a completely NORMAL ear exam?
 - Back: Referred otalgia via CN V/VII/IX/X and C2-C3 (TMJ, teeth, tonsil, tongue base, larynx). In an adult smoker, otalgia + normal ear exam is a red flag for head & neck malignancy → laryngoscopy.
 - Source: Bailey's Head & Neck Surgery: Otolaryngology, 6th ed.; referred otalgia.
 
@@ -598,7 +598,7 @@ Teaching: Flex NPL is the criterion standard for dynamic pediatric airway collap
 - Source: AAO-HNSF Clinical Practice Guideline: Tinnitus, 2014.
 
 **[vertigo-periph]** tags: FN, clinical, milestones: PC4, UKMLA: Vertigo, Dizziness, Benign paroxysmal positional vertigo, Ménière's disease, reviewer: (none)
-- Front: Differentiate BPPV, vestibular neuritis, and Ménière's.
+- Front: How do you differentiate BPPV, vestibular neuritis, and Ménière's?
 - Back: - BPPV: brief positional vertigo; Dix-Hallpike; treat with Epley.
 - Vestibular neuritis: acute constant vertigo for days, no hearing loss.
 - Ménière's: episodic vertigo + fluctuating SNHL + tinnitus + aural fullness.
@@ -615,12 +615,12 @@ Teaching: Flex NPL is the criterion standard for dynamic pediatric airway collap
 - Source: AAN Practice Guideline: Bell's Palsy, 2012.
 
 **[nasal-obstruction]** tags: FN, clinical, milestones: PC5, UKMLA: Nasal obstruction, reviewer: (none)
-- Front: Work through the differential for chronic nasal obstruction.
+- Front: What is the differential for chronic nasal obstruction?
 - Back: Allergic rhinitis, chronic rhinosinusitis (± polyps), septal deviation, turbinate hypertrophy, and (less common) neoplasm. Bilateral/variable → inflammatory; fixed unilateral → structural or neoplastic.
 - Source: AAO-HNSF Clinical Practice Guideline: Adult Sinusitis (Update), 2015; Allergic Rhinitis, 2015.
 
 **[unilateral-nose]** tags: FN, clinical, milestones: PC5, PC7, UKMLA: Nasal obstruction, Epistaxis, RED FLAG, reviewer: (none)
-- Front: Unilateral nasal obstruction + bloody discharge: adult vs child?
+- Front: What causes unilateral nasal obstruction with bloody discharge in an adult vs a child?
 - Back: Adult: red flag for sinonasal neoplasm: endoscopy ± imaging. Child: foreign body until proven otherwise (and a battery is an emergency).
 - Source: AAO-HNS patient education: unilateral nasal red flags; AAP pediatric foreign-body literature.
 
@@ -630,7 +630,7 @@ Teaching: Flex NPL is the criterion standard for dynamic pediatric airway collap
 - Source: AAO-HNSF Clinical Practice Guideline: Nosebleed (Epistaxis), 2020.
 
 **[rhinorrhoea-anosmia]** tags: FN, clinical, milestones: PC5, MK2, UKMLA: Ear and nasal discharge, Anosmia, reviewer: (none)
-- Front: Approach to rhinorrhea and smell loss, and the one that's a red flag.
+- Front: How do you evaluate rhinorrhea and smell loss, and which finding is a red flag?
 - Back: Rhinorrhea: allergic (clear, itch, sneeze), infective (purulent), vasomotor. Anosmia: URI, chronic rhinosinusitis, head injury, ageing. Red flag: unilateral clear watery rhinorrhea after trauma/surgery = CSF leak (test β2-transferrin).
 - Source: AAO-HNSF Adult Sinusitis CPG, 2015; Meco et al., β2-transferrin testing for CSF leak, Am J Rhinol 2003.
 
@@ -665,7 +665,7 @@ Teaching: Flex NPL is the criterion standard for dynamic pediatric airway collap
 - Source: AAO-HNSF Clinical Practice Guideline: Hoarseness (Dysphonia) (Update), 2018.
 
 **[dysphagia-globus]** tags: FN, clinical, milestones: PC6, PC3, UKMLA: Swallowing problems, RED FLAG, reviewer: (none)
-- Front: Distinguish globus from dysphagia, and give the dysphagia red flags.
+- Front: How do you distinguish globus from dysphagia, and what are the dysphagia red flags?
 - Back: Globus = intermittent 'lump' sensation, swallowing intact, usually benign. Dysphagia red flags: progressive, solids > liquids, weight loss, odynophagia, older smoker → urgent workup for esophageal/hypopharyngeal cancer.
 - Source: Standard otolaryngology teaching on red-flag dysphagia.
 
@@ -680,12 +680,12 @@ Teaching: Flex NPL is the criterion standard for dynamic pediatric airway collap
 - Source: AAO-HNSF Clinical Practice Guideline: Evaluation of the Neck Mass in Adults, 2017; NCCN Clinical Practice Guidelines in Oncology: Head and Neck Cancers.
 
 **[salivary-swelling]** tags: FN, clinical, milestones: PC3, UKMLA: Neck lump, reviewer: (none)
-- Front: Approach to a salivary gland swelling.
+- Front: How do you evaluate a salivary gland swelling?
 - Back: Diffuse/bilateral: viral (mumps), sialadenosis, autoimmune (Sjögren). Discrete/unilateral: stone (meal-related swelling) or tumor (parotid; usually pleomorphic adenoma). Red flags: pain, rapid growth, or facial-nerve weakness = malignant.[figure: Diagnostic approach to salivary gland swelling.]
 - Source: Bailey's Head & Neck Surgery: Otolaryngology, 6th ed.; salivary gland disease.
 
 **[midline-neck]** tags: FN, clinical, milestones: PC3, UKMLA: Neck lump, reviewer: (none)
-- Front: Approach to a midline anterior neck swelling.
+- Front: How do you evaluate a midline anterior neck swelling?
 - Back: Thyroglossal duct cyst: midline, moves up on tongue protrusion and swallowing. Thyroid nodule/goitre: moves with swallowing only. Assess thyroid status, ultrasound. Also dermoid. Lateral masses follow the adult-neck-mass rule.
 - Source: American Thyroid Association guidelines on thyroid nodule evaluation, 2015.
 
@@ -785,7 +785,7 @@ Teaching: Flex NPL is the criterion standard for dynamic pediatric airway collap
 - Source: AAO-HNSF CPG: Acute Otitis Externa, 2014; Adult Sinusitis, 2015; Meco et al. on CSF leak testing, 2003.
 
 **[cough-ent-angle]** tags: FN, clinical, milestones: PC5, PC6, UKMLA: Cough, reviewer: (none)
-- Front: From an ENT standpoint, what upper-airway causes should you consider for chronic cough?
+- Front: Which upper-airway causes should you consider in chronic cough?
 - Back: Upper airway cough syndrome (post-nasal drip from rhinosinusitis or allergic rhinitis) and laryngopharyngeal reflux (throat clearing, globus, hoarseness, chronic laryngitis) are the two ENT-driven causes to screen for alongside asthma and GERD. Red flag: cough + hoarseness + smoker → laryngoscopy to exclude laryngeal pathology, not just empiric treatment for post-nasal drip.
 - Source: ACCP/CHEST Cough Guidelines; AAO-HNS teaching on laryngopharyngeal reflux and post-nasal drip.
 

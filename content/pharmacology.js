@@ -262,14 +262,14 @@ window.JEFFENT.register(
   {
    "id": "rx-open-ear",
    "tags": ["RX", "pharm"],
-   "front": "TM perforation or tube present: which otic drops, and which to avoid?",
+   "front": "Which otic drops are safe with a TM perforation or tube, and which should be avoided?",
    "back": "Use a <strong>non-ototoxic fluoroquinolone</strong> (ofloxacin, or ciprofloxacin + dexamethasone). <strong>Avoid aminoglycosides</strong> and alcohol/acidifying drops (ototoxicity).",
    "source": "ENT Pharm Pocket Guide."
   },
   {
    "id": "rx-issnhl-dose",
    "tags": ["RX", "pharm"],
-   "front": "Standard oral steroid regimen for idiopathic sudden SNHL?",
+   "front": "What is the standard oral steroid regimen for idiopathic sudden SNHL?",
    "back": "<strong>Prednisone 1 mg/kg/day</strong> single morning dose (max ~60 mg), about 10 to 14 days including taper. Treat within 2 weeks of onset.",
    "source": "ENT Pharm Pocket Guide."
   },
@@ -290,7 +290,7 @@ window.JEFFENT.register(
   {
    "id": "rx-penallergy",
    "tags": ["RX", "pharm"],
-   "front": "Penicillin-allergic patient with a deep neck infection: antibiotic?",
+   "front": "Which antibiotic treats a deep neck infection in a penicillin-allergic patient?",
    "back": "<strong>Clindamycin</strong> (covers strep, S. aureus, and anaerobes).",
    "source": "ENT Pharm Pocket Guide."
   },
@@ -325,7 +325,7 @@ window.JEFFENT.register(
   {
    "id": "rx-ampho-mucor",
    "tags": ["RX", "pharm"],
-   "front": "Antifungal for invasive rhinocerebral mucormycosis?",
+   "front": "Which antifungal treats invasive rhinocerebral mucormycosis?",
    "back": "<strong>Amphotericin B</strong> (liposomal preferred, less nephrotoxic), plus urgent surgical debridement.",
    "source": "ENT Pharm Pocket Guide."
   },

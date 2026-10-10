@@ -385,7 +385,7 @@ _Image source: Fascial Layers and Triangles of the Neck. Scholes & Ramakrishnan 
 - Source: Standard pharyngeal pouch/cleft embryology teaching.
 
 **[skull-base-foramina-card]** tags: AN, anatomy, milestones: MK1, UKMLA: Facial pain, reviewer: (none)
-- Front: Match the skull-base foramen to what passes through it: foramen ovale, foramen rotundum, foramen spinosum, internal acoustic meatus.
+- Front: Which structure passes through each of these skull-base foramina: foramen ovale, foramen rotundum, foramen spinosum, internal acoustic meatus?
 - Back: Foramen ovale: CN V3. Foramen rotundum: CN V2. Foramen spinosum: middle meningeal artery (injury here causes an epidural hematoma). Internal acoustic meatus: CN VII and CN VIII (with the labyrinthine artery).[figure: Matching skull-base foramina (ovale, rotundum, spinosum, internal acoustic meatus) to what passes through them.]
 - Source: Standard skull-base anatomy teaching.
 
@@ -785,7 +785,7 @@ Teaching: Clinical Pearl: Hereditary angioedema is a C1-inhibitor deficiency dri
 - Source: Bridwell, Koyfman & Long, Am J Emerg Med, 2022; Felton et al., West J Emerg Med, 2021.
 
 **[quinsy-vs-rpa-vs-epiglottitis-card]** tags: EM, clinical, milestones: PC1, MK1, UKMLA: Sore throat, RED FLAG, reviewer: (none)
-- Front: Differentiate peritonsillar abscess, retropharyngeal abscess, and epiglottitis by key exam clue.
+- Front: How do you differentiate peritonsillar abscess, retropharyngeal abscess, and epiglottitis by key exam clue?
 - Back: - Peritonsillar abscess: uvula deviation, tonsillar bulge, trismus.
 - Retropharyngeal abscess: torticollis, neck stiffness, refusal to extend neck (mostly young children).
 - Epiglottitis: tripod position, drooling, no oropharyngeal exam without airway backup.
@@ -945,10 +945,10 @@ NerveSkull base exitTypeFunctionIf injuredI &middot; OlfactoryCribriform plateSe
 
 [figure: Epiglottis, thyroid/cricoid cartilage framework, true/false vocal folds, recurrent laryngeal nerve.]
 - Epiglottis: the cartilage leaf that folds down over the laryngeal inlet to protect the airway on swallowing.
-- Cartilage framework -- unpaired: thyroid (the largest, forms the laryngeal prominence/Adam's apple), cricoid (the only complete cartilage ring in the airway), and the epiglottis itself. Paired: arytenoid (the vocal folds attach to these and they rotate/slide to open and close the airway), plus the small corniculate and cuneiform cartilages sitting within the aryepiglottic folds.
-- True vs false vocal folds: the true vocal folds (vocal cords) sit below the false vocal folds (also called the vestibular folds), separated by the ventricle (of Morgagni). Only the true folds vibrate to produce voice; the false folds protect the airway but don't normally phonate.
-- Bilateral injury: unilateral RLN injury causes hoarseness, but bilateral injury leaves the folds adducted and can cause stridor and airway obstruction needing urgent airway control.
-- Nerve supply: the recurrent laryngeal nerve (RLN) supplies every intrinsic laryngeal muscle except one (cricothyroid) -- both motor to those muscles and sensation below the vocal folds. Its long course through the chest and around the aorta (left) or subclavian artery (right) before ascending back to the larynx explains hoarseness from lung, thyroid, or mediastinal disease along that path. The external branch of the superior laryngeal nerve (EBSLN) supplies the cricothyroid muscle alone (pitch control); the internal branch of the superior laryngeal nerve is purely sensory, supplying the mucosa above the vocal folds down to their level (the afferent limb of the cough/protective reflex when food or liquid threatens the airway).
+- True vs false vocal folds: the true vocal folds sit below the false (vestibular) folds, separated by the ventricle (of Morgagni). Only the true folds vibrate to produce voice. The false folds protect the airway but do not normally phonate.
+- Bilateral RLN injury: unilateral injury causes hoarseness, but bilateral injury leaves the folds adducted and can cause stridor and airway obstruction needing urgent airway control.Laryngeal cartilages
+UnpairedPairedThyroid: the largest cartilage and forms the laryngeal prominence (Adam's apple)Arytenoid: the vocal folds attach here and it rotates and slides to open and close the airwayCricoid: the only complete cartilage ring in the airwayCorniculate: small cartilage within the aryepiglottic foldEpiglottis: the leaf that covers the inlet on swallowingCuneiform: small cartilage within the aryepiglottic foldLaryngeal nerve supply
+NerveSuppliesClinical pointRecurrent laryngeal nerve (RLN)Every intrinsic laryngeal muscle except cricothyroid and sensation below the vocal foldsLong course around the aorta (left) or subclavian artery (right) explains hoarseness from lung or thyroid or mediastinal diseaseExternal branch of the superior laryngeal nerve (EBSLN)Cricothyroid muscle only (pitch control)Injury causes a weak voice that cannot reach high pitchInternal branch of the superior laryngeal nerveSensory only: mucosa above the vocal foldsAfferent limb of the cough reflex when food or liquid threatens the airway
 
 **Neck: triangles, levels & glands** (tags: Neck triangles · Nodal levels I-VII · Salivary glands)
 
@@ -1404,7 +1404,7 @@ Teaching: Flex NPL is the criterion standard for dynamic pediatric airway collap
 - Source: Bailey's Head & Neck Surgery: Otolaryngology, 6th ed.; tympanic membrane landmarks.
 
 **[weber]** tags: FN, clinical, milestones: PC4, UKMLA: Hearing loss, reviewer: (none)
-- Front: Describe the Weber test and interpret lateralization.
+- Front: How do you perform the Weber test, and how do you interpret lateralization?
 - Back: 512 Hz on the vertex. 
 - Conductive loss: lateralizes to the affected ear.
 - SNHL: lateralizes to the better ear.
@@ -1412,7 +1412,7 @@ Teaching: Flex NPL is the criterion standard for dynamic pediatric airway collap
 - Source: AAO-HNSF Clinical Practice Guideline: Sudden Hearing Loss (Update), 2019; tuning-fork triage.
 
 **[rinne]** tags: FN, clinical, milestones: PC4, UKMLA: Hearing loss, reviewer: (none)
-- Front: Describe the Rinne test and what a 'negative' Rinne means.
+- Front: How do you perform the Rinne test, and what does a 'negative' Rinne mean?
 - Back: 512 Hz on the mastoid (BC) then beside the ear (AC). 
 - Normal / SNHL: AC > BC = positive.
 - Conductive loss: BC > AC = negative in the affected ear.ScenarioWeberRinne (affected ear)Normal / symmetricMidlineAC > BC (positive)Conductive loss, rightLateralizes to right (affected)BC > AC (negative)Sensorineural loss, rightLateralizes to left (better)AC > BC (positive)
@@ -1476,7 +1476,7 @@ Teaching: Flex NPL is the criterion standard for dynamic pediatric airway collap
 - Source: ACR Appropriateness Criteria: Hearing Loss and/or Vertigo; Neck Mass.
 
 **[chl-vs-snhl]** tags: FN, clinical, milestones: PC4, MK3, UKMLA: Hearing loss, reviewer: (none)
-- Front: Contrast the common causes of conductive vs sensorineural hearing loss.
+- Front: What are the common causes of conductive vs sensorineural hearing loss?
 - Back: Conductive: cerumen, effusion, TM perforation, otosclerosis, ossicular problems. Sensorineural: presbycusis, noise, ototoxicity, sudden SNHL, and (if asymmetric) retrocochlear lesions.
 - Source: Standard otologic pathophysiology teaching.
 
@@ -1486,12 +1486,12 @@ Teaching: Flex NPL is the criterion standard for dynamic pediatric airway collap
 - Source: AAO-HNSF Clinical Practice Guideline: Sudden Hearing Loss (Update), 2019.
 
 **[asymmetric-snhl]** tags: FN, clinical, milestones: PC4, UKMLA: Hearing loss, Acoustic neuroma, RED FLAG, reviewer: (none)
-- Front: Asymmetric SNHL or unilateral tinnitus: what must you exclude?
+- Front: What must you exclude in asymmetric SNHL or unilateral tinnitus?
 - Back: Vestibular schwannoma and other retrocochlear lesions: get an MRI of the internal auditory canals.
 - Source: ACR Appropriateness Criteria: Hearing Loss and/or Vertigo (asymmetric SNHL imaging).
 
 **[otalgia-referred]** tags: FN, clinical, milestones: PC4, PC3, UKMLA: Painful ear, RED FLAG, reviewer: (none)
-- Front: Ear pain but a completely NORMAL ear exam: what must you consider?
+- Front: What must you consider in ear pain with a completely NORMAL ear exam?
 - Back: Referred otalgia via CN V/VII/IX/X and C2-C3 (TMJ, teeth, tonsil, tongue base, larynx). In an adult smoker, otalgia + normal ear exam is a red flag for head & neck malignancy → laryngoscopy.
 - Source: Bailey's Head & Neck Surgery: Otolaryngology, 6th ed.; referred otalgia.
 
@@ -1506,7 +1506,7 @@ Teaching: Flex NPL is the criterion standard for dynamic pediatric airway collap
 - Source: AAO-HNSF Clinical Practice Guideline: Tinnitus, 2014.
 
 **[vertigo-periph]** tags: FN, clinical, milestones: PC4, UKMLA: Vertigo, Dizziness, Benign paroxysmal positional vertigo, Ménière's disease, reviewer: (none)
-- Front: Differentiate BPPV, vestibular neuritis, and Ménière's.
+- Front: How do you differentiate BPPV, vestibular neuritis, and Ménière's?
 - Back: - BPPV: brief positional vertigo; Dix-Hallpike; treat with Epley.
 - Vestibular neuritis: acute constant vertigo for days, no hearing loss.
 - Ménière's: episodic vertigo + fluctuating SNHL + tinnitus + aural fullness.
@@ -1523,12 +1523,12 @@ Teaching: Flex NPL is the criterion standard for dynamic pediatric airway collap
 - Source: AAN Practice Guideline: Bell's Palsy, 2012.
 
 **[nasal-obstruction]** tags: FN, clinical, milestones: PC5, UKMLA: Nasal obstruction, reviewer: (none)
-- Front: Work through the differential for chronic nasal obstruction.
+- Front: What is the differential for chronic nasal obstruction?
 - Back: Allergic rhinitis, chronic rhinosinusitis (± polyps), septal deviation, turbinate hypertrophy, and (less common) neoplasm. Bilateral/variable → inflammatory; fixed unilateral → structural or neoplastic.
 - Source: AAO-HNSF Clinical Practice Guideline: Adult Sinusitis (Update), 2015; Allergic Rhinitis, 2015.
 
 **[unilateral-nose]** tags: FN, clinical, milestones: PC5, PC7, UKMLA: Nasal obstruction, Epistaxis, RED FLAG, reviewer: (none)
-- Front: Unilateral nasal obstruction + bloody discharge: adult vs child?
+- Front: What causes unilateral nasal obstruction with bloody discharge in an adult vs a child?
 - Back: Adult: red flag for sinonasal neoplasm: endoscopy ± imaging. Child: foreign body until proven otherwise (and a battery is an emergency).
 - Source: AAO-HNS patient education: unilateral nasal red flags; AAP pediatric foreign-body literature.
 
@@ -1538,7 +1538,7 @@ Teaching: Flex NPL is the criterion standard for dynamic pediatric airway collap
 - Source: AAO-HNSF Clinical Practice Guideline: Nosebleed (Epistaxis), 2020.
 
 **[rhinorrhoea-anosmia]** tags: FN, clinical, milestones: PC5, MK2, UKMLA: Ear and nasal discharge, Anosmia, reviewer: (none)
-- Front: Approach to rhinorrhea and smell loss, and the one that's a red flag.
+- Front: How do you evaluate rhinorrhea and smell loss, and which finding is a red flag?
 - Back: Rhinorrhea: allergic (clear, itch, sneeze), infective (purulent), vasomotor. Anosmia: URI, chronic rhinosinusitis, head injury, ageing. Red flag: unilateral clear watery rhinorrhea after trauma/surgery = CSF leak (test β2-transferrin).
 - Source: AAO-HNSF Adult Sinusitis CPG, 2015; Meco et al., β2-transferrin testing for CSF leak, Am J Rhinol 2003.
 
@@ -1573,7 +1573,7 @@ Teaching: Flex NPL is the criterion standard for dynamic pediatric airway collap
 - Source: AAO-HNSF Clinical Practice Guideline: Hoarseness (Dysphonia) (Update), 2018.
 
 **[dysphagia-globus]** tags: FN, clinical, milestones: PC6, PC3, UKMLA: Swallowing problems, RED FLAG, reviewer: (none)
-- Front: Distinguish globus from dysphagia, and give the dysphagia red flags.
+- Front: How do you distinguish globus from dysphagia, and what are the dysphagia red flags?
 - Back: Globus = intermittent 'lump' sensation, swallowing intact, usually benign. Dysphagia red flags: progressive, solids > liquids, weight loss, odynophagia, older smoker → urgent workup for esophageal/hypopharyngeal cancer.
 - Source: Standard otolaryngology teaching on red-flag dysphagia.
 
@@ -1588,12 +1588,12 @@ Teaching: Flex NPL is the criterion standard for dynamic pediatric airway collap
 - Source: AAO-HNSF Clinical Practice Guideline: Evaluation of the Neck Mass in Adults, 2017; NCCN Clinical Practice Guidelines in Oncology: Head and Neck Cancers.
 
 **[salivary-swelling]** tags: FN, clinical, milestones: PC3, UKMLA: Neck lump, reviewer: (none)
-- Front: Approach to a salivary gland swelling.
+- Front: How do you evaluate a salivary gland swelling?
 - Back: Diffuse/bilateral: viral (mumps), sialadenosis, autoimmune (Sjögren). Discrete/unilateral: stone (meal-related swelling) or tumor (parotid; usually pleomorphic adenoma). Red flags: pain, rapid growth, or facial-nerve weakness = malignant.[figure: Diagnostic approach to salivary gland swelling.]
 - Source: Bailey's Head & Neck Surgery: Otolaryngology, 6th ed.; salivary gland disease.
 
 **[midline-neck]** tags: FN, clinical, milestones: PC3, UKMLA: Neck lump, reviewer: (none)
-- Front: Approach to a midline anterior neck swelling.
+- Front: How do you evaluate a midline anterior neck swelling?
 - Back: Thyroglossal duct cyst: midline, moves up on tongue protrusion and swallowing. Thyroid nodule/goitre: moves with swallowing only. Assess thyroid status, ultrasound. Also dermoid. Lateral masses follow the adult-neck-mass rule.
 - Source: American Thyroid Association guidelines on thyroid nodule evaluation, 2015.
 
@@ -1693,7 +1693,7 @@ Teaching: Flex NPL is the criterion standard for dynamic pediatric airway collap
 - Source: AAO-HNSF CPG: Acute Otitis Externa, 2014; Adult Sinusitis, 2015; Meco et al. on CSF leak testing, 2003.
 
 **[cough-ent-angle]** tags: FN, clinical, milestones: PC5, PC6, UKMLA: Cough, reviewer: (none)
-- Front: From an ENT standpoint, what upper-airway causes should you consider for chronic cough?
+- Front: Which upper-airway causes should you consider in chronic cough?
 - Back: Upper airway cough syndrome (post-nasal drip from rhinosinusitis or allergic rhinitis) and laryngopharyngeal reflux (throat clearing, globus, hoarseness, chronic laryngitis) are the two ENT-driven causes to screen for alongside asthma and GERD. Red flag: cough + hoarseness + smoker → laryngoscopy to exclude laryngeal pathology, not just empiric treatment for post-nasal drip.
 - Source: ACCP/CHEST Cough Guidelines; AAO-HNS teaching on laryngopharyngeal reflux and post-nasal drip.
 
@@ -2234,7 +2234,7 @@ Teaching: Clinical Pearl: Boggy, fluctuant, bilateral septal swelling after nasa
 - Source: Standard facial trauma anatomy teaching.
 
 **[le-fort-card]** tags: FP, clinical, milestones: MK1, PC1, UKMLA: Facial/periorbital swelling, reviewer: (none)
-- Front: Distinguish Le Fort I, II, and III fractures.
+- Front: How do you distinguish Le Fort I, II, and III fractures?
 - Back: I: horizontal, above the tooth apices: mobile palate/alveolus. II: pyramidal, through the nasofrontal suture: mobile nasomaxillary complex. III: craniofacial disjunction through the frontozygomatic sutures: entire midface mobile relative to the skull ('floating face').[figure: Distinguishing Le Fort I, II, and III fracture patterns.]
 - Source: Standard facial trauma teaching on Le Fort classification.
 
@@ -2284,7 +2284,7 @@ Teaching: Clinical Pearl: Boggy, fluctuant, bilateral septal swelling after nasa
 - Source: Standard skull-base trauma teaching on CSF leak recognition.
 
 **[reconstructive-ladder-card]** tags: FP, clinical, milestones: PC9, MK2, UKMLA: Facial/periorbital swelling, reviewer: (none)
-- Front: State the reconstructive ladder in order.
+- Front: What are the steps of the reconstructive ladder, in order?
 - Back: Secondary intention (small, low-tension wounds allowed to granulate/epithelialize) -> primary closure (clean, low-tension edges reapproximated directly) -> skin graft (split- or full-thickness; larger defects with a healthy, vascularized bed) -> local flap (adjacent tissue with matching color/texture, its own blood supply) -> regional flap (nearby tissue on a named pedicle, for larger/deeper defects) -> free tissue transfer (microvascular free flap; large or composite defects needing distant tissue with its own vascular anastomosis). Choose the simplest option achieving a good result, escalating only as the defect and tissue needs require.[figure: The reconstructive ladder from secondary intention to free tissue transfer.]
 - Source: Standard reconstructive surgery teaching: the reconstructive ladder.
 
@@ -3910,7 +3910,7 @@ Teaching: Any persistent oral white or red patch in a smoker gets biopsied. Loca
 - Source: NCCN Head and Neck Cancers Guideline: subsite definitions.
 
 **[unknown-primary-card]** tags: HN, clinical, milestones: PC3, UKMLA: Neck lump, reviewer: (none)
-- Front: Outline the workup for a neck mass with FNA showing squamous cell carcinoma but no obvious primary.
+- Front: How do you work up a neck mass with FNA showing squamous cell carcinoma but no obvious primary?
 - Back: Examine/image the likely primaries: base of tongue, tonsil, nasopharynx, hypopharynx. Test the specimen for p16 (HPV surrogate → oropharyngeal source) and EBV (→ nasopharyngeal source). If still unlocalized: PET-CT and panendoscopy with directed biopsies (± ipsilateral tonsillectomy).
 - Source: NCCN Head and Neck Cancers Guideline: unknown primary workup.
 
@@ -4020,7 +4020,7 @@ Teaching: Any persistent oral white or red patch in a smoker gets biopsied. Loca
 - Source: Standard oncology teaching on Virchow's node/Troisier's sign.
 
 **[leukoplakia-erythroplakia-card]** tags: HN, clinical, milestones: PC3, UKMLA: Neck lump, RED FLAG, reviewer: (none)
-- Front: Contrast leukoplakia and erythroplakia, and state the required next step for either.
+- Front: How do leukoplakia and erythroplakia differ, and what is the required next step for either?
 - Back: Leukoplakia: a white patch that can't be wiped off/attributed to another cause, premalignant. Erythroplakia: a red patch, less common but a substantially higher rate of dysplasia/carcinoma on biopsy. Either finding, especially in a smoker, requires biopsy, not observation.
 - Source: Standard oral oncology teaching on premalignant lesions.
 
@@ -4422,7 +4422,7 @@ Teaching: Fixed, biphasic stridor that fails asthma therapy in a young, non-smok
 - Source: Standard laryngeal neuroanatomy teaching.
 
 **[rln-course-card]** tags: LA, anatomy, milestones: MK1, PC6, UKMLA: Hoarseness and voice change, reviewer: (none)
-- Front: Trace the course of the recurrent laryngeal nerve on each side, and explain why it matters for hoarseness.
+- Front: What is the course of the recurrent laryngeal nerve on each side, and why does it matter for hoarseness?
 - Back: Left RLN loops under the aortic arch; right RLN loops under the subclavian artery. Both then ascend near the thyroid. This long course means a lung apex tumor, aortic aneurysm, or thyroid/mediastinal mass can present as hoarseness, and it's the nerve at risk during thyroid surgery.[figure: Course of the recurrent laryngeal nerve on each side and its clinical significance for hoarseness.]
 - Source: Standard laryngeal neuroanatomy teaching.
 
@@ -4442,7 +4442,7 @@ Teaching: Fixed, biphasic stridor that fails asthma therapy in a young, non-smok
 - Source: Standard laryngology teaching on bilateral vocal fold paralysis.
 
 **[vf-nodules-polyps-card]** tags: LA, clinical, milestones: PC6, UKMLA: Hoarseness and voice change, reviewer: (none)
-- Front: Distinguish vocal nodules from a vocal polyp by pattern and cause.
+- Front: How do you distinguish vocal nodules from a vocal polyp by pattern and cause?
 - Back: Nodules: bilateral, symmetric, mid-membranous, from chronic vocal abuse/misuse ('singer's/screamer's nodules'). Polyp: usually unilateral, from a single straining/abuse event or reflux.
 - Source: Standard laryngology teaching on benign vocal fold lesions.
 
@@ -4462,7 +4462,7 @@ Teaching: Fixed, biphasic stridor that fails asthma therapy in a young, non-smok
 - Source: Standard laryngology teaching on vocal process (contact) granuloma.
 
 **[peds-stridor-differential-card]** tags: LA, clinical, milestones: PC1, PC7, UKMLA: Stridor, RED FLAG, reviewer: (none)
-- Front: Differentiate croup, epiglottitis, bacterial tracheitis, and foreign body aspiration.
+- Front: How do you differentiate croup, epiglottitis, bacterial tracheitis, and foreign body aspiration?
 - Back: Croup: barky cough, gradual, low fever, steeple sign. Epiglottitis: rapid, high fever, drooling, tripod, thumbprint sign; don't examine the throat. Bacterial tracheitis: toxic, fails croup treatment, thick secretions. Foreign body: sudden choking event, unilateral wheeze.
 - Source: Standard pediatric airway teaching.
 
@@ -4527,7 +4527,7 @@ Teaching: Fixed, biphasic stridor that fails asthma therapy in a young, non-smok
 - Source: Standard airway teaching on subglottic stenosis presentation.
 
 **[subglottic-stenosis-management-card]** tags: LA, clinical, milestones: PC6, MK3, UKMLA: Stridor, reviewer: (none)
-- Front: Rank the three main surgical approaches to subglottic stenosis by durability, and name the trade-off of the most durable one.
+- Front: How do the three main surgical approaches to subglottic stenosis rank by durability, and what is the trade-off of the most durable one?
 - Back: Cricotracheal resection (CTR) is most durable (~5% 5-yr recurrence) but has the greatest perioperative risk and worst voice; endoscopic resection with adjuvant medical therapy (ERMT) is intermediate (~30%); endoscopic dilation is least invasive but highest recurrence (~50%). Office-based serial intralesional steroid injection is a growing adjunct.
 - Source: Gelbard et al., NoAAC 3-yr, JAMA Otolaryngol Head Neck Surg, 2020; Tierney et al., NoAAC 5-yr update, Otolaryngol Head Neck Surg, 2023.
 
@@ -4921,7 +4921,7 @@ Teaching: [figure: Progressive asymmetric SNHL and tinnitus worked up with MRI I
 - Source: Standard otologic anatomy teaching.
 
 **[eac-canal]** tags: OT, anatomy, milestones: MK1, UKMLA: Painful ear, reviewer: (none)
-- Front: Describe the makeup of the external auditory canal.
+- Front: What is the structure of the external auditory canal, and why do you pull the pinna up and back for otoscopy?
 - Back: Outer ⅓ cartilaginous (contains cerumen glands), inner ⅔ bony. This is why you pull the pinna up-and-back (adult) to straighten it for otoscopy.[figure: External auditory canal composition: outer 1/3 cartilaginous (cerumen glands), inner 2/3 bony.]
 - Source: Standard otologic anatomy teaching.
 
@@ -4959,22 +4959,22 @@ Teaching: [figure: Progressive asymmetric SNHL and tinnitus worked up with MRI I
 - Source: Standard otologic anatomy teaching.
 
 **[inner-div]** tags: OT, anatomy, milestones: MK1, UKMLA: Hearing loss, Vertigo, reviewer: (none)
-- Front: Divide the inner ear by function.
+- Front: How is the inner ear divided by function?
 - Back: Cochlea = hearing; vestibule + semicircular canals = balance. Both are read out by CN VIII (cochlear + vestibular divisions).[figure: Dividing the inner ear by function: cochlea (hearing) vs vestibule + semicircular canals (balance), both read by CN VIII.]
 - Source: Standard otologic anatomy teaching.
 
 **[weber]** tags: OT, clinical, milestones: PC4, UKMLA: Hearing loss, reviewer: (none)
-- Front: Interpret the Weber test.
+- Front: How do you interpret the Weber test?
 - Back: 512 Hz on the vertex. Conductive loss: lateralizes to the affected ear. SNHL: lateralizes to the better ear.[figure: Tuning-fork testing: Weber and Rinne in conductive vs sensorineural loss.]ScenarioWeberRinne (affected ear)Normal / symmetricMidlineAC > BC (positive)Conductive loss, rightLateralizes to right (affected)BC > AC (negative)Sensorineural loss, rightLateralizes to left (better)AC > BC (positive)
 - Source: Standard audiology and otology teaching; AAO-HNSF Clinical Practice Guideline: Sudden Hearing Loss (Update), 2019 supports tuning-fork triage of SNHL vs CHL.
 
 **[rinne]** tags: OT, clinical, milestones: PC4, UKMLA: Hearing loss, reviewer: (none)
-- Front: Interpret the Rinne test.
+- Front: How do you interpret the Rinne test?
 - Back: Mastoid (BC) vs beside the ear (AC). Normal/SNHL: AC > BC (positive). Conductive loss: BC > AC (negative) in the affected ear.ScenarioWeberRinne (affected ear)Normal / symmetricMidlineAC > BC (positive)Conductive loss, rightLateralizes to right (affected)BC > AC (negative)Sensorineural loss, rightLateralizes to left (better)AC > BC (positive)[figure: Interpreting the Rinne tuning-fork test (AC vs BC) alongside the Weber/Rinne comparison table.]
 - Source: Standard audiology and otology teaching; AAO-HNSF Clinical Practice Guideline: Sudden Hearing Loss (Update), 2019 supports tuning-fork triage of SNHL vs CHL.
 
 **[chl-snhl]** tags: OT, clinical, milestones: PC4, MK3, UKMLA: Hearing loss, reviewer: (none)
-- Front: Give the common causes of conductive vs sensorineural hearing loss.
+- Front: What are the common causes of conductive vs sensorineural hearing loss?
 - Back: Conductive: cerumen, effusion, perforation, otosclerosis. SNHL: presbycusis, noise, ototoxicity, sudden SNHL, vestibular schwannoma (if asymmetric).
 - Source: Standard audiology teaching.
 
@@ -4984,12 +4984,12 @@ Teaching: [figure: Progressive asymmetric SNHL and tinnitus worked up with MRI I
 - Source: AAO-HNSF Clinical Practice Guideline: Sudden Hearing Loss (Update), 2019.
 
 **[asym-snhl]** tags: OT, clinical, milestones: PC4, UKMLA: Hearing loss, Acoustic neuroma, RED FLAG, reviewer: (none)
-- Front: Asymmetric SNHL or unilateral tinnitus: what must you exclude?
+- Front: What must you exclude in asymmetric SNHL or unilateral tinnitus?
 - Back: Vestibular schwannoma (and other retrocochlear lesions). Get an MRI with contrast of the internal auditory canals.[figure: Asymmetric SNHL or unilateral tinnitus must be worked up with MRI to exclude vestibular schwannoma.]
 - Source: ACR Appropriateness Criteria: Hearing Loss and/or Vertigo (asymmetric SNHL imaging).
 
 **[oe-om]** tags: OT, clinical, milestones: PC4, MK3, UKMLA: Painful ear, Otitis externa, Otitis media, reviewer: (none)
-- Front: Distinguish otitis externa from acute otitis media on exam.
+- Front: How do you distinguish otitis externa from acute otitis media on exam?
 - Back: Otitis externa: pain on tragal traction, canal edema/discharge, TM often normal. AOM: bulging, erythematous TM with effusion; canal not tender.
 - Source: AAO-HNSF Clinical Practice Guideline: Otitis Externa (Update), 2014; AAO-HNSF/AAP Clinical Practice Guideline: Acute Otitis Media (Update), 2013.
 
@@ -5009,7 +5009,7 @@ Teaching: [figure: Progressive asymmetric SNHL and tinnitus worked up with MRI I
 - Source: Standard otology teaching on necrotizing (malignant) otitis externa.
 
 **[bppv]** tags: OT, clinical, milestones: PC4, UKMLA: Vertigo, Benign paroxysmal positional vertigo, reviewer: (none)
-- Front: Classic BPPV: features, test, treatment.
+- Front: What are the features, diagnostic test, and treatment of classic BPPV?
 - Back: Brief, seconds-long positional vertigo; confirm with Dix-Hallpike; treat with the Epley maneuver. Hearing is normal.Dix-Hallpike: from sitting, the examiner rapidly moves the patient to supine with the head turned 45&deg; to one side and extended slightly over the end of the table; a positive test reproduces vertigo with the characteristic torsional/upbeating nystagmus of posterior-canal BPPV on that side. Epley maneuver: a sequence of head/body repositions starting from the positive Dix-Hallpike position, rotating the head/body stepwise through roughly 180&deg; (affected ear down -> head turned to the other side -> body rolled onto that side facing down -> sit up), designed to walk the displaced otoconia out of the posterior semicircular canal and back into the utricle.
 - Source: AAO-HNSF Clinical Practice Guideline: BPPV (Update), 2017.
 
@@ -5024,7 +5024,7 @@ Teaching: [figure: Progressive asymmetric SNHL and tinnitus worked up with MRI I
 - Source: Kattah et al., HINTS exam, Stroke 2009.
 
 **[facial-palsy]** tags: OT, clinical, milestones: PC4, MK1, UKMLA: Facial weakness, Bell's palsy, RED FLAG, reviewer: (none)
-- Front: Distinguish central from peripheral facial palsy, and why it matters in otology.
+- Front: How do you distinguish central from peripheral facial palsy, and why does it matter in otology?
 - Back: Peripheral (LMN): forehead involved (Bell's, or otologic causes: cholesteatoma, necrotizing OE, tumor). Central (UMN): forehead spared → stroke workup. Facial weakness with ear disease is an ENT red flag.
 - Source: AAN Practice Guideline: Bell's Palsy, 2012.
 
@@ -5039,7 +5039,7 @@ Teaching: [figure: Progressive asymmetric SNHL and tinnitus worked up with MRI I
 - Source: Standard otology teaching on otosclerosis.
 
 **[tympanometry-differential-card]** tags: OT, clinical, milestones: PC4, MK3, UKMLA: Hearing loss, reviewer: (none)
-- Front: On tympanometry, how do otosclerosis, OME, and ossicular discontinuity differ?
+- Front: How do otosclerosis, OME, and ossicular discontinuity differ on tympanometry?
 - Back: Otosclerosis: Type As (normal peak pressure, reduced/shallow compliance: a stiff system). OME: Type B (flat, no peak: fluid behind the drum). Ossicular discontinuity: abnormally high-compliance Type Ad (a floppy, hypermobile system), the opposite mechanical picture from otosclerosis.
 - Source: Jerger, tympanogram classification, Archives of Otolaryngology 1970.
 
@@ -5079,7 +5079,7 @@ Teaching: [figure: Progressive asymmetric SNHL and tinnitus worked up with MRI I
 - Source: Standard otology teaching on necrotizing (malignant) otitis externa.
 
 **[weber-rinne-table]** tags: OT, clinical, milestones: PC4, UKMLA: Hearing loss, reviewer: (none)
-- Front: Give the Weber and Rinne result for a normal ear, a unilateral conductive loss, and a unilateral sensorineural loss.
+- Front: What are the Weber and Rinne results for a normal ear, a unilateral conductive loss, and a unilateral sensorineural loss?
 - Back: Normal: Weber midline; Rinne positive (air > bone) both ears. Conductive loss: Weber to the affected ear; Rinne negative (bone > air) on that side. Sensorineural loss: Weber to the better ear; Rinne positive (air > bone) bilaterally. Confirm with audiometry.
 - Source: Standard audiology and otology teaching. DRAFT pending faculty review.
 
@@ -5555,7 +5555,7 @@ Teaching: [figure: Young child with fever, rigid neck extension, muffled voice, 
 - Source: Standard pediatric embryology teaching.
 
 **[ome-vs-aom-card]** tags: PE, clinical, milestones: PC7, PC4, UKMLA: Painful ear, reviewer: (none)
-- Front: Distinguish OME from AOM, and state first-line management for each.
+- Front: How do OME and AOM differ, and what is first-line management for each?
 - Back: OME: fluid behind an intact TM without acute infection signs, often asymptomatic. First-line is watchful waiting (most resolve in weeks). AOM: a bulging, erythematous TM with acute symptoms (otalgia, fever), managed with observation or amoxicillin depending on age and severity.
 - Source: AAP Clinical Practice Guideline: Otitis Media with Effusion.
 
@@ -5585,7 +5585,7 @@ Teaching: [figure: Young child with fever, rigid neck extension, muffled voice, 
 - Source: AAO-HNSF Clinical Practice Guideline: Tympanostomy Tubes in Children (Update), 2022.
 
 **[newborn-hearing-screen-card]** tags: PE, clinical, milestones: PC7, PC4, UKMLA: Hearing loss, reviewer: (none)
-- Front: State the '1-3-6 rule' for newborn hearing screening.
+- Front: What is the '1-3-6 rule' for newborn hearing screening?
 - Back: Screen by 1 month (universal newborn hearing screening, using OAE or automated ABR), diagnose by 3 months if screening fails, intervene (amplification/early intervention) by 6 months. Missing this window measurably worsens speech-language outcomes.
 - Source: Standard pediatric audiology teaching: the 1-3-6 rule.
 
@@ -5595,7 +5595,7 @@ Teaching: [figure: Young child with fever, rigid neck extension, muffled voice, 
 - Source: Standard pediatric audiology/genetics teaching.
 
 **[congenital-neck-mass-card]** tags: PE, clinical, milestones: PC7, PC3, UKMLA: Neck lump, reviewer: (none)
-- Front: Use location to differentiate congenital neck masses.
+- Front: How does location differentiate congenital neck masses?
 - Back: - Midline → thyroglossal duct cyst (moves with tongue protrusion).
 - Lateral, anterior to SCM → branchial cleft cyst.
 - Posterior triangle → cystic hygroma/lymphatic malformation.
@@ -5706,12 +5706,12 @@ Teaching: [figure: Young child with fever, rigid neck extension, muffled voice, 
 - Source: Standard embryology teaching on the branchial apparatus.
 
 **[branchial-arch1-vs-arch2-card]** tags: PE, embryo, milestones: MK1, PC7, UKMLA: Neck lump, reviewer: (none)
-- Front: Contrast the skeletal derivatives of arch 1 vs arch 2.
+- Front: What are the skeletal derivatives of arch 1 vs arch 2?
 - Back: Arch 1 (V3): Meckel's cartilage -> malleus + incus; mandible/maxilla; muscles of mastication. Arch 2 (VII): Reichert's cartilage -> stapes, styloid process, lesser horn + upper hyoid; muscles of facial expression.
 - Source: Standard embryology teaching on the branchial apparatus.
 
 **[branchial-pouch-derivatives-card]** tags: PE, embryo, milestones: MK1, PC7, UKMLA: Neck lump, reviewer: (none)
-- Front: Match pouches 1-4 to their adult derivatives.
+- Front: What are the adult derivatives of pouches 1-4?
 - Back: 1 -> middle ear + Eustachian tube; 2 -> palatine tonsil; 3 -> inferior parathyroids + thymus; 4 -> superior parathyroids (+ ultimobranchial body/C cells).
 - Source: Standard embryology teaching on the branchial apparatus.
 
@@ -5726,12 +5726,12 @@ Teaching: [figure: Young child with fever, rigid neck extension, muffled voice, 
 - Source: Standard embryology teaching on the branchial apparatus.
 
 **[branchial-anomaly-internal-opening-card]** tags: PE, clinical, milestones: PC7, PC3, UKMLA: Neck lump, reviewer: (none)
-- Front: State the internal opening for 1st, 2nd, and 3rd/4th branchial anomalies.
+- Front: What is the internal opening of 1st, 2nd, and 3rd/4th branchial anomalies?
 - Back: 1st -> external auditory canal (periauricular/parotid, near CN VII); 2nd -> tonsillar fossa; 3rd/4th -> pyriform sinus.
 - Source: Standard pediatric otolaryngology teaching on branchial anomalies.
 
 **[second-branchial-cleft-cyst-tract-card]** tags: PE, clinical, milestones: PC7, PC3, UKMLA: Neck lump, reviewer: (none)
-- Front: Describe the classic 2nd branchial cleft cyst and its tract.
+- Front: What is the classic presentation and tract of a 2nd branchial cleft cyst?
 - Back: Painless fluctuant mass at the anterior border of the upper-third SCM, often enlarging after a URI; ~90-95% of branchial anomalies. Tract runs from the tonsillar fossa between the internal and external carotid arteries. Treatment: complete surgical excision.
 - Source: Standard pediatric otolaryngology teaching on branchial anomalies.
 
@@ -5879,12 +5879,12 @@ Watery diarrhea with leukocytosis (may precede diarrhea); prior antibiotic use i
 ### Flashcards (11)
 
 **[rx-open-ear]** tags: RX, pharm, reviewer: (none)
-- Front: TM perforation or tube present: which otic drops, and which to avoid?
+- Front: Which otic drops are safe with a TM perforation or tube, and which should be avoided?
 - Back: Use a non-ototoxic fluoroquinolone (ofloxacin, or ciprofloxacin + dexamethasone). Avoid aminoglycosides and alcohol/acidifying drops (ototoxicity).
 - Source: ENT Pharm Pocket Guide.
 
 **[rx-issnhl-dose]** tags: RX, pharm, reviewer: (none)
-- Front: Standard oral steroid regimen for idiopathic sudden SNHL?
+- Front: What is the standard oral steroid regimen for idiopathic sudden SNHL?
 - Back: Prednisone 1 mg/kg/day single morning dose (max ~60 mg), about 10 to 14 days including taper. Treat within 2 weeks of onset.
 - Source: ENT Pharm Pocket Guide.
 
@@ -5899,7 +5899,7 @@ Watery diarrhea with leukocytosis (may precede diarrhea); prior antibiotic use i
 - Source: ENT Pharm Pocket Guide.
 
 **[rx-penallergy]** tags: RX, pharm, reviewer: (none)
-- Front: Penicillin-allergic patient with a deep neck infection: antibiotic?
+- Front: Which antibiotic treats a deep neck infection in a penicillin-allergic patient?
 - Back: Clindamycin (covers strep, S. aureus, and anaerobes).
 - Source: ENT Pharm Pocket Guide.
 
@@ -5924,7 +5924,7 @@ Watery diarrhea with leukocytosis (may precede diarrhea); prior antibiotic use i
 - Source: ENT Pharm Pocket Guide.
 
 **[rx-ampho-mucor]** tags: RX, pharm, reviewer: (none)
-- Front: Antifungal for invasive rhinocerebral mucormycosis?
+- Front: Which antifungal treats invasive rhinocerebral mucormycosis?
 - Back: Amphotericin B (liposomal preferred, less nephrotoxic), plus urgent surgical debridement.
 - Source: ENT Pharm Pocket Guide.
 
@@ -6493,22 +6493,22 @@ Each brief is a two-minute pre-scrub read: the indication, the key steps, the da
 - Source: 2-Minute Procedure Prep.
 
 **[pr-chole-fistula]** tags: PR, clinical, reviewer: (none)
-- Front: New vertigo with a positive fistula test during cholesteatoma disease?
+- Front: What is the cause of new vertigo with a positive fistula test in cholesteatoma?
 - Back: Suggests a labyrinthine fistula (lateral semicircular canal), a red flag that changes surgical planning.
 - Source: 2-Minute Procedure Prep.
 
 **[pr-csf-test]** tags: PR, clinical, reviewer: (none)
-- Front: Most specific test for suspected CSF rhinorrhea after sinus/skull-base surgery?
+- Front: What is the most specific test for suspected CSF rhinorrhea after sinus or skull-base surgery?
 - Back: Beta-2 transferrin on the fluid.
 - Source: 2-Minute Procedure Prep.
 
 **[pr-jna]** tags: PR, clinical, reviewer: (none)
-- Front: Adolescent male, unilateral recurrent epistaxis and nasal obstruction, next step?
+- Front: In an adolescent male with unilateral recurrent epistaxis and nasal obstruction, what is the next step?
 - Back: Suspect juvenile nasopharyngeal angiofibroma: image it, do NOT biopsy in clinic.
 - Source: 2-Minute Procedure Prep.
 
 **[pr-tsa-di]** tags: PR, clinical, reviewer: (none)
-- Front: Most common early endocrine problem after transsphenoidal pituitary surgery?
+- Front: What is the most common early endocrine problem after transsphenoidal pituitary surgery?
 - Back: Transient diabetes insipidus; delayed hyponatremia (SIADH) around days 5 to 9 drives readmissions.
 - Source: 2-Minute Procedure Prep.
 
@@ -6518,7 +6518,7 @@ Each brief is a two-minute pre-scrub read: the indication, the key steps, the da
 - Source: 2-Minute Procedure Prep.
 
 **[pr-paradise]** tags: PR, clinical, reviewer: (none)
-- Front: Paradise criteria for recurrent tonsillitis?
+- Front: What are the Paradise criteria for recurrent tonsillitis?
 - Back: 7 in 1 year, 5/year for 2 years, or 3/year for 3 years.
 - Source: 2-Minute Procedure Prep.
 
@@ -6528,12 +6528,12 @@ Each brief is a two-minute pre-scrub read: the indication, the key steps, the da
 - Source: 2-Minute Procedure Prep.
 
 **[pr-bilat-rln]** tags: PR, clinical, reviewer: (none)
-- Front: Stridor and airway obstruction immediately after extubation from thyroidectomy?
+- Front: What is the cause of stridor and airway obstruction immediately after extubation from thyroidectomy?
 - Back: Bilateral RLN injury; be ready to reintubate or perform tracheostomy.
 - Source: 2-Minute Procedure Prep.
 
 **[pr-parotid-tumor]** tags: PR, clinical, reviewer: (none)
-- Front: Most common benign and most common malignant parotid tumors?
+- Front: What are the most common benign and most common malignant parotid tumors?
 - Back: Benign: pleomorphic adenoma. Malignant: mucoepidermoid carcinoma.
 - Source: 2-Minute Procedure Prep.
 
@@ -6543,12 +6543,12 @@ Each brief is a two-minute pre-scrub read: the indication, the key steps, the da
 - Source: 2-Minute Procedure Prep.
 
 **[pr-button-battery]** tags: PR, clinical, reviewer: (none)
-- Front: Esophageal button battery, urgency?
+- Front: How urgently must an esophageal button battery be removed?
 - Back: True emergency: liquefactive necrosis within hours mandates emergent removal.
 - Source: 2-Minute Procedure Prep.
 
 **[pr-ti-fistula]** tags: PR, clinical, reviewer: (none)
-- Front: Herald sentinel bleed from a tracheostomy?
+- Front: What should a sentinel bleed from a tracheostomy make you suspect?
 - Back: Possible tracheo-innominate fistula: hyperinflate the cuff or apply digital compression (Utley maneuver) and go emergently to OR.
 - Source: 2-Minute Procedure Prep.
 
@@ -6912,7 +6912,7 @@ Teaching: Congestion and rhinorrhea without itch/sneeze/conjunctivitis, plus neg
 - Source: AAO-HNSF Clinical Practice Guideline: Adult Sinusitis (Update), 2015.
 
 **[crs-subtypes-card]** tags: RH, clinical, milestones: PC5, MK3, UKMLA: Rhinosinusitis, reviewer: (none)
-- Front: Contrast CRSsNP and CRSwNP, and name their first-line treatments.
+- Front: How do CRSsNP and CRSwNP differ, and what are their first-line treatments?
 - Back: CRSsNP (without polyps): mucosal thickening → saline irrigation + intranasal corticosteroid. CRSwNP (with polyps): bilateral polyps on endoscopy → intranasal/short-course oral steroids first; endoscopic sinus surgery is the usual next step if refractory, with biologics for post-surgical failure or poor surgical candidates.[figure: Contrast of CRSsNP vs CRSwNP and their first-line treatments.]
 - Source: AAO-HNSF Adult Sinusitis CPG, 2015.
 
@@ -6992,7 +6992,7 @@ Teaching: Congestion and rhinorrhea without itch/sneeze/conjunctivitis, plus neg
 - Source: Standard rhinology teaching on hereditary hemorrhagic telangiectasia.
 
 **[unilateral-mass-age]** tags: RH, clinical, milestones: PC5, PC3, UKMLA: Nasal obstruction, Epistaxis, RED FLAG, reviewer: (none)
-- Front: Give the age/sex pattern for the three classic unilateral sinonasal masses.
+- Front: What is the age and sex pattern of the three classic unilateral sinonasal masses?
 - Back: Adolescent male → juvenile nasopharyngeal angiofibroma (JNA). Adult → inverted papilloma until proven otherwise. Older adult + anosmia/epistaxis → esthesioneuroblastoma or other sinonasal malignancy.
 - Source: Standard rhinology/oncology teaching on sinonasal masses.
 
@@ -7439,7 +7439,7 @@ Teaching: COPD plus classic OSA symptoms should raise overlap syndrome on the di
 - Source: Standard OSA screening teaching (STOP-BANG, Chung et al.).
 
 **[ahi-severity-card]** tags: SL, clinical, milestones: MK1, PC4, UKMLA: Obstructive sleep apnoea, reviewer: (none)
-- Front: State the AHI severity thresholds for OSA.
+- Front: What are the AHI severity thresholds for OSA?
 - Back: normal, 5-14 mild OSA, 15-29 moderate OSA, ≥30 severe OSA (events/hour of sleep, from PSG or a home sleep apnea test).
 - Source: AASM scoring manual: standard AHI severity grading.
 
@@ -7665,7 +7665,7 @@ Teaching: COPD plus classic OSA symptoms should raise overlap syndrome on the di
 - Source: FDA hypoglossal nerve stimulation approval criteria (updated); STAR trial inclusion criteria (Strollo et al., NEJM 2014).
 
 **[hgns-unilateral-bilateral-card]** tags: SL, clinical, milestones: PC9, MK2, UKMLA: Obstructive sleep apnoea, reviewer: (none)
-- Front: Contrast unilateral vs. bilateral HGNS.
+- Front: How do unilateral and bilateral HGNS differ?
 - Back: Unilateral stimulates one hypoglossal nerve's medial (protrusor) fibers, synchronized to inspiration via a chest sensing lead; FDA-approved and STAR/ADHERE-validated (~68-83% AHI reduction). Bilateral stimulates both nerves and, in the current device, is breath-rate-independent (no separate sensing lead); supported by newer, less mature single-arm trial data.
 - Source: Strollo et al., NEJM (STAR trial), 2014; Woodson et al., ADHERE registry; single-arm trials of bilateral HGNS (BLAST OSA, DREAM).
 

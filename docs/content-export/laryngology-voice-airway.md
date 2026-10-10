@@ -344,7 +344,7 @@ Teaching: Fixed, biphasic stridor that fails asthma therapy in a young, non-smok
 - Source: Standard laryngeal neuroanatomy teaching.
 
 **[rln-course-card]** tags: LA, anatomy, milestones: MK1, PC6, UKMLA: Hoarseness and voice change, reviewer: (none)
-- Front: Trace the course of the recurrent laryngeal nerve on each side, and explain why it matters for hoarseness.
+- Front: What is the course of the recurrent laryngeal nerve on each side, and why does it matter for hoarseness?
 - Back: Left RLN loops under the aortic arch; right RLN loops under the subclavian artery. Both then ascend near the thyroid. This long course means a lung apex tumor, aortic aneurysm, or thyroid/mediastinal mass can present as hoarseness, and it's the nerve at risk during thyroid surgery.[figure: Course of the recurrent laryngeal nerve on each side and its clinical significance for hoarseness.]
 - Source: Standard laryngeal neuroanatomy teaching.
 
@@ -364,7 +364,7 @@ Teaching: Fixed, biphasic stridor that fails asthma therapy in a young, non-smok
 - Source: Standard laryngology teaching on bilateral vocal fold paralysis.
 
 **[vf-nodules-polyps-card]** tags: LA, clinical, milestones: PC6, UKMLA: Hoarseness and voice change, reviewer: (none)
-- Front: Distinguish vocal nodules from a vocal polyp by pattern and cause.
+- Front: How do you distinguish vocal nodules from a vocal polyp by pattern and cause?
 - Back: Nodules: bilateral, symmetric, mid-membranous, from chronic vocal abuse/misuse ('singer's/screamer's nodules'). Polyp: usually unilateral, from a single straining/abuse event or reflux.
 - Source: Standard laryngology teaching on benign vocal fold lesions.
 
@@ -384,7 +384,7 @@ Teaching: Fixed, biphasic stridor that fails asthma therapy in a young, non-smok
 - Source: Standard laryngology teaching on vocal process (contact) granuloma.
 
 **[peds-stridor-differential-card]** tags: LA, clinical, milestones: PC1, PC7, UKMLA: Stridor, RED FLAG, reviewer: (none)
-- Front: Differentiate croup, epiglottitis, bacterial tracheitis, and foreign body aspiration.
+- Front: How do you differentiate croup, epiglottitis, bacterial tracheitis, and foreign body aspiration?
 - Back: Croup: barky cough, gradual, low fever, steeple sign. Epiglottitis: rapid, high fever, drooling, tripod, thumbprint sign; don't examine the throat. Bacterial tracheitis: toxic, fails croup treatment, thick secretions. Foreign body: sudden choking event, unilateral wheeze.
 - Source: Standard pediatric airway teaching.
 
@@ -449,7 +449,7 @@ Teaching: Fixed, biphasic stridor that fails asthma therapy in a young, non-smok
 - Source: Standard airway teaching on subglottic stenosis presentation.
 
 **[subglottic-stenosis-management-card]** tags: LA, clinical, milestones: PC6, MK3, UKMLA: Stridor, reviewer: (none)
-- Front: Rank the three main surgical approaches to subglottic stenosis by durability, and name the trade-off of the most durable one.
+- Front: How do the three main surgical approaches to subglottic stenosis rank by durability, and what is the trade-off of the most durable one?
 - Back: Cricotracheal resection (CTR) is most durable (~5% 5-yr recurrence) but has the greatest perioperative risk and worst voice; endoscopic resection with adjuvant medical therapy (ERMT) is intermediate (~30%); endoscopic dilation is least invasive but highest recurrence (~50%). Office-based serial intralesional steroid injection is a growing adjunct.
 - Source: Gelbard et al., NoAAC 3-yr, JAMA Otolaryngol Head Neck Surg, 2020; Tierney et al., NoAAC 5-yr update, Otolaryngol Head Neck Surg, 2023.
 

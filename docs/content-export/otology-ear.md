@@ -381,7 +381,7 @@ Teaching: [figure: Progressive asymmetric SNHL and tinnitus worked up with MRI I
 - Source: Standard otologic anatomy teaching.
 
 **[eac-canal]** tags: OT, anatomy, milestones: MK1, UKMLA: Painful ear, reviewer: (none)
-- Front: Describe the makeup of the external auditory canal.
+- Front: What is the structure of the external auditory canal, and why do you pull the pinna up and back for otoscopy?
 - Back: Outer ⅓ cartilaginous (contains cerumen glands), inner ⅔ bony. This is why you pull the pinna up-and-back (adult) to straighten it for otoscopy.[figure: External auditory canal composition: outer 1/3 cartilaginous (cerumen glands), inner 2/3 bony.]
 - Source: Standard otologic anatomy teaching.
 
@@ -419,22 +419,22 @@ Teaching: [figure: Progressive asymmetric SNHL and tinnitus worked up with MRI I
 - Source: Standard otologic anatomy teaching.
 
 **[inner-div]** tags: OT, anatomy, milestones: MK1, UKMLA: Hearing loss, Vertigo, reviewer: (none)
-- Front: Divide the inner ear by function.
+- Front: How is the inner ear divided by function?
 - Back: Cochlea = hearing; vestibule + semicircular canals = balance. Both are read out by CN VIII (cochlear + vestibular divisions).[figure: Dividing the inner ear by function: cochlea (hearing) vs vestibule + semicircular canals (balance), both read by CN VIII.]
 - Source: Standard otologic anatomy teaching.
 
 **[weber]** tags: OT, clinical, milestones: PC4, UKMLA: Hearing loss, reviewer: (none)
-- Front: Interpret the Weber test.
+- Front: How do you interpret the Weber test?
 - Back: 512 Hz on the vertex. Conductive loss: lateralizes to the affected ear. SNHL: lateralizes to the better ear.[figure: Tuning-fork testing: Weber and Rinne in conductive vs sensorineural loss.]ScenarioWeberRinne (affected ear)Normal / symmetricMidlineAC > BC (positive)Conductive loss, rightLateralizes to right (affected)BC > AC (negative)Sensorineural loss, rightLateralizes to left (better)AC > BC (positive)
 - Source: Standard audiology and otology teaching; AAO-HNSF Clinical Practice Guideline: Sudden Hearing Loss (Update), 2019 supports tuning-fork triage of SNHL vs CHL.
 
 **[rinne]** tags: OT, clinical, milestones: PC4, UKMLA: Hearing loss, reviewer: (none)
-- Front: Interpret the Rinne test.
+- Front: How do you interpret the Rinne test?
 - Back: Mastoid (BC) vs beside the ear (AC). Normal/SNHL: AC > BC (positive). Conductive loss: BC > AC (negative) in the affected ear.ScenarioWeberRinne (affected ear)Normal / symmetricMidlineAC > BC (positive)Conductive loss, rightLateralizes to right (affected)BC > AC (negative)Sensorineural loss, rightLateralizes to left (better)AC > BC (positive)[figure: Interpreting the Rinne tuning-fork test (AC vs BC) alongside the Weber/Rinne comparison table.]
 - Source: Standard audiology and otology teaching; AAO-HNSF Clinical Practice Guideline: Sudden Hearing Loss (Update), 2019 supports tuning-fork triage of SNHL vs CHL.
 
 **[chl-snhl]** tags: OT, clinical, milestones: PC4, MK3, UKMLA: Hearing loss, reviewer: (none)
-- Front: Give the common causes of conductive vs sensorineural hearing loss.
+- Front: What are the common causes of conductive vs sensorineural hearing loss?
 - Back: Conductive: cerumen, effusion, perforation, otosclerosis. SNHL: presbycusis, noise, ototoxicity, sudden SNHL, vestibular schwannoma (if asymmetric).
 - Source: Standard audiology teaching.
 
@@ -444,12 +444,12 @@ Teaching: [figure: Progressive asymmetric SNHL and tinnitus worked up with MRI I
 - Source: AAO-HNSF Clinical Practice Guideline: Sudden Hearing Loss (Update), 2019.
 
 **[asym-snhl]** tags: OT, clinical, milestones: PC4, UKMLA: Hearing loss, Acoustic neuroma, RED FLAG, reviewer: (none)
-- Front: Asymmetric SNHL or unilateral tinnitus: what must you exclude?
+- Front: What must you exclude in asymmetric SNHL or unilateral tinnitus?
 - Back: Vestibular schwannoma (and other retrocochlear lesions). Get an MRI with contrast of the internal auditory canals.[figure: Asymmetric SNHL or unilateral tinnitus must be worked up with MRI to exclude vestibular schwannoma.]
 - Source: ACR Appropriateness Criteria: Hearing Loss and/or Vertigo (asymmetric SNHL imaging).
 
 **[oe-om]** tags: OT, clinical, milestones: PC4, MK3, UKMLA: Painful ear, Otitis externa, Otitis media, reviewer: (none)
-- Front: Distinguish otitis externa from acute otitis media on exam.
+- Front: How do you distinguish otitis externa from acute otitis media on exam?
 - Back: Otitis externa: pain on tragal traction, canal edema/discharge, TM often normal. AOM: bulging, erythematous TM with effusion; canal not tender.
 - Source: AAO-HNSF Clinical Practice Guideline: Otitis Externa (Update), 2014; AAO-HNSF/AAP Clinical Practice Guideline: Acute Otitis Media (Update), 2013.
 
@@ -469,7 +469,7 @@ Teaching: [figure: Progressive asymmetric SNHL and tinnitus worked up with MRI I
 - Source: Standard otology teaching on necrotizing (malignant) otitis externa.
 
 **[bppv]** tags: OT, clinical, milestones: PC4, UKMLA: Vertigo, Benign paroxysmal positional vertigo, reviewer: (none)
-- Front: Classic BPPV: features, test, treatment.
+- Front: What are the features, diagnostic test, and treatment of classic BPPV?
 - Back: Brief, seconds-long positional vertigo; confirm with Dix-Hallpike; treat with the Epley maneuver. Hearing is normal.Dix-Hallpike: from sitting, the examiner rapidly moves the patient to supine with the head turned 45&deg; to one side and extended slightly over the end of the table; a positive test reproduces vertigo with the characteristic torsional/upbeating nystagmus of posterior-canal BPPV on that side. Epley maneuver: a sequence of head/body repositions starting from the positive Dix-Hallpike position, rotating the head/body stepwise through roughly 180&deg; (affected ear down -> head turned to the other side -> body rolled onto that side facing down -> sit up), designed to walk the displaced otoconia out of the posterior semicircular canal and back into the utricle.
 - Source: AAO-HNSF Clinical Practice Guideline: BPPV (Update), 2017.
 
@@ -484,7 +484,7 @@ Teaching: [figure: Progressive asymmetric SNHL and tinnitus worked up with MRI I
 - Source: Kattah et al., HINTS exam, Stroke 2009.
 
 **[facial-palsy]** tags: OT, clinical, milestones: PC4, MK1, UKMLA: Facial weakness, Bell's palsy, RED FLAG, reviewer: (none)
-- Front: Distinguish central from peripheral facial palsy, and why it matters in otology.
+- Front: How do you distinguish central from peripheral facial palsy, and why does it matter in otology?
 - Back: Peripheral (LMN): forehead involved (Bell's, or otologic causes: cholesteatoma, necrotizing OE, tumor). Central (UMN): forehead spared → stroke workup. Facial weakness with ear disease is an ENT red flag.
 - Source: AAN Practice Guideline: Bell's Palsy, 2012.
 
@@ -499,7 +499,7 @@ Teaching: [figure: Progressive asymmetric SNHL and tinnitus worked up with MRI I
 - Source: Standard otology teaching on otosclerosis.
 
 **[tympanometry-differential-card]** tags: OT, clinical, milestones: PC4, MK3, UKMLA: Hearing loss, reviewer: (none)
-- Front: On tympanometry, how do otosclerosis, OME, and ossicular discontinuity differ?
+- Front: How do otosclerosis, OME, and ossicular discontinuity differ on tympanometry?
 - Back: Otosclerosis: Type As (normal peak pressure, reduced/shallow compliance: a stiff system). OME: Type B (flat, no peak: fluid behind the drum). Ossicular discontinuity: abnormally high-compliance Type Ad (a floppy, hypermobile system), the opposite mechanical picture from otosclerosis.
 - Source: Jerger, tympanogram classification, Archives of Otolaryngology 1970.
 
@@ -539,7 +539,7 @@ Teaching: [figure: Progressive asymmetric SNHL and tinnitus worked up with MRI I
 - Source: Standard otology teaching on necrotizing (malignant) otitis externa.
 
 **[weber-rinne-table]** tags: OT, clinical, milestones: PC4, UKMLA: Hearing loss, reviewer: (none)
-- Front: Give the Weber and Rinne result for a normal ear, a unilateral conductive loss, and a unilateral sensorineural loss.
+- Front: What are the Weber and Rinne results for a normal ear, a unilateral conductive loss, and a unilateral sensorineural loss?
 - Back: Normal: Weber midline; Rinne positive (air > bone) both ears. Conductive loss: Weber to the affected ear; Rinne negative (bone > air) on that side. Sensorineural loss: Weber to the better ear; Rinne positive (air > bone) bilaterally. Confirm with audiometry.
 - Source: Standard audiology and otology teaching. DRAFT pending faculty review.
 

@@ -361,7 +361,7 @@ Teaching: Congestion and rhinorrhea without itch/sneeze/conjunctivitis, plus neg
 - Source: AAO-HNSF Clinical Practice Guideline: Adult Sinusitis (Update), 2015.
 
 **[crs-subtypes-card]** tags: RH, clinical, milestones: PC5, MK3, UKMLA: Rhinosinusitis, reviewer: (none)
-- Front: Contrast CRSsNP and CRSwNP, and name their first-line treatments.
+- Front: How do CRSsNP and CRSwNP differ, and what are their first-line treatments?
 - Back: CRSsNP (without polyps): mucosal thickening → saline irrigation + intranasal corticosteroid. CRSwNP (with polyps): bilateral polyps on endoscopy → intranasal/short-course oral steroids first; endoscopic sinus surgery is the usual next step if refractory, with biologics for post-surgical failure or poor surgical candidates.[figure: Contrast of CRSsNP vs CRSwNP and their first-line treatments.]
 - Source: AAO-HNSF Adult Sinusitis CPG, 2015.
 
@@ -441,7 +441,7 @@ Teaching: Congestion and rhinorrhea without itch/sneeze/conjunctivitis, plus neg
 - Source: Standard rhinology teaching on hereditary hemorrhagic telangiectasia.
 
 **[unilateral-mass-age]** tags: RH, clinical, milestones: PC5, PC3, UKMLA: Nasal obstruction, Epistaxis, RED FLAG, reviewer: (none)
-- Front: Give the age/sex pattern for the three classic unilateral sinonasal masses.
+- Front: What is the age and sex pattern of the three classic unilateral sinonasal masses?
 - Back: Adolescent male → juvenile nasopharyngeal angiofibroma (JNA). Adult → inverted papilloma until proven otherwise. Older adult + anosmia/epistaxis → esthesioneuroblastoma or other sinonasal malignancy.
 - Source: Standard rhinology/oncology teaching on sinonasal masses.
 

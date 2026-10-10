@@ -266,7 +266,7 @@ _Image source: Fascial Layers and Triangles of the Neck. Scholes & Ramakrishnan 
 - Source: Standard pharyngeal pouch/cleft embryology teaching.
 
 **[skull-base-foramina-card]** tags: AN, anatomy, milestones: MK1, UKMLA: Facial pain, reviewer: (none)
-- Front: Match the skull-base foramen to what passes through it: foramen ovale, foramen rotundum, foramen spinosum, internal acoustic meatus.
+- Front: Which structure passes through each of these skull-base foramina: foramen ovale, foramen rotundum, foramen spinosum, internal acoustic meatus?
 - Back: Foramen ovale: CN V3. Foramen rotundum: CN V2. Foramen spinosum: middle meningeal artery (injury here causes an epidural hematoma). Internal acoustic meatus: CN VII and CN VIII (with the labyrinthine artery).[figure: Matching skull-base foramina (ovale, rotundum, spinosum, internal acoustic meatus) to what passes through them.]
 - Source: Standard skull-base anatomy teaching.
 

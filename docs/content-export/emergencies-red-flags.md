@@ -392,7 +392,7 @@ Teaching: Clinical Pearl: Hereditary angioedema is a C1-inhibitor deficiency dri
 - Source: Bridwell, Koyfman & Long, Am J Emerg Med, 2022; Felton et al., West J Emerg Med, 2021.
 
 **[quinsy-vs-rpa-vs-epiglottitis-card]** tags: EM, clinical, milestones: PC1, MK1, UKMLA: Sore throat, RED FLAG, reviewer: (none)
-- Front: Differentiate peritonsillar abscess, retropharyngeal abscess, and epiglottitis by key exam clue.
+- Front: How do you differentiate peritonsillar abscess, retropharyngeal abscess, and epiglottitis by key exam clue?
 - Back: - Peritonsillar abscess: uvula deviation, tonsillar bulge, trismus.
 - Retropharyngeal abscess: torticollis, neck stiffness, refusal to extend neck (mostly young children).
 - Epiglottitis: tripod position, drooling, no oropharyngeal exam without airway backup.

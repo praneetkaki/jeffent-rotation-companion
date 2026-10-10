@@ -463,7 +463,7 @@ Teaching: [figure: Young child with fever, rigid neck extension, muffled voice, 
 - Source: Standard pediatric embryology teaching.
 
 **[ome-vs-aom-card]** tags: PE, clinical, milestones: PC7, PC4, UKMLA: Painful ear, reviewer: (none)
-- Front: Distinguish OME from AOM, and state first-line management for each.
+- Front: How do OME and AOM differ, and what is first-line management for each?
 - Back: OME: fluid behind an intact TM without acute infection signs, often asymptomatic. First-line is watchful waiting (most resolve in weeks). AOM: a bulging, erythematous TM with acute symptoms (otalgia, fever), managed with observation or amoxicillin depending on age and severity.
 - Source: AAP Clinical Practice Guideline: Otitis Media with Effusion.
 
@@ -493,7 +493,7 @@ Teaching: [figure: Young child with fever, rigid neck extension, muffled voice, 
 - Source: AAO-HNSF Clinical Practice Guideline: Tympanostomy Tubes in Children (Update), 2022.
 
 **[newborn-hearing-screen-card]** tags: PE, clinical, milestones: PC7, PC4, UKMLA: Hearing loss, reviewer: (none)
-- Front: State the '1-3-6 rule' for newborn hearing screening.
+- Front: What is the '1-3-6 rule' for newborn hearing screening?
 - Back: Screen by 1 month (universal newborn hearing screening, using OAE or automated ABR), diagnose by 3 months if screening fails, intervene (amplification/early intervention) by 6 months. Missing this window measurably worsens speech-language outcomes.
 - Source: Standard pediatric audiology teaching: the 1-3-6 rule.
 
@@ -503,7 +503,7 @@ Teaching: [figure: Young child with fever, rigid neck extension, muffled voice, 
 - Source: Standard pediatric audiology/genetics teaching.
 
 **[congenital-neck-mass-card]** tags: PE, clinical, milestones: PC7, PC3, UKMLA: Neck lump, reviewer: (none)
-- Front: Use location to differentiate congenital neck masses.
+- Front: How does location differentiate congenital neck masses?
 - Back: - Midline → thyroglossal duct cyst (moves with tongue protrusion).
 - Lateral, anterior to SCM → branchial cleft cyst.
 - Posterior triangle → cystic hygroma/lymphatic malformation.
@@ -614,12 +614,12 @@ Teaching: [figure: Young child with fever, rigid neck extension, muffled voice, 
 - Source: Standard embryology teaching on the branchial apparatus.
 
 **[branchial-arch1-vs-arch2-card]** tags: PE, embryo, milestones: MK1, PC7, UKMLA: Neck lump, reviewer: (none)
-- Front: Contrast the skeletal derivatives of arch 1 vs arch 2.
+- Front: What are the skeletal derivatives of arch 1 vs arch 2?
 - Back: Arch 1 (V3): Meckel's cartilage -> malleus + incus; mandible/maxilla; muscles of mastication. Arch 2 (VII): Reichert's cartilage -> stapes, styloid process, lesser horn + upper hyoid; muscles of facial expression.
 - Source: Standard embryology teaching on the branchial apparatus.
 
 **[branchial-pouch-derivatives-card]** tags: PE, embryo, milestones: MK1, PC7, UKMLA: Neck lump, reviewer: (none)
-- Front: Match pouches 1-4 to their adult derivatives.
+- Front: What are the adult derivatives of pouches 1-4?
 - Back: 1 -> middle ear + Eustachian tube; 2 -> palatine tonsil; 3 -> inferior parathyroids + thymus; 4 -> superior parathyroids (+ ultimobranchial body/C cells).
 - Source: Standard embryology teaching on the branchial apparatus.
 
@@ -634,12 +634,12 @@ Teaching: [figure: Young child with fever, rigid neck extension, muffled voice, 
 - Source: Standard embryology teaching on the branchial apparatus.
 
 **[branchial-anomaly-internal-opening-card]** tags: PE, clinical, milestones: PC7, PC3, UKMLA: Neck lump, reviewer: (none)
-- Front: State the internal opening for 1st, 2nd, and 3rd/4th branchial anomalies.
+- Front: What is the internal opening of 1st, 2nd, and 3rd/4th branchial anomalies?
 - Back: 1st -> external auditory canal (periauricular/parotid, near CN VII); 2nd -> tonsillar fossa; 3rd/4th -> pyriform sinus.
 - Source: Standard pediatric otolaryngology teaching on branchial anomalies.
 
 **[second-branchial-cleft-cyst-tract-card]** tags: PE, clinical, milestones: PC7, PC3, UKMLA: Neck lump, reviewer: (none)
-- Front: Describe the classic 2nd branchial cleft cyst and its tract.
+- Front: What is the classic presentation and tract of a 2nd branchial cleft cyst?
 - Back: Painless fluctuant mass at the anterior border of the upper-third SCM, often enlarging after a URI; ~90-95% of branchial anomalies. Tract runs from the tonsillar fossa between the internal and external carotid arteries. Treatment: complete surgical excision.
 - Source: Standard pediatric otolaryngology teaching on branchial anomalies.
 

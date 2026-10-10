@@ -471,7 +471,7 @@ Teaching: Clinical Pearl: Boggy, fluctuant, bilateral septal swelling after nasa
 - Source: Standard facial trauma anatomy teaching.
 
 **[le-fort-card]** tags: FP, clinical, milestones: MK1, PC1, UKMLA: Facial/periorbital swelling, reviewer: (none)
-- Front: Distinguish Le Fort I, II, and III fractures.
+- Front: How do you distinguish Le Fort I, II, and III fractures?
 - Back: I: horizontal, above the tooth apices: mobile palate/alveolus. II: pyramidal, through the nasofrontal suture: mobile nasomaxillary complex. III: craniofacial disjunction through the frontozygomatic sutures: entire midface mobile relative to the skull ('floating face').[figure: Distinguishing Le Fort I, II, and III fracture patterns.]
 - Source: Standard facial trauma teaching on Le Fort classification.
 
@@ -521,7 +521,7 @@ Teaching: Clinical Pearl: Boggy, fluctuant, bilateral septal swelling after nasa
 - Source: Standard skull-base trauma teaching on CSF leak recognition.
 
 **[reconstructive-ladder-card]** tags: FP, clinical, milestones: PC9, MK2, UKMLA: Facial/periorbital swelling, reviewer: (none)
-- Front: State the reconstructive ladder in order.
+- Front: What are the steps of the reconstructive ladder, in order?
 - Back: Secondary intention (small, low-tension wounds allowed to granulate/epithelialize) -> primary closure (clean, low-tension edges reapproximated directly) -> skin graft (split- or full-thickness; larger defects with a healthy, vascularized bed) -> local flap (adjacent tissue with matching color/texture, its own blood supply) -> regional flap (nearby tissue on a named pedicle, for larger/deeper defects) -> free tissue transfer (microvascular free flap; large or composite defects needing distant tissue with its own vascular anastomosis). Choose the simplest option achieving a good result, escalating only as the defect and tissue needs require.[figure: The reconstructive ladder from secondary intention to free tissue transfer.]
 - Source: Standard reconstructive surgery teaching: the reconstructive ladder.
 

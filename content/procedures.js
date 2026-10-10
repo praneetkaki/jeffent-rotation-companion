@@ -345,28 +345,28 @@ window.JEFFENT.register(
   {
    "id": "pr-chole-fistula",
    "tags": ["PR", "clinical"],
-   "front": "New vertigo with a positive fistula test during cholesteatoma disease?",
+   "front": "What is the cause of new vertigo with a positive fistula test in cholesteatoma?",
    "back": "Suggests a <strong>labyrinthine fistula</strong> (lateral semicircular canal), a red flag that changes surgical planning.",
    "source": "2-Minute Procedure Prep."
   },
   {
    "id": "pr-csf-test",
    "tags": ["PR", "clinical"],
-   "front": "Most specific test for suspected CSF rhinorrhea after sinus/skull-base surgery?",
+   "front": "What is the most specific test for suspected CSF rhinorrhea after sinus or skull-base surgery?",
    "back": "<strong>Beta-2 transferrin</strong> on the fluid.",
    "source": "2-Minute Procedure Prep."
   },
   {
    "id": "pr-jna",
    "tags": ["PR", "clinical"],
-   "front": "Adolescent male, unilateral recurrent epistaxis and nasal obstruction, next step?",
+   "front": "In an adolescent male with unilateral recurrent epistaxis and nasal obstruction, what is the next step?",
    "back": "Suspect <strong>juvenile nasopharyngeal angiofibroma</strong>: image it, do NOT biopsy in clinic.",
    "source": "2-Minute Procedure Prep."
   },
   {
    "id": "pr-tsa-di",
    "tags": ["PR", "clinical"],
-   "front": "Most common early endocrine problem after transsphenoidal pituitary surgery?",
+   "front": "What is the most common early endocrine problem after transsphenoidal pituitary surgery?",
    "back": "Transient <strong>diabetes insipidus</strong>; delayed hyponatremia (SIADH) around days 5 to 9 drives readmissions.",
    "source": "2-Minute Procedure Prep."
   },
@@ -380,7 +380,7 @@ window.JEFFENT.register(
   {
    "id": "pr-paradise",
    "tags": ["PR", "clinical"],
-   "front": "Paradise criteria for recurrent tonsillitis?",
+   "front": "What are the Paradise criteria for recurrent tonsillitis?",
    "back": "<strong>7 in 1 year, 5/year for 2 years, or 3/year for 3 years.</strong>",
    "source": "2-Minute Procedure Prep."
   },
@@ -394,14 +394,14 @@ window.JEFFENT.register(
   {
    "id": "pr-bilat-rln",
    "tags": ["PR", "clinical"],
-   "front": "Stridor and airway obstruction immediately after extubation from thyroidectomy?",
+   "front": "What is the cause of stridor and airway obstruction immediately after extubation from thyroidectomy?",
    "back": "<strong>Bilateral RLN injury</strong>; be ready to reintubate or perform tracheostomy.",
    "source": "2-Minute Procedure Prep."
   },
   {
    "id": "pr-parotid-tumor",
    "tags": ["PR", "clinical"],
-   "front": "Most common benign and most common malignant parotid tumors?",
+   "front": "What are the most common benign and most common malignant parotid tumors?",
    "back": "Benign: <strong>pleomorphic adenoma</strong>. Malignant: <strong>mucoepidermoid carcinoma</strong>.",
    "source": "2-Minute Procedure Prep."
   },
@@ -415,14 +415,14 @@ window.JEFFENT.register(
   {
    "id": "pr-button-battery",
    "tags": ["PR", "clinical"],
-   "front": "Esophageal button battery, urgency?",
+   "front": "How urgently must an esophageal button battery be removed?",
    "back": "<strong>True emergency</strong>: liquefactive necrosis within hours mandates emergent removal.",
    "source": "2-Minute Procedure Prep."
   },
   {
    "id": "pr-ti-fistula",
    "tags": ["PR", "clinical"],
-   "front": "Herald sentinel bleed from a tracheostomy?",
+   "front": "What should a sentinel bleed from a tracheostomy make you suspect?",
    "back": "Possible <strong>tracheo-innominate fistula</strong>: hyperinflate the cuff or apply digital compression (Utley maneuver) and go emergently to OR.",
    "source": "2-Minute Procedure Prep."
   },

@@ -260,22 +260,22 @@ Each brief is a two-minute pre-scrub read: the indication, the key steps, the da
 - Source: 2-Minute Procedure Prep.
 
 **[pr-chole-fistula]** tags: PR, clinical, reviewer: (none)
-- Front: New vertigo with a positive fistula test during cholesteatoma disease?
+- Front: What is the cause of new vertigo with a positive fistula test in cholesteatoma?
 - Back: Suggests a labyrinthine fistula (lateral semicircular canal), a red flag that changes surgical planning.
 - Source: 2-Minute Procedure Prep.
 
 **[pr-csf-test]** tags: PR, clinical, reviewer: (none)
-- Front: Most specific test for suspected CSF rhinorrhea after sinus/skull-base surgery?
+- Front: What is the most specific test for suspected CSF rhinorrhea after sinus or skull-base surgery?
 - Back: Beta-2 transferrin on the fluid.
 - Source: 2-Minute Procedure Prep.
 
 **[pr-jna]** tags: PR, clinical, reviewer: (none)
-- Front: Adolescent male, unilateral recurrent epistaxis and nasal obstruction, next step?
+- Front: In an adolescent male with unilateral recurrent epistaxis and nasal obstruction, what is the next step?
 - Back: Suspect juvenile nasopharyngeal angiofibroma: image it, do NOT biopsy in clinic.
 - Source: 2-Minute Procedure Prep.
 
 **[pr-tsa-di]** tags: PR, clinical, reviewer: (none)
-- Front: Most common early endocrine problem after transsphenoidal pituitary surgery?
+- Front: What is the most common early endocrine problem after transsphenoidal pituitary surgery?
 - Back: Transient diabetes insipidus; delayed hyponatremia (SIADH) around days 5 to 9 drives readmissions.
 - Source: 2-Minute Procedure Prep.
 
@@ -285,7 +285,7 @@ Each brief is a two-minute pre-scrub read: the indication, the key steps, the da
 - Source: 2-Minute Procedure Prep.
 
 **[pr-paradise]** tags: PR, clinical, reviewer: (none)
-- Front: Paradise criteria for recurrent tonsillitis?
+- Front: What are the Paradise criteria for recurrent tonsillitis?
 - Back: 7 in 1 year, 5/year for 2 years, or 3/year for 3 years.
 - Source: 2-Minute Procedure Prep.
 
@@ -295,12 +295,12 @@ Each brief is a two-minute pre-scrub read: the indication, the key steps, the da
 - Source: 2-Minute Procedure Prep.
 
 **[pr-bilat-rln]** tags: PR, clinical, reviewer: (none)
-- Front: Stridor and airway obstruction immediately after extubation from thyroidectomy?
+- Front: What is the cause of stridor and airway obstruction immediately after extubation from thyroidectomy?
 - Back: Bilateral RLN injury; be ready to reintubate or perform tracheostomy.
 - Source: 2-Minute Procedure Prep.
 
 **[pr-parotid-tumor]** tags: PR, clinical, reviewer: (none)
-- Front: Most common benign and most common malignant parotid tumors?
+- Front: What are the most common benign and most common malignant parotid tumors?
 - Back: Benign: pleomorphic adenoma. Malignant: mucoepidermoid carcinoma.
 - Source: 2-Minute Procedure Prep.
 
@@ -310,12 +310,12 @@ Each brief is a two-minute pre-scrub read: the indication, the key steps, the da
 - Source: 2-Minute Procedure Prep.
 
 **[pr-button-battery]** tags: PR, clinical, reviewer: (none)
-- Front: Esophageal button battery, urgency?
+- Front: How urgently must an esophageal button battery be removed?
 - Back: True emergency: liquefactive necrosis within hours mandates emergent removal.
 - Source: 2-Minute Procedure Prep.
 
 **[pr-ti-fistula]** tags: PR, clinical, reviewer: (none)
-- Front: Herald sentinel bleed from a tracheostomy?
+- Front: What should a sentinel bleed from a tracheostomy make you suspect?
 - Back: Possible tracheo-innominate fistula: hyperinflate the cuff or apply digital compression (Utley maneuver) and go emergently to OR.
 - Source: 2-Minute Procedure Prep.
 
