@@ -112,6 +112,67 @@
     });
   }
 
+  /* Usernames used on THIS device, kept under a key without the "jeffent."
+   * prefix so it is never uploaded: it is a convenience for switching users
+   * on a shared device, not progress. */
+  var KNOWN_KEY = "ent.syncKnown";
+  function getKnown() {
+    try { var r = JSON.parse(localStorage.getItem(KNOWN_KEY) || "[]"); return Array.isArray(r) ? r : []; } catch (e) { return []; }
+  }
+  function addKnown(name) {
+    if (!name) return;
+    var list = getKnown().filter(function (n) { return n !== name; });
+    list.unshift(name);
+    try { localStorage.setItem(KNOWN_KEY, JSON.stringify(list.slice(0, 6))); } catch (e) {}
+  }
+  function forgetKnown(name) {
+    var list = getKnown().filter(function (n) { return n !== name; });
+    try { localStorage.setItem(KNOWN_KEY, JSON.stringify(list)); } catch (e) {}
+  }
+
+  /* Remove this device's progress so the next person starts fresh. Keeps
+   * the linked username itself plus pure UI preferences. */
+  var KEEP_ON_CLEAR = ["jeffent.theme", "jeffent.tourSeen"];
+  function clearLocalProgress() {
+    try {
+      var toRemove = [];
+      for (var i = 0; i < localStorage.length; i++) {
+        var k = localStorage.key(i);
+        if (k && k.indexOf("jeffent.") === 0 && k !== USERNAME_KEY && KEEP_ON_CLEAR.indexOf(k) === -1) toRemove.push(k);
+      }
+      toRemove.forEach(function (k) { localStorage.removeItem(k); });
+    } catch (e) {}
+  }
+
+  /* Save this device's progress under the current username, then clear it
+   * and unlink. If the save fails nothing is cleared, so work is never lost. */
+  function signOut(cb) {
+    pushNow(function (err) {
+      if (err) { cb && cb(err); return; }
+      clearLocalProgress();
+      clearUsername();
+      cb && cb(null);
+    });
+  }
+
+  /* Save the current user's progress, then load another username's: an
+   * existing one is pulled down, a new one starts empty. */
+  function switchTo(name, cb) {
+    var current = getUsername();
+    function load() {
+      clearLocalProgress();
+      setUsername(name);
+      addKnown(name);
+      lookup(name, function (err, remote) {
+        if (err) { cb && cb(err); return; }
+        if (remote) { applyRemoteData(remote); cb && cb(null); return; }
+        pushNow(function (err2) { cb && cb(err2 || null); });
+      });
+    }
+    if (current) pushNow(function (err) { if (err) { cb && cb(err); return; } load(); });
+    else load();
+  }
+
   var autoTimer = null;
   function startAutoSync() {
     if (autoTimer) return;
@@ -132,6 +193,11 @@
     lookup: lookup,
     pullAndApply: pullAndApply,
     pushNow: pushNow,
+    getKnown: getKnown,
+    addKnown: addKnown,
+    forgetKnown: forgetKnown,
+    signOut: signOut,
+    switchTo: switchTo,
     startAutoSync: startAutoSync
   };
 

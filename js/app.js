@@ -4142,57 +4142,101 @@
       return;
     }
     var username = sync.getUsername();
+    function status(msg) { var s = el("syncStatus"); if (s) { s.hidden = false; s.textContent = msg; } }
+    function known(excluding) { return sync.getKnown().filter(function (n) { return n !== excluding; }); }
+
+    /* Link a username on a device that is not currently signed in. */
+    function linkUsername(name, remembered) {
+      if (name.length < 3) { status("Username needs at least 3 characters (letters, numbers, - or _)."); return; }
+      status("Checking…");
+      sync.lookup(name, function (err, remote) {
+        if (err) { status("Couldn’t reach sync right now. Try again in a moment."); return; }
+        if (remote) {
+          if (!remembered && !window.confirm('"' + name + '" already has synced progress. Link this device to it? This REPLACES everything currently on this device with that synced progress.')) {
+            status("Not linked.");
+            return;
+          }
+          sync.setUsername(name);
+          sync.addKnown(name);
+          sync.pullAndApply(name, function (err2) {
+            if (err2) { status("Linked, but couldn’t pull progress yet. Try Sync now in a moment."); renderSyncSection(); return; }
+            location.reload();
+          });
+        } else {
+          sync.setUsername(name);
+          sync.addKnown(name);
+          sync.startAutoSync();
+          sync.pushNow(function () { renderSyncSection(); });
+        }
+      });
+    }
+
     if (!username) {
+      var recent = sync.getKnown();
       mount.innerHTML =
-        '<p class="settings-sync-note">Pick a username to carry your progress to another device. There’s no password, so don’t use anything you’d reuse as a real one.</p>' +
+        (recent.length ? '<div class="sync-known"><div class="sync-sub">Used on this device</div>' +
+          recent.map(function (n) { return '<button type="button" class="sync-chip" data-name="' + esc(n) + '">' + esc(n) + '</button>'; }).join("") + '</div>' : '') +
+        '<p class="settings-sync-note">' + (recent.length ? 'Or pick' : 'Pick') + ' a username to carry your progress to another device. There’s no password, so don’t use anything you’d reuse as a real one.</p>' +
         '<div class="settings-sync-row">' +
           '<input type="text" id="syncUsernameInput" placeholder="e.g. otter-quiz-8452" maxlength="40" autocomplete="off" spellcheck="false">' +
           '<button type="button" class="btn" id="syncLinkBtn">Link this device</button>' +
         '</div>' +
         '<div class="settings-sync-status mono" id="syncStatus" hidden></div>';
-      on(el("syncLinkBtn"), "click", function () {
-        var name = sync.normalizeUsername(el("syncUsernameInput").value);
-        var status = el("syncStatus");
-        status.hidden = false;
-        if (name.length < 3) { status.textContent = "Username needs at least 3 characters (letters, numbers, - or _)."; return; }
-        status.textContent = "Checking…";
-        sync.lookup(name, function (err, remote) {
-          if (err) { status.textContent = "Couldn’t reach sync right now. Try again in a moment."; return; }
-          if (remote) {
-            if (!window.confirm('"' + name + '" already has synced progress. Link this device to it? This REPLACES everything currently on this device with that synced progress.')) {
-              status.textContent = "Not linked.";
-              return;
-            }
-            sync.setUsername(name);
-            sync.pullAndApply(name, function (err2) {
-              if (err2) { status.textContent = "Linked, but couldn’t pull progress yet. Try Sync now in a moment."; renderSyncSection(); return; }
-              location.reload();
-            });
-          } else {
-            sync.setUsername(name);
-            sync.startAutoSync();
-            sync.pushNow(function () { renderSyncSection(); });
-          }
-        });
+      [].slice.call(mount.querySelectorAll(".sync-chip")).forEach(function (b) {
+        on(b, "click", function () { linkUsername(b.getAttribute("data-name"), true); });
       });
-    } else {
-      mount.innerHTML =
-        '<p class="settings-sync-note">Synced as <strong>' + esc(username) + '</strong>. This device’s progress saves under that username automatically.</p>' +
-        '<div class="settings-sync-row">' +
-          '<button type="button" class="btn ghost" id="syncNowBtn">Sync now</button>' +
-          '<button type="button" class="settings-danger mono" id="syncUnlinkBtn">Unlink this device</button>' +
-        '</div>' +
-        '<div class="settings-sync-status mono" id="syncStatus" hidden></div>';
-      on(el("syncNowBtn"), "click", function () {
-        var status = el("syncStatus"); status.hidden = false; status.textContent = "Syncing…";
-        sync.pushNow(function (err) { status.textContent = err ? "Couldn’t sync right now." : "Synced just now."; });
-      });
-      on(el("syncUnlinkBtn"), "click", function () {
-        if (!window.confirm('Unlink this device from "' + username + '"? Your progress stays saved under that username, this device just won’t sync anymore unless you link again.')) return;
-        sync.clearUsername();
-        renderSyncSection();
-      });
+      on(el("syncLinkBtn"), "click", function () { linkUsername(sync.normalizeUsername(el("syncUsernameInput").value), false); });
+      on(el("syncUsernameInput"), "keydown", function (e) { if (e.key === "Enter") linkUsername(sync.normalizeUsername(el("syncUsernameInput").value), false); });
+      return;
     }
+
+    sync.addKnown(username);
+    mount.innerHTML =
+      '<p class="settings-sync-note">Signed in as <strong>' + esc(username) + '</strong>. This device remembers you and saves your progress automatically.</p>' +
+      '<div class="settings-sync-row">' +
+        '<button type="button" class="btn ghost" id="syncNowBtn">Sync now</button>' +
+        '<button type="button" class="btn ghost" id="syncSwitchBtn">Switch user</button>' +
+        '<button type="button" class="settings-danger" id="syncSignOutBtn">Sign out</button>' +
+      '</div>' +
+      '<div class="sync-switch" id="syncSwitch" hidden></div>' +
+      '<div class="settings-sync-status mono" id="syncStatus" hidden></div>';
+    on(el("syncNowBtn"), "click", function () {
+      status("Syncing…");
+      sync.pushNow(function (err) { status(err ? "Couldn’t sync right now." : "Synced just now."); });
+    });
+    on(el("syncSignOutBtn"), "click", function () {
+      if (!window.confirm('Sign out of "' + username + '"? Your progress is saved under that username first, then this device is cleared so the next person starts fresh. Sign back in with the same username to get it back.')) return;
+      status("Saving your progress…");
+      sync.signOut(function (err) {
+        if (err) { status("Couldn’t save right now, so you’re still signed in. Try again in a moment."); return; }
+        location.reload();
+      });
+    });
+    on(el("syncSwitchBtn"), "click", function () {
+      var box = el("syncSwitch");
+      if (!box.hidden) { box.hidden = true; return; }
+      var others = known(username);
+      box.innerHTML =
+        (others.length ? '<div class="sync-sub">Switch to</div>' + others.map(function (n) {
+          return '<button type="button" class="sync-chip" data-name="' + esc(n) + '">' + esc(n) + '</button>';
+        }).join("") : '') +
+        '<div class="sync-sub">' + (others.length ? 'Or another username' : 'Username to switch to') + '</div>' +
+        '<div class="settings-sync-row"><input type="text" id="syncSwitchInput" placeholder="username" maxlength="40" autocomplete="off" spellcheck="false">' +
+        '<button type="button" class="btn" id="syncSwitchGo">Switch</button></div>';
+      box.hidden = false;
+      function go(name) {
+        if (name.length < 3) { status("Username needs at least 3 characters (letters, numbers, - or _)."); return; }
+        if (name === username) { status("You’re already signed in as that user."); return; }
+        status("Saving " + username + "’s progress, then loading " + name + "…");
+        sync.switchTo(name, function (err) {
+          if (err) { status("Couldn’t switch right now, so nothing changed on this device. Try again in a moment."); return; }
+          location.reload();
+        });
+      }
+      [].slice.call(box.querySelectorAll(".sync-chip")).forEach(function (b) { on(b, "click", function () { go(b.getAttribute("data-name")); }); });
+      on(el("syncSwitchGo"), "click", function () { go(sync.normalizeUsername(el("syncSwitchInput").value)); });
+      on(el("syncSwitchInput"), "keydown", function (e) { if (e.key === "Enter") go(sync.normalizeUsername(el("syncSwitchInput").value)); });
+    });
   }
 
   function initSettings() {

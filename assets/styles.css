@@ -2592,3 +2592,16 @@ div.anatomy-detail-body:not(.panel) > ul.note-points, div.anatomy-detail-body ul
 .jump-arrow { position: absolute; right: 18px; top: 50%; transform: translateY(-50%); color: var(--primary); font-size: 18px; transition: transform .2s; }
 .jump-chip:hover .jump-arrow { transform: translate(3px, -50%); }
 .jump-chip:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+
+/* Sync: remembered usernames, switch user, sign out. */
+.settings-sync-row { align-items: center; }
+.settings-sync-row .btn.ghost { border-radius: 999px; padding: 8px 14px; font-size: 13px; }
+.sync-known, .sync-switch { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.sync-switch { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--line); }
+.sync-switch[hidden] { display: none; }
+.sync-sub { flex: 0 0 100%; font: 500 11px/1 "JetBrains Mono", monospace; letter-spacing: .09em; text-transform: uppercase; color: var(--ink-faint); }
+.sync-switch .settings-sync-row { flex: 0 0 100%; }
+.sync-chip { border: 1px solid var(--line); background: var(--ground); color: var(--ink); border-radius: 999px; padding: 7px 14px;
+  font: 500 13px/1 var(--sans, "Work Sans", system-ui, sans-serif); cursor: pointer; transition: border-color .15s, background .15s; }
+.sync-chip:hover { border-color: var(--primary); background: var(--primary-tint); }
+.settings-sync-row .settings-danger { flex: 0 0 auto; padding: 8px 14px; }
