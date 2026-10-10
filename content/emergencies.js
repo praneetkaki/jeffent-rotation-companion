@@ -114,16 +114,16 @@ window.JEFFENT.register({
         src: "assets/img/figures/cervical_fascia_danger_space.png",
         source: "Deep Neck Space Communications and Mediastinal Spread Pathways. Wikimedia Commons.",
         labels: [
-          { id:"visceral-space", text:"Visceral space: encased by the middle layer of deep cervical fascia, contains the thyroid, trachea, and esophagus; thyroiditis or esophageal perforation can spread infection here toward the mediastinum.", box:{x:3.5,y:0.1,w:10.5,h:2.6} },
-          { id:"perivertebral-space", text:"Perivertebral space: surrounds the vertebral bodies within the deep layer of deep cervical fascia; osteomyelitis here can track down along the psoas sheath to the groin.", box:{x:3.6,y:4.5,w:13.9,h:2.6} },
-          { id:"posterior-cervical-space", text:"Posterior cervical space: lies within the posterior triangle between the middle and deep layers of deep cervical fascia; rarely a primary infection site.", box:{x:3.6,y:8.8,w:16.8,h:2.6} },
-          { id:"carotid-space", text:"Carotid space: formed by contributions from all three fascial layers, encloses the carotid artery, internal jugular vein, and vagus nerve; infection here risks septic jugular thrombophlebitis (Lemierre syndrome) or carotid blowout.", box:{x:3.5,y:13.1,w:10.1,h:2.8} },
-          { id:"anterior-cervical-space", text:"Anterior cervical space: superficial to the strap muscles and anterior to the visceral space; contains the anterior jugular veins.", box:{x:3.6,y:17.4,w:16.3,h:2.4} },
-          { id:"superficial-layer-fascia", text:"Superficial layer of deep cervical fascia: encircles the entire neck and splits to envelop the sternocleidomastoid and trapezius muscles.", box:{x:69.2,y:0.0,w:29.2,h:3.3} },
-          { id:"middle-layer-fascia", text:"Middle layer of deep cervical fascia: its visceral division forms the buccopharyngeal fascia behind the pharynx/esophagus, the anterior wall of the retropharyngeal space.", box:{x:70.8,y:4.6,w:24.8,h:2.6} },
-          { id:"deep-layer-fascia", text:"Deep layer of deep cervical fascia (prevertebral fascia): its anterior lamina, the alar fascia, forms the posterior wall of the danger space.", box:{x:69.3,y:8.9,w:25.4,h:2.9} },
-          { id:"retroesophageal-space", text:"Retroesophageal space: between the buccopharyngeal fascia and the alar fascia, posterior to the esophagus; infection here can spread toward the danger space.", box:{x:3.6,y:27.1,w:16.9,h:2.6} },
-          { id:"danger-space", text:"Danger space: between the alar fascia and the prevertebral fascia, extending from the skull base to the diaphragm; the classic route for infection to spread rapidly into the posterior mediastinum.", box:{x:10.4,y:32.4,w:10.1,h:2.6} }
+          { id:"visceral-space", text:"Visceral space: encased by the middle layer of deep cervical fascia, contains the thyroid, trachea, and esophagus; thyroiditis or esophageal perforation can spread infection here toward the mediastinum.", box:{x:3.0,y:0,w:11.8,h:3.3} },
+          { id:"perivertebral-space", text:"Perivertebral space: surrounds the vertebral bodies within the deep layer of deep cervical fascia; osteomyelitis here can track down along the psoas sheath to the groin.", box:{x:2.9,y:3.8,w:15.3,h:4.1} },
+          { id:"posterior-cervical-space", text:"Posterior cervical space: lies within the posterior triangle between the middle and deep layers of deep cervical fascia; rarely a primary infection site.", box:{x:2.9,y:8.4,w:18.3,h:3.4} },
+          { id:"carotid-space", text:"Carotid space: formed by contributions from all three fascial layers, encloses the carotid artery, internal jugular vein, and vagus nerve; infection here risks septic jugular thrombophlebitis (Lemierre syndrome) or carotid blowout.", box:{x:2.9,y:12.7,w:11.6,h:3.6} },
+          { id:"anterior-cervical-space", text:"Anterior cervical space: superficial to the strap muscles and anterior to the visceral space; contains the anterior jugular veins.", box:{x:2.9,y:16.7,w:17.9,h:3.9} },
+          { id:"superficial-layer-fascia", text:"Superficial layer of deep cervical fascia: encircles the entire neck and splits to envelop the sternocleidomastoid and trapezius muscles.", box:{x:70.2,y:0,w:28.8,h:3.3} },
+          { id:"middle-layer-fascia", text:"Middle layer of deep cervical fascia: its visceral division forms the buccopharyngeal fascia behind the pharynx/esophagus, the anterior wall of the retropharyngeal space.", box:{x:70.1,y:4.1,w:25.9,h:3.4} },
+          { id:"deep-layer-fascia", text:"Deep layer of deep cervical fascia (prevertebral fascia): its anterior lamina, the alar fascia, forms the posterior wall of the danger space.", box:{x:70.1,y:8.4,w:25.3,h:3.4} },
+          { id:"retroesophageal-space", text:"Retroesophageal space: between the buccopharyngeal fascia and the alar fascia, posterior to the esophagus; infection here can spread toward the danger space.", box:{x:2.8,y:26.5,w:18.5,h:4.1} },
+          { id:"danger-space", text:"Danger space: between the alar fascia and the prevertebral fascia, extending from the skull base to the diaphragm; the classic route for infection to spread rapidly into the posterior mediastinum.", box:{x:9.6,y:31.6,w:12.0,h:4.2} }
         ]
       },
       {
@@ -135,9 +135,9 @@ window.JEFFENT.register({
         src: "assets/img/figures/neck_zones_trauma.png",
         source: "Add figure citation",
         labels: [
-          { id:"zone-iii", text:"Zone III: angle of mandible to skull base. Poor surgical access, may need an endovascular approach.", box:{x:71,y:34,w:15,h:8} },
-          { id:"zone-ii", text:"Zone II: cricoid to angle of mandible. Largest and most surgically accessible zone; most penetrating injuries occur here.", box:{x:71,y:53,w:14,h:8} },
-          { id:"zone-i", text:"Zone I: cricoid to the clavicles/thoracic outlet. Least accessible, may need a sternotomy or thoracotomy approach.", box:{x:71,y:71,w:12,h:8} }
+          { id:"zone-iii", text:"Zone III: angle of mandible to skull base. Poor surgical access, may need an endovascular approach.", box:{x:71.9,y:25.7,w:24.8,h:25.9} },
+          { id:"zone-ii", text:"Zone II: cricoid to angle of mandible. Largest and most surgically accessible zone; most penetrating injuries occur here.", box:{x:71.7,y:54.6,w:22.2,h:15.7}, extra:[{x:86.3,y:82.2,w:10.5,h:6.0}] },
+          { id:"zone-i", text:"Zone I: cricoid to the clavicles/thoracic outlet. Least accessible, may need a sternotomy or thoracotomy approach.", box:{x:86.1,y:75.0,w:11.6,h:6.0}, extra:[{x:71.7,y:72.8,w:10.2,h:6.3},{x:86.2,y:89.2,w:10.0,h:6.5}] }
         ]
       }
     ]

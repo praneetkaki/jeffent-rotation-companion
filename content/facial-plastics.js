@@ -84,15 +84,15 @@ window.JEFFENT.register({
         src: "assets/img/figures/facial_buttresses.png",
         source: "Vertical and Horizontal Facial Buttresses. Illustration generated with Google Gemini.",
         labels: [
-          { id:"frontal-bar", text:"Frontal bar (horizontal): the superior horizontal buttress along the brow, part of the frame that absorbs frontal impact.", box:{x:74.2,y:25.0,w:24.9,h:5.7} },
-          { id:"nasomaxillary-buttress", text:"Nasomaxillary buttress (vertical): runs alongside the nose from the maxillary alveolus to the frontal bone.", box:{x:74.2,y:33.1,w:23.9,h:8.9} },
-          { id:"infraorbital-rim", text:"Infraorbital rim (horizontal): connects the nasomaxillary and zygomaticomaxillary buttresses; disruption contributes to midface flattening.", box:{x:74.2,y:40.3,w:16.1,h:12.0} },
-          { id:"zygomaticomaxillary-buttress", text:"Zygomaticomaxillary buttress (vertical): transmits masticatory and impact forces from the zygoma to the maxillary alveolus.", box:{x:74.2,y:52.8,w:22.3,h:9.8} },
-          { id:"alveolus", text:"Maxillary alveolus (horizontal): the inferior horizontal buttress; houses the maxillary teeth and connects the vertical buttresses.", box:{x:74.2,y:61.2,w:19.3,h:8.6} },
-          { id:"pterygomaxillary-buttress", text:"Pterygomaxillary buttress (vertical, posterior): connects the maxilla to the pterygoid plates/skull base posteriorly.", box:{x:74.2,y:68.7,w:18.8,h:8.8} },
-          { id:"nasomaxillary-buttress", text:"Nasomaxillary buttress (vertical): runs alongside the nose from the maxillary alveolus to the frontal bone.", box:{x:2.0,y:37.2,w:23.7,h:8.1} },
-          { id:"zygomaticomaxillary-buttress", text:"Zygomaticomaxillary buttress (vertical): transmits masticatory and impact forces from the zygoma to the maxillary alveolus.", box:{x:3.4,y:52.1,w:22.3,h:9.8} },
-          { id:"pterygomaxillary-buttress", text:"Pterygomaxillary buttress (vertical, posterior): connects the maxilla to the pterygoid plates/skull base posteriorly.", box:{x:6.8,y:68.3,w:18.8,h:9.1} }
+          { id:"frontal-bar", text:"Frontal bar (horizontal): the superior horizontal buttress along the brow, part of the frame that absorbs frontal impact.", box:{x:73.8,y:27.0,w:24.3,h:5.1} },
+          { id:"nasomaxillary-buttress", text:"Nasomaxillary buttress (vertical): runs alongside the nose from the maxillary alveolus to the frontal bone.", box:{x:1.8,y:37.6,w:24.1,h:9.9}, extra:[{x:74.2,y:33.2,w:23.9,h:5.3},{x:6.9,y:56.8,w:18.5,h:4.9},{x:7.0,y:72.9,w:18.4,h:4.9}] },
+          { id:"infraorbital-rim", text:"Infraorbital rim (horizontal): connects the nasomaxillary and zygomaticomaxillary buttresses; disruption contributes to midface flattening.", box:{x:74.2,y:42.4,w:16.0,h:9.8} },
+          { id:"zygomaticomaxillary-buttress", text:"Zygomaticomaxillary buttress (vertical): transmits masticatory and impact forces from the zygoma to the maxillary alveolus.", box:{x:74.1,y:52.8,w:22.4,h:10.1}, extra:[{x:3.6,y:52.4,w:22.1,h:4.9}] },
+          { id:"alveolus", text:"Maxillary alveolus (horizontal): the inferior horizontal buttress; houses the maxillary teeth and connects the vertical buttresses.", box:{x:74.1,y:64.4,w:19.6,h:5.1} },
+          { id:"pterygomaxillary-buttress", text:"Pterygomaxillary buttress (vertical, posterior): connects the maxilla to the pterygoid plates/skull base posteriorly.", box:{x:73.9,y:68.6,w:19.2,h:10.3} },
+          { id:"nasomaxillary-buttress", text:"Nasomaxillary buttress (vertical): runs alongside the nose from the maxillary alveolus to the frontal bone.", box:{x:1.8,y:37.6,w:24.1,h:9.9}, extra:[{x:74.2,y:33.2,w:23.9,h:5.3},{x:6.9,y:56.8,w:18.5,h:4.9},{x:7.0,y:72.9,w:18.4,h:4.9}] },
+          { id:"zygomaticomaxillary-buttress", text:"Zygomaticomaxillary buttress (vertical): transmits masticatory and impact forces from the zygoma to the maxillary alveolus.", box:{x:74.1,y:52.8,w:22.4,h:10.1}, extra:[{x:3.6,y:52.4,w:22.1,h:4.9}] },
+          { id:"pterygomaxillary-buttress", text:"Pterygomaxillary buttress (vertical, posterior): connects the maxilla to the pterygoid plates/skull base posteriorly.", box:{x:73.9,y:68.6,w:19.2,h:10.3} }
         ]
       },
       {
@@ -107,16 +107,16 @@ window.JEFFENT.register({
           /* NOTE: boxes below were widened ~17-20% (w/h), re-centered on the original position, to fully
              cover the underlying label text after a coverage report that some occlusion boxes were too
              small. Not visually re-verified in the running app: flagged for visual QA. */
-          { id:"temporal", text:"Temporal (frontal) branch: most vulnerable branch, crosses Pitanguy's line, injury causes brow ptosis.", box:{x:0.0,y:25.4,w:23.5,h:6.9} },
-          { id:"zygomatic", text:"Zygomatic branch: contributes to eyelid closure (orbicularis oculi); injury can impair blink.", box:{x:0.0,y:39.7,w:26.4,h:7.4} },
-          { id:"buccal-upper", text:"Buccal branch: runs near Stensen's duct; often has multiple interconnecting twigs so injury is less consistently disabling.", box:{x:0.0,y:56.6,w:21.3,h:7.4} },
-          { id:"buccal-lower", text:"Buccal branch: crosses the cheek toward the upper lip and nose, alongside Stensen's duct.", box:{x:0.0,y:70.1,w:21.3,h:7.4} },
-          { id:"facial-nerve-trunk", text:"Facial nerve trunk: exits the stylomastoid foramen and enters the parotid before branching.", box:{x:69.5,y:24.4,w:31.0,h:7.4} },
-          { id:"stylomastoid", text:"Stylomastoid foramen: exit point of the facial nerve from the skull base.", box:{x:69.5,y:39.4,w:31.0,h:11.5} },
-          { id:"parotid-gland", text:"Parotid gland: the facial nerve trunk divides it into superficial and deep lobes as it passes through.", box:{x:69.7,y:58.4,w:27.5,h:7.4} },
-          { id:"marginal", text:"Marginal mandibular branch: vulnerable along the mandible border, injury causes asymmetric smile/lower lip droop.", box:{x:69.5,y:70.8,w:31.0,h:10.1} },
-          { id:"cervical", text:"Cervical branch: innervates platysma; injury is usually of minimal functional consequence.", box:{x:70.0,y:79.9,w:24.1,h:7.4} },
-          { id:"stensens-duct", text:"Stensen's duct: runs from the tragus toward the upper lip, pierces buccinator opposite the second upper molar.", box:{x:70.0,y:87.1,w:24.1,h:7.4} }
+          { id:"temporal", text:"Temporal (frontal) branch: most vulnerable branch, crosses Pitanguy's line, injury causes brow ptosis.", box:{x:2.4,y:23.7,w:19.8,h:5.1} },
+          { id:"zygomatic", text:"Zygomatic branch: contributes to eyelid closure (orbicularis oculi); injury can impair blink.", box:{x:0.9,y:34.6,w:21.5,h:5.5} },
+          { id:"buccal-upper", text:"Buccal branch: runs near Stensen's duct; often has multiple interconnecting twigs so injury is less consistently disabling.", box:{x:3.2,y:57.8,w:17.3,h:5.7} },
+          { id:"buccal-lower", text:"Buccal branch: crosses the cheek toward the upper lip and nose, alongside Stensen's duct.", box:{x:2.2,y:72.1,w:17.0,h:4.9} },
+          { id:"facial-nerve-trunk", text:"Facial nerve trunk: exits the stylomastoid foramen and enters the parotid before branching.", box:{x:73.1,y:23.7,w:21.7,h:5.5} },
+          { id:"stylomastoid", text:"Stylomastoid foramen: exit point of the facial nerve from the skull base.", box:{x:72.5,y:42.4,w:15.9,h:10.3} },
+          { id:"parotid-gland", text:"Parotid gland: the facial nerve trunk divides it into superficial and deep lobes as it passes through.", box:{x:70.0,y:61.8,w:16.9,h:6.4} },
+          { id:"marginal", text:"Marginal mandibular branch: vulnerable along the mandible border, injury causes asymmetric smile/lower lip droop.", box:{x:70.5,y:71.6,w:24.0,h:9.4} },
+          { id:"cervical", text:"Cervical branch: innervates platysma; injury is usually of minimal functional consequence.", box:{x:70.4,y:81.6,w:18.9,h:5.8} },
+          { id:"stensens-duct", text:"Stensen's duct: runs from the tragus toward the upper lip, pierces buccinator opposite the second upper molar.", box:{x:70.4,y:89.3,w:18.0,h:5.8} }
         ]
       },
       {
@@ -128,7 +128,7 @@ window.JEFFENT.register({
         src: "assets/img/figures/orbital_blowout_fracture.png",
         source: "Add figure citation",
         labels: [
-          { id:"fracture-site", text:"Yellow arrow: a trapdoor fracture of the orbital floor, with soft tissue herniating through the defect into the roof of the maxillary sinus below: the CT correlate of enophthalmos and diplopia on upgaze from inferior rectus entrapment.", box:{x:27.0,y:42.0,w:16.0,h:19.0} }
+          { id:"fracture-site", text:"Yellow arrow: a trapdoor fracture of the orbital floor, with soft tissue herniating through the defect into the roof of the maxillary sinus below: the CT correlate of enophthalmos and diplopia on upgaze from inferior rectus entrapment.", box:{x:27,y:42,w:16,h:19} }
         ]
       },
       {
@@ -140,8 +140,8 @@ window.JEFFENT.register({
         src: "assets/img/figures/pitanguy_line.png",
         source: "Pitanguy's Line and the Frontal Branch of the Facial Nerve. Jawad, Hohman, & Raggio (2025). StatPearls.",
         labels: [
-          { id:"measurement-5mm", text:"Inferior landmark: 0.5 cm (5 mm) below the tragus, the starting point of Pitanguy's line for the frontal branch's surface course.", box:{x:3.2,y:81.3,w:21.7,h:7.6} },
-          { id:"measurement-15mm", text:"Superior landmark: 1.5 cm (15 mm) above the lateral eyebrow, the endpoint of Pitanguy's line; incisions crossing this corridor risk the frontal branch and brow ptosis.", box:{x:70.2,y:41.0,w:29.3,h:9.7} }
+          { id:"measurement-5mm", text:"Inferior landmark: 0.5 cm (5 mm) below the tragus, the starting point of Pitanguy's line for the frontal branch's surface course.", box:{x:9.0,y:79.0,w:20.5,h:7.5} },
+          { id:"measurement-15mm", text:"Superior landmark: 1.5 cm (15 mm) above the lateral eyebrow, the endpoint of Pitanguy's line; incisions crossing this corridor risk the frontal branch and brow ptosis.", box:{x:68.5,y:43.8,w:20.5,h:8.2} }
         ]
       }
     ]

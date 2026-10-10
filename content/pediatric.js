@@ -88,22 +88,22 @@ window.JEFFENT.register({
         src: "assets/img/figures/pediatric_adult_airway.png",
         source: "Pediatric vs. Adult Airway Anatomy and Geometric Differences. Illustration generated with Google Gemini.",
         labels: [
-          { id:"tongue", text:"Tongue: relatively larger for the airway size in a child, crowding the oropharynx; proportionally smaller relative to airway size in an adult.", box:{x:1.0,y:31.5,w:9.0,h:5.0} },
-          { id:"epiglottis", text:"Epiglottis: omega-shaped and floppier in a child; flatter and stiffer in an adult.", box:{x:1.0,y:44.5,w:11.0,h:5.0} },
-          { id:"larynx", text:"Larynx sits more cephalad in a child (~C3-4) than in an adult (~C4-6, more caudal).", box:{x:1.0,y:53.0,w:9.0,h:5.0} },
-          { id:"vocal-cords", text:"Vocal cords (glottis): the true vocal folds; in a child this is NOT the narrowest point (the subglottis below it is), but in an adult this IS the narrowest point of the airway.", box:{x:1.0,y:60.8,w:21.0,h:5.0} },
-          { id:"narrowest-point", text:"In a child, the airway is narrowest at the SUBGLOTTIS, not the glottis, so mucosal edema here causes disproportionate obstruction. In an adult, the airway is narrowest at the GLOTTIS (true vocal cords), unlike the child's subglottic narrowing.", box:{x:15.5,y:65.5,w:9.0,h:7.0} },
-          { id:"subglottis", text:"Subglottis: bounded by the complete cricoid ring, the narrowest fixed point of a child's airway; present in the adult too, but there it is not the narrowest point (the glottis above it is).", box:{x:8.0,y:73.0,w:12.5,h:5.0} },
-          { id:"cricoid", text:"Cricoid cartilage: the only complete (360-degree) cartilage ring in the airway, defining the subglottis; same landmark in the adult, just further from the narrowest point.", box:{x:2.5,y:81.5,w:17.0,h:5.0} },
-          { id:"trachea", text:"Trachea: continues below the cricoid; shorter overall length and funnel-shaped in a child, roughly cylindrical caliber in an adult.", box:{x:10.5,y:89.5,w:9.0,h:5.0} },
-          { id:"tongue", text:"Tongue: relatively larger for the airway size in a child, crowding the oropharynx; proportionally smaller relative to airway size in an adult.", box:{x:51.0,y:31.5,w:9.0,h:5.0} },
-          { id:"epiglottis", text:"Epiglottis: omega-shaped and floppier in a child; flatter and stiffer in an adult.", box:{x:51.0,y:44.5,w:11.0,h:5.0} },
-          { id:"larynx", text:"Larynx sits more cephalad in a child (~C3-4) than in an adult (~C4-6, more caudal).", box:{x:51.0,y:53.0,w:9.0,h:5.0} },
-          { id:"vocal-cords", text:"Vocal cords (glottis): the true vocal folds; in a child this is NOT the narrowest point (the subglottis below it is), but in an adult this IS the narrowest point of the airway.", box:{x:51.0,y:60.8,w:21.0,h:5.0} },
-          { id:"narrowest-point", text:"In a child, the airway is narrowest at the SUBGLOTTIS, not the glottis, so mucosal edema here causes disproportionate obstruction. In an adult, the airway is narrowest at the GLOTTIS (true vocal cords), unlike the child's subglottic narrowing.", box:{x:65.5,y:65.5,w:9.0,h:7.0} },
-          { id:"subglottis", text:"Subglottis: bounded by the complete cricoid ring, the narrowest fixed point of a child's airway; present in the adult too, but there it is not the narrowest point (the glottis above it is).", box:{x:58.0,y:73.0,w:12.5,h:5.0} },
-          { id:"cricoid", text:"Cricoid cartilage: the only complete (360-degree) cartilage ring in the airway, defining the subglottis; same landmark in the adult, just further from the narrowest point.", box:{x:52.5,y:81.5,w:17.0,h:5.0} },
-          { id:"trachea", text:"Trachea: continues below the cricoid; shorter overall length and funnel-shaped in a child, roughly cylindrical caliber in an adult.", box:{x:60.5,y:89.5,w:9.0,h:5.0} }
+          { id:"tongue", text:"Tongue: relatively larger for the airway size in a child, crowding the oropharynx; proportionally smaller relative to airway size in an adult.", box:{x:51.2,y:31.2,w:9.4,h:6.4}, extra:[{x:0.8,y:31.3,w:9.3,h:6.0}] },
+          { id:"epiglottis", text:"Epiglottis: omega-shaped and floppier in a child; flatter and stiffer in an adult.", box:{x:51.1,y:44.0,w:10.9,h:5.7}, extra:[{x:0.9,y:44.5,w:10.6,h:5.8}] },
+          { id:"larynx", text:"Larynx sits more cephalad in a child (~C3-4) than in an adult (~C4-6, more caudal).", box:{x:51,y:53,w:9,h:5} },
+          { id:"vocal-cords", text:"Vocal cords (glottis): the true vocal folds; in a child this is NOT the narrowest point (the subglottis below it is), but in an adult this IS the narrowest point of the airway.", box:{x:51.4,y:60.1,w:20.9,h:5.3}, extra:[{x:0.9,y:60.6,w:21.0,h:5.3}] },
+          { id:"narrowest-point", text:"In a child, the airway is narrowest at the SUBGLOTTIS, not the glottis, so mucosal edema here causes disproportionate obstruction. In an adult, the airway is narrowest at the GLOTTIS (true vocal cords), unlike the child's subglottic narrowing.", box:{x:65.5,y:65.5,w:9,h:7} },
+          { id:"subglottis", text:"Subglottis: bounded by the complete cricoid ring, the narrowest fixed point of a child's airway; present in the adult too, but there it is not the narrowest point (the glottis above it is).", box:{x:8.6,y:73.2,w:11.8,h:6.2}, extra:[{x:15.3,y:68.3,w:8.3,h:4.6},{x:59.0,y:73.1,w:11.6,h:5.8}] },
+          { id:"cricoid", text:"Cricoid cartilage: the only complete (360-degree) cartilage ring in the airway, defining the subglottis; same landmark in the adult, just further from the narrowest point.", box:{x:52.8,y:81.6,w:17.8,h:5.8}, extra:[{x:2.5,y:81.9,w:17.6,h:5.6}] },
+          { id:"trachea", text:"Trachea: continues below the cricoid; shorter overall length and funnel-shaped in a child, roughly cylindrical caliber in an adult.", box:{x:60.8,y:89.5,w:10.1,h:5.7}, extra:[{x:10.0,y:89.6,w:9.8,h:5.5}] },
+          { id:"tongue", text:"Tongue: relatively larger for the airway size in a child, crowding the oropharynx; proportionally smaller relative to airway size in an adult.", box:{x:51.2,y:31.2,w:9.4,h:6.4}, extra:[{x:0.8,y:31.3,w:9.3,h:6.0}] },
+          { id:"epiglottis", text:"Epiglottis: omega-shaped and floppier in a child; flatter and stiffer in an adult.", box:{x:51.1,y:44.0,w:10.9,h:5.7}, extra:[{x:0.9,y:44.5,w:10.6,h:5.8}] },
+          { id:"larynx", text:"Larynx sits more cephalad in a child (~C3-4) than in an adult (~C4-6, more caudal).", box:{x:51,y:53,w:9,h:5} },
+          { id:"vocal-cords", text:"Vocal cords (glottis): the true vocal folds; in a child this is NOT the narrowest point (the subglottis below it is), but in an adult this IS the narrowest point of the airway.", box:{x:51.4,y:60.1,w:20.9,h:5.3}, extra:[{x:0.9,y:60.6,w:21.0,h:5.3}] },
+          { id:"narrowest-point", text:"In a child, the airway is narrowest at the SUBGLOTTIS, not the glottis, so mucosal edema here causes disproportionate obstruction. In an adult, the airway is narrowest at the GLOTTIS (true vocal cords), unlike the child's subglottic narrowing.", box:{x:65.5,y:65.5,w:9,h:7} },
+          { id:"subglottis", text:"Subglottis: bounded by the complete cricoid ring, the narrowest fixed point of a child's airway; present in the adult too, but there it is not the narrowest point (the glottis above it is).", box:{x:8.6,y:73.2,w:11.8,h:6.2}, extra:[{x:15.3,y:68.3,w:8.3,h:4.6},{x:59.0,y:73.1,w:11.6,h:5.8}] },
+          { id:"cricoid", text:"Cricoid cartilage: the only complete (360-degree) cartilage ring in the airway, defining the subglottis; same landmark in the adult, just further from the narrowest point.", box:{x:52.8,y:81.6,w:17.8,h:5.8}, extra:[{x:2.5,y:81.9,w:17.6,h:5.6}] },
+          { id:"trachea", text:"Trachea: continues below the cricoid; shorter overall length and funnel-shaped in a child, roughly cylindrical caliber in an adult.", box:{x:60.8,y:89.5,w:10.1,h:5.7}, extra:[{x:10.0,y:89.6,w:9.8,h:5.5}] }
         ]
       },
       {
@@ -115,13 +115,13 @@ window.JEFFENT.register({
         src: "assets/img/figures/branchial_cleft_cyst.png",
         source: "Second Branchial Cleft Anomalies Anatomic Tract. Illustration generated with Google Gemini.",
         labels: [
-          { id:"tonsil-internal", text:"Tonsillar fossa: the internal (deep) end of the classic second branchial cleft tract.", box:{x:7.0,y:26.5,w:16.5,h:9.0} },
-          { id:"scm", text:"Sternocleidomastoid muscle: the tract runs deep to (medial to) this muscle as it courses toward the tonsil, and the external opening classically sits anterior to its lower third.", box:{x:2.5,y:47.8,w:23.0,h:22.1} },
-          { id:"tonsil-callout", text:"Tonsillar fossa: where a persistent second branchial cleft tract terminates internally.", box:{x:59.0,y:25.0,w:15.5,h:5.5} },
-          { id:"tract", text:"Second branchial cleft tract: the embryologic remnant that gives rise to branchial cleft cysts, sinuses, and fistulae.", box:{x:59.0,y:37.8,w:17.5,h:8.7} },
-          { id:"carotid-sheath", text:"Carotid sheath: the tract runs between the internal and external carotid arteries, close to this neurovascular bundle.", box:{x:76.0,y:54.3,w:16.0,h:5.0} },
-          { id:"cyst", text:"Branchial cleft cyst (typical location): presents as a smooth, often fluctuant lateral neck mass anterior to the SCM.", box:{x:76.0,y:62.0,w:20.0,h:9.5} },
-          { id:"external-opening", text:"External opening (skin pit): a pit or sinus anterior to the lower SCM; can intermittently drain mucoid fluid or become infected.", box:{x:76.0,y:76.8,w:18.5,h:8.5} }
+          { id:"tonsil-internal", text:"Tonsillar fossa: the internal (deep) end of the classic second branchial cleft tract.", box:{x:57.4,y:25.8,w:17.0,h:5.3} },
+          { id:"scm", text:"Sternocleidomastoid muscle: the tract runs deep to (medial to) this muscle as it courses toward the tonsil, and the external opening classically sits anterior to its lower third.", box:{x:2.2,y:48.0,w:24.0,h:10.1}, extra:[{x:2.3,y:60.8,w:23.9,h:4.9}] },
+          { id:"tonsil-callout", text:"Tonsillar fossa: where a persistent second branchial cleft tract terminates internally.", box:{x:6.8,y:26.9,w:16.1,h:9.8} },
+          { id:"tract", text:"Second branchial cleft tract: the embryologic remnant that gives rise to branchial cleft cysts, sinuses, and fistulae.", box:{x:58.2,y:38.0,w:19.0,h:9.2} },
+          { id:"carotid-sheath", text:"Carotid sheath: the tract runs between the internal and external carotid arteries, close to this neurovascular bundle.", box:{x:75.5,y:54.2,w:16.5,h:4.8} },
+          { id:"cyst", text:"Branchial cleft cyst (typical location): presents as a smooth, often fluctuant lateral neck mass anterior to the SCM.", box:{x:75.5,y:62.1,w:21.0,h:10.5} },
+          { id:"external-opening", text:"External opening (skin pit): a pit or sinus anterior to the lower SCM; can intermittently drain mucoid fluid or become infected.", box:{x:75.3,y:76.4,w:20.2,h:11.0} }
         ]
       },
       {
@@ -133,13 +133,13 @@ window.JEFFENT.register({
         src: "assets/img/figures/waldeyer_ring.png",
         source: "Waldeyer's Ring of Lymphoid Tissue. Illustration generated with Google Gemini.",
         labels: [
-          { id:"tubal-tonsil", text:"Tubal tonsil: lymphoid tissue around the pharyngeal (Eustachian tube) opening, part of Waldeyer's ring though less commonly tested.", box:{x:2.5,y:41.5,w:13.0,h:5.0} },
-          { id:"adenoid", text:"Adenoids (nasopharyngeal tonsil): a single midline mass in the nasopharyngeal roof; hypertrophy is a leading cause of pediatric nasal obstruction and OSA.", box:{x:77.5,y:28.5,w:20.0,h:15.0} },
-          { id:"nasopharynx", text:"Nasopharynx: the space behind the nasal cavity where the adenoids sit, bounded inferiorly by the soft palate.", box:{x:77.5,y:47.8,w:15.5,h:5.5} },
-          { id:"palatine-tonsil", text:"Palatine tonsil: the paired tonsils visible on oral exam; the ones removed in a routine tonsillectomy.", box:{x:77.5,y:58.8,w:16.5,h:5.5} },
-          { id:"oropharynx", text:"Oropharynx: houses the palatine tonsils between the soft palate and the hyoid bone.", box:{x:77.5,y:67.9,w:13.0,h:5.2} },
-          { id:"tongue", text:"Tongue: its posterior third (base) carries the lingual tonsil.", box:{x:77.5,y:77.3,w:8.0,h:5.0} },
-          { id:"lingual-tonsil", text:"Lingual tonsil: lymphoid tissue at the tongue base; can hypertrophy and contribute to obstructive sleep apnea, especially after tonsillectomy.", box:{x:7.5,y:86.3,w:15.0,h:4.5} }
+          { id:"tubal-tonsil", text:"Tubal tonsil: lymphoid tissue around the pharyngeal (Eustachian tube) opening, part of Waldeyer's ring though less commonly tested.", box:{x:2.3,y:41.7,w:13.8,h:5.5}, extra:[{x:77.2,y:38.4,w:8.8,h:6.5}] },
+          { id:"adenoid", text:"Adenoids (nasopharyngeal tonsil): a single midline mass in the nasopharyngeal roof; hypertrophy is a leading cause of pediatric nasal obstruction and OSA.", box:{x:77.3,y:27.9,w:20.7,h:11.6} },
+          { id:"nasopharynx", text:"Nasopharynx: the space behind the nasal cavity where the adenoids sit, bounded inferiorly by the soft palate.", box:{x:76.9,y:47.6,w:16.3,h:6.5} },
+          { id:"palatine-tonsil", text:"Palatine tonsil: the paired tonsils visible on oral exam; the ones removed in a routine tonsillectomy.", box:{x:76.9,y:59.1,w:17.7,h:5.5} },
+          { id:"oropharynx", text:"Oropharynx: houses the palatine tonsils between the soft palate and the hyoid bone.", box:{x:77.1,y:68.0,w:14.2,h:6.5} },
+          { id:"tongue", text:"Tongue: its posterior third (base) carries the lingual tonsil.", box:{x:76.9,y:77.5,w:9.7,h:6.4} },
+          { id:"lingual-tonsil", text:"Lingual tonsil: lymphoid tissue at the tongue base; can hypertrophy and contribute to obstructive sleep apnea, especially after tonsillectomy.", box:{x:7.2,y:85.5,w:16.1,h:6.4} }
         ]
       },
       {
@@ -151,16 +151,16 @@ window.JEFFENT.register({
         src: "assets/img/figures/eustachian_tube_child_adult.png",
         source: "Pediatric vs. Adult Eustachian Tube Orientation and Drainage. Illustration generated with Google Gemini.",
         labels: [
-          { id:"middle-ear", text:"Middle ear (child): the air-filled space medial to the tympanic membrane that the Eustachian tube must ventilate and drain. Middle ear (adult): the same space, ventilated by a longer, steeper Eustachian tube.", box:{x:12.0,y:11.5,w:18.0,h:7.5} },
-          { id:"tympanic-membrane", text:"Tympanic membrane (child): separates the middle ear from the ear canal; retraction/effusion here reflects poor Eustachian tube function. Tympanic membrane (adult): normally well-aerated because the adult Eustachian tube equalizes pressure and drains effectively.", box:{x:0.0,y:53.5,w:20.0,h:12.5} },
-          { id:"eustachian-tube", text:"Eustachian tube (child): shorter, floppier, and more horizontal than in an adult, so it drains and ventilates the middle ear less efficiently, predisposing to otitis media. Eustachian tube (adult): longer, stiffer, and angled closer to vertical (~45 degrees), giving more effective drainage and ventilation.", box:{x:18.5,y:58.0,w:15.5,h:12.5} },
-          { id:"nasopharynx", text:"Nasopharynx (child): the Eustachian tube's nasopharyngeal opening; the tube's flatter angle here favors reflux of nasopharyngeal secretions into the middle ear. Nasopharynx (adult): the tube's steeper angle here makes reflux far less likely than in a child.", box:{x:0.0,y:73.5,w:17.5,h:8.0} },
-          { id:"child-caption", text:"Child Eustachian tube: shorter, flatter, drains poorly, i.e. the anatomic basis for the high incidence of otitis media in young children.", box:{x:9.0,y:88.5,w:32.0,h:8.0} },
-          { id:"middle-ear", text:"Middle ear (child): the air-filled space medial to the tympanic membrane that the Eustachian tube must ventilate and drain. Middle ear (adult): the same space, ventilated by a longer, steeper Eustachian tube.", box:{x:62.5,y:11.5,w:18.0,h:7.5} },
-          { id:"tympanic-membrane", text:"Tympanic membrane (child): separates the middle ear from the ear canal; retraction/effusion here reflects poor Eustachian tube function. Tympanic membrane (adult): normally well-aerated because the adult Eustachian tube equalizes pressure and drains effectively.", box:{x:49.5,y:53.5,w:20.0,h:12.5} },
-          { id:"eustachian-tube", text:"Eustachian tube (child): shorter, floppier, and more horizontal than in an adult, so it drains and ventilates the middle ear less efficiently, predisposing to otitis media. Eustachian tube (adult): longer, stiffer, and angled closer to vertical (~45 degrees), giving more effective drainage and ventilation.", box:{x:69.5,y:58.0,w:16.0,h:12.5} },
-          { id:"nasopharynx", text:"Nasopharynx (child): the Eustachian tube's nasopharyngeal opening; the tube's flatter angle here favors reflux of nasopharyngeal secretions into the middle ear. Nasopharynx (adult): the tube's steeper angle here makes reflux far less likely than in a child.", box:{x:49.5,y:73.5,w:17.5,h:8.0} },
-          { id:"adult-caption", text:"Adult Eustachian tube: longer, steeper, drains well, one reason acute otitis media becomes far less common after early childhood.", box:{x:60.0,y:88.5,w:30.0,h:8.0} }
+          { id:"middle-ear", text:"Middle ear (child): the air-filled space medial to the tympanic membrane that the Eustachian tube must ventilate and drain. Middle ear (adult): the same space, ventilated by a longer, steeper Eustachian tube.", box:{x:63.1,y:14.2,w:12.5,h:5.5}, extra:[{x:12.3,y:14.3,w:12.5,h:5.3}] },
+          { id:"tympanic-membrane", text:"Tympanic membrane (child): separates the middle ear from the ear canal; retraction/effusion here reflects poor Eustachian tube function. Tympanic membrane (adult): normally well-aerated because the adult Eustachian tube equalizes pressure and drains effectively.", box:{x:53.2,y:58.2,w:13.0,h:10.3} },
+          { id:"eustachian-tube", text:"Eustachian tube (child): shorter, floppier, and more horizontal than in an adult, so it drains and ventilates the middle ear less efficiently, predisposing to otitis media. Eustachian tube (adult): longer, stiffer, and angled closer to vertical (~45 degrees), giving more effective drainage and ventilation.", box:{x:17.2,y:63.5,w:13.1,h:10.1} },
+          { id:"nasopharynx", text:"Nasopharynx (child): the Eustachian tube's nasopharyngeal opening; the tube's flatter angle here favors reflux of nasopharyngeal secretions into the middle ear. Nasopharynx (adult): the tube's steeper angle here makes reflux far less likely than in a child.", box:{x:67.5,y:78.2,w:15.5,h:5.7}, extra:[{x:17.5,y:78.3,w:15.5,h:5.5}] },
+          { id:"child-caption", text:"Child Eustachian tube: shorter, flatter, drains poorly, i.e. the anatomic basis for the high incidence of otitis media in young children.", box:{x:66.9,y:64.1,w:13.2,h:10.3} },
+          { id:"middle-ear", text:"Middle ear (child): the air-filled space medial to the tympanic membrane that the Eustachian tube must ventilate and drain. Middle ear (adult): the same space, ventilated by a longer, steeper Eustachian tube.", box:{x:63.1,y:14.2,w:12.5,h:5.5}, extra:[{x:12.3,y:14.3,w:12.5,h:5.3}] },
+          { id:"tympanic-membrane", text:"Tympanic membrane (child): separates the middle ear from the ear canal; retraction/effusion here reflects poor Eustachian tube function. Tympanic membrane (adult): normally well-aerated because the adult Eustachian tube equalizes pressure and drains effectively.", box:{x:53.2,y:58.2,w:13.0,h:10.3} },
+          { id:"eustachian-tube", text:"Eustachian tube (child): shorter, floppier, and more horizontal than in an adult, so it drains and ventilates the middle ear less efficiently, predisposing to otitis media. Eustachian tube (adult): longer, stiffer, and angled closer to vertical (~45 degrees), giving more effective drainage and ventilation.", box:{x:17.2,y:63.5,w:13.1,h:10.1} },
+          { id:"nasopharynx", text:"Nasopharynx (child): the Eustachian tube's nasopharyngeal opening; the tube's flatter angle here favors reflux of nasopharyngeal secretions into the middle ear. Nasopharynx (adult): the tube's steeper angle here makes reflux far less likely than in a child.", box:{x:67.5,y:78.2,w:15.5,h:5.7}, extra:[{x:17.5,y:78.3,w:15.5,h:5.5}] },
+          { id:"adult-caption", text:"Adult Eustachian tube: longer, steeper, drains well, one reason acute otitis media becomes far less common after early childhood.", box:{x:60,y:88.5,w:30,h:8} }
         ]
       }
     ]

@@ -78,23 +78,23 @@ window.JEFFENT.register({
         // occlusion labels were not fully covering the underlying image text. Not visually
         // re-verified from this environment -- flag for visual QA before shipping.
         labels: [
-          { id:"zygomatic-process-lateral", text:"Zygomatic process: anterior projection of the squamous part that joins the zygomatic bone to form the zygomatic arch.", box:{x:0.0,y:26.7,w:11.9,h:8.0} },
-          { id:"squamous-part-lateral", text:"Squamous part: flat, fan-shaped lateral portion of the temporal bone; forms the mandibular fossa/articular tubercle side of the TMJ.", box:{x:13.8,y:26.4,w:14.5,h:6.8} },
-          { id:"articular-tubercle", text:"Articular tubercle: anterior bony ridge of the mandibular fossa; the mandibular condyle translates onto it when the jaw opens wide.", box:{x:38.1,y:25.5,w:21.3,h:4.0} },
-          { id:"mandibular-fossa", text:"Mandibular fossa: concave articular surface on the squamous part that receives the mandibular condyle to form the TMJ.", box:{x:42.6,y:32.7,w:16.3,h:7.5} },
+          { id:"zygomatic-process-lateral", text:"Zygomatic process: anterior projection of the squamous part that joins the zygomatic bone to form the zygomatic arch.", box:{x:0.8,y:28.3,w:12.0,h:7.6} },
+          { id:"squamous-part-lateral", text:"Squamous part: flat, fan-shaped lateral portion of the temporal bone; forms the mandibular fossa/articular tubercle side of the TMJ.", box:{x:17.2,y:29.2,w:12.7,h:7.9} },
+          { id:"articular-tubercle", text:"Articular tubercle: anterior bony ridge of the mandibular fossa; the mandibular condyle translates onto it when the jaw opens wide.", box:{x:40.9,y:25.6,w:18.8,h:4.1} },
+          { id:"mandibular-fossa", text:"Mandibular fossa: concave articular surface on the squamous part that receives the mandibular condyle to form the TMJ.", box:{x:43.2,y:33.9,w:13.8,h:7.4} },
           { id:"opening-external-auditory-meatus", text:"Opening for the external auditory meatus: bony entrance to the ear canal, framed largely by the tympanic part.", box:{x:46.8,y:39.9,w:21.9,h:14.1} },
-          { id:"tympanic-part", text:"Tympanic part: forms most of the bony external auditory canal (anterior, inferior, and part of the posterior wall).", box:{x:0.0,y:56.9,w:17.3,h:4.1} },
-          { id:"styloid-process-lateral", text:"Styloid process: slender projection anchoring the stylohyoid ligament and stylohyoid/styloglossus/stylopharyngeus muscles; a key parapharyngeal-space landmark.", box:{x:0.0,y:65.7,w:19.0,h:4.5} },
-          { id:"petromastoid-part", text:"Petromastoid part: the composite term for the petrous and mastoid portions, which arise from a shared ossification center and form the posteromedial temporal bone.", box:{x:0.0,y:75.4,w:11.2,h:13.2} },
-          { id:"petrous-part-lateral", text:"Petrous part: dense pyramidal bone housing the middle and inner ear, the otologic core of the temporal bone.", box:{x:10.1,y:76.4,w:12.8,h:4.1} },
-          { id:"mastoid-part", text:"Mastoid part: air-cell system posterior to the ear canal; relevant to mastoiditis and cochlear implant surgery.", box:{x:10.0,y:81.2,w:13.4,h:4.1} },
-          { id:"mastoid-process", text:"Mastoid process: bony projection palpable behind the ear canal; attachment site for sternocleidomastoid, splenius capitis, and longissimus capitis.", box:{x:10.9,y:85.8,w:14.0,h:3.3} },
+          { id:"tympanic-part", text:"Tympanic part: forms most of the bony external auditory canal (anterior, inferior, and part of the posterior wall).", box:{x:1.0,y:59.0,w:16.4,h:4.1} },
+          { id:"styloid-process-lateral", text:"Styloid process: slender projection anchoring the stylohyoid ligament and stylohyoid/styloglossus/stylopharyngeus muscles; a key parapharyngeal-space landmark.", box:{x:1.0,y:66.9,w:16.5,h:4.1} },
+          { id:"petromastoid-part", text:"Petromastoid part: the composite term for the petrous and mastoid portions, which arise from a shared ossification center and form the posteromedial temporal bone.", box:{x:12.7,y:80.4,w:14.2,h:4.2} },
+          { id:"petrous-part-lateral", text:"Petrous part: dense pyramidal bone housing the middle and inner ear, the otologic core of the temporal bone.", box:{x:12.4,y:75.9,w:14.4,h:4.7}, extra:[{x:1.2,y:75.4,w:7.9,h:3.8}] },
+          { id:"mastoid-part", text:"Mastoid part: air-cell system posterior to the ear canal; relevant to mastoiditis and cochlear implant surgery.", box:{x:0.8,y:77.9,w:10.6,h:8.1} },
+          { id:"mastoid-process", text:"Mastoid process: bony projection palpable behind the ear canal; attachment site for sternocleidomastoid, splenius capitis, and longissimus capitis.", box:{x:13.5,y:83.5,w:13.8,h:3.8} },
           { id:"mastoid-notch", text:"Mastoid notch (digastric groove): groove medial to the mastoid process that gives origin to the posterior belly of digastric.", box:{x:11.6,y:88.3,w:12.8,h:3.3} },
-          { id:"zygomatic-process-medial", text:"Zygomatic process, medial view: same anterior projection of the squamous part seen from the opposite side.", box:{x:84.0,y:29.2,w:17.3,h:8.0} },
-          { id:"squamous-part-medial", text:"Squamous part, medial view: the inner surface of the flat lateral portion of the temporal bone.", box:{x:67.1,y:51.2,w:17.6,h:9.8} },
-          { id:"opening-internal-auditory-meatus", text:"Opening for the internal auditory meatus: transmits CN VII and CN VIII (plus the labyrinthine artery) into the petrous bone.", box:{x:39.2,y:70.3,w:33.3,h:12.3} },
-          { id:"petrous-part-medial", text:"Petrous part, medial view: the same pyramidal bone housing the middle/inner ear, seen from its cranial (medial) surface.", box:{x:86.3,y:69.1,w:14.8,h:8.0} },
-          { id:"styloid-process-medial", text:"Styloid process, medial view: the same slender muscle/ligament attachment site seen from the medial aspect.", box:{x:84.0,y:80.9,w:17.3,h:8.0} }
+          { id:"zygomatic-process-medial", text:"Zygomatic process, medial view: same anterior projection of the squamous part seen from the opposite side.", box:{x:86.1,y:32.6,w:11.9,h:7.4} },
+          { id:"squamous-part-medial", text:"Squamous part, medial view: the inner surface of the flat lateral portion of the temporal bone.", box:{x:71.6,y:53.0,w:12.6,h:7.8} },
+          { id:"opening-internal-auditory-meatus", text:"Opening for the internal auditory meatus: transmits CN VII and CN VIII (plus the labyrinthine artery) into the petrous bone.", box:{x:38.8,y:75.9,w:18.7,h:10.0} },
+          { id:"petrous-part-medial", text:"Petrous part, medial view: the same pyramidal bone housing the middle/inner ear, seen from its cranial (medial) surface.", box:{x:89.2,y:71.7,w:9.5,h:7.9}, extra:[{x:67.3,y:91.6,w:17.9,h:4.3}] },
+          { id:"styloid-process-medial", text:"Styloid process, medial view: the same slender muscle/ligament attachment site seen from the medial aspect.", box:{x:89.6,y:82.8,w:9.0,h:7.6} }
         ]
       },
       {
@@ -106,11 +106,11 @@ window.JEFFENT.register({
         src: "assets/img/figures/paranasal_sinus_drainage.png",
         source: "Paranasal Sinuses and Their Drainage Pathways. Wikimedia Commons.",
         labels: [
-          { id:"semilunar-hiatus", text:"Semilunar hiatus: the middle-meatus groove receiving the openings of the frontal, maxillary, and anterior ethmoidal sinuses, the ostiomeatal complex's key drainage channel.", box:{x:0.0,y:4.8,w:28.0,h:19.6} },
-          { id:"ethmoid-bulla", text:"Ethmoid bulla: the largest, most constant anterior ethmoid air cell, bulging into the middle meatus; carries the opening of the middle ethmoid sinus cells.", box:{x:47.5,y:9.5,w:32.8,h:10.1} },
-          { id:"opening-sphenoid-sinus", text:"Opening of sphenoid sinus: drains into the sphenoethmoidal recess, high and posterior; the sinus borders the pituitary, optic nerve, and cavernous sinus.", box:{x:66.1,y:24.2,w:21.9,h:9.1} },
-          { id:"opening-eustachian-tube", text:"Opening of eustachian tube: pharyngeal (torus tubarius) opening on the lateral nasopharyngeal wall, posterior to the inferior turbinate; equalizes middle-ear pressure.", box:{x:77.9,y:59.4,w:19.5,h:9.7} },
-          { id:"opening-nasolacrimal-duct", text:"Opening of nasolacrimal duct: drains tears into the inferior meatus, beneath the inferior turbinate; obstruction here causes epiphora.", box:{x:12.6,y:84.2,w:26.6,h:9.7} }
+          { id:"semilunar-hiatus", text:"Semilunar hiatus: the middle-meatus groove receiving the openings of the frontal, maxillary, and anterior ethmoidal sinuses, the ostiomeatal complex's key drainage channel.", box:{x:2.1,y:5.4,w:27.6,h:21.1} },
+          { id:"ethmoid-bulla", text:"Ethmoid bulla: the largest, most constant anterior ethmoid air cell, bulging into the middle meatus; carries the opening of the middle ethmoid sinus cells.", box:{x:48.2,y:9.2,w:33.0,h:10.4} },
+          { id:"opening-sphenoid-sinus", text:"Opening of sphenoid sinus: drains into the sphenoethmoidal recess, high and posterior; the sinus borders the pituitary, optic nerve, and cavernous sinus.", box:{x:67.9,y:22.9,w:19.2,h:10.1} },
+          { id:"opening-eustachian-tube", text:"Opening of eustachian tube: pharyngeal (torus tubarius) opening on the lateral nasopharyngeal wall, posterior to the inferior turbinate; equalizes middle-ear pressure.", box:{x:76.7,y:59.3,w:20.5,h:10.1} },
+          { id:"opening-nasolacrimal-duct", text:"Opening of nasolacrimal duct: drains tears into the inferior meatus, beneath the inferior turbinate; obstruction here causes epiphora.", box:{x:14.2,y:84.5,w:22.7,h:9.4} }
         ]
       },
       {
@@ -122,14 +122,14 @@ window.JEFFENT.register({
         src: "assets/img/figures/skullbase_foramen.png",
         source: "Cranial Nerves of the Head and Neck with Skull Base Foramina. teachmeanatomy.info.",
         labels: [
-          { id:"cribriform-plate", text:"Cribriform plate: transmits CN I, the olfactory nerve, into the anterior cranial fossa; a fracture here causes anosmia and CSF rhinorrhea.", box:{x:2.6,y:1.5,w:41.0,h:8.5} },
-          { id:"optic-canal", text:"Optic canal: transmits CN II, the optic nerve, along with the ophthalmic artery, into the orbit.", box:{x:2.6,y:11.3,w:41.0,h:8.5} },
-          { id:"superior-orbital-fissure", text:"Superior orbital fissure: transmits CN III, IV, V1 (ophthalmic), and VI; compression here causes orbital apex/superior orbital fissure syndrome.", box:{x:2.6,y:21.2,w:41.0,h:17.8} },
-          { id:"foramen-rotundum", text:"Foramen rotundum: transmits CN V2, the maxillary division of the trigeminal nerve, to the midface and upper teeth.", box:{x:2.6,y:40.4,w:41.0,h:8.5} },
-          { id:"foramen-ovale", text:"Foramen ovale: transmits CN V3, the mandibular division of the trigeminal nerve, to the lower face, tongue, and muscles of mastication.", box:{x:2.6,y:50.2,w:41.0,h:8.8} },
-          { id:"internal-acoustic-meatus", text:"Internal acoustic meatus: transmits CN VII (facial) and CN VIII (vestibulocochlear); CN VII here is the site of vulnerability in Bell's palsy.", box:{x:2.6,y:60.4,w:41.0,h:11.1} },
-          { id:"jugular-foramen", text:"Jugular foramen: transmits CN IX (glossopharyngeal: gag/oropharyngeal sensation), CN X (vagus: laryngeal motor/sensory), and CN XI (accessory: SCM/trapezius, at risk in neck dissection).", box:{x:2.6,y:72.9,w:41.0,h:15.4} },
-          { id:"hypoglossal-canal", text:"Hypoglossal canal: transmits CN XII, the hypoglossal nerve, which supplies tongue movement.", box:{x:2.6,y:89.7,w:41.0,h:9.8} }
+          { id:"cribriform-plate", text:"Cribriform plate: transmits CN I, the olfactory nerve, into the anterior cranial fossa; a fracture here causes anosmia and CSF rhinorrhea.", box:{x:12.1,y:2.4,w:22.1,h:6.9} },
+          { id:"optic-canal", text:"Optic canal: transmits CN II, the optic nerve, along with the ophthalmic artery, into the orbit.", box:{x:15.1,y:12.2,w:16.5,h:4.2}, extra:[{x:13.8,y:15.5,w:18.5,h:3.7}] },
+          { id:"superior-orbital-fissure", text:"Superior orbital fissure: transmits CN III, IV, V1 (ophthalmic), and VI; compression here causes orbital apex/superior orbital fissure syndrome.", box:{x:8.4,y:22.4,w:29.5,h:16.2} },
+          { id:"foramen-rotundum", text:"Foramen rotundum: transmits CN V2, the maxillary division of the trigeminal nerve, to the midface and upper teeth.", box:{x:10.3,y:41.8,w:25.7,h:7.0} },
+          { id:"foramen-ovale", text:"Foramen ovale: transmits CN V3, the mandibular division of the trigeminal nerve, to the lower face, tongue, and muscles of mastication.", box:{x:9.5,y:52.0,w:26.8,h:6.7} },
+          { id:"internal-acoustic-meatus", text:"Internal acoustic meatus: transmits CN VII (facial) and CN VIII (vestibulocochlear); CN VII here is the site of vulnerability in Bell's palsy.", box:{x:5.3,y:61.8,w:35.6,h:9.8} },
+          { id:"jugular-foramen", text:"Jugular foramen: transmits CN IX (glossopharyngeal: gag/oropharyngeal sensation), CN X (vagus: laryngeal motor/sensory), and CN XI (accessory: SCM/trapezius, at risk in neck dissection).", box:{x:6.2,y:75.0,w:33.9,h:13.3} },
+          { id:"hypoglossal-canal", text:"Hypoglossal canal: transmits CN XII, the hypoglossal nerve, which supplies tongue movement.", box:{x:10.9,y:91.1,w:24.8,h:4.4}, extra:[{x:8.8,y:94.6,w:28.5,h:3.8}] }
         ]
       },
       {
@@ -141,18 +141,18 @@ window.JEFFENT.register({
         src: "assets/img/figures/facial_nerve_course.png",
         source: "Detailed Surgical Anatomy of the Facial Nerve. Hovland N, Phuong A, Lu GN. Oper Tech Otolaryngol Head Neck Surg. 2021;32(4):190-196.",
         labels: [
-          { id:"motor-root", text:"Motor root of the facial nerve: the larger root, carrying the special visceral efferent fibers to the muscles of facial expression, stapedius, stylohyoid, and posterior digastric.", box:{x:25.2,y:3.2,w:27.9,h:3.4} },
-          { id:"sensory-root", text:"Sensory root (nervus intermedius): carries taste (anterior two-thirds of tongue) and parasympathetic secretomotor fibers to the lacrimal, submandibular, and sublingual glands.", box:{x:77.2,y:3.0,w:22.8,h:5.8} },
-          { id:"cisternal-segment", text:"Cisternal segment: the facial nerve's course through the cerebellopontine angle cistern before entering the internal acoustic meatus; the site involved by vestibular schwannomas.", box:{x:30.0,y:8.2,w:19.9,h:3.4} },
-          { id:"geniculate-ganglion", text:"Geniculate ganglion: sensory ganglion between the labyrinthine and tympanic segments; herpes zoster reactivation here causes Ramsay Hunt syndrome.", box:{x:10.8,y:14.7,w:20.1,h:3.8} },
-          { id:"internal-acoustic-meatus", text:"Internal acoustic meatus (IAM): transmits CN VII and CN VIII from the posterior fossa into the temporal bone.", box:{x:76.8,y:15.3,w:23.2,h:5.8} },
-          { id:"tympanic-segment", text:"Tympanic segment: runs along the medial middle-ear wall just above the oval window; at risk in cholesteatoma and middle-ear surgery.", box:{x:0.0,y:26.1,w:12.3,h:5.8} },
-          { id:"facial-nerve-label", text:"Facial nerve (CN VII): the intratemporal course runs labyrinthine to tympanic to mastoid segments before exiting the stylomastoid foramen.", box:{x:0.0,y:35.3,w:14.2,h:3.6} },
-          { id:"meatal-labyrinthine-segments", text:"Meatal and labyrinthine segments: the narrowest part of the nerve's course, between the IAM fundus and the geniculate ganglion; the most common site of compression in Bell's palsy.", box:{x:82.5,y:26.7,w:17.5,h:8.8} },
-          { id:"greater-petrosal-nerve", text:"Greater petrosal nerve: branches off at the geniculate ganglion carrying parasympathetic fibers to the lacrimal gland; injury here causes dry eye.", box:{x:82.5,y:38.2,w:17.5,h:5.4} },
-          { id:"mastoid-segment", text:"Mastoid (vertical) segment: descends to the stylomastoid foramen, giving off the nerve to stapedius and the chorda tympani.", box:{x:0.0,y:53.4,w:12.3,h:5.8} },
-          { id:"stylomastoid-foramen", text:"Stylomastoid foramen: the facial nerve's exit point from the temporal bone into the parotid gland.", box:{x:0.0,y:62.4,w:18.0,h:6.8} },
-          { id:"chorda-tympani", text:"Chorda tympani: branches from the mastoid segment, crosses the middle ear, and carries taste from the anterior two-thirds of the tongue plus secretomotor fibers to the submandibular/sublingual glands.", box:{x:78.9,y:57.8,w:21.1,h:5.4} }
+          { id:"motor-root", text:"Motor root of the facial nerve: the larger root, carrying the special visceral efferent fibers to the muscles of facial expression, stapedius, stylohyoid, and posterior digastric.", box:{x:25.1,y:2.9,w:29.3,h:3.6} },
+          { id:"sensory-root", text:"Sensory root (nervus intermedius): carries taste (anterior two-thirds of tongue) and parasympathetic secretomotor fibers to the lacrimal, submandibular, and sublingual glands.", box:{x:76.0,y:2.7,w:24.0,h:7.0} },
+          { id:"cisternal-segment", text:"Cisternal segment: the facial nerve's course through the cerebellopontine angle cistern before entering the internal acoustic meatus; the site involved by vestibular schwannomas.", box:{x:28.5,y:8.3,w:22.3,h:4.2}, extra:[{x:7.0,y:78.3,w:22.5,h:4.2}] },
+          { id:"geniculate-ganglion", text:"Geniculate ganglion: sensory ganglion between the labyrinthine and tympanic segments; herpes zoster reactivation here causes Ramsay Hunt syndrome.", box:{x:9.7,y:14.8,w:24.2,h:4.4} },
+          { id:"internal-acoustic-meatus", text:"Internal acoustic meatus (IAM): transmits CN VII and CN VIII from the posterior fossa into the temporal bone.", box:{x:76.7,y:14.6,w:20.8,h:7.2} },
+          { id:"tympanic-segment", text:"Tympanic segment: runs along the medial middle-ear wall just above the oval window; at risk in cholesteatoma and middle-ear surgery.", box:{x:7.1,y:89.7,w:23.0,h:3.6}, extra:[{x:0,y:25.5,w:12.0,h:3.6},{x:0,y:28.3,w:11.6,h:3.8},{x:0,y:56.2,w:11.3,h:3.6}] },
+          { id:"facial-nerve-label", text:"Facial nerve (CN VII): the intratemporal course runs labyrinthine to tympanic to mastoid segments before exiting the stylomastoid foramen.", box:{x:0,y:35.2,w:14.4,h:3.6} },
+          { id:"meatal-labyrinthine-segments", text:"Meatal and labyrinthine segments: the narrowest part of the nerve's course, between the IAM fundus and the geniculate ganglion; the most common site of compression in Bell's palsy.", box:{x:6.9,y:82.0,w:26.6,h:7.6} },
+          { id:"greater-petrosal-nerve", text:"Greater petrosal nerve: branches off at the geniculate ganglion carrying parasympathetic fibers to the lacrimal gland; injury here causes dry eye.", box:{x:82.0,y:37.9,w:18.0,h:7.0} },
+          { id:"mastoid-segment", text:"Mastoid (vertical) segment: descends to the stylomastoid foramen, giving off the nerve to stapedius and the chorda tympani.", box:{x:6.9,y:93.1,w:21.3,h:4.0} },
+          { id:"stylomastoid-foramen", text:"Stylomastoid foramen: the facial nerve's exit point from the temporal bone into the parotid gland.", box:{x:0,y:52.9,w:9.8,h:3.8} },
+          { id:"chorda-tympani", text:"Chorda tympani: branches from the mastoid segment, crosses the middle ear, and carries taste from the anterior two-thirds of the tongue plus secretomotor fibers to the submandibular/sublingual glands.", box:{x:78.2,y:59.3,w:19.8,h:4.2} }
         ]
       },
       {
@@ -164,17 +164,17 @@ window.JEFFENT.register({
         src: "assets/img/figures/neck-triangles-colored.png",
         source: "Fascial Layers and Triangles of the Neck. Scholes & Ramakrishnan (2015) ENT Secrets / Wikimedia Commons CC BY-SA 4.0.",
         labels: [
-          { id:"mandibula", text:"Mandibula (mandible): forms the superior boundary of the anterior triangle of the neck.", box:{x:10.7,y:39.4,w:8.0,h:3.5} },
-          { id:"os-hyoideum", text:"Os hyoideum (hyoid bone): U-shaped bone at the C3 level that anchors suprahyoid and infrahyoid muscles and marks the boundary between the submental/submandibular and carotid/muscular triangles.", box:{x:10.7,y:50.2,w:9.0,h:3.3} },
-          { id:"anterior-triangle", text:"Anterior triangle: bounded by the mandible above, the midline medially, and the anterior border of sternocleidomastoid laterally; subdivided into submental, submandibular, carotid, and muscular triangles.", box:{x:0.0,y:63.7,w:4.0,h:26.7} },
-          { id:"submental-triangle", text:"Submental triangle: unpaired midline space between the anterior bellies of digastric and the hyoid; drains the chin, lower lip, and tongue tip (level Ia nodes).", box:{x:3.7,y:55.4,w:18.3,h:3.5} },
-          { id:"submandibular-triangle", text:"Submandibular triangle: bounded by the digastric bellies and mandible; contains the submandibular gland and level Ib nodes.", box:{x:5.1,y:59.4,w:22.4,h:3.5} },
-          { id:"carotid-triangle", text:"Carotid triangle: bounded by the SCM, posterior digastric, and omohyoid; exposes the carotid sheath (carotid artery, IJV, vagus nerve) for surgical access.", box:{x:3.7,y:63.2,w:13.9,h:3.5} },
-          { id:"muscular-triangle", text:"Muscular triangle: bounded by the midline, SCM, and omohyoid; contains the infrahyoid (strap) muscles overlying the thyroid and trachea.", box:{x:3.7,y:68.4,w:13.9,h:2.8} },
-          { id:"processus-mastoideus", text:"Processus mastoideus (mastoid process): posterior attachment point of sternocleidomastoid, marking the upper posterior corner of the anterior/posterior triangle boundary.", box:{x:76.6,y:29.0,w:18.3,h:3.3} },
-          { id:"posterior-triangle", text:"Posterior triangle: bounded by the posterior border of sternocleidomastoid, the anterior border of trapezius, and the clavicle; carries CN XI (spinal accessory) and the brachial plexus roots superficially.", box:{x:96.0,y:62.0,w:4.0,h:27.6} },
-          { id:"ocipital-triangle", text:"Occipital triangle: the larger, superior subdivision of the posterior triangle (above the inferior belly of omohyoid); contains CN XI and the upper posterior triangle lymph nodes (level Va).", box:{x:74.5,y:56.6,w:15.7,h:3.5} },
-          { id:"subclavian-triangle", text:"Subclavian (supraclavicular) triangle: the smaller, inferior subdivision of the posterior triangle, floored by the subclavian artery and lower brachial plexus trunks (level Vb nodes).", box:{x:74.5,y:62.0,w:20.4,h:3.5} },
+          { id:"mandibula", text:"Mandibula (mandible): forms the superior boundary of the anterior triangle of the neck.", box:{x:9.9,y:39.6,w:10.1,h:4.3} },
+          { id:"os-hyoideum", text:"Os hyoideum (hyoid bone): U-shaped bone at the C3 level that anchors suprahyoid and infrahyoid muscles and marks the boundary between the submental/submandibular and carotid/muscular triangles.", box:{x:10.7,y:50.2,w:9,h:3.3} },
+          { id:"anterior-triangle", text:"Anterior triangle: bounded by the mandible above, the midline medially, and the anterior border of sternocleidomastoid laterally; subdivided into submental, submandibular, carotid, and muscular triangles.", box:{x:0,y:63.7,w:4,h:26.7} },
+          { id:"submental-triangle", text:"Submental triangle: unpaired midline space between the anterior bellies of digastric and the hyoid; drains the chin, lower lip, and tongue tip (level Ia nodes).", box:{x:3.3,y:55.2,w:19.5,h:4.8} },
+          { id:"submandibular-triangle", text:"Submandibular triangle: bounded by the digastric bellies and mandible; contains the submandibular gland and level Ib nodes.", box:{x:4.4,y:59.6,w:23.5,h:4.1} },
+          { id:"carotid-triangle", text:"Carotid triangle: bounded by the SCM, posterior digastric, and omohyoid; exposes the carotid sheath (carotid artery, IJV, vagus nerve) for surgical access.", box:{x:3.0,y:64.1,w:15.8,h:4.1} },
+          { id:"muscular-triangle", text:"Muscular triangle: bounded by the midline, SCM, and omohyoid; contains the infrahyoid (strap) muscles overlying the thyroid and trachea.", box:{x:2.8,y:67.9,w:17.7,h:4.5} },
+          { id:"processus-mastoideus", text:"Processus mastoideus (mastoid process): posterior attachment point of sternocleidomastoid, marking the upper posterior corner of the anterior/posterior triangle boundary.", box:{x:76.1,y:29.2,w:19.3,h:3.8} },
+          { id:"posterior-triangle", text:"Posterior triangle: bounded by the posterior border of sternocleidomastoid, the anterior border of trapezius, and the clavicle; carries CN XI (spinal accessory) and the brachial plexus roots superficially.", box:{x:95.1,y:46.2,w:4.5,h:30.0} },
+          { id:"ocipital-triangle", text:"Occipital triangle: the larger, superior subdivision of the posterior triangle (above the inferior belly of omohyoid); contains CN XI and the upper posterior triangle lymph nodes (level Va).", box:{x:74.1,y:56.6,w:16.1,h:4.3} },
+          { id:"subclavian-triangle", text:"Subclavian (supraclavicular) triangle: the smaller, inferior subdivision of the posterior triangle, floored by the subclavian artery and lower brachial plexus trunks (level Vb nodes).", box:{x:74.5,y:62,w:20.4,h:3.5} },
           { id:"clavicula", text:"Clavicula (clavicle): forms the inferior boundary of the posterior triangle and the neck as a whole.", box:{x:87.7,y:76.2,w:6.6,h:2.4} }
         ]
       },

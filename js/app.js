@@ -2898,7 +2898,10 @@
       var num = grouped.numberOf(L.id);
       if (dg.occlude && L.box) {
         var b = L.box;
-        return '<button type="button" class="img-occ" style="left:' + b.x + '%;top:' + b.y + '%;width:' + b.w + '%;height:' + b.h + '%" data-hot="' + L.id + '" aria-label="Reveal landmark ' + num + '"><span class="occ-num">' + num + '</span></button>';
+        var extra = (L.extra || []).map(function (e) {
+          return '<button type="button" class="img-occ img-occ-extra" tabindex="-1" aria-hidden="true" style="left:' + e.x + '%;top:' + e.y + '%;width:' + e.w + '%;height:' + e.h + '%" data-hot="' + L.id + '"></button>';
+        }).join("");
+        return '<button type="button" class="img-occ" style="left:' + b.x + '%;top:' + b.y + '%;width:' + b.w + '%;height:' + b.h + '%" data-hot="' + L.id + '" aria-label="Reveal landmark ' + num + '"><span class="occ-num">' + num + '</span></button>' + extra;
       }
       return '<button type="button" class="img-dot" style="left:' + L.xPct + '%;top:' + L.yPct + '%" data-hot="' + L.id + '" aria-label="Reveal landmark ' + num + '">' +
         '<span class="dot">' + num + '</span>' +

@@ -66,13 +66,13 @@ window.JEFFENT.register({
         src: "assets/img/figures/laryngeal_cartilages.png",
         source: "Laryngeal Cartilage Framework (Thyroid, Cricoid, Arytenoids, Epiglottis). Illustration generated with Google Gemini.",
         labels: [
-          { id:"hyoid", text:"Hyoid bone: superior anchor for laryngeal suspension; tethers the epiglottis and thyrohyoid membrane above the larynx (not itself a laryngeal cartilage).", box:{x:3.0,y:23.0,w:12.5,h:6.0} },
-          { id:"epi", text:"Epiglottis: leaf-shaped elastic cartilage that folds down over the laryngeal inlet during swallowing to protect the airway.", box:{x:42.0,y:19.5,w:16.0,h:11.5} },
-          { id:"thy", text:"Thyroid cartilage: the largest laryngeal cartilage; its anterior fusion forms the laryngeal prominence ('Adam's apple').", box:{x:41.5,y:36.0,w:16.0,h:11.5} },
-          { id:"cricothy", text:"Cricothyroid membrane: the surface landmark for emergency cricothyrotomy, spanning between the thyroid and cricoid cartilages.", box:{x:38.5,y:51.0,w:23.5,h:6.8} },
-          { id:"cric", text:"Cricoid cartilage: the only complete cartilaginous ring in the airway; forms the lower boundary of the subglottis.", box:{x:38.5,y:61.8,w:23.5,h:7.0} },
-          { id:"ary", text:"Arytenoid cartilages: paired pyramidal cartilages that rotate and glide on the cricoid to open and close the vocal folds.", box:{x:84.5,y:43.5,w:10.5,h:16.5} },
-          { id:"trach", text:"Superior tracheal rings: the trachea begins just below the cricoid cartilage, continuing the airway into the chest.", box:{x:5.5,y:74.8,w:17.5,h:7.0} }
+          { id:"hyoid", text:"Hyoid bone: superior anchor for laryngeal suspension; tethers the epiglottis and thyrohyoid membrane above the larynx (not itself a laryngeal cartilage).", box:{x:4.2,y:24.5,w:10.4,h:5.1}, extra:[{x:84.8,y:26.4,w:10.4,h:5.1}] },
+          { id:"epi", text:"Epiglottis: leaf-shaped elastic cartilage that folds down over the laryngeal inlet during swallowing to protect the airway.", box:{x:43.2,y:19.9,w:13.8,h:8.4}, extra:[{x:43.7,y:89.4,w:8.6,h:5.3}] },
+          { id:"thy", text:"Thyroid cartilage: the largest laryngeal cartilage; its anterior fusion forms the laryngeal prominence ('Adam's apple').", box:{x:42.6,y:36.5,w:15.2,h:11.8}, extra:[{x:43.6,y:74.7,w:14.3,h:5.3}] },
+          { id:"cricothy", text:"Cricothyroid membrane: the surface landmark for emergency cricothyrotomy, spanning between the thyroid and cricoid cartilages.", box:{x:39.8,y:51.2,w:20.5,h:4.4} },
+          { id:"cric", text:"Cricoid cartilage: the only complete cartilaginous ring in the airway; forms the lower boundary of the subglottis.", box:{x:39.1,y:61.4,w:22.1,h:8.6}, extra:[{x:43.7,y:79.4,w:13.8,h:5.5}] },
+          { id:"ary", text:"Arytenoid cartilages: paired pyramidal cartilages that rotate and glide on the cricoid to open and close the vocal folds.", box:{x:43.8,y:85.0,w:16.5,h:4.6}, extra:[{x:84.8,y:43.2,w:9.4,h:4.9},{x:84.6,y:47.0,w:9.9,h:4.7}] },
+          { id:"trach", text:"Superior tracheal rings: the trachea begins just below the cricoid cartilage, continuing the airway into the chest.", box:{x:6.6,y:75.0,w:12.3,h:8.7}, extra:[{x:82.3,y:78.3,w:12.2,h:5.5}] }
         ]
       },
       {
@@ -84,18 +84,18 @@ window.JEFFENT.register({
         src: "assets/img/figures/laryngeal_subsites_supraglottis.png",
         source: "Laryngeal subsites. Illustration generated with Google Gemini.",
         labels: [
-          { id:"epiglottis", text:"Epiglottis: leaf-shaped cartilage forming the top of the supraglottis; folds over the laryngeal inlet during swallowing.", box:{x:49.6,y:16.64,w:9.77,h:4.47} },
-          { id:"false-vf", text:"False vocal folds (vestibular folds): supraglottic mucosal folds above the true cords; do not vibrate for phonation, but can compensate for glottic insufficiency.", box:{x:49.3,y:23.26,w:16.6,h:8.05} },
-          { id:"ventricles-morgagni", text:"Laryngeal ventricles (of Morgagni): the space between the false and true vocal folds; saccule herniation here causes a laryngocele.", box:{x:49.3,y:33.99,w:20.02,h:7.51} },
-          { id:"sg", text:"Supraglottis (epiglottis, false folds, ventricle): rich lymphatics, so cancer here presents late, often with a neck node.", box:{x:67.0,y:23.4,w:30.5,h:15.0} },
-          { id:"lv", text:"Laryngeal ventricle: the mucosal recess separating the false fold above from the true fold below.", box:{x:49.3,y:46.51,w:11.72,h:7.51} },
-          { id:"tvf", text:"True vocal folds (vocal cords): the vibrating margin that produces voice; sparse lymphatics mean cancer here causes hoarseness early.", box:{x:9.28,y:54.2,w:15.63,h:7.51} },
-          { id:"true-cords", text:"True cords: the free edge of the vocal fold, formed by the vocalis muscle covered by the epithelium and lamina propria.", box:{x:49.3,y:55.46,w:11.23,h:4.47} },
-          { id:"gl", text:"Glottis (true vocal folds): sparse lymphatics, hoarseness presents early and cancer is often caught before it spreads.", box:{x:67.0,y:47.9,w:30.5,h:15.5} },
-          { id:"rima", text:"Rima glottidis: the airway opening between the true vocal folds; its widest point is at the posterior commissure during abduction.", box:{x:11.52,y:67.08,w:13.18,h:4.47} },
-          { id:"cricoid-cart", text:"Cricoid cartilage: the only complete cartilaginous ring in the airway, forming the subglottic framework below the folds.", box:{x:9.47,y:74.78,w:15.14,h:4.47} },
-          { id:"sub", text:"Subglottis: narrowest part of a child's airway; site of subglottic stenosis (iatrogenic, idiopathic, or GPA).", box:{x:67.0,y:68.0,w:26.5,h:15.0} },
-          { id:"trachea", text:"Trachea: continues the airway below the cricoid cartilage, made of incomplete (C-shaped) cartilaginous rings.", box:{x:16.41,y:85.15,w:9.28,h:4.47} }
+          { id:"epiglottis", text:"Epiglottis: leaf-shaped cartilage forming the top of the supraglottis; folds over the laryngeal inlet during swallowing.", box:{x:49.6,y:16.1,w:9.6,h:5.7}, extra:[{x:79.5,y:90.8,w:6.6,h:4.7}] },
+          { id:"false-vf", text:"False vocal folds (vestibular folds): supraglottic mucosal folds above the true cords; do not vibrate for phonation, but can compensate for glottic insufficiency.", box:{x:49.8,y:23.3,w:15.8,h:8.5} },
+          { id:"ventricles-morgagni", text:"Laryngeal ventricles (of Morgagni): the space between the false and true vocal folds; saccule herniation here causes a laryngocele.", box:{x:49.5,y:33.0,w:40.2,h:9.1} },
+          { id:"sg", text:"Supraglottis (epiglottis, false folds, ventricle): rich lymphatics, so cancer here presents late, often with a neck node.", box:{x:66.7,y:23.7,w:31.0,h:10.3} },
+          { id:"lv", text:"Laryngeal ventricle: the mucosal recess separating the false fold above from the true fold below.", box:{x:49.5,y:46.0,w:10.5,h:9.1} },
+          { id:"tvf", text:"True vocal folds (vocal cords): the vibrating margin that produces voice; sparse lymphatics mean cancer here causes hoarseness early.", box:{x:8.5,y:54.1,w:14.9,h:9.1} },
+          { id:"true-cords", text:"True cords: the free edge of the vocal fold, formed by the vocalis muscle covered by the epithelium and lamina propria.", box:{x:49.2,y:55.1,w:11.4,h:5.1} },
+          { id:"gl", text:"Glottis (true vocal folds): sparse lymphatics, hoarseness presents early and cancer is often caught before it spreads.", box:{x:67,y:47.9,w:30.5,h:15.5} },
+          { id:"rima", text:"Rima glottidis: the airway opening between the true vocal folds; its widest point is at the posterior commissure during abduction.", box:{x:11.3,y:66.9,w:13.3,h:5.1} },
+          { id:"cricoid-cart", text:"Cricoid cartilage: the only complete cartilaginous ring in the airway, forming the subglottic framework below the folds.", box:{x:9.1,y:74.6,w:15.5,h:5.5} },
+          { id:"sub", text:"Subglottis: narrowest part of a child's airway; site of subglottic stenosis (iatrogenic, idiopathic, or GPA).", box:{x:66.1,y:68.6,w:30.0,h:10.2}, extra:[{x:66.4,y:90.8,w:11.0,h:4.9},{x:88.2,y:90.5,w:9.5,h:5.3}] },
+          { id:"trachea", text:"Trachea: continues the airway below the cricoid cartilage, made of incomplete (C-shaped) cartilaginous rings.", box:{x:16.3,y:84.5,w:8.7,h:5.7} }
         ]
       },
       {
@@ -107,13 +107,13 @@ window.JEFFENT.register({
         src: "assets/img/figures/recurrent_laryngeal_nerve_course_2.png",
         source: "Recurrent laryngeal nerve course. Illustration generated with Google Gemini.",
         labels: [
-          { id:"rvn", text:"Right vagus nerve: descends in the carotid sheath and gives off the right recurrent laryngeal nerve in the root of the neck.", box:{x:0,y:9.0,w:21.0,h:4.5} },
-          { id:"rrln", text:"Right recurrent laryngeal nerve: loops under the right subclavian artery, a shorter and more direct course than the left.", box:{x:0,y:16.8,w:19.5,h:8.8} },
-          { id:"rsa", text:"Right subclavian artery: the right RLN hooks under this vessel before ascending back to the larynx.", box:{x:0,y:31.4,w:20.5,h:8.5} },
-          { id:"lvn", text:"Left vagus nerve: continues past the aortic arch before giving off the left recurrent laryngeal nerve, giving it a longer thoracic course.", box:{x:79.5,y:9.2,w:20.5,h:4.5} },
-          { id:"lrln", text:"Left recurrent laryngeal nerve: loops under the arch of the aorta, exposing it to mediastinal, thyroid, and aortic pathology.", box:{x:79.5,y:23.4,w:20.5,h:9.2} },
-          { id:"lsa", text:"Left subclavian artery: arises from the aortic arch; the left RLN passes medial to it, not around it.", box:{x:79.5,y:41.5,w:20.5,h:7.0} },
-          { id:"aorta", text:"Arch of the aorta: the anatomic reason the left RLN has a longer, more clinically vulnerable course than the right.", box:{x:85.5,y:54.4,w:14.5,h:5.0} }
+          { id:"rvn", text:"Right vagus nerve: descends in the carotid sheath and gives off the right recurrent laryngeal nerve in the root of the neck.", box:{x:0,y:9.2,w:20.4,h:5.6} },
+          { id:"rrln", text:"Right recurrent laryngeal nerve: loops under the right subclavian artery, a shorter and more direct course than the left.", box:{x:0,y:16.7,w:17.4,h:9.7} },
+          { id:"rsa", text:"Right subclavian artery: the right RLN hooks under this vessel before ascending back to the larynx.", box:{x:0,y:33.1,w:18.6,h:10.0} },
+          { id:"lvn", text:"Left vagus nerve: continues past the aortic arch before giving off the left recurrent laryngeal nerve, giving it a longer thoracic course.", box:{x:80.6,y:9.2,w:19.4,h:5.3} },
+          { id:"lrln", text:"Left recurrent laryngeal nerve: loops under the arch of the aorta, exposing it to mediastinal, thyroid, and aortic pathology.", box:{x:80.6,y:21.7,w:18.6,h:9.5} },
+          { id:"lsa", text:"Left subclavian artery: arises from the aortic arch; the left RLN passes medial to it, not around it.", box:{x:80.7,y:41.1,w:18.1,h:9.7} },
+          { id:"aorta", text:"Arch of the aorta: the anatomic reason the left RLN has a longer, more clinically vulnerable course than the right.", box:{x:80.9,y:56.2,w:19.1,h:4.5} }
         ]
       },
       {
@@ -125,14 +125,14 @@ window.JEFFENT.register({
         src: "assets/img/figures/vocal_fold_layers.png",
         source: "Microarchitecture of the True Vocal Fold (Cover-Body Layers). Illustration generated with Google Gemini.",
         labels: [
-          { id:"vf-epithelium", text:"Epithelium: the thin surface lining of the vocal fold, part of the vibrating 'cover'.", box:{x:43.6,y:12.12,w:16.58,h:4.55} },
-          { id:"vf-superficial-lp", text:"Superficial lamina propria (Reinke's space): the pliable, gelatinous layer that lets the cover slide over the body; swells with smoking, reflux, or vocal abuse.", box:{x:43.5,y:20.15,w:43.75,h:9.39} },
-          { id:"vf-intermediate-lp", text:"Intermediate lamina propria: elastin-rich middle layer of the vocal ligament, part of the 'transition' between cover and body.", box:{x:43.5,y:33.03,w:43.75,h:5.76} },
-          { id:"vf-ligament", text:"Vocal ligament: formed by the intermediate and deep lamina propria together; the fibrous band spanning the anterior and posterior glottis.", box:{x:40.05,y:43.94,w:16.78,h:9.55} },
-          { id:"vf-vocals-muscle", text:"Vocalis (thyroarytenoid) muscle: the stiffer 'body' of the fold; its tension helps set pitch.", box:{x:38.19,y:72.27,w:22.57,h:12.58} },
-          { id:"vf-deep-lp", text:"Deep lamina propria: collagen-rich layer bordering the muscle, part of the 'transition' contributing to the vocal ligament.", box:{x:69.56,y:69.7,w:21.64,h:3.79} },
-          { id:"vf-cover", text:"Cover: the epithelium plus superficial lamina propria; the pliable layer that vibrates freely in the mucosal wave.", box:{x:69.56,y:80.3,w:9.6,h:4.24} },
-          { id:"vf-body", text:"Body: the vocalis muscle plus the vocal ligament (intermediate and deep lamina propria); the stiffer layer the cover vibrates over.", box:{x:64.0,y:86.06,w:35.53,h:8.64} }
+          { id:"vf-epithelium", text:"Epithelium: the thin surface lining of the vocal fold, part of the vibrating 'cover'.", box:{x:42.1,y:11.9,w:18.1,h:5.7}, extra:[{x:69.1,y:55.2,w:12.5,h:4.4}] },
+          { id:"vf-superficial-lp", text:"Superficial lamina propria (Reinke's space): the pliable, gelatinous layer that lets the cover slide over the body; swells with smoking, reflux, or vocal abuse.", box:{x:42.2,y:19.8,w:42.1,h:11.2}, extra:[{x:69.2,y:60.2,w:28.7,h:4.3}] },
+          { id:"vf-intermediate-lp", text:"Intermediate lamina propria: elastin-rich middle layer of the vocal ligament, part of the 'transition' between cover and body.", box:{x:41.7,y:33.0,w:45.8,h:5.8}, extra:[{x:69.0,y:65.1,w:29.9,h:4.4}] },
+          { id:"vf-ligament", text:"Vocal ligament: formed by the intermediate and deep lamina propria together; the fibrous band spanning the anterior and posterior glottis.", box:{x:75.5,y:91.5,w:19.1,h:4.6} },
+          { id:"vf-vocals-muscle", text:"Vocalis (thyroarytenoid) muscle: the stiffer 'body' of the fold; its tension helps set pitch.", box:{x:37.0,y:72.3,w:23.8,h:14.7} },
+          { id:"vf-deep-lp", text:"Deep lamina propria: collagen-rich layer bordering the muscle, part of the 'transition' contributing to the vocal ligament.", box:{x:69.0,y:70.0,w:23.6,h:4.8} },
+          { id:"vf-cover", text:"Cover: the epithelium plus superficial lamina propria; the pliable layer that vibrates freely in the mucosal wave.", box:{x:68.7,y:80.6,w:11.7,h:4.8} },
+          { id:"vf-body", text:"Body: the vocalis muscle plus the vocal ligament (intermediate and deep lamina propria); the stiffer layer the cover vibrates over.", box:{x:64.9,y:89.0,w:9.0,h:4.9} }
         ]
       }
     ]

@@ -2631,3 +2631,7 @@ tr.row-flash td { background: var(--primary-tint) !important; transition: backgr
 .tbl-scroll table.tbl-wrap td strong { color: var(--primary-deep); }
 /* Roomier bullets in lesson text so long items do not read as one block. */
 div.anatomy-detail-body:not(.panel) > ul:not(.note-points) > li { margin-bottom: 14px; line-height: 1.65; }
+
+/* Extra cover for printed text that repeats a label's name (legends, captions). */
+.img-occ-extra { background: var(--surface); border: 1px solid var(--primary); border-radius: 4px; transition: opacity .12s ease; }
+.img-occ-extra.revealed { opacity: 0; pointer-events: none; }
