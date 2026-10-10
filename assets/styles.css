@@ -2581,7 +2581,7 @@ div.anatomy-detail-body:not(.panel) > ul.note-points, div.anatomy-detail-body ul
 .sk-group h4 { font-family: "JetBrains Mono", monospace; letter-spacing: .09em; }
 
 /* Jump back in / Start here: one or two shortcuts under the queue hero. */
-.jump-row { margin: 26px 0 6px; }
+.jump-row { margin: 22px 0 22px; }
 .jump-chips { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin-top: 10px; }
 .jump-chip { position: relative; display: grid; gap: 4px; text-align: left; padding: 16px 44px 16px 20px; border: 1px solid var(--line); border-radius: 14px;
   background: var(--surface); color: var(--ink); cursor: pointer; transition: border-color .2s, transform .25s var(--ease, ease), box-shadow .25s; }

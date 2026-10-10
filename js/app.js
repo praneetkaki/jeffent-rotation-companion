@@ -1389,6 +1389,8 @@
         if (!paused && !document.hidden && Date.now() - lastTap > 3000) step();
       }, 4200);
     }
+    var jumpRow = buildJumpRow();
+    if (jumpRow) root.appendChild(jumpRow);
     root.appendChild(peek);
   }
 
@@ -1559,8 +1561,6 @@
 
     bento.appendChild(heroTile);
     root.appendChild(bento);
-    var jumpRow = buildJumpRow();
-    if (jumpRow) root.appendChild(jumpRow);
     animateStatCounts(bento);
     animateMasteryRing(bento);
     buildHomeShowcase(root, allMods);
