@@ -121,7 +121,7 @@ window.JEFFENT.register({
         title: "Levels of upper airway obstruction",
         note: "Nasal, retropalatal, and retroglossal levels: name each, then reveal what surgery targets it.",
         src: "assets/img/figures/level_upper_airway_obstruction_labeled.png",
-        source: "Levels of Upper Airway Obstruction and Targeted Surgeries. Illustration generated with Google Gemini.",
+        source: "Levels of Upper Airway Obstruction and Targeted Surgeries.",
         labels: [
           { id:"nasal", text:"Nasal cavity: septum/turbinates; affects CPAP tolerance more than apnea directly", box:{x:73.9,y:20.6,w:17.3,h:7.3} },
           { id:"retropalatal", text:"Retropalatal region: soft palate/uvula/lateral walls (UPPP target)", box:{x:73.8,y:44.9,w:26.2,h:6.7} },
@@ -193,7 +193,7 @@ window.JEFFENT.register({
         title: "How CPAP holds the airway open: pneumatic splinting",
         note: "Same airway, no pressure versus with positive airway pressure. Name each panel, then reveal.",
         src: "assets/img/figures/CPAP_therapy.png",
-        source: "How CPAP Works: Continuous Pneumatic Airway Splinting. Illustration generated with Google Gemini.",
+        source: "How CPAP Works: Continuous Pneumatic Airway Splinting.",
         labels: [
           { id:"collapsed-airway", text:"Collapsed airway: without pressure support, the soft palate/tongue-base tissue apposes the pharyngeal wall and obstructs the airway", box:{x:1.0,y:60.7,w:11.1,h:10.3} },
           { id:"larynx", text:"Larynx: landmark below the collapsing retropalatal/retroglossal airway; not itself the site of obstruction in OSA", box:{x:3.8,y:73.0,w:8.4,h:5.7} },

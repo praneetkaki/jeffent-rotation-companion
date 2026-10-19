@@ -207,7 +207,7 @@ window.JEFFENT.register({
         title: "The middle ear and mastoid danger zone",
         note: "Hand-drawn schematic, not to scale. Shows how closely the facial nerve, tegmen tympani, sigmoid sinus, and ossicular chain sit within the same small middle-ear/mastoid space, the reason disease or surgery here can threaten all four at once. Click a landmark to reveal its label.",
         src: "assets/img/figures/middle_ear_dangerous_relationships.png",
-        source: "The Middle Ear and Mastoid Danger Zone Anatomic Relationships. Illustration generated with Google Gemini (adapted from Bagla).",
+        source: "The Middle Ear and Mastoid Danger Zone Anatomic Relationships. Adapted from Bagla.",
         labels: [
           { id:"lat-scc", text:"Prominence of the lateral semicircular canal: bulges into the mastoid antrum just above the facial canal: the surgical landmark used to find the facial nerve during mastoidectomy.", box:{x:5.1,y:3.4,w:29.8,h:3.8} },
           { id:"facial-canal-prom", text:"Prominence of the facial canal: the bony ridge overlying the tympanic segment of CN VII as it runs above the oval window: thin and dehiscent in a substantial minority of temporal bones (reported roughly 25% to over 50% across histologic series), so it's easily eroded by cholesteatoma or infection.", box:{x:38.6,y:3.4,w:20.2,h:3.7} },

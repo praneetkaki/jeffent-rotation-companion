@@ -56,7 +56,7 @@ _Generated 2026-10-19 from content/*.js_
 
 The anastomosis behind most nosebleeds. Name each contributing vessel, then reveal.
 
-_Image source: Kiesselbach's Plexus (Little's Area) Arterial Supply. Illustration generated with Google Gemini._
+_Image source: Kiesselbach's Plexus (Little's Area) Arterial Supply._
 - Anterior ethmoidal a. (internal carotid → ophthalmic branch): the highest of the four contributing vessels
 - Sphenopalatine a. (external carotid → maxillary a.): the posterior bleed source when it bleeds on its own, higher up the septum
 - Greater palatine a. (external carotid → maxillary a.): reaches the anterior septum via the incisive canal
@@ -91,7 +91,7 @@ Which sinus drains into which meatus. Name each, then reveal.
 
 Why sinusitis can become an orbital or intracranial emergency. Name each structure, then reveal.
 
-_Image source: Paranasal Sinuses Drainage and Adjacent Danger Zones. Illustration generated with Google Gemini._
+_Image source: Paranasal Sinuses Drainage and Adjacent Danger Zones._
 - Anterior cranial fossa: sits directly above the ethmoid roof, separated from it only by thin bone, so ethmoid infection can spread intracranially (meningitis, epidural/subdural abscess)
 - Frontal sinus: drains via the frontal recess into the middle meatus; borders the anterior cranial fossa, so frontal sinusitis risks intracranial spread (Pott's puffy tumor)
 - Frontal recess → middle meatus: the frontal sinus's only drainage route, easily obstructed by anterior ethmoid disease or a large agger nasi cell
@@ -129,7 +129,7 @@ _Image source: Osteocartilaginous Anatomy of the Nasal Septum. Wikimedia Commons
 
 Three pneumatization variants shown against normal sinus anatomy (not all at the same coronal level). Name each, then reveal.
 
-_Image source: Key FESS Anatomic Variants (Concha Bullosa, Haller Cells, Onodi Cells). Illustration generated with Google Gemini._
+_Image source: Key FESS Anatomic Variants (Concha Bullosa, Haller Cells, Onodi Cells)._
 - Concha bullosa: an aerated (pneumatized) middle turbinate, shaded green here, that can narrow the ostiomeatal complex and contribute to obstruction/CRS
 - Ostiomeatal complex (OMC): the shared drainage channel that a large concha bullosa can compress from the medial side
 - Haller cell (infraorbital ethmoid cell): an ethmoid air cell extending along the orbital floor next to the maxillary sinus ostium; can narrow the ostium and puts the orbital floor closer to the surgical field than expected

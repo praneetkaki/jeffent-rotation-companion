@@ -152,7 +152,7 @@ _Image source: Normal Right Tympanic Membrane Landmarks (Otoscopic View). oxford
 
 Hand-drawn schematic, not to scale. Shows how closely the facial nerve, tegmen tympani, sigmoid sinus, and ossicular chain sit within the same small middle-ear/mastoid space, the reason disease or surgery here can threaten all four at once. Click a landmark to reveal its label.
 
-_Image source: The Middle Ear and Mastoid Danger Zone Anatomic Relationships. Illustration generated with Google Gemini (adapted from Bagla)._
+_Image source: The Middle Ear and Mastoid Danger Zone Anatomic Relationships. Adapted from Bagla._
 - Prominence of the lateral semicircular canal: bulges into the mastoid antrum just above the facial canal: the surgical landmark used to find the facial nerve during mastoidectomy.
 - Prominence of the facial canal: the bony ridge overlying the tympanic segment of CN VII as it runs above the oval window: thin and dehiscent in a substantial minority of temporal bones (reported roughly 25% to over 50% across histologic series), so it's easily eroded by cholesteatoma or infection.
 - Tegmen tympani: the thin bony (and dural) plate roofing the middle ear/mastoid; erosion lets infection track into the middle cranial fossa (meningitis, abscess).

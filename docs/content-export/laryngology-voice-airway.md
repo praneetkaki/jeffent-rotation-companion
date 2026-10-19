@@ -58,7 +58,7 @@ Emergency airway: the cricothyroid membrane is the surgical airway site in adult
 
 The skeleton of the airway and voice box. Name each cartilage, then reveal.
 
-_Image source: Laryngeal Cartilage Framework (Thyroid, Cricoid, Arytenoids, Epiglottis). Illustration generated with Google Gemini._
+_Image source: Laryngeal Cartilage Framework (Thyroid, Cricoid, Arytenoids, Epiglottis)._
 - Hyoid bone: superior anchor for laryngeal suspension; tethers the epiglottis and thyrohyoid membrane above the larynx (not itself a laryngeal cartilage).
 - Epiglottis: leaf-shaped elastic cartilage that folds down over the laryngeal inlet during swallowing to protect the airway.
 - Thyroid cartilage: the largest laryngeal cartilage; its anterior fusion forms the laryngeal prominence ('Adam's apple').
@@ -71,7 +71,7 @@ _Image source: Laryngeal Cartilage Framework (Thyroid, Cricoid, Arytenoids, Epig
 
 The three subsites that stage laryngeal cancer and localize airway disease. Tap each covered label to name the subsite, then reveal.
 
-_Image source: Laryngeal subsites. Illustration generated with Google Gemini._
+_Image source: Laryngeal subsites._
 - Epiglottis: leaf-shaped cartilage forming the top of the supraglottis; folds over the laryngeal inlet during swallowing.
 - False vocal folds (vestibular folds): supraglottic mucosal folds above the true cords; do not vibrate for phonation, but can compensate for glottic insufficiency.
 - Laryngeal ventricle (of Morgagni): the recess between the false and true vocal folds.
@@ -89,7 +89,7 @@ _Image source: Laryngeal subsites. Illustration generated with Google Gemini._
 
 Why hoarseness can be the first sign of chest, thyroid, or mediastinal disease. Tap each covered label, then reveal.
 
-_Image source: Recurrent laryngeal nerve course. Illustration generated with Google Gemini._
+_Image source: Recurrent laryngeal nerve course._
 - Right vagus nerve: descends in the carotid sheath and gives off the right recurrent laryngeal nerve in the root of the neck.
 - Right recurrent laryngeal nerve: loops under the right subclavian artery, a shorter and more direct course than the left.
 - Right subclavian artery: the right RLN hooks under this vessel before ascending back to the larynx.
@@ -102,7 +102,7 @@ _Image source: Recurrent laryngeal nerve course. Illustration generated with Goo
 
 Why voice quality depends on layers, not just open vs closed. Name each layer, then reveal.
 
-_Image source: Microarchitecture of the True Vocal Fold (Cover-Body Layers). Illustration generated with Google Gemini._
+_Image source: Microarchitecture of the True Vocal Fold (Cover-Body Layers)._
 - Epithelium: the thin surface lining of the vocal fold, part of the vibrating 'cover'.
 - Superficial lamina propria (Reinke's space): the pliable, gelatinous layer that lets the cover slide over the body; swells with smoking, reflux, or vocal abuse.
 - Intermediate lamina propria: elastin-rich middle layer of the vocal ligament, part of the 'transition' between cover and body.

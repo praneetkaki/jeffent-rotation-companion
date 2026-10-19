@@ -88,7 +88,7 @@ Where sleep surgery fits: surgery is generally a CPAP alternative or adjunct, no
 
 Nasal, retropalatal, and retroglossal levels: name each, then reveal what surgery targets it.
 
-_Image source: Levels of Upper Airway Obstruction and Targeted Surgeries. Illustration generated with Google Gemini._
+_Image source: Levels of Upper Airway Obstruction and Targeted Surgeries._
 - Nasal cavity: septum/turbinates; affects CPAP tolerance more than apnea directly
 - Retropalatal region: soft palate/uvula/lateral walls (UPPP target)
 - Retroglossal region: tongue base (hypoglossal nerve stimulator / tongue-base surgery target)
@@ -139,7 +139,7 @@ _Image source: The Hypoglossal Nerve, Genioglossus, and Tongue Protrusion Mechan
 
 Same airway, no pressure versus with positive airway pressure. Name each panel, then reveal.
 
-_Image source: How CPAP Works: Continuous Pneumatic Airway Splinting. Illustration generated with Google Gemini._
+_Image source: How CPAP Works: Continuous Pneumatic Airway Splinting._
 - Collapsed airway: without pressure support, the soft palate/tongue-base tissue apposes the pharyngeal wall and obstructs the airway
 - Larynx: landmark below the collapsing retropalatal/retroglossal airway; not itself the site of obstruction in OSA
 - CPAP mask: interface delivering continuous positive pressure to the upper airway; poor fit/comfort is the leading cause of non-adherence

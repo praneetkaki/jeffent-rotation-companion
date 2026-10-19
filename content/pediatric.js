@@ -86,7 +86,7 @@ window.JEFFENT.register({
         title: "Pediatric vs adult airway shape",
         note: "Funnel-shaped vs cylindrical: why a little swelling goes a long way in a child. Name each feature, then reveal.",
         src: "assets/img/figures/pediatric_adult_airway.png",
-        source: "Pediatric vs. Adult Airway Anatomy and Geometric Differences. Illustration generated with Google Gemini.",
+        source: "Pediatric vs. Adult Airway Anatomy and Geometric Differences.",
         labels: [
           { id:"tongue", text:"Tongue: relatively larger for the airway size in a child, crowding the oropharynx; proportionally smaller relative to airway size in an adult.", box:{x:51.2,y:31.2,w:9.4,h:6.4}, extra:[{x:0.8,y:31.3,w:9.3,h:6.0}] },
           { id:"epiglottis", text:"Epiglottis: omega-shaped and floppier in a child; flatter and stiffer in an adult.", box:{x:51.1,y:44.0,w:10.9,h:5.7}, extra:[{x:0.9,y:44.5,w:10.6,h:5.8}] },
@@ -113,7 +113,7 @@ window.JEFFENT.register({
         title: "Second branchial cleft tract",
         note: "The classic route from a preauricular/neck pit toward the tonsillar fossa. Name each landmark, then reveal.",
         src: "assets/img/figures/branchial_cleft_cyst.png",
-        source: "Second Branchial Cleft Anomalies Anatomic Tract. Illustration generated with Google Gemini.",
+        source: "Second Branchial Cleft Anomalies Anatomic Tract.",
         labels: [
           { id:"tonsil-internal", text:"Tonsillar fossa: the internal (deep) end of the classic second branchial cleft tract.", box:{x:57.4,y:25.8,w:17.0,h:5.3} },
           { id:"scm", text:"Sternocleidomastoid muscle: the tract runs deep to (medial to) this muscle as it courses toward the tonsil, and the external opening classically sits anterior to its lower third.", box:{x:2.2,y:48.0,w:24.0,h:10.1}, extra:[{x:2.3,y:60.8,w:23.9,h:4.9}] },
@@ -131,7 +131,7 @@ window.JEFFENT.register({
         title: "Waldeyer's ring",
         note: "The lymphoid ring guarding the aerodigestive entrance. Name each component, then reveal.",
         src: "assets/img/figures/waldeyer_ring.png",
-        source: "Waldeyer's Ring of Lymphoid Tissue. Illustration generated with Google Gemini.",
+        source: "Waldeyer's Ring of Lymphoid Tissue.",
         labels: [
           { id:"tubal-tonsil", text:"Tubal tonsil: lymphoid tissue around the pharyngeal (Eustachian tube) opening, part of Waldeyer's ring though less commonly tested.", box:{x:2.3,y:41.7,w:13.8,h:5.5}, extra:[{x:77.2,y:38.4,w:8.8,h:6.5}] },
           { id:"adenoid", text:"Adenoids (nasopharyngeal tonsil): a single midline mass in the nasopharyngeal roof; hypertrophy is a leading cause of pediatric nasal obstruction and OSA.", box:{x:77.3,y:27.9,w:20.7,h:11.6} },
@@ -149,7 +149,7 @@ window.JEFFENT.register({
         title: "Pediatric vs adult Eustachian tube angle",
         note: "Same tube, different geometry: shorter and flatter in a child, longer and steeper in an adult. Name each feature, then reveal.",
         src: "assets/img/figures/eustachian_tube_child_adult.png",
-        source: "Pediatric vs. Adult Eustachian Tube Orientation and Drainage. Illustration generated with Google Gemini.",
+        source: "Pediatric vs. Adult Eustachian Tube Orientation and Drainage.",
         labels: [
           { id:"middle-ear", text:"Middle ear (child): the air-filled space medial to the tympanic membrane that the Eustachian tube must ventilate and drain. Middle ear (adult): the same space, ventilated by a longer, steeper Eustachian tube.", box:{x:63.1,y:14.2,w:12.5,h:5.5}, extra:[{x:12.3,y:14.3,w:12.5,h:5.3}] },
           { id:"tympanic-membrane", text:"Tympanic membrane (child): separates the middle ear from the ear canal; retraction/effusion here reflects poor Eustachian tube function. Tympanic membrane (adult): normally well-aerated because the adult Eustachian tube equalizes pressure and drains effectively.", box:{x:53.2,y:58.2,w:13.0,h:10.3} },

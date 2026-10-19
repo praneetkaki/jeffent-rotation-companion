@@ -140,7 +140,7 @@ Related high-yield layers
 
 Vertical and horizontal reinforcing columns. Name each, then reveal.
 
-_Image source: Vertical and Horizontal Facial Buttresses. Illustration generated with Google Gemini._
+_Image source: Vertical and Horizontal Facial Buttresses._
 - Frontal bar (horizontal): the superior horizontal buttress along the brow, part of the frame that absorbs frontal impact.
 - Nasomaxillary buttress (vertical): runs alongside the nose from the maxillary alveolus to the frontal bone.
 - Infraorbital rim (horizontal): connects the nasomaxillary and zygomaticomaxillary buttresses; disruption contributes to midface flattening.
@@ -155,7 +155,7 @@ _Image source: Vertical and Horizontal Facial Buttresses. Illustration generated
 
 Five named branches. Name each, then reveal.
 
-_Image source: Facial Nerve Branches Through the Parotid Gland. Illustration generated with Google Gemini._
+_Image source: Facial Nerve Branches Through the Parotid Gland._
 - Temporal (frontal) branch: most vulnerable branch, crosses Pitanguy's line, injury causes brow ptosis.
 - Zygomatic branch: contributes to eyelid closure (orbicularis oculi); injury can impair blink.
 - Buccal branch: runs near Stensen's duct; often has multiple interconnecting twigs so injury is less consistently disabling.

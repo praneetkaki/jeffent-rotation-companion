@@ -82,7 +82,7 @@ window.JEFFENT.register({
         title: "Facial buttresses",
         note: "Vertical and horizontal reinforcing columns. Name each, then reveal.",
         src: "assets/img/figures/facial_buttresses.png",
-        source: "Vertical and Horizontal Facial Buttresses. Illustration generated with Google Gemini.",
+        source: "Vertical and Horizontal Facial Buttresses.",
         labels: [
           { id:"frontal-bar", text:"Frontal bar (horizontal): the superior horizontal buttress along the brow, part of the frame that absorbs frontal impact.", box:{x:73.8,y:27.0,w:24.3,h:5.1} },
           { id:"nasomaxillary-buttress", text:"Nasomaxillary buttress (vertical): runs alongside the nose from the maxillary alveolus to the frontal bone.", box:{x:1.8,y:37.6,w:24.1,h:9.9}, extra:[{x:74.2,y:33.2,w:23.9,h:5.3},{x:6.9,y:56.8,w:18.5,h:4.9},{x:7.0,y:72.9,w:18.4,h:4.9}] },
@@ -102,7 +102,7 @@ window.JEFFENT.register({
         title: "Facial nerve branches through the parotid",
         note: "Five named branches. Name each, then reveal.",
         src: "assets/img/figures/parotid_facial_nerve.png",
-        source: "Facial Nerve Branches Through the Parotid Gland. Illustration generated with Google Gemini.",
+        source: "Facial Nerve Branches Through the Parotid Gland.",
         labels: [
           /* NOTE: boxes below were widened ~17-20% (w/h), re-centered on the original position, to fully
              cover the underlying label text after a coverage report that some occlusion boxes were too

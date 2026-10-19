@@ -1067,7 +1067,7 @@ _Image source: Normal Right Tympanic Membrane Landmarks (Otoscopic View). oxford
 
 A side profile of the head and neck, divided into the regions this specialty covers. Hide the labels, name each region, then reveal.
 
-_Image source: The Five Primary ENT Anatomical Regions Overview. Illustration generated with Google Gemini._
+_Image source: The Five Primary ENT Anatomical Regions Overview._
 - Sphenoidal sinus: the most posterior paranasal sinus, sitting below the pituitary fossa and beside the optic nerve and cavernous sinus; infection here can threaten vision or spread intracranially.
 - Nasal meatuses (superior, middle, inferior): the grooves beneath each turbinate; the middle meatus houses the ostiomeatal complex, the final common drainage pathway for the frontal, maxillary, and anterior ethmoid sinuses.
 - Pharyngeal tonsil (adenoid): lymphoid tissue on the nasopharyngeal roof; hypertrophy in children causes nasal obstruction, mouth breathing, and Eustachian tube dysfunction.
@@ -1889,7 +1889,7 @@ Related high-yield layers
 
 Vertical and horizontal reinforcing columns. Name each, then reveal.
 
-_Image source: Vertical and Horizontal Facial Buttresses. Illustration generated with Google Gemini._
+_Image source: Vertical and Horizontal Facial Buttresses._
 - Frontal bar (horizontal): the superior horizontal buttress along the brow, part of the frame that absorbs frontal impact.
 - Nasomaxillary buttress (vertical): runs alongside the nose from the maxillary alveolus to the frontal bone.
 - Infraorbital rim (horizontal): connects the nasomaxillary and zygomaticomaxillary buttresses; disruption contributes to midface flattening.
@@ -1904,7 +1904,7 @@ _Image source: Vertical and Horizontal Facial Buttresses. Illustration generated
 
 Five named branches. Name each, then reveal.
 
-_Image source: Facial Nerve Branches Through the Parotid Gland. Illustration generated with Google Gemini._
+_Image source: Facial Nerve Branches Through the Parotid Gland._
 - Temporal (frontal) branch: most vulnerable branch, crosses Pitanguy's line, injury causes brow ptosis.
 - Zygomatic branch: contributes to eyelid closure (orbicularis oculi); injury can impair blink.
 - Buccal branch: runs near Stensen's duct; often has multiple interconnecting twigs so injury is less consistently disabling.
@@ -4123,7 +4123,7 @@ Emergency airway: the cricothyroid membrane is the surgical airway site in adult
 
 The skeleton of the airway and voice box. Name each cartilage, then reveal.
 
-_Image source: Laryngeal Cartilage Framework (Thyroid, Cricoid, Arytenoids, Epiglottis). Illustration generated with Google Gemini._
+_Image source: Laryngeal Cartilage Framework (Thyroid, Cricoid, Arytenoids, Epiglottis)._
 - Hyoid bone: superior anchor for laryngeal suspension; tethers the epiglottis and thyrohyoid membrane above the larynx (not itself a laryngeal cartilage).
 - Epiglottis: leaf-shaped elastic cartilage that folds down over the laryngeal inlet during swallowing to protect the airway.
 - Thyroid cartilage: the largest laryngeal cartilage; its anterior fusion forms the laryngeal prominence ('Adam's apple').
@@ -4136,7 +4136,7 @@ _Image source: Laryngeal Cartilage Framework (Thyroid, Cricoid, Arytenoids, Epig
 
 The three subsites that stage laryngeal cancer and localize airway disease. Tap each covered label to name the subsite, then reveal.
 
-_Image source: Laryngeal subsites. Illustration generated with Google Gemini._
+_Image source: Laryngeal subsites._
 - Epiglottis: leaf-shaped cartilage forming the top of the supraglottis; folds over the laryngeal inlet during swallowing.
 - False vocal folds (vestibular folds): supraglottic mucosal folds above the true cords; do not vibrate for phonation, but can compensate for glottic insufficiency.
 - Laryngeal ventricle (of Morgagni): the recess between the false and true vocal folds.
@@ -4154,7 +4154,7 @@ _Image source: Laryngeal subsites. Illustration generated with Google Gemini._
 
 Why hoarseness can be the first sign of chest, thyroid, or mediastinal disease. Tap each covered label, then reveal.
 
-_Image source: Recurrent laryngeal nerve course. Illustration generated with Google Gemini._
+_Image source: Recurrent laryngeal nerve course._
 - Right vagus nerve: descends in the carotid sheath and gives off the right recurrent laryngeal nerve in the root of the neck.
 - Right recurrent laryngeal nerve: loops under the right subclavian artery, a shorter and more direct course than the left.
 - Right subclavian artery: the right RLN hooks under this vessel before ascending back to the larynx.
@@ -4167,7 +4167,7 @@ _Image source: Recurrent laryngeal nerve course. Illustration generated with Goo
 
 Why voice quality depends on layers, not just open vs closed. Name each layer, then reveal.
 
-_Image source: Microarchitecture of the True Vocal Fold (Cover-Body Layers). Illustration generated with Google Gemini._
+_Image source: Microarchitecture of the True Vocal Fold (Cover-Body Layers)._
 - Epithelium: the thin surface lining of the vocal fold, part of the vibrating 'cover'.
 - Superficial lamina propria (Reinke's space): the pliable, gelatinous layer that lets the cover slide over the body; swells with smoking, reflux, or vocal abuse.
 - Intermediate lamina propria: elastin-rich middle layer of the vocal ligament, part of the 'transition' between cover and body.
@@ -4691,7 +4691,7 @@ _Image source: Normal Right Tympanic Membrane Landmarks (Otoscopic View). oxford
 
 Hand-drawn schematic, not to scale. Shows how closely the facial nerve, tegmen tympani, sigmoid sinus, and ossicular chain sit within the same small middle-ear/mastoid space, the reason disease or surgery here can threaten all four at once. Click a landmark to reveal its label.
 
-_Image source: The Middle Ear and Mastoid Danger Zone Anatomic Relationships. Illustration generated with Google Gemini (adapted from Bagla)._
+_Image source: The Middle Ear and Mastoid Danger Zone Anatomic Relationships. Adapted from Bagla._
 - Prominence of the lateral semicircular canal: bulges into the mastoid antrum just above the facial canal: the surgical landmark used to find the facial nerve during mastoidectomy.
 - Prominence of the facial canal: the bony ridge overlying the tympanic segment of CN VII as it runs above the oval window: thin and dehiscent in a substantial minority of temporal bones (reported roughly 25% to over 50% across histologic series), so it's easily eroded by cholesteatoma or infection.
 - Tegmen tympani: the thin bony (and dural) plate roofing the middle ear/mastoid; erosion lets infection track into the middle cranial fossa (meningitis, abscess).
@@ -5183,7 +5183,7 @@ EndpointMechanismConsequencesRecurrent tonsillitisRepeated infection and inflamm
 
 Funnel-shaped vs cylindrical: why a little swelling goes a long way in a child. Name each feature, then reveal.
 
-_Image source: Pediatric vs. Adult Airway Anatomy and Geometric Differences. Illustration generated with Google Gemini._
+_Image source: Pediatric vs. Adult Airway Anatomy and Geometric Differences._
 - Tongue: relatively larger for the airway size in a child, crowding the oropharynx; proportionally smaller relative to airway size in an adult.
 - Epiglottis: omega-shaped and floppier in a child; flatter and stiffer in an adult.
 - Larynx sits more cephalad (higher) in a child than in an adult.
@@ -5205,7 +5205,7 @@ _Image source: Pediatric vs. Adult Airway Anatomy and Geometric Differences. Ill
 
 The classic route from a preauricular/neck pit toward the tonsillar fossa. Name each landmark, then reveal.
 
-_Image source: Second Branchial Cleft Anomalies Anatomic Tract. Illustration generated with Google Gemini._
+_Image source: Second Branchial Cleft Anomalies Anatomic Tract._
 - Tonsillar fossa: the internal (deep) end of the classic second branchial cleft tract.
 - Sternocleidomastoid muscle: the tract runs deep to (medial to) this muscle as it courses toward the tonsil, and the external opening classically sits anterior to its lower third.
 - Tonsillar fossa: where a persistent second branchial cleft tract terminates internally.
@@ -5218,7 +5218,7 @@ _Image source: Second Branchial Cleft Anomalies Anatomic Tract. Illustration gen
 
 The lymphoid ring guarding the aerodigestive entrance. Name each component, then reveal.
 
-_Image source: Waldeyer's Ring of Lymphoid Tissue. Illustration generated with Google Gemini._
+_Image source: Waldeyer's Ring of Lymphoid Tissue._
 - Tubal tonsil: lymphoid tissue around the pharyngeal (Eustachian tube) opening, part of Waldeyer's ring though less commonly tested.
 - Adenoids (nasopharyngeal tonsil): a single midline mass in the nasopharyngeal roof; hypertrophy is a leading cause of pediatric nasal obstruction and OSA.
 - Nasopharynx: the space behind the nasal cavity where the adenoids sit, bounded inferiorly by the soft palate.
@@ -5231,7 +5231,7 @@ _Image source: Waldeyer's Ring of Lymphoid Tissue. Illustration generated with G
 
 Same tube, different geometry: shorter and flatter in a child, longer and steeper in an adult. Name each feature, then reveal.
 
-_Image source: Pediatric vs. Adult Eustachian Tube Orientation and Drainage. Illustration generated with Google Gemini._
+_Image source: Pediatric vs. Adult Eustachian Tube Orientation and Drainage._
 - Middle ear (child): the air-filled space medial to the tympanic membrane that the Eustachian tube must ventilate and drain. Middle ear (adult): the same space, ventilated by a longer, steeper Eustachian tube.
 - Tympanic membrane (child): separates the middle ear from the ear canal; retraction/effusion here reflects poor Eustachian tube function. Tympanic membrane (adult): normally well-aerated because the adult Eustachian tube equalizes pressure and drains effectively.
 - Eustachian tube (child): shorter, floppier, and more horizontal than in an adult, so it drains and ventilates the middle ear less efficiently, predisposing to otitis media. Eustachian tube (adult): longer, stiffer, and angled closer to vertical (roughly 35 to 45 degrees depending on source, up from about 10 degrees at birth), giving more effective drainage and ventilation.
@@ -6613,7 +6613,7 @@ Each brief is a two-minute pre-scrub read: the indication, the key steps, the da
 
 The anastomosis behind most nosebleeds. Name each contributing vessel, then reveal.
 
-_Image source: Kiesselbach's Plexus (Little's Area) Arterial Supply. Illustration generated with Google Gemini._
+_Image source: Kiesselbach's Plexus (Little's Area) Arterial Supply._
 - Anterior ethmoidal a. (internal carotid → ophthalmic branch): the highest of the four contributing vessels
 - Sphenopalatine a. (external carotid → maxillary a.): the posterior bleed source when it bleeds on its own, higher up the septum
 - Greater palatine a. (external carotid → maxillary a.): reaches the anterior septum via the incisive canal
@@ -6648,7 +6648,7 @@ Which sinus drains into which meatus. Name each, then reveal.
 
 Why sinusitis can become an orbital or intracranial emergency. Name each structure, then reveal.
 
-_Image source: Paranasal Sinuses Drainage and Adjacent Danger Zones. Illustration generated with Google Gemini._
+_Image source: Paranasal Sinuses Drainage and Adjacent Danger Zones._
 - Anterior cranial fossa: sits directly above the ethmoid roof, separated from it only by thin bone, so ethmoid infection can spread intracranially (meningitis, epidural/subdural abscess)
 - Frontal sinus: drains via the frontal recess into the middle meatus; borders the anterior cranial fossa, so frontal sinusitis risks intracranial spread (Pott's puffy tumor)
 - Frontal recess → middle meatus: the frontal sinus's only drainage route, easily obstructed by anterior ethmoid disease or a large agger nasi cell
@@ -6686,7 +6686,7 @@ _Image source: Osteocartilaginous Anatomy of the Nasal Septum. Wikimedia Commons
 
 Three pneumatization variants shown against normal sinus anatomy (not all at the same coronal level). Name each, then reveal.
 
-_Image source: Key FESS Anatomic Variants (Concha Bullosa, Haller Cells, Onodi Cells). Illustration generated with Google Gemini._
+_Image source: Key FESS Anatomic Variants (Concha Bullosa, Haller Cells, Onodi Cells)._
 - Concha bullosa: an aerated (pneumatized) middle turbinate, shaded green here, that can narrow the ostiomeatal complex and contribute to obstruction/CRS
 - Ostiomeatal complex (OMC): the shared drainage channel that a large concha bullosa can compress from the medial side
 - Haller cell (infraorbital ethmoid cell): an ethmoid air cell extending along the orbital floor next to the maxillary sinus ostium; can narrow the ostium and puts the orbital floor closer to the surgical field than expected
@@ -7122,7 +7122,7 @@ Where sleep surgery fits: surgery is generally a CPAP alternative or adjunct, no
 
 Nasal, retropalatal, and retroglossal levels: name each, then reveal what surgery targets it.
 
-_Image source: Levels of Upper Airway Obstruction and Targeted Surgeries. Illustration generated with Google Gemini._
+_Image source: Levels of Upper Airway Obstruction and Targeted Surgeries._
 - Nasal cavity: septum/turbinates; affects CPAP tolerance more than apnea directly
 - Retropalatal region: soft palate/uvula/lateral walls (UPPP target)
 - Retroglossal region: tongue base (hypoglossal nerve stimulator / tongue-base surgery target)
@@ -7173,7 +7173,7 @@ _Image source: The Hypoglossal Nerve, Genioglossus, and Tongue Protrusion Mechan
 
 Same airway, no pressure versus with positive airway pressure. Name each panel, then reveal.
 
-_Image source: How CPAP Works: Continuous Pneumatic Airway Splinting. Illustration generated with Google Gemini._
+_Image source: How CPAP Works: Continuous Pneumatic Airway Splinting._
 - Collapsed airway: without pressure support, the soft palate/tongue-base tissue apposes the pharyngeal wall and obstructs the airway
 - Larynx: landmark below the collapsing retropalatal/retroglossal airway; not itself the site of obstruction in OSA
 - CPAP mask: interface delivering continuous positive pressure to the upper airway; poor fit/comfort is the leading cause of non-adherence

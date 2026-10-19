@@ -173,7 +173,7 @@ _Image source: Normal Right Tympanic Membrane Landmarks (Otoscopic View). oxford
 
 A side profile of the head and neck, divided into the regions this specialty covers. Hide the labels, name each region, then reveal.
 
-_Image source: The Five Primary ENT Anatomical Regions Overview. Illustration generated with Google Gemini._
+_Image source: The Five Primary ENT Anatomical Regions Overview._
 - Sphenoidal sinus: the most posterior paranasal sinus, sitting below the pituitary fossa and beside the optic nerve and cavernous sinus; infection here can threaten vision or spread intracranially.
 - Nasal meatuses (superior, middle, inferior): the grooves beneath each turbinate; the middle meatus houses the ostiomeatal complex, the final common drainage pathway for the frontal, maxillary, and anterior ethmoid sinuses.
 - Pharyngeal tonsil (adenoid): lymphoid tissue on the nasopharyngeal roof; hypertrophy in children causes nasal obstruction, mouth breathing, and Eustachian tube dysfunction.

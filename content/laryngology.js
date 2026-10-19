@@ -64,7 +64,7 @@ window.JEFFENT.register({
         title: "Laryngeal cartilage framework",
         note: "The skeleton of the airway and voice box. Name each cartilage, then reveal.",
         src: "assets/img/figures/laryngeal_cartilages.png",
-        source: "Laryngeal Cartilage Framework (Thyroid, Cricoid, Arytenoids, Epiglottis). Illustration generated with Google Gemini.",
+        source: "Laryngeal Cartilage Framework (Thyroid, Cricoid, Arytenoids, Epiglottis).",
         labels: [
           { id:"hyoid", text:"Hyoid bone: superior anchor for laryngeal suspension; tethers the epiglottis and thyrohyoid membrane above the larynx (not itself a laryngeal cartilage).", box:{x:4.2,y:24.5,w:10.4,h:5.1}, extra:[{x:84.8,y:26.4,w:10.4,h:5.1}] },
           { id:"epi", text:"Epiglottis: leaf-shaped elastic cartilage that folds down over the laryngeal inlet during swallowing to protect the airway.", box:{x:43.2,y:19.9,w:13.8,h:8.4}, extra:[{x:43.7,y:89.4,w:8.6,h:5.3}] },
@@ -82,7 +82,7 @@ window.JEFFENT.register({
         title: "Supraglottis \u00b7 glottis \u00b7 subglottis (coronal)",
         note: "The three subsites that stage laryngeal cancer and localize airway disease. Tap each covered label to name the subsite, then reveal.",
         src: "assets/img/figures/laryngeal_subsites_supraglottis.png",
-        source: "Laryngeal subsites. Illustration generated with Google Gemini.",
+        source: "Laryngeal subsites.",
         labels: [
           { id:"epiglottis", text:"Epiglottis: leaf-shaped cartilage forming the top of the supraglottis; folds over the laryngeal inlet during swallowing.", box:{x:49.6,y:16.1,w:9.6,h:5.7}, extra:[{x:79.5,y:90.8,w:6.6,h:4.7}] },
           { id:"false-vf", text:"False vocal folds (vestibular folds): supraglottic mucosal folds above the true cords; do not vibrate for phonation, but can compensate for glottic insufficiency.", box:{x:49.8,y:23.3,w:15.8,h:8.5} },
@@ -105,7 +105,7 @@ window.JEFFENT.register({
         title: "Recurrent laryngeal nerve course",
         note: "Why hoarseness can be the first sign of chest, thyroid, or mediastinal disease. Tap each covered label, then reveal.",
         src: "assets/img/figures/recurrent_laryngeal_nerve_course_2.png",
-        source: "Recurrent laryngeal nerve course. Illustration generated with Google Gemini.",
+        source: "Recurrent laryngeal nerve course.",
         labels: [
           { id:"rvn", text:"Right vagus nerve: descends in the carotid sheath and gives off the right recurrent laryngeal nerve in the root of the neck.", box:{x:0,y:9.2,w:20.4,h:5.6} },
           { id:"rrln", text:"Right recurrent laryngeal nerve: loops under the right subclavian artery, a shorter and more direct course than the left.", box:{x:0,y:16.7,w:17.4,h:9.7} },
@@ -123,7 +123,7 @@ window.JEFFENT.register({
         title: "Vocal fold layers in cross-section",
         note: "Why voice quality depends on layers, not just open vs closed. Name each layer, then reveal.",
         src: "assets/img/figures/vocal_fold_layers.png",
-        source: "Microarchitecture of the True Vocal Fold (Cover-Body Layers). Illustration generated with Google Gemini.",
+        source: "Microarchitecture of the True Vocal Fold (Cover-Body Layers).",
         labels: [
           { id:"vf-epithelium", text:"Epithelium: the thin surface lining of the vocal fold, part of the vibrating 'cover'.", box:{x:42.1,y:11.9,w:18.1,h:5.7}, extra:[{x:69.1,y:55.2,w:12.5,h:4.4}] },
           { id:"vf-superficial-lp", text:"Superficial lamina propria (Reinke's space): the pliable, gelatinous layer that lets the cover slide over the body; swells with smoking, reflux, or vocal abuse.", box:{x:42.2,y:19.8,w:42.1,h:11.2}, extra:[{x:69.2,y:60.2,w:28.7,h:4.3}] },

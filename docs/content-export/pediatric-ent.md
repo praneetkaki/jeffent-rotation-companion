@@ -92,7 +92,7 @@ EndpointMechanismConsequencesRecurrent tonsillitisRepeated infection and inflamm
 
 Funnel-shaped vs cylindrical: why a little swelling goes a long way in a child. Name each feature, then reveal.
 
-_Image source: Pediatric vs. Adult Airway Anatomy and Geometric Differences. Illustration generated with Google Gemini._
+_Image source: Pediatric vs. Adult Airway Anatomy and Geometric Differences._
 - Tongue: relatively larger for the airway size in a child, crowding the oropharynx; proportionally smaller relative to airway size in an adult.
 - Epiglottis: omega-shaped and floppier in a child; flatter and stiffer in an adult.
 - Larynx sits more cephalad (higher) in a child than in an adult.
@@ -114,7 +114,7 @@ _Image source: Pediatric vs. Adult Airway Anatomy and Geometric Differences. Ill
 
 The classic route from a preauricular/neck pit toward the tonsillar fossa. Name each landmark, then reveal.
 
-_Image source: Second Branchial Cleft Anomalies Anatomic Tract. Illustration generated with Google Gemini._
+_Image source: Second Branchial Cleft Anomalies Anatomic Tract._
 - Tonsillar fossa: the internal (deep) end of the classic second branchial cleft tract.
 - Sternocleidomastoid muscle: the tract runs deep to (medial to) this muscle as it courses toward the tonsil, and the external opening classically sits anterior to its lower third.
 - Tonsillar fossa: where a persistent second branchial cleft tract terminates internally.
@@ -127,7 +127,7 @@ _Image source: Second Branchial Cleft Anomalies Anatomic Tract. Illustration gen
 
 The lymphoid ring guarding the aerodigestive entrance. Name each component, then reveal.
 
-_Image source: Waldeyer's Ring of Lymphoid Tissue. Illustration generated with Google Gemini._
+_Image source: Waldeyer's Ring of Lymphoid Tissue._
 - Tubal tonsil: lymphoid tissue around the pharyngeal (Eustachian tube) opening, part of Waldeyer's ring though less commonly tested.
 - Adenoids (nasopharyngeal tonsil): a single midline mass in the nasopharyngeal roof; hypertrophy is a leading cause of pediatric nasal obstruction and OSA.
 - Nasopharynx: the space behind the nasal cavity where the adenoids sit, bounded inferiorly by the soft palate.
@@ -140,7 +140,7 @@ _Image source: Waldeyer's Ring of Lymphoid Tissue. Illustration generated with G
 
 Same tube, different geometry: shorter and flatter in a child, longer and steeper in an adult. Name each feature, then reveal.
 
-_Image source: Pediatric vs. Adult Eustachian Tube Orientation and Drainage. Illustration generated with Google Gemini._
+_Image source: Pediatric vs. Adult Eustachian Tube Orientation and Drainage._
 - Middle ear (child): the air-filled space medial to the tympanic membrane that the Eustachian tube must ventilate and drain. Middle ear (adult): the same space, ventilated by a longer, steeper Eustachian tube.
 - Tympanic membrane (child): separates the middle ear from the ear canal; retraction/effusion here reflects poor Eustachian tube function. Tympanic membrane (adult): normally well-aerated because the adult Eustachian tube equalizes pressure and drains effectively.
 - Eustachian tube (child): shorter, floppier, and more horizontal than in an adult, so it drains and ventilates the middle ear less efficiently, predisposing to otitis media. Eustachian tube (adult): longer, stiffer, and angled closer to vertical (roughly 35 to 45 degrees depending on source, up from about 10 degrees at birth), giving more effective drainage and ventilation.

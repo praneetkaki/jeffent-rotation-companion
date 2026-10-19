@@ -78,7 +78,7 @@ window.JEFFENT.register({
         title: "Little's area (Kiesselbach's plexus)",
         note: "The anastomosis behind most nosebleeds. Name each contributing vessel, then reveal.",
         src: "assets/img/figures/kiesselbach_plexus.png",
-        source: "Kiesselbach's Plexus (Little's Area) Arterial Supply. Illustration generated with Google Gemini.",
+        source: "Kiesselbach's Plexus (Little's Area) Arterial Supply.",
         labels: [
           { id:"aee-branch", text:"Anterior ethmoidal a. (internal carotid → ophthalmic branch): the highest of the four contributing vessels", box:{x:1.7,y:11.5,w:22.9,h:8.2} },
           { id:"spa", text:"Sphenopalatine a. (external carotid → maxillary a.): the posterior bleed source when it bleeds on its own, higher up the septum", box:{x:2.4,y:43.3,w:12.5,h:6.7} },
@@ -132,7 +132,7 @@ window.JEFFENT.register({
         title: "Sinus danger zones: orbit and skull base",
         note: "Why sinusitis can become an orbital or intracranial emergency. Name each structure, then reveal.",
         src: "assets/img/figures/paranasal_sinus_drainage_danger_zones.png",
-        source: "Paranasal Sinuses Drainage and Adjacent Danger Zones. Illustration generated with Google Gemini.",
+        source: "Paranasal Sinuses Drainage and Adjacent Danger Zones.",
         labels: [
           { id:"cranial-fossa", text:"Anterior cranial fossa: sits directly above the ethmoid roof, separated from it only by thin bone, so ethmoid infection can spread intracranially (meningitis, epidural/subdural abscess)", box:{x:11.1,y:1.7,w:77.8,h:15.4} },
           { id:"frontal-sinus", text:"Frontal sinus: drains via the frontal recess into the middle meatus; borders the anterior cranial fossa, so frontal sinusitis risks intracranial spread (Pott's puffy tumor)", box:{x:42.0,y:20.6,w:6.9,h:4.4} },
@@ -180,7 +180,7 @@ window.JEFFENT.register({
         title: "FESS anatomic variants: concha bullosa, Haller cells, Onodi cells",
         note: "Three pneumatization variants shown against normal sinus anatomy (not all at the same coronal level). Name each, then reveal.",
         src: "assets/img/figures/FESS_anatomy_variants_sinus_CT.png",
-        source: "Key FESS Anatomic Variants (Concha Bullosa, Haller Cells, Onodi Cells). Illustration generated with Google Gemini.",
+        source: "Key FESS Anatomic Variants (Concha Bullosa, Haller Cells, Onodi Cells).",
         labels: [
           { id:"concha-bullosa", text:"Concha bullosa: an aerated (pneumatized) middle turbinate, shaded green here, that can narrow the ostiomeatal complex and contribute to obstruction/CRS", box:{x:1.4,y:1.9,w:97.2,h:19.1}, extra:[{x:4.9,y:40.0,w:15.8,h:4.7}] },
           { id:"omc", text:"Ostiomeatal complex (OMC): the shared drainage channel that a large concha bullosa can compress from the medial side", box:{x:5.3,y:61.4,w:16.5,h:9.6}, extra:[{x:4.3,y:47.5,w:16.3,h:4.0}] },
@@ -410,7 +410,7 @@ window.JEFFENT.register({
     { id:"aerd-card", tags: ["RH", "clinical"], milestones:["MK2","PC5"], ukmla:["Rhinosinusitis","Allergies"], source:"AAO-HNSF Adult Sinusitis CPG, 2015.", front:"What is Samter's triad (AERD), and what must patients avoid?",
       back:"<strong>CRS with nasal polyps + asthma + ASA/NSAID sensitivity.</strong> Strict <strong>NSAID avoidance</strong>; refractory cases may benefit from supervised <strong>aspirin desensitization</strong>, which can reduce polyp recurrence." },
     { id:"nasal-polyp-mgmt", tags: ["RH", "clinical"], milestones:["PC5"], ukmla:"Rhinosinusitis", source:"AAO-HNSF Adult Sinusitis CPG, 2015.", front:"What is the step-up management ladder for nasal polyps?",
-      back:"<strong>Intranasal corticosteroids</strong> first-line → short oral steroid course for flares → <strong>FESS</strong> if medical therapy fails → <strong>biologic therapy</strong> (dupilumab, omalizumab, mepolizumab, or tezepelumab) for refractory or post-surgical type-2 disease. Polyps commonly recur without ongoing medical maintenance.<figure class='note-fig' data-credit=\"Nasal Polyposis Step-Up Management Ladder. Illustration generated with Google Gemini.\"><img class='zoomable' src='assets/img/mc/image52.png' alt='Nasal polyp step-up management ladder' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Nasal polyposis step-up management ladder.</figcaption></figure>" },
+      back:"<strong>Intranasal corticosteroids</strong> first-line → short oral steroid course for flares → <strong>FESS</strong> if medical therapy fails → <strong>biologic therapy</strong> (dupilumab, omalizumab, mepolizumab, or tezepelumab) for refractory or post-surgical type-2 disease. Polyps commonly recur without ongoing medical maintenance.<figure class='note-fig' data-credit=\"Nasal Polyposis Step-Up Management Ladder.\"><img class='zoomable' src='assets/img/mc/image52.png' alt='Nasal polyp step-up management ladder' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Nasal polyposis step-up management ladder.</figcaption></figure>" },
     { id:"aria-classification-card", tags: ["RH", "clinical"], milestones:["MK2","PC5"], ukmla:"Allergies", source:"ARIA (Allergic Rhinitis and its Impact on Asthma) guideline.", front:"How does ARIA classify allergic rhinitis, and why does it matter more than 'seasonal vs perennial'?",
       back:"Two axes: <strong>duration</strong> (intermittent, &lt;4 days/week or &lt;4 weeks vs persistent, ≥4 days/week and ≥4 weeks) and <strong>severity</strong> (mild, with no impact on sleep/activity/school/work, vs moderate-severe, with one or more of those impacts). This duration+severity grid, not the trigger's season, is what drives step-up therapy." },
     { id:"ar-step-therapy-card", tags: ["RH", "clinical"], milestones:["MK2","PC5"], ukmla:"Allergies", source:"AAO-HNSF Clinical Practice Guideline: Allergic Rhinitis, 2015; ARIA guideline.", front:"For persistent or moderate-severe allergic rhinitis, the single most effective first-line agent is a regularly dosed <span class=\"cloze-blank\">[...]</span>.",
