@@ -2635,3 +2635,37 @@ div.anatomy-detail-body:not(.panel) > ul:not(.note-points) > li { margin-bottom:
 /* Extra cover for printed text that repeats a label's name (legends, captions). */
 .img-occ-extra { background: var(--surface); border: 1px solid var(--primary); border-radius: 4px; transition: opacity .12s ease; }
 .img-occ-extra.revealed { opacity: 0; pointer-events: none; }
+
+/* ---- home layout: full-viewport hero, then "Jump back in" + flashcard, then Browse by subspecialty ---- */
+.home-hero-sec { position: relative; display: flex; flex-direction: column;
+  min-height: calc(100vh - var(--topbar-h, 73px) - 56px);
+  min-height: calc(100svh - var(--topbar-h, 73px) - 56px);
+  padding-bottom: 52px; }
+.home-hero-sec .home-bento { flex: 1 1 auto; display: grid; grid-template-rows: minmax(0, 1fr); margin: 12px 0 0; }
+.home-hero-sec .bento-hero { height: 100%; justify-content: space-between; gap: clamp(20px, 4vh, 40px);
+  padding: clamp(24px, 4.5vh, 48px) clamp(22px, 4vw, 48px); }
+.home-hero-sec .bento-hero-title { font-size: clamp(1.9rem, 5vw, 3.1rem); line-height: 1.08; margin-top: 10px; }
+.home-hero-sec .bento-hero-sub { font-size: clamp(14px, 1.6vw, 17px); margin-top: 10px; }
+.home-hero-sec .bento-hero-scroller { align-self: stretch; padding-bottom: 12px; }
+.home-hero-sec .bento-chip { font-size: 13.5px; padding: 10px 10px 10px 16px; }
+.home-hero-sec .bento-metric-value { font-size: clamp(1.5rem, 3vw, 2.1rem); }
+.home-hero-sec .bento-hero-metrics { gap: 18px 22px; padding-top: clamp(16px, 3vh, 28px); }
+.home-hero-sec .bento-start-btn { font-size: 15px; padding: 14px 28px; box-shadow: 0 6px 22px rgba(0,0,0,.28); }
+
+.home-scroll-cue { position: absolute; left: 50%; bottom: 6px; transform: translateX(-50%); width: 40px; height: 40px;
+  display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--line); background: var(--surface);
+  color: var(--ink-soft); cursor: pointer; opacity: .9; transition: opacity .25s var(--ease-out), background-color .15s var(--ease-out); }
+.home-scroll-cue:hover, .home-scroll-cue:focus-visible { background: var(--primary-tint, var(--surface-2)); color: var(--primary-deep, var(--ink)); }
+.home-scroll-cue svg { width: 20px; height: 20px; animation: cueBob 1.8s ease-in-out infinite; }
+.home-scroll-cue.is-gone { opacity: 0; pointer-events: none; }
+@keyframes cueBob { 0%, 100% { transform: translateY(-2px); } 50% { transform: translateY(3px); } }
+@media (prefers-reduced-motion: reduce) { .home-scroll-cue svg { animation: none; } }
+
+.home-sec { margin-top: clamp(40px, 8vh, 88px); }
+.home-sec-1 { display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; align-items: stretch; }
+.home-sec-1 .jump-row, .home-sec-1 .home-peek { margin: 0; max-width: none; }
+.home-sec-1 .home-peek { display: flex; flex-direction: column; justify-content: center; }
+.home-sec-1 .peek-card { flex: 1 1 auto; display: flex; flex-direction: column; justify-content: center; min-height: 200px; }
+@media (min-width: 900px) { .home-sec-1 { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px; } }
+.home-sec-2 .section-head.feed-head { margin-top: 0; padding-top: 0; border-top: 0; }
+.home-marquee { margin-top: 8px; }

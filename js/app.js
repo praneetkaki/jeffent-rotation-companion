@@ -1445,8 +1445,10 @@
       }, 4200);
     }
     var jumpRow = buildJumpRow();
-    if (jumpRow) root.appendChild(jumpRow);
-    root.appendChild(peek);
+    var sec1 = h('<section class="home-sec home-sec-1"></section>');
+    if (jumpRow) sec1.appendChild(jumpRow);
+    sec1.appendChild(peek);
+    root.appendChild(sec1);
   }
 
   /* Thin grid lines between the home tiles. They sit in the gaps, grow outward
@@ -1531,7 +1533,8 @@
 
     var root = el("screen-home");
     root.innerHTML = "";
-    root.appendChild(h('<div class="eyebrow">Your ENT Rotation</div>'));
+    var heroSec = h('<section class="home-hero-sec" aria-label="Daily review"></section>');
+    heroSec.appendChild(h('<div class="eyebrow">Your ENT Rotation</div>'));
 
     /* Unified bento dashboard: a single dark hero card holds the queue CTA,
      * streak, a horizontally swipeable rack of every subspecialty with cards
@@ -1615,7 +1618,24 @@
     heroTile.querySelector(".bento-metric-due").addEventListener("click", goStudyAll);
 
     bento.appendChild(heroTile);
-    root.appendChild(bento);
+    heroSec.appendChild(bento);
+    var scrollCue = h(
+      '<button type="button" class="home-scroll-cue" aria-label="Scroll to next section">' +
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>' +
+      '</button>'
+    );
+    scrollCue.addEventListener("click", function () {
+      var next = root.querySelector(".home-marquee") || root.querySelector(".home-sec");
+      if (next) next.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+    heroSec.appendChild(scrollCue);
+    function hideCue() {
+      var gone = (window.scrollY || document.documentElement.scrollTop) > 60;
+      scrollCue.classList.toggle("is-gone", gone);
+      if (!document.body.contains(heroSec)) window.removeEventListener("scroll", hideCue);
+    }
+    window.addEventListener("scroll", hideCue, { passive: true });
+    root.appendChild(heroSec);
     animateStatCounts(bento);
     animateMasteryRing(bento);
     buildHomeShowcase(root, allMods);
@@ -1632,7 +1652,8 @@
         '</div>' +
       '</div>'
     );
-    root.appendChild(sectionHead);
+    var sec2 = h('<section class="home-sec home-sec-2"></section>');
+    sec2.appendChild(sectionHead);
 
     var filterBar = h('<div class="filter-bar filter-bar-sliding"><i class="filter-pill-indicator"></i></div>');
     var grid = h('<div class="tile-grid"></div>');
@@ -1655,7 +1676,8 @@
       });
       filterBar.appendChild(pill);
     });
-    root.appendChild(filterBar);
+    sec2.appendChild(filterBar);
+    root.appendChild(sec2);
     moveFilterIndicator(filterBar);
     if (homeFilterIndicatorResizeHandler) window.removeEventListener("resize", homeFilterIndicatorResizeHandler);
     homeFilterIndicatorResizeHandler = function () { moveFilterIndicator(filterBar); };
@@ -1688,7 +1710,7 @@
       if (!disabled) tile.addEventListener("click", function () { goTrack(t.id); });
       grid.appendChild(tile);
     });
-    root.appendChild(grid);
+    sec2.appendChild(grid);
     initTileGridLines(grid);
 
     TRACKS.forEach(function (t) {
@@ -1719,7 +1741,7 @@
       if (!disabled) row.addEventListener("click", function () { goTrack(t.id); });
       list.appendChild(row);
     });
-    root.appendChild(list);
+    sec2.appendChild(list);
     applyHomeFilter(grid, list);
     initHomeScrollspy(list, filterBar);
 
