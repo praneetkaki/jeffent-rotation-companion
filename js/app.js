@@ -1618,7 +1618,7 @@
     activity7.forEach(function (v) { weekTotal += v; });
     var bars = activity7.map(function (v, i) {
       var d = new Date(now.getFullYear(), now.getMonth(), now.getDate() - (activity7.length - 1 - i));
-      return '<div class="bp-col' + (i === activity7.length - 1 ? ' today' : '') + '"><span class="bp-bar" style="height:' + Math.max(4, Math.round((v / peak) * 100)) + '%" title="' + v + ' reviewed"></span><span class="bp-day">' + dayLetters[d.getDay()] + '</span></div>';
+      return '<div class="bp-col' + (i === activity7.length - 1 ? ' today' : '') + '"><span class="bp-bar" style="height:' + Math.max(4, Math.round((v / peak) * 100)) + '%" title="' + v + ' reviewed"></span><span class="bp-day">' + dayLetters[d.getDay()] + '<b>' + d.getDate() + '</b></span></div>';
     }).join("");
     panels.appendChild(h(
       '<section class="bento-panel"><header><h3>Last 7 days</h3><span class="bp-figure">' + weekTotal + ' reviewed</span></header>' +
@@ -1657,12 +1657,13 @@
     bento.appendChild(heroTile);
     heroSec.appendChild(bento);
     var scrollCue = h(
-      '<button type="button" class="home-scroll-cue" aria-label="Scroll to next section">' +
+      '<button type="button" class="home-scroll-cue" aria-label="Scroll to study modules">' +
+        '<span>Study modules</span>' +
         '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>' +
       '</button>'
     );
     scrollCue.addEventListener("click", function () {
-      var next = root.querySelector(".home-marquee") || root.querySelector(".home-sec");
+      var next = root.querySelector(".home-sec-2") || root.querySelector(".home-sec");
       if (next) next.scrollIntoView({ behavior: "smooth", block: "start" });
     });
     heroSec.appendChild(scrollCue);
