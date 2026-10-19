@@ -2759,3 +2759,8 @@ body.on-home main.wrap { padding-top: 20px; }
 /* Start here, the subspecialty ticker and the flashcard share one area; below it the page scrolls normally. */
 .home-sec-1 > .home-marquee { grid-column: 1 / -1; margin: 0 0 8px; }
 .home-sec-2 { scroll-snap-align: none; }
+
+/* No empty space: the area after the hero starts at the top and runs straight into Browse by subspecialty. */
+.home-sec-1 { min-height: 0; align-content: start; padding-top: 28px; }
+.home-sec-2 { padding-top: 0; margin-top: 36px; }
+.home-sec-2 .section-head.feed-head { padding-top: 0; }
