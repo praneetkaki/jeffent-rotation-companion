@@ -1613,6 +1613,44 @@
       chipRack.appendChild(h('<div class="bento-chip bento-chip-empty">All caught up, nothing due right now</div>'));
     }
 
+    /* Middle of the hero: a week of activity, mastery by subspecialty, and the weakest cards. */
+    var panels = h('<div class="bento-panels"></div>');
+    var dayLetters = ["S", "M", "T", "W", "T", "F", "S"], now = new Date(), weekTotal = 0, peak = Math.max.apply(null, activity7.concat([1]));
+    activity7.forEach(function (v) { weekTotal += v; });
+    var bars = activity7.map(function (v, i) {
+      var d = new Date(now.getFullYear(), now.getMonth(), now.getDate() - (activity7.length - 1 - i));
+      return '<div class="bp-col' + (i === activity7.length - 1 ? ' today' : '') + '"><span class="bp-bar" style="height:' + Math.max(4, Math.round((v / peak) * 100)) + '%" title="' + v + ' reviewed"></span><span class="bp-day">' + dayLetters[d.getDay()] + '</span></div>';
+    }).join("");
+    panels.appendChild(h(
+      '<section class="bento-panel"><header><h3>Last 7 days</h3><span class="bp-figure">' + weekTotal + ' reviewed</span></header>' +
+      '<div class="bp-chart" role="img" aria-label="Cards reviewed per day over the last 7 days">' + bars + '</div></section>'
+    ));
+    var masteryRows = TRACKS.map(function (t) {
+      var mods = modulesFor(t.id); if (!mods.length) return null;
+      var st = aggregateStats(mods);
+      return { t: t, pct: st.total ? Math.round((st.mastered / st.total) * 100) : 0, due: st.due };
+    }).filter(Boolean).sort(function (a, b) { return b.due - a.due; }).slice(0, 5);
+    var mp = h('<section class="bento-panel"><header><h3>Mastery by subspecialty</h3></header><div class="bp-rows"></div></section>');
+    masteryRows.forEach(function (r) {
+      var row = h('<button type="button" class="bp-row" style="--track-color:' + (r.t.color || "#9fc1ff") + '"><span class="bp-name">' + esc(r.t.name) + '</span><span class="bp-track"><i style="width:' + r.pct + '%"></i></span><span class="bp-pct">' + r.pct + '%</span></button>');
+      row.addEventListener("click", function () { goTrack(r.t.id); });
+      mp.querySelector(".bp-rows").appendChild(row);
+    });
+    panels.appendChild(mp);
+    var weakTop = aggregateWeakCards(3);
+    if (weakTop.length) {
+      var wp = h('<section class="bento-panel"><header><h3>Focus next</h3><span class="bp-figure">' + weakN + ' flagged</span></header><div class="bp-rows"></div></section>');
+      weakTop.forEach(function (w) {
+        var q = stripHtml(w.card.front).replace(/\s+/g, " ");
+        if (q.length > 70) q = q.slice(0, 67) + "...";
+        var row = h('<button type="button" class="bp-weak"><span class="bp-weak-q">' + esc(q) + '</span><span class="bp-weak-m">' + esc(w.mod.trackName || w.mod.title) + '</span></button>');
+        row.addEventListener("click", goWeakSpots);
+        wp.querySelector(".bp-rows").appendChild(row);
+      });
+      panels.appendChild(wp);
+    }
+    heroTile.insertBefore(panels, heroTile.querySelector(".bento-hero-metrics"));
+
     heroTile.querySelector(".bento-metric-mastery").addEventListener("click", goRoadmap);
     heroTile.querySelector(".bento-metric-weak").addEventListener("click", goWeakSpots);
     heroTile.querySelector(".bento-metric-due").addEventListener("click", goStudyAll);
