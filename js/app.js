@@ -1621,38 +1621,46 @@
     var panels = h('<div class="bento-panels"></div>');
     var dayLetters = ["S", "M", "T", "W", "T", "F", "S"], now = new Date(), weekTotal = 0, peak = Math.max.apply(null, activity7.concat([1]));
     activity7.forEach(function (v) { weekTotal += v; });
+    var activeDays = activity7.filter(function (v) { return v > 0; }).length, best = Math.max.apply(null, activity7);
+    var weekLabel = weekTotal + " reviewed";
     var bars = activity7.map(function (v, i) {
       var d = new Date(now.getFullYear(), now.getMonth(), now.getDate() - (activity7.length - 1 - i));
-      return '<div class="bp-col' + (i === activity7.length - 1 ? ' today' : '') + '"><span class="bp-bar" style="height:' + Math.max(4, Math.round((v / peak) * 100)) + '%" title="' + v + ' reviewed"></span><span class="bp-day">' + dayLetters[d.getDay()] + '<b>' + (d.getMonth() + 1) + '/' + d.getDate() + '</b></span></div>';
+      var md = (d.getMonth() + 1) + "/" + d.getDate();
+      return '<button type="button" class="bp-col' + (i === activity7.length - 1 ? ' today' : '') + '" data-tip="' + md + ': ' + v + ' reviewed" style="--i:' + i + '">' +
+        '<span class="bp-bar" style="--h:' + Math.max(4, Math.round((v / peak) * 100)) + '%"></span>' +
+        '<span class="bp-day">' + dayLetters[d.getDay()] + '<b>' + md + '</b></span></button>';
     }).join("");
-    panels.appendChild(h(
-      '<section class="bento-panel"><header><h3>Last 7 days</h3><span class="bp-figure">' + weekTotal + ' reviewed</span></header>' +
-      '<div class="bp-chart" role="img" aria-label="Cards reviewed per day over the last 7 days">' + bars + '</div></section>'
-    ));
+    var cp = h(
+      '<section class="bento-panel bp-activity"><header><h3>Last 7 days</h3><span class="bp-figure">' + weekLabel + '</span></header>' +
+      '<div class="bp-chart" role="group" aria-label="Cards reviewed per day over the last 7 days">' + bars + '</div>' +
+      '<div class="bp-stats"><span><b>' + activeDays + '/7</b> active days</span><span><b>' + best + '</b> best day</span><span><b>' + streak + '</b> day streak</span></div></section>'
+    );
+    var fig = cp.querySelector(".bp-figure");
+    cp.querySelectorAll(".bp-col").forEach(function (c) {
+      function on() { fig.textContent = c.getAttribute("data-tip"); cp.classList.add("is-scrubbing"); }
+      function off() { fig.textContent = weekLabel; cp.classList.remove("is-scrubbing"); }
+      c.addEventListener("mouseenter", on); c.addEventListener("focus", on);
+      c.addEventListener("mouseleave", off); c.addEventListener("blur", off);
+    });
+    panels.appendChild(cp);
     var masteryRows = TRACKS.map(function (t) {
       var mods = modulesFor(t.id); if (!mods.length) return null;
       var st = aggregateStats(mods);
       return { t: t, pct: st.total ? Math.round((st.mastered / st.total) * 100) : 0, due: st.due };
-    }).filter(Boolean).sort(function (a, b) { return b.due - a.due; }).slice(0, 5);
-    var mp = h('<section class="bento-panel"><header><h3>Mastery by subspecialty</h3></header><div class="bp-rows"></div></section>');
-    masteryRows.forEach(function (r) {
-      var row = h('<button type="button" class="bp-row" style="--track-color:' + (r.t.color || "#9fc1ff") + '"><span class="bp-name">' + esc(r.t.name) + '</span><span class="bp-track"><i style="width:' + r.pct + '%"></i></span><span class="bp-pct">' + r.pct + '%</span></button>');
+    }).filter(Boolean).sort(function (a, b) { return b.due - a.due; }).slice(0, 8);
+    var mp = h('<section class="bento-panel bp-mastery"><header><h3>Mastery by subspecialty</h3><span class="bp-figure">' + reviewedCount + '/' + allMods.length + ' modules reviewed</span></header><div class="bp-rows"></div></section>');
+    masteryRows.forEach(function (r, i) {
+      var row = h('<button type="button" class="bp-row" style="--track-color:' + (r.t.color || "#9fc1ff") + ';--i:' + i + '"><span class="bp-dot"></span><span class="bp-name">' + esc(r.t.name) + '</span><span class="bp-track"><i data-w="' + r.pct + '"></i></span><span class="bp-pct">' + r.pct + '%</span><span class="bp-due">' + r.due + ' due</span></button>');
       row.addEventListener("click", function () { goTrack(r.t.id); });
       mp.querySelector(".bp-rows").appendChild(row);
     });
     panels.appendChild(mp);
-    var weakTop = aggregateWeakCards(3);
-    if (weakTop.length) {
-      var wp = h('<section class="bento-panel"><header><h3>Focus next</h3><span class="bp-figure">' + weakN + ' flagged</span></header><div class="bp-rows"></div></section>');
-      weakTop.forEach(function (w) {
-        var q = stripHtml(w.card.front).replace(/\s+/g, " ");
-        if (q.length > 70) q = q.slice(0, 67) + "...";
-        var row = h('<button type="button" class="bp-weak"><span class="bp-weak-q">' + esc(q) + '</span><span class="bp-weak-m">' + esc(w.mod.trackName || w.mod.title) + '</span></button>');
-        row.addEventListener("click", goWeakSpots);
-        wp.querySelector(".bp-rows").appendChild(row);
+    (window.requestAnimationFrame || setTimeout)(function () {
+      (window.requestAnimationFrame || setTimeout)(function () {
+        mp.querySelectorAll(".bp-track i").forEach(function (el) { el.style.width = Math.max(2, +el.getAttribute("data-w")) + "%"; });
+        cp.classList.add("is-in");
       });
-      panels.appendChild(wp);
-    }
+    });
     heroTile.insertBefore(panels, heroTile.querySelector(".bento-hero-metrics"));
 
     heroTile.querySelector(".bento-metric-mastery").addEventListener("click", goRoadmap);
