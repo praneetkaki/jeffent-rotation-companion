@@ -1,6 +1,6 @@
 # Pediatric ENT
 
-_Generated 2026-10-10 from content/*.js_
+_Generated 2026-10-19 from content/*.js_
 
 > **How to use:** paste a module file below (or ALL.md) into OpenEvidence / any reviewer, followed by an instruction such as
 > "Fact-check every claim against current guidelines, flag anything outdated or wrong, and propose exact replacement wording. Keep our style: no em dashes, plain clinical language."
@@ -19,8 +19,8 @@ _Generated 2026-10-10 from content/*.js_
 
 **The pediatric airway vs the adult airway** (tags: Funnel-shaped · Cephalad · Floppy airway)
 
-- Funnel-shaped, narrowest at the subglottis (vs the glottis in adults).
-- Larynx sits more cephalad (about C3-4 vs C4-6).
+- Classically funnel-shaped, narrowest at the subglottis and cricoid (vs the glottis in adults). Imaging studies suggest the glottis may be the narrowest point in vivo, but the cricoid is the narrowest fixed ring, so choose a tube with a leak or a cuffed tube sized carefully.
+- Larynx sits more cephalad in children.
 - Tongue and tonsils are relatively larger for the airway size.
 - Epiglottis is omega-shaped and floppier.
 - So small amounts of edema cause disproportionate obstruction, and airway emergencies escalate faster.[figure: Explains why a child's funnel-shaped airway (narrowest at the subglottis, cephalad larynx, floppy omega-shaped epiglottis) makes small amounts of edema disproportionately obstructive compared to an adult's cylindrical airway.]
@@ -95,7 +95,7 @@ Funnel-shaped vs cylindrical: why a little swelling goes a long way in a child. 
 _Image source: Pediatric vs. Adult Airway Anatomy and Geometric Differences. Illustration generated with Google Gemini._
 - Tongue: relatively larger for the airway size in a child, crowding the oropharynx; proportionally smaller relative to airway size in an adult.
 - Epiglottis: omega-shaped and floppier in a child; flatter and stiffer in an adult.
-- Larynx sits more cephalad in a child (~C3-4) than in an adult (~C4-6, more caudal).
+- Larynx sits more cephalad (higher) in a child than in an adult.
 - Vocal cords (glottis): the true vocal folds; in a child this is NOT the narrowest point (the subglottis below it is), but in an adult this IS the narrowest point of the airway.
 - In a child, the airway is narrowest at the SUBGLOTTIS, not the glottis, so mucosal edema here causes disproportionate obstruction. In an adult, the airway is narrowest at the GLOTTIS (true vocal cords), unlike the child's subglottic narrowing.
 - Subglottis: bounded by the complete cricoid ring, the narrowest fixed point of a child's airway; present in the adult too, but there it is not the narrowest point (the glottis above it is).
@@ -103,7 +103,7 @@ _Image source: Pediatric vs. Adult Airway Anatomy and Geometric Differences. Ill
 - Trachea: continues below the cricoid; shorter overall length and funnel-shaped in a child, roughly cylindrical caliber in an adult.
 - Tongue: relatively larger for the airway size in a child, crowding the oropharynx; proportionally smaller relative to airway size in an adult.
 - Epiglottis: omega-shaped and floppier in a child; flatter and stiffer in an adult.
-- Larynx sits more cephalad in a child (~C3-4) than in an adult (~C4-6, more caudal).
+- Larynx sits more cephalad (higher) in a child than in an adult.
 - Vocal cords (glottis): the true vocal folds; in a child this is NOT the narrowest point (the subglottis below it is), but in an adult this IS the narrowest point of the airway.
 - In a child, the airway is narrowest at the SUBGLOTTIS, not the glottis, so mucosal edema here causes disproportionate obstruction. In an adult, the airway is narrowest at the GLOTTIS (true vocal cords), unlike the child's subglottic narrowing.
 - Subglottis: bounded by the complete cricoid ring, the narrowest fixed point of a child's airway; present in the adult too, but there it is not the narrowest point (the glottis above it is).
@@ -143,12 +143,12 @@ Same tube, different geometry: shorter and flatter in a child, longer and steepe
 _Image source: Pediatric vs. Adult Eustachian Tube Orientation and Drainage. Illustration generated with Google Gemini._
 - Middle ear (child): the air-filled space medial to the tympanic membrane that the Eustachian tube must ventilate and drain. Middle ear (adult): the same space, ventilated by a longer, steeper Eustachian tube.
 - Tympanic membrane (child): separates the middle ear from the ear canal; retraction/effusion here reflects poor Eustachian tube function. Tympanic membrane (adult): normally well-aerated because the adult Eustachian tube equalizes pressure and drains effectively.
-- Eustachian tube (child): shorter, floppier, and more horizontal than in an adult, so it drains and ventilates the middle ear less efficiently, predisposing to otitis media. Eustachian tube (adult): longer, stiffer, and angled closer to vertical (~45 degrees), giving more effective drainage and ventilation.
+- Eustachian tube (child): shorter, floppier, and more horizontal than in an adult, so it drains and ventilates the middle ear less efficiently, predisposing to otitis media. Eustachian tube (adult): longer, stiffer, and angled closer to vertical (roughly 35 to 45 degrees depending on source, up from about 10 degrees at birth), giving more effective drainage and ventilation.
 - Nasopharynx (child): the Eustachian tube's nasopharyngeal opening; the tube's flatter angle here favors reflux of nasopharyngeal secretions into the middle ear. Nasopharynx (adult): the tube's steeper angle here makes reflux far less likely than in a child.
 - Child Eustachian tube: shorter, flatter, drains poorly, i.e. the anatomic basis for the high incidence of otitis media in young children.
 - Middle ear (child): the air-filled space medial to the tympanic membrane that the Eustachian tube must ventilate and drain. Middle ear (adult): the same space, ventilated by a longer, steeper Eustachian tube.
 - Tympanic membrane (child): separates the middle ear from the ear canal; retraction/effusion here reflects poor Eustachian tube function. Tympanic membrane (adult): normally well-aerated because the adult Eustachian tube equalizes pressure and drains effectively.
-- Eustachian tube (child): shorter, floppier, and more horizontal than in an adult, so it drains and ventilates the middle ear less efficiently, predisposing to otitis media. Eustachian tube (adult): longer, stiffer, and angled closer to vertical (~45 degrees), giving more effective drainage and ventilation.
+- Eustachian tube (child): shorter, floppier, and more horizontal than in an adult, so it drains and ventilates the middle ear less efficiently, predisposing to otitis media. Eustachian tube (adult): longer, stiffer, and angled closer to vertical (roughly 35 to 45 degrees depending on source, up from about 10 degrees at birth), giving more effective drainage and ventilation.
 - Nasopharynx (child): the Eustachian tube's nasopharyngeal opening; the tube's flatter angle here favors reflux of nasopharyngeal secretions into the middle ear. Nasopharynx (adult): the tube's steeper angle here makes reflux far less likely than in a child.
 - Adult Eustachian tube: longer, steeper, drains well, one reason acute otitis media becomes far less common after early childhood.
 
@@ -171,7 +171,7 @@ Who can be observed: Always treat infants <6 months.
 
 - Ages 6-23 months: antibiotics if bilateral, severe (T &ge;39&deg;C, moderate/severe otalgia, or otalgia &ge;48h), or otorrhea; otherwise a 48-72h observation option with shared decision-making and a rescue prescription is reasonable for mild, unilateral disease.
 - Ages &ge;2 years: observation is an option for non-severe disease.
-- Reassess and escalate to amoxicillin-clavulanate if not improving at 48-72h.Common organisms: Streptococcus pneumoniae, non-typeable Haemophilus influenzae, and Moraxella catarrhalis.
+- If a child on observation worsens or does not improve at 48-72h, start first-line high-dose amoxicillin. Switch to amoxicillin-clavulanate only when a child already on amoxicillin fails.Common organisms: Streptococcus pneumoniae, non-typeable Haemophilus influenzae, and Moraxella catarrhalis.
 
 **[peds-tna-indications] Tonsillectomy & adenoidectomy: when it's indicated**
 
@@ -191,7 +191,7 @@ Extracapsular (total) tonsillectomy remains preferred when recurrent/chronic ton
 
 Give a single intraoperative dose of IV dexamethasone (~0.5 mg/kg, max ~10-16 mg): it halves postoperative nausea/vomiting and speeds return to a normal diet. Some centers are now adding a short postoperative oral dexamethasone course (0.5 mg/kg on postop days 2/4/6) as an analgesic adjunct that may reduce opioid prescriptions without increasing bleeding risk, though this is emerging/optional practice, not established guidance.
 Do not give routine perioperative prophylactic antibiotics: they don't reduce infection, pain, or bleeding.
-Manage pain with scheduled acetaminophen &plusmn; ibuprofen (ibuprofen does not meaningfully increase bleeding). Do not administer or prescribe codeine (or codeine-containing medications) to children <12 years after tonsillectomy: ultra-rapid CYP2D6 metabolizers can convert codeine to morphine and suffer fatal respiratory depression. Tramadol shares this CYP2D6 mechanism and is likewise avoided.
+Manage pain with scheduled acetaminophen &plusmn; ibuprofen (ibuprofen is widely used and is not clearly shown to raise bleeding risk, though acetaminophen is preferred first-line in some centers). Do not administer or prescribe codeine (or codeine-containing medications) to any child under 18 after tonsillectomy: ultra-rapid CYP2D6 metabolizers can convert codeine to morphine and suffer fatal respiratory depression. Tramadol shares this CYP2D6 mechanism and is likewise contraindicated under 18 after T&A.
 Admit high-risk children (age <3, severe OSA, comorbidities) for postoperative monitoring given the risk of respiratory compromise.
 
 **[newborn-hearing-screen] Newborn hearing screening: the 1-3-6 rule**
@@ -205,7 +205,7 @@ The 1-3-6 rule, in order:
 **[congenital-neck-masses] Congenital neck masses by location**
 
 Location does most of the differential work.
-Thyroglossal duct cyst is the most common congenital neck mass (~70%); branchial cleft anomalies are second (~20%). Most congenital neck masses are midline (~66%).
+Thyroglossal duct cyst is the most common congenital neck mass (~70%); branchial cleft anomalies are second (~20%). Location drives the differential.
 [figure: Uses anatomic location (midline, lateral anterior to SCM, posterior triangle, preauricular) to differentiate congenital neck mass diagnoses.]
 
 | Location | Likely diagnosis |
@@ -256,7 +256,7 @@ Midline masses that elevate with tongue protrusion are thyroglossal duct cysts; 
 **[congenital-airway] Congenital airway anomalies to recognize**
 
 Choanal atresia: newborns are obligate nasal breathers, so bilateral atresia causes cyclical cyanosis that improves with crying (mouth breathing) and worsens at rest; it's part of the CHARGE association.
-Laryngomalacia: the most common cause of stridor in infants, with inspiratory stridor worse when supine, feeding, or crying; it typically self-resolves by 12-18 months, but severe cases with growth failure need surgery (supraglottoplasty).
+Laryngomalacia: the most common cause of stridor in infants, with inspiratory stridor worse when supine, feeding, or crying; it typically self-resolves within the first 18 to 24 months, but severe cases with growth failure need surgery (supraglottoplasty).
 
 **[congenital-ear-anomalies] Congenital & structural ear anomalies: aural atresia, microtia, congenital cholesteatoma**
 
@@ -273,7 +273,7 @@ Congenital cholesteatoma is a distinct entity from the acquired cholesteatoma co
 
 **[peds-osa-depth] Pediatric OSA: diagnosis and the post-adenotonsillectomy question**
 
-Pediatric OSA is diagnosed against a different threshold than adult OSA (adult depth lives in the Sleep Surgery & OSA track): an obstructive apnea-hypopnea index (AHI) ≥1 event/hour on polysomnography is abnormal in a child, versus ≥5/hour in an adult, a much lower bar. Polysomnography remains the gold standard, though in practice many children go straight to adenotonsillectomy on a strong clinical picture (snoring, witnessed apneas, gasping) without a preoperative sleep study, per AAP guidance; PSG is reserved for cases where the diagnosis/severity is unclear or the child is high-risk for residual disease.
+Pediatric OSA is diagnosed against a different threshold than adult OSA (adult depth lives in the Sleep Surgery & OSA track): an obstructive apnea-hypopnea index (AHI) ≥1 event/hour on polysomnography is abnormal in a child, versus ≥5/hour in an adult, a much lower bar. Polysomnography remains the gold standard, though in practice many children go straight to adenotonsillectomy on a strong clinical picture (snoring, witnessed apneas, gasping) without a preoperative sleep study. AAP/AASM recommend PSG for suspected OSA, while AAO-HNS reserves preoperative PSG for high-risk children (age under 2, obesity, Down syndrome, craniofacial or neuromuscular disease, sickle cell, mucopolysaccharidoses) or when the exam and symptoms do not match.
 Adenotonsillectomy resolves OSA in most otherwise-healthy children, but not all. Risk factors for persistent/residual OSA after T&A include:
 
 - Obesity
@@ -325,7 +325,7 @@ Stem: A newborn has episodes of cyanosis at rest that resolve with crying, and r
   A: Newborns are obligate nasal breathers; bilateral choanal atresia blocks the nasal airway, and crying opens the mouth, allowing oral breathing and relieving the cyanosis.
 
 - Q: What is the immediate management, and what association should be considered?
-  A: Secure an oral airway (e.g., a McGovern nipple) urgently and get ENT involved. Screen for the CHARGE association (Coloboma, Heart defects, Atresia choanae, Retarded growth, Genital abnormalities, Ear abnormalities).
+  A: Secure an oral airway (e.g., a McGovern nipple) urgently and get ENT involved. Screen for the CHARGE association (Coloboma, Heart defects, Atresia choanae, Retardation of growth and development, Genital abnormalities, Ear abnormalities).
 
 Teaching: A newborn whose cyanosis improves with crying and worsens at rest has an obstructed nose until proven otherwise. Bilateral choanal atresia is an airway emergency in this age group specifically.
 
@@ -334,7 +334,7 @@ Teaching: A newborn whose cyanosis improves with crying and worsens at rest has 
 Stem: A 4-year-old has had 6 episodes of acute otitis media in the past 12 months, each treated with antibiotics, with persistent effusion noted between episodes.
 
 - Q: Does this meet criteria for surgical intervention, and what would it be?
-  A: This approaches the recurrent AOM threshold (historically referenced against the Paradise criteria, ~7/year). Combined with persistent effusion, this supports tympanostomy tube placement, which reduces episode frequency and severity and treats the effusion's hearing impact directly.
+  A: This meets the definition of recurrent AOM (3 episodes in 6 months, or 4 in 12 months with 1 in the last 6). With middle ear effusion present at assessment, AAO-HNS recommends offering bilateral tympanostomy tubes, which also treat the effusion's hearing impact. Tubes may not clearly reduce the number of infections.
 
 - Q: What would push you toward T&A instead of, or in addition to, tubes?
   A: If there were also obstructive symptoms (snoring, sleep-disordered breathing) from adenotonsillar hypertrophy, adenoidectomy (± tonsillectomy) would be added, since obstructive sleep-disordered breathing is now the leading indication for T&A in children.
@@ -370,7 +370,7 @@ Teaching: [figure: Child with a midline neck mass moving with tongue protrusion,
 Stem: A 6-week-old has inspiratory stridor, worse when feeding and lying supine, present since 2 weeks of age. He is gaining weight normally.
 
 - Q: What is the most likely diagnosis, and what is the expected course?
-  A: Laryngomalacia, the most common cause of infant stridor, positional and feeding-related, and typically self-resolves by 12-18 months. Reassurance and monitoring growth is appropriate for mild cases.
+  A: Laryngomalacia, the most common cause of infant stridor, positional and feeding-related, and typically self-resolves within the first 18 to 24 months. Reassurance and monitoring growth is appropriate for mild cases.
 
 - Q: What change in this picture would make you reconsider, and what would you consider instead?
   A: Worsening stridor over weeks (rather than stable/improving), growth failure, or cutaneous hemangiomas elsewhere should raise concern for a subglottic hemangioma (biphasic growth pattern, can rapidly enlarge) and its association with PHACE syndrome. This needs direct airway evaluation, not reassurance.
@@ -437,7 +437,7 @@ Stem: A 3-year-old has had 4 days of fever and reduced oral intake following a r
 
 Teaching: [figure: Young child with fever, rigid neck extension, muffled voice, and drooling from a retropharyngeal abscess, diagnosed with contrast CT distinguishing abscess from phlegmon.]Pediatric retropharyngeal abscess presents in a child typically under 6 with fever, neck stiffness/torticollis, muffled voice, and drooling after a preceding URI; a widened prevertebral space on lateral X-ray screens for it, but contrast CT is what separates a drainable abscess from phlegmon and decides whether surgery joins IV antibiotics.
 
-### Flashcards (47)
+### Flashcards (49)
 
 **[peds-airway-anatomy-card]** tags: PE, anatomy, milestones: MK1, PC7, UKMLA: Stridor, reviewer: (none)
 - Front: Name three ways a child's airway anatomy differs from an adult's, and why it matters.
@@ -462,7 +462,7 @@ Teaching: [figure: Young child with fever, rigid neck extension, muffled voice, 
 **[ome-vs-aom-card]** tags: PE, clinical, milestones: PC7, PC4, UKMLA: Painful ear, reviewer: (none)
 - Front: How do OME and AOM differ, and what is first-line management for each?
 - Back: OME: fluid behind an intact TM without acute infection signs, often asymptomatic. First-line is watchful waiting (most resolve in weeks). AOM: a bulging, erythematous TM with acute symptoms (otalgia, fever), managed with observation or amoxicillin depending on age and severity.
-- Source: AAP Clinical Practice Guideline: Otitis Media with Effusion.
+- Source: AAO-HNS CPG: Otitis Media with Effusion (Update), 2016; AAP CPG: Acute Otitis Media, 2013.
 
 **[aom-treatment-card]** tags: PE, pharm, milestones: SBP3, PC7, UKMLA: Painful ear, reviewer: (none)
 - Front: What determines whether a child with AOM gets watchful waiting vs immediate antibiotics?
@@ -519,12 +519,12 @@ Teaching: [figure: Young child with fever, rigid neck extension, muffled voice, 
 
 **[choanal-atresia-card]** tags: PE, clinical, milestones: PC7, PC1, UKMLA: Nasal obstruction, RED FLAG, reviewer: (none)
 - Front: Why is bilateral choanal atresia an emergency, and what association should be screened for?
-- Back: Newborns are obligate nasal breathers, so bilateral atresia causes cyclical cyanosis at rest that improves with crying. Secure an oral airway urgently and screen for the CHARGE association (Coloboma, Heart defects, Atresia choanae, Retarded growth, Genital/ear abnormalities).
+- Back: Newborns are obligate nasal breathers, so bilateral atresia causes cyclical cyanosis at rest that improves with crying. Secure an oral airway urgently and screen for the CHARGE association (Coloboma, Heart defects, Atresia choanae, Retardation of growth and development, Genital/ear abnormalities).
 - Source: Standard pediatric otolaryngology teaching.
 
 **[laryngomalacia-card]** tags: PE, clinical, milestones: PC7, PC6, UKMLA: Stridor, reviewer: (none)
 - Front: What is laryngomalacia, and what is its typical course?
-- Back: The most common cause of stridor in infants: collapse of floppy supraglottic structures on inspiration, worse when supine, feeding, or crying. Typically self-resolves by 12-18 months; severe cases with growth failure or significant apnea need surgery (supraglottoplasty).
+- Back: The most common cause of stridor in infants: collapse of floppy supraglottic structures on inspiration, worse when supine, feeding, or crying. Typically self-resolves within the first 18 to 24 months; severe cases with growth failure or significant apnea need surgery (supraglottoplasty).
 - Source: Standard pediatric airway teaching on laryngomalacia.
 
 **[subglottic-hemangioma-card]** tags: PE, clinical, milestones: PC7, PC6, UKMLA: Stridor, RED FLAG, reviewer: (none)
@@ -546,8 +546,8 @@ Teaching: [figure: Young child with fever, rigid neck extension, muffled voice, 
 - Source: Standard pediatric craniofacial teaching.
 
 **[peds-fb-card]** tags: PE, clinical, milestones: PC7, PC1, UKMLA: Ear and nasal discharge, RED FLAG, reviewer: (none)
-- Front: A [...] lodged in the nose, ear canal, or esophagus is a time-critical emergency, causing liquefactive necrosis within hours.
-- Back: A button battery lodged in the nose, ear canal, or esophagus is a time-critical emergency, causing liquefactive necrosis within hours. Toddlers are the peak age group for foreign bodies generally, since they explore orally and manually without judgment.
+- Front: A [...] lodged in the nose, ear canal, or esophagus is a time-critical emergency, causing caustic injury starting within 15 minutes to 2 hours (emergent removal within about 2 hours; honey or sucralfate can be given as an interim measure without delaying removal).
+- Back: A button battery lodged in the nose, ear canal, or esophagus is a time-critical emergency, causing caustic injury starting within 15 minutes to 2 hours (emergent removal within about 2 hours; honey or sucralfate can be given as an interim measure without delaying removal). Toddlers are the peak age group for foreign bodies generally, since they explore orally and manually without judgment.
 - Source: AAP clinical guidance on pediatric foreign bodies; National Capital Poison Center button-battery data.
 
 **[peds-neck-infection-card]** tags: PE, clinical, milestones: PC7, PC1, UKMLA: Neck lump, RED FLAG, reviewer: (none)
@@ -567,12 +567,12 @@ Teaching: [figure: Young child with fever, rigid neck extension, muffled voice, 
 
 **[bone-anchored-hearing-device-card]** tags: PE, clinical, milestones: PC7, PC4, UKMLA: Hearing loss, reviewer: (none)
 - Front: In bilateral aural atresia, a [...] hearing device transmits sound vibration directly through the skull to the inner ear, bypassing the atretic canal and middle ear entirely.
-- Back: In bilateral aural atresia, a bone-conduction hearing device transmits sound vibration directly through the skull to the inner ear, bypassing the atretic canal and middle ear entirely. It bridges hearing access until surgical ear canal reconstruction is feasible, typically around age 6.
+- Back: In bilateral aural atresia, a bone-conduction hearing device transmits sound vibration directly through the skull to the inner ear, bypassing the atretic canal and middle ear entirely. It bridges hearing access until a bone-anchored (osseointegrated) implant is usually placed around age 5. Surgical canal reconstruction (atresiaplasty) is considered later only in selected candidates.
 - Source: Standard pediatric audiology teaching on bone-conduction amplification.
 
 **[pediatric-osa-ahi-card]** tags: PE, clinical, milestones: PC7, PC9, UKMLA: Obstructive sleep apnoea, Snoring, reviewer: (none)
 - Front: What obstructive AHI defines OSA in a child, and how does it compare to the adult threshold?
-- Back: An obstructive AHI ≥1 event/hour on polysomnography is abnormal in a child, far lower than the adult threshold of ≥5/hour (see Sleep Surgery & OSA track). PSG remains the gold standard, though many children proceed straight to adenotonsillectomy on a strong clinical picture without a preoperative sleep study.
+- Back: An obstructive AHI ≥1 event/hour on polysomnography is abnormal in a child, far lower than the adult threshold of ≥5/hour (see Sleep Surgery & OSA track). PSG remains the gold standard, though many children proceed straight to adenotonsillectomy on a strong clinical picture without a preoperative sleep study. PSG is recommended for high-risk children or when the picture is unclear.
 - Source: AAP Clinical Practice Guideline: Diagnosis and Management of Childhood Obstructive Sleep Apnea Syndrome, 2012 (reaffirmed); AASM pediatric scoring criteria.
 
 **[peds-osa-post-ta-card]** tags: PE, clinical, milestones: PC7, PC9, UKMLA: Obstructive sleep apnoea, Snoring, RED FLAG, reviewer: (none)
@@ -679,3 +679,13 @@ Teaching: [figure: Young child with fever, rigid neck extension, muffled voice, 
 - Front: What is the dominant blood supply to the palatine tonsil, and why does it matter?
 - Back: The tonsillar branch of the facial artery (with ascending pharyngeal, lingual, and descending palatine contributions), all from the external carotid system. This rich supply explains the post-tonsillectomy hemorrhage risk.
 - Source: Standard pediatric anatomy teaching.
+
+**[acute-mastoiditis-card]** tags: PE, clinical, milestones: PC7, PC4, UKMLA: Painful ear, RED FLAG, reviewer: (none)
+- Front: What are the signs and management of acute mastoiditis after AOM?
+- Back: Postauricular erythema and swelling with a protruding auricle after AOM. Get a CT temporal bone if complicated, start IV antibiotics, and consult ENT (myringotomy or mastoidectomy may be needed). Severe headache, cranial nerve palsy, or altered mental status suggests intracranial spread.
+- Source: AAP Clinical Practice Guideline: Acute Otitis Media, 2013.
+
+**[peds-neck-mass-red-flags-card]** tags: PE, clinical, milestones: PC7, PC3, UKMLA: Neck lump, reviewer: (none)
+- Front: Which features of a pediatric neck mass should prompt a malignancy workup?
+- Back: A firm, fixed, or >2 cm node, a supraclavicular location, persistence beyond 4 to 6 weeks despite treatment, or systemic B symptoms (night sweats, weight loss). These need imaging and biopsy workup (lymphoma is a key concern) rather than observation.
+- Source: Standard pediatric otolaryngology teaching.

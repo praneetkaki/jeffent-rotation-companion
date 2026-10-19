@@ -1,6 +1,6 @@
 # Head & Neck Oncology
 
-_Generated 2026-10-10 from content/*.js_
+_Generated 2026-10-19 from content/*.js_
 
 > **How to use:** paste a module file below (or ALL.md) into OpenEvidence / any reviewer, followed by an instruction such as
 > "Fact-check every claim against current guidelines, flag anything outdated or wrong, and propose exact replacement wording. Keep our style: no em dashes, plain clinical language."
@@ -35,7 +35,7 @@ LevelSuperiorInferiorAnteriorPosteriorMain nodal contentsPrimary drainageStructu
 [figure: Major salivary gland anatomy: parotid (Stensen's duct) and submandibular (Wharton's duct).]
 - Parotid: the largest gland; the facial nerve runs through it, dividing it into superficial and deep lobes, so facial-nerve function must be documented before and after any parotid surgery. Duct: Stensen's, opens opposite the upper second molar.
 - Submandibular: duct is Wharton's, opening at the sublingual caruncle; its uphill course makes it the classic site for salivary stones (sialolithiasis).
-- Sublingual: the smallest major gland, sitting in the floor of the mouth; drains via multiple small ducts (ducts of Rivinus) near the sublingual caruncle rather than one dominant duct.The three major glands compared:
+- Sublingual: the smallest major gland, sitting in the floor of the mouth; drains via multiple small ducts (ducts of Rivinus) along the sublingual fold, and some join Bartholin's duct. The caruncle is where Wharton's duct opens.The three major glands compared:
 GlandLocationSecretion typeClinical pearlsParotidOverlies the mandibular ramus, below and in front of the earSerousFacial nerve runs through it; ~80% of tumors are benign, mostly pleomorphic adenoma; stones are uncommon because serous saliva is thinSubmandibularSubmandibular triangle, below the body of the mandibleMixed, mucous-predominantWharton's duct runs an uphill course; accounts for the large majority of salivary stonesSublingualFloor of mouth, anterior to the submandibular glandMucous-predominantSmallest major gland; tumors here are rare but disproportionately likely to be malignant when they occurCommon lesions and tumors:
 
 - Pleomorphic adenoma: the most common benign salivary tumor overall, usually in the parotid.
@@ -70,10 +70,10 @@ Oral cavity
 - Four subsites: base of tongue (posterior third + lingual tonsils), palatine tonsils/tonsillar fossae, soft palate, and posterior pharyngeal wall.
 - Cancer profile: increasingly HPV-associated (most often type 16), arising in the reactive lymphoid tissue of the tonsils and tongue base. Classically a younger, non-smoking patient who presents with a painless cystic neck node rather than local symptoms, the "asymptomatic primary with a neck mass" pattern. HPV-driven tumors are staged with a separate AJCC 8th-edition system because of their favorable biology.
 - Lymphatic drainage: to the jugulodigastric (level II) and retropharyngeal nodes; base of tongue and posterior wall drain bilaterally, tonsil tends to drain ipsilaterally first.Oral cavity vs HPV+ oropharynx at a glance:
-FeatureOral cavityOropharynx (HPV+)Main driverTobacco + alcohol (synergistic)High-risk HPV, typically type 16Typical patientOlder heavy smoker/drinkerYounger, often non-smokerUsual presentationVisible ulcer/patch + pain, early symptomsPainless cystic neck node, few local symptomsMolecular hallmarkTP53 mutationp16 overexpression (E7-driven)PrognosisLess favorableSubstantially better stage-for-stageStagingStandard AJCCSeparate AJCC 8th-ed. HPV+ systemThe prognostic gap is large: HPV-associated oropharyngeal SCC carries roughly 80-90% 5-year overall survival, versus ~40% for HPV-negative disease.
+FeatureOral cavityOropharynx (HPV+)Main driverTobacco + alcohol (synergistic)High-risk HPV, typically type 16Typical patientOlder heavy smoker/drinkerYounger, often non-smokerUsual presentationVisible ulcer/patch + pain, early symptomsPainless cystic neck node, few local symptomsMolecular hallmarkTP53 mutationp16 overexpression (E7-driven)PrognosisLess favorableSubstantially better stage-for-stageStagingStandard AJCCSeparate AJCC 8th-ed. HPV+ systemThe prognostic gap is large: HPV-associated oropharyngeal SCC carries roughly 75-85% 5-year overall survival, versus about 35-45% for HPV-negative disease. It still needs full curative-intent treatment.
 High-yield pitfalls:
 
-- p16 testing is for the oropharynx, not the oral cavity: routine HPV/p16 testing is recommended for oropharyngeal (and sinonasal) tumors, not oral cavity cancers, where it lacks consistent prognostic value.
+- p16 testing is for the oropharynx, not the oral cavity: routine p16/HPV testing is recommended for oropharyngeal SCC. It is not routinely recommended outside the oropharynx (oral cavity, larynx, sinonasal), where p16 is not a reliable HPV surrogate. p16 is a required step in every oropharyngeal workup.
 - A new "branchial cleft cyst" in an adult over ~40 is oropharyngeal cancer until proven otherwise: a cystic level II node from an HPV+ tonsil/base-of-tongue primary can look radiologically and cytologically like a benign branchial cleft cyst; exclude the primary, don't just drain it.
 - Smoking still matters even when HPV+: tobacco use in HPV+ oropharyngeal disease confers an intermediate prognosis, between HPV+ non-smokers (best) and HPV- smokers (worst).
 - "Base of tongue" is oropharynx, "oral tongue" is oral cavity: the circumvallate papillae are the dividing landmark, and misclassification is a common registry and exam error.
@@ -102,8 +102,8 @@ Why facial-nerve function is documented before and after every parotid operation
 _Image source: Parotid Region and Facial Nerve Branching Pattern. Royal College of Surgeons of Ireland (CC BY-NC-SA)._
 - Temporal branch: crosses the zygomatic arch to innervate the frontalis and orbicularis oculi; injury causes brow ptosis and difficulty closing the eye.
 - Zygomatic branch: contributes to orbicularis oculi innervation, helping close the eye.
-- Buccal branch (upper division): innervates the buccinator and the upper lip elevators.
-- Buccal branch (lower division): innervates the buccinator and orbicularis oris.
+- Buccal branch: innervates the buccinator and the upper lip elevators.
+- Buccal branch: innervates the buccinator and orbicularis oris (lip and cheek movement).
 - Facial nerve trunk (CN VII): exits the stylomastoid foramen and enters the parotid, where it divides into its terminal branches.
 - Stylomastoid foramen: skull-base exit point of the facial nerve, just before it enters the parotid gland.
 - Parotid gland: the largest salivary gland; the facial nerve runs through it, dividing it into superficial and deep lobes.
@@ -183,13 +183,13 @@ _Image source: Thyroid and Parathyroid Glands, Vasculature, and Recurrent Laryng
 
 **[unknown-primary] The unknown-primary workup for a neck mass**
 
-- FNA first: never open biopsy first.
+- FNA first: never open biopsy first, because open biopsy of a nodal metastasis can compromise later neck dissection and outcome.
 - If FNA shows squamous cell carcinoma, examine and image the likely primary sites (base of tongue, tonsil, nasopharynx, hypopharynx), plus p16 (HPV surrogate) and EBV testing on the FNA/biopsy specimen, since a positive result points strongly toward an oropharyngeal or nasopharyngeal source respectively.
 - PET-CT and panendoscopy with directed/blind biopsies (including tonsillectomy of the ipsilateral tonsil) if no primary is found on exam/imaging.
 
 **[hpv-oropharyngeal] HPV-associated oropharyngeal cancer**
 
-Rising incidence, typically in younger, non-smoking patients. p16 immunohistochemistry is the standard surrogate marker for HPV-driven tumors (types 16/18 most implicated) and carries a better prognosis than HPV-negative disease at the same stage, reflected in a separate staging system.
+Rising incidence, typically in younger, non-smoking patients. p16 immunohistochemistry is the standard surrogate marker for HPV-driven tumors (HPV-16 drives about 90% of cases; HPV-18 is a minor contributor) and carries a better prognosis than HPV-negative disease at the same stage, reflected in a separate staging system.
 Pitfall: a cystic neck node from an HPV+ oropharyngeal primary can look radiologically and even cytologically like a benign branchial cleft cyst. A new 'branchial cleft cyst' in an adult over ~40 needs the primary excluded, not just drained.
 
 **[nasopharyngeal-carcinoma] Nasopharyngeal carcinoma (NPC): the EBV-associated cancer everyone should recognize early**
@@ -212,7 +212,7 @@ Treatment: NPC is highly radiosensitive, so primary treatment is radiation (ofte
 - Hot nodule: autonomously functioning, suppresses TSH, takes up tracer more than surrounding tissue. Rarely malignant, so it does not need FNA; manage as hyperfunctioning thyroid tissue.
 - Cold nodule: normal or low tracer uptake. Carries a higher relative malignancy risk, so it needs FNA per size/ultrasound (TI-RADS) criteria.[figure: Thyroid nodule workup order: TSH, then ultrasound (TI-RADS), then FNA (Bethesda).]ACR TI-RADS scoring:
 Feature categoryFeature (points)CompositionCystic/spongiform (0); mixed cystic-solid (1); solid (2)EchogenicityAnechoic (0); hyper-/isoechoic (1); hypoechoic (2); very hypoechoic (3)ShapeWider-than-tall (0); taller-than-wide (3)MarginSmooth/ill-defined (0); lobulated/irregular (2); extrathyroidal extension (3)Echogenic fociNone/comet-tail (0); macrocalcification (1); peripheral/rim (2); punctate echogenic foci/microcalcifications (3)LevelPointsSuspicionFNA if &ge;Follow-up US if &ge;TR10BenignNo FNANoneTR22Not suspiciousNo FNANoneTR33Mildly suspicious2.5 cm1.5 cmTR44-6Moderately suspicious1.5 cm1.0 cmTR5&ge;7Highly suspicious1.0 cm0.5 cmBethesda System for Reporting Thyroid Cytopathology (2023, 3rd edition):
-CategoryName (2023)ROM (%, NIFTP=ca)Usual managementINondiagnostic5-20Repeat FNA under ultrasound guidanceIIBenign2-7Clinical + sonographic follow-upIIIAtypia of undetermined significance (AUS)~22 (13-30)Repeat FNA, molecular testing, or diagnostic lobectomy; subclassify AUS-nuclear (higher ROM) vs AUS-other (lower ROM)IVFollicular neoplasm (or oncocytic follicular neoplasm)~30 (23-34)Molecular testing or diagnostic lobectomyVSuspicious for malignancy~74 (67-83)Lobectomy or total thyroidectomyVIMalignant~97 (97-100)Lobectomy or total thyroidectomy (per tumor type)ROMs shown are inclusive of NIFTP counted as malignant; excluding NIFTP lowers the indeterminate-category ROMs.
+CategoryName (2023)ROM (%, NIFTP=ca)Usual managementINondiagnostic13 (5-20)Repeat FNA under ultrasound guidanceIIBenign2-7Clinical + sonographic follow-upIIIAtypia of undetermined significance (AUS)~22 (13-30)Repeat FNA, molecular testing, or diagnostic lobectomy; subclassify AUS-nuclear (higher ROM) vs AUS-other (lower ROM)IVFollicular neoplasm (or oncocytic follicular neoplasm)~30 (23-34)Molecular testing or diagnostic lobectomyVSuspicious for malignancy~74 (67-83)Lobectomy or total thyroidectomyVIMalignant~97 (97-100)Lobectomy or total thyroidectomy (per tumor type)ROMs shown are inclusive of NIFTP counted as malignant; excluding NIFTP lowers the indeterminate-category ROMs.
 
 **[indeterminate-nodule-molecular] Molecular testing for indeterminate thyroid nodules (Bethesda III/IV)**
 
@@ -230,8 +230,8 @@ Bethesda III and IV are the "indeterminate" categories (ROM ~22% and ~30%), wher
 
 The historical "total thyroidectomy for any cancer >1 cm" paradigm has shifted toward de-escalation. Per the 2025 ATA guidelines:
 
-- Lobectomy is the initial procedure for unifocal, intrathyroidal, node-negative differentiated thyroid cancer &le;2 cm (cT1N0M0): lower complication rates, no lifelong levothyroxine in most patients, equivalent survival.
-- For >2-4 cm (cT2N0M0) low-risk unilateral disease, lobectomy may be preferred, but total thyroidectomy is an option (enables radioactive iodine and eases surveillance); counsel about a ~20% chance of needing completion thyroidectomy.
+- Lobectomy is preferred for unifocal, intrathyroidal, node-negative differentiated thyroid cancer under 2 cm without suspicious nodes or contralateral nodules: lower complication rates, no lifelong levothyroxine in most patients, equivalent survival.
+- For 2 to 4 cm low-risk disease, lobectomy or total thyroidectomy is reasonable (total enables radioactive iodine and eases surveillance). Counsel about the chance of needing completion thyroidectomy (about 20%, with a wide published range).
 - Total thyroidectomy is indicated for tumors >4 cm, gross extrathyroidal extension, clinically apparent nodal (cN1) or distant (cM1) metastasis, bilateral disease, or when postoperative RAI is planned.
 - Risk/benefit tradeoff: total thyroidectomy carries higher rates of recurrent laryngeal nerve injury and hypocalcemia than lobectomy, driving the extent-of-surgery decision.Levothyroxine after surgery:
 
@@ -360,7 +360,9 @@ For mandible/maxilla defects, the gold standard for restoring continuity, occlus
 
 ### Red flags
 - Extranodal extension (ENE) or a positive margin on resection pathology: triggers treatment intensification to adjuvant concurrent chemoradiotherapy, not radiotherapy alone.
-- Supraclavicular node (Virchow's node): think of a primary below the diaphragm (GI, GU) as well as head & neck; work up accordingly.
+- Left supraclavicular node (Virchow's node): think of a primary below the diaphragm (GI, GU) as well as head & neck. A right supraclavicular node points to an intrathoracic source. Work up accordingly.
+- Total laryngectomy patient in respiratory distress: the upper airway no longer connects to the trachea, so bag-mask, oral, and nasal intubation will fail. Oxygenate and intubate through the neck stoma only.
+- Hoarseness lasting more than 4 weeks in a smoker or drinker: laryngoscopy to exclude laryngeal cancer.
 - Facial nerve weakness with a parotid mass: malignant until proven otherwise.
 - Persistent oral ulcer, leukoplakia, or erythroplakia (>2-3 weeks) in a smoker: biopsy; erythroplakia carries a higher malignant-transformation risk than leukoplakia.
 - Rapidly enlarging thyroid nodule, hoarseness, or a fixed/hard nodule: concern for malignancy with possible extrathyroidal extension (RLN involvement).
@@ -460,7 +462,7 @@ Teaching: Any persistent oral white or red patch in a smoker gets biopsied. Loca
 
 **[neck-levels-full-card]** tags: HN, anatomy, milestones: MK1, PC3, UKMLA: Neck lump, reviewer: (none)
 - Front: Beyond levels I-VI, what is level VII, and how are levels II and V further subdivided?
-- Back: Level VII = superior mediastinal nodes, below the sternal notch, relevant to thyroid/lower-neck cancer. Level II splits into IIA/IIB, and level V into VA/VB, both divided relative to the spinal accessory nerve.
+- Back: Level VII = superior mediastinal nodes, below the sternal notch, relevant to thyroid/lower-neck cancer. Level II splits into IIA/IIB relative to the spinal accessory nerve. Level V splits into VA/VB by a horizontal plane at the lower border of the cricoid.
 - Source: Standard head & neck oncologic anatomy teaching.
 
 **[parotid-anatomy-card]** tags: HN, anatomy, milestones: MK1, PC3, UKMLA: Facial/periorbital swelling, reviewer: (none)
@@ -520,7 +522,7 @@ Teaching: Any persistent oral white or red patch in a smoker gets biopsied. Loca
 
 **[thyroid-nodule-workup-card]** tags: HN, clinical, milestones: PC3, MK1, UKMLA: Neck lump, reviewer: (none)
 - Front: What is the stepwise workup for a newly found thyroid nodule?
-- Back: TSH first (a suppressed TSH → radionuclide scan; a 'hot' nodule is rarely malignant and skips FNA). Then ultrasound to assess suspicious features. Then FNA if features/size warrant it, reported by the Bethesda System.[figure: Stepwise thyroid nodule workup: TSH, then ultrasound, then FNA.]
+- Back: Get TSH and a neck ultrasound together. If TSH is suppressed, add a radionuclide scan (a 'hot' nodule is rarely malignant and skips FNA). Then FNA if ultrasound features or size warrant it, reported by the Bethesda System.[figure: Stepwise thyroid nodule workup: TSH and ultrasound, then FNA.]
 - Source: American Thyroid Association guidelines on thyroid nodule management, 2015.
 
 **[tirads-card]** tags: HN, clinical, milestones: PC3, UKMLA: Neck lump, reviewer: (none)
@@ -540,7 +542,7 @@ Teaching: Any persistent oral white or red patch in a smoker gets biopsied. Loca
 
 **[thyroid-surgery-extent-card]** tags: HN, clinical, milestones: PC3, MK1, UKMLA: Neck lump, reviewer: (none)
 - Front: Current ATA guidance favors [...] over total thyroidectomy for unifocal, intrathyroidal, node-negative differentiated thyroid cancer &le;2 cm.
-- Back: Current ATA guidance favors thyroid lobectomy over total thyroidectomy for unifocal, intrathyroidal, node-negative differentiated thyroid cancer &le;2 cm, because it has fewer complications (recurrent laryngeal nerve injury, hypocalcemia) and avoids lifelong levothyroxine in most patients, with equivalent survival. Total thyroidectomy remains standard for tumors >4 cm, gross extrathyroidal extension, or clinical nodal/distant metastasis.
+- Back: 2025 ATA guidance favors thyroid lobectomy for low-risk, intrathyroidal, node-negative differentiated thyroid cancer under 2 cm. For 2 to 4 cm tumors, either lobectomy or total thyroidectomy is reasonable. Total thyroidectomy remains standard for tumors over 4 cm, gross extrathyroidal extension, or nodal or distant metastasis. Lobectomy means fewer nerve and parathyroid complications and often no lifelong levothyroxine.
 - Source: American Thyroid Association guidelines on thyroid nodule/cancer management, 2025 update.
 
 **[extranodal-extension-card]** tags: HN, clinical, milestones: PC3, SBP1, UKMLA: Neck lump, RED FLAG, reviewer: (none)
@@ -610,7 +612,7 @@ Teaching: Any persistent oral white or red patch in a smoker gets biopsied. Loca
 
 **[dental-clearance-osteoradionecrosis-card]** tags: HN, clinical, milestones: SBP2, PC3, UKMLA: Neck lump, reviewer: (none)
 - Front: Because radiation permanently impairs jaw bone vascularity, extracting teeth from an already-irradiated mandible carries a real risk of [...], so high-risk teeth are cleared before radiotherapy begins.
-- Back: Because radiation permanently impairs jaw bone vascularity, extracting teeth from an already-irradiated mandible carries a real risk of osteoradionecrosis, so high-risk teeth are cleared before radiotherapy begins. This non-healing exposed bone is difficult to treat once it occurs.
+- Back: Because radiation permanently impairs jaw bone vascularity, extracting teeth from an already-irradiated mandible carries a real risk of osteoradionecrosis. Poor-prognosis teeth in the radiation field are extracted at least 2 weeks before RT to allow healing, but RT should not be delayed for dental work when that would compromise cancer control.
 - Source: NCCN Head and Neck Cancers Guideline: pre-treatment dental evaluation.
 
 **[plummer-vinson-card]** tags: HN, clinical, milestones: PC3, MK3, UKMLA: Neck lump, Swallowing problems, reviewer: (none)

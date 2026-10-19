@@ -1,6 +1,6 @@
 # Emergencies & Red Flags
 
-_Generated 2026-10-10 from content/*.js_
+_Generated 2026-10-19 from content/*.js_
 
 > **How to use:** paste a module file below (or ALL.md) into OpenEvidence / any reviewer, followed by an instruction such as
 > "Fact-check every claim against current guidelines, flag anything outdated or wrong, and propose exact replacement wording. Keep our style: no em dashes, plain clinical language."
@@ -33,9 +33,9 @@ Voice/quality clues to the level:
 - Hoarse/breathy voice → a glottic problem (vocal fold pathology).
 - Aphonia plus respiratory distress → complete or near-complete glottic obstruction.The surgical-airway landmark and the CICO endpoint. Every triage pathway ends the same way: if the patient cannot be intubated and cannot be oxygenated (CICO), the rescue is a front-of-neck airway through the cricothyroid membrane (the soft depression between the thyroid cartilage above and the cricoid cartilage below).
 
-- Cricothyroid membrane location: superficial, midline, relatively avascular, and it sits above the thyroid isthmus and the great vessels.
+- Cricothyroid membrane location: superficial, midline, usually low in vascularity (small arteries may cross it), and it sits above the thyroid isthmus and the great vessels.
 - Finding it, the laryngeal handshake: stabilize the larynx between thumb and middle finger, walk down from the thyroid notch onto the cricoid, and the membrane is the gap the index finger falls into (tracing upward from the sternal notch improves accuracy when landmarks are hard to feel).
-- Cricothyroidotomy vs tracheostomy: cricothyroidotomy is the emergency front-of-neck airway (fast, high landmark); tracheostomy is the planned/definitive surgical airway. Cricothyroidotomy is generally avoided as the primary airway in young children.Mechanisms of acute airway decompensation in maxillofacial and neck trauma: the airway can be lost even when it looks patent at minute one.
+- Cricothyroidotomy vs tracheostomy: in adults the emergency front-of-neck airway in a cannot-intubate-cannot-oxygenate situation is a scalpel (scalpel-bougie-tube) cricothyroidotomy; a skilled surgeon may prefer tracheostomy. Tracheostomy is otherwise the planned, definitive surgical airway. Cricothyroidotomy is generally avoided in young children, where a surgical airway (not needle) is used.Mechanisms of acute airway decompensation in maxillofacial and neck trauma: the airway can be lost even when it looks patent at minute one.
 
 - A posteriorly displaced maxilla (Le Fort) blocks the nasopharynx; a bilateral anterior mandible fracture lets the tongue base fall back (worse supine).
 - Blood, secretions, avulsed teeth, and progressive soft-tissue edema/hematoma narrow the lumen over minutes to hours.
@@ -55,7 +55,7 @@ SpaceKey boundaries/locationExtends toClassic source & why it mattersPeritonsill
 - That single fascial plane (the alar fascia) is the difference between a contained retropharyngeal abscess and descending necrotizing mediastinitis.Clinical complications:
 
 - Ludwig's angina: bilateral submandibular/sublingual cellulitis (usually odontogenic) → floor-of-mouth induration, posterior tongue displacement → airway obstruction. Early surgical drainage cuts airway-compromise risk roughly tenfold vs antibiotics alone; secure the airway first.
-- Descending necrotizing mediastinitis (DNM): about 70% descend via the retropharyngeal/danger space to the posterior mediastinum; reported mortality roughly 10-40%; requires neck and chest CT plus surgical drainage.
+- Descending necrotizing mediastinitis (DNM): about 70% descend via the retropharyngeal/danger space to the posterior mediastinum; mortality was historically 10 to 40% and is now roughly 18% with early neck and chest CT, surgical drainage, and planned re-exploration.
 - Lemierre's syndrome: septic thrombophlebitis of the IJV (carotid space), classically Fusobacterium after an oropharyngeal infection → septic pulmonary emboli.
 - Carotid artery erosion/blowout: carotid sheath involvement; a sentinel bleed precedes catastrophic hemorrhage.
 - Highest-risk sources are odontogenic (lower molars) and pharyngeal/tonsillar; risk factors for descent are diabetes, immunocompromise, older age, and multispace involvement (especially retropharyngeal plus parapharyngeal).Imaging/management anchor: contrast-enhanced CT neck (extended through the chest if descent is suspected) is the key study, distinguishing a drainable abscess (rim-enhancing collection) from phlegmon and screening the mediastinum. Airway first, then IV broad-spectrum antibiotics covering oral flora (Gram-positive, Gram-negative, anaerobes) plus surgical drainage of any organized collection.
@@ -181,13 +181,13 @@ Beyond the immediate "don't induce vomiting, don't neutralize" rule, the type of
 
 **[caustic-ingestion-endoscopy-grading] Caustic ingestion: endoscopic grading and stricture risk**
 
-Once the airway and hemodynamic status are stable, upper endoscopy (typically within 12-24 hours of ingestion) grades the depth of injury and guides disposition. This is done carefully, since the injured wall is at its most friable and perforation risk is highest in the first days. A widely used framework grades injury from I (mucosal edema/erythema only) through IIa/IIb (superficial vs deep/circumferential ulceration) to III (transmural necrosis); higher grades carry a substantially higher risk of esophageal stricture developing over the following weeks to months, and grade III injury carries a real risk of perforation and mediastinitis. Patients with higher-grade injuries need close follow-up for dysphagia (the presenting symptom of a developing stricture) and may need serial esophageal dilation.
+Once the airway and hemodynamic status are stable, upper endoscopy (typically within 24 to 48 hours of ingestion; avoid scoping in the friable window after about 48 to 96 hours) grades the depth of injury and guides disposition. This is done carefully, since the injured wall is at its most friable and perforation risk is highest in the first days. A widely used framework grades injury from I (mucosal edema/erythema only) through IIa/IIb (superficial vs deep/circumferential ulceration) to III (transmural necrosis); higher grades carry a substantially higher risk of esophageal stricture developing over the following weeks to months, and grade III injury carries a real risk of perforation and mediastinitis. Patients with higher-grade injuries need close follow-up for dysphagia (the presenting symptom of a developing stricture) and may need serial esophageal dilation.
 
 ### Red flags
 - Any airway red flag (stridor, drooling, tripod position, agitation-then-lethargy): secure and protect the airway before pursuing a differential diagnosis.
 - Suspected epiglottitis: do not examine the throat outside a controlled airway setting.
 - Post-tonsillectomy or post-neck-surgery bleeding: always evaluated urgently, regardless of how 'minor' it appears.
-- Button battery in the ear, nose, or (especially) esophagus: an hours-scale emergency due to alkaline liquefactive necrosis. An esophageal battery needs emergent removal (ideally <2 h); give honey (en route, if able to swallow) and sucralfate (in hospital) to mitigate injury, but never let this delay removal.
+- Button battery in the ear, nose, or (especially) esophagus: an hours-scale emergency due to alkaline liquefactive necrosis. An esophageal battery needs emergent removal (ideally <2 h); give honey (en route, only if over 12 months old and able to swallow) and sucralfate (in hospital) to mitigate injury, but never let this delay removal.
 - Orbital or intracranial complications of sinusitis/otitis media: proptosis, painful eye movement, altered mental status, focal neurologic signs.
 - Acute invasive fungal sinusitis in a diabetic/immunocompromised patient: black eschar, facial pain/numbness; emergent biopsy and debridement.
 - Sudden sensorineural hearing loss: a time-sensitive window for steroid treatment; treat this as urgent, not routine.
@@ -346,7 +346,7 @@ Stem: An 18-month-old is found with an open bottle of liquid drain cleaner. She 
   A: Do not induce vomiting (re-exposes the esophagus and airway to the caustic agent on the way back up), do not attempt to neutralize the agent (the acid-base reaction is exothermic and worsens the burn), and avoid activated charcoal (doesn't bind caustics and obscures endoscopy). The immediate priority is airway assessment: oropharyngeal and laryngeal edema can threaten the airway even before esophageal symptoms are obvious.
 
 - Q: What test defines the extent of injury, and when is it done?
-  A: Upper endoscopy within about 12-24 hours of ingestion, once the airway and hemodynamic status are stable. This is done carefully, since the wall is most friable and perforation risk is highest in the first days. Grading (mucosal edema through transmural necrosis) predicts the risk of later esophageal stricture and, at the highest grade, perforation.
+  A: Upper endoscopy within about 24 to 48 hours of ingestion, once the airway and hemodynamic status are stable. This is done carefully, since the wall is most friable and perforation risk is highest in the first days. Grading (mucosal edema through transmural necrosis) predicts the risk of later esophageal stricture and, at the highest grade, perforation.
 
 - Q: How does an adult intentional (suicidal) caustic ingestion change the picture, beyond the injury itself?
   A: The same airway-first and endoscopic-grading principles apply, but intentional ingestions often involve larger volumes or higher concentrations with a correspondingly higher risk of severe injury, and management must also include a psychiatric evaluation and a higher index of suspicion for associated injury (e.g. aspiration, mixed ingestions).
@@ -397,8 +397,8 @@ Teaching: Clinical Pearl: Hereditary angioedema is a C1-inhibitor deficiency dri
 
 **[retropharyngeal-abscess-imaging-card]** tags: EM, clinical, milestones: PC1, MK2, UKMLA: Sore throat, reviewer: (none)
 - Front: What is the imaging of choice and the surgical threshold for a pediatric retropharyngeal abscess?
-- Back: Contrast-enhanced CT of the neck (after airway is assured) is the mainstay: it defines the collection, its relation to the great vessels/mediastinum, and guides drainage. Many cases resolve with IV antibiotics alone; surgical (usually transoral) drainage is indicated for airway compromise, an abscess > ~2-2.5 cm, or failure to improve on antibiotics.
-- Source: Darawish et al., Deep Neck Space Infections in Children, Am J Otolaryngol, 2026.
+- Back: Contrast-enhanced CT of the neck (after airway is assured) is the mainstay: it defines the collection, its relation to the great vessels/mediastinum, and guides drainage. Many cases resolve with IV antibiotics alone; surgical (usually transoral) drainage is indicated for airway compromise, a large or organized abscess, or failure to improve on antibiotics.
+- Source: Standard pediatric deep neck infection teaching.
 
 **[deep-neck-spread-card]** tags: EM, anatomy, milestones: MK1, PC1, UKMLA: Neck lump, reviewer: (none)
 - Front: Why can a localized pharyngeal infection become a mediastinal emergency?
@@ -408,7 +408,7 @@ Teaching: Clinical Pearl: Hereditary angioedema is a C1-inhibitor deficiency dri
 **[button-battery-card]** tags: EM, clinical, milestones: PC1, PC7, UKMLA: Ear and nasal discharge, RED FLAG, reviewer: (none)
 - Front: Why is a button battery in the esophagus an hours-scale emergency, and what mitigates injury before removal?
 - Back: Current conducted through moist mucosa generates hydroxide at the negative pole, causing alkaline liquefactive necrosis within hours (necrosis can begin within ~15 min, serious injury within ~2 h). An esophageal battery needs emergent endoscopic removal (ideally <2 h); delayed vascular complications (e.g., aortoenteric fistula) can occur days to weeks later.
-Interim mitigation: honey 10 mL every 10 min (child >12 months, able to swallow, within 12 h of ingestion, en route) and sucralfate 1 g every 10 min in hospital: these must NEVER delay removal.
+Interim mitigation: honey 10 mL every 10 min (child >12 months, able to swallow, within 12 h of ingestion, en route) and sucralfate suspension 10 mL every 10 min in hospital (honey or sucralfate, capped at about 6 doses): these must NEVER delay removal.
 - Source: National Capital Poison Center guidance on button battery injuries.
 
 **[post-tonsillectomy-bleed-card]** tags: EM, clinical, milestones: PC1, PC9, UKMLA: Sore throat, RED FLAG, reviewer: (none)
@@ -505,7 +505,7 @@ Interim mitigation: honey 10 mL every 10 min (child >12 months, able to swallow,
 
 **[inhalation-injury-card]** tags: EM, clinical, milestones: PC1, PC2, UKMLA: Stridor, RED FLAG, reviewer: (none)
 - Front: After a facial or inhalational thermal burn, because airway swelling is progressive, the airway is best secured by intubating [...], before stridor, drooling, or tripod positioning appear.
-- Back: After a facial or inhalational thermal burn, because airway swelling is progressive, the airway is best secured by intubating early and electively, before stridor, drooling, or tripod positioning appear. Singed nasal hair, carbonaceous sputum, or new hoarseness after a closed-space fire should raise concern for this.
+- Back: After a facial or inhalational thermal burn, because airway swelling is progressive, the airway is best secured by intubating early and electively, before stridor, drooling, or tripod positioning appear. Singed nasal hair, carbonaceous sputum, or new hoarseness after a closed-space fire should raise concern for this. Intubation is triggered by airway risk signs (facial or neck edema, hoarseness, stridor, deep facial burns), not by the diagnosis alone. Also suspect carbon monoxide poisoning after a closed-space fire: pulse oximetry can read falsely normal, so check carboxyhemoglobin and give 100% oxygen.
 - Source: Standard burn/inhalational airway injury teaching.
 
 **[caustic-alkali-vs-acid-card]** tags: EM, clinical, milestones: PC1, UKMLA: Swallowing problems, RED FLAG, reviewer: (none)
@@ -515,5 +515,5 @@ Interim mitigation: honey 10 mL every 10 min (child >12 months, able to swallow,
 
 **[caustic-endoscopy-grading-card]** tags: EM, clinical, milestones: PC1, UKMLA: Swallowing problems, RED FLAG, reviewer: (none)
 - Front: After caustic ingestion, once the airway and hemodynamic status are stable, grading upper endoscopy is typically performed within [...] of the ingestion.
-- Back: After caustic ingestion, once the airway and hemodynamic status are stable, grading upper endoscopy is typically performed within 12 to 24 hours of the ingestion. Higher injury grades, up to grade III transmural necrosis, predict a substantially higher risk of esophageal stricture and perforation.
+- Back: After caustic ingestion, once the airway and hemodynamic status are stable, grading upper endoscopy is typically performed within 24 to 48 hours of the ingestion. Delay past 48 hours raises perforation risk as the wall softens. Higher Zargar grades (3b extensive necrosis, 4 perforation) predict a substantially higher risk of stricture and perforation. Do not induce emesis, neutralize, give charcoal, or pass a blind nasogastric tube.
 - Source: Standard emergency/GI teaching on caustic ingestion endoscopic grading.

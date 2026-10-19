@@ -1,6 +1,6 @@
 # Anatomy Atlas
 
-_Generated 2026-10-10 from content/*.js_
+_Generated 2026-10-19 from content/*.js_
 
 > **How to use:** paste a module file below (or ALL.md) into OpenEvidence / any reviewer, followed by an instruction such as
 > "Fact-check every claim against current guidelines, flag anything outdated or wrong, and propose exact replacement wording. Keep our style: no em dashes, plain clinical language."
@@ -110,7 +110,7 @@ _Image source: The Temporal Bone in Four Parts. theskeletalsystem.net._
 - Opening for the external auditory meatus: bony entrance to the ear canal, framed largely by the tympanic part.
 - Tympanic part: forms most of the bony external auditory canal (anterior, inferior, and part of the posterior wall).
 - Styloid process: slender projection anchoring the stylohyoid ligament and stylohyoid/styloglossus/stylopharyngeus muscles; a key parapharyngeal-space landmark.
-- Petromastoid part: the composite term for the petrous and mastoid portions, which arise from a shared ossification center and form the posteromedial temporal bone.
+- Petromastoid part: the combined petrous and mastoid portions of the posteromedial temporal bone.
 - Petrous part: dense pyramidal bone housing the middle and inner ear, the otologic core of the temporal bone.
 - Mastoid part: air-cell system posterior to the ear canal; relevant to mastoiditis and cochlear implant surgery.
 - Mastoid process: bony projection palpable behind the ear canal; attachment site for sternocleidomastoid, splenius capitis, and longissimus capitis.
@@ -129,7 +129,7 @@ _Image source: Paranasal Sinuses and Their Drainage Pathways. Wikimedia Commons.
 - Semilunar hiatus: the middle-meatus groove receiving the openings of the frontal, maxillary, and anterior ethmoidal sinuses, the ostiomeatal complex's key drainage channel.
 - Ethmoid bulla: the largest, most constant anterior ethmoid air cell, bulging into the middle meatus; carries the opening of the middle ethmoid sinus cells.
 - Opening of sphenoid sinus: drains into the sphenoethmoidal recess, high and posterior; the sinus borders the pituitary, optic nerve, and cavernous sinus.
-- Opening of eustachian tube: pharyngeal (torus tubarius) opening on the lateral nasopharyngeal wall, posterior to the inferior turbinate; equalizes middle-ear pressure.
+- Opening of eustachian tube: the pharyngeal opening on the lateral nasopharyngeal wall, posterior to the inferior turbinate (the cartilage behind it raises the torus tubarius); equalizes middle-ear pressure.
 - Opening of nasolacrimal duct: drains tears into the inferior meatus, beneath the inferior turbinate; obstruction here causes epiphora.
 
 **Diagram: Cranial nerves of the head and neck**
@@ -142,7 +142,7 @@ _Image source: Cranial Nerves of the Head and Neck with Skull Base Foramina. tea
 - Superior orbital fissure: transmits CN III, IV, V1 (ophthalmic), and VI; compression here causes orbital apex/superior orbital fissure syndrome.
 - Foramen rotundum: transmits CN V2, the maxillary division of the trigeminal nerve, to the midface and upper teeth.
 - Foramen ovale: transmits CN V3, the mandibular division of the trigeminal nerve, to the lower face, tongue, and muscles of mastication.
-- Internal acoustic meatus: transmits CN VII (facial) and CN VIII (vestibulocochlear); CN VII here is the site of vulnerability in Bell's palsy.
+- Internal acoustic meatus: transmits CN VII (facial), CN VIII (vestibulocochlear), and the labyrinthine artery. The labyrinthine segment just distal to it, not the meatus itself, is the site implicated in Bell's palsy.
 - Jugular foramen: transmits CN IX (glossopharyngeal: gag/oropharyngeal sensation), CN X (vagus: laryngeal motor/sensory), and CN XI (accessory: SCM/trapezius, at risk in neck dissection).
 - Hypoglossal canal: transmits CN XII, the hypoglossal nerve, which supplies tongue movement.
 
@@ -246,12 +246,12 @@ _Image source: Fascial Layers and Triangles of the Neck. Scholes & Ramakrishnan 
 
 **[branchial-arch-derivatives-card]** tags: AN, anatomy, milestones: MK1, UKMLA: Neck lump, reviewer: (none)
 - Front: Unlike the malleus and incus, which arise from the first arch, the stapes derives embryologically from the [...] (Reichert's cartilage).
-- Back: Unlike the malleus and incus, which arise from the first arch, the stapes derives embryologically from the second branchial arch (Reichert's cartilage). This is why second-arch anomalies are far more common clinically than first-arch ones.
+- Back: Unlike the malleus and incus, which arise from the first arch, the stapes derives embryologically from the second branchial arch (Reichert's cartilage).
 - Source: Standard branchial arch embryology teaching.
 
 **[pharyngeal-pouch-vs-cleft-card]** tags: AN, anatomy, milestones: MK1, UKMLA: Hearing loss, reviewer: (none)
 - Front: The first pharyngeal pouch develops into the [...].
-- Back: The first pharyngeal pouch develops into the Eustachian tube and middle-ear cavity. Only the second cleft normally persists, which is why second branchial cleft cysts and sinuses dominate clinically.
+- Back: The first pharyngeal pouch develops into the Eustachian tube and middle-ear cavity. Of the clefts, only the first forms a permanent structure (the external auditory canal). Clefts 2 to 4 normally obliterate, and when they persist they form branchial cleft cysts and sinuses (the second is the most common).
 - Source: Standard pharyngeal pouch/cleft embryology teaching.
 
 **[skull-base-foramina-card]** tags: AN, anatomy, milestones: MK1, UKMLA: Facial pain, reviewer: (none)

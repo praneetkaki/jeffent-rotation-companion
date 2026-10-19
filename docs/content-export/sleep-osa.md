@@ -1,6 +1,6 @@
 # Sleep Surgery & OSA
 
-_Generated 2026-10-10 from content/*.js_
+_Generated 2026-10-19 from content/*.js_
 
 > **How to use:** paste a module file below (or ALL.md) into OpenEvidence / any reviewer, followed by an instruction such as
 > "Fact-check every claim against current guidelines, flag anything outdated or wrong, and propose exact replacement wording. Keep our style: no em dashes, plain clinical language."
@@ -34,8 +34,7 @@ The grade is invalid if the patient phonates ("ahh") or protrudes the tongue dur
 What each tongue position shows: grade by the most posterior structure you can still see:
 
 - FTP I: entire uvula and tonsils/pillars visible (full oropharynx view).
-- FTP IIa: entire uvula visible but not the tonsils.
-- FTP IIb: soft palate and the base of the uvula visible, but not the full uvula.
+- FTP II: uvula visible but not the tonsils.
 - FTP III: soft palate visible but not the uvula at all.
 - FTP IV: only the hard palate visible.As the grade rises, the tongue base progressively obscures the view, ascending from tonsils -> uvula -> soft palate -> hard palate. Less visualized structure corresponds to a higher grade and a worse airway.
 Clinically, FTP III-IV correlates with retrolingual (tongue-base) obstruction, while FTP I-II usually does not: exactly why high grades predict that palate-only surgery will miss the problem.
@@ -53,7 +52,7 @@ Caveats: inter-examiner agreement is imperfect (the tongue and palate are mobile
 - Pure motor nerve: CN XII supplies all intrinsic tongue muscles and all extrinsic tongue muscles except the palatoglossus, which is innervated by the vagus (CN X) via the pharyngeal plexus.Palatoglossus is named as a tongue muscle but functions as a palate muscle.
 Protrusors vs. retractors (the key functional split):
 
-- Protrusors (push the tongue out, open the airway) = genioglossus (the main one), plus geniohyoid/intrinsic protrusive fibers.
+- Protrusors (push the tongue out, open the airway) = genioglossus (the main one), plus intrinsic protrusive fibers.
 - Retractors (pull the tongue back) = hyoglossus and styloglossus.Genioglossus protrudes the tongue; hyoglossus and styloglossus retract it. This functional split is the anatomic basis for stimulator targeting.
 The genioglossus is the airway's main dilator: it contracts with each inspiration to pull the tongue base forward and keep the retrolingual airway open. Tone normally drops at sleep onset; in OSA, too little genioglossus activity lets the tongue fall back and obstruct.
 Five-segment course (medulla -> tongue): medullary -> cisternal -> skull-base (hypoglossal canal in the occipital bone) -> carotid space -> sublingual. Extracranially it descends near the internal carotid/internal jugular, loops forward below the mandible, crosses the external carotid and lingual arteries, and enters the tongue at the anterior border of hyoglossus.
@@ -62,20 +61,20 @@ C1/ansa cervicalis hitchhikers: in the neck the nerve carries along C1 fibers th
 The lesion sign: a unilateral CN XII lesion makes the protruded tongue deviate toward the weak (lesion) side: the intact genioglossus on the normal side pushes the tongue across. Chronic lesions show ipsilateral atrophy and fasciculations.
 Inclusion vs. Exclusion Branches: Cuff Placement: CN XII is a pure motor nerve. Distal to its main trunk it divides into a medial division and a lateral division, which do opposite things to the tongue.
 
-- Medial branches -> protrusors (genioglossus, plus geniohyoid/intrinsic protrusive muscles, with a C1 contribution). Stimulating these protrudes and stiffens the tongue, opening the retrolingual airway. These are the 'inclusion' branches: the stimulation cuff is placed to capture them.
+- Medial branches -> protrusors (genioglossus, plus intrinsic protrusive muscles). Stimulating these protrudes and stiffens the tongue, opening the retrolingual airway. These are the 'inclusion' branches: the stimulation cuff is placed to capture them.
 - Lateral branches -> retractors (hyoglossus, styloglossus). Stimulating these retracts the tongue (counterproductive), so they are the 'exclusion' branches: deliberately kept out of the cuff.Optimal outcomes depend on selectively driving the medial (protrusor) fibers while avoiding the lateral (retractor) fibers. Intraoperative nerve integrity monitoring (EMG) confirms genioglossus (protrusion) activation without hyoglossus/styloglossus (retraction) before the cuff is secured. Bipolar (not monopolar) cautery is used near the device to avoid damage.
 
 **How CPAP works** (tags: Pneumatic splinting · CPAP · Surgical adjunct)
 
 [figure: CPAP as pneumatic splinting of the collapsible upper airway.]How CPAP works: continuous positive airway pressure delivers a constant column of pressurized room air through a mask, acting as a pneumatic splint: positive intraluminal pressure holds the collapsible pharyngeal airway open throughout the respiratory cycle.
-Because pressure props the airway from the inside, it works at every level of collapse simultaneously (nasopharynx, retropalatal, retroglossal) regardless of where the primary obstruction sits. That's why CPAP is first-line for essentially all severities of OSA and can start before the exact collapse site is known, unlike surgery, which must target a specific level.
+Because pressure props the airway from the inside, it works at every level of collapse simultaneously (nasopharynx, retropalatal, retroglossal) regardless of where the primary obstruction sits. That's why CPAP is first-line when treatment is indicated (symptomatic OSA at any severity, or asymptomatic OSA with AHI of 15 or more) and can start before the exact collapse site is known, unlike surgery, which must target a specific level.
 It treats the obstruction, it does not cure it: benefits (resolved apneas, better oxygenation, less daytime sleepiness, lower blood pressure) last only as long as the device is used nightly. Stopping therapy returns the airway to baseline collapsibility.
 Pressure delivery modes:
 
 - CPAP: one fixed pressure held constant through inspiration and expiration, the standard workhorse.
 - APAP (auto-titrating): the device senses flow limitation/snoring and adjusts pressure breath-to-breath within a set range; useful when a single fixed pressure is poorly tolerated or the pressure requirement varies.
 - BiPAP (bilevel): separate higher inspiratory and lower expiratory pressures; reserved for high pressure requirements, CPAP intolerance, or a coexisting hypoventilation/CO2-retention problem (obesity hypoventilation, neuromuscular disease, overlap syndrome), not routine OSA.Adherence: the number that defines "CPAP failure": CPAP only works if worn. The widely used (CMS/insurer) adherence definition is &ge;4 hours/night on &ge;70% of nights over a 30-day period.
-A patient is not a candidate for second-line therapy (including surgery) for intolerance until a genuine adherence effort has failed. "CPAP failure" means tried-and-couldn't-tolerate or inadequate response despite use, not simply "declined."
+Surgery is second-line: discuss referral for patients who are intolerant of or unwilling to use PAP, or whose adherence stays inadequate despite troubleshooting. "CPAP failure" means tried-and-couldn't-tolerate or inadequate response despite use. The ATS (2023) argues the 4 hour/70% rule can worsen access and favors an individualized, patient-centered definition.
 CPAP Intolerance and the ENT Role: roughly a third to half of patients struggle to adhere. Common reasons include mask discomfort/leak, claustrophobia, aerophagia (swallowed air), and pressure intolerance.
 The ENT-relevant reason is nasal obstruction (septal deviation, turbinate hypertrophy, polyps, valve collapse), which raises nasal resistance and makes delivered pressure uncomfortable or ineffective. This is why ENT evaluation of the nasal airway is key to salvaging a struggling CPAP user.
 Where sleep surgery fits: surgery is generally a CPAP alternative or adjunct, not a first-line replacement.
@@ -162,7 +161,7 @@ A validated 8-item screen. Each item scores one point:
 - BMI >35 kg/m&sup2;
 - Age >50 years
 - Neck circumference >40cm
-- Gender: male≥3 positive flags high risk and should prompt referral for a sleep study; it is a screening tool, not diagnostic. Risk stratifies further beyond the simple ≥3 cutoff, which matters most in the preoperative setting.
+- Gender: male≥3 positive is intermediate-to-high risk and should prompt referral for a sleep study (≥5 is high risk, especially for moderate-to-severe OSA); it is a screening tool, not diagnostic. Risk stratifies further beyond the simple ≥3 cutoff, which matters most in the preoperative setting.
 
 | STOP-BANG score | Risk |
 | --- | --- |
@@ -192,7 +191,7 @@ Because positive airway pressure splints the entire airway at once, it is first-
 The rungs, in order:
 
 - Behavioral/foundational therapy, for everyone: weight loss (~10% weight reduction lowers AHI by roughly a quarter), reduced evening alcohol, and positional therapy for supine-predominant OSA (supine AHI &ge;2x non-supine). Complementary, not standalone cures for most patients.
-- CPAP: first-line for essentially all diagnosed OSA; works at any severity and collapse level. The limiting factor is adherence, not efficacy.
+- CPAP: first-line when treatment is indicated (symptomatic OSA of any severity, or AHI 15 or more); works at any severity and collapse level. The limiting factor is adherence, not efficacy.
 - Oral appliance (mandibular advancement device, MAD): first-line alternative for mild-to-moderate OSA, and a key option for CPAP-intolerant patients at any severity. Less efficacious than CPAP at lowering AHI but often better tolerated, so real-world effectiveness can be comparable. Custom, titratable, dentist-fitted; confirm efficacy with a follow-up sleep study.
 - Site-directed surgery, when CPAP fails (intolerance, non-adherence, or inadequate response); the procedure matches the collapse site(s): nasal surgery (adjunct to rescue CPAP tolerance), palate-level surgery (UPPP) for retropalatal collapse, hypoglossal nerve stimulation for tongue-base collapse in selected patients, maxillomandibular advancement for skeletal/multilevel disease. In children, adenotonsillectomy is the exception: first-line, not a last resort.What "CPAP failed" actually means: not "the patient dislikes it." Failure = documented intolerance, non-adherence despite troubleshooting (mask refit, humidification, treating nasal obstruction, ramp/pressure-relief), or inadequate AHI/symptom response despite use. Fix the fixable before climbing the ladder.
 Worked example: how a real patient moves down the ladder:
@@ -212,7 +211,7 @@ Honest limitation: DISE is a single sedated snapshot, sedation protocols aren't 
 **[glp1-osa-pharmacotherapy] Weight-loss pharmacotherapy for OSA (tirzepatide)**
 
 In December 2024, tirzepatide (Zepbound), a dual GIP/GLP-1 receptor agonist, became the first drug FDA-approved for moderate-to-severe OSA in adults with obesity, based on the SURMOUNT-OSA phase 3 trials. Over 52 weeks it reduced AHI by ~20-25 events/h (vs. minimal change on placebo), with ~42-50% of patients reaching disease remission (AHI <5, or <15 without symptoms), alongside ~16-20% weight loss and improvements in hypoxic burden, hsCRP, and systolic BP. Mechanism is primarily weight loss (reducing tongue and parapharyngeal fat), with possible weight-independent effects.
-Key caveats: it does not match CPAP's AHI reduction (~22 vs ~31 events/h), it is for BMI &ge;30 (unlikely to help non-obese or purely anatomic obstruction), weight/AHI regain occurs after discontinuation, and cardiovascular-outcome benefit is unproven. Best positioned as a disease-modifying adjunct, combined with CPAP, for preoperative optimization, or potentially to expand HGNS candidacy, not a blanket CPAP replacement.
+Key caveats: it is an adjunct to CPAP, not a replacement (there is no direct head-to-head trial), it is for BMI &ge;30 (unlikely to help non-obese or purely anatomic obstruction), weight/AHI regain occurs after discontinuation, and cardiovascular-outcome benefit is unproven. Best positioned as a disease-modifying adjunct, combined with CPAP, for preoperative optimization, or potentially to expand HGNS candidacy, not a blanket CPAP replacement.
 
 **[surgical-options] Named surgical options and what they target**
 
@@ -237,7 +236,7 @@ Three components (unilateral device):
 - Implantable pulse generator: placed in an infraclavicular pocket, like a pacemaker.The generator reads inspiration from the sensing lead and delivers a stimulus phase-locked to inspiration, protruding the tongue exactly when the airway is most collapsible.
 Inclusion vs. exclusion branches: why cuff placement is everything: CN XII is pure motor, and distal to its trunk it splits into a medial division and lateral division that do opposite things.
 
-- Medial branches -> protrusors (genioglossus &plusmn; geniohyoid/intrinsic protrusive fibers, with a C1 contribution). Stimulating these protrudes/stiffens the tongue -> opens the retrolingual airway. These are the 'inclusion' branches, captured inside the cuff.
+- Medial branches -> protrusors (genioglossus &plusmn; intrinsic protrusive fibers). Stimulating these protrudes/stiffens the tongue -> opens the retrolingual airway. These are the 'inclusion' branches, captured inside the cuff.
 - Lateral branches -> retractors (hyoglossus, styloglossus). Stimulating these retracts the tongue (counterproductive); these are the 'exclusion' branches, deliberately kept out of the cuff.Practical operative points: intraoperative EMG/nerve integrity monitoring confirms genioglossus (protrusion) activation without hyoglossus/styloglossus (retraction) before the cuff is secured: the surgeon looks for the tongue to protrude, not retract. Bipolar (not monopolar) cautery is used near the device to avoid damaging it.
 Indications (FDA, unilateral device):
 
@@ -304,10 +303,10 @@ Overlap syndrome, meaning coexisting OSA and COPD, carries substantially higher 
 
 ### Red flags
 - Severe OSA (AHI ≥30) with signs of cor pulmonale or pulmonary hypertension: untreated severe OSA drives chronic hypoxia-mediated right heart strain and needs urgent treatment initiation, not routine follow-up scheduling.
-- Commercial vehicle operators with untreated OSA and excessive daytime sleepiness: a safety-critical occupational issue under US FMCSA guidance, where treatment adherence affects certification to drive.
+- Commercial vehicle operators with untreated OSA and excessive daytime sleepiness: a safety-critical occupational issue: documented effective treatment and adherence generally affect medical certification to drive.
 - Morbid obesity (BMI ≥40) with severe OSA being considered for bariatric surgery: perioperative OSA management, often CPAP, reduces anesthetic and airway risk, so sequencing and communication with the surgical team matters.
 - Post-UPPP bleeding or airway compromise: oropharyngeal surgery carries a real postoperative airway-obstruction and hemorrhage risk, so keep a low threshold for urgent ENT reassessment.
-- Suspected central (not obstructive) sleep apnea: CPAP alone may not be effective and may need adaptive servo-ventilation or cardiology/neurology involvement. Distinguishing obstructive from central changes the entire management pathway.
+- Suspected central (not obstructive) sleep apnea: CPAP alone may not be effective and needs confirmation of the predominant event type, treatment of the underlying cause (often heart failure), and cardiology or neurology involvement. Adaptive servo-ventilation is contraindicated in HFrEF with predominant central apnea. Distinguishing obstructive from central changes the entire management pathway.
 - Complete concentric palatal collapse on DISE: a contraindication to hypoglossal nerve stimulation that changes surgical candidacy entirely.
 - Undiagnosed OSA with treatment-resistant hypertension or new atrial fibrillation: OSA is a recognized contributor, and screening for it changes the cardiovascular management plan.
 - Overlap syndrome (OSA + COPD) with hypercapnia, morning headache, or lower-extremity edema: higher risk of hypercapnic respiratory failure and pulmonary hypertension than either condition alone. Needs pulmonology co-management and often bilevel PAP, not plain CPAP.
@@ -332,7 +331,7 @@ Teaching: CPAP intolerance doesn't jump straight to surgery. Optimize CPAP toler
 Stem: A commercial truck driver screens STOP-BANG positive (5/8) at a routine occupational health visit. He reports falling asleep at red lights.
 
 - Q: What is the appropriate next step, and why does the occupational context matter here?
-  A: Refer for a sleep study promptly. Falling asleep while driving raises a safety-critical, occupational concern under US FMCSA guidance. This isn't just a quality-of-life issue: it affects his medical certification to operate a commercial vehicle.
+  A: Refer for a sleep study promptly. Falling asleep while driving raises a safety-critical, occupational concern. This isn't just a quality-of-life issue: it affects his medical certification to operate a commercial vehicle.
 
 - Q: If OSA is confirmed and treated, what is required before he can be recertified to drive?
   A: Documentation of effective treatment and adherence (e.g., CPAP compliance data). Certifying examiners require evidence the condition is controlled, not just that treatment was prescribed.
@@ -359,7 +358,7 @@ Stem: A patient with heart failure with reduced ejection fraction is found to ha
   A: This is central sleep apnea (specifically Cheyne-Stokes breathing). Absent respiratory effort during apneas distinguishes it from obstructive apnea, where effort continues against a closed airway. The crescendo-decrescendo pattern is classic for CSA associated with heart failure.
 
 - Q: Does the surgical ladder discussed for OSA apply here?
-  A: No. The OSA surgical ladder (UPPP, hypoglossal stimulation, MMA) targets anatomic obstruction and does not apply to central sleep apnea. Management instead focuses on optimizing the underlying heart failure and may involve adaptive servo-ventilation, in coordination with cardiology.
+  A: No. The OSA surgical ladder (UPPP, hypoglossal stimulation, MMA) targets anatomic obstruction and does not apply to central sleep apnea. Management instead focuses on optimizing the underlying heart failure and is done in coordination with cardiology. Adaptive servo-ventilation is contraindicated in HFrEF with predominant central apnea (SERVE-HF showed increased mortality). Phrenic nerve stimulation is an option for symptomatic central apnea.
 
 Teaching: Absent respiratory effort during apneic events is the key discriminator for central sleep apnea, and it changes the entire management pathway away from the OSA surgical ladder.
 
@@ -403,7 +402,7 @@ Teaching: COPD plus classic OSA symptoms should raise overlap syndrome on the di
 
 **[stop-bang-card]** tags: SL, clinical, milestones: PC4, MK1, UKMLA: Obstructive sleep apnoea, reviewer: (none)
 - Front: What does STOP-BANG stand for, and what score flags high risk?
-- Back: Snoring, Tiredness, Observed apnea, high blood Pressure, BMI>35, Age>50, Neck circumference>40cm, male Gender. ≥3 positive = high risk for OSA, prompting referral for a sleep study.
+- Back: Snoring, Tiredness, Observed apnea, high blood Pressure, BMI>35, Age>50, Neck circumference>40cm, male Gender. ≥3 positive = intermediate-to-high risk (refer for testing); ≥5 = high risk, especially for moderate-to-severe OSA.
 - Source: Standard OSA screening teaching (STOP-BANG, Chung et al.).
 
 **[ahi-severity-card]** tags: SL, clinical, milestones: MK1, PC4, UKMLA: Obstructive sleep apnoea, reviewer: (none)
@@ -418,7 +417,7 @@ Teaching: COPD plus classic OSA symptoms should raise overlap syndrome on the di
 
 **[cpap-first-line-card]** tags: SL, clinical, milestones: PC9, MK2, UKMLA: Obstructive sleep apnoea, reviewer: (none)
 - Front: What is first-line management for diagnosed OSA, and when does surgery enter the conversation?
-- Back: CPAP is first-line for essentially all diagnosed OSA (± weight loss, positional therapy, or an oral mandibular-advancement appliance for milder disease). Surgery is considered when CPAP fails, meaning intolerance, non-adherence, or inadequate response.
+- Back: CPAP is first-line when treatment is indicated: symptomatic OSA at any severity, or asymptomatic OSA with AHI of 15 or more (± weight loss, positional therapy, or an oral mandibular-advancement appliance for milder disease). Surgery is considered when CPAP fails, meaning intolerance, non-adherence, or inadequate response.
 - Source: AASM Clinical Practice Guideline on OSA management.
 
 **[dise-card]** tags: SL, clinical, milestones: PC4, PC9, UKMLA: Obstructive sleep apnoea, reviewer: (none)
@@ -468,7 +467,7 @@ Teaching: COPD plus classic OSA symptoms should raise overlap syndrome on the di
 
 **[osa-driving-card]** tags: SL, clinical, milestones: SBP3, PC4, UKMLA: Obstructive sleep apnoea, RED FLAG, reviewer: (none)
 - Front: Why does OSA screening carry extra urgency in commercial drivers?
-- Back: Untreated OSA with excessive daytime sleepiness is a safety-critical occupational risk. US FMCSA guidance ties commercial driving certification to documented OSA treatment and adherence, not just diagnosis.
+- Back: Untreated OSA with excessive daytime sleepiness is a safety-critical occupational risk. Commercial drivers suspected of OSA are typically referred for testing, and effective treatment with documented adherence is generally expected before certification (decided at the examiner's discretion, since FMCSA has no finalized OSA rule).
 - Source: US FMCSA medical guidance on OSA and commercial driving.
 
 **[tonsillectomy-adult-osa-card]** tags: SL, clinical, milestones: PC9, MK2, UKMLA: Obstructive sleep apnoea, reviewer: (none)
@@ -554,7 +553,7 @@ Teaching: COPD plus classic OSA symptoms should raise overlap syndrome on the di
 **[tirzepatide-osa-card]** tags: SL, clinical, milestones: PC9, MK2, UKMLA: Obstructive sleep apnoea, reviewer: (none)
 - Front: The first drug FDA-approved (December 2024) for moderate-to-severe OSA in adults with obesity is [...].
 - Back: The first drug FDA-approved (December 2024) for moderate-to-severe OSA in adults with obesity is tirzepatide (Zepbound), a dual GIP/GLP-1 receptor agonist. In SURMOUNT-OSA it cut AHI by ~20-25 events/h with ~42-50% remission, but it works mainly through weight loss, requires BMI &ge;30, doesn't match CPAP's efficacy, and AHI regains after stopping.
-- Source: Anderer, JAMA (FDA approval), 2025; Malhotra et al., Nat Med (SURMOUNT-OSA), 2026.
+- Source: Anderer, JAMA (FDA approval), 2025; Malhotra et al., NEJM (SURMOUNT-OSA), 2024.
 
 **[hgns-branch-anatomy-card]** tags: SL, anatomy, milestones: MK1, PC9, UKMLA: Obstructive sleep apnoea, reviewer: (none)
 - Front: In hypoglossal nerve stimulation, which division of CN XII is targeted ('inclusion') and which is avoided ('exclusion'), and why?
@@ -573,7 +572,7 @@ Teaching: COPD plus classic OSA symptoms should raise overlap syndrome on the di
 
 **[friedman-grades-card]** tags: SL, clinical, milestones: MK1, PC4, UKMLA: Obstructive sleep apnoea, reviewer: (none)
 - Front: What does each Friedman tongue position (I-IV) allow you to see?
-- Back: I: entire uvula and tonsils/pillars visible. II: uvula visible but not the tonsils (IIa = full uvula, IIb = only base of uvula/soft palate). III: soft palate visible but not the uvula. IV: hard palate only. A higher grade means more tongue-base obstruction.
+- Back: I: entire uvula and tonsils/pillars visible. II: uvula visible but not the tonsils. III: soft palate visible but not the uvula. IV: hard palate only. A higher grade means more tongue-base obstruction.
 - Source: Standard sleep surgery teaching on Friedman tongue position.
 
 **[friedman-staging-components-card]** tags: SL, clinical, milestones: MK1, PC4, UKMLA: Obstructive sleep apnoea, reviewer: (none)
@@ -598,7 +597,7 @@ Teaching: COPD plus classic OSA symptoms should raise overlap syndrome on the di
 
 **[tongue-protrusor-retractor-card]** tags: SL, anatomy, milestones: MK1, UKMLA: Obstructive sleep apnoea, reviewer: (none)
 - Front: Which tongue muscles protrude the tongue (and open the airway) vs. retract it?
-- Back: Protrudes: genioglossus (main) plus geniohyoid/intrinsic protrusive fibers. Retracts: hyoglossus and styloglossus. Genioglossus is the key airway dilator that loses tone in sleep and collapses in OSA.
+- Back: Protrudes: genioglossus (main) plus intrinsic protrusive fibers. Retracts: hyoglossus and styloglossus. Genioglossus is the key airway dilator that loses tone in sleep and collapses in OSA.
 - Source: Standard head and neck anatomy teaching on tongue musculature.
 
 **[cn12-lesion-card]** tags: SL, clinical, milestones: MK1, PC1, UKMLA: Obstructive sleep apnoea, reviewer: (none)

@@ -1,6 +1,6 @@
 # Laryngology, Voice & Airway
 
-_Generated 2026-10-10 from content/*.js_
+_Generated 2026-10-19 from content/*.js_
 
 > **How to use:** paste a module file below (or ALL.md) into OpenEvidence / any reviewer, followed by an instruction such as
 > "Fact-check every claim against current guidelines, flag anything outdated or wrong, and propose exact replacement wording. Keep our style: no em dashes, plain clinical language."
@@ -30,7 +30,7 @@ _Generated 2026-10-10 from content/*.js_
 - The backbone of laryngeal cancer staging and of localizing airway pathology.
 - Supraglottis (epiglottis, false folds, ventricle): rich lymphatics, so cancers present later with neck nodes.
 - Glottis (true vocal folds): sparse lymphatics, so cancer causes hoarseness early and is often caught before it spreads.
-- Subglottis (true folds to cricoid): the narrowest part of a child's airway and the site of subglottic stenosis.Clinical pearl: laryngeal cancer is strongly associated with tobacco and alcohol use. Because the glottis has sparse lymphatics, glottic cancers tend to present early with hoarseness and carry the best prognosis, while supraglottic and subglottic cancers, with richer lymphatic drainage or a more silent growth pattern, tend to present later and carry a worse prognosis.
+- Subglottis (begins about 1 cm below the free edge of the true folds and extends to the inferior border of the cricoid): the narrowest part of a child's airway and the site of subglottic stenosis.Clinical pearl: laryngeal cancer is strongly associated with tobacco and alcohol use. Because the glottis has sparse lymphatics, glottic cancers tend to present early with hoarseness and carry the best prognosis, while supraglottic and subglottic cancers, with richer lymphatic drainage or a more silent growth pattern, tend to present later and carry a worse prognosis.
 
 **Vocal fold layers** (tags: Vocal fold cover-body model)
 
@@ -47,8 +47,10 @@ _Generated 2026-10-10 from content/*.js_
 - Recurrent laryngeal nerve (RLN): every other intrinsic muscle (including the only abductor, posterior cricoarytenoid) and sensation below the cords.
 - The RLN is long and asymmetric: left loops under the aortic arch, right under the subclavian artery.
 - That is why hoarseness can be the first sign of a lung apex tumor, aortic aneurysm, or thyroid/mediastinal disease, and why the RLN is at risk in thyroid surgery.
-- The cricothyroid is the only intrinsic laryngeal muscle not innervated by the RLN: it's supplied by the external branch of the superior laryngeal nerve (EBSLN) instead.MuscleActionEffectPosterior cricoarytenoidAbductor (the only one)Opens the airwayLateral cricoarytenoidAdductorCloses the airwayInterarytenoid (transverse arytenoid)AdductorCloses the airwayThyroarytenoid (vocalis)Adductor; relaxes/shortens the foldCloses the airway; lowers pitchCricothyroidTenses/lengthens the foldRaises pitchClinical pearl: non-recurrent laryngeal nerve: a rare anatomic variant, almost always on the right, seen with an aberrant right subclavian artery arising distal to the left subclavian (arteria lusoria). The 'recurrent' nerve then runs directly to the larynx without looping under a vessel, putting it at higher risk of injury during thyroid or neck surgery if it isn't recognized.
+- The cricothyroid is the only intrinsic laryngeal muscle not innervated by the RLN: it's supplied by the external branch of the superior laryngeal nerve (EBSLN) instead.MuscleActionEffectPosterior cricoarytenoidAbductor (the only one)Opens the airwayLateral cricoarytenoidAdductorCloses the airwayInterarytenoid (transverse arytenoid)AdductorCloses the airwayThyroarytenoid (vocalis)Adductor; relaxes/shortens the foldCloses the airway; lowers pitchCricothyroidTenses/lengthens the foldRaises pitchA rare right-sided non-recurrent nerve occurs with an aberrant right subclavian artery and is at higher surgical risk.
 RLN injury vs EBSLN injury: RLN injury causes vocal fold paralysis (usually paramedian), producing a hoarse, breathy, weak voice and aspiration risk. EBSLN injury is subtler and often under-recognized: cricothyroid weakness causes loss of high pitch and projection, vocal fatigue, and difficulty singing or projecting the voice, without frank hoarseness at rest.
+Bilateral RLN injury leaves both folds near the midline and can cause stridor and airway obstruction, a potential emergency after thyroidectomy. Document vocal fold mobility by laryngoscopy before thyroid or neck surgery and again if the voice changes afterward, because a normal voice does not rule out fold paralysis.
+Emergency airway: the cricothyroid membrane is the surgical airway site in adults. Cricothyrotomy is avoided in young children.
 
 ### Anatomy diagrams (4)
 
@@ -72,13 +74,13 @@ The three subsites that stage laryngeal cancer and localize airway disease. Tap 
 _Image source: Laryngeal subsites. Illustration generated with Google Gemini._
 - Epiglottis: leaf-shaped cartilage forming the top of the supraglottis; folds over the laryngeal inlet during swallowing.
 - False vocal folds (vestibular folds): supraglottic mucosal folds above the true cords; do not vibrate for phonation, but can compensate for glottic insufficiency.
-- Laryngeal ventricles (of Morgagni): the space between the false and true vocal folds; saccule herniation here causes a laryngocele.
+- Laryngeal ventricle (of Morgagni): the recess between the false and true vocal folds.
 - Supraglottis (epiglottis, false folds, ventricle): rich lymphatics, so cancer here presents late, often with a neck node.
 - Laryngeal ventricle: the mucosal recess separating the false fold above from the true fold below.
 - True vocal folds (vocal cords): the vibrating margin that produces voice; sparse lymphatics mean cancer here causes hoarseness early.
 - True cords: the free edge of the vocal fold, formed by the vocalis muscle covered by the epithelium and lamina propria.
 - Glottis (true vocal folds): sparse lymphatics, hoarseness presents early and cancer is often caught before it spreads.
-- Rima glottidis: the airway opening between the true vocal folds; its widest point is at the posterior commissure during abduction.
+- Rima glottidis: the airway opening between the true vocal folds; it widens posteriorly (interarytenoid region) during abduction.
 - Cricoid cartilage: the only complete cartilaginous ring in the airway, forming the subglottic framework below the folds.
 - Subglottis: narrowest part of a child's airway; site of subglottic stenosis (iatrogenic, idiopathic, or GPA).
 - Trachea: continues the airway below the cricoid cartilage, made of incomplete (C-shaped) cartilaginous rings.
@@ -133,7 +135,7 @@ These are opposite problems: one leaks air, the other blocks it.
 Management ladder (for a fold unlikely to be from a treatable cause found above):
 
 - Observe + voice therapy first: a genuine chance of spontaneous recovery persists for up to ~6-12 months, especially after a clear iatrogenic or viral insult.
-- Injection augmentation (medialization laryngoplasty): an in-office or OR injection of a temporary filler into the paralyzed fold to push it toward midline. Used as a bridge while recovery is still possible, or for a likely-transient palsy (e.g. malignancy with expected nerve recovery after resection).
+- Injection augmentation (injection laryngoplasty): an in-office or OR injection of a temporary filler into the paralyzed fold to push it toward midline. Used as a bridge while recovery is still possible, or for a likely-transient palsy (e.g. malignancy with expected nerve recovery after resection).
 - Medialization thyroplasty (Type I thyroplasty: a permanent implant placed through a laryngeal framework surgery) ± arytenoid adduction for a larger posterior glottic gap. Reserved for once vocal fold motion is judged unlikely to recover.
 
 **[benign-vf-lesions] Benign vocal fold lesions**
@@ -176,15 +178,15 @@ Staging, high-yield overview (a simplified look at T-stage logic, not full AJCC 
 
 **[laryngeal-cancer-n-stage] Laryngeal cancer: nodal staging, general logic**
 
-N-stage follows the general head and neck nodal pattern rather than a larynx-specific scheme: N0 (no regional nodes), N1 (a single ipsilateral node &le;3 cm), through N2-N3 (larger, multiple, bilateral/contralateral, or extranodal-extension-positive nodes). Because the supraglottis drains to rich bilateral lymphatics, supraglottic tumors are more likely to present with nodal disease than glottic tumors of similar size.
+N0 is no regional nodes and N1 is a single ipsilateral node &le;3 cm. Higher N means larger, multiple, bilateral, or extranodal-extension-positive nodes. Supraglottic tumors node earlier because of rich bilateral lymphatics.
 
 **[early-glottic-cancer-treatment] Early glottic cancer (T1-T2, N0): TLM vs radiotherapy**
 
-For early glottic SCC, the two standard single-modality options are transoral laser microsurgery (TLM) and definitive radiotherapy (RT). The only randomized trial and multiple cohorts/meta-analyses show equivalent overall and disease-specific survival and high larynx-preservation with either. TLM is a single procedure that provides margin histology, spares surrounding tissue, and preserves RT for later salvage; RT may give a smoother voice in some cases but irradiates the whole larynx and generally cannot be repeated. Choice depends on tumor exposure/extent (e.g., anterior commissure involvement), voice priorities, comorbidity, and team expertise. Advanced disease (T3-T4) is managed with larynx-preservation chemoradiation or total laryngectomy, decided at tumor board.
+For early glottic SCC, the two standard single-modality options are transoral laser microsurgery (TLM) and definitive radiotherapy (RT). Randomized and cohort data show roughly equivalent overall and disease-specific survival and high larynx-preservation with either. TLM is a single procedure that provides margin histology, spares surrounding tissue, and preserves RT for later salvage; RT may give a smoother voice in some cases but irradiates the whole larynx and generally cannot be repeated. Choice depends on tumor exposure/extent (e.g., anterior commissure involvement), voice priorities, comorbidity, and team expertise. Advanced disease (T3-T4) is managed with larynx-preservation chemoradiation or total laryngectomy, decided at tumor board.
 
 **[vcd] Vocal cord dysfunction (paradoxical vocal fold motion): the asthma mimic**
 
-Vocal cord dysfunction, now termed inducible laryngeal obstruction (ILO) (paradoxical vocal fold motion), is paradoxical inspiratory adduction of the vocal folds causing episodic dyspnea/inspiratory stridor that mimics asthma and does not respond to bronchodilators. Spirometry between episodes is often normal; a symptomatic episode may show a truncated/flattened inspiratory flow-volume loop. The gold standard is laryngoscopy with provocation, and the consensus threshold for an abnormal study is &ge;50% laryngeal closure on inspiration (or Maat grade &ge;2). It frequently coexists with asthma (reported ~30-50% in difficult asthma), so the presence of asthma does not exclude it. Managed with speech-therapy breathing retraining and treating triggers (reflux, irritants, exercise, anxiety), not inhaler escalation.
+Vocal cord dysfunction, now termed inducible laryngeal obstruction (ILO) (paradoxical vocal fold motion), is paradoxical inspiratory adduction of the vocal folds causing episodic dyspnea/inspiratory stridor that mimics asthma and does not respond to bronchodilators. Spirometry between episodes is often normal; a symptomatic episode may show a truncated/flattened inspiratory flow-volume loop. The gold standard is laryngoscopy with provocation, and a clearly abnormal inspiratory closure during an episode confirms it (the closure threshold used to call it abnormal is not universally standardized). It frequently coexists with asthma (reported ~30-50% in difficult asthma), so the presence of asthma does not exclude it. Managed with speech-therapy breathing retraining and treating triggers (reflux, irritants, exercise, anxiety), not inhaler escalation.
 
 **[subglottic-stenosis-differential] Subglottic stenosis: iatrogenic vs idiopathic vs GPA, and the other asthma mimic**
 
@@ -211,7 +213,7 @@ Three main approaches, trading durability against morbidity and voice:
 - Cuffed (seals the airway, needed for mechanical ventilation or aspiration risk) vs uncuffed (spontaneously breathing patient with an adequate airway/swallow).
 - Fenestrated (has an opening that lets air pass through the upper airway for voicing once capped, used later in the recovery pathway) vs non-fenestrated.
 - Dual-cannula tubes have a removable inner cannula for routine cleaning without a full tube change.
-- Sizing: the most commonly used tube in an average adult is a cuffed size 8 (roughly size 7-8), sized to the patient's airway and clinical need rather than by brand.The first postoperative week is the danger window. The stoma tract takes roughly 1-2 weeks to mature (epithelialize). Before then, a dislodged or accidentally decannulated tube must not be blindly reinserted, because the tract can be pushed into a false passage in the soft tissues of the neck rather than the trachea. Instead: ventilate/oxygenate via the mouth and nose with the stoma occluded, or orally intubate, while an experienced provider reinserts under direct visualization. A mature stoma tolerates safe direct reinsertion.
+- Sizing: tube size is chosen to the patient's airway and clinical need (adult sizes cluster around 7 to 8), not by a default number.The first postoperative week is the danger window. The stoma tract takes roughly 1-2 weeks to mature (epithelialize). Before then, a dislodged or accidentally decannulated tube must not be blindly reinserted, because the tract can be pushed into a false passage in the soft tissues of the neck rather than the trachea. Instead: ventilate/oxygenate via the mouth and nose with the stoma occluded, or orally intubate, while an experienced provider reinserts under direct visualization. A mature stoma tolerates safe direct reinsertion.
 Speaking valves and the cuff: a Passy-Muir (one-way speaking) valve should never be used while the tracheostomy cuff is inflated. An inflated cuff blocks air from passing around the tube, up past the vocal folds, and out the mouth/nose; adding a one-way valve on top of that traps exhaled air with nowhere to escape, a dangerous air-trapping hazard. The cuff must be deflated first.
 Decannulation protocol, in order, once the original indication has resolved:
 
@@ -247,14 +249,14 @@ Stem: A 52-year-old woman, six hours after a total thyroidectomy, develops inspi
 - Q: What is the immediate management?
   A: This is an airway emergency. Prepare for possible reintubation or emergency tracheostomy; get anesthesia/ENT immediately. Do not wait for imaging before securing the airway if distress is significant.
 
-Teaching: Bilateral vocal fold paralysis is the opposite trap of unilateral: a near-normal voice can hide an airway that is about to close.
+Teaching: Bilateral vocal fold paralysis is the opposite trap of unilateral: a near-normal voice can hide an airway that is about to close. Unilateral injury is the contrast: a breathy, weak voice with an adequate airway.
 
 **Case [case-croup-vs-epiglottitis]**
 
 Stem: A 2-year-old has one day of a barky, seal-like cough, mild fever, and a hoarse voice, worse at night. She is comfortable, drinking fluids, and sitting on her mother's lap without distress.
 
 - Q: What is the most likely diagnosis, and what confirms it if imaged?
-  A: Croup (laryngotracheobronchitis): viral, gradual onset, barky cough, low fever. The steeple sign on a frontal neck X-ray (subglottic narrowing) supports it, though imaging isn't required for a classic presentation.
+  A: Croup (laryngotracheobronchitis): viral, gradual onset, barky cough, low fever. The steeple sign on a frontal neck X-ray (subglottic narrowing) supports it, though imaging isn't required for a classic presentation. Epiglottitis shows the thumbprint sign (swollen epiglottis) on a lateral film.
 
 - Q: What features would make you reconsider epiglottitis instead?
   A: Rapid onset, high fever, drooling, tripod positioning, muffled 'hot potato' voice, and looking toxic all point to epiglottitis, and in that case you avoid examining the throat or lying the child flat.
@@ -266,7 +268,7 @@ Teaching: [figure: Differentiating croup from epiglottitis in a young child by o
 Stem: A 67-year-old man with a 45 pack-year smoking history and daily alcohol use presents with progressive hoarseness for 3 months and 15 lb of unintentional weight loss.
 
 - Q: What must be done before anything else?
-  A: Flexible laryngoscopy to directly visualize the vocal folds. Hoarseness this duration, with these risk factors and weight loss, is laryngeal cancer until excluded.
+  A: Flexible laryngoscopy to directly visualize the vocal folds. Hoarseness this duration, with these risk factors and weight loss, is laryngeal cancer until excluded. The next step after the scope is tissue (biopsy, usually by direct laryngoscopy under anesthesia). Neck nodes and otalgia are other red flags.
 
 - Q: Why do tobacco and alcohol matter together?
   A: They act synergistically on mucosal carcinogenesis, not just additively. A smoker who also drinks heavily has a much higher risk than either exposure alone.
@@ -281,7 +283,7 @@ Stem: A previously well 18-month-old suddenly develops coughing and choking whil
   A: Foreign body aspiration: the abrupt choking event witnessed by a caregiver, followed by asymmetric findings, is the classic pattern. A quiet interval after the initial event does not rule it out.
 
 - Q: What is the next step, and what shouldn't you rely on?
-  A: Bronchoscopy (rigid, typically) for removal. Don't rely solely on a normal chest X-ray to exclude it, since most aspirated foreign bodies (like peanuts) are radiolucent.
+  A: Bronchoscopy (rigid, typically) for removal. Don't rely solely on a normal chest X-ray to exclude it, since most aspirated foreign bodies (like peanuts) are radiolucent. Right-sided findings reflect the more vertical right mainstem bronchus.
 
 Teaching: A witnessed choking event plus a unilateral chest exam finding is foreign body aspiration until bronchoscopy says otherwise. A normal X-ray doesn't clear it.
 
@@ -293,7 +295,7 @@ Stem: A 19-year-old competitive athlete has recurrent episodes of sudden shortne
   A: Vocal cord dysfunction (paradoxical vocal fold motion): episodic inspiratory noise that doesn't respond to asthma therapy, with normal interval spirometry, is the classic pattern. True asthma is predominantly expiratory wheeze.
 
 - Q: How is it confirmed and managed?
-  A: Laryngoscopy during an episode (or with a provocation test) showing paradoxical adduction of the vocal folds on inspiration. Managed with speech-therapy breathing retraining, not more bronchodilators.
+  A: Laryngoscopy during an episode (or with a provocation test) showing paradoxical adduction of the vocal folds on inspiration. Managed with speech-therapy breathing retraining, not more bronchodilators. A flattened inspiratory limb on the flow-volume loop can be a clue.
 
 Teaching: Inspiratory symptoms that don't respond to asthma treatment, with normal spirometry between episodes, should make you look at the larynx, not escalate the inhaler.
 
@@ -305,7 +307,7 @@ Stem: A nurse calls urgently: a patient who underwent tracheostomy 3 days ago fo
   A: The stoma tract is only 3 days old and not yet mature (epithelialized). Blind reinsertion risks pushing the tube into a false passage in the soft tissues of the neck rather than back into the trachea, worsening the obstruction.
 
 - Q: What should be done instead?
-  A: Ventilate/oxygenate via the mouth and nose with the stoma occluded, or proceed to oral intubation if needed, while an experienced airway provider (ENT/anesthesia) reinserts the tracheostomy tube under direct visualization. Do not force blind reinsertion into an immature stoma.
+  A: Call for help and give high-flow oxygen to both the face and the stoma. An experienced provider (ENT/anesthesia) may attempt gentle recannulation under direct vision (same size or one size smaller, over an obturator or airway-exchange catheter). If that fails or the patient is deteriorating, oxygenate from above and intubate orally. Never force blind reinsertion into an immature stoma.
 
 Teaching: [figure: Dislodged tracheostomy tube 3 days post-op requiring alternate airway rather than blind reinsertion into an immature stoma.]In the first postoperative week a tracheostomy stoma is a fresh surgical tract, not an established airway. Treat a dislodged tube as an emergency requiring an alternate airway, not a bedside reinsertion.
 
@@ -321,7 +323,7 @@ Stem: A previously healthy 38-year-old woman, never a smoker, has had progressiv
 
 Teaching: Fixed, biphasic stridor that fails asthma therapy in a young, non-smoking woman is subglottic stenosis until laryngoscopy says otherwise, and idiopathic disease is a diagnosis of exclusion after screening for GPA.
 
-### Flashcards (29)
+### Flashcards (31)
 
 **[laryngeal-cartilages-card]** tags: LA, anatomy, milestones: MK1, PC6, UKMLA: Hoarseness and voice change, reviewer: (none)
 - Front: Name the laryngeal cartilages and one key fact about each.
@@ -354,8 +356,8 @@ Teaching: Fixed, biphasic stridor that fails asthma therapy in a young, non-smok
 - Source: Standard laryngology teaching on vocal fold immobility.
 
 **[vf-paralysis-management-card]** tags: LA, clinical, milestones: PC6, MK3, UKMLA: Hoarseness and voice change, reviewer: (none)
-- Front: Working up unilateral vocal fold paralysis means imaging [...], from the skull base to the aortic arch, since a lesion anywhere along that path can be the cause.
-- Back: Working up unilateral vocal fold paralysis means imaging the entire recurrent laryngeal nerve course, from the skull base to the aortic arch, since a lesion anywhere along that path can be the cause. Management then follows a ladder from voice therapy to thyroplasty as spontaneous recovery becomes unlikely.
+- Front: How far should imaging extend when working up unilateral vocal fold paralysis, and why?
+- Back: The entire recurrent laryngeal nerve course, from the skull base to the aortic arch (chest CT for left-sided), because a lesion anywhere along that path can be the cause. Management then follows a ladder from voice therapy to injection or thyroplasty as spontaneous recovery becomes unlikely.
 - Source: Standard laryngology teaching on vocal fold paralysis workup and medialization procedures.
 
 **[bilateral-vf-paralysis-card]** tags: LA, clinical, milestones: PC6, PC1, UKMLA: Stridor, RED FLAG, reviewer: (none)
@@ -369,8 +371,8 @@ Teaching: Fixed, biphasic stridor that fails asthma therapy in a young, non-smok
 - Source: Standard laryngology teaching on benign vocal fold lesions.
 
 **[benign-vf-lesion-management-card]** tags: LA, clinical, milestones: PC6, UKMLA: Hoarseness and voice change, reviewer: (none)
-- Front: Vocal nodules, which arise from a reversible behavior such as chronic vocal abuse, are usually tried on [...] before any consideration of surgery.
-- Back: Vocal nodules, which arise from a reversible behavior such as chronic vocal abuse, are usually tried on voice therapy before any consideration of surgery. Polyps and cysts are more structural and often need surgical excision instead.
+- Front: Which benign vocal fold lesions are managed with voice therapy first, and which usually need surgery?
+- Back: Nodules (from a reversible behavior such as chronic vocal abuse) are tried on voice therapy first. Polyps and cysts are more structural and often need surgical excision.
 - Source: Standard laryngology teaching on voice therapy vs surgical management of benign vocal fold lesions.
 
 **[reinkes-edema-card]** tags: LA, clinical, milestones: PC6, UKMLA: Hoarseness and voice change, reviewer: (none)
@@ -395,22 +397,22 @@ Teaching: Fixed, biphasic stridor that fails asthma therapy in a young, non-smok
 
 **[early-glottic-treatment-card]** tags: LA, clinical, milestones: PC6, MK3, UKMLA: Hoarseness and voice change, reviewer: (none)
 - Front: For early (T1-T2 N0) glottic cancer, transoral laser microsurgery and radiotherapy give [...] survival, so the choice hinges on exposure, voice, and salvage considerations.
-- Back: For early (T1-T2 N0) glottic cancer, transoral laser microsurgery and radiotherapy give equivalent survival and larynx-preservation. TLM is a single procedure with margin histology that preserves RT for salvage; RT irradiates the whole larynx and usually can't be repeated. Anterior commissure involvement, comorbidity, and voice priorities guide selection.
+- Back: For early (T1-T2 N0) glottic cancer, transoral laser microsurgery and radiotherapy give equivalent survival and larynx preservation. The choice depends on exposure, voice, and salvage options.
 - Source: Forastiere et al., ASCO larynx-preservation guideline, 2018; NCCN Head & Neck Cancers, 2026.
 
 **[rrp-card]** tags: LA, clinical, milestones: PC6, PC7, UKMLA: Hoarseness and voice change, reviewer: (none)
 - Front: What is recurrent respiratory papillomatosis (RRP), and who gets it?
-- Back: Benign but recurrent HPV (types 6/11) laryngeal papillomas causing progressive hoarseness (and airway obstruction if severe). Biphasic age distribution: juvenile-onset (acquired perinatally from an infected mother) and adult-onset. Needs repeated surgical debulking; rarely undergoes malignant transformation. Beyond debulking, adjuvant medical therapy now matters: systemic bevacizumab (anti-VEGF, ~10 mg/kg q3wk) markedly reduces surgical frequency in aggressive juvenile- and adult-onset disease, and in 2025 the FDA approved the first HPV-specific immunotherapy (zopapogene imadenovec-drba, Papzimeos) for adults, offering durable control after a short course. HPV vaccination is preventive (reduces maternal genital HPV and perinatal transmission). Adjuvant cidofovir is used off-label.
+- Back: Benign recurrent HPV 6/11 laryngeal papillomas causing progressive hoarseness (airway obstruction if severe). Biphasic onset: juvenile (acquired perinatally) and adult. Treatment is repeat surgical debulking. Medical adjuncts now reduce the number of surgeries: HPV-specific immunotherapy (approved 2025) is a first-line medical option and systemic bevacizumab is second-line. HPV vaccination is preventive. Malignant transformation is rare.
 - Source: Standard laryngology teaching on recurrent respiratory papillomatosis.
 
 **[vcd-card]** tags: LA, clinical, milestones: PC6, PC1, UKMLA: Stridor, reviewer: (none)
 - Front: What is vocal cord dysfunction (paradoxical vocal fold motion), and how is it distinguished from asthma?
-- Back: The vocal folds adduct paradoxically on inspiration, causing episodic dyspnea that mimics asthma but doesn't respond to bronchodilators; spirometry is often normal between episodes. Confirmed by laryngoscopy during an episode. Treated with speech-therapy breathing retraining. The preferred umbrella term is inducible laryngeal obstruction (ILO); diagnosis is by laryngoscopy with provocation showing &ge;50% inspiratory closure (or Maat grade &ge;2). The exercise-induced subtype (EILO) is confirmed with continuous laryngoscopy during exercise (CLE test).
+- Back: The vocal folds adduct paradoxically on inspiration, causing episodic dyspnea or stridor that mimics asthma but does not respond to bronchodilators. Spirometry is often normal between episodes (it may show a truncated inspiratory loop). Confirmed by laryngoscopy during an episode. First-line treatment is speech-therapy breathing retraining, plus treating triggers (reflux, asthma, postnasal drip).
 - Source: Standard laryngology teaching on paradoxical vocal fold motion.
 
 **[lpr-card]** tags: LA, clinical, milestones: PC6, MK3, UKMLA: Hoarseness and voice change, reviewer: (none)
 - Front: How does laryngopharyngeal reflux (LPR) differ from typical GERD in presentation?
-- Back: LPR ('silent reflux') presents with throat clearing, globus, chronic cough, hoarseness, and posterior laryngeal erythema/edema on exam, often without classic heartburn. First-line is behavioral/dietary modification (weight loss, avoiding late meals, alginates). Empiric PPIs are controversial: placebo-controlled trials and meta-analyses show no consistent benefit for isolated laryngeal symptoms, and the AGA advises against empiric PPI use unless there are concomitant typical GERD symptoms. A PPI response does not by itself confirm the diagnosis; refractory or isolated cases warrant objective testing (e.g., pH-impedance).
+- Back: LPR ("silent reflux") presents with throat clearing, globus, chronic cough, hoarseness, often without heartburn. Laryngeal signs (posterior erythema and edema) are suggestive but nonspecific. First-line is behavioral and dietary change (weight loss, avoiding late meals, alginates). Empiric PPIs are controversial and often no better than placebo for isolated laryngeal symptoms. Reserve objective testing (pH-impedance) for refractory cases.
 - Source: Standard laryngology teaching on laryngopharyngeal reflux.
 
 **[tracheostomy-indications-card]** tags: LA, clinical, milestones: PC1, SBP1, UKMLA: Stridor, reviewer: (none)
@@ -424,8 +426,8 @@ Teaching: Fixed, biphasic stridor that fails asthma therapy in a young, non-smok
 - Source: Standard tracheostomy care teaching.
 
 **[tracheostomy-first-week-card]** tags: LA, clinical, milestones: PC1, SBP1, UKMLA: Stridor, RED FLAG, reviewer: (none)
-- Front: A tracheostomy stoma tract takes roughly [...] to mature by epithelializing, so blind reinsertion of a dislodged tube before then risks creating a false passage in the neck's soft tissues.
-- Back: A tracheostomy stoma tract takes roughly 1 to 2 weeks to mature by epithelializing, so blind reinsertion of a dislodged tube before then risks creating a false passage in the neck's soft tissues. Until it matures, ventilate via the mouth and nose with the stoma occluded while an experienced provider reinserts under direct visualization.
+- Front: Why is blind reinsertion of a dislodged tracheostomy tube dangerous in the first 1 to 2 weeks?
+- Back: The stoma tract has not yet epithelialized (about 1 to 2 weeks), so blind reinsertion risks a false passage in the neck's soft tissues. Call for help, give oxygen to both the face and the stoma, and let an experienced provider recannulate under direct vision (gently, over an obturator or exchange catheter). If that fails or the patient deteriorates, oxygenate from above and intubate orally.
 - Source: Standard tracheostomy emergency-management teaching.
 
 **[tracheostomy-decannulation-card]** tags: LA, clinical, milestones: PC1, UKMLA: Stridor, reviewer: (none)
@@ -455,7 +457,7 @@ Teaching: Fixed, biphasic stridor that fails asthma therapy in a young, non-smok
 
 **[fb-airway-algorithm-card]** tags: LA, clinical, milestones: PC1, PC7, UKMLA: Stridor, RED FLAG, reviewer: (none)
 - Front: For a suspected airway foreign body with complete obstruction, meaning the patient can't cough, speak, or breathe, the immediate step is to start age-appropriate [...], such as back blows and abdominal thrusts.
-- Back: For a suspected airway foreign body with complete obstruction, meaning the patient can't cough, speak, or breathe, the immediate step is to start age-appropriate BLS choking maneuvers, such as back blows and abdominal thrusts. If the patient can still cough or speak, encourage coughing instead and avoid blind intervention.
+- Back: Complete (severe) obstruction means the patient cannot cough, speak, or breathe: start BLS choking maneuvers immediately and activate EMS. Child (over 1 year): alternate 5 back blows and 5 abdominal thrusts until cleared or unresponsive. Infant (under 1 year): 5 back blows and 5 chest thrusts, never abdominal thrusts. If unresponsive: start CPR, look in the mouth before breaths, and remove only visible objects (no blind finger sweeps). If the patient can still cough or speak (mild), encourage coughing and do not intervene.
 - Source: AAP clinical guidance on pediatric foreign-body aspiration; basic life support choking algorithm.
 
 **[spasmodic-dysphonia-card]** tags: LA, clinical, milestones: PC6, UKMLA: Hoarseness and voice change, reviewer: (none)
@@ -467,3 +469,13 @@ Teaching: Fixed, biphasic stridor that fails asthma therapy in a young, non-smok
 - Front: FEES visualizes the pharynx and larynx directly during swallowing through a transnasal endoscope, without radiation, while the test that instead images the whole swallow under fluoroscopy is the [...].
 - Back: FEES visualizes the pharynx and larynx directly during swallowing through a transnasal endoscope, without radiation, while the test that instead images the whole swallow under fluoroscopy is the modified barium swallow (videofluoroscopy). FEES also directly detects pooling, penetration, and silent aspiration at the bedside.
 - Source: Standard speech-language pathology/laryngology teaching on instrumental swallow evaluation.
+
+**[myer-cotton-card]** tags: LA, clinical, milestones: PC6, UKMLA: Stridor, reviewer: (none)
+- Front: How is subglottic stenosis graded on the Myer-Cotton scale?
+- Back: By percent airway obstruction: Grade I under 50%, II 51 to 70%, III 71 to 99%, IV no detectable lumen. Higher grades carry higher recurrence risk and favor open surgery over endoscopic dilation.
+- Source: Myer-Cotton subglottic stenosis grading.
+
+**[stridor-localization-card]** tags: LA, clinical, milestones: PC1, PC6, UKMLA: Stridor, reviewer: (none)
+- Front: What does the timing of stridor suggest about the level of obstruction?
+- Back: Inspiratory stridor suggests a supraglottic or glottic lesion. Biphasic stridor suggests a subglottic or glottic lesion. Expiratory wheeze suggests a tracheobronchial lesion.
+- Source: Standard airway teaching on stridor timing.

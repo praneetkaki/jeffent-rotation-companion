@@ -3,7 +3,7 @@
 Generated from content/*.js for clinical fact-checking. Every module, card, case, clinical block, table, diagram, glossary entry, and question bank currently in the app is below, in full, with no summarizing or omission. Each item lists its module id and field path so corrections can be traced back to source.
 
 
-_Generated 2026-10-10_
+_Generated 2026-10-19_
 
 > **How to use:** paste a module file below (or ALL.md) into OpenEvidence / any reviewer, followed by an instruction such as
 > "Fact-check every claim against current guidelines, flag anything outdated or wrong, and propose exact replacement wording. Keep our style: no em dashes, plain clinical language."
@@ -229,7 +229,7 @@ _Image source: The Temporal Bone in Four Parts. theskeletalsystem.net._
 - Opening for the external auditory meatus: bony entrance to the ear canal, framed largely by the tympanic part.
 - Tympanic part: forms most of the bony external auditory canal (anterior, inferior, and part of the posterior wall).
 - Styloid process: slender projection anchoring the stylohyoid ligament and stylohyoid/styloglossus/stylopharyngeus muscles; a key parapharyngeal-space landmark.
-- Petromastoid part: the composite term for the petrous and mastoid portions, which arise from a shared ossification center and form the posteromedial temporal bone.
+- Petromastoid part: the combined petrous and mastoid portions of the posteromedial temporal bone.
 - Petrous part: dense pyramidal bone housing the middle and inner ear, the otologic core of the temporal bone.
 - Mastoid part: air-cell system posterior to the ear canal; relevant to mastoiditis and cochlear implant surgery.
 - Mastoid process: bony projection palpable behind the ear canal; attachment site for sternocleidomastoid, splenius capitis, and longissimus capitis.
@@ -248,7 +248,7 @@ _Image source: Paranasal Sinuses and Their Drainage Pathways. Wikimedia Commons.
 - Semilunar hiatus: the middle-meatus groove receiving the openings of the frontal, maxillary, and anterior ethmoidal sinuses, the ostiomeatal complex's key drainage channel.
 - Ethmoid bulla: the largest, most constant anterior ethmoid air cell, bulging into the middle meatus; carries the opening of the middle ethmoid sinus cells.
 - Opening of sphenoid sinus: drains into the sphenoethmoidal recess, high and posterior; the sinus borders the pituitary, optic nerve, and cavernous sinus.
-- Opening of eustachian tube: pharyngeal (torus tubarius) opening on the lateral nasopharyngeal wall, posterior to the inferior turbinate; equalizes middle-ear pressure.
+- Opening of eustachian tube: the pharyngeal opening on the lateral nasopharyngeal wall, posterior to the inferior turbinate (the cartilage behind it raises the torus tubarius); equalizes middle-ear pressure.
 - Opening of nasolacrimal duct: drains tears into the inferior meatus, beneath the inferior turbinate; obstruction here causes epiphora.
 
 **Diagram: Cranial nerves of the head and neck**
@@ -261,7 +261,7 @@ _Image source: Cranial Nerves of the Head and Neck with Skull Base Foramina. tea
 - Superior orbital fissure: transmits CN III, IV, V1 (ophthalmic), and VI; compression here causes orbital apex/superior orbital fissure syndrome.
 - Foramen rotundum: transmits CN V2, the maxillary division of the trigeminal nerve, to the midface and upper teeth.
 - Foramen ovale: transmits CN V3, the mandibular division of the trigeminal nerve, to the lower face, tongue, and muscles of mastication.
-- Internal acoustic meatus: transmits CN VII (facial) and CN VIII (vestibulocochlear); CN VII here is the site of vulnerability in Bell's palsy.
+- Internal acoustic meatus: transmits CN VII (facial), CN VIII (vestibulocochlear), and the labyrinthine artery. The labyrinthine segment just distal to it, not the meatus itself, is the site implicated in Bell's palsy.
 - Jugular foramen: transmits CN IX (glossopharyngeal: gag/oropharyngeal sensation), CN X (vagus: laryngeal motor/sensory), and CN XI (accessory: SCM/trapezius, at risk in neck dissection).
 - Hypoglossal canal: transmits CN XII, the hypoglossal nerve, which supplies tongue movement.
 
@@ -365,12 +365,12 @@ _Image source: Fascial Layers and Triangles of the Neck. Scholes & Ramakrishnan 
 
 **[branchial-arch-derivatives-card]** tags: AN, anatomy, milestones: MK1, UKMLA: Neck lump, reviewer: (none)
 - Front: Unlike the malleus and incus, which arise from the first arch, the stapes derives embryologically from the [...] (Reichert's cartilage).
-- Back: Unlike the malleus and incus, which arise from the first arch, the stapes derives embryologically from the second branchial arch (Reichert's cartilage). This is why second-arch anomalies are far more common clinically than first-arch ones.
+- Back: Unlike the malleus and incus, which arise from the first arch, the stapes derives embryologically from the second branchial arch (Reichert's cartilage).
 - Source: Standard branchial arch embryology teaching.
 
 **[pharyngeal-pouch-vs-cleft-card]** tags: AN, anatomy, milestones: MK1, UKMLA: Hearing loss, reviewer: (none)
 - Front: The first pharyngeal pouch develops into the [...].
-- Back: The first pharyngeal pouch develops into the Eustachian tube and middle-ear cavity. Only the second cleft normally persists, which is why second branchial cleft cysts and sinuses dominate clinically.
+- Back: The first pharyngeal pouch develops into the Eustachian tube and middle-ear cavity. Of the clefts, only the first forms a permanent structure (the external auditory canal). Clefts 2 to 4 normally obliterate, and when they persist they form branchial cleft cysts and sinuses (the second is the most common).
 - Source: Standard pharyngeal pouch/cleft embryology teaching.
 
 **[skull-base-foramina-card]** tags: AN, anatomy, milestones: MK1, UKMLA: Facial pain, reviewer: (none)
@@ -415,9 +415,9 @@ Voice/quality clues to the level:
 - Hoarse/breathy voice → a glottic problem (vocal fold pathology).
 - Aphonia plus respiratory distress → complete or near-complete glottic obstruction.The surgical-airway landmark and the CICO endpoint. Every triage pathway ends the same way: if the patient cannot be intubated and cannot be oxygenated (CICO), the rescue is a front-of-neck airway through the cricothyroid membrane (the soft depression between the thyroid cartilage above and the cricoid cartilage below).
 
-- Cricothyroid membrane location: superficial, midline, relatively avascular, and it sits above the thyroid isthmus and the great vessels.
+- Cricothyroid membrane location: superficial, midline, usually low in vascularity (small arteries may cross it), and it sits above the thyroid isthmus and the great vessels.
 - Finding it, the laryngeal handshake: stabilize the larynx between thumb and middle finger, walk down from the thyroid notch onto the cricoid, and the membrane is the gap the index finger falls into (tracing upward from the sternal notch improves accuracy when landmarks are hard to feel).
-- Cricothyroidotomy vs tracheostomy: cricothyroidotomy is the emergency front-of-neck airway (fast, high landmark); tracheostomy is the planned/definitive surgical airway. Cricothyroidotomy is generally avoided as the primary airway in young children.Mechanisms of acute airway decompensation in maxillofacial and neck trauma: the airway can be lost even when it looks patent at minute one.
+- Cricothyroidotomy vs tracheostomy: in adults the emergency front-of-neck airway in a cannot-intubate-cannot-oxygenate situation is a scalpel (scalpel-bougie-tube) cricothyroidotomy; a skilled surgeon may prefer tracheostomy. Tracheostomy is otherwise the planned, definitive surgical airway. Cricothyroidotomy is generally avoided in young children, where a surgical airway (not needle) is used.Mechanisms of acute airway decompensation in maxillofacial and neck trauma: the airway can be lost even when it looks patent at minute one.
 
 - A posteriorly displaced maxilla (Le Fort) blocks the nasopharynx; a bilateral anterior mandible fracture lets the tongue base fall back (worse supine).
 - Blood, secretions, avulsed teeth, and progressive soft-tissue edema/hematoma narrow the lumen over minutes to hours.
@@ -437,7 +437,7 @@ SpaceKey boundaries/locationExtends toClassic source & why it mattersPeritonsill
 - That single fascial plane (the alar fascia) is the difference between a contained retropharyngeal abscess and descending necrotizing mediastinitis.Clinical complications:
 
 - Ludwig's angina: bilateral submandibular/sublingual cellulitis (usually odontogenic) → floor-of-mouth induration, posterior tongue displacement → airway obstruction. Early surgical drainage cuts airway-compromise risk roughly tenfold vs antibiotics alone; secure the airway first.
-- Descending necrotizing mediastinitis (DNM): about 70% descend via the retropharyngeal/danger space to the posterior mediastinum; reported mortality roughly 10-40%; requires neck and chest CT plus surgical drainage.
+- Descending necrotizing mediastinitis (DNM): about 70% descend via the retropharyngeal/danger space to the posterior mediastinum; mortality was historically 10 to 40% and is now roughly 18% with early neck and chest CT, surgical drainage, and planned re-exploration.
 - Lemierre's syndrome: septic thrombophlebitis of the IJV (carotid space), classically Fusobacterium after an oropharyngeal infection → septic pulmonary emboli.
 - Carotid artery erosion/blowout: carotid sheath involvement; a sentinel bleed precedes catastrophic hemorrhage.
 - Highest-risk sources are odontogenic (lower molars) and pharyngeal/tonsillar; risk factors for descent are diabetes, immunocompromise, older age, and multispace involvement (especially retropharyngeal plus parapharyngeal).Imaging/management anchor: contrast-enhanced CT neck (extended through the chest if descent is suspected) is the key study, distinguishing a drainable abscess (rim-enhancing collection) from phlegmon and screening the mediastinum. Airway first, then IV broad-spectrum antibiotics covering oral flora (Gram-positive, Gram-negative, anaerobes) plus surgical drainage of any organized collection.
@@ -563,13 +563,13 @@ Beyond the immediate "don't induce vomiting, don't neutralize" rule, the type of
 
 **[caustic-ingestion-endoscopy-grading] Caustic ingestion: endoscopic grading and stricture risk**
 
-Once the airway and hemodynamic status are stable, upper endoscopy (typically within 12-24 hours of ingestion) grades the depth of injury and guides disposition. This is done carefully, since the injured wall is at its most friable and perforation risk is highest in the first days. A widely used framework grades injury from I (mucosal edema/erythema only) through IIa/IIb (superficial vs deep/circumferential ulceration) to III (transmural necrosis); higher grades carry a substantially higher risk of esophageal stricture developing over the following weeks to months, and grade III injury carries a real risk of perforation and mediastinitis. Patients with higher-grade injuries need close follow-up for dysphagia (the presenting symptom of a developing stricture) and may need serial esophageal dilation.
+Once the airway and hemodynamic status are stable, upper endoscopy (typically within 24 to 48 hours of ingestion; avoid scoping in the friable window after about 48 to 96 hours) grades the depth of injury and guides disposition. This is done carefully, since the injured wall is at its most friable and perforation risk is highest in the first days. A widely used framework grades injury from I (mucosal edema/erythema only) through IIa/IIb (superficial vs deep/circumferential ulceration) to III (transmural necrosis); higher grades carry a substantially higher risk of esophageal stricture developing over the following weeks to months, and grade III injury carries a real risk of perforation and mediastinitis. Patients with higher-grade injuries need close follow-up for dysphagia (the presenting symptom of a developing stricture) and may need serial esophageal dilation.
 
 ### Red flags
 - Any airway red flag (stridor, drooling, tripod position, agitation-then-lethargy): secure and protect the airway before pursuing a differential diagnosis.
 - Suspected epiglottitis: do not examine the throat outside a controlled airway setting.
 - Post-tonsillectomy or post-neck-surgery bleeding: always evaluated urgently, regardless of how 'minor' it appears.
-- Button battery in the ear, nose, or (especially) esophagus: an hours-scale emergency due to alkaline liquefactive necrosis. An esophageal battery needs emergent removal (ideally <2 h); give honey (en route, if able to swallow) and sucralfate (in hospital) to mitigate injury, but never let this delay removal.
+- Button battery in the ear, nose, or (especially) esophagus: an hours-scale emergency due to alkaline liquefactive necrosis. An esophageal battery needs emergent removal (ideally <2 h); give honey (en route, only if over 12 months old and able to swallow) and sucralfate (in hospital) to mitigate injury, but never let this delay removal.
 - Orbital or intracranial complications of sinusitis/otitis media: proptosis, painful eye movement, altered mental status, focal neurologic signs.
 - Acute invasive fungal sinusitis in a diabetic/immunocompromised patient: black eschar, facial pain/numbness; emergent biopsy and debridement.
 - Sudden sensorineural hearing loss: a time-sensitive window for steroid treatment; treat this as urgent, not routine.
@@ -728,7 +728,7 @@ Stem: An 18-month-old is found with an open bottle of liquid drain cleaner. She 
   A: Do not induce vomiting (re-exposes the esophagus and airway to the caustic agent on the way back up), do not attempt to neutralize the agent (the acid-base reaction is exothermic and worsens the burn), and avoid activated charcoal (doesn't bind caustics and obscures endoscopy). The immediate priority is airway assessment: oropharyngeal and laryngeal edema can threaten the airway even before esophageal symptoms are obvious.
 
 - Q: What test defines the extent of injury, and when is it done?
-  A: Upper endoscopy within about 12-24 hours of ingestion, once the airway and hemodynamic status are stable. This is done carefully, since the wall is most friable and perforation risk is highest in the first days. Grading (mucosal edema through transmural necrosis) predicts the risk of later esophageal stricture and, at the highest grade, perforation.
+  A: Upper endoscopy within about 24 to 48 hours of ingestion, once the airway and hemodynamic status are stable. This is done carefully, since the wall is most friable and perforation risk is highest in the first days. Grading (mucosal edema through transmural necrosis) predicts the risk of later esophageal stricture and, at the highest grade, perforation.
 
 - Q: How does an adult intentional (suicidal) caustic ingestion change the picture, beyond the injury itself?
   A: The same airway-first and endoscopic-grading principles apply, but intentional ingestions often involve larger volumes or higher concentrations with a correspondingly higher risk of severe injury, and management must also include a psychiatric evaluation and a higher index of suspicion for associated injury (e.g. aspiration, mixed ingestions).
@@ -779,8 +779,8 @@ Teaching: Clinical Pearl: Hereditary angioedema is a C1-inhibitor deficiency dri
 
 **[retropharyngeal-abscess-imaging-card]** tags: EM, clinical, milestones: PC1, MK2, UKMLA: Sore throat, reviewer: (none)
 - Front: What is the imaging of choice and the surgical threshold for a pediatric retropharyngeal abscess?
-- Back: Contrast-enhanced CT of the neck (after airway is assured) is the mainstay: it defines the collection, its relation to the great vessels/mediastinum, and guides drainage. Many cases resolve with IV antibiotics alone; surgical (usually transoral) drainage is indicated for airway compromise, an abscess > ~2-2.5 cm, or failure to improve on antibiotics.
-- Source: Darawish et al., Deep Neck Space Infections in Children, Am J Otolaryngol, 2026.
+- Back: Contrast-enhanced CT of the neck (after airway is assured) is the mainstay: it defines the collection, its relation to the great vessels/mediastinum, and guides drainage. Many cases resolve with IV antibiotics alone; surgical (usually transoral) drainage is indicated for airway compromise, a large or organized abscess, or failure to improve on antibiotics.
+- Source: Standard pediatric deep neck infection teaching.
 
 **[deep-neck-spread-card]** tags: EM, anatomy, milestones: MK1, PC1, UKMLA: Neck lump, reviewer: (none)
 - Front: Why can a localized pharyngeal infection become a mediastinal emergency?
@@ -790,7 +790,7 @@ Teaching: Clinical Pearl: Hereditary angioedema is a C1-inhibitor deficiency dri
 **[button-battery-card]** tags: EM, clinical, milestones: PC1, PC7, UKMLA: Ear and nasal discharge, RED FLAG, reviewer: (none)
 - Front: Why is a button battery in the esophagus an hours-scale emergency, and what mitigates injury before removal?
 - Back: Current conducted through moist mucosa generates hydroxide at the negative pole, causing alkaline liquefactive necrosis within hours (necrosis can begin within ~15 min, serious injury within ~2 h). An esophageal battery needs emergent endoscopic removal (ideally <2 h); delayed vascular complications (e.g., aortoenteric fistula) can occur days to weeks later.
-Interim mitigation: honey 10 mL every 10 min (child >12 months, able to swallow, within 12 h of ingestion, en route) and sucralfate 1 g every 10 min in hospital: these must NEVER delay removal.
+Interim mitigation: honey 10 mL every 10 min (child >12 months, able to swallow, within 12 h of ingestion, en route) and sucralfate suspension 10 mL every 10 min in hospital (honey or sucralfate, capped at about 6 doses): these must NEVER delay removal.
 - Source: National Capital Poison Center guidance on button battery injuries.
 
 **[post-tonsillectomy-bleed-card]** tags: EM, clinical, milestones: PC1, PC9, UKMLA: Sore throat, RED FLAG, reviewer: (none)
@@ -887,7 +887,7 @@ Interim mitigation: honey 10 mL every 10 min (child >12 months, able to swallow,
 
 **[inhalation-injury-card]** tags: EM, clinical, milestones: PC1, PC2, UKMLA: Stridor, RED FLAG, reviewer: (none)
 - Front: After a facial or inhalational thermal burn, because airway swelling is progressive, the airway is best secured by intubating [...], before stridor, drooling, or tripod positioning appear.
-- Back: After a facial or inhalational thermal burn, because airway swelling is progressive, the airway is best secured by intubating early and electively, before stridor, drooling, or tripod positioning appear. Singed nasal hair, carbonaceous sputum, or new hoarseness after a closed-space fire should raise concern for this.
+- Back: After a facial or inhalational thermal burn, because airway swelling is progressive, the airway is best secured by intubating early and electively, before stridor, drooling, or tripod positioning appear. Singed nasal hair, carbonaceous sputum, or new hoarseness after a closed-space fire should raise concern for this. Intubation is triggered by airway risk signs (facial or neck edema, hoarseness, stridor, deep facial burns), not by the diagnosis alone. Also suspect carbon monoxide poisoning after a closed-space fire: pulse oximetry can read falsely normal, so check carboxyhemoglobin and give 100% oxygen.
 - Source: Standard burn/inhalational airway injury teaching.
 
 **[caustic-alkali-vs-acid-card]** tags: EM, clinical, milestones: PC1, UKMLA: Swallowing problems, RED FLAG, reviewer: (none)
@@ -897,7 +897,7 @@ Interim mitigation: honey 10 mL every 10 min (child >12 months, able to swallow,
 
 **[caustic-endoscopy-grading-card]** tags: EM, clinical, milestones: PC1, UKMLA: Swallowing problems, RED FLAG, reviewer: (none)
 - Front: After caustic ingestion, once the airway and hemodynamic status are stable, grading upper endoscopy is typically performed within [...] of the ingestion.
-- Back: After caustic ingestion, once the airway and hemodynamic status are stable, grading upper endoscopy is typically performed within 12 to 24 hours of the ingestion. Higher injury grades, up to grade III transmural necrosis, predict a substantially higher risk of esophageal stricture and perforation.
+- Back: After caustic ingestion, once the airway and hemodynamic status are stable, grading upper endoscopy is typically performed within 24 to 48 hours of the ingestion. Delay past 48 hours raises perforation risk as the wall softens. Higher Zargar grades (3b extensive necrosis, 4 perforation) predict a substantially higher risk of stricture and perforation. Do not induce emesis, neutralize, give charcoal, or pass a blind nasogastric tube.
 - Source: Standard emergency/GI teaching on caustic ingestion endoscopic grading.
 
 ---
@@ -1833,7 +1833,7 @@ Four articulations
 - The zygomaticosphenoid suture is the key to reduction: alignment at the lateral orbital wall is the most reliable indicator of adequate 3-D reduction, because other sutures can look aligned while the complex is still rotated.
 - Classic clinical triad: malar (cheek) flattening, trismus (a depressed arch/body impinges on the coronoid process and temporalis), and infraorbital nerve hypesthesia (numb cheek, lateral nose, upper lip, upper teeth).
 - Orbital overlap: ZMC fractures commonly cause orbital-floor findings (enophthalmos, diplopia, possible globe injury); always do a visual acuity/globe check.
-- Lateral canthus: the lateral canthal tendon attaches to the Whitnall tubercle on the zygoma; displacement produces canthal dystopia (antimongoloid slant).
+- Lateral canthus: the lateral canthal tendon attaches to the Whitnall tubercle on the zygoma; displacement produces an inferiorly displaced lateral canthus.
 - Imaging: non-contrast maxillofacial CT with coronal and 3-D reconstruction is the study of choice.The clinical triad (malar flattening, trismus, infraorbital numbness) mandates an orbital/globe exam.
 
 **Mandible Anatomy** (tags: Mandible ring · Occlusion · Numb chin sign)
@@ -1921,7 +1921,7 @@ _Image source: Facial Nerve Branches Through the Parotid Gland. Illustration gen
 Coronal CT, right orbit. The arrow marks the fracture site. Reveal to see what it shows.
 
 _Image source: Add figure citation_
-- Yellow arrow: a trapdoor fracture of the orbital floor, with soft tissue herniating through the defect into the roof of the maxillary sinus below: the CT correlate of enophthalmos and diplopia on upgaze from inferior rectus entrapment.
+- Yellow arrow: an orbital floor fracture with inferior rectus and soft tissue herniating into the roof of the maxillary sinus below. In a trapdoor fracture the tissue is trapped, causing marked restriction of upgaze with often little enophthalmos (enophthalmos is the hallmark of large open-door blowouts).
 
 **Diagram: Pitanguy's line and the frontal branch**
 
@@ -2088,7 +2088,7 @@ Stem: A 9-year-old is hit in the eye with a ball. The eye looks relatively unrem
   A: This is the classic 'white-eyed' pediatric blow-out fracture. Children's more elastic bone can spring back after fracture, trapping (entrapping) the inferior rectus muscle with minimal external bruising, unlike the more obvious hematoma typically seen in adult blow-out fractures.
 
 - Q: Why are the nausea and vomiting clinically important here, and what is the urgency?
-  A: They suggest the oculocardiac reflex (from muscle entrapment/traction) and indicate this may be a surgical emergency: unlike most adult blow-out fractures, which can often be observed, pediatric white-eyed entrapment needs prompt surgical release to prevent permanent muscle ischemia/fibrosis.
+  A: They suggest the oculocardiac reflex (from muscle entrapment/traction) and indicate this may be a surgical emergency: unlike most adult blow-out fractures, which can often be observed, pediatric white-eyed entrapment with a sustained oculocardiac reflex should be repaired urgently, generally within 24 hours of diagnosis, to prevent permanent muscle ischemia and fibrosis.
 
 Teaching: Clinical Pearl: A 'white eye' orbital fracture in a pediatric patient with restricted upgaze and nausea/vomiting is a surgical emergency (trapdoor fracture with muscle entrapment) despite the benign external appearance.
 
@@ -2166,7 +2166,7 @@ Stem: A collegiate wrestler presents after a match with a painful, tense, fluctu
   A: An auricular (pinna) hematoma. Blunt trauma shears the perichondrium off the underlying cartilage, and blood collects in the resulting subperichondrial space. Auricular cartilage has no blood supply of its own; it depends entirely on the overlying perichondrium for oxygen and nutrients.
 
 - Q: Why is this a same-day problem rather than something to reassess in clinic next week?
-  A: The hematoma physically separates cartilage from its only blood supply. Left undrained, the cartilage undergoes avascular necrosis, and the body lays down disorganized new (fibro)cartilage in response, producing the permanent, irreversible 'cauliflower ear' deformity. The window to prevent this is narrow.
+  A: The hematoma physically separates cartilage from its only blood supply. Left undrained, the cartilage undergoes avascular necrosis, and the body lays down disorganized new (fibro)cartilage in response, producing the permanent, irreversible 'cauliflower ear' deformity. The window to prevent this is narrow. Give antibiotics that cover Pseudomonas (a fluoroquinolone in adults, amoxicillin-clavulanate in children) to reduce perichondritis risk, and recheck at 24 to 48 hours.
 
 - Q: What is the management, and why is drainage alone not enough?
   A: Needle aspiration (for a small, early hematoma) or incision and drainage (for larger/recurrent collections), followed by a compressive pressure dressing or bolster sutured across the ear. The dressing/bolster is essential: without it, blood reaccumulates in the same potential space and the hematoma recurs.
@@ -2221,7 +2221,7 @@ Teaching: Clinical Pearl: Boggy, fluctuant, bilateral septal swelling after nasa
 
 **[le-fort-card]** tags: FP, clinical, milestones: MK1, PC1, UKMLA: Facial/periorbital swelling, reviewer: (none)
 - Front: How do you distinguish Le Fort I, II, and III fractures?
-- Back: I: horizontal, above the tooth apices: mobile palate/alveolus. II: pyramidal, through the nasofrontal suture: mobile nasomaxillary complex. III: craniofacial disjunction through the frontozygomatic sutures: entire midface mobile relative to the skull ('floating face').[figure: Distinguishing Le Fort I, II, and III fracture patterns.]
+- Back: I: horizontal, above the tooth apices: mobile palate/alveolus. II: pyramidal, through the nasofrontal suture: mobile nasomaxillary complex. III: craniofacial disjunction through the frontozygomatic sutures: entire midface mobile relative to the skull ('floating face'). All three patterns fracture the pterygoid plates, the CT hallmark of a Le Fort injury.[figure: Distinguishing Le Fort I, II, and III fracture patterns.]
 - Source: Standard facial trauma teaching on Le Fort classification.
 
 **[trauma-abcs-card]** tags: FP, clinical, milestones: PC1, SBP1, UKMLA: Facial/periorbital swelling, RED FLAG, reviewer: (none)
@@ -2251,7 +2251,7 @@ Teaching: Clinical Pearl: Boggy, fluctuant, bilateral septal swelling after nasa
 
 **[orbital-blowout-card]** tags: FP, clinical, milestones: PC1, MK2, UKMLA: Facial/periorbital swelling, reviewer: (none)
 - Front: What is an orbital blow-out fracture, and what classic exam findings does it cause?
-- Back: Fracture of the thin orbital floor (or medial wall) from direct globe impact, with fat ± inferior rectus herniation/entrapment. Causes enophthalmos, diplopia on upgaze (restricted extraocular movement), and infraorbital nerve hypoesthesia (cheek/upper lip numbness). Repair timing: in adults, repair within ~2 weeks for persistent symptomatic diplopia with entrapment or a large floor defect (&ge;50% floor, or significant enophthalmos). In children, a white-eyed trapdoor with muscle entrapment or a nonresolving oculocardiac reflex is a surgical emergency (ideally within ~24-48 h) to prevent muscle ischemia/fibrosis.[figure: Coronal CT: the arrow marks the trapdoor fracture and herniated tissue into the maxillary sinus.]
+- Back: Fracture of the thin orbital floor (or medial wall) from direct globe impact, with fat ± inferior rectus herniation/entrapment. Causes enophthalmos, diplopia on upgaze (restricted extraocular movement), and infraorbital nerve hypoesthesia (cheek/upper lip numbness). Repair timing: true muscle entrapment (especially a child's white-eyed trapdoor with a sustained oculocardiac reflex) is a surgical emergency, generally repaired within about 24 to 48 hours to prevent muscle ischemia and fibrosis. Persistent symptomatic diplopia or a large floor defect without entrapment can be repaired within about 2 weeks.[figure: Coronal CT: the arrow marks the trapdoor fracture and herniated tissue into the maxillary sinus.]
 - Source: Standard orbital trauma teaching on blow-out fractures.
 
 **[white-eyed-blowout-card]** tags: FP, clinical, milestones: PC1, PC7, UKMLA: Facial/periorbital swelling, RED FLAG, reviewer: (none)
@@ -2281,7 +2281,7 @@ Teaching: Clinical Pearl: Boggy, fluctuant, bilateral septal swelling after nasa
 
 **[nasal-bone-fracture-card]** tags: FP, clinical, milestones: PC9, PC1, UKMLA: Epistaxis, reviewer: (none)
 - Front: What is the general timing for closed reduction of a nasal bone fracture, and why does timing matter?
-- Back: Typically within 5-10 days in adults (sooner in children, whose bones heal faster), before the fracture fragments begin to fixate or heal in a malaligned position, after which closed reduction becomes ineffective and open techniques may be needed. When the septum is involved, a 2025 systematic review/meta-analysis found early open septoplasty roughly halved persistent obstruction (~6% vs ~22%) and reduced 3-year revision rates (~6% vs ~31%) versus closed reduction alone: so consider early septal correction rather than closed reduction alone for nasoseptal fractures.
+- Back: Typically within 5-10 days in adults (sooner in children, whose bones heal faster), before the fracture fragments begin to fixate or heal in a malaligned position, after which closed reduction becomes ineffective and open techniques may be needed. When the septum is involved, a 2025 systematic review/meta-analysis found early open septoplasty lowered persistent obstruction (about 6% vs 22%) and reduced 3-year revision rates (~6% vs ~31%) versus closed reduction alone: so consider early septal correction rather than closed reduction alone for nasoseptal fractures.
 - Source: Standard nasal trauma teaching.
 
 **[zygoma-fracture-card]** tags: FP, clinical, milestones: MK1, PC9, UKMLA: Facial/periorbital swelling, reviewer: (none)
@@ -2301,7 +2301,7 @@ Teaching: Clinical Pearl: Boggy, fluctuant, bilateral septal swelling after nasa
 
 **[facial-bite-card]** tags: FP, clinical, milestones: PC9, SBP1, UKMLA: Facial/periorbital swelling, reviewer: (none)
 - Front: First-line antibiotic prophylaxis for a facial bite wound, and why are facial bites closed differently from bites elsewhere?
-- Back: Amoxicillin-clavulanate (covers Pasteurella, Eikenella, Capnocytophaga, oral anaerobes). Unlike bites elsewhere, well-irrigated facial bite wounds are usually closed primarily because of the face's vascularity and cosmetic stakes. Address rabies and tetanus.
+- Back: Amoxicillin-clavulanate (covers Pasteurella, Eikenella, Capnocytophaga, oral anaerobes), as a short course of about 3 to 5 days (unlike the 24 hour cap for fracture prophylaxis). Unlike bites elsewhere, well-irrigated facial bite wounds are usually closed primarily because of the face's vascularity and cosmetic stakes. Address rabies and tetanus.
 - Source: Ortiz & Lezcano, Am Fam Physician, 2023; Maurer et al., J Clin Med, 2023.
 
 **[scar-revision-timing-card]** tags: FP, clinical, milestones: PC9, UKMLA: Facial/periorbital swelling, reviewer: (none)
@@ -3446,7 +3446,7 @@ LevelSuperiorInferiorAnteriorPosteriorMain nodal contentsPrimary drainageStructu
 [figure: Major salivary gland anatomy: parotid (Stensen's duct) and submandibular (Wharton's duct).]
 - Parotid: the largest gland; the facial nerve runs through it, dividing it into superficial and deep lobes, so facial-nerve function must be documented before and after any parotid surgery. Duct: Stensen's, opens opposite the upper second molar.
 - Submandibular: duct is Wharton's, opening at the sublingual caruncle; its uphill course makes it the classic site for salivary stones (sialolithiasis).
-- Sublingual: the smallest major gland, sitting in the floor of the mouth; drains via multiple small ducts (ducts of Rivinus) near the sublingual caruncle rather than one dominant duct.The three major glands compared:
+- Sublingual: the smallest major gland, sitting in the floor of the mouth; drains via multiple small ducts (ducts of Rivinus) along the sublingual fold, and some join Bartholin's duct. The caruncle is where Wharton's duct opens.The three major glands compared:
 GlandLocationSecretion typeClinical pearlsParotidOverlies the mandibular ramus, below and in front of the earSerousFacial nerve runs through it; ~80% of tumors are benign, mostly pleomorphic adenoma; stones are uncommon because serous saliva is thinSubmandibularSubmandibular triangle, below the body of the mandibleMixed, mucous-predominantWharton's duct runs an uphill course; accounts for the large majority of salivary stonesSublingualFloor of mouth, anterior to the submandibular glandMucous-predominantSmallest major gland; tumors here are rare but disproportionately likely to be malignant when they occurCommon lesions and tumors:
 
 - Pleomorphic adenoma: the most common benign salivary tumor overall, usually in the parotid.
@@ -3481,10 +3481,10 @@ Oral cavity
 - Four subsites: base of tongue (posterior third + lingual tonsils), palatine tonsils/tonsillar fossae, soft palate, and posterior pharyngeal wall.
 - Cancer profile: increasingly HPV-associated (most often type 16), arising in the reactive lymphoid tissue of the tonsils and tongue base. Classically a younger, non-smoking patient who presents with a painless cystic neck node rather than local symptoms, the "asymptomatic primary with a neck mass" pattern. HPV-driven tumors are staged with a separate AJCC 8th-edition system because of their favorable biology.
 - Lymphatic drainage: to the jugulodigastric (level II) and retropharyngeal nodes; base of tongue and posterior wall drain bilaterally, tonsil tends to drain ipsilaterally first.Oral cavity vs HPV+ oropharynx at a glance:
-FeatureOral cavityOropharynx (HPV+)Main driverTobacco + alcohol (synergistic)High-risk HPV, typically type 16Typical patientOlder heavy smoker/drinkerYounger, often non-smokerUsual presentationVisible ulcer/patch + pain, early symptomsPainless cystic neck node, few local symptomsMolecular hallmarkTP53 mutationp16 overexpression (E7-driven)PrognosisLess favorableSubstantially better stage-for-stageStagingStandard AJCCSeparate AJCC 8th-ed. HPV+ systemThe prognostic gap is large: HPV-associated oropharyngeal SCC carries roughly 80-90% 5-year overall survival, versus ~40% for HPV-negative disease.
+FeatureOral cavityOropharynx (HPV+)Main driverTobacco + alcohol (synergistic)High-risk HPV, typically type 16Typical patientOlder heavy smoker/drinkerYounger, often non-smokerUsual presentationVisible ulcer/patch + pain, early symptomsPainless cystic neck node, few local symptomsMolecular hallmarkTP53 mutationp16 overexpression (E7-driven)PrognosisLess favorableSubstantially better stage-for-stageStagingStandard AJCCSeparate AJCC 8th-ed. HPV+ systemThe prognostic gap is large: HPV-associated oropharyngeal SCC carries roughly 75-85% 5-year overall survival, versus about 35-45% for HPV-negative disease. It still needs full curative-intent treatment.
 High-yield pitfalls:
 
-- p16 testing is for the oropharynx, not the oral cavity: routine HPV/p16 testing is recommended for oropharyngeal (and sinonasal) tumors, not oral cavity cancers, where it lacks consistent prognostic value.
+- p16 testing is for the oropharynx, not the oral cavity: routine p16/HPV testing is recommended for oropharyngeal SCC. It is not routinely recommended outside the oropharynx (oral cavity, larynx, sinonasal), where p16 is not a reliable HPV surrogate. p16 is a required step in every oropharyngeal workup.
 - A new "branchial cleft cyst" in an adult over ~40 is oropharyngeal cancer until proven otherwise: a cystic level II node from an HPV+ tonsil/base-of-tongue primary can look radiologically and cytologically like a benign branchial cleft cyst; exclude the primary, don't just drain it.
 - Smoking still matters even when HPV+: tobacco use in HPV+ oropharyngeal disease confers an intermediate prognosis, between HPV+ non-smokers (best) and HPV- smokers (worst).
 - "Base of tongue" is oropharynx, "oral tongue" is oral cavity: the circumvallate papillae are the dividing landmark, and misclassification is a common registry and exam error.
@@ -3513,8 +3513,8 @@ Why facial-nerve function is documented before and after every parotid operation
 _Image source: Parotid Region and Facial Nerve Branching Pattern. Royal College of Surgeons of Ireland (CC BY-NC-SA)._
 - Temporal branch: crosses the zygomatic arch to innervate the frontalis and orbicularis oculi; injury causes brow ptosis and difficulty closing the eye.
 - Zygomatic branch: contributes to orbicularis oculi innervation, helping close the eye.
-- Buccal branch (upper division): innervates the buccinator and the upper lip elevators.
-- Buccal branch (lower division): innervates the buccinator and orbicularis oris.
+- Buccal branch: innervates the buccinator and the upper lip elevators.
+- Buccal branch: innervates the buccinator and orbicularis oris (lip and cheek movement).
 - Facial nerve trunk (CN VII): exits the stylomastoid foramen and enters the parotid, where it divides into its terminal branches.
 - Stylomastoid foramen: skull-base exit point of the facial nerve, just before it enters the parotid gland.
 - Parotid gland: the largest salivary gland; the facial nerve runs through it, dividing it into superficial and deep lobes.
@@ -3594,13 +3594,13 @@ _Image source: Thyroid and Parathyroid Glands, Vasculature, and Recurrent Laryng
 
 **[unknown-primary] The unknown-primary workup for a neck mass**
 
-- FNA first: never open biopsy first.
+- FNA first: never open biopsy first, because open biopsy of a nodal metastasis can compromise later neck dissection and outcome.
 - If FNA shows squamous cell carcinoma, examine and image the likely primary sites (base of tongue, tonsil, nasopharynx, hypopharynx), plus p16 (HPV surrogate) and EBV testing on the FNA/biopsy specimen, since a positive result points strongly toward an oropharyngeal or nasopharyngeal source respectively.
 - PET-CT and panendoscopy with directed/blind biopsies (including tonsillectomy of the ipsilateral tonsil) if no primary is found on exam/imaging.
 
 **[hpv-oropharyngeal] HPV-associated oropharyngeal cancer**
 
-Rising incidence, typically in younger, non-smoking patients. p16 immunohistochemistry is the standard surrogate marker for HPV-driven tumors (types 16/18 most implicated) and carries a better prognosis than HPV-negative disease at the same stage, reflected in a separate staging system.
+Rising incidence, typically in younger, non-smoking patients. p16 immunohistochemistry is the standard surrogate marker for HPV-driven tumors (HPV-16 drives about 90% of cases; HPV-18 is a minor contributor) and carries a better prognosis than HPV-negative disease at the same stage, reflected in a separate staging system.
 Pitfall: a cystic neck node from an HPV+ oropharyngeal primary can look radiologically and even cytologically like a benign branchial cleft cyst. A new 'branchial cleft cyst' in an adult over ~40 needs the primary excluded, not just drained.
 
 **[nasopharyngeal-carcinoma] Nasopharyngeal carcinoma (NPC): the EBV-associated cancer everyone should recognize early**
@@ -3623,7 +3623,7 @@ Treatment: NPC is highly radiosensitive, so primary treatment is radiation (ofte
 - Hot nodule: autonomously functioning, suppresses TSH, takes up tracer more than surrounding tissue. Rarely malignant, so it does not need FNA; manage as hyperfunctioning thyroid tissue.
 - Cold nodule: normal or low tracer uptake. Carries a higher relative malignancy risk, so it needs FNA per size/ultrasound (TI-RADS) criteria.[figure: Thyroid nodule workup order: TSH, then ultrasound (TI-RADS), then FNA (Bethesda).]ACR TI-RADS scoring:
 Feature categoryFeature (points)CompositionCystic/spongiform (0); mixed cystic-solid (1); solid (2)EchogenicityAnechoic (0); hyper-/isoechoic (1); hypoechoic (2); very hypoechoic (3)ShapeWider-than-tall (0); taller-than-wide (3)MarginSmooth/ill-defined (0); lobulated/irregular (2); extrathyroidal extension (3)Echogenic fociNone/comet-tail (0); macrocalcification (1); peripheral/rim (2); punctate echogenic foci/microcalcifications (3)LevelPointsSuspicionFNA if &ge;Follow-up US if &ge;TR10BenignNo FNANoneTR22Not suspiciousNo FNANoneTR33Mildly suspicious2.5 cm1.5 cmTR44-6Moderately suspicious1.5 cm1.0 cmTR5&ge;7Highly suspicious1.0 cm0.5 cmBethesda System for Reporting Thyroid Cytopathology (2023, 3rd edition):
-CategoryName (2023)ROM (%, NIFTP=ca)Usual managementINondiagnostic5-20Repeat FNA under ultrasound guidanceIIBenign2-7Clinical + sonographic follow-upIIIAtypia of undetermined significance (AUS)~22 (13-30)Repeat FNA, molecular testing, or diagnostic lobectomy; subclassify AUS-nuclear (higher ROM) vs AUS-other (lower ROM)IVFollicular neoplasm (or oncocytic follicular neoplasm)~30 (23-34)Molecular testing or diagnostic lobectomyVSuspicious for malignancy~74 (67-83)Lobectomy or total thyroidectomyVIMalignant~97 (97-100)Lobectomy or total thyroidectomy (per tumor type)ROMs shown are inclusive of NIFTP counted as malignant; excluding NIFTP lowers the indeterminate-category ROMs.
+CategoryName (2023)ROM (%, NIFTP=ca)Usual managementINondiagnostic13 (5-20)Repeat FNA under ultrasound guidanceIIBenign2-7Clinical + sonographic follow-upIIIAtypia of undetermined significance (AUS)~22 (13-30)Repeat FNA, molecular testing, or diagnostic lobectomy; subclassify AUS-nuclear (higher ROM) vs AUS-other (lower ROM)IVFollicular neoplasm (or oncocytic follicular neoplasm)~30 (23-34)Molecular testing or diagnostic lobectomyVSuspicious for malignancy~74 (67-83)Lobectomy or total thyroidectomyVIMalignant~97 (97-100)Lobectomy or total thyroidectomy (per tumor type)ROMs shown are inclusive of NIFTP counted as malignant; excluding NIFTP lowers the indeterminate-category ROMs.
 
 **[indeterminate-nodule-molecular] Molecular testing for indeterminate thyroid nodules (Bethesda III/IV)**
 
@@ -3641,8 +3641,8 @@ Bethesda III and IV are the "indeterminate" categories (ROM ~22% and ~30%), wher
 
 The historical "total thyroidectomy for any cancer >1 cm" paradigm has shifted toward de-escalation. Per the 2025 ATA guidelines:
 
-- Lobectomy is the initial procedure for unifocal, intrathyroidal, node-negative differentiated thyroid cancer &le;2 cm (cT1N0M0): lower complication rates, no lifelong levothyroxine in most patients, equivalent survival.
-- For >2-4 cm (cT2N0M0) low-risk unilateral disease, lobectomy may be preferred, but total thyroidectomy is an option (enables radioactive iodine and eases surveillance); counsel about a ~20% chance of needing completion thyroidectomy.
+- Lobectomy is preferred for unifocal, intrathyroidal, node-negative differentiated thyroid cancer under 2 cm without suspicious nodes or contralateral nodules: lower complication rates, no lifelong levothyroxine in most patients, equivalent survival.
+- For 2 to 4 cm low-risk disease, lobectomy or total thyroidectomy is reasonable (total enables radioactive iodine and eases surveillance). Counsel about the chance of needing completion thyroidectomy (about 20%, with a wide published range).
 - Total thyroidectomy is indicated for tumors >4 cm, gross extrathyroidal extension, clinically apparent nodal (cN1) or distant (cM1) metastasis, bilateral disease, or when postoperative RAI is planned.
 - Risk/benefit tradeoff: total thyroidectomy carries higher rates of recurrent laryngeal nerve injury and hypocalcemia than lobectomy, driving the extent-of-surgery decision.Levothyroxine after surgery:
 
@@ -3771,7 +3771,9 @@ For mandible/maxilla defects, the gold standard for restoring continuity, occlus
 
 ### Red flags
 - Extranodal extension (ENE) or a positive margin on resection pathology: triggers treatment intensification to adjuvant concurrent chemoradiotherapy, not radiotherapy alone.
-- Supraclavicular node (Virchow's node): think of a primary below the diaphragm (GI, GU) as well as head & neck; work up accordingly.
+- Left supraclavicular node (Virchow's node): think of a primary below the diaphragm (GI, GU) as well as head & neck. A right supraclavicular node points to an intrathoracic source. Work up accordingly.
+- Total laryngectomy patient in respiratory distress: the upper airway no longer connects to the trachea, so bag-mask, oral, and nasal intubation will fail. Oxygenate and intubate through the neck stoma only.
+- Hoarseness lasting more than 4 weeks in a smoker or drinker: laryngoscopy to exclude laryngeal cancer.
 - Facial nerve weakness with a parotid mass: malignant until proven otherwise.
 - Persistent oral ulcer, leukoplakia, or erythroplakia (>2-3 weeks) in a smoker: biopsy; erythroplakia carries a higher malignant-transformation risk than leukoplakia.
 - Rapidly enlarging thyroid nodule, hoarseness, or a fixed/hard nodule: concern for malignancy with possible extrathyroidal extension (RLN involvement).
@@ -3871,7 +3873,7 @@ Teaching: Any persistent oral white or red patch in a smoker gets biopsied. Loca
 
 **[neck-levels-full-card]** tags: HN, anatomy, milestones: MK1, PC3, UKMLA: Neck lump, reviewer: (none)
 - Front: Beyond levels I-VI, what is level VII, and how are levels II and V further subdivided?
-- Back: Level VII = superior mediastinal nodes, below the sternal notch, relevant to thyroid/lower-neck cancer. Level II splits into IIA/IIB, and level V into VA/VB, both divided relative to the spinal accessory nerve.
+- Back: Level VII = superior mediastinal nodes, below the sternal notch, relevant to thyroid/lower-neck cancer. Level II splits into IIA/IIB relative to the spinal accessory nerve. Level V splits into VA/VB by a horizontal plane at the lower border of the cricoid.
 - Source: Standard head & neck oncologic anatomy teaching.
 
 **[parotid-anatomy-card]** tags: HN, anatomy, milestones: MK1, PC3, UKMLA: Facial/periorbital swelling, reviewer: (none)
@@ -3931,7 +3933,7 @@ Teaching: Any persistent oral white or red patch in a smoker gets biopsied. Loca
 
 **[thyroid-nodule-workup-card]** tags: HN, clinical, milestones: PC3, MK1, UKMLA: Neck lump, reviewer: (none)
 - Front: What is the stepwise workup for a newly found thyroid nodule?
-- Back: TSH first (a suppressed TSH → radionuclide scan; a 'hot' nodule is rarely malignant and skips FNA). Then ultrasound to assess suspicious features. Then FNA if features/size warrant it, reported by the Bethesda System.[figure: Stepwise thyroid nodule workup: TSH, then ultrasound, then FNA.]
+- Back: Get TSH and a neck ultrasound together. If TSH is suppressed, add a radionuclide scan (a 'hot' nodule is rarely malignant and skips FNA). Then FNA if ultrasound features or size warrant it, reported by the Bethesda System.[figure: Stepwise thyroid nodule workup: TSH and ultrasound, then FNA.]
 - Source: American Thyroid Association guidelines on thyroid nodule management, 2015.
 
 **[tirads-card]** tags: HN, clinical, milestones: PC3, UKMLA: Neck lump, reviewer: (none)
@@ -3951,7 +3953,7 @@ Teaching: Any persistent oral white or red patch in a smoker gets biopsied. Loca
 
 **[thyroid-surgery-extent-card]** tags: HN, clinical, milestones: PC3, MK1, UKMLA: Neck lump, reviewer: (none)
 - Front: Current ATA guidance favors [...] over total thyroidectomy for unifocal, intrathyroidal, node-negative differentiated thyroid cancer &le;2 cm.
-- Back: Current ATA guidance favors thyroid lobectomy over total thyroidectomy for unifocal, intrathyroidal, node-negative differentiated thyroid cancer &le;2 cm, because it has fewer complications (recurrent laryngeal nerve injury, hypocalcemia) and avoids lifelong levothyroxine in most patients, with equivalent survival. Total thyroidectomy remains standard for tumors >4 cm, gross extrathyroidal extension, or clinical nodal/distant metastasis.
+- Back: 2025 ATA guidance favors thyroid lobectomy for low-risk, intrathyroidal, node-negative differentiated thyroid cancer under 2 cm. For 2 to 4 cm tumors, either lobectomy or total thyroidectomy is reasonable. Total thyroidectomy remains standard for tumors over 4 cm, gross extrathyroidal extension, or nodal or distant metastasis. Lobectomy means fewer nerve and parathyroid complications and often no lifelong levothyroxine.
 - Source: American Thyroid Association guidelines on thyroid nodule/cancer management, 2025 update.
 
 **[extranodal-extension-card]** tags: HN, clinical, milestones: PC3, SBP1, UKMLA: Neck lump, RED FLAG, reviewer: (none)
@@ -4021,7 +4023,7 @@ Teaching: Any persistent oral white or red patch in a smoker gets biopsied. Loca
 
 **[dental-clearance-osteoradionecrosis-card]** tags: HN, clinical, milestones: SBP2, PC3, UKMLA: Neck lump, reviewer: (none)
 - Front: Because radiation permanently impairs jaw bone vascularity, extracting teeth from an already-irradiated mandible carries a real risk of [...], so high-risk teeth are cleared before radiotherapy begins.
-- Back: Because radiation permanently impairs jaw bone vascularity, extracting teeth from an already-irradiated mandible carries a real risk of osteoradionecrosis, so high-risk teeth are cleared before radiotherapy begins. This non-healing exposed bone is difficult to treat once it occurs.
+- Back: Because radiation permanently impairs jaw bone vascularity, extracting teeth from an already-irradiated mandible carries a real risk of osteoradionecrosis. Poor-prognosis teeth in the radiation field are extracted at least 2 weeks before RT to allow healing, but RT should not be delayed for dental work when that would compromise cancer control.
 - Source: NCCN Head and Neck Cancers Guideline: pre-treatment dental evaluation.
 
 **[plummer-vinson-card]** tags: HN, clinical, milestones: PC3, MK3, UKMLA: Neck lump, Swallowing problems, reviewer: (none)
@@ -4093,7 +4095,7 @@ Teaching: Any persistent oral white or red patch in a smoker gets biopsied. Loca
 - The backbone of laryngeal cancer staging and of localizing airway pathology.
 - Supraglottis (epiglottis, false folds, ventricle): rich lymphatics, so cancers present later with neck nodes.
 - Glottis (true vocal folds): sparse lymphatics, so cancer causes hoarseness early and is often caught before it spreads.
-- Subglottis (true folds to cricoid): the narrowest part of a child's airway and the site of subglottic stenosis.Clinical pearl: laryngeal cancer is strongly associated with tobacco and alcohol use. Because the glottis has sparse lymphatics, glottic cancers tend to present early with hoarseness and carry the best prognosis, while supraglottic and subglottic cancers, with richer lymphatic drainage or a more silent growth pattern, tend to present later and carry a worse prognosis.
+- Subglottis (begins about 1 cm below the free edge of the true folds and extends to the inferior border of the cricoid): the narrowest part of a child's airway and the site of subglottic stenosis.Clinical pearl: laryngeal cancer is strongly associated with tobacco and alcohol use. Because the glottis has sparse lymphatics, glottic cancers tend to present early with hoarseness and carry the best prognosis, while supraglottic and subglottic cancers, with richer lymphatic drainage or a more silent growth pattern, tend to present later and carry a worse prognosis.
 
 **Vocal fold layers** (tags: Vocal fold cover-body model)
 
@@ -4110,8 +4112,10 @@ Teaching: Any persistent oral white or red patch in a smoker gets biopsied. Loca
 - Recurrent laryngeal nerve (RLN): every other intrinsic muscle (including the only abductor, posterior cricoarytenoid) and sensation below the cords.
 - The RLN is long and asymmetric: left loops under the aortic arch, right under the subclavian artery.
 - That is why hoarseness can be the first sign of a lung apex tumor, aortic aneurysm, or thyroid/mediastinal disease, and why the RLN is at risk in thyroid surgery.
-- The cricothyroid is the only intrinsic laryngeal muscle not innervated by the RLN: it's supplied by the external branch of the superior laryngeal nerve (EBSLN) instead.MuscleActionEffectPosterior cricoarytenoidAbductor (the only one)Opens the airwayLateral cricoarytenoidAdductorCloses the airwayInterarytenoid (transverse arytenoid)AdductorCloses the airwayThyroarytenoid (vocalis)Adductor; relaxes/shortens the foldCloses the airway; lowers pitchCricothyroidTenses/lengthens the foldRaises pitchClinical pearl: non-recurrent laryngeal nerve: a rare anatomic variant, almost always on the right, seen with an aberrant right subclavian artery arising distal to the left subclavian (arteria lusoria). The 'recurrent' nerve then runs directly to the larynx without looping under a vessel, putting it at higher risk of injury during thyroid or neck surgery if it isn't recognized.
+- The cricothyroid is the only intrinsic laryngeal muscle not innervated by the RLN: it's supplied by the external branch of the superior laryngeal nerve (EBSLN) instead.MuscleActionEffectPosterior cricoarytenoidAbductor (the only one)Opens the airwayLateral cricoarytenoidAdductorCloses the airwayInterarytenoid (transverse arytenoid)AdductorCloses the airwayThyroarytenoid (vocalis)Adductor; relaxes/shortens the foldCloses the airway; lowers pitchCricothyroidTenses/lengthens the foldRaises pitchA rare right-sided non-recurrent nerve occurs with an aberrant right subclavian artery and is at higher surgical risk.
 RLN injury vs EBSLN injury: RLN injury causes vocal fold paralysis (usually paramedian), producing a hoarse, breathy, weak voice and aspiration risk. EBSLN injury is subtler and often under-recognized: cricothyroid weakness causes loss of high pitch and projection, vocal fatigue, and difficulty singing or projecting the voice, without frank hoarseness at rest.
+Bilateral RLN injury leaves both folds near the midline and can cause stridor and airway obstruction, a potential emergency after thyroidectomy. Document vocal fold mobility by laryngoscopy before thyroid or neck surgery and again if the voice changes afterward, because a normal voice does not rule out fold paralysis.
+Emergency airway: the cricothyroid membrane is the surgical airway site in adults. Cricothyrotomy is avoided in young children.
 
 ### Anatomy diagrams (4)
 
@@ -4135,13 +4139,13 @@ The three subsites that stage laryngeal cancer and localize airway disease. Tap 
 _Image source: Laryngeal subsites. Illustration generated with Google Gemini._
 - Epiglottis: leaf-shaped cartilage forming the top of the supraglottis; folds over the laryngeal inlet during swallowing.
 - False vocal folds (vestibular folds): supraglottic mucosal folds above the true cords; do not vibrate for phonation, but can compensate for glottic insufficiency.
-- Laryngeal ventricles (of Morgagni): the space between the false and true vocal folds; saccule herniation here causes a laryngocele.
+- Laryngeal ventricle (of Morgagni): the recess between the false and true vocal folds.
 - Supraglottis (epiglottis, false folds, ventricle): rich lymphatics, so cancer here presents late, often with a neck node.
 - Laryngeal ventricle: the mucosal recess separating the false fold above from the true fold below.
 - True vocal folds (vocal cords): the vibrating margin that produces voice; sparse lymphatics mean cancer here causes hoarseness early.
 - True cords: the free edge of the vocal fold, formed by the vocalis muscle covered by the epithelium and lamina propria.
 - Glottis (true vocal folds): sparse lymphatics, hoarseness presents early and cancer is often caught before it spreads.
-- Rima glottidis: the airway opening between the true vocal folds; its widest point is at the posterior commissure during abduction.
+- Rima glottidis: the airway opening between the true vocal folds; it widens posteriorly (interarytenoid region) during abduction.
 - Cricoid cartilage: the only complete cartilaginous ring in the airway, forming the subglottic framework below the folds.
 - Subglottis: narrowest part of a child's airway; site of subglottic stenosis (iatrogenic, idiopathic, or GPA).
 - Trachea: continues the airway below the cricoid cartilage, made of incomplete (C-shaped) cartilaginous rings.
@@ -4196,7 +4200,7 @@ These are opposite problems: one leaks air, the other blocks it.
 Management ladder (for a fold unlikely to be from a treatable cause found above):
 
 - Observe + voice therapy first: a genuine chance of spontaneous recovery persists for up to ~6-12 months, especially after a clear iatrogenic or viral insult.
-- Injection augmentation (medialization laryngoplasty): an in-office or OR injection of a temporary filler into the paralyzed fold to push it toward midline. Used as a bridge while recovery is still possible, or for a likely-transient palsy (e.g. malignancy with expected nerve recovery after resection).
+- Injection augmentation (injection laryngoplasty): an in-office or OR injection of a temporary filler into the paralyzed fold to push it toward midline. Used as a bridge while recovery is still possible, or for a likely-transient palsy (e.g. malignancy with expected nerve recovery after resection).
 - Medialization thyroplasty (Type I thyroplasty: a permanent implant placed through a laryngeal framework surgery) ± arytenoid adduction for a larger posterior glottic gap. Reserved for once vocal fold motion is judged unlikely to recover.
 
 **[benign-vf-lesions] Benign vocal fold lesions**
@@ -4239,15 +4243,15 @@ Staging, high-yield overview (a simplified look at T-stage logic, not full AJCC 
 
 **[laryngeal-cancer-n-stage] Laryngeal cancer: nodal staging, general logic**
 
-N-stage follows the general head and neck nodal pattern rather than a larynx-specific scheme: N0 (no regional nodes), N1 (a single ipsilateral node &le;3 cm), through N2-N3 (larger, multiple, bilateral/contralateral, or extranodal-extension-positive nodes). Because the supraglottis drains to rich bilateral lymphatics, supraglottic tumors are more likely to present with nodal disease than glottic tumors of similar size.
+N0 is no regional nodes and N1 is a single ipsilateral node &le;3 cm. Higher N means larger, multiple, bilateral, or extranodal-extension-positive nodes. Supraglottic tumors node earlier because of rich bilateral lymphatics.
 
 **[early-glottic-cancer-treatment] Early glottic cancer (T1-T2, N0): TLM vs radiotherapy**
 
-For early glottic SCC, the two standard single-modality options are transoral laser microsurgery (TLM) and definitive radiotherapy (RT). The only randomized trial and multiple cohorts/meta-analyses show equivalent overall and disease-specific survival and high larynx-preservation with either. TLM is a single procedure that provides margin histology, spares surrounding tissue, and preserves RT for later salvage; RT may give a smoother voice in some cases but irradiates the whole larynx and generally cannot be repeated. Choice depends on tumor exposure/extent (e.g., anterior commissure involvement), voice priorities, comorbidity, and team expertise. Advanced disease (T3-T4) is managed with larynx-preservation chemoradiation or total laryngectomy, decided at tumor board.
+For early glottic SCC, the two standard single-modality options are transoral laser microsurgery (TLM) and definitive radiotherapy (RT). Randomized and cohort data show roughly equivalent overall and disease-specific survival and high larynx-preservation with either. TLM is a single procedure that provides margin histology, spares surrounding tissue, and preserves RT for later salvage; RT may give a smoother voice in some cases but irradiates the whole larynx and generally cannot be repeated. Choice depends on tumor exposure/extent (e.g., anterior commissure involvement), voice priorities, comorbidity, and team expertise. Advanced disease (T3-T4) is managed with larynx-preservation chemoradiation or total laryngectomy, decided at tumor board.
 
 **[vcd] Vocal cord dysfunction (paradoxical vocal fold motion): the asthma mimic**
 
-Vocal cord dysfunction, now termed inducible laryngeal obstruction (ILO) (paradoxical vocal fold motion), is paradoxical inspiratory adduction of the vocal folds causing episodic dyspnea/inspiratory stridor that mimics asthma and does not respond to bronchodilators. Spirometry between episodes is often normal; a symptomatic episode may show a truncated/flattened inspiratory flow-volume loop. The gold standard is laryngoscopy with provocation, and the consensus threshold for an abnormal study is &ge;50% laryngeal closure on inspiration (or Maat grade &ge;2). It frequently coexists with asthma (reported ~30-50% in difficult asthma), so the presence of asthma does not exclude it. Managed with speech-therapy breathing retraining and treating triggers (reflux, irritants, exercise, anxiety), not inhaler escalation.
+Vocal cord dysfunction, now termed inducible laryngeal obstruction (ILO) (paradoxical vocal fold motion), is paradoxical inspiratory adduction of the vocal folds causing episodic dyspnea/inspiratory stridor that mimics asthma and does not respond to bronchodilators. Spirometry between episodes is often normal; a symptomatic episode may show a truncated/flattened inspiratory flow-volume loop. The gold standard is laryngoscopy with provocation, and a clearly abnormal inspiratory closure during an episode confirms it (the closure threshold used to call it abnormal is not universally standardized). It frequently coexists with asthma (reported ~30-50% in difficult asthma), so the presence of asthma does not exclude it. Managed with speech-therapy breathing retraining and treating triggers (reflux, irritants, exercise, anxiety), not inhaler escalation.
 
 **[subglottic-stenosis-differential] Subglottic stenosis: iatrogenic vs idiopathic vs GPA, and the other asthma mimic**
 
@@ -4274,7 +4278,7 @@ Three main approaches, trading durability against morbidity and voice:
 - Cuffed (seals the airway, needed for mechanical ventilation or aspiration risk) vs uncuffed (spontaneously breathing patient with an adequate airway/swallow).
 - Fenestrated (has an opening that lets air pass through the upper airway for voicing once capped, used later in the recovery pathway) vs non-fenestrated.
 - Dual-cannula tubes have a removable inner cannula for routine cleaning without a full tube change.
-- Sizing: the most commonly used tube in an average adult is a cuffed size 8 (roughly size 7-8), sized to the patient's airway and clinical need rather than by brand.The first postoperative week is the danger window. The stoma tract takes roughly 1-2 weeks to mature (epithelialize). Before then, a dislodged or accidentally decannulated tube must not be blindly reinserted, because the tract can be pushed into a false passage in the soft tissues of the neck rather than the trachea. Instead: ventilate/oxygenate via the mouth and nose with the stoma occluded, or orally intubate, while an experienced provider reinserts under direct visualization. A mature stoma tolerates safe direct reinsertion.
+- Sizing: tube size is chosen to the patient's airway and clinical need (adult sizes cluster around 7 to 8), not by a default number.The first postoperative week is the danger window. The stoma tract takes roughly 1-2 weeks to mature (epithelialize). Before then, a dislodged or accidentally decannulated tube must not be blindly reinserted, because the tract can be pushed into a false passage in the soft tissues of the neck rather than the trachea. Instead: ventilate/oxygenate via the mouth and nose with the stoma occluded, or orally intubate, while an experienced provider reinserts under direct visualization. A mature stoma tolerates safe direct reinsertion.
 Speaking valves and the cuff: a Passy-Muir (one-way speaking) valve should never be used while the tracheostomy cuff is inflated. An inflated cuff blocks air from passing around the tube, up past the vocal folds, and out the mouth/nose; adding a one-way valve on top of that traps exhaled air with nowhere to escape, a dangerous air-trapping hazard. The cuff must be deflated first.
 Decannulation protocol, in order, once the original indication has resolved:
 
@@ -4310,14 +4314,14 @@ Stem: A 52-year-old woman, six hours after a total thyroidectomy, develops inspi
 - Q: What is the immediate management?
   A: This is an airway emergency. Prepare for possible reintubation or emergency tracheostomy; get anesthesia/ENT immediately. Do not wait for imaging before securing the airway if distress is significant.
 
-Teaching: Bilateral vocal fold paralysis is the opposite trap of unilateral: a near-normal voice can hide an airway that is about to close.
+Teaching: Bilateral vocal fold paralysis is the opposite trap of unilateral: a near-normal voice can hide an airway that is about to close. Unilateral injury is the contrast: a breathy, weak voice with an adequate airway.
 
 **Case [case-croup-vs-epiglottitis]**
 
 Stem: A 2-year-old has one day of a barky, seal-like cough, mild fever, and a hoarse voice, worse at night. She is comfortable, drinking fluids, and sitting on her mother's lap without distress.
 
 - Q: What is the most likely diagnosis, and what confirms it if imaged?
-  A: Croup (laryngotracheobronchitis): viral, gradual onset, barky cough, low fever. The steeple sign on a frontal neck X-ray (subglottic narrowing) supports it, though imaging isn't required for a classic presentation.
+  A: Croup (laryngotracheobronchitis): viral, gradual onset, barky cough, low fever. The steeple sign on a frontal neck X-ray (subglottic narrowing) supports it, though imaging isn't required for a classic presentation. Epiglottitis shows the thumbprint sign (swollen epiglottis) on a lateral film.
 
 - Q: What features would make you reconsider epiglottitis instead?
   A: Rapid onset, high fever, drooling, tripod positioning, muffled 'hot potato' voice, and looking toxic all point to epiglottitis, and in that case you avoid examining the throat or lying the child flat.
@@ -4329,7 +4333,7 @@ Teaching: [figure: Differentiating croup from epiglottitis in a young child by o
 Stem: A 67-year-old man with a 45 pack-year smoking history and daily alcohol use presents with progressive hoarseness for 3 months and 15 lb of unintentional weight loss.
 
 - Q: What must be done before anything else?
-  A: Flexible laryngoscopy to directly visualize the vocal folds. Hoarseness this duration, with these risk factors and weight loss, is laryngeal cancer until excluded.
+  A: Flexible laryngoscopy to directly visualize the vocal folds. Hoarseness this duration, with these risk factors and weight loss, is laryngeal cancer until excluded. The next step after the scope is tissue (biopsy, usually by direct laryngoscopy under anesthesia). Neck nodes and otalgia are other red flags.
 
 - Q: Why do tobacco and alcohol matter together?
   A: They act synergistically on mucosal carcinogenesis, not just additively. A smoker who also drinks heavily has a much higher risk than either exposure alone.
@@ -4344,7 +4348,7 @@ Stem: A previously well 18-month-old suddenly develops coughing and choking whil
   A: Foreign body aspiration: the abrupt choking event witnessed by a caregiver, followed by asymmetric findings, is the classic pattern. A quiet interval after the initial event does not rule it out.
 
 - Q: What is the next step, and what shouldn't you rely on?
-  A: Bronchoscopy (rigid, typically) for removal. Don't rely solely on a normal chest X-ray to exclude it, since most aspirated foreign bodies (like peanuts) are radiolucent.
+  A: Bronchoscopy (rigid, typically) for removal. Don't rely solely on a normal chest X-ray to exclude it, since most aspirated foreign bodies (like peanuts) are radiolucent. Right-sided findings reflect the more vertical right mainstem bronchus.
 
 Teaching: A witnessed choking event plus a unilateral chest exam finding is foreign body aspiration until bronchoscopy says otherwise. A normal X-ray doesn't clear it.
 
@@ -4356,7 +4360,7 @@ Stem: A 19-year-old competitive athlete has recurrent episodes of sudden shortne
   A: Vocal cord dysfunction (paradoxical vocal fold motion): episodic inspiratory noise that doesn't respond to asthma therapy, with normal interval spirometry, is the classic pattern. True asthma is predominantly expiratory wheeze.
 
 - Q: How is it confirmed and managed?
-  A: Laryngoscopy during an episode (or with a provocation test) showing paradoxical adduction of the vocal folds on inspiration. Managed with speech-therapy breathing retraining, not more bronchodilators.
+  A: Laryngoscopy during an episode (or with a provocation test) showing paradoxical adduction of the vocal folds on inspiration. Managed with speech-therapy breathing retraining, not more bronchodilators. A flattened inspiratory limb on the flow-volume loop can be a clue.
 
 Teaching: Inspiratory symptoms that don't respond to asthma treatment, with normal spirometry between episodes, should make you look at the larynx, not escalate the inhaler.
 
@@ -4368,7 +4372,7 @@ Stem: A nurse calls urgently: a patient who underwent tracheostomy 3 days ago fo
   A: The stoma tract is only 3 days old and not yet mature (epithelialized). Blind reinsertion risks pushing the tube into a false passage in the soft tissues of the neck rather than back into the trachea, worsening the obstruction.
 
 - Q: What should be done instead?
-  A: Ventilate/oxygenate via the mouth and nose with the stoma occluded, or proceed to oral intubation if needed, while an experienced airway provider (ENT/anesthesia) reinserts the tracheostomy tube under direct visualization. Do not force blind reinsertion into an immature stoma.
+  A: Call for help and give high-flow oxygen to both the face and the stoma. An experienced provider (ENT/anesthesia) may attempt gentle recannulation under direct vision (same size or one size smaller, over an obturator or airway-exchange catheter). If that fails or the patient is deteriorating, oxygenate from above and intubate orally. Never force blind reinsertion into an immature stoma.
 
 Teaching: [figure: Dislodged tracheostomy tube 3 days post-op requiring alternate airway rather than blind reinsertion into an immature stoma.]In the first postoperative week a tracheostomy stoma is a fresh surgical tract, not an established airway. Treat a dislodged tube as an emergency requiring an alternate airway, not a bedside reinsertion.
 
@@ -4384,7 +4388,7 @@ Stem: A previously healthy 38-year-old woman, never a smoker, has had progressiv
 
 Teaching: Fixed, biphasic stridor that fails asthma therapy in a young, non-smoking woman is subglottic stenosis until laryngoscopy says otherwise, and idiopathic disease is a diagnosis of exclusion after screening for GPA.
 
-### Flashcards (29)
+### Flashcards (31)
 
 **[laryngeal-cartilages-card]** tags: LA, anatomy, milestones: MK1, PC6, UKMLA: Hoarseness and voice change, reviewer: (none)
 - Front: Name the laryngeal cartilages and one key fact about each.
@@ -4417,8 +4421,8 @@ Teaching: Fixed, biphasic stridor that fails asthma therapy in a young, non-smok
 - Source: Standard laryngology teaching on vocal fold immobility.
 
 **[vf-paralysis-management-card]** tags: LA, clinical, milestones: PC6, MK3, UKMLA: Hoarseness and voice change, reviewer: (none)
-- Front: Working up unilateral vocal fold paralysis means imaging [...], from the skull base to the aortic arch, since a lesion anywhere along that path can be the cause.
-- Back: Working up unilateral vocal fold paralysis means imaging the entire recurrent laryngeal nerve course, from the skull base to the aortic arch, since a lesion anywhere along that path can be the cause. Management then follows a ladder from voice therapy to thyroplasty as spontaneous recovery becomes unlikely.
+- Front: How far should imaging extend when working up unilateral vocal fold paralysis, and why?
+- Back: The entire recurrent laryngeal nerve course, from the skull base to the aortic arch (chest CT for left-sided), because a lesion anywhere along that path can be the cause. Management then follows a ladder from voice therapy to injection or thyroplasty as spontaneous recovery becomes unlikely.
 - Source: Standard laryngology teaching on vocal fold paralysis workup and medialization procedures.
 
 **[bilateral-vf-paralysis-card]** tags: LA, clinical, milestones: PC6, PC1, UKMLA: Stridor, RED FLAG, reviewer: (none)
@@ -4432,8 +4436,8 @@ Teaching: Fixed, biphasic stridor that fails asthma therapy in a young, non-smok
 - Source: Standard laryngology teaching on benign vocal fold lesions.
 
 **[benign-vf-lesion-management-card]** tags: LA, clinical, milestones: PC6, UKMLA: Hoarseness and voice change, reviewer: (none)
-- Front: Vocal nodules, which arise from a reversible behavior such as chronic vocal abuse, are usually tried on [...] before any consideration of surgery.
-- Back: Vocal nodules, which arise from a reversible behavior such as chronic vocal abuse, are usually tried on voice therapy before any consideration of surgery. Polyps and cysts are more structural and often need surgical excision instead.
+- Front: Which benign vocal fold lesions are managed with voice therapy first, and which usually need surgery?
+- Back: Nodules (from a reversible behavior such as chronic vocal abuse) are tried on voice therapy first. Polyps and cysts are more structural and often need surgical excision.
 - Source: Standard laryngology teaching on voice therapy vs surgical management of benign vocal fold lesions.
 
 **[reinkes-edema-card]** tags: LA, clinical, milestones: PC6, UKMLA: Hoarseness and voice change, reviewer: (none)
@@ -4458,22 +4462,22 @@ Teaching: Fixed, biphasic stridor that fails asthma therapy in a young, non-smok
 
 **[early-glottic-treatment-card]** tags: LA, clinical, milestones: PC6, MK3, UKMLA: Hoarseness and voice change, reviewer: (none)
 - Front: For early (T1-T2 N0) glottic cancer, transoral laser microsurgery and radiotherapy give [...] survival, so the choice hinges on exposure, voice, and salvage considerations.
-- Back: For early (T1-T2 N0) glottic cancer, transoral laser microsurgery and radiotherapy give equivalent survival and larynx-preservation. TLM is a single procedure with margin histology that preserves RT for salvage; RT irradiates the whole larynx and usually can't be repeated. Anterior commissure involvement, comorbidity, and voice priorities guide selection.
+- Back: For early (T1-T2 N0) glottic cancer, transoral laser microsurgery and radiotherapy give equivalent survival and larynx preservation. The choice depends on exposure, voice, and salvage options.
 - Source: Forastiere et al., ASCO larynx-preservation guideline, 2018; NCCN Head & Neck Cancers, 2026.
 
 **[rrp-card]** tags: LA, clinical, milestones: PC6, PC7, UKMLA: Hoarseness and voice change, reviewer: (none)
 - Front: What is recurrent respiratory papillomatosis (RRP), and who gets it?
-- Back: Benign but recurrent HPV (types 6/11) laryngeal papillomas causing progressive hoarseness (and airway obstruction if severe). Biphasic age distribution: juvenile-onset (acquired perinatally from an infected mother) and adult-onset. Needs repeated surgical debulking; rarely undergoes malignant transformation. Beyond debulking, adjuvant medical therapy now matters: systemic bevacizumab (anti-VEGF, ~10 mg/kg q3wk) markedly reduces surgical frequency in aggressive juvenile- and adult-onset disease, and in 2025 the FDA approved the first HPV-specific immunotherapy (zopapogene imadenovec-drba, Papzimeos) for adults, offering durable control after a short course. HPV vaccination is preventive (reduces maternal genital HPV and perinatal transmission). Adjuvant cidofovir is used off-label.
+- Back: Benign recurrent HPV 6/11 laryngeal papillomas causing progressive hoarseness (airway obstruction if severe). Biphasic onset: juvenile (acquired perinatally) and adult. Treatment is repeat surgical debulking. Medical adjuncts now reduce the number of surgeries: HPV-specific immunotherapy (approved 2025) is a first-line medical option and systemic bevacizumab is second-line. HPV vaccination is preventive. Malignant transformation is rare.
 - Source: Standard laryngology teaching on recurrent respiratory papillomatosis.
 
 **[vcd-card]** tags: LA, clinical, milestones: PC6, PC1, UKMLA: Stridor, reviewer: (none)
 - Front: What is vocal cord dysfunction (paradoxical vocal fold motion), and how is it distinguished from asthma?
-- Back: The vocal folds adduct paradoxically on inspiration, causing episodic dyspnea that mimics asthma but doesn't respond to bronchodilators; spirometry is often normal between episodes. Confirmed by laryngoscopy during an episode. Treated with speech-therapy breathing retraining. The preferred umbrella term is inducible laryngeal obstruction (ILO); diagnosis is by laryngoscopy with provocation showing &ge;50% inspiratory closure (or Maat grade &ge;2). The exercise-induced subtype (EILO) is confirmed with continuous laryngoscopy during exercise (CLE test).
+- Back: The vocal folds adduct paradoxically on inspiration, causing episodic dyspnea or stridor that mimics asthma but does not respond to bronchodilators. Spirometry is often normal between episodes (it may show a truncated inspiratory loop). Confirmed by laryngoscopy during an episode. First-line treatment is speech-therapy breathing retraining, plus treating triggers (reflux, asthma, postnasal drip).
 - Source: Standard laryngology teaching on paradoxical vocal fold motion.
 
 **[lpr-card]** tags: LA, clinical, milestones: PC6, MK3, UKMLA: Hoarseness and voice change, reviewer: (none)
 - Front: How does laryngopharyngeal reflux (LPR) differ from typical GERD in presentation?
-- Back: LPR ('silent reflux') presents with throat clearing, globus, chronic cough, hoarseness, and posterior laryngeal erythema/edema on exam, often without classic heartburn. First-line is behavioral/dietary modification (weight loss, avoiding late meals, alginates). Empiric PPIs are controversial: placebo-controlled trials and meta-analyses show no consistent benefit for isolated laryngeal symptoms, and the AGA advises against empiric PPI use unless there are concomitant typical GERD symptoms. A PPI response does not by itself confirm the diagnosis; refractory or isolated cases warrant objective testing (e.g., pH-impedance).
+- Back: LPR ("silent reflux") presents with throat clearing, globus, chronic cough, hoarseness, often without heartburn. Laryngeal signs (posterior erythema and edema) are suggestive but nonspecific. First-line is behavioral and dietary change (weight loss, avoiding late meals, alginates). Empiric PPIs are controversial and often no better than placebo for isolated laryngeal symptoms. Reserve objective testing (pH-impedance) for refractory cases.
 - Source: Standard laryngology teaching on laryngopharyngeal reflux.
 
 **[tracheostomy-indications-card]** tags: LA, clinical, milestones: PC1, SBP1, UKMLA: Stridor, reviewer: (none)
@@ -4487,8 +4491,8 @@ Teaching: Fixed, biphasic stridor that fails asthma therapy in a young, non-smok
 - Source: Standard tracheostomy care teaching.
 
 **[tracheostomy-first-week-card]** tags: LA, clinical, milestones: PC1, SBP1, UKMLA: Stridor, RED FLAG, reviewer: (none)
-- Front: A tracheostomy stoma tract takes roughly [...] to mature by epithelializing, so blind reinsertion of a dislodged tube before then risks creating a false passage in the neck's soft tissues.
-- Back: A tracheostomy stoma tract takes roughly 1 to 2 weeks to mature by epithelializing, so blind reinsertion of a dislodged tube before then risks creating a false passage in the neck's soft tissues. Until it matures, ventilate via the mouth and nose with the stoma occluded while an experienced provider reinserts under direct visualization.
+- Front: Why is blind reinsertion of a dislodged tracheostomy tube dangerous in the first 1 to 2 weeks?
+- Back: The stoma tract has not yet epithelialized (about 1 to 2 weeks), so blind reinsertion risks a false passage in the neck's soft tissues. Call for help, give oxygen to both the face and the stoma, and let an experienced provider recannulate under direct vision (gently, over an obturator or exchange catheter). If that fails or the patient deteriorates, oxygenate from above and intubate orally.
 - Source: Standard tracheostomy emergency-management teaching.
 
 **[tracheostomy-decannulation-card]** tags: LA, clinical, milestones: PC1, UKMLA: Stridor, reviewer: (none)
@@ -4518,7 +4522,7 @@ Teaching: Fixed, biphasic stridor that fails asthma therapy in a young, non-smok
 
 **[fb-airway-algorithm-card]** tags: LA, clinical, milestones: PC1, PC7, UKMLA: Stridor, RED FLAG, reviewer: (none)
 - Front: For a suspected airway foreign body with complete obstruction, meaning the patient can't cough, speak, or breathe, the immediate step is to start age-appropriate [...], such as back blows and abdominal thrusts.
-- Back: For a suspected airway foreign body with complete obstruction, meaning the patient can't cough, speak, or breathe, the immediate step is to start age-appropriate BLS choking maneuvers, such as back blows and abdominal thrusts. If the patient can still cough or speak, encourage coughing instead and avoid blind intervention.
+- Back: Complete (severe) obstruction means the patient cannot cough, speak, or breathe: start BLS choking maneuvers immediately and activate EMS. Child (over 1 year): alternate 5 back blows and 5 abdominal thrusts until cleared or unresponsive. Infant (under 1 year): 5 back blows and 5 chest thrusts, never abdominal thrusts. If unresponsive: start CPR, look in the mouth before breaths, and remove only visible objects (no blind finger sweeps). If the patient can still cough or speak (mild), encourage coughing and do not intervene.
 - Source: AAP clinical guidance on pediatric foreign-body aspiration; basic life support choking algorithm.
 
 **[spasmodic-dysphonia-card]** tags: LA, clinical, milestones: PC6, UKMLA: Hoarseness and voice change, reviewer: (none)
@@ -4530,6 +4534,16 @@ Teaching: Fixed, biphasic stridor that fails asthma therapy in a young, non-smok
 - Front: FEES visualizes the pharynx and larynx directly during swallowing through a transnasal endoscope, without radiation, while the test that instead images the whole swallow under fluoroscopy is the [...].
 - Back: FEES visualizes the pharynx and larynx directly during swallowing through a transnasal endoscope, without radiation, while the test that instead images the whole swallow under fluoroscopy is the modified barium swallow (videofluoroscopy). FEES also directly detects pooling, penetration, and silent aspiration at the bedside.
 - Source: Standard speech-language pathology/laryngology teaching on instrumental swallow evaluation.
+
+**[myer-cotton-card]** tags: LA, clinical, milestones: PC6, UKMLA: Stridor, reviewer: (none)
+- Front: How is subglottic stenosis graded on the Myer-Cotton scale?
+- Back: By percent airway obstruction: Grade I under 50%, II 51 to 70%, III 71 to 99%, IV no detectable lumen. Higher grades carry higher recurrence risk and favor open surgery over endoscopic dilation.
+- Source: Myer-Cotton subglottic stenosis grading.
+
+**[stridor-localization-card]** tags: LA, clinical, milestones: PC1, PC6, UKMLA: Stridor, reviewer: (none)
+- Front: What does the timing of stridor suggest about the level of obstruction?
+- Back: Inspiratory stridor suggests a supraglottic or glottic lesion. Biphasic stridor suggests a subglottic or glottic lesion. Expiratory wheeze suggests a tracheobronchial lesion.
+- Source: Standard airway teaching on stridor timing.
 
 ---
 
@@ -5096,8 +5110,8 @@ Teaching: [figure: Progressive asymmetric SNHL and tinnitus worked up with MRI I
 
 **The pediatric airway vs the adult airway** (tags: Funnel-shaped · Cephalad · Floppy airway)
 
-- Funnel-shaped, narrowest at the subglottis (vs the glottis in adults).
-- Larynx sits more cephalad (about C3-4 vs C4-6).
+- Classically funnel-shaped, narrowest at the subglottis and cricoid (vs the glottis in adults). Imaging studies suggest the glottis may be the narrowest point in vivo, but the cricoid is the narrowest fixed ring, so choose a tube with a leak or a cuffed tube sized carefully.
+- Larynx sits more cephalad in children.
 - Tongue and tonsils are relatively larger for the airway size.
 - Epiglottis is omega-shaped and floppier.
 - So small amounts of edema cause disproportionate obstruction, and airway emergencies escalate faster.[figure: Explains why a child's funnel-shaped airway (narrowest at the subglottis, cephalad larynx, floppy omega-shaped epiglottis) makes small amounts of edema disproportionately obstructive compared to an adult's cylindrical airway.]
@@ -5172,7 +5186,7 @@ Funnel-shaped vs cylindrical: why a little swelling goes a long way in a child. 
 _Image source: Pediatric vs. Adult Airway Anatomy and Geometric Differences. Illustration generated with Google Gemini._
 - Tongue: relatively larger for the airway size in a child, crowding the oropharynx; proportionally smaller relative to airway size in an adult.
 - Epiglottis: omega-shaped and floppier in a child; flatter and stiffer in an adult.
-- Larynx sits more cephalad in a child (~C3-4) than in an adult (~C4-6, more caudal).
+- Larynx sits more cephalad (higher) in a child than in an adult.
 - Vocal cords (glottis): the true vocal folds; in a child this is NOT the narrowest point (the subglottis below it is), but in an adult this IS the narrowest point of the airway.
 - In a child, the airway is narrowest at the SUBGLOTTIS, not the glottis, so mucosal edema here causes disproportionate obstruction. In an adult, the airway is narrowest at the GLOTTIS (true vocal cords), unlike the child's subglottic narrowing.
 - Subglottis: bounded by the complete cricoid ring, the narrowest fixed point of a child's airway; present in the adult too, but there it is not the narrowest point (the glottis above it is).
@@ -5180,7 +5194,7 @@ _Image source: Pediatric vs. Adult Airway Anatomy and Geometric Differences. Ill
 - Trachea: continues below the cricoid; shorter overall length and funnel-shaped in a child, roughly cylindrical caliber in an adult.
 - Tongue: relatively larger for the airway size in a child, crowding the oropharynx; proportionally smaller relative to airway size in an adult.
 - Epiglottis: omega-shaped and floppier in a child; flatter and stiffer in an adult.
-- Larynx sits more cephalad in a child (~C3-4) than in an adult (~C4-6, more caudal).
+- Larynx sits more cephalad (higher) in a child than in an adult.
 - Vocal cords (glottis): the true vocal folds; in a child this is NOT the narrowest point (the subglottis below it is), but in an adult this IS the narrowest point of the airway.
 - In a child, the airway is narrowest at the SUBGLOTTIS, not the glottis, so mucosal edema here causes disproportionate obstruction. In an adult, the airway is narrowest at the GLOTTIS (true vocal cords), unlike the child's subglottic narrowing.
 - Subglottis: bounded by the complete cricoid ring, the narrowest fixed point of a child's airway; present in the adult too, but there it is not the narrowest point (the glottis above it is).
@@ -5220,12 +5234,12 @@ Same tube, different geometry: shorter and flatter in a child, longer and steepe
 _Image source: Pediatric vs. Adult Eustachian Tube Orientation and Drainage. Illustration generated with Google Gemini._
 - Middle ear (child): the air-filled space medial to the tympanic membrane that the Eustachian tube must ventilate and drain. Middle ear (adult): the same space, ventilated by a longer, steeper Eustachian tube.
 - Tympanic membrane (child): separates the middle ear from the ear canal; retraction/effusion here reflects poor Eustachian tube function. Tympanic membrane (adult): normally well-aerated because the adult Eustachian tube equalizes pressure and drains effectively.
-- Eustachian tube (child): shorter, floppier, and more horizontal than in an adult, so it drains and ventilates the middle ear less efficiently, predisposing to otitis media. Eustachian tube (adult): longer, stiffer, and angled closer to vertical (~45 degrees), giving more effective drainage and ventilation.
+- Eustachian tube (child): shorter, floppier, and more horizontal than in an adult, so it drains and ventilates the middle ear less efficiently, predisposing to otitis media. Eustachian tube (adult): longer, stiffer, and angled closer to vertical (roughly 35 to 45 degrees depending on source, up from about 10 degrees at birth), giving more effective drainage and ventilation.
 - Nasopharynx (child): the Eustachian tube's nasopharyngeal opening; the tube's flatter angle here favors reflux of nasopharyngeal secretions into the middle ear. Nasopharynx (adult): the tube's steeper angle here makes reflux far less likely than in a child.
 - Child Eustachian tube: shorter, flatter, drains poorly, i.e. the anatomic basis for the high incidence of otitis media in young children.
 - Middle ear (child): the air-filled space medial to the tympanic membrane that the Eustachian tube must ventilate and drain. Middle ear (adult): the same space, ventilated by a longer, steeper Eustachian tube.
 - Tympanic membrane (child): separates the middle ear from the ear canal; retraction/effusion here reflects poor Eustachian tube function. Tympanic membrane (adult): normally well-aerated because the adult Eustachian tube equalizes pressure and drains effectively.
-- Eustachian tube (child): shorter, floppier, and more horizontal than in an adult, so it drains and ventilates the middle ear less efficiently, predisposing to otitis media. Eustachian tube (adult): longer, stiffer, and angled closer to vertical (~45 degrees), giving more effective drainage and ventilation.
+- Eustachian tube (child): shorter, floppier, and more horizontal than in an adult, so it drains and ventilates the middle ear less efficiently, predisposing to otitis media. Eustachian tube (adult): longer, stiffer, and angled closer to vertical (roughly 35 to 45 degrees depending on source, up from about 10 degrees at birth), giving more effective drainage and ventilation.
 - Nasopharynx (child): the Eustachian tube's nasopharyngeal opening; the tube's flatter angle here favors reflux of nasopharyngeal secretions into the middle ear. Nasopharynx (adult): the tube's steeper angle here makes reflux far less likely than in a child.
 - Adult Eustachian tube: longer, steeper, drains well, one reason acute otitis media becomes far less common after early childhood.
 
@@ -5248,7 +5262,7 @@ Who can be observed: Always treat infants <6 months.
 
 - Ages 6-23 months: antibiotics if bilateral, severe (T &ge;39&deg;C, moderate/severe otalgia, or otalgia &ge;48h), or otorrhea; otherwise a 48-72h observation option with shared decision-making and a rescue prescription is reasonable for mild, unilateral disease.
 - Ages &ge;2 years: observation is an option for non-severe disease.
-- Reassess and escalate to amoxicillin-clavulanate if not improving at 48-72h.Common organisms: Streptococcus pneumoniae, non-typeable Haemophilus influenzae, and Moraxella catarrhalis.
+- If a child on observation worsens or does not improve at 48-72h, start first-line high-dose amoxicillin. Switch to amoxicillin-clavulanate only when a child already on amoxicillin fails.Common organisms: Streptococcus pneumoniae, non-typeable Haemophilus influenzae, and Moraxella catarrhalis.
 
 **[peds-tna-indications] Tonsillectomy & adenoidectomy: when it's indicated**
 
@@ -5268,7 +5282,7 @@ Extracapsular (total) tonsillectomy remains preferred when recurrent/chronic ton
 
 Give a single intraoperative dose of IV dexamethasone (~0.5 mg/kg, max ~10-16 mg): it halves postoperative nausea/vomiting and speeds return to a normal diet. Some centers are now adding a short postoperative oral dexamethasone course (0.5 mg/kg on postop days 2/4/6) as an analgesic adjunct that may reduce opioid prescriptions without increasing bleeding risk, though this is emerging/optional practice, not established guidance.
 Do not give routine perioperative prophylactic antibiotics: they don't reduce infection, pain, or bleeding.
-Manage pain with scheduled acetaminophen &plusmn; ibuprofen (ibuprofen does not meaningfully increase bleeding). Do not administer or prescribe codeine (or codeine-containing medications) to children <12 years after tonsillectomy: ultra-rapid CYP2D6 metabolizers can convert codeine to morphine and suffer fatal respiratory depression. Tramadol shares this CYP2D6 mechanism and is likewise avoided.
+Manage pain with scheduled acetaminophen &plusmn; ibuprofen (ibuprofen is widely used and is not clearly shown to raise bleeding risk, though acetaminophen is preferred first-line in some centers). Do not administer or prescribe codeine (or codeine-containing medications) to any child under 18 after tonsillectomy: ultra-rapid CYP2D6 metabolizers can convert codeine to morphine and suffer fatal respiratory depression. Tramadol shares this CYP2D6 mechanism and is likewise contraindicated under 18 after T&A.
 Admit high-risk children (age <3, severe OSA, comorbidities) for postoperative monitoring given the risk of respiratory compromise.
 
 **[newborn-hearing-screen] Newborn hearing screening: the 1-3-6 rule**
@@ -5282,7 +5296,7 @@ The 1-3-6 rule, in order:
 **[congenital-neck-masses] Congenital neck masses by location**
 
 Location does most of the differential work.
-Thyroglossal duct cyst is the most common congenital neck mass (~70%); branchial cleft anomalies are second (~20%). Most congenital neck masses are midline (~66%).
+Thyroglossal duct cyst is the most common congenital neck mass (~70%); branchial cleft anomalies are second (~20%). Location drives the differential.
 [figure: Uses anatomic location (midline, lateral anterior to SCM, posterior triangle, preauricular) to differentiate congenital neck mass diagnoses.]
 
 | Location | Likely diagnosis |
@@ -5333,7 +5347,7 @@ Midline masses that elevate with tongue protrusion are thyroglossal duct cysts; 
 **[congenital-airway] Congenital airway anomalies to recognize**
 
 Choanal atresia: newborns are obligate nasal breathers, so bilateral atresia causes cyclical cyanosis that improves with crying (mouth breathing) and worsens at rest; it's part of the CHARGE association.
-Laryngomalacia: the most common cause of stridor in infants, with inspiratory stridor worse when supine, feeding, or crying; it typically self-resolves by 12-18 months, but severe cases with growth failure need surgery (supraglottoplasty).
+Laryngomalacia: the most common cause of stridor in infants, with inspiratory stridor worse when supine, feeding, or crying; it typically self-resolves within the first 18 to 24 months, but severe cases with growth failure need surgery (supraglottoplasty).
 
 **[congenital-ear-anomalies] Congenital & structural ear anomalies: aural atresia, microtia, congenital cholesteatoma**
 
@@ -5350,7 +5364,7 @@ Congenital cholesteatoma is a distinct entity from the acquired cholesteatoma co
 
 **[peds-osa-depth] Pediatric OSA: diagnosis and the post-adenotonsillectomy question**
 
-Pediatric OSA is diagnosed against a different threshold than adult OSA (adult depth lives in the Sleep Surgery & OSA track): an obstructive apnea-hypopnea index (AHI) ≥1 event/hour on polysomnography is abnormal in a child, versus ≥5/hour in an adult, a much lower bar. Polysomnography remains the gold standard, though in practice many children go straight to adenotonsillectomy on a strong clinical picture (snoring, witnessed apneas, gasping) without a preoperative sleep study, per AAP guidance; PSG is reserved for cases where the diagnosis/severity is unclear or the child is high-risk for residual disease.
+Pediatric OSA is diagnosed against a different threshold than adult OSA (adult depth lives in the Sleep Surgery & OSA track): an obstructive apnea-hypopnea index (AHI) ≥1 event/hour on polysomnography is abnormal in a child, versus ≥5/hour in an adult, a much lower bar. Polysomnography remains the gold standard, though in practice many children go straight to adenotonsillectomy on a strong clinical picture (snoring, witnessed apneas, gasping) without a preoperative sleep study. AAP/AASM recommend PSG for suspected OSA, while AAO-HNS reserves preoperative PSG for high-risk children (age under 2, obesity, Down syndrome, craniofacial or neuromuscular disease, sickle cell, mucopolysaccharidoses) or when the exam and symptoms do not match.
 Adenotonsillectomy resolves OSA in most otherwise-healthy children, but not all. Risk factors for persistent/residual OSA after T&A include:
 
 - Obesity
@@ -5402,7 +5416,7 @@ Stem: A newborn has episodes of cyanosis at rest that resolve with crying, and r
   A: Newborns are obligate nasal breathers; bilateral choanal atresia blocks the nasal airway, and crying opens the mouth, allowing oral breathing and relieving the cyanosis.
 
 - Q: What is the immediate management, and what association should be considered?
-  A: Secure an oral airway (e.g., a McGovern nipple) urgently and get ENT involved. Screen for the CHARGE association (Coloboma, Heart defects, Atresia choanae, Retarded growth, Genital abnormalities, Ear abnormalities).
+  A: Secure an oral airway (e.g., a McGovern nipple) urgently and get ENT involved. Screen for the CHARGE association (Coloboma, Heart defects, Atresia choanae, Retardation of growth and development, Genital abnormalities, Ear abnormalities).
 
 Teaching: A newborn whose cyanosis improves with crying and worsens at rest has an obstructed nose until proven otherwise. Bilateral choanal atresia is an airway emergency in this age group specifically.
 
@@ -5411,7 +5425,7 @@ Teaching: A newborn whose cyanosis improves with crying and worsens at rest has 
 Stem: A 4-year-old has had 6 episodes of acute otitis media in the past 12 months, each treated with antibiotics, with persistent effusion noted between episodes.
 
 - Q: Does this meet criteria for surgical intervention, and what would it be?
-  A: This approaches the recurrent AOM threshold (historically referenced against the Paradise criteria, ~7/year). Combined with persistent effusion, this supports tympanostomy tube placement, which reduces episode frequency and severity and treats the effusion's hearing impact directly.
+  A: This meets the definition of recurrent AOM (3 episodes in 6 months, or 4 in 12 months with 1 in the last 6). With middle ear effusion present at assessment, AAO-HNS recommends offering bilateral tympanostomy tubes, which also treat the effusion's hearing impact. Tubes may not clearly reduce the number of infections.
 
 - Q: What would push you toward T&A instead of, or in addition to, tubes?
   A: If there were also obstructive symptoms (snoring, sleep-disordered breathing) from adenotonsillar hypertrophy, adenoidectomy (± tonsillectomy) would be added, since obstructive sleep-disordered breathing is now the leading indication for T&A in children.
@@ -5447,7 +5461,7 @@ Teaching: [figure: Child with a midline neck mass moving with tongue protrusion,
 Stem: A 6-week-old has inspiratory stridor, worse when feeding and lying supine, present since 2 weeks of age. He is gaining weight normally.
 
 - Q: What is the most likely diagnosis, and what is the expected course?
-  A: Laryngomalacia, the most common cause of infant stridor, positional and feeding-related, and typically self-resolves by 12-18 months. Reassurance and monitoring growth is appropriate for mild cases.
+  A: Laryngomalacia, the most common cause of infant stridor, positional and feeding-related, and typically self-resolves within the first 18 to 24 months. Reassurance and monitoring growth is appropriate for mild cases.
 
 - Q: What change in this picture would make you reconsider, and what would you consider instead?
   A: Worsening stridor over weeks (rather than stable/improving), growth failure, or cutaneous hemangiomas elsewhere should raise concern for a subglottic hemangioma (biphasic growth pattern, can rapidly enlarge) and its association with PHACE syndrome. This needs direct airway evaluation, not reassurance.
@@ -5514,7 +5528,7 @@ Stem: A 3-year-old has had 4 days of fever and reduced oral intake following a r
 
 Teaching: [figure: Young child with fever, rigid neck extension, muffled voice, and drooling from a retropharyngeal abscess, diagnosed with contrast CT distinguishing abscess from phlegmon.]Pediatric retropharyngeal abscess presents in a child typically under 6 with fever, neck stiffness/torticollis, muffled voice, and drooling after a preceding URI; a widened prevertebral space on lateral X-ray screens for it, but contrast CT is what separates a drainable abscess from phlegmon and decides whether surgery joins IV antibiotics.
 
-### Flashcards (47)
+### Flashcards (49)
 
 **[peds-airway-anatomy-card]** tags: PE, anatomy, milestones: MK1, PC7, UKMLA: Stridor, reviewer: (none)
 - Front: Name three ways a child's airway anatomy differs from an adult's, and why it matters.
@@ -5539,7 +5553,7 @@ Teaching: [figure: Young child with fever, rigid neck extension, muffled voice, 
 **[ome-vs-aom-card]** tags: PE, clinical, milestones: PC7, PC4, UKMLA: Painful ear, reviewer: (none)
 - Front: How do OME and AOM differ, and what is first-line management for each?
 - Back: OME: fluid behind an intact TM without acute infection signs, often asymptomatic. First-line is watchful waiting (most resolve in weeks). AOM: a bulging, erythematous TM with acute symptoms (otalgia, fever), managed with observation or amoxicillin depending on age and severity.
-- Source: AAP Clinical Practice Guideline: Otitis Media with Effusion.
+- Source: AAO-HNS CPG: Otitis Media with Effusion (Update), 2016; AAP CPG: Acute Otitis Media, 2013.
 
 **[aom-treatment-card]** tags: PE, pharm, milestones: SBP3, PC7, UKMLA: Painful ear, reviewer: (none)
 - Front: What determines whether a child with AOM gets watchful waiting vs immediate antibiotics?
@@ -5596,12 +5610,12 @@ Teaching: [figure: Young child with fever, rigid neck extension, muffled voice, 
 
 **[choanal-atresia-card]** tags: PE, clinical, milestones: PC7, PC1, UKMLA: Nasal obstruction, RED FLAG, reviewer: (none)
 - Front: Why is bilateral choanal atresia an emergency, and what association should be screened for?
-- Back: Newborns are obligate nasal breathers, so bilateral atresia causes cyclical cyanosis at rest that improves with crying. Secure an oral airway urgently and screen for the CHARGE association (Coloboma, Heart defects, Atresia choanae, Retarded growth, Genital/ear abnormalities).
+- Back: Newborns are obligate nasal breathers, so bilateral atresia causes cyclical cyanosis at rest that improves with crying. Secure an oral airway urgently and screen for the CHARGE association (Coloboma, Heart defects, Atresia choanae, Retardation of growth and development, Genital/ear abnormalities).
 - Source: Standard pediatric otolaryngology teaching.
 
 **[laryngomalacia-card]** tags: PE, clinical, milestones: PC7, PC6, UKMLA: Stridor, reviewer: (none)
 - Front: What is laryngomalacia, and what is its typical course?
-- Back: The most common cause of stridor in infants: collapse of floppy supraglottic structures on inspiration, worse when supine, feeding, or crying. Typically self-resolves by 12-18 months; severe cases with growth failure or significant apnea need surgery (supraglottoplasty).
+- Back: The most common cause of stridor in infants: collapse of floppy supraglottic structures on inspiration, worse when supine, feeding, or crying. Typically self-resolves within the first 18 to 24 months; severe cases with growth failure or significant apnea need surgery (supraglottoplasty).
 - Source: Standard pediatric airway teaching on laryngomalacia.
 
 **[subglottic-hemangioma-card]** tags: PE, clinical, milestones: PC7, PC6, UKMLA: Stridor, RED FLAG, reviewer: (none)
@@ -5623,8 +5637,8 @@ Teaching: [figure: Young child with fever, rigid neck extension, muffled voice, 
 - Source: Standard pediatric craniofacial teaching.
 
 **[peds-fb-card]** tags: PE, clinical, milestones: PC7, PC1, UKMLA: Ear and nasal discharge, RED FLAG, reviewer: (none)
-- Front: A [...] lodged in the nose, ear canal, or esophagus is a time-critical emergency, causing liquefactive necrosis within hours.
-- Back: A button battery lodged in the nose, ear canal, or esophagus is a time-critical emergency, causing liquefactive necrosis within hours. Toddlers are the peak age group for foreign bodies generally, since they explore orally and manually without judgment.
+- Front: A [...] lodged in the nose, ear canal, or esophagus is a time-critical emergency, causing caustic injury starting within 15 minutes to 2 hours (emergent removal within about 2 hours; honey or sucralfate can be given as an interim measure without delaying removal).
+- Back: A button battery lodged in the nose, ear canal, or esophagus is a time-critical emergency, causing caustic injury starting within 15 minutes to 2 hours (emergent removal within about 2 hours; honey or sucralfate can be given as an interim measure without delaying removal). Toddlers are the peak age group for foreign bodies generally, since they explore orally and manually without judgment.
 - Source: AAP clinical guidance on pediatric foreign bodies; National Capital Poison Center button-battery data.
 
 **[peds-neck-infection-card]** tags: PE, clinical, milestones: PC7, PC1, UKMLA: Neck lump, RED FLAG, reviewer: (none)
@@ -5644,12 +5658,12 @@ Teaching: [figure: Young child with fever, rigid neck extension, muffled voice, 
 
 **[bone-anchored-hearing-device-card]** tags: PE, clinical, milestones: PC7, PC4, UKMLA: Hearing loss, reviewer: (none)
 - Front: In bilateral aural atresia, a [...] hearing device transmits sound vibration directly through the skull to the inner ear, bypassing the atretic canal and middle ear entirely.
-- Back: In bilateral aural atresia, a bone-conduction hearing device transmits sound vibration directly through the skull to the inner ear, bypassing the atretic canal and middle ear entirely. It bridges hearing access until surgical ear canal reconstruction is feasible, typically around age 6.
+- Back: In bilateral aural atresia, a bone-conduction hearing device transmits sound vibration directly through the skull to the inner ear, bypassing the atretic canal and middle ear entirely. It bridges hearing access until a bone-anchored (osseointegrated) implant is usually placed around age 5. Surgical canal reconstruction (atresiaplasty) is considered later only in selected candidates.
 - Source: Standard pediatric audiology teaching on bone-conduction amplification.
 
 **[pediatric-osa-ahi-card]** tags: PE, clinical, milestones: PC7, PC9, UKMLA: Obstructive sleep apnoea, Snoring, reviewer: (none)
 - Front: What obstructive AHI defines OSA in a child, and how does it compare to the adult threshold?
-- Back: An obstructive AHI ≥1 event/hour on polysomnography is abnormal in a child, far lower than the adult threshold of ≥5/hour (see Sleep Surgery & OSA track). PSG remains the gold standard, though many children proceed straight to adenotonsillectomy on a strong clinical picture without a preoperative sleep study.
+- Back: An obstructive AHI ≥1 event/hour on polysomnography is abnormal in a child, far lower than the adult threshold of ≥5/hour (see Sleep Surgery & OSA track). PSG remains the gold standard, though many children proceed straight to adenotonsillectomy on a strong clinical picture without a preoperative sleep study. PSG is recommended for high-risk children or when the picture is unclear.
 - Source: AAP Clinical Practice Guideline: Diagnosis and Management of Childhood Obstructive Sleep Apnea Syndrome, 2012 (reaffirmed); AASM pediatric scoring criteria.
 
 **[peds-osa-post-ta-card]** tags: PE, clinical, milestones: PC7, PC9, UKMLA: Obstructive sleep apnoea, Snoring, RED FLAG, reviewer: (none)
@@ -5756,6 +5770,16 @@ Teaching: [figure: Young child with fever, rigid neck extension, muffled voice, 
 - Front: What is the dominant blood supply to the palatine tonsil, and why does it matter?
 - Back: The tonsillar branch of the facial artery (with ascending pharyngeal, lingual, and descending palatine contributions), all from the external carotid system. This rich supply explains the post-tonsillectomy hemorrhage risk.
 - Source: Standard pediatric anatomy teaching.
+
+**[acute-mastoiditis-card]** tags: PE, clinical, milestones: PC7, PC4, UKMLA: Painful ear, RED FLAG, reviewer: (none)
+- Front: What are the signs and management of acute mastoiditis after AOM?
+- Back: Postauricular erythema and swelling with a protruding auricle after AOM. Get a CT temporal bone if complicated, start IV antibiotics, and consult ENT (myringotomy or mastoidectomy may be needed). Severe headache, cranial nerve palsy, or altered mental status suggests intracranial spread.
+- Source: AAP Clinical Practice Guideline: Acute Otitis Media, 2013.
+
+**[peds-neck-mass-red-flags-card]** tags: PE, clinical, milestones: PC7, PC3, UKMLA: Neck lump, reviewer: (none)
+- Front: Which features of a pediatric neck mass should prompt a malignancy workup?
+- Back: A firm, fixed, or >2 cm node, a supraclavicular location, persistence beyond 4 to 6 weeks despite treatment, or systemic B symptoms (night sweats, weight loss). These need imaging and biopsy workup (lymphoma is a key concern) rather than observation.
+- Source: Standard pediatric otolaryngology teaching.
 
 ---
 
@@ -7044,8 +7068,7 @@ The grade is invalid if the patient phonates ("ahh") or protrudes the tongue dur
 What each tongue position shows: grade by the most posterior structure you can still see:
 
 - FTP I: entire uvula and tonsils/pillars visible (full oropharynx view).
-- FTP IIa: entire uvula visible but not the tonsils.
-- FTP IIb: soft palate and the base of the uvula visible, but not the full uvula.
+- FTP II: uvula visible but not the tonsils.
 - FTP III: soft palate visible but not the uvula at all.
 - FTP IV: only the hard palate visible.As the grade rises, the tongue base progressively obscures the view, ascending from tonsils -> uvula -> soft palate -> hard palate. Less visualized structure corresponds to a higher grade and a worse airway.
 Clinically, FTP III-IV correlates with retrolingual (tongue-base) obstruction, while FTP I-II usually does not: exactly why high grades predict that palate-only surgery will miss the problem.
@@ -7063,7 +7086,7 @@ Caveats: inter-examiner agreement is imperfect (the tongue and palate are mobile
 - Pure motor nerve: CN XII supplies all intrinsic tongue muscles and all extrinsic tongue muscles except the palatoglossus, which is innervated by the vagus (CN X) via the pharyngeal plexus.Palatoglossus is named as a tongue muscle but functions as a palate muscle.
 Protrusors vs. retractors (the key functional split):
 
-- Protrusors (push the tongue out, open the airway) = genioglossus (the main one), plus geniohyoid/intrinsic protrusive fibers.
+- Protrusors (push the tongue out, open the airway) = genioglossus (the main one), plus intrinsic protrusive fibers.
 - Retractors (pull the tongue back) = hyoglossus and styloglossus.Genioglossus protrudes the tongue; hyoglossus and styloglossus retract it. This functional split is the anatomic basis for stimulator targeting.
 The genioglossus is the airway's main dilator: it contracts with each inspiration to pull the tongue base forward and keep the retrolingual airway open. Tone normally drops at sleep onset; in OSA, too little genioglossus activity lets the tongue fall back and obstruct.
 Five-segment course (medulla -> tongue): medullary -> cisternal -> skull-base (hypoglossal canal in the occipital bone) -> carotid space -> sublingual. Extracranially it descends near the internal carotid/internal jugular, loops forward below the mandible, crosses the external carotid and lingual arteries, and enters the tongue at the anterior border of hyoglossus.
@@ -7072,20 +7095,20 @@ C1/ansa cervicalis hitchhikers: in the neck the nerve carries along C1 fibers th
 The lesion sign: a unilateral CN XII lesion makes the protruded tongue deviate toward the weak (lesion) side: the intact genioglossus on the normal side pushes the tongue across. Chronic lesions show ipsilateral atrophy and fasciculations.
 Inclusion vs. Exclusion Branches: Cuff Placement: CN XII is a pure motor nerve. Distal to its main trunk it divides into a medial division and a lateral division, which do opposite things to the tongue.
 
-- Medial branches -> protrusors (genioglossus, plus geniohyoid/intrinsic protrusive muscles, with a C1 contribution). Stimulating these protrudes and stiffens the tongue, opening the retrolingual airway. These are the 'inclusion' branches: the stimulation cuff is placed to capture them.
+- Medial branches -> protrusors (genioglossus, plus intrinsic protrusive muscles). Stimulating these protrudes and stiffens the tongue, opening the retrolingual airway. These are the 'inclusion' branches: the stimulation cuff is placed to capture them.
 - Lateral branches -> retractors (hyoglossus, styloglossus). Stimulating these retracts the tongue (counterproductive), so they are the 'exclusion' branches: deliberately kept out of the cuff.Optimal outcomes depend on selectively driving the medial (protrusor) fibers while avoiding the lateral (retractor) fibers. Intraoperative nerve integrity monitoring (EMG) confirms genioglossus (protrusion) activation without hyoglossus/styloglossus (retraction) before the cuff is secured. Bipolar (not monopolar) cautery is used near the device to avoid damage.
 
 **How CPAP works** (tags: Pneumatic splinting · CPAP · Surgical adjunct)
 
 [figure: CPAP as pneumatic splinting of the collapsible upper airway.]How CPAP works: continuous positive airway pressure delivers a constant column of pressurized room air through a mask, acting as a pneumatic splint: positive intraluminal pressure holds the collapsible pharyngeal airway open throughout the respiratory cycle.
-Because pressure props the airway from the inside, it works at every level of collapse simultaneously (nasopharynx, retropalatal, retroglossal) regardless of where the primary obstruction sits. That's why CPAP is first-line for essentially all severities of OSA and can start before the exact collapse site is known, unlike surgery, which must target a specific level.
+Because pressure props the airway from the inside, it works at every level of collapse simultaneously (nasopharynx, retropalatal, retroglossal) regardless of where the primary obstruction sits. That's why CPAP is first-line when treatment is indicated (symptomatic OSA at any severity, or asymptomatic OSA with AHI of 15 or more) and can start before the exact collapse site is known, unlike surgery, which must target a specific level.
 It treats the obstruction, it does not cure it: benefits (resolved apneas, better oxygenation, less daytime sleepiness, lower blood pressure) last only as long as the device is used nightly. Stopping therapy returns the airway to baseline collapsibility.
 Pressure delivery modes:
 
 - CPAP: one fixed pressure held constant through inspiration and expiration, the standard workhorse.
 - APAP (auto-titrating): the device senses flow limitation/snoring and adjusts pressure breath-to-breath within a set range; useful when a single fixed pressure is poorly tolerated or the pressure requirement varies.
 - BiPAP (bilevel): separate higher inspiratory and lower expiratory pressures; reserved for high pressure requirements, CPAP intolerance, or a coexisting hypoventilation/CO2-retention problem (obesity hypoventilation, neuromuscular disease, overlap syndrome), not routine OSA.Adherence: the number that defines "CPAP failure": CPAP only works if worn. The widely used (CMS/insurer) adherence definition is &ge;4 hours/night on &ge;70% of nights over a 30-day period.
-A patient is not a candidate for second-line therapy (including surgery) for intolerance until a genuine adherence effort has failed. "CPAP failure" means tried-and-couldn't-tolerate or inadequate response despite use, not simply "declined."
+Surgery is second-line: discuss referral for patients who are intolerant of or unwilling to use PAP, or whose adherence stays inadequate despite troubleshooting. "CPAP failure" means tried-and-couldn't-tolerate or inadequate response despite use. The ATS (2023) argues the 4 hour/70% rule can worsen access and favors an individualized, patient-centered definition.
 CPAP Intolerance and the ENT Role: roughly a third to half of patients struggle to adhere. Common reasons include mask discomfort/leak, claustrophobia, aerophagia (swallowed air), and pressure intolerance.
 The ENT-relevant reason is nasal obstruction (septal deviation, turbinate hypertrophy, polyps, valve collapse), which raises nasal resistance and makes delivered pressure uncomfortable or ineffective. This is why ENT evaluation of the nasal airway is key to salvaging a struggling CPAP user.
 Where sleep surgery fits: surgery is generally a CPAP alternative or adjunct, not a first-line replacement.
@@ -7172,7 +7195,7 @@ A validated 8-item screen. Each item scores one point:
 - BMI >35 kg/m&sup2;
 - Age >50 years
 - Neck circumference >40cm
-- Gender: male≥3 positive flags high risk and should prompt referral for a sleep study; it is a screening tool, not diagnostic. Risk stratifies further beyond the simple ≥3 cutoff, which matters most in the preoperative setting.
+- Gender: male≥3 positive is intermediate-to-high risk and should prompt referral for a sleep study (≥5 is high risk, especially for moderate-to-severe OSA); it is a screening tool, not diagnostic. Risk stratifies further beyond the simple ≥3 cutoff, which matters most in the preoperative setting.
 
 | STOP-BANG score | Risk |
 | --- | --- |
@@ -7202,7 +7225,7 @@ Because positive airway pressure splints the entire airway at once, it is first-
 The rungs, in order:
 
 - Behavioral/foundational therapy, for everyone: weight loss (~10% weight reduction lowers AHI by roughly a quarter), reduced evening alcohol, and positional therapy for supine-predominant OSA (supine AHI &ge;2x non-supine). Complementary, not standalone cures for most patients.
-- CPAP: first-line for essentially all diagnosed OSA; works at any severity and collapse level. The limiting factor is adherence, not efficacy.
+- CPAP: first-line when treatment is indicated (symptomatic OSA of any severity, or AHI 15 or more); works at any severity and collapse level. The limiting factor is adherence, not efficacy.
 - Oral appliance (mandibular advancement device, MAD): first-line alternative for mild-to-moderate OSA, and a key option for CPAP-intolerant patients at any severity. Less efficacious than CPAP at lowering AHI but often better tolerated, so real-world effectiveness can be comparable. Custom, titratable, dentist-fitted; confirm efficacy with a follow-up sleep study.
 - Site-directed surgery, when CPAP fails (intolerance, non-adherence, or inadequate response); the procedure matches the collapse site(s): nasal surgery (adjunct to rescue CPAP tolerance), palate-level surgery (UPPP) for retropalatal collapse, hypoglossal nerve stimulation for tongue-base collapse in selected patients, maxillomandibular advancement for skeletal/multilevel disease. In children, adenotonsillectomy is the exception: first-line, not a last resort.What "CPAP failed" actually means: not "the patient dislikes it." Failure = documented intolerance, non-adherence despite troubleshooting (mask refit, humidification, treating nasal obstruction, ramp/pressure-relief), or inadequate AHI/symptom response despite use. Fix the fixable before climbing the ladder.
 Worked example: how a real patient moves down the ladder:
@@ -7222,7 +7245,7 @@ Honest limitation: DISE is a single sedated snapshot, sedation protocols aren't 
 **[glp1-osa-pharmacotherapy] Weight-loss pharmacotherapy for OSA (tirzepatide)**
 
 In December 2024, tirzepatide (Zepbound), a dual GIP/GLP-1 receptor agonist, became the first drug FDA-approved for moderate-to-severe OSA in adults with obesity, based on the SURMOUNT-OSA phase 3 trials. Over 52 weeks it reduced AHI by ~20-25 events/h (vs. minimal change on placebo), with ~42-50% of patients reaching disease remission (AHI <5, or <15 without symptoms), alongside ~16-20% weight loss and improvements in hypoxic burden, hsCRP, and systolic BP. Mechanism is primarily weight loss (reducing tongue and parapharyngeal fat), with possible weight-independent effects.
-Key caveats: it does not match CPAP's AHI reduction (~22 vs ~31 events/h), it is for BMI &ge;30 (unlikely to help non-obese or purely anatomic obstruction), weight/AHI regain occurs after discontinuation, and cardiovascular-outcome benefit is unproven. Best positioned as a disease-modifying adjunct, combined with CPAP, for preoperative optimization, or potentially to expand HGNS candidacy, not a blanket CPAP replacement.
+Key caveats: it is an adjunct to CPAP, not a replacement (there is no direct head-to-head trial), it is for BMI &ge;30 (unlikely to help non-obese or purely anatomic obstruction), weight/AHI regain occurs after discontinuation, and cardiovascular-outcome benefit is unproven. Best positioned as a disease-modifying adjunct, combined with CPAP, for preoperative optimization, or potentially to expand HGNS candidacy, not a blanket CPAP replacement.
 
 **[surgical-options] Named surgical options and what they target**
 
@@ -7247,7 +7270,7 @@ Three components (unilateral device):
 - Implantable pulse generator: placed in an infraclavicular pocket, like a pacemaker.The generator reads inspiration from the sensing lead and delivers a stimulus phase-locked to inspiration, protruding the tongue exactly when the airway is most collapsible.
 Inclusion vs. exclusion branches: why cuff placement is everything: CN XII is pure motor, and distal to its trunk it splits into a medial division and lateral division that do opposite things.
 
-- Medial branches -> protrusors (genioglossus &plusmn; geniohyoid/intrinsic protrusive fibers, with a C1 contribution). Stimulating these protrudes/stiffens the tongue -> opens the retrolingual airway. These are the 'inclusion' branches, captured inside the cuff.
+- Medial branches -> protrusors (genioglossus &plusmn; intrinsic protrusive fibers). Stimulating these protrudes/stiffens the tongue -> opens the retrolingual airway. These are the 'inclusion' branches, captured inside the cuff.
 - Lateral branches -> retractors (hyoglossus, styloglossus). Stimulating these retracts the tongue (counterproductive); these are the 'exclusion' branches, deliberately kept out of the cuff.Practical operative points: intraoperative EMG/nerve integrity monitoring confirms genioglossus (protrusion) activation without hyoglossus/styloglossus (retraction) before the cuff is secured: the surgeon looks for the tongue to protrude, not retract. Bipolar (not monopolar) cautery is used near the device to avoid damaging it.
 Indications (FDA, unilateral device):
 
@@ -7314,10 +7337,10 @@ Overlap syndrome, meaning coexisting OSA and COPD, carries substantially higher 
 
 ### Red flags
 - Severe OSA (AHI ≥30) with signs of cor pulmonale or pulmonary hypertension: untreated severe OSA drives chronic hypoxia-mediated right heart strain and needs urgent treatment initiation, not routine follow-up scheduling.
-- Commercial vehicle operators with untreated OSA and excessive daytime sleepiness: a safety-critical occupational issue under US FMCSA guidance, where treatment adherence affects certification to drive.
+- Commercial vehicle operators with untreated OSA and excessive daytime sleepiness: a safety-critical occupational issue: documented effective treatment and adherence generally affect medical certification to drive.
 - Morbid obesity (BMI ≥40) with severe OSA being considered for bariatric surgery: perioperative OSA management, often CPAP, reduces anesthetic and airway risk, so sequencing and communication with the surgical team matters.
 - Post-UPPP bleeding or airway compromise: oropharyngeal surgery carries a real postoperative airway-obstruction and hemorrhage risk, so keep a low threshold for urgent ENT reassessment.
-- Suspected central (not obstructive) sleep apnea: CPAP alone may not be effective and may need adaptive servo-ventilation or cardiology/neurology involvement. Distinguishing obstructive from central changes the entire management pathway.
+- Suspected central (not obstructive) sleep apnea: CPAP alone may not be effective and needs confirmation of the predominant event type, treatment of the underlying cause (often heart failure), and cardiology or neurology involvement. Adaptive servo-ventilation is contraindicated in HFrEF with predominant central apnea. Distinguishing obstructive from central changes the entire management pathway.
 - Complete concentric palatal collapse on DISE: a contraindication to hypoglossal nerve stimulation that changes surgical candidacy entirely.
 - Undiagnosed OSA with treatment-resistant hypertension or new atrial fibrillation: OSA is a recognized contributor, and screening for it changes the cardiovascular management plan.
 - Overlap syndrome (OSA + COPD) with hypercapnia, morning headache, or lower-extremity edema: higher risk of hypercapnic respiratory failure and pulmonary hypertension than either condition alone. Needs pulmonology co-management and often bilevel PAP, not plain CPAP.
@@ -7342,7 +7365,7 @@ Teaching: CPAP intolerance doesn't jump straight to surgery. Optimize CPAP toler
 Stem: A commercial truck driver screens STOP-BANG positive (5/8) at a routine occupational health visit. He reports falling asleep at red lights.
 
 - Q: What is the appropriate next step, and why does the occupational context matter here?
-  A: Refer for a sleep study promptly. Falling asleep while driving raises a safety-critical, occupational concern under US FMCSA guidance. This isn't just a quality-of-life issue: it affects his medical certification to operate a commercial vehicle.
+  A: Refer for a sleep study promptly. Falling asleep while driving raises a safety-critical, occupational concern. This isn't just a quality-of-life issue: it affects his medical certification to operate a commercial vehicle.
 
 - Q: If OSA is confirmed and treated, what is required before he can be recertified to drive?
   A: Documentation of effective treatment and adherence (e.g., CPAP compliance data). Certifying examiners require evidence the condition is controlled, not just that treatment was prescribed.
@@ -7369,7 +7392,7 @@ Stem: A patient with heart failure with reduced ejection fraction is found to ha
   A: This is central sleep apnea (specifically Cheyne-Stokes breathing). Absent respiratory effort during apneas distinguishes it from obstructive apnea, where effort continues against a closed airway. The crescendo-decrescendo pattern is classic for CSA associated with heart failure.
 
 - Q: Does the surgical ladder discussed for OSA apply here?
-  A: No. The OSA surgical ladder (UPPP, hypoglossal stimulation, MMA) targets anatomic obstruction and does not apply to central sleep apnea. Management instead focuses on optimizing the underlying heart failure and may involve adaptive servo-ventilation, in coordination with cardiology.
+  A: No. The OSA surgical ladder (UPPP, hypoglossal stimulation, MMA) targets anatomic obstruction and does not apply to central sleep apnea. Management instead focuses on optimizing the underlying heart failure and is done in coordination with cardiology. Adaptive servo-ventilation is contraindicated in HFrEF with predominant central apnea (SERVE-HF showed increased mortality). Phrenic nerve stimulation is an option for symptomatic central apnea.
 
 Teaching: Absent respiratory effort during apneic events is the key discriminator for central sleep apnea, and it changes the entire management pathway away from the OSA surgical ladder.
 
@@ -7413,7 +7436,7 @@ Teaching: COPD plus classic OSA symptoms should raise overlap syndrome on the di
 
 **[stop-bang-card]** tags: SL, clinical, milestones: PC4, MK1, UKMLA: Obstructive sleep apnoea, reviewer: (none)
 - Front: What does STOP-BANG stand for, and what score flags high risk?
-- Back: Snoring, Tiredness, Observed apnea, high blood Pressure, BMI>35, Age>50, Neck circumference>40cm, male Gender. ≥3 positive = high risk for OSA, prompting referral for a sleep study.
+- Back: Snoring, Tiredness, Observed apnea, high blood Pressure, BMI>35, Age>50, Neck circumference>40cm, male Gender. ≥3 positive = intermediate-to-high risk (refer for testing); ≥5 = high risk, especially for moderate-to-severe OSA.
 - Source: Standard OSA screening teaching (STOP-BANG, Chung et al.).
 
 **[ahi-severity-card]** tags: SL, clinical, milestones: MK1, PC4, UKMLA: Obstructive sleep apnoea, reviewer: (none)
@@ -7428,7 +7451,7 @@ Teaching: COPD plus classic OSA symptoms should raise overlap syndrome on the di
 
 **[cpap-first-line-card]** tags: SL, clinical, milestones: PC9, MK2, UKMLA: Obstructive sleep apnoea, reviewer: (none)
 - Front: What is first-line management for diagnosed OSA, and when does surgery enter the conversation?
-- Back: CPAP is first-line for essentially all diagnosed OSA (± weight loss, positional therapy, or an oral mandibular-advancement appliance for milder disease). Surgery is considered when CPAP fails, meaning intolerance, non-adherence, or inadequate response.
+- Back: CPAP is first-line when treatment is indicated: symptomatic OSA at any severity, or asymptomatic OSA with AHI of 15 or more (± weight loss, positional therapy, or an oral mandibular-advancement appliance for milder disease). Surgery is considered when CPAP fails, meaning intolerance, non-adherence, or inadequate response.
 - Source: AASM Clinical Practice Guideline on OSA management.
 
 **[dise-card]** tags: SL, clinical, milestones: PC4, PC9, UKMLA: Obstructive sleep apnoea, reviewer: (none)
@@ -7478,7 +7501,7 @@ Teaching: COPD plus classic OSA symptoms should raise overlap syndrome on the di
 
 **[osa-driving-card]** tags: SL, clinical, milestones: SBP3, PC4, UKMLA: Obstructive sleep apnoea, RED FLAG, reviewer: (none)
 - Front: Why does OSA screening carry extra urgency in commercial drivers?
-- Back: Untreated OSA with excessive daytime sleepiness is a safety-critical occupational risk. US FMCSA guidance ties commercial driving certification to documented OSA treatment and adherence, not just diagnosis.
+- Back: Untreated OSA with excessive daytime sleepiness is a safety-critical occupational risk. Commercial drivers suspected of OSA are typically referred for testing, and effective treatment with documented adherence is generally expected before certification (decided at the examiner's discretion, since FMCSA has no finalized OSA rule).
 - Source: US FMCSA medical guidance on OSA and commercial driving.
 
 **[tonsillectomy-adult-osa-card]** tags: SL, clinical, milestones: PC9, MK2, UKMLA: Obstructive sleep apnoea, reviewer: (none)
@@ -7564,7 +7587,7 @@ Teaching: COPD plus classic OSA symptoms should raise overlap syndrome on the di
 **[tirzepatide-osa-card]** tags: SL, clinical, milestones: PC9, MK2, UKMLA: Obstructive sleep apnoea, reviewer: (none)
 - Front: The first drug FDA-approved (December 2024) for moderate-to-severe OSA in adults with obesity is [...].
 - Back: The first drug FDA-approved (December 2024) for moderate-to-severe OSA in adults with obesity is tirzepatide (Zepbound), a dual GIP/GLP-1 receptor agonist. In SURMOUNT-OSA it cut AHI by ~20-25 events/h with ~42-50% remission, but it works mainly through weight loss, requires BMI &ge;30, doesn't match CPAP's efficacy, and AHI regains after stopping.
-- Source: Anderer, JAMA (FDA approval), 2025; Malhotra et al., Nat Med (SURMOUNT-OSA), 2026.
+- Source: Anderer, JAMA (FDA approval), 2025; Malhotra et al., NEJM (SURMOUNT-OSA), 2024.
 
 **[hgns-branch-anatomy-card]** tags: SL, anatomy, milestones: MK1, PC9, UKMLA: Obstructive sleep apnoea, reviewer: (none)
 - Front: In hypoglossal nerve stimulation, which division of CN XII is targeted ('inclusion') and which is avoided ('exclusion'), and why?
@@ -7583,7 +7606,7 @@ Teaching: COPD plus classic OSA symptoms should raise overlap syndrome on the di
 
 **[friedman-grades-card]** tags: SL, clinical, milestones: MK1, PC4, UKMLA: Obstructive sleep apnoea, reviewer: (none)
 - Front: What does each Friedman tongue position (I-IV) allow you to see?
-- Back: I: entire uvula and tonsils/pillars visible. II: uvula visible but not the tonsils (IIa = full uvula, IIb = only base of uvula/soft palate). III: soft palate visible but not the uvula. IV: hard palate only. A higher grade means more tongue-base obstruction.
+- Back: I: entire uvula and tonsils/pillars visible. II: uvula visible but not the tonsils. III: soft palate visible but not the uvula. IV: hard palate only. A higher grade means more tongue-base obstruction.
 - Source: Standard sleep surgery teaching on Friedman tongue position.
 
 **[friedman-staging-components-card]** tags: SL, clinical, milestones: MK1, PC4, UKMLA: Obstructive sleep apnoea, reviewer: (none)
@@ -7608,7 +7631,7 @@ Teaching: COPD plus classic OSA symptoms should raise overlap syndrome on the di
 
 **[tongue-protrusor-retractor-card]** tags: SL, anatomy, milestones: MK1, UKMLA: Obstructive sleep apnoea, reviewer: (none)
 - Front: Which tongue muscles protrude the tongue (and open the airway) vs. retract it?
-- Back: Protrudes: genioglossus (main) plus geniohyoid/intrinsic protrusive fibers. Retracts: hyoglossus and styloglossus. Genioglossus is the key airway dilator that loses tone in sleep and collapses in OSA.
+- Back: Protrudes: genioglossus (main) plus intrinsic protrusive fibers. Retracts: hyoglossus and styloglossus. Genioglossus is the key airway dilator that loses tone in sleep and collapses in OSA.
 - Source: Standard head and neck anatomy teaching on tongue musculature.
 
 **[cn12-lesion-card]** tags: SL, clinical, milestones: MK1, PC1, UKMLA: Obstructive sleep apnoea, reviewer: (none)

@@ -1,6 +1,6 @@
 # Facial Plastics & Trauma
 
-_Generated 2026-10-10 from content/*.js_
+_Generated 2026-10-19 from content/*.js_
 
 > **How to use:** paste a module file below (or ALL.md) into OpenEvidence / any reviewer, followed by an instruction such as
 > "Fact-check every claim against current guidelines, flag anything outdated or wrong, and propose exact replacement wording. Keep our style: no em dashes, plain clinical language."
@@ -84,7 +84,7 @@ Four articulations
 - The zygomaticosphenoid suture is the key to reduction: alignment at the lateral orbital wall is the most reliable indicator of adequate 3-D reduction, because other sutures can look aligned while the complex is still rotated.
 - Classic clinical triad: malar (cheek) flattening, trismus (a depressed arch/body impinges on the coronoid process and temporalis), and infraorbital nerve hypesthesia (numb cheek, lateral nose, upper lip, upper teeth).
 - Orbital overlap: ZMC fractures commonly cause orbital-floor findings (enophthalmos, diplopia, possible globe injury); always do a visual acuity/globe check.
-- Lateral canthus: the lateral canthal tendon attaches to the Whitnall tubercle on the zygoma; displacement produces canthal dystopia (antimongoloid slant).
+- Lateral canthus: the lateral canthal tendon attaches to the Whitnall tubercle on the zygoma; displacement produces an inferiorly displaced lateral canthus.
 - Imaging: non-contrast maxillofacial CT with coronal and 3-D reconstruction is the study of choice.The clinical triad (malar flattening, trismus, infraorbital numbness) mandates an orbital/globe exam.
 
 **Mandible Anatomy** (tags: Mandible ring · Occlusion · Numb chin sign)
@@ -172,7 +172,7 @@ _Image source: Facial Nerve Branches Through the Parotid Gland. Illustration gen
 Coronal CT, right orbit. The arrow marks the fracture site. Reveal to see what it shows.
 
 _Image source: Add figure citation_
-- Yellow arrow: a trapdoor fracture of the orbital floor, with soft tissue herniating through the defect into the roof of the maxillary sinus below: the CT correlate of enophthalmos and diplopia on upgaze from inferior rectus entrapment.
+- Yellow arrow: an orbital floor fracture with inferior rectus and soft tissue herniating into the roof of the maxillary sinus below. In a trapdoor fracture the tissue is trapped, causing marked restriction of upgaze with often little enophthalmos (enophthalmos is the hallmark of large open-door blowouts).
 
 **Diagram: Pitanguy's line and the frontal branch**
 
@@ -339,7 +339,7 @@ Stem: A 9-year-old is hit in the eye with a ball. The eye looks relatively unrem
   A: This is the classic 'white-eyed' pediatric blow-out fracture. Children's more elastic bone can spring back after fracture, trapping (entrapping) the inferior rectus muscle with minimal external bruising, unlike the more obvious hematoma typically seen in adult blow-out fractures.
 
 - Q: Why are the nausea and vomiting clinically important here, and what is the urgency?
-  A: They suggest the oculocardiac reflex (from muscle entrapment/traction) and indicate this may be a surgical emergency: unlike most adult blow-out fractures, which can often be observed, pediatric white-eyed entrapment needs prompt surgical release to prevent permanent muscle ischemia/fibrosis.
+  A: They suggest the oculocardiac reflex (from muscle entrapment/traction) and indicate this may be a surgical emergency: unlike most adult blow-out fractures, which can often be observed, pediatric white-eyed entrapment with a sustained oculocardiac reflex should be repaired urgently, generally within 24 hours of diagnosis, to prevent permanent muscle ischemia and fibrosis.
 
 Teaching: Clinical Pearl: A 'white eye' orbital fracture in a pediatric patient with restricted upgaze and nausea/vomiting is a surgical emergency (trapdoor fracture with muscle entrapment) despite the benign external appearance.
 
@@ -417,7 +417,7 @@ Stem: A collegiate wrestler presents after a match with a painful, tense, fluctu
   A: An auricular (pinna) hematoma. Blunt trauma shears the perichondrium off the underlying cartilage, and blood collects in the resulting subperichondrial space. Auricular cartilage has no blood supply of its own; it depends entirely on the overlying perichondrium for oxygen and nutrients.
 
 - Q: Why is this a same-day problem rather than something to reassess in clinic next week?
-  A: The hematoma physically separates cartilage from its only blood supply. Left undrained, the cartilage undergoes avascular necrosis, and the body lays down disorganized new (fibro)cartilage in response, producing the permanent, irreversible 'cauliflower ear' deformity. The window to prevent this is narrow.
+  A: The hematoma physically separates cartilage from its only blood supply. Left undrained, the cartilage undergoes avascular necrosis, and the body lays down disorganized new (fibro)cartilage in response, producing the permanent, irreversible 'cauliflower ear' deformity. The window to prevent this is narrow. Give antibiotics that cover Pseudomonas (a fluoroquinolone in adults, amoxicillin-clavulanate in children) to reduce perichondritis risk, and recheck at 24 to 48 hours.
 
 - Q: What is the management, and why is drainage alone not enough?
   A: Needle aspiration (for a small, early hematoma) or incision and drainage (for larger/recurrent collections), followed by a compressive pressure dressing or bolster sutured across the ear. The dressing/bolster is essential: without it, blood reaccumulates in the same potential space and the hematoma recurs.
@@ -472,7 +472,7 @@ Teaching: Clinical Pearl: Boggy, fluctuant, bilateral septal swelling after nasa
 
 **[le-fort-card]** tags: FP, clinical, milestones: MK1, PC1, UKMLA: Facial/periorbital swelling, reviewer: (none)
 - Front: How do you distinguish Le Fort I, II, and III fractures?
-- Back: I: horizontal, above the tooth apices: mobile palate/alveolus. II: pyramidal, through the nasofrontal suture: mobile nasomaxillary complex. III: craniofacial disjunction through the frontozygomatic sutures: entire midface mobile relative to the skull ('floating face').[figure: Distinguishing Le Fort I, II, and III fracture patterns.]
+- Back: I: horizontal, above the tooth apices: mobile palate/alveolus. II: pyramidal, through the nasofrontal suture: mobile nasomaxillary complex. III: craniofacial disjunction through the frontozygomatic sutures: entire midface mobile relative to the skull ('floating face'). All three patterns fracture the pterygoid plates, the CT hallmark of a Le Fort injury.[figure: Distinguishing Le Fort I, II, and III fracture patterns.]
 - Source: Standard facial trauma teaching on Le Fort classification.
 
 **[trauma-abcs-card]** tags: FP, clinical, milestones: PC1, SBP1, UKMLA: Facial/periorbital swelling, RED FLAG, reviewer: (none)
@@ -502,7 +502,7 @@ Teaching: Clinical Pearl: Boggy, fluctuant, bilateral septal swelling after nasa
 
 **[orbital-blowout-card]** tags: FP, clinical, milestones: PC1, MK2, UKMLA: Facial/periorbital swelling, reviewer: (none)
 - Front: What is an orbital blow-out fracture, and what classic exam findings does it cause?
-- Back: Fracture of the thin orbital floor (or medial wall) from direct globe impact, with fat ± inferior rectus herniation/entrapment. Causes enophthalmos, diplopia on upgaze (restricted extraocular movement), and infraorbital nerve hypoesthesia (cheek/upper lip numbness). Repair timing: in adults, repair within ~2 weeks for persistent symptomatic diplopia with entrapment or a large floor defect (&ge;50% floor, or significant enophthalmos). In children, a white-eyed trapdoor with muscle entrapment or a nonresolving oculocardiac reflex is a surgical emergency (ideally within ~24-48 h) to prevent muscle ischemia/fibrosis.[figure: Coronal CT: the arrow marks the trapdoor fracture and herniated tissue into the maxillary sinus.]
+- Back: Fracture of the thin orbital floor (or medial wall) from direct globe impact, with fat ± inferior rectus herniation/entrapment. Causes enophthalmos, diplopia on upgaze (restricted extraocular movement), and infraorbital nerve hypoesthesia (cheek/upper lip numbness). Repair timing: true muscle entrapment (especially a child's white-eyed trapdoor with a sustained oculocardiac reflex) is a surgical emergency, generally repaired within about 24 to 48 hours to prevent muscle ischemia and fibrosis. Persistent symptomatic diplopia or a large floor defect without entrapment can be repaired within about 2 weeks.[figure: Coronal CT: the arrow marks the trapdoor fracture and herniated tissue into the maxillary sinus.]
 - Source: Standard orbital trauma teaching on blow-out fractures.
 
 **[white-eyed-blowout-card]** tags: FP, clinical, milestones: PC1, PC7, UKMLA: Facial/periorbital swelling, RED FLAG, reviewer: (none)
@@ -532,7 +532,7 @@ Teaching: Clinical Pearl: Boggy, fluctuant, bilateral septal swelling after nasa
 
 **[nasal-bone-fracture-card]** tags: FP, clinical, milestones: PC9, PC1, UKMLA: Epistaxis, reviewer: (none)
 - Front: What is the general timing for closed reduction of a nasal bone fracture, and why does timing matter?
-- Back: Typically within 5-10 days in adults (sooner in children, whose bones heal faster), before the fracture fragments begin to fixate or heal in a malaligned position, after which closed reduction becomes ineffective and open techniques may be needed. When the septum is involved, a 2025 systematic review/meta-analysis found early open septoplasty roughly halved persistent obstruction (~6% vs ~22%) and reduced 3-year revision rates (~6% vs ~31%) versus closed reduction alone: so consider early septal correction rather than closed reduction alone for nasoseptal fractures.
+- Back: Typically within 5-10 days in adults (sooner in children, whose bones heal faster), before the fracture fragments begin to fixate or heal in a malaligned position, after which closed reduction becomes ineffective and open techniques may be needed. When the septum is involved, a 2025 systematic review/meta-analysis found early open septoplasty lowered persistent obstruction (about 6% vs 22%) and reduced 3-year revision rates (~6% vs ~31%) versus closed reduction alone: so consider early septal correction rather than closed reduction alone for nasoseptal fractures.
 - Source: Standard nasal trauma teaching.
 
 **[zygoma-fracture-card]** tags: FP, clinical, milestones: MK1, PC9, UKMLA: Facial/periorbital swelling, reviewer: (none)
@@ -552,7 +552,7 @@ Teaching: Clinical Pearl: Boggy, fluctuant, bilateral septal swelling after nasa
 
 **[facial-bite-card]** tags: FP, clinical, milestones: PC9, SBP1, UKMLA: Facial/periorbital swelling, reviewer: (none)
 - Front: First-line antibiotic prophylaxis for a facial bite wound, and why are facial bites closed differently from bites elsewhere?
-- Back: Amoxicillin-clavulanate (covers Pasteurella, Eikenella, Capnocytophaga, oral anaerobes). Unlike bites elsewhere, well-irrigated facial bite wounds are usually closed primarily because of the face's vascularity and cosmetic stakes. Address rabies and tetanus.
+- Back: Amoxicillin-clavulanate (covers Pasteurella, Eikenella, Capnocytophaga, oral anaerobes), as a short course of about 3 to 5 days (unlike the 24 hour cap for fracture prophylaxis). Unlike bites elsewhere, well-irrigated facial bite wounds are usually closed primarily because of the face's vascularity and cosmetic stakes. Address rabies and tetanus.
 - Source: Ortiz & Lezcano, Am Fam Physician, 2023; Maurer et al., J Clin Med, 2023.
 
 **[scar-revision-timing-card]** tags: FP, clinical, milestones: PC9, UKMLA: Facial/periorbital swelling, reviewer: (none)
