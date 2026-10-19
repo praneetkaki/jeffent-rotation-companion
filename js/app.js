@@ -1383,6 +1383,7 @@
   function buildHomeShowcase(root, mods) {
     var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     var visible = TRACKS.filter(function (t) { return !t.hidden; });
+    var homeMarquee = null;
     if (visible.length) {
       var mq = h('<div class="home-marquee"><div class="hm-row"></div></div>');
       var row = mq.querySelector(".hm-row");
@@ -1395,7 +1396,7 @@
         });
       });
       if (reduce) mq.classList.add("static");
-      root.appendChild(mq);
+      homeMarquee = mq;
     }
 
     var pool = [];
@@ -1450,6 +1451,7 @@
     }
     var jumpRow = buildJumpRow();
     var sec1 = h('<section class="home-sec home-sec-1"></section>');
+    if (homeMarquee) sec1.appendChild(homeMarquee);
     if (jumpRow) sec1.appendChild(jumpRow);
     sec1.appendChild(peek);
     root.appendChild(sec1);
@@ -1808,7 +1810,7 @@
        Home use the same per-tile cascade instead of the whole grid fading
        in as one block. */
     restaggerHomeGrid(grid, list);
-    pager = initHomePaging([heroSec, sec1El(root), sec2]);
+    pager = initHomePaging([heroSec, sec1El(root)]);
   }
 
   function sec1El(root) { return root.querySelector(".home-sec-1"); }
@@ -1837,11 +1839,11 @@
       if (e.target.closest && e.target.closest(".bento-hero-scroller, .sidenav, .flashpanel, .pimppanel, .search-results")) return;
       var i = current(), vh = window.innerHeight - topbarH();
       if (busy) { e.preventDefault(); return; }
-      if (e.deltaY > 0 && i < areas.length - 1) {
-        var bottom = areas[i].getBoundingClientRect().bottom - topbarH();
-        if (bottom <= vh + 220) { e.preventDefault(); go(i + 1); }
-      } else if (e.deltaY < 0 && i > 0 && window.scrollY - topOf(areas[i]) < 14) {
-        e.preventDefault(); go(i - 1);
+      if (e.deltaY > 0 && i === 0) {
+        var bottom = areas[0].getBoundingClientRect().bottom - topbarH();
+        if (bottom <= vh + 220) { e.preventDefault(); go(1); }
+      } else if (e.deltaY < 0 && i === 1 && window.scrollY - topOf(areas[1]) < 14) {
+        e.preventDefault(); go(0);
       }
     }
     window.addEventListener("wheel", onWheel, { passive: false });

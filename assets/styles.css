@@ -2755,3 +2755,7 @@ body.on-home main.wrap { padding-top: 20px; }
   font: inherit; font-size: 13px; color: var(--ink-soft); cursor: pointer; transition: background-color .15s var(--ease-out), color .15s var(--ease-out); }
 .peek-skip:hover, .peek-skip:focus-visible { background: var(--primary-tint, var(--surface-2)); color: var(--primary-deep, var(--ink)); }
 .bp-day b { white-space: nowrap; }
+
+/* Start here, the subspecialty ticker and the flashcard share one area; below it the page scrolls normally. */
+.home-sec-1 > .home-marquee { grid-column: 1 / -1; margin: 0 0 8px; }
+.home-sec-2 { scroll-snap-align: none; }
