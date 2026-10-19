@@ -2697,3 +2697,20 @@ body.on-home .home-sec { max-width: 1240px; margin-left: auto; margin-right: aut
 .bp-weak:hover, .bp-weak:focus-visible { background: rgba(255,255,255,.08); }
 .bp-weak-q { font-size: 13px; line-height: 1.35; }
 .bp-weak-m { font-size: 11px; color: var(--hero-ink-soft); font-family: "JetBrains Mono", monospace; }
+
+/* Hero panels grow to use the card's full height. */
+.home-hero-sec .bento-panels { flex: 1 1 auto; align-items: stretch; }
+.home-hero-sec .bento-panel { padding: clamp(18px, 2.5vh, 28px) clamp(18px, 2vw, 28px); gap: 16px; }
+.home-hero-sec .bento-panel h3 { font-size: 11.5px; }
+.home-hero-sec .bp-figure { font-size: 13px; }
+.home-hero-sec .bp-chart { flex: 1 1 auto; height: auto; min-height: 120px; }
+.home-hero-sec .bp-bar { max-width: 44px; }
+.home-hero-sec .bp-day { font-size: 12px; }
+.home-hero-sec .bp-rows { flex: 1 1 auto; justify-content: space-evenly; gap: 4px; }
+.home-hero-sec .bp-row { font-size: 15px; padding: 9px 6px; }
+.home-hero-sec .bp-pct { font-size: 12.5px; }
+.home-hero-sec .bp-weak { padding: 10px 6px; }
+.home-hero-sec .bp-weak-q { font-size: 15px; }
+.home-hero-sec .bp-weak-m { font-size: 12px; }
+.home-hero-sec { min-height: calc(100vh - var(--topbar-h, 73px) - 28px); min-height: calc(100svh - var(--topbar-h, 73px) - 28px); }
+body.on-home main.wrap { padding-top: 20px; }

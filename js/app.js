@@ -1534,7 +1534,6 @@
     var root = el("screen-home");
     root.innerHTML = "";
     var heroSec = h('<section class="home-hero-sec" aria-label="Daily review"></section>');
-    heroSec.appendChild(h('<div class="eyebrow">Your ENT Rotation</div>'));
 
     /* Unified bento dashboard: a single dark hero card holds the queue CTA,
      * streak, a horizontally swipeable rack of every subspecialty with cards
