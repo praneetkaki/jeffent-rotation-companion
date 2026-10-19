@@ -1412,7 +1412,7 @@
       '<section class="home-peek" aria-label="Sample flashcards">' +
         '<div class="peek-card" role="button" tabindex="0" aria-live="polite">' +
           '<span class="peek-tag"></span><div class="peek-text"></div><small class="peek-hint"></small>' +
-        '</div></section>'
+        '</div><button type="button" class="peek-skip">Next card &rarr;</button></section>'
     );
     var card = peek.querySelector(".peek-card"), tag = peek.querySelector(".peek-tag"),
         txt = peek.querySelector(".peek-text"), hint = peek.querySelector(".peek-hint");
@@ -1434,6 +1434,10 @@
     }
     function step() { swap(function () { if (!showA) showA = true; else { showA = false; idx = (idx + 1) % picks.length; } }); }
     card.addEventListener("click", function () { lastTap = Date.now(); step(); });
+    peek.querySelector(".peek-skip").addEventListener("click", function () {
+      lastTap = Date.now();
+      swap(function () { showA = false; idx = (idx + 1) % picks.length; });
+    });
     card.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); card.click(); } });
     ["mouseenter", "focusin"].forEach(function (ev) { card.addEventListener(ev, function () { paused = true; }); });
     ["mouseleave", "focusout"].forEach(function (ev) { card.addEventListener(ev, function () { paused = false; }); });
@@ -1554,8 +1558,7 @@
       '<div class="bento-tile bento-hero bento-hero-unified">' +
         '<div class="bento-hero-top">' +
           '<div class="bento-hero-copy">' +
-            '<div class="eyebrow">Spaced repetition queue</div>' +
-            '<h2 class="bento-hero-title">Ready for your daily review</h2>' +
+            '<h2 class="bento-hero-title">Spaced repetition queue</h2>' +
             '<div class="bento-hero-sub">' + agg.due + ' card' + (agg.due === 1 ? '' : 's') + ' due across ' + allMods.length + ' modules.</div>' +
           '</div>' +
           '<div class="bento-streak-chip" data-dash="streak" role="button" tabindex="0" aria-label="' + streak + (streak === 1 ? ' day' : ' days') + ' study streak. Show daily review activity.">' +
@@ -1618,7 +1621,7 @@
     activity7.forEach(function (v) { weekTotal += v; });
     var bars = activity7.map(function (v, i) {
       var d = new Date(now.getFullYear(), now.getMonth(), now.getDate() - (activity7.length - 1 - i));
-      return '<div class="bp-col' + (i === activity7.length - 1 ? ' today' : '') + '"><span class="bp-bar" style="height:' + Math.max(4, Math.round((v / peak) * 100)) + '%" title="' + v + ' reviewed"></span><span class="bp-day">' + dayLetters[d.getDay()] + '<b>' + d.getDate() + '</b></span></div>';
+      return '<div class="bp-col' + (i === activity7.length - 1 ? ' today' : '') + '"><span class="bp-bar" style="height:' + Math.max(4, Math.round((v / peak) * 100)) + '%" title="' + v + ' reviewed"></span><span class="bp-day">' + dayLetters[d.getDay()] + '<b>' + (d.getMonth() + 1) + '/' + d.getDate() + '</b></span></div>';
     }).join("");
     panels.appendChild(h(
       '<section class="bento-panel"><header><h3>Last 7 days</h3><span class="bp-figure">' + weekTotal + ' reviewed</span></header>' +
@@ -1662,10 +1665,8 @@
         '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>' +
       '</button>'
     );
-    scrollCue.addEventListener("click", function () {
-      var next = root.querySelector(".home-sec-2") || root.querySelector(".home-sec");
-      if (next) next.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
+    scrollCue.addEventListener("click", function () { if (pager) pager.next(); });
+    var pager = null;
     heroSec.appendChild(scrollCue);
     function hideCue() {
       var gone = (window.scrollY || document.documentElement.scrollTop) > 60;
@@ -1807,6 +1808,44 @@
        Home use the same per-tile cascade instead of the whole grid fading
        in as one block. */
     restaggerHomeGrid(grid, list);
+    pager = initHomePaging([heroSec, sec1El(root), sec2]);
+  }
+
+  function sec1El(root) { return root.querySelector(".home-sec-1"); }
+
+  /* Slight scroll moves the whole page to the next area: hero, then Jump back in + flashcard, then the module grid.
+   * The module grid is taller than the screen, so inside it scrolling is normal. */
+  function initHomePaging(areas) {
+    areas = areas.filter(Boolean);
+    var busy = false, reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    function topbarH() { var t = document.querySelector(".topbar"); return t ? t.getBoundingClientRect().height : 73; }
+    function topOf(a) { return a.getBoundingClientRect().top + window.scrollY - topbarH(); }
+    function current() {
+      var y = window.scrollY, idx = 0;
+      areas.forEach(function (a, i) { if (topOf(a) <= y + 10) idx = i; });
+      return idx;
+    }
+    function go(i) {
+      i = Math.max(0, Math.min(areas.length - 1, i));
+      busy = true;
+      window.scrollTo({ top: Math.max(0, topOf(areas[i])), behavior: reduce ? "auto" : "smooth" });
+      setTimeout(function () { busy = false; }, reduce ? 0 : 750);
+    }
+    function onWheel(e) {
+      if (!document.body.contains(areas[0]) || !document.body.classList.contains("on-home")) { window.removeEventListener("wheel", onWheel); return; }
+      if (e.ctrlKey || Math.abs(e.deltaY) < 4 || document.body.classList.contains("flash-open") && e.target.closest && e.target.closest(".flashpanel")) return;
+      if (e.target.closest && e.target.closest(".bento-hero-scroller, .sidenav, .flashpanel, .pimppanel, .search-results")) return;
+      var i = current(), vh = window.innerHeight - topbarH();
+      if (busy) { e.preventDefault(); return; }
+      if (e.deltaY > 0 && i < areas.length - 1) {
+        var bottom = areas[i].getBoundingClientRect().bottom - topbarH();
+        if (bottom <= vh + 220) { e.preventDefault(); go(i + 1); }
+      } else if (e.deltaY < 0 && i > 0 && window.scrollY - topOf(areas[i]) < 14) {
+        e.preventDefault(); go(i - 1);
+      }
+    }
+    window.addEventListener("wheel", onWheel, { passive: false });
+    return { next: function () { go(current() + 1); } };
   }
 
   var HOME_VIEW_KEY = "jeffent.homeView";

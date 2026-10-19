@@ -2738,3 +2738,20 @@ body.on-home main.wrap { padding-top: 20px; }
 .bp-day b { font-weight: 600; font-size: 11px; color: var(--hero-ink-soft); }
 .bp-col.today .bp-day, .bp-col.today .bp-day b { color: #fff; }
 .home-hero-sec .bento-hero, .home-hero-sec .bento-hero:hover { box-shadow: none !important; background: none !important; }
+
+/* Revised home: solid green hero (no fade), page snaps between areas. */
+.home-hero-sec { padding-bottom: 96px;
+  background:
+    radial-gradient(900px 420px at 88% 8%, rgba(255,255,255,.055), transparent 70%),
+    radial-gradient(700px 400px at 6% 70%, rgba(120,190,130,.07), transparent 70%),
+    var(--home-green); }
+.home-scroll-cue { bottom: 18px; }
+.home-hero-sec { scroll-snap-align: start; }
+.home-hero-sec ~ .home-marquee { scroll-snap-align: none; }
+.home-sec-1 { scroll-snap-align: start; min-height: calc(100vh - var(--topbar-h, 73px) - 24px); min-height: calc(100svh - var(--topbar-h, 73px) - 24px);
+  align-content: center; margin-top: 0; }
+.home-sec-2 { scroll-snap-align: start; padding-top: 28px; margin-top: 0; }
+.peek-skip { display: block; margin: 12px auto 0; background: none; border: 1px solid var(--line); border-radius: 999px; padding: 8px 18px;
+  font: inherit; font-size: 13px; color: var(--ink-soft); cursor: pointer; transition: background-color .15s var(--ease-out), color .15s var(--ease-out); }
+.peek-skip:hover, .peek-skip:focus-visible { background: var(--primary-tint, var(--surface-2)); color: var(--primary-deep, var(--ink)); }
+.bp-day b { white-space: nowrap; }
