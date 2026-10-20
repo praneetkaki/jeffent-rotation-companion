@@ -2890,3 +2890,32 @@ mark.user-hl[data-c="orange"] { background: rgba(255, 150, 50, .4); }
 .tg-check svg { width: 14px; height: 14px; }
 .tg-card.is-learned { position: relative; }
 .tg-card.is-learned .tg-check { display: inline-flex; }
+
+/* Cards tab: a full deck header and a browsable grid instead of a thin strip. */
+.deck-hero { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 22px; padding: clamp(22px, 3vw, 36px);
+  background: radial-gradient(700px 300px at 90% 0%, rgba(255,255,255,.06), transparent 70%), var(--home-green, #0a2c10); color: #eef4ec; border-radius: var(--radius-lg, 16px); margin-bottom: 26px; }
+.deck-hero-copy { flex: 1 1 280px; min-width: 0; }
+.deck-hero-title { font-family: var(--display); font-weight: 500; font-size: clamp(2rem, 4vw, 2.8rem); margin: 0; color: #fff; line-height: 1.05; }
+.deck-hero-stats { display: flex; flex-wrap: wrap; gap: 6px 22px; margin-top: 10px; font-size: 14.5px; color: rgba(238,244,236,.78); }
+.deck-hero-stats b { color: #fff; font-weight: 600; margin-right: 4px; }
+.deck-hero-bar { height: 6px; border-radius: 99px; background: rgba(255,255,255,.14); margin-top: 16px; max-width: 420px; overflow: hidden; }
+.deck-hero-bar i { display: block; height: 100%; min-width: 3px; background: #9fe0ab; border-radius: 99px; }
+.deck-hero-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.deck-primary { background: #fff; color: var(--home-green, #0a2c10); border-color: #fff; border-radius: 999px; padding: 12px 24px; font-weight: 600; }
+.deck-primary:hover { background: #e8efe6; border-color: #e8efe6; }
+.deck-ghost { background: transparent; color: #eef4ec; border: 1px solid rgba(255,255,255,.3); border-radius: 999px; padding: 12px 20px; }
+.deck-ghost:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.5); }
+.deck-browse-head h3 { font-family: var(--display); font-weight: 500; font-size: 1.5rem; margin: 0 0 12px; }
+.deck-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+.deck-chip { display: inline-flex; gap: 8px; align-items: center; padding: 7px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); font: inherit; font-size: 13.5px; color: var(--ink-soft); cursor: pointer; transition: background-color .15s var(--ease-out), color .15s var(--ease-out); }
+.deck-chip span { font-size: 11.5px; color: var(--ink-faint); font-family: "JetBrains Mono", monospace; }
+.deck-chip:hover { background: var(--primary-tint); color: var(--primary-deep); }
+.deck-chip.active { background: var(--primary-deep, #0a2c10); color: #fff; border-color: transparent; }
+.deck-chip.active span { color: rgba(255,255,255,.7); }
+.deck-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+.deck-tile { display: flex; flex-direction: column; gap: 10px; text-align: left; padding: 16px 18px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg, 14px); font: inherit; color: var(--ink); cursor: pointer; min-height: 120px;
+  transition: transform .18s var(--ease-out), box-shadow .18s var(--ease-out), border-color .18s var(--ease-out); }
+.deck-tile:hover, .deck-tile:focus-visible { transform: translateY(-2px); border-color: var(--primary); box-shadow: var(--shadow-lift, 0 8px 22px rgba(0,0,0,.1)); }
+.deck-n { font-size: 11px; color: var(--ink-faint); }
+.deck-q { font-family: var(--display); font-size: 1.12rem; line-height: 1.3; flex: 1 1 auto; }
+.deck-tile .topic-chips { margin-top: 0; }

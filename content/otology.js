@@ -245,7 +245,6 @@ window.JEFFENT.register({
       {
         id: "hearing-loss-fork",
         title: "Hearing loss: the fork in the road",
-        tagline: "Conductive vs sensorineural: the bedside tuning-fork test that splits every hearing-loss workup in two.",
         html:
           "<p><strong>Conductive</strong> (something blocks sound reaching the cochlea) vs <strong>sensorineural</strong> (cochlea or CN VIII). Localize at the bedside with <strong>Weber + Rinne (512 Hz)</strong>.</p>" +
           "<ul><li><strong>Conductive causes:</strong> cerumen, middle-ear effusion, TM perforation, otosclerosis, ossicular problems.</li>" +
@@ -254,7 +253,6 @@ window.JEFFENT.register({
       {
         id: "otalgia-primary-referred",
         title: "Otalgia: primary vs referred",
-        tagline: "Ear pain with a normal ear exam: which distant structures actually refer pain here, and when that pattern is a red flag.",
         html:
           "<ul>" +
           "<li><strong>Primary</strong> (ear pathology): otitis externa (pain on tragal traction, canal edema), acute otitis media (bulging red TM), cerumen, TM perforation.</li>" +
@@ -265,7 +263,6 @@ window.JEFFENT.register({
       {
         id: "infection-and-danger",
         title: "Infection, and when it's dangerous",
-        tagline: "Otitis externa, AOM, cholesteatoma, and necrotizing otitis externa side by side -- and which ones simply cannot wait.",
         html:
           "<ul><li><strong>Otitis externa:</strong> canal infection; tragal tenderness, discharge.</li>" +
           "<li><strong>Acute otitis media:</strong> middle-ear infection; bulging TM, effusion. <strong>Mastoiditis</strong> is a complication/extension of AOM: infection spreads from the middle ear into the mastoid air cells via the aditus ad antrum, producing postauricular swelling/erythema and an outwardly-displaced auricle; it needs urgent ENT input, not just more oral antibiotics.</li>" +
@@ -275,7 +272,6 @@ window.JEFFENT.register({
       {
         id: "otitis-externa-management",
         title: "Acute otitis externa: first-line management",
-        tagline: "Why topical, not oral, antibiotics are first-line for swimmer's ear, and how TM status changes which drop is safe.",
         html:
           "<ul><li><strong>Topical therapy is first-line, not oral antibiotics</strong>: topical agents reach far higher local concentrations, have fewer systemic effects, and limit resistance (AAO-HNS 2014). Most common pathogens: <em>Pseudomonas aeruginosa</em> and <em>Staphylococcus aureus</em>.</li>" +
           "<li><strong>Aural toilet</strong> (cleaning/microsuction) and pain control are integral; a wick is placed when canal edema prevents drops from entering.</li>" +
@@ -285,7 +281,6 @@ window.JEFFENT.register({
       {
         id: "dizziness-peripheral-central",
         title: "Dizziness: peripheral vs central",
-        tagline: "BPPV, vestibular neuritis, and Ménière's vs the central mimics -- and exactly when (and when not) to reach for HINTS.",
         html:
           "<ul><li><strong>BPPV:</strong> brief positional vertigo; <strong>Dix-Hallpike</strong> reproduces it; treat with Epley.</li>" +
           "<li><strong>Vestibular neuritis:</strong> acute constant vertigo for days, no hearing loss, often post-viral. New hearing loss with the same syndrome means labyrinthitis and raises the possibility of an AICA-territory stroke. Vestibular suppressants only for the first 24 to 48 hours (they delay compensation), and meclizine does not treat BPPV.</li>" +
@@ -295,7 +290,6 @@ window.JEFFENT.register({
       {
         id: "otosclerosis-chl-differential",
         title: "Conductive hearing loss with an intact tympanic membrane: the differential",
-        tagline: "Otosclerosis, OME, and ossicular discontinuity: three causes of a normal-looking drum with abnormal hearing, told apart by tympanogram.",
         html:
           "<p>When conductive hearing loss is confirmed (Weber lateralizes to the affected ear, Rinne negative) but the tympanic membrane looks completely normal, three diagnoses dominate, and tympanometry usually separates them before imaging is ever needed.</p>" +
           "<ul>" +
@@ -308,7 +302,6 @@ window.JEFFENT.register({
       {
         id: "cholesteatoma-depth",
         title: "Cholesteatoma: mechanism, classification, and why it's surgical",
-        tagline: "How a trapped sac of skin keratin behind the eardrum erodes bone, why drops never fix it, and what mastoidectomy actually removes.",
         html:
           "<p>A cholesteatoma is not a tumor. It's a sac of stratified squamous epithelium and trapped keratin debris growing where it doesn't belong, expanding by pressure and by releasing enzymes that resorb adjacent bone.</p>" +
           "<ul>" +
@@ -328,7 +321,6 @@ window.JEFFENT.register({
       {
         id: "vestibular-schwannoma-workup",
         title: "Vestibular schwannoma: workup and the management ladder",
-        tagline: "Asymmetric hearing loss or tinnitus: the imaging that finds a millimeter-scale CN VIII tumor, and how observation, radiosurgery, and microsurgery are chosen.",
         html:
           "<p>A vestibular schwannoma (acoustic neuroma) is a benign, slow-growing Schwann-cell tumor of the vestibular division of CN VIII, arising in the internal auditory canal. It's the classic explanation for <strong>asymmetric/unilateral SNHL or tinnitus</strong>, can cause disequilibrium (true vertigo is uncommon; slow growth allows central compensation), and, as it enlarges, can produce trigeminal (facial numbness) or facial nerve symptoms from cerebellopontine-angle/brainstem compression.</p>" +
           "<ul>" +
@@ -343,7 +335,6 @@ window.JEFFENT.register({
       {
         id: "meniere-criteria-management",
         title: "Ménière's disease: diagnostic criteria and the step-up ladder",
-        tagline: "The formal Bárány/AAO-HNS diagnostic criteria beyond the classic tetrad, and the five-step ladder from diet to ear-destructive surgery.",
         html:
           "<p>The Bárány Society/AAO-HNS (2015) consensus criteria formalize the diagnosis beyond the simple tetrad:</p>" +
           "<p><strong>Definite Ménière's disease</strong> requires all of the following:</p>" +
@@ -367,7 +358,6 @@ window.JEFFENT.register({
       {
         id: "noe-depth",
         title: "Necrotizing (malignant) otitis externa: the progression to watch",
-        tagline: "Skull-base osteomyelitis from a 'bad ear infection' in a diabetic patient -- the organism, the cranial-nerve spread pattern, and why it's weeks of IV therapy.",
         html:
           "<p><strong>Pseudomonas aeruginosa</strong> is the classic pathogen, invading through the fissures of Santorini and the bony-cartilaginous junction of the canal to cause osteomyelitis of the skull base, almost always in a <strong>diabetic</strong> (poor glycemic control) or otherwise <strong>immunocompromised</strong> patient. Fungal necrotizing otitis externa (Aspergillus) occurs, especially when antipseudomonal therapy fails, and changes treatment; deep tissue biopsy for culture also excludes malignancy. Pain is disproportionate to exam findings and often worse at night; granulation tissue at the bony-cartilaginous junction of the canal floor is the classic sign.</p>" +
           "<p><strong>Cranial nerve progression tracks how far the osteomyelitis has spread:</strong> <strong>CN VII</strong> is affected first and most often (it exits nearby via the stylomastoid foramen); further skull-base spread toward the jugular foramen threatens <strong>CN IX, X, XI</strong> (dysphagia, hoarseness, shoulder weakness), and <strong>CN XII</strong> (tongue weakness) if it extends to the hypoglossal canal. New cranial neuropathies signal advancing disease, not a new, separate problem.</p>" +

@@ -3221,8 +3221,7 @@
     var main = showNav ? h('<div class="lesson-main"></div>') : pane;
     blocks.forEach(function (b, i) {
       var anchor = "clinical-block-" + esc(b.id || "");
-      var p = h('<div class="panel' + (b.pearl ? ' pearl' : '') + '" data-anchor="' + anchor + '"><h3>' + esc(b.title) + '</h3>' +
-        (b.tagline ? '<p class="detail-tagline">' + esc(b.tagline) + '</p>' : '') + '</div>');
+      var p = h('<div class="panel' + (b.pearl ? ' pearl' : '') + '" data-anchor="' + anchor + '"><h3>' + esc(b.title) + '</h3></div>');
       var blockText = stripHtml(b.html || "");
       var blockActions = h('<div class="panel-actions"></div>');
       blockActions.appendChild(bookmarkButton({
@@ -3790,22 +3789,61 @@
   function renderCardsIntro(pane, mod) {
     pane.innerHTML = "";
     var s = window.SRS.stats(mod.id, mod.cards);
-    var cta = h(
-      '<div class="study-cta">' +
-        '<div><div class="n">' + s.total + ' cards · ' + s.due + ' due today</div>' +
-        '<div class="cta-sub">Active recall with spaced repetition.</div></div>' +
-        '<div class="cta-actions"></div>' +
+    var masteredPct = s.total ? Math.round(((s.mastered || 0) / s.total) * 100) : 0;
+    var hero = h(
+      '<div class="deck-hero">' +
+        '<div class="deck-hero-copy">' +
+          '<h2 class="deck-hero-title">' + s.total + ' cards</h2>' +
+          '<div class="deck-hero-stats"><span><b>' + s.due + '</b> due today</span><span><b>' + masteredPct + '%</b> mastered</span></div>' +
+          '<div class="deck-hero-bar" aria-hidden="true"><i style="width:' + masteredPct + '%"></i></div>' +
+        '</div>' +
+        '<div class="deck-hero-actions"></div>' +
       '</div>'
     );
-    var actions = cta.querySelector(".cta-actions");
-    var b1 = h('<button class="btn">Study due (' + s.due + ') →</button>');
+    var actions = hero.querySelector(".deck-hero-actions");
+    var b1 = h('<button class="btn deck-primary">Study due (' + s.due + ') &rarr;</button>');
     b1.addEventListener("click", function () { startSession(pane, mod, "due"); });
-    var b2 = h('<button class="btn ghost">Review all ' + s.total + '</button>');
+    var b2 = h('<button class="btn ghost deck-ghost">Review all ' + s.total + '</button>');
     b2.addEventListener("click", function () { startSession(pane, mod, "all"); });
-    var b3 = h('<button class="btn ghost" data-tip="Download a tab-separated deck for Anki\'s desktop import">Export to Anki</button>');
+    var b3 = h('<button class="btn ghost deck-ghost" data-tip="Download a tab-separated deck for Anki\'s desktop import">Export to Anki</button>');
     b3.addEventListener("click", function () { exportModuleToAnki(mod); });
     actions.appendChild(b1); actions.appendChild(b2); actions.appendChild(b3);
-    pane.appendChild(cta);
+    pane.appendChild(hero);
+
+    /* Browse the deck: topic filter, then one tile per card that opens it on its own. */
+    var cards = mod.cards || [], topics = [], seen = {};
+    cards.forEach(function (c) { (c.topics || []).forEach(function (t) { if (!seen[t]) { seen[t] = 1; topics.push(t); } }); });
+    var browse = h('<section class="deck-browse"><div class="deck-browse-head"><h3>Browse the deck</h3></div></section>');
+    var chips = null, active = "All";
+    if (topics.length) {
+      chips = h('<div class="deck-chips" role="group" aria-label="Filter cards by topic"></div>');
+      ["All"].concat(topics).forEach(function (t) {
+        var n = t === "All" ? cards.length : cards.filter(function (c) { return (c.topics || []).indexOf(t) !== -1; }).length;
+        var b = h('<button type="button" class="deck-chip' + (t === "All" ? ' active' : '') + '" data-t="' + esc(t) + '">' + esc(t) + '<span>' + n + '</span></button>');
+        b.addEventListener("click", function () {
+          active = t;
+          [].forEach.call(chips.children, function (x) { x.classList.toggle("active", x.getAttribute("data-t") === t); });
+          paint();
+        });
+        chips.appendChild(b);
+      });
+      browse.appendChild(chips);
+    }
+    var grid = h('<div class="deck-grid"></div>');
+    browse.appendChild(grid);
+    function paint() {
+      grid.innerHTML = "";
+      cards.forEach(function (c, i) {
+        if (active !== "All" && (c.topics || []).indexOf(active) === -1) return;
+        var q = stripHtml(effectiveFront(mod.id, c)).replace(/\s+/g, " ");
+        if (q.length > 120) q = q.slice(0, 117) + "...";
+        var t = h('<button type="button" class="deck-tile"><span class="deck-n mono">' + (i + 1) + '</span><span class="deck-q">' + esc(q) + '</span>' + topicChips(c.topics) + '</button>');
+        t.addEventListener("click", function () { startSession(pane, mod, "search", [c]); });
+        grid.appendChild(t);
+      });
+    }
+    paint();
+    pane.appendChild(browse);
   }
 
   /* Anki's desktop "Import File" dialog reads plain tab-separated text (no
