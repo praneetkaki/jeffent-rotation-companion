@@ -80,13 +80,10 @@ window.JEFFENT.register({
         src: "assets/img/figures/kiesselbach_plexus.png",
         source: "Kiesselbach's Plexus (Little's Area) Arterial Supply.",
         labels: [
-          { id:"aee-branch", text:"Anterior ethmoidal a. (internal carotid → ophthalmic branch): the highest of the four contributing vessels", box:{x:1.7,y:11.5,w:22.9,h:8.2} },
-          { id:"spa", text:"Sphenopalatine a. (external carotid → maxillary a.): the posterior bleed source when it bleeds on its own, higher up the septum", box:{x:2.4,y:43.3,w:12.5,h:6.7} },
-          { id:"gpa", text:"Greater palatine a. (external carotid → maxillary a.): reaches the anterior septum via the incisive canal", box:{x:0.5,y:51,w:19,h:9.5} },
-          { id:"sla", text:"Superior labial a., septal branch (external carotid → facial a.): supplies the plexus from below", box:{x:1.9,y:59.0,w:12.0,h:17.7} },
-          { id:"ka-plexus", text:"Little's area / Kiesselbach's plexus: the anastomosis on the anterior septum", box:{x:1.9,y:3.1,w:85.5,h:7.3} },
-          { id:"epistaxis-zone", text:"Anterior epistaxis zone: thin, exposed mucosa prone to abrasion and spontaneous bleeding, most nosebleeds", box:{x:36.5,y:64.8,w:12.4,h:16.1}, extra:[{x:65.6,y:14.4,w:29.8,h:6.2}] },
-          { id:"ka-confluence", text:"Kiesselbach's plexus: confluence of the four arteries above, responsible for the great majority of epistaxis", box:{x:21.7,y:77.1,w:14.5,h:4.2}, extra:[{x:62.5,y:87.8,w:35.7,h:5.3}] }
+          { id:"aee-branch", text:"Anterior ethmoidal a. (internal carotid → ophthalmic branch): the highest of the four contributing vessels", box:{x:1.8,y:25.8,w:14.6,h:10.2}, extra:[{x:1.8,y:11.4,w:22.8,h:8.2}] },
+          { id:"spa", text:"Sphenopalatine a. (external carotid → maxillary a.): the posterior bleed source when it bleeds on its own, higher up the septum", box:{x:1.8,y:37.4,w:13.6,h:12.6} },
+          { id:"gpa", text:"Greater palatine a. (external carotid → maxillary a.): reaches the anterior septum via the incisive canal", box:{x:1.4,y:50.2,w:9.0,h:12.9} },
+          { id:"sla", text:"Superior labial a., septal branch (external carotid → facial a.): supplies the plexus from below", box:{x:1.6,y:64.8,w:12.4,h:14.6} }
         ]
       },
       {
@@ -109,20 +106,25 @@ window.JEFFENT.register({
         ]
       },
       {
-        kind: "svg",
+        kind: "image",
+        occlude: true,
         id: "lateral-wall-turbinates",
         title: "Lateral nasal wall: turbinates & meatuses (sagittal)",
-        note: "Which sinus drains into which meatus. Name each, then reveal.",
-        viewBox: "0 0 420 300",
-        base: '<path d="M20 260 Q40 60 380 40 Q400 140 360 260 Z" fill="var(--surface-2)" stroke="var(--line)" stroke-width="2"/>'
-          + '<path d="M60 220 Q160 190 320 200" fill="none" stroke="var(--primary)" stroke-width="4"/>'
-          + '<path d="M50 170 Q170 130 340 148" fill="none" stroke="var(--primary)" stroke-width="4"/>'
-          + '<path d="M70 110 Q180 90 300 100" fill="none" stroke="var(--primary)" stroke-width="3"/>',
+        note: "The bony lateral wall of the nose with its three conchae. Name each structure, then reveal.",
+        src: "assets/img/figures/lateral-nasal-wall-gray153.png",
+        source: "Lateral wall of the nasal cavity. Gray's Anatomy (1918), Fig. 153. Public domain, via Wikimedia Commons.",
         labels: [
-          { id:"it", text:"Inferior turbinate → inferior meatus (nasolacrimal duct opens here)", px:190, py:210, lx:210, ly:280 },
-          { id:"mt", text:"Middle turbinate → middle meatus (OMC: frontal/max/ant. ethmoid)", px:195, py:140, lx:60, ly:70 },
-          { id:"st", text:"Superior turbinate → superior meatus (posterior ethmoid)", px:185, py:98, lx:340, ly:40 },
-          { id:"sr", text:"Sphenoethmoidal recess (sphenoid sinus drains here)", px:340, py:80, lx:380, ly:150 }
+          { id:"frontal-sinus", text:"Frontal sinus: the air cell in the frontal bone above the nasal cavity; it drains through the frontal recess into the middle meatus.", box:{x:41.5,y:5.8,w:16.0,h:4.4} },
+          { id:"crista-galli", text:"Crista galli: the midline ridge of the ethmoid that anchors the falx cerebri; the cribriform plate lies beside it.", box:{x:53.4,y:13.2,w:14.8,h:4.6} },
+          { id:"sella-turcica", text:"Sella turcica: the pituitary fossa in the sphenoid, just behind the sphenoid sinus.", box:{x:70.4,y:19.4,w:15.0,h:4.4} },
+          { id:"sup-concha", text:"Superior concha (turbinate): the smallest turbinate. The superior meatus beneath it receives the posterior ethmoid cells.", box:{x:35.5,y:25.5,w:20.5,h:11.5} },
+          { id:"mid-concha", text:"Middle concha (turbinate): the middle meatus beneath it receives the frontal, anterior ethmoid, and maxillary sinuses via the ostiomeatal complex.", box:{x:34.5,y:37.2,w:19.5,h:8.6} },
+          { id:"inf-concha", text:"Inferior concha (turbinate): a separate bone. The inferior meatus beneath it receives the nasolacrimal duct.", box:{x:30.5,y:54.8,w:20.5,h:7.4} },
+          { id:"uncinate", text:"Uncinate process of the ethmoid: a thin sickle of bone that forms the medial wall of the infundibulum; it is the key landmark in sinus surgery.", box:{x:0.0,y:52.9,w:11.2,h:10.6} },
+          { id:"max-openings", text:"Openings into the maxillary sinus: the maxillary ostium drains into the middle meatus through the ethmoid infundibulum.", box:{x:81.0,y:78.8,w:19.0,h:6.2} },
+          { id:"medial-pterygoid", text:"Medial pterygoid plate: the posterior boundary of the lateral nasal wall; the pterygopalatine fossa lies just lateral to it.", box:{x:74.0,y:85.2,w:25.8,h:4.2} },
+          { id:"hamulus", text:"Pterygoid hamulus: the hook at the end of the medial pterygoid plate, which the tendon of tensor veli palatini winds around.", box:{x:69.4,y:88.0,w:11.8,h:4.4} },
+          { id:"sphenoidal-sinus", text:"Sphenoidal sinus: drains into the sphenoethmoidal recess, above the superior concha; it lies close to the pituitary, optic nerve, and cavernous sinus.", box:{x:60.0,y:36.5,w:17.5,h:13.5} }
         ]
       },
       {

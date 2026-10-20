@@ -2309,7 +2309,7 @@ div.anatomy-detail-body:not(.panel) li::marker { color: color-mix(in srgb, var(-
 .lesson-main > .panel, .tabpane[data-pane="clinical"] > .panel {
   background: none; backdrop-filter: none; -webkit-backdrop-filter: none; border: 0; border-radius: 0;
   box-shadow: none; margin: 0; padding: 30px 0; border-top: 1px solid var(--line); }
-.lesson-main > .panel:first-child, .tabpane[data-pane="clinical"] > .panel:first-child { border-top: 0; padding-top: 6px; }
+.lesson-main > .panel:first-child, .tabpane[data-pane="clinical"] > .panel:first-child { border-top: 0; padding-top: 18px; }
 .lesson-main > .panel .panel-actions, .tabpane[data-pane="clinical"] > .panel .panel-actions { right: 0; top: 26px; }
 .lesson-main > .panel:first-child .panel-actions { top: 2px; }
 .lesson-main > .panel.pearl, .tabpane[data-pane="clinical"] > .panel.pearl {
@@ -2921,3 +2921,4 @@ mark.user-hl[data-c="orange"] { background: rgba(255, 150, 50, .4); }
 .deck-tile .topic-chips { margin-top: 0; }
 .deck-hero .btn.deck-ghost, .deck-hero .btn.ghost.deck-ghost { color: #eef4ec !important; background: transparent !important; border: 1px solid rgba(255,255,255,.34) !important; }
 .deck-hero .btn.deck-ghost:hover, .deck-hero .btn.deck-ghost:focus-visible { background: rgba(255,255,255,.12) !important; color: #fff !important; }
+

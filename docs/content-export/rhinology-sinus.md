@@ -61,9 +61,6 @@ _Image source: Kiesselbach's Plexus (Little's Area) Arterial Supply._
 - Sphenopalatine a. (external carotid → maxillary a.): the posterior bleed source when it bleeds on its own, higher up the septum
 - Greater palatine a. (external carotid → maxillary a.): reaches the anterior septum via the incisive canal
 - Superior labial a., septal branch (external carotid → facial a.): supplies the plexus from below
-- Little's area / Kiesselbach's plexus: the anastomosis on the anterior septum
-- Anterior epistaxis zone: thin, exposed mucosa prone to abrasion and spontaneous bleeding, most nosebleeds
-- Kiesselbach's plexus: confluence of the four arteries above, responsible for the great majority of epistaxis
 
 **Diagram: Ostiomeatal complex: coronal drainage**
 
@@ -81,11 +78,20 @@ _Image source: Ostiomeatal Complex (OMC) Coronal Drainage Anatomy. radiopaedia.o
 
 **Diagram: Lateral nasal wall: turbinates & meatuses (sagittal)**
 
-Which sinus drains into which meatus. Name each, then reveal.
-- Inferior turbinate → inferior meatus (nasolacrimal duct opens here)
-- Middle turbinate → middle meatus (OMC: frontal/max/ant. ethmoid)
-- Superior turbinate → superior meatus (posterior ethmoid)
-- Sphenoethmoidal recess (sphenoid sinus drains here)
+The bony lateral wall of the nose with its three conchae. Name each structure, then reveal.
+
+_Image source: Lateral wall of the nasal cavity. Gray's Anatomy (1918), Fig. 153. Public domain, via Wikimedia Commons._
+- Frontal sinus: the air cell in the frontal bone above the nasal cavity; it drains through the frontal recess into the middle meatus.
+- Crista galli: the midline ridge of the ethmoid that anchors the falx cerebri; the cribriform plate lies beside it.
+- Sella turcica: the pituitary fossa in the sphenoid, just behind the sphenoid sinus.
+- Superior concha (turbinate): the smallest turbinate. The superior meatus beneath it receives the posterior ethmoid cells.
+- Middle concha (turbinate): the middle meatus beneath it receives the frontal, anterior ethmoid, and maxillary sinuses via the ostiomeatal complex.
+- Inferior concha (turbinate): a separate bone. The inferior meatus beneath it receives the nasolacrimal duct.
+- Uncinate process of the ethmoid: a thin sickle of bone that forms the medial wall of the infundibulum; it is the key landmark in sinus surgery.
+- Openings into the maxillary sinus: the maxillary ostium drains into the middle meatus through the ethmoid infundibulum.
+- Medial pterygoid plate: the posterior boundary of the lateral nasal wall; the pterygopalatine fossa lies just lateral to it.
+- Pterygoid hamulus: the hook at the end of the medial pterygoid plate, which the tendon of tensor veli palatini winds around.
+- Sphenoidal sinus: drains into the sphenoethmoidal recess, above the superior concha; it lies close to the pituitary, optic nerve, and cavernous sinus.
 
 **Diagram: Sinus danger zones: orbit and skull base**
 

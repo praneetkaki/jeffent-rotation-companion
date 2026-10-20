@@ -2483,7 +2483,7 @@
     var hero = h('<div class="lesson-hero"' + trackStyle + '></div>');
     var heroTop = h('<div class="lesson-hero-top"></div>');
     heroTop.appendChild(h(
-      '<span class="lesson-kicker mono">' + esc(topic.kind === "note" ? "Anatomy note" : "Anatomy diagram") + (topic.kind === "note" && notes[topic.index] ? ' \u00b7 ' + noteMinutes(notes[topic.index].html) + ' min read' : '') + '</span>'
+      '<span class="lesson-kicker mono">' + esc(topic.kind === "note" ? "Anatomy note" : "Anatomy diagram") + (topic.kind === "note" && notes[topic.index] ? ' \u00b7 ~' + noteMinutes(notes[topic.index].html) + ' min read' : '') + '</span>'
     ));
 
     /* Body is built up front (rather than after the hero, as before) so the
@@ -2871,7 +2871,7 @@
       var doneN = notes.filter(function (n, i) { return isLessonLearned(mod.id, { kind: "note", index: i }); }).length;
       var totalMin = notes.reduce(function (t, n) { return t + noteMinutes(n.html); }, 0);
       wrap.appendChild(h(
-        '<div class="notes-progress"' + trackStyle + '><div class="np-top"><span><b>' + doneN + ' of ' + notes.length + '</b> notes learned</span><span class="np-min mono">about ' + totalMin + ' min of reading</span></div>' +
+        '<div class="notes-progress"' + trackStyle + '><div class="np-top"><span><b>' + doneN + ' of ' + notes.length + '</b> notes learned</span><span class="np-min mono">~' + totalMin + ' min read</span></div>' +
         '<div class="np-bar" role="progressbar" aria-valuemin="0" aria-valuemax="' + notes.length + '" aria-valuenow="' + doneN + '"><i style="width:' + Math.round((doneN / notes.length) * 100) + '%"></i></div></div>'
       ));
     }
@@ -2910,7 +2910,7 @@
           '<button type="button" class="tg-card' + (src ? '' : ' no-img') + (isLessonLearned(mod.id, { kind: "note", index: i }) ? ' is-learned' : '') + '" data-kind="note"' + trackStyle + '>' +
             '<div class="tg-media">' + media + '</div>' +
             '<div class="tg-body"><h3>' + esc(n.title) + '</h3><p>' + esc(teaserOf(n.html, 110)) + '</p>' +
-            '<span class="tg-chip">Note</span><span class="tg-min mono">' + noteMinutes(n.html) + ' min</span>' +
+            '<span class="tg-chip">Note</span><span class="tg-min mono">~' + noteMinutes(n.html) + ' min read</span>' +
             '<span class="tg-check" aria-label="Learned"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></div>' +
           '</button>'
         );
