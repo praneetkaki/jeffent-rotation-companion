@@ -16,7 +16,7 @@ Every piece of module content, extracted from `content/*.js`. Regenerate with `n
 | [frameworks.md](frameworks.md) | Curriculum framework registry | ~1k chars |
 | [glossary.md](glossary.md) | Glossary (inline term popovers) | ~89k chars |
 | [head-neck-oncology.md](head-neck-oncology.md) | Head & Neck Oncology | ~77k chars |
-| [laryngology-voice-airway.md](laryngology-voice-airway.md) | Laryngology, Voice & Airway | ~52k chars |
+| [laryngology-voice-airway.md](laryngology-voice-airway.md) | Laryngology, Voice & Airway | ~51k chars |
 | [otology-ear.md](otology-ear.md) | The Ear: Anatomy to the Clinic | ~74k chars |
 | [pediatric-ent.md](pediatric-ent.md) | Pediatric ENT | ~78k chars |
 | [pharm-pocket.md](pharm-pocket.md) | Pharmacology Pocket Guide | ~11k chars |

@@ -3478,7 +3478,7 @@ GlandLocationSecretion typeClinical pearlsParotidOverlies the mandibular ramus, 
 - Consequence of injury: unilateral -> vocal fold paralysis (hoarse, breathy voice); bilateral -> airway emergency, may require tracheostomy.
 - The external branch of the superior laryngeal nerve, near the superior pole vessels, is separately at risk and controls pitch via the cricothyroid muscle.Left RLNRight RLNCourseLoops under the aortic arch and ascends fairly vertically in the groove.Loops under the right subclavian artery and takes a more oblique, lateral path.VariantRarely non-recurrent.A non-recurrent nerve (about 0.6 to 1.3%) is associated with an aberrant right subclavian artery, a classic surgical trap.Parathyroid Vascularity & Hypocalcemia
 - Four glands (two superior, two inferior) on the posterior thyroid capsule, each only a few millimeters, secreting parathyroid hormone (PTH) for calcium/phosphate balance.
-- Consequence of injury: small, tan, and sharing blood supply with the thyroid, they can be inadvertently removed or devascularized -> postoperative hypocalcemia. Watch for perioral numbness and Chvostek/Trousseau signs. Autotransplantation is an option if a gland is devascularized.Embryology explains their behavior, and it crosses over
+- Consequence of injury: small, tan, and sharing blood supply with the thyroid, they can be inadvertently removed or devascularized -> postoperative hypocalcemia. Watch for perioral numbness and Chvostek/Trousseau signs. Autotransplantation is an option if a gland is devascularized.Thyroid and Parathyroid Gland Embryology
 Superior glandsInferior glandsOrigin4th pharyngeal pouch3rd pharyngeal pouch (the higher-numbered pouch gives the lower glands)PositionShort descent, so more constant: typically posterior to the RLN near the cricothyroid junction.Descend with the thymus, so far more variable: occasionally trailing into the thymus or mediastinum.
 
 **Oral cavity vs oropharynx** (tags: Oral cavity (tobacco) · Oropharynx (HPV) · Subsite boundary)
@@ -3616,7 +3616,7 @@ _Image source: Thyroid and Parathyroid Glands, Vasculature, and Recurrent Laryng
 Rising incidence, typically in younger, non-smoking patients. p16 immunohistochemistry is the standard surrogate marker for HPV-driven tumors (HPV-16 drives about 90% of cases; HPV-18 is a minor contributor) and carries a better prognosis than HPV-negative disease at the same stage, reflected in a separate staging system.
 Pitfall: a cystic neck node from an HPV+ oropharyngeal primary can look radiologically and even cytologically like a benign branchial cleft cyst. A new 'branchial cleft cyst' in an adult over ~40 needs the primary excluded, not just drained.
 
-**[nasopharyngeal-carcinoma] Nasopharyngeal carcinoma (NPC): the EBV-associated cancer everyone should recognize early**
+**[nasopharyngeal-carcinoma] Nasopharyngeal Carcinoma (NPC) and EBV**
 
 Endemic in southern China/Southeast Asia (also elevated in North Africa), strongly associated with Epstein-Barr virus (EBV); salted/preserved-food diet and genetic susceptibility contribute. Importantly, tobacco and alcohol are far less central than for other head & neck cancers, and NPC readily occurs in never-smokers.
 Classic presentation, driven by the tumor's nasopharyngeal location:
@@ -4126,8 +4126,7 @@ Teaching: Any persistent oral white or red patch in a smoker gets biopsied. Loca
 - The RLN is long and asymmetric: left loops under the aortic arch, right under the subclavian artery.
 - That is why hoarseness can be the first sign of a lung apex tumor, aortic aneurysm, or thyroid/mediastinal disease, and why the RLN is at risk in thyroid surgery.
 - The cricothyroid is the only intrinsic laryngeal muscle not innervated by the RLN: it's supplied by the external branch of the superior laryngeal nerve (EBSLN) instead.MuscleActionEffectPosterior cricoarytenoidAbductor (the only one)Opens the airwayLateral cricoarytenoidAdductorCloses the airwayInterarytenoid (transverse arytenoid)AdductorCloses the airwayThyroarytenoid (vocalis)Adductor; relaxes/shortens the foldCloses the airway; lowers pitchCricothyroidTenses/lengthens the foldRaises pitchA rare right-sided non-recurrent nerve occurs with an aberrant right subclavian artery and is at higher surgical risk.
-RLN injury vs EBSLN injury: RLN injury causes vocal fold paralysis (usually paramedian), producing a hoarse, breathy, weak voice and aspiration risk. EBSLN injury is subtler and often under-recognized: cricothyroid weakness causes loss of high pitch and projection, vocal fatigue, and difficulty singing or projecting the voice, without frank hoarseness at rest.
-Bilateral RLN injury leaves both folds near the midline and can cause stridor and airway obstruction, a potential emergency after thyroidectomy. Document vocal fold mobility by laryngoscopy before thyroid or neck surgery and again if the voice changes afterward, because a normal voice does not rule out fold paralysis.
+RLN injuryEBSLN injuryMuscle affectedAll intrinsic muscles except cricothyroid (unilateral injury paralyzes the vocal fold, usually paramedian)CricothyroidVoiceHoarse, breathy, weak voiceLoss of high pitch and projection, vocal fatigue, difficulty singingOtherAspiration riskNo frank hoarseness at rest; often under-recognizedBilateral RLN injury leaves both folds near the midline and can cause stridor and airway obstruction, a potential emergency after thyroidectomy. Document vocal fold mobility by laryngoscopy before thyroid or neck surgery and again if the voice changes afterward, because a normal voice does not rule out fold paralysis.
 Emergency airway: the cricothyroid membrane is the surgical airway site in adults. Cricothyrotomy is avoided in young children.
 
 ### Anatomy diagrams (4)
@@ -4192,9 +4191,21 @@ _Image source: Microarchitecture of the True Vocal Fold (Cover-Body Layers)._
 
 ### Clinical blocks (13)
 
-**[dysphonia-guideline-principles] When to scope, and what not to prescribe (AAO-HNS 2018)**
+**[dysphonia-guideline-principles] When to perform laryngoscopy**
 
-Perform or refer for laryngoscopy if dysphonia fails to improve/resolve within 4 weeks, or expedited at any time if a serious cause is suspected (recent head/neck/chest surgery or intubation, neck mass, stridor/respiratory distress, tobacco use, professional voice user). Do not obtain CT/MRI for a primary voice complaint before visualizing the larynx. Do not routinely prescribe antireflux medication, corticosteroids, or antibiotics for dysphonia before laryngoscopy (strong recommendation against routine antibiotics).
+Perform or refer for laryngoscopy (AAO-HNS 2018):
+
+- Dysphonia not improved or resolved within 4 weeks.
+- Expedited, at any time, if a serious cause is suspected:
+- Recent head, neck, or chest surgery, or intubation
+- Neck mass
+- Stridor or respiratory distress
+- Tobacco use
+- Professional voice userBefore laryngoscopy, do not:
+
+- Obtain CT or MRI for a primary voice complaint.
+- Routinely prescribe antireflux medication or corticosteroids.
+- Routinely prescribe antibiotics (strong recommendation against).
 
 **[vf-immobility] Vocal fold immobility: unilateral vs bilateral**
 
@@ -4209,7 +4220,7 @@ These are opposite problems: one leaks air, the other blocks it.
 
 **[vf-paralysis-workup-management] Unilateral vocal fold paralysis: workup and the management ladder**
 
-[figure: Workup of unilateral vocal fold paralysis requires imaging the entire RLN course; management ladder from voice therapy to thyroplasty.]Once laryngoscopy confirms an immobile fold, image the entire recurrent laryngeal nerve course, from skull base to the aortic arch and mediastinum, because a lesion anywhere along that path (lung apex tumor, thyroid mass, mediastinal node, aortic aneurysm) can be the cause, not just the neck.
+Once laryngoscopy confirms an immobile fold, image the entire recurrent laryngeal nerve course, from skull base to the aortic arch and mediastinum, because a lesion anywhere along that path (lung apex tumor, thyroid mass, mediastinal node, aortic aneurysm) can be the cause, not just the neck.
 Management ladder (for a fold unlikely to be from a treatable cause found above):
 
 - Observe + voice therapy first: a genuine chance of spontaneous recovery persists for up to ~6-12 months, especially after a clear iatrogenic or viral insult.
@@ -4260,11 +4271,38 @@ N0 is no regional nodes and N1 is a single ipsilateral node &le;3 cm. Higher N m
 
 **[early-glottic-cancer-treatment] Early glottic cancer (T1-T2, N0): TLM vs radiotherapy**
 
-For early glottic SCC, the two standard single-modality options are transoral laser microsurgery (TLM) and definitive radiotherapy (RT). Randomized and cohort data show roughly equivalent overall and disease-specific survival and high larynx-preservation with either. TLM is a single procedure that provides margin histology, spares surrounding tissue, and preserves RT for later salvage; RT may give a smoother voice in some cases but irradiates the whole larynx and generally cannot be repeated. Choice depends on tumor exposure/extent (e.g., anterior commissure involvement), voice priorities, comorbidity, and team expertise. Advanced disease (T3-T4) is managed with larynx-preservation chemoradiation or total laryngectomy, decided at tumor board.
+Two standard single-modality options, with roughly equivalent overall and disease-specific survival and high larynx preservation:
 
-**[vcd] Vocal cord dysfunction (paradoxical vocal fold motion): the asthma mimic**
+- Transoral laser microsurgery (TLM)
+- Single procedure with margin histology
+- Spares surrounding tissue
+- Preserves radiotherapy for later salvage
+- Definitive radiotherapy (RT)
+- May give a smoother voice in some cases
+- Irradiates the whole larynx
+- Generally cannot be repeatedChoice depends on:
 
-Vocal cord dysfunction, now termed inducible laryngeal obstruction (ILO) (paradoxical vocal fold motion), is paradoxical inspiratory adduction of the vocal folds causing episodic dyspnea/inspiratory stridor that mimics asthma and does not respond to bronchodilators. Spirometry between episodes is often normal; a symptomatic episode may show a truncated/flattened inspiratory flow-volume loop. The gold standard is laryngoscopy with provocation, and a clearly abnormal inspiratory closure during an episode confirms it (the closure threshold used to call it abnormal is not universally standardized). It frequently coexists with asthma (reported ~30-50% in difficult asthma), so the presence of asthma does not exclude it. Managed with speech-therapy breathing retraining and treating triggers (reflux, irritants, exercise, anxiety), not inhaler escalation.
+- Tumor exposure and extent (e.g., anterior commissure involvement)
+- Voice priorities
+- Comorbidity
+- Team expertiseAdvanced disease (T3-T4): larynx-preservation chemoradiation or total laryngectomy, decided at tumor board.
+
+**[vcd] Vocal cord dysfunction (paradoxical vocal fold motion)**
+
+Now termed inducible laryngeal obstruction (ILO): paradoxical inspiratory adduction of the vocal folds.
+
+- Presentation
+- Episodic dyspnea and inspiratory stridor
+- Mimics asthma; does not respond to bronchodilators
+- Testing
+- Spirometry between episodes is often normal
+- During an episode, the inspiratory flow-volume loop may be truncated or flattened
+- Gold standard: laryngoscopy with provocation, showing abnormal inspiratory closure (the threshold is not universally standardized)
+- Coexists with asthma (reported ~30-50% in difficult asthma), so asthma does not exclude it
+- Management
+- Speech-therapy breathing retraining
+- Treat triggers: reflux, irritants, exercise, anxiety
+- Not inhaler escalation
 
 **[subglottic-stenosis-differential] Subglottic stenosis: iatrogenic vs idiopathic vs GPA, and the other asthma mimic**
 

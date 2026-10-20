@@ -80,7 +80,7 @@ window.JEFFENT.register({
           "<h4>Parathyroid Vascularity & Hypocalcemia</h4><ul>" +
           "<li><strong>Four glands</strong> (two superior, two inferior) on the posterior thyroid capsule, each only a few millimeters, secreting <strong>parathyroid hormone (PTH)</strong> for calcium/phosphate balance.</li>" +
           "<li><strong>Consequence of injury</strong>: small, tan, and sharing blood supply with the thyroid, they can be inadvertently removed or devascularized &rarr; postoperative <strong>hypocalcemia</strong>. Watch for perioral numbness and Chvostek/Trousseau signs. Autotransplantation is an option if a gland is devascularized.</li></ul>" +
-          "<p><strong>Embryology explains their behavior, and it crosses over</strong></p>" +
+          "<p><strong>Thyroid and Parathyroid Gland Embryology</strong></p>" +
           "<table class=\"tbl-wrap\"><thead><tr><th></th><th>Superior glands</th><th>Inferior glands</th></tr></thead><tbody>" +
           "<tr><td><strong>Origin</strong></td><td>4th pharyngeal pouch</td><td>3rd pharyngeal pouch (the higher-numbered pouch gives the lower glands)</td></tr>" +
           "<tr><td><strong>Position</strong></td><td>Short descent, so more constant: typically posterior to the RLN near the cricothyroid junction.</td><td>Descend with the thymus, so far more variable: occasionally trailing into the thymus or mediastinum.</td></tr></tbody></table>"
@@ -263,7 +263,7 @@ window.JEFFENT.register({
       },
       {
         id: "nasopharyngeal-carcinoma",
-        title: "Nasopharyngeal carcinoma (NPC): the EBV-associated cancer everyone should recognize early",
+        title: "Nasopharyngeal Carcinoma (NPC) and EBV",
         html: "<p>Endemic in southern China/Southeast Asia (also elevated in North Africa), strongly associated with <strong>Epstein-Barr virus (EBV)</strong>; salted/preserved-food diet and genetic susceptibility contribute. Importantly, <strong>tobacco and alcohol are far less central</strong> than for other head & neck cancers, and NPC readily occurs in never-smokers.</p>" +
           "<p><strong>Classic presentation</strong>, driven by the tumor's nasopharyngeal location:</p>" +
           "<ul><li>A painless neck mass (nodal metastasis), often the presenting sign.</li>" +

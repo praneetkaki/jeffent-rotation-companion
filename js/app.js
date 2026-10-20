@@ -3015,18 +3015,27 @@
     }
 
     var built = dg.kind === "image" ? buildImageDiagramStage(dg, grouped, revealed, updateRow) : buildSvgDiagramStage(dg, grouped, revealed, updateRow);
-    panel.appendChild(built.stage);
+    var split = h('<div class="diagram-split"></div>');
+    var side = h('<div class="diagram-legend"></div>');
+    split.appendChild(built.stage);
+    split.appendChild(side);
+    panel.appendChild(split);
 
     var toggle = h('<button class="btn small">Reveal all labels</button>');
-    panel.appendChild(toggle);
+    side.appendChild(toggle);
 
     grouped.order.forEach(function (id) {
       var num = grouped.numberOf(id);
       var li = h('<li data-row="' + id + '"><button aria-label="Reveal landmark ' + num + '">?</button><span>Landmark ' + num + '</span></li>');
       li.querySelector("button").addEventListener("click", function () { built.toggleLabel(id); });
+      function hl(on) { built.stage.querySelectorAll('[data-hot="' + id + '"]').forEach(function (n) { n.classList.toggle("hl", on); }); }
+      li.addEventListener("mouseenter", function () { hl(true); });
+      li.addEventListener("mouseleave", function () { hl(false); });
+      li.addEventListener("focusin", function () { hl(true); });
+      li.addEventListener("focusout", function () { hl(false); });
       list.appendChild(li);
     });
-    panel.appendChild(list);
+    side.appendChild(list);
 
     var allOn = false;
     toggle.addEventListener("click", function () {
@@ -3809,6 +3818,35 @@
     b3.addEventListener("click", function () { exportModuleToAnki(mod); });
     actions.appendChild(b1); actions.appendChild(b2); actions.appendChild(b3);
     pane.appendChild(hero);
+
+    /* Dynamic deck: a stack you can flip and deal through, cards fanned behind. */
+    var deckCards = mod.cards || [];
+    if (deckCards.length > 1) {
+      var di = 0, flipped = false;
+      var stack = h('<section class="deck-stack-wrap" aria-label="Preview the deck"><div class="deck-stack"><div class="ds-card ds-back2"></div><div class="ds-card ds-back1"></div><button type="button" class="ds-card ds-top" aria-label="Flip card"><span class="ds-n mono"></span><span class="ds-face"></span></button></div><div class="ds-controls"><button type="button" class="btn ghost small ds-prev">Previous</button><span class="ds-count mono"></span><button type="button" class="btn small ds-next">Next card</button></div></section>');
+      var top = stack.querySelector(".ds-top"), face = stack.querySelector(".ds-face"), dn = stack.querySelector(".ds-n"), cnt = stack.querySelector(".ds-count");
+      var paintDeck = function () {
+        var c = deckCards[di];
+        var txt = flipped ? effectiveBack(mod.id, c) : effectiveFront(mod.id, c);
+        face.innerHTML = txt;
+        top.classList.toggle("flipped", flipped);
+        dn.textContent = (flipped ? "Answer" : "Question") + " " + (di + 1);
+        cnt.textContent = (di + 1) + " / " + deckCards.length;
+      };
+      var deal = function (dir) {
+        top.classList.add(dir > 0 ? "ds-out-l" : "ds-out-r");
+        setTimeout(function () {
+          di = (di + dir + deckCards.length) % deckCards.length; flipped = false; paintDeck();
+          top.classList.remove("ds-out-l", "ds-out-r"); top.classList.add("ds-in");
+          setTimeout(function () { top.classList.remove("ds-in"); }, 220);
+        }, 180);
+      };
+      top.addEventListener("click", function () { flipped = !flipped; paintDeck(); });
+      stack.querySelector(".ds-next").addEventListener("click", function () { deal(1); });
+      stack.querySelector(".ds-prev").addEventListener("click", function () { deal(-1); });
+      paintDeck();
+      pane.appendChild(stack);
+    }
 
     /* Browse the deck: topic filter, then one tile per card that opens it on its own. */
     var cards = mod.cards || [], topics = [], seen = {};
@@ -4806,10 +4844,13 @@
   function measureTopbarHeightVar() {
     var tb = document.querySelector(".topbar");
     if (tb && tb.offsetHeight) document.documentElement.style.setProperty("--topbar-h", tb.offsetHeight + "px");
+    var sh = document.querySelector(".mod-sticky-head");
+    if (tb && sh) document.documentElement.style.setProperty("--sticky-head-h", (tb.offsetHeight + sh.offsetHeight) + "px");
   }
   function initTopbarHeightVar() {
     measureTopbarHeightVar();
     window.addEventListener("resize", measureTopbarHeightVar);
+    window.addEventListener("scroll", measureTopbarHeightVar, { passive: true });
   }
 
   /* Click any table (wrapped in .tbl-scroll) to read it enlarged. A second,
