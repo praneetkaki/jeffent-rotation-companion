@@ -2823,3 +2823,40 @@ body.on-home main.wrap { padding-top: 20px; }
 .home-hero-sec .bp-heat { min-height: 120px; }
 .home-hero-sec .bento-panel { padding: clamp(14px, 2vh, 22px) clamp(16px, 1.8vw, 24px); gap: 12px; }
 .home-hero-sec { padding-bottom: 84px; }
+
+/* ---- highlights ---- */
+mark.user-hl { color: inherit; border-radius: 3px; padding: 0 1px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+mark.user-hl[data-c="yellow"] { background: rgba(255, 214, 10, .42); }
+mark.user-hl[data-c="green"]  { background: rgba(80, 200, 120, .38); }
+mark.user-hl[data-c="blue"]   { background: rgba(90, 160, 255, .36); }
+mark.user-hl[data-c="pink"]   { background: rgba(255, 105, 160, .34); }
+mark.user-hl[data-c="orange"] { background: rgba(255, 150, 50, .4); }
+.hl-bar { position: fixed; z-index: 60; display: flex; gap: 8px; padding: 8px 10px; background: var(--surface); border: 1px solid var(--line); border-radius: 999px; box-shadow: var(--shadow-lift, 0 8px 24px rgba(0,0,0,.18)); }
+.hl-bar[hidden] { display: none; }
+.hl-dot { width: 22px; height: 22px; border-radius: 50%; border: 1px solid rgba(0,0,0,.18); cursor: pointer; padding: 0; transition: transform .12s var(--ease-out); }
+.hl-dot:hover, .hl-dot:focus-visible { transform: scale(1.18); }
+.hl-dot[data-c="yellow"] { background: #ffd60a; } .hl-dot[data-c="green"] { background: #50c878; } .hl-dot[data-c="blue"] { background: #5aa0ff; }
+.hl-dot[data-c="pink"] { background: #ff69a0; } .hl-dot[data-c="orange"] { background: #ff9632; }
+.hl-menu { position: fixed; z-index: 61; min-width: 180px; padding: 6px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow-lift, 0 8px 24px rgba(0,0,0,.18)); display: grid; }
+.hl-menu-item { text-align: left; background: none; border: 0; padding: 9px 12px; border-radius: 8px; font: inherit; font-size: 14px; color: var(--ink); cursor: pointer; }
+.hl-menu-item:hover, .hl-menu-item:focus-visible { background: var(--primary-tint, var(--surface-2)); }
+
+/* ---- review mode (owner only) ---- */
+[data-rv-n] { outline: 2px dashed #e0a030; outline-offset: 3px; }
+.rv-panel { position: fixed; right: 16px; bottom: 16px; z-index: 62; width: min(340px, calc(100vw - 32px)); background: var(--surface); border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow-lift, 0 8px 24px rgba(0,0,0,.2)); overflow: hidden; }
+.rv-head { width: 100%; text-align: left; background: #e0a030; color: #2a1d00; border: 0; padding: 11px 14px; font: inherit; font-size: 13.5px; font-weight: 600; cursor: pointer; }
+.rv-list { max-height: 46vh; overflow-y: auto; padding: 8px 12px; display: grid; gap: 10px; }
+.rv-item { border-bottom: 1px solid var(--line); padding-bottom: 10px; display: grid; gap: 4px; }
+.rv-item-route { font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--ink-faint); overflow-wrap: anywhere; }
+.rv-item-text { font-size: 12.5px; color: var(--ink-soft); font-style: italic; }
+.rv-item-comment { font-size: 14px; color: var(--ink); }
+.rv-empty { font-size: 13px; color: var(--ink-soft); margin: 6px 0; }
+.rv-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.rv-foot { padding: 10px 12px; border-top: 1px solid var(--line); }
+.rv-btn { background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; font: inherit; font-size: 13px; color: var(--ink); cursor: pointer; }
+.rv-btn:hover, .rv-btn:focus-visible { background: var(--primary-tint, var(--surface-2)); }
+.rv-primary { background: var(--primary-deep, #0a2c10); color: #fff; border-color: transparent; }
+.rv-primary:hover, .rv-primary:focus-visible { background: var(--primary, #123f1b); }
+.rv-box { position: fixed; z-index: 63; width: 310px; padding: 12px; display: grid; gap: 10px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow-lift, 0 8px 24px rgba(0,0,0,.22)); }
+.rv-quote { font-size: 12.5px; font-style: italic; color: var(--ink-soft); max-height: 4.2em; overflow: hidden; }
+.rv-ta { width: 100%; font: inherit; font-size: 14px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 10px; background: var(--ground); color: var(--ink); resize: vertical; }

@@ -51,5 +51,8 @@ A dependency-free **static web app** for ENT rotation study (active recall + spa
 - Anything synced is whatever's under the `jeffent.` `localStorage` prefix, matching every other module's own convention, don't invent a second storage convention for synced data.
 - See `docs/SYNC-SETUP.md` for the Firebase project setup and security rules this depends on.
 
+## Annotations
+`js/annotate.js` holds two small tools that sit on top of rendered pages. Highlights (everyone): drag over words in a module, pick a colour, right-click a highlight to remove it. They are stored under `jeffent.highlights`, so the optional sync carries them. Review mode (owner only, `?review=1`, turn off with `?review=0`): right-click anything to leave a comment, then use the panel's Copy all to paste the comments into a Claude Code session. Comments live in this browser only (`ent.review.comments`, not synced). Keep it free of clinical content.
+
 ## Not this project's job
 Real user accounts (passwords, email, login flows), analytics that identify users, ad code, or anything that stores personal data beyond the opt-in sync username above. Keep it boring, static, and legible.
