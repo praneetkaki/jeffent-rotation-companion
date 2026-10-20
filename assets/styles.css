@@ -2788,3 +2788,6 @@ body.on-home main.wrap { padding-top: 20px; }
 .bp-due { font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--hero-ink-soft); background: rgba(255,255,255,.08); border-radius: 999px; padding: 3px 9px; white-space: nowrap; }
 .bp-row:hover .bp-due { color: #fff; background: rgba(255,255,255,.16); }
 @media (prefers-reduced-motion: reduce) { .bp-col .bp-bar, .bp-track i { transition: none; } .bp-activity .bp-col .bp-bar { transform: none; } }
+
+/* Scroll cue stays on screen at the bottom of the first view, whatever the hero's height. */
+.home-scroll-cue { position: fixed; left: calc(50% + (var(--tb-l, 0px) - var(--tb-r, 0px)) / 2); bottom: 20px; z-index: 7; }
