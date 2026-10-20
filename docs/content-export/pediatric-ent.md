@@ -153,7 +153,7 @@ The distinction changes management entirely.
 | TM appearance | Dull, effusion, may see air-fluid level | Bulging, erythematous, opaque |
 | First-line management | Watchful waiting (most resolve in weeks) | Analgesia for all; then observation vs high-dose amoxicillin (80-90 mg/kg/day) depending on age/severity. Use amoxicillin-clavulanate if amoxicillin in the prior 30 days, concurrent purulent conjunctivitis, or treatment failure at 48-72h. |
 
-**[aom-observation-criteria] AOM: who can be watched, and what causes it**
+**[aom-observation-criteria] Management of Acute Otitis Media**
 
 Who can be observed: Always treat infants <6 months.
 
@@ -161,7 +161,7 @@ Who can be observed: Always treat infants <6 months.
 - Ages &ge;2 years: observation is an option for non-severe disease.
 - If a child on observation worsens or does not improve at 48-72h, start first-line high-dose amoxicillin. Switch to amoxicillin-clavulanate only when a child already on amoxicillin fails.Common organisms: Streptococcus pneumoniae, non-typeable Haemophilus influenzae, and Moraxella catarrhalis.
 
-**[peds-tna-indications] Tonsillectomy & adenoidectomy: when it's indicated**
+**[peds-tna-indications] Indications for Tonsillectomy & Adenoidectomy**
 
 Recurrent infection (the 'Paradise criteria' as a reference point), each episode documented and meeting defined severity criteria:
 
@@ -177,10 +177,7 @@ Extracapsular (total) tonsillectomy remains preferred when recurrent/chronic ton
 
 **[peds-tna-perioperative] Perioperative T&A essentials (AAO-HNS)**
 
-Give a single intraoperative dose of IV dexamethasone (~0.5 mg/kg, max ~10-16 mg): it halves postoperative nausea/vomiting and speeds return to a normal diet. Some centers are now adding a short postoperative oral dexamethasone course (0.5 mg/kg on postop days 2/4/6) as an analgesic adjunct that may reduce opioid prescriptions without increasing bleeding risk, though this is emerging/optional practice, not established guidance.
-Do not give routine perioperative prophylactic antibiotics: they don't reduce infection, pain, or bleeding.
-Manage pain with scheduled acetaminophen &plusmn; ibuprofen (ibuprofen is widely used and is not clearly shown to raise bleeding risk, though acetaminophen is preferred first-line in some centers). Do not administer or prescribe codeine (or codeine-containing medications) to any child under 18 after tonsillectomy: ultra-rapid CYP2D6 metabolizers can convert codeine to morphine and suffer fatal respiratory depression. Tramadol shares this CYP2D6 mechanism and is likewise contraindicated under 18 after T&A.
-Admit high-risk children (age <3, severe OSA, comorbidities) for postoperative monitoring given the risk of respiratory compromise.
+DomainRecommendationDetailsSteroidsGive a single intraoperative dose of IV dexamethasone~0.5 mg/kg, max ~10-16 mg. Halves postoperative nausea/vomiting and speeds return to a normal diet. Emerging and optional, not established guidance: a short postoperative oral course (0.5 mg/kg on postop days 2, 4, 6) as an analgesic adjunct that may reduce opioid prescriptions without increasing bleeding risk.AntibioticsDo not give routine perioperative prophylactic antibioticsThey do not reduce infection, pain, or bleeding.Pain controlUse scheduled acetaminophen &plusmn; ibuprofenIbuprofen is widely used and not clearly shown to raise bleeding risk. Acetaminophen is preferred first-line in some centers.Codeine and tramadolDo not administer or prescribe to any child under 18Ultra-rapid CYP2D6 metabolizers can convert codeine to morphine and suffer fatal respiratory depression. Tramadol shares the CYP2D6 mechanism and is likewise contraindicated under 18.DispositionAdmit high-risk children for postoperative monitoringAge <3, severe OSA, comorbidities. Risk of postoperative respiratory compromise.
 
 **[newborn-hearing-screen] Newborn hearing screening: the 1-3-6 rule**
 
@@ -203,7 +200,7 @@ Thyroglossal duct cyst is the most common congenital neck mass (~70%); branchial
 | Posterior triangle | Cystic hygroma / lymphatic malformation, often present at birth or found prenatally |
 | Preauricular | Preauricular pit/sinus (branchial anomaly), can become infected |
 
-**[branchial-anomaly-rule] The unifying rule: where each branchial anomaly opens internally**
+**[branchial-anomaly-rule] Where each branchial anomaly opens internally**
 
 A branchial anomaly is a remnant that failed to obliterate. Whether it presents as a cyst (no opening), sinus (one opening), or fistula (opens to both skin and pharynx) depends on what persisted, but the internal opening is fixed by the arch of origin:
 
@@ -212,20 +209,20 @@ A branchial anomaly is a remnant that failed to obliterate. Whether it presents 
 - 3rd & 4th -> pyriform sinus (3rd = base, 4th = apex; almost always left-sided).The internal opening descends in the pharynx as the arch number rises: 1st = ear, 2nd = tonsil, 3rd/4th = pyriform sinus.
 Second-cleft dominance: roughly 90-95% of all branchial cleft anomalies are 2nd cleft: a lateral neck cyst along the anterior border of the SCM is a 2nd branchial cleft cyst until proven otherwise.
 
-**[second-branchial-cleft-cyst] The 2nd branchial cleft cyst: the must-know anomaly**
+**[second-branchial-cleft-cyst] The 2nd branchial cleft cyst**
 
 Classic picture: a painless, smooth, fluctuant mass at the anterior border of the upper-third SCM, often first noticed or enlarging after an upper respiratory infection. Aspirate resembles "motor oil"/cholesterol-crystal fluid.
 The tract runs from the tonsillar fossa, between the internal and external carotid arteries, superficial to CN IX and XII, and terminates at the skin anterior to the SCM.
 FNA is useful and accurate for diagnosis in older children/adults, but in an adult over ~40, a "branchial cleft cyst" must have a cystic nodal metastasis from HPV+ oropharyngeal cancer excluded first.
 Definitive treatment is complete surgical excision of the cyst and any tract; incomplete excision recurs. Drain/treat active infection before elective excision.
 
-**[pyriform-sinus-tract] 3rd/4th anomalies: the pyriform sinus fistula pitfall**
+**[pyriform-sinus-tract] 3rd and 4th arch anomalies**
 
 3rd and 4th arch anomalies both open into the pyriform sinus and course near the thyroid, so they're lumped clinically as pyriform sinus fistulae. Almost always left-sided.
 Classic presentation: recurrent left-sided neck abscess, or "acute suppurative thyroiditis" in a child: an otherwise rare diagnosis that should immediately raise this anomaly.
 Definitive management requires identifying and obliterating the pyriform sinus tract (endoscopic cauterization or open excision), not just draining the abscess.
 
-**[first-branchial-cleft-anomaly] 1st cleft anomaly: the facial-nerve trap**
+**[first-branchial-cleft-anomaly] 1st branchial cleft anomaly**
 
 Rare (~1% of branchial anomalies) but high-stakes: presents around the angle of the mandible/periauricular region, or as recurrent otorrhea with a normal middle ear.
 The tract runs near or through the facial nerve and parotid, so excision risks CN VII injury and belongs to an experienced surgeon.
@@ -246,7 +243,7 @@ Midline masses that elevate with tongue protrusion are thyroglossal duct cysts; 
 Choanal atresia: newborns are obligate nasal breathers, so bilateral atresia causes cyclical cyanosis that improves with crying (mouth breathing) and worsens at rest; it's part of the CHARGE association.
 Laryngomalacia: the most common cause of stridor in infants, with inspiratory stridor worse when supine, feeding, or crying; it typically self-resolves within the first 18 to 24 months, but severe cases with growth failure need surgery (supraglottoplasty).
 
-**[congenital-ear-anomalies] Congenital & structural ear anomalies: aural atresia, microtia, congenital cholesteatoma**
+**[congenital-ear-anomalies] Congenital & structural ear anomalies**
 
 Aural atresia and microtia (absent/malformed ear canal and pinna) occur on a spectrum, often together, and may be isolated or syndromic (Treacher Collins syndrome, hemifacial microsomia/Goldenhar syndrome).
 Unilateral cases with a normal contralateral ear can be worked up electively; bilateral atresia causes significant conductive hearing loss from birth and is urgent: audiologic assessment and a bone-conduction hearing device are needed right away, since there is no ear canal for a conventional aid and the 1-3-6 hearing timeline still applies. Surgical ear canal/pinna reconstruction is deferred to school age or later (~age 6+, once rib cartilage is adequate for grafting), so early hearing access has to come from amplification, not surgery.
@@ -259,7 +256,7 @@ Congenital cholesteatoma is a distinct entity from the acquired cholesteatoma co
 | Typical clue | Painless foul otorrhea | Incidental pearly-white mass, or conductive hearing loss |
 | Management | Surgical removal | Surgical removal, earlier where possible to limit ossicular erosion |
 
-**[peds-osa-depth] Pediatric OSA: diagnosis and the post-adenotonsillectomy question**
+**[peds-osa-depth] Pediatric OSA**
 
 Pediatric OSA is diagnosed against a different threshold than adult OSA (adult depth lives in the Sleep Surgery & OSA track): an obstructive apnea-hypopnea index (AHI) ≥1 event/hour on polysomnography is abnormal in a child, versus ≥5/hour in an adult, a much lower bar. Polysomnography remains the gold standard, though in practice many children go straight to adenotonsillectomy on a strong clinical picture (snoring, witnessed apneas, gasping) without a preoperative sleep study. AAP/AASM recommend PSG for suspected OSA, while AAO-HNS reserves preoperative PSG for high-risk children (age under 2, obesity, Down syndrome, craniofacial or neuromuscular disease, sickle cell, mucopolysaccharidoses) or when the exam and symptoms do not match.
 Adenotonsillectomy resolves OSA in most otherwise-healthy children, but not all. Risk factors for persistent/residual OSA after T&A include:
@@ -279,7 +276,7 @@ Pierre Robin sequence is a triad of micrognathia (small mandible), glossoptosis 
 A vascular ring (an aberrant great-vessel arrangement encircling the trachea and esophagus) can also cause feeding difficulty or 'dying spells' from esophageal compression.
 Where laryngomalacia is usually a clinical diagnosis, biphasic stridor warrants imaging (barium esophagram, CT/MR angiography) and often bronchoscopy to look for external tracheal compression rather than assuming a floppy larynx.
 
-**[rrp-croup-mimic] Recurrent respiratory papillomatosis: the stridor/hoarseness mimic of croup**
+**[rrp-croup-mimic] Recurrent respiratory papillomatosis**
 
 Recurrent respiratory papillomatosis (RRP), introduced in Laryngology as an HPV-driven cause of hoarseness, has a distinct pediatric presentation worth knowing on its own.
 Juvenile-onset RRP is acquired perinatally, from a mother with genital HPV (types 6/11) during vaginal delivery, and typically presents between ages 2 and 4 with progressive hoarseness that, as papillomas enlarge, can progress to stridor and airway compromise.

@@ -180,12 +180,12 @@ window.JEFFENT.register({
       },
       {
         id: "aom-observation-criteria",
-        title: "AOM: who can be watched, and what causes it",
+        title: "Management of Acute Otitis Media",
         html: "<p><strong>Who can be observed:</strong> Always treat infants &lt;6 months.</p><ul><li>Ages <strong>6&ndash;23 months</strong>: antibiotics if bilateral, severe (T &ge;39&deg;C, moderate/severe otalgia, or otalgia &ge;48h), or otorrhea; otherwise a 48&ndash;72h observation option with shared decision-making and a rescue prescription is reasonable for mild, unilateral disease.</li><li>Ages <strong>&ge;2 years</strong>: observation is an option for non-severe disease.</li><li>If a child on observation worsens or does not improve at 48&ndash;72h, start first-line high-dose amoxicillin. Switch to amoxicillin-clavulanate only when a child already on amoxicillin fails.</li></ul><p><strong>Common organisms:</strong> <em>Streptococcus pneumoniae</em>, non-typeable <em>Haemophilus influenzae</em>, and <em>Moraxella catarrhalis</em>.</p>"
       },
       {
         id: "peds-tna-indications",
-        title: "Tonsillectomy & adenoidectomy: when it's indicated",
+        title: "Indications for Tonsillectomy & Adenoidectomy",
         html: "<p><strong>Recurrent infection</strong> (the 'Paradise criteria' as a reference point), each episode documented and meeting defined severity criteria:</p><ul><li>Roughly ≥7 episodes in 1 year</li><li>≥5/year for 2 years</li><li>≥3/year for 3 years</li></ul><p>In current practice, <strong>obstructive sleep-disordered breathing/OSA from adenotonsillar hypertrophy</strong> has become the <strong>leading indication</strong> for T&A, arguably more common now than recurrent infection.</p>"
       },
       {
@@ -196,7 +196,7 @@ window.JEFFENT.register({
       {
         id: "peds-tna-perioperative",
         title: "Perioperative T&A essentials (AAO-HNS)",
-        html: "<p>Give a <strong>single intraoperative dose of IV dexamethasone</strong> (~0.5 mg/kg, max ~10-16 mg): it halves postoperative nausea/vomiting and speeds return to a normal diet. Some centers are now adding a short postoperative oral dexamethasone course (0.5 mg/kg on postop days 2/4/6) as an analgesic adjunct that may reduce opioid prescriptions without increasing bleeding risk, though this is emerging/optional practice, not established guidance.</p><p><strong>Do not give routine perioperative prophylactic antibiotics</strong>: they don't reduce infection, pain, or bleeding.</p><p>Manage pain with <strong>scheduled acetaminophen &plusmn; ibuprofen</strong> (ibuprofen is widely used and is not clearly shown to raise bleeding risk, though acetaminophen is preferred first-line in some centers). <strong>Do not administer or prescribe codeine</strong> (or codeine-containing medications) to any child under 18 after tonsillectomy: ultra-rapid CYP2D6 metabolizers can convert codeine to morphine and suffer fatal respiratory depression. Tramadol shares this CYP2D6 mechanism and is likewise contraindicated under 18 after T&A.</p><p><strong>Admit high-risk children</strong> (age &lt;3, severe OSA, comorbidities) for postoperative monitoring given the risk of respiratory compromise.</p>"
+        html: "<table class='tbl-wrap guideline'><thead><tr><th>Domain</th><th>Recommendation</th><th>Details</th></tr></thead><tbody><tr><td><strong>Steroids</strong></td><td><span class='gl-do'>Give</span> a single intraoperative dose of IV dexamethasone</td><td>~0.5 mg/kg, max ~10-16 mg. Halves postoperative nausea/vomiting and speeds return to a normal diet. Emerging and optional, not established guidance: a short postoperative oral course (0.5 mg/kg on postop days 2, 4, 6) as an analgesic adjunct that may reduce opioid prescriptions without increasing bleeding risk.</td></tr><tr><td><strong>Antibiotics</strong></td><td><span class='gl-dont'>Do not give</span> routine perioperative prophylactic antibiotics</td><td>They do not reduce infection, pain, or bleeding.</td></tr><tr><td><strong>Pain control</strong></td><td><span class='gl-do'>Use</span> scheduled acetaminophen &plusmn; ibuprofen</td><td>Ibuprofen is widely used and not clearly shown to raise bleeding risk. Acetaminophen is preferred first-line in some centers.</td></tr><tr><td><strong>Codeine and tramadol</strong></td><td><span class='gl-dont'>Do not administer or prescribe</span> to any child under 18</td><td>Ultra-rapid CYP2D6 metabolizers can convert codeine to morphine and suffer fatal respiratory depression. Tramadol shares the CYP2D6 mechanism and is likewise contraindicated under 18.</td></tr><tr><td><strong>Disposition</strong></td><td><span class='gl-warn'>Admit</span> high-risk children for postoperative monitoring</td><td>Age &lt;3, severe OSA, comorbidities. Risk of postoperative respiratory compromise.</td></tr></tbody></table>"
       },
       {
         id: "newborn-hearing-screen",
@@ -219,22 +219,22 @@ window.JEFFENT.register({
       },
       {
         id: "branchial-anomaly-rule",
-        title: "The unifying rule: where each branchial anomaly opens internally",
+        title: "Where each branchial anomaly opens internally",
         html: "<p>A branchial anomaly is a remnant that failed to obliterate. Whether it presents as a cyst (no opening), sinus (one opening), or fistula (opens to both skin and pharynx) depends on what persisted, but the <strong>internal opening is fixed by the arch of origin</strong>:</p><ul><li><strong>1st cleft</strong> &rarr; external auditory canal / around the pinna & parotid (near the facial nerve).</li><li><strong>2nd cleft</strong> &rarr; tonsillar fossa (most common).</li><li><strong>3rd & 4th</strong> &rarr; pyriform sinus (3rd = base, 4th = apex; almost always left-sided).</li></ul><p>The internal opening descends in the pharynx as the arch number rises: 1st = ear, 2nd = tonsil, 3rd/4th = pyriform sinus.</p><p>Second-cleft dominance: roughly <strong>90-95%</strong> of all branchial cleft anomalies are 2nd cleft: a lateral neck cyst along the anterior border of the SCM is a 2nd branchial cleft cyst until proven otherwise.</p>"
       },
       {
         id: "second-branchial-cleft-cyst",
-        title: "The 2nd branchial cleft cyst: the must-know anomaly",
+        title: "The 2nd branchial cleft cyst",
         html: "<p>Classic picture: a painless, smooth, fluctuant mass at the anterior border of the upper-third SCM, often first noticed or enlarging after an upper respiratory infection. Aspirate resembles \"motor oil\"/cholesterol-crystal fluid.</p><p>The tract runs from the tonsillar fossa, <strong>between the internal and external carotid arteries</strong>, superficial to CN IX and XII, and terminates at the skin anterior to the SCM.</p><p>FNA is useful and accurate for diagnosis in older children/adults, but in an adult over ~40, a \"branchial cleft cyst\" must have a <strong>cystic nodal metastasis from HPV+ oropharyngeal cancer</strong> excluded first.</p><p>Definitive treatment is complete surgical excision of the cyst and any tract; incomplete excision recurs. Drain/treat active infection before elective excision.</p>"
       },
       {
         id: "pyriform-sinus-tract",
-        title: "3rd/4th anomalies: the pyriform sinus fistula pitfall",
+        title: "3rd and 4th arch anomalies",
         html: "<p>3rd and 4th arch anomalies both open into the pyriform sinus and course near the thyroid, so they're lumped clinically as <strong>pyriform sinus fistulae</strong>. Almost always <strong>left-sided</strong>.</p><p>Classic presentation: recurrent left-sided neck abscess, or \"acute suppurative thyroiditis\" in a child: an otherwise rare diagnosis that should immediately raise this anomaly.</p><p>Definitive management requires identifying and obliterating the pyriform sinus tract (endoscopic cauterization or open excision), not just draining the abscess.</p>"
       },
       {
         id: "first-branchial-cleft-anomaly",
-        title: "1st cleft anomaly: the facial-nerve trap",
+        title: "1st branchial cleft anomaly",
         html: "<p>Rare (~1% of branchial anomalies) but high-stakes: presents around the angle of the mandible/periauricular region, or as recurrent otorrhea with a normal middle ear.</p><p>The tract runs near or through the facial nerve and parotid, so excision risks CN VII injury and belongs to an experienced surgeon.</p>"
       },
       {
@@ -258,7 +258,7 @@ window.JEFFENT.register({
       },
       {
         id: "congenital-ear-anomalies",
-        title: "Congenital & structural ear anomalies: aural atresia, microtia, congenital cholesteatoma",
+        title: "Congenital & structural ear anomalies",
         html: "<p><strong>Aural atresia and microtia</strong> (absent/malformed ear canal and pinna) occur on a spectrum, often together, and may be isolated or syndromic (<strong>Treacher Collins syndrome</strong>, hemifacial microsomia/<strong>Goldenhar syndrome</strong>).</p><p><strong>Unilateral</strong> cases with a normal contralateral ear can be worked up electively; <strong>bilateral</strong> atresia causes significant conductive hearing loss from birth and is urgent: audiologic assessment and a <strong>bone-conduction hearing device</strong> are needed right away, since there is no ear canal for a conventional aid and the 1-3-6 hearing timeline still applies. Surgical ear canal/pinna reconstruction is deferred to <strong>school age or later</strong> (~age 6+, once rib cartilage is adequate for grafting), so early hearing access has to come from amplification, not surgery.</p><p><strong>Congenital cholesteatoma</strong> is a distinct entity from the acquired cholesteatoma covered in Foundations. It forms behind an <em>intact, normal-looking tympanic membrane</em> in a child with <em>no history of otitis media, perforation, or ear surgery</em>. Because there's no otorrhea to prompt a visit, it is often found incidentally (a pearly-white mass on routine exam) or via conductive hearing loss rather than discharge. Management is still surgical removal; earlier removal limits ossicular erosion.</p>",
         table: {
           head: ["", "Acquired cholesteatoma (Foundations)", "Congenital cholesteatoma"],
@@ -272,7 +272,7 @@ window.JEFFENT.register({
       },
       {
         id: "peds-osa-depth",
-        title: "Pediatric OSA: diagnosis and the post-adenotonsillectomy question",
+        title: "Pediatric OSA",
         html: "<p>Pediatric OSA is diagnosed against a different threshold than adult OSA (adult depth lives in the Sleep Surgery & OSA track): an obstructive <strong>apnea-hypopnea index (AHI) ≥1 event/hour</strong> on polysomnography is abnormal in a child, versus <strong>≥5/hour</strong> in an adult, a much lower bar. <strong>Polysomnography remains the gold standard</strong>, though in practice many children go straight to adenotonsillectomy on a strong clinical picture (snoring, witnessed apneas, gasping) without a preoperative sleep study. AAP/AASM recommend PSG for suspected OSA, while AAO-HNS reserves preoperative PSG for high-risk children (age under 2, obesity, Down syndrome, craniofacial or neuromuscular disease, sickle cell, mucopolysaccharidoses) or when the exam and symptoms do not match.</p><p><strong>Adenotonsillectomy resolves OSA in most otherwise-healthy children, but not all.</strong> Risk factors for <strong>persistent/residual OSA after T&A</strong> include:</p><ul><li>Obesity</li><li><strong>Down syndrome</strong> (macroglossia, midface hypoplasia, hypotonia)</li><li>Other craniofacial syndromes</li><li>Severe preoperative AHI</li></ul><p>These children should get a <strong>postoperative polysomnogram</strong> rather than being assumed cured, since a second driver of obstruction is more likely.</p>"
       },
       {
@@ -282,7 +282,7 @@ window.JEFFENT.register({
       },
       {
         id: "rrp-croup-mimic",
-        title: "Recurrent respiratory papillomatosis: the stridor/hoarseness mimic of croup",
+        title: "Recurrent respiratory papillomatosis",
         html: "<p><strong>Recurrent respiratory papillomatosis (RRP)</strong>, introduced in Laryngology as an HPV-driven cause of hoarseness, has a distinct pediatric presentation worth knowing on its own.</p><p><strong>Juvenile-onset RRP</strong> is acquired <strong>perinatally</strong>, from a mother with genital HPV (types 6/11) during vaginal delivery, and typically presents between <strong>ages 2 and 4</strong> with progressive hoarseness that, as papillomas enlarge, can progress to stridor and airway compromise.</p><p>Because it is slow and recurrent, it is easy to mistake for recurrent croup or asthma. A child with 'recurrent croup' that doesn't fit the usual single-episode viral pattern, or with progressive voice change alongside noisy breathing, deserves <strong>direct laryngoscopy</strong>, not another course of steroids.</p><p>Disease burden is tracked with the <strong>Derkay staging system</strong>. Because papillomas regrow, management is <strong>repeated surgical debulking</strong> (microdebrider or CO2/KTP laser) rather than a single cure; adjuvant therapy (e.g., <strong>cidofovir</strong>, bevacizumab) is reserved for aggressive, rapidly recurring disease.</p><p>The single biggest lever on juvenile-onset RRP is <strong>prevention</strong>: routine <strong>HPV vaccination</strong> lowers the prevalence of maternal genital HPV infection and, with it, the risk of perinatal transmission.</p>"
       }
     ],

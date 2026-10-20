@@ -6462,6 +6462,7 @@
    * after splitting) is left exactly as authored. */
   function listifyTableCell(cell) {
     if (cell.closest && cell.closest("table.tbl-wrap")) return;
+    if (cell.parentNode && cell.parentNode.firstElementChild === cell) return; // row labels stay plain
     var text = cell.textContent || "";
     var sep = /;\s+/.test(text) ? /;\s+/ : (/,\s+/.test(text) ? /,\s+/ : null);
     if (!sep) return;

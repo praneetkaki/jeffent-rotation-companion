@@ -2962,3 +2962,15 @@ mark.user-hl[data-c="orange"] { background: rgba(255, 150, 50, .4); }
 .deck-stack-empty { padding: 22px 26px; border: 1px dashed var(--line); border-radius: var(--radius-lg, 14px); color: var(--ink-soft); }
 .deck-stack-wrap .ds-count { margin-top: 14px; }
 .ds-rate.hidden, .ds-reveal.hidden { display: none; }
+
+/* Guideline table: verdict word colored, row label as a quiet left column. */
+.guideline td:first-child { width: 17%; color: var(--ink-soft); }
+.guideline td:nth-child(2) { width: 33%; }
+.guideline tbody tr { border-left: 3px solid transparent; }
+.gl-do, .gl-dont, .gl-warn { display: block; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 3px; }
+.gl-do { color: var(--primary); }
+.gl-dont { color: var(--flag); }
+.gl-warn { color: #a86a00; }
+/* Clinical block titles: stay on one line where they can, balance when they cannot. */
+.panel > h3 { text-wrap: balance; }
+@media (min-width: 900px) { .tabpane[data-pane="clinical"] > .panel > h3, .lesson-main > .panel > h3 { font-size: clamp(1.2rem, 1.6vw, 1.5rem); padding-right: 70px; } }
