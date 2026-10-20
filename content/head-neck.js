@@ -37,7 +37,7 @@ window.JEFFENT.register({
     notes: [
       {
         title: "Neck levels I-VII",
-        tagline: "Nodal levels · Boundaries · Dissections",
+        tagline: "Nodal levels I-VII · Level boundaries · Neck dissection",
         html: "<p>The <strong>neck levels</strong> are a standardized map of the neck's lymph node basins (the Robbins classification). Head & neck cancers spread in fairly predictable nodal patterns depending on the primary site, so the levels give surgeons, radiologists, and pathologists a common language for describing where nodal disease is, staging it (the N in TNM), and planning exactly which basins a neck dissection needs to cover.</p><figure class='note-fig'><img class='zoomable' src='assets/img/figures/neck_levels_colored.png' alt='Neck levels colored' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Cervical lymph node level classification (I-VII, including IIA/IIB and VA/VB) for head & neck cancer staging.</figcaption></figure><ul><li>Beyond levels I-VI, add <strong>level VII</strong> (superior mediastinal nodes, below the sternal notch), which matters for thyroid and lower-neck cancer staging.</li><li>Level II is often split into <strong>IIA/IIB</strong> by the spinal accessory nerve, and level V into <strong>VA/VB</strong>.</li></ul>" + "<p><strong>Cervical nodal levels (Robbins classification), with surgical boundaries:</strong></p><div class='tbl-scroll'><table><thead><tr><th>Level</th><th>Superior</th><th>Inferior</th><th>Anterior</th><th>Posterior</th><th>Main nodal contents</th><th>Primary drainage</th><th>Structures to watch</th></tr></thead><tbody>" +
           "<tr><td><strong>Ia</strong> (submental)</td><td>Mandibular symphysis</td><td>Hyoid bone</td><td>Contralateral anterior digastric</td><td>Ipsilateral anterior digastric</td><td>Submental nodes</td><td>Chin, lower lip, floor of mouth, tongue tip</td><td>Anterior jugular veins</td></tr>" +
           "<tr><td><strong>Ib</strong> (submandibular)</td><td>Body of mandible</td><td>Posterior belly of digastric</td><td>Anterior belly of digastric</td><td>Stylohyoid muscle</td><td>Submandibular gland and nodes</td><td>Oral cavity, anterior face</td><td><strong>Marginal mandibular branch of CN VII</strong>, lingual and hypoglossal nerves</td></tr>" +
@@ -52,7 +52,7 @@ window.JEFFENT.register({
       },
       {
         title: "The salivary glands",
-        tagline: "Parotid · Submandibular · Sublingual glands",
+        tagline: "Parotid · Submandibular · Sublingual",
         html: "<figure class='note-fig' data-credit='OpenStax, Anatomy and Physiology 2e. CC BY 4.0.'><img class='zoomable' src='assets/img/figures/salivary-glands-openstax.png' alt='Salivary glands openstax' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Major salivary gland anatomy: parotid (Stensen&#39;s duct) and submandibular (Wharton&#39;s duct).</figcaption></figure><ul><li><strong>Parotid</strong>: the largest gland; the <strong>facial nerve</strong> runs through it, dividing it into superficial and deep lobes, so facial-nerve function must be documented before and after any parotid surgery. Duct: <strong>Stensen's</strong>, opens opposite the upper second molar.</li><li><strong>Submandibular</strong>: duct is <strong>Wharton's</strong>, opening at the sublingual caruncle; its uphill course makes it the classic site for salivary stones (sialolithiasis).</li><li><strong>Sublingual</strong>: the smallest major gland, sitting in the floor of the mouth; drains via multiple small ducts (ducts of Rivinus) along the sublingual fold, and some join Bartholin's duct. The caruncle is where Wharton's duct opens.</li></ul>" +
           "<p><strong>The three major glands compared:</strong></p><div class='tbl-scroll'><table><thead><tr><th>Gland</th><th>Location</th><th>Secretion type</th><th>Clinical pearls</th></tr></thead><tbody>" +
           "<tr><td><strong>Parotid</strong></td><td>Overlies the mandibular ramus, below and in front of the ear</td><td>Serous</td><td>Facial nerve runs through it; ~80% of tumors are benign, mostly pleomorphic adenoma; stones are uncommon because serous saliva is thin</td></tr>" +
@@ -63,7 +63,7 @@ window.JEFFENT.register({
       },
       {
         title: "Thyroid & parathyroid anatomy",
-        tagline: "Thyroid gland · RLN · Parathyroids",
+        tagline: "Thyroid gland · Recurrent laryngeal nerve · Parathyroids",
         html: "<figure class='note-fig'><img class='zoomable' src='assets/img/figures/thyroid_adjacent_structures.png' alt='Thyroid adjacent structures' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Thyroid lobes/isthmus, parathyroid glands, and recurrent laryngeal nerve relationships relevant to thyroidectomy risk.</figcaption></figure>" +
           "<h4>The gland itself</h4><ul>" +
           "<li><strong>Butterfly-shaped</strong>: two lobes joined by an <strong>isthmus</strong>, sitting in the anterior neck across roughly C5-T1. The isthmus drapes over the 2nd-4th tracheal rings, just below the cricoid cartilage.</li>" +
@@ -87,7 +87,7 @@ window.JEFFENT.register({
       },
       {
         title: "Oral cavity vs oropharynx",
-        tagline: "Tobacco-driven cancer · HPV-driven cancer",
+        tagline: "Oral cavity (tobacco) · Oropharynx (HPV) · Subsite boundary",
         html: "<figure class='note-fig'><img class='zoomable' src='assets/img/figures/oral_cavity_oropharynx_anatomy.png' alt='Oral cavity oropharynx anatomy' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Anatomic distinction between oral cavity and oropharynx subsites and its oncologic significance (tobacco vs HPV driven cancer).</figcaption></figure>" +
           "<p>A single anatomic boundary separates two different cancers. The plane running from the <strong>junction of the hard and soft palate</strong> to the <strong>circumvallate papillae</strong> of the tongue (and along the anterior tonsillar pillars) divides the oral cavity in front from the oropharynx behind.</p>" +
           "<p>Everything anterior is classically tobacco- and alcohol-driven disease; everything posterior is increasingly HPV-driven disease with a markedly better prognosis. Knowing which side of that line a lesion sits on reframes the risk factors, staging system, treatment, and expected outcome.</p>" +
@@ -464,6 +464,7 @@ window.JEFFENT.register({
   cases: [
     {
       id: "case-hpv-oropharyngeal",
+      preview: "Nonsmoker with a painless neck node and tongue base fullness",
       ukmla: "Neck lump",
       source: "NCCN Clinical Practice Guidelines in Oncology: Head and Neck Cancers.",
       stem: "A <b>52-year-old non-smoker</b> notices a <b>painless right neck lump</b> for a month. On exam there is a firm level II node and a subtle asymmetric fullness at the base of the tongue.",
@@ -475,6 +476,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-nasopharyngeal-carcinoma",
+      preview: "Recent emigrant from southern China with one-sided ear fluid and a neck lump",
       ukmla: ["Neck lump", "Hearing loss"],
       source: "NCCN Clinical Practice Guidelines in Oncology: Head and Neck Cancers; standard oncology teaching on EBV-associated nasopharyngeal carcinoma.",
       stem: "A <b>48-year-old</b>, recently emigrated from southern China, presents with three months of <b>right-sided hearing loss and ear fullness</b> and a new <b>painless neck lump</b>. Otoscopy shows a dull, retracted tympanic membrane with a visible fluid level but no history of an upper respiratory infection.",
@@ -486,6 +488,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-parotid-facial-weakness",
+      preview: "Slowly growing parotid mass, now with facial weakness",
       ukmla: "Facial/periorbital swelling",
       source: "Standard head & neck oncology teaching on parotid neoplasms.",
       stem: "A <b>64-year-old</b> has a slowly enlarging <b>right parotid mass</b> over several months, now with new <b>weakness of the right side of the face</b>.",
@@ -497,6 +500,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-adenoid-cystic-perineural",
+      preview: "Small palate mass with cheek numbness out of proportion to its size",
       ukmla: "Neck lump",
       source: "Standard head & neck oncology teaching on minor salivary gland malignancy.",
       stem: "A <b>55-year-old</b> has a slow-growing, painless 1.5 cm hard palate mass first noticed six months ago. She now reports intermittent <b>numbness of the ipsilateral upper lip and cheek</b>, out of proportion to the size of the lesion.",
@@ -508,6 +512,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-thyroid-nodule",
+      preview: "Incidental thyroid nodule with worrying ultrasound features",
       ukmla: "Neck lump",
       source: "American Thyroid Association guidelines on thyroid nodule evaluation, 2015.",
       stem: "A <b>45-year-old woman</b> has an incidentally found 1.8 cm thyroid nodule. TSH is normal. Ultrasound shows a hypoechoic nodule that is taller than it is wide, with microcalcifications.",
@@ -519,6 +524,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-virchows-node",
+      preview: "Left supraclavicular node and weight loss with a normal head and neck exam",
       ukmla: "Neck lump",
       source: "Standard oncology teaching on Virchow's node/Troisier's sign.",
       stem: "A <b>58-year-old</b> presents with a firm, non-tender <b>left supraclavicular node</b> and unintentional weight loss. Head and neck exam and endoscopy are unremarkable.",
@@ -530,6 +536,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-oral-leukoplakia",
+      preview: "Smoker with a white tongue patch that will not wipe off",
       ukmla: "Neck lump",
       source: "Standard oral oncology teaching on premalignant lesions.",
       stem: "A <b>60-year-old smoker</b> has a white patch on the lateral tongue that his dentist noticed 6 weeks ago. It does not wipe off and is not painful.",

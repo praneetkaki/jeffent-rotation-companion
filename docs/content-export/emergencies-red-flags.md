@@ -17,7 +17,7 @@ _Generated 2026-10-20 from content/*.js_
 
 ### Anatomy notes
 
-**Airway triage: look, listen, act** (tags: Airway assessment · Airway patency)
+**Airway triage: look, listen, act** (tags: Airway assessment · Airway patency · Stridor)
 
 [figure: Landmarks: Cricothyroid membrane surface anatomy for the emergency surgical airway.]
 - The airway question comes first, before any differential: is it patent, at risk, or failing right now?
@@ -41,7 +41,7 @@ Voice/quality clues to the level:
 - Blood, secretions, avulsed teeth, and progressive soft-tissue edema/hematoma narrow the lumen over minutes to hours.
 - An expanding neck hematoma (e.g. post-thyroidectomy, penetrating neck injury) compresses the airway: sit the patient up, and for a post-op neck, open the wound at the bedside.Principle: in trauma, secure the airway early and electively, before swelling makes intubation impossible; keep a surgical airway ready.
 
-**The 'danger triangle' of deep-space infection** (tags: Tonsil/dental infection · Carotid sheath · Mediastinum)
+**The 'danger triangle' of deep-space infection** (tags: Deep neck spaces · Carotid sheath · Mediastinal spread)
 
 [figure: Deep cervical fascial spaces communicate (peritonsillar/parapharyngeal/retropharyngeal) and can carry infection down the 'danger space' toward the mediastinum.]
 - Neck and facial infections track along fascial planes into spaces next to the airway, great vessels, and mediastinum.
@@ -60,7 +60,7 @@ SpaceKey boundaries/locationExtends toClassic source & why it mattersPeritonsill
 - Carotid artery erosion/blowout: carotid sheath involvement; a sentinel bleed precedes catastrophic hemorrhage.
 - Highest-risk sources are odontogenic (lower molars) and pharyngeal/tonsillar; risk factors for descent are diabetes, immunocompromise, older age, and multispace involvement (especially retropharyngeal plus parapharyngeal).Imaging/management anchor: contrast-enhanced CT neck (extended through the chest if descent is suspected) is the key study, distinguishing a drainable abscess (rim-enhancing collection) from phlegmon and screening the mediastinum. Airway first, then IV broad-spectrum antibiotics covering oral flora (Gram-positive, Gram-negative, anaerobes) plus surgical drainage of any organized collection.
 
-**Shared anatomic basis of ENT emergencies** (tags: Small airways · Orbit/brain vascular connections · Cartilage necrosis)
+**Shared anatomic basis of ENT emergencies** (tags: Pediatric airway · Orbit and brain spread · Cartilage necrosis)
 
 [figure: Landmarks: Airway bottlenecks and rich vascular and fascial connections.]Several anatomic facts recur across ENT emergencies:
 
@@ -68,7 +68,7 @@ SpaceKey boundaries/locationExtends toClassic source & why it mattersPeritonsill
 - The head and neck have rich vascular and lymphatic connections to the orbit and intracranial space (sinusitis → orbital/intracranial complications; otitis media → intracranial complications).
 - Cartilage (septum, auricle, larynx) depends on adjacent perichondrium/perichondrium-equivalent for blood supply, so untreated hematoma or infection causes necrosis within days, not weeks.
 
-**Zones of the neck** (tags: Neck zones I-III · Penetrating trauma)
+**Zones of the neck** (tags: Neck zones I-III · Penetrating trauma · Vascular/aerodigestive injury)
 
 [figure: Zones I, II, III of the neck for penetrating trauma and how surgical accessibility differs by zone.]For penetrating neck trauma the neck is divided into three horizontal zones. They exist because surgical accessibility changes at each boundary, and access drives the initial management algorithm (see Clinical tab).
 ZoneBoundariesContainsAccessZone ICricoid cartilage to the thoracic outlet and claviclesGreat vessel origins (proximal carotids and subclavian vessels), trachea, esophagus, thoracic duct, lung apexLeast accessible. May need a sternotomy or thoracotomy approach.Zone IICricoid cartilage to the angle of the mandibleCarotid arteries, jugular veins, larynx, trachea, esophagus, vagus and recurrent laryngeal nervesLargest zone and most accessible. Most penetrating neck injuries occur here.Zone IIIAngle of the mandible to the skull baseDistal carotid and vertebral arteries, distal jugular veins, lower cranial nervesPoorly accessible. Proximal vascular control is difficult, so injuries may need interventional radiology rather than open exploration.The practical point: a Zone II injury is easy to get into and control operatively, so a Zone II patient with hard signs typically goes straight to the OR; Zone I and III injuries are harder to control surgically, so even some hard-sign patients there are worked up with imaging (CT angiography) first to plan the approach, when they are stable enough to allow it. Note on currency: modern trauma practice has shifted to a "no-zone" approach: in the stable patient, hard/soft signs plus CT angiography drive management rather than the zone itself. The zones now mainly describe surgical accessibility, not who is explored.

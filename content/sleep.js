@@ -43,7 +43,7 @@ window.JEFFENT.register({
       {
         id: "friedman-tongue-position-note",
         title: "Friedman tongue position and staging",
-        tagline: "Tongue base · Oropharynx exam · UPPP response",
+        tagline: "Tongue position · Oropharynx exam · UPPP response",
         html: "<figure class='note-fig'><img class='zoomable' src='assets/img/figures/Friedman_tongue.png' alt='Friedman tongue' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Friedman tongue position grades I-IV and how they predict UPPP response.</figcaption></figure>" +
           "<p><strong>The exam: how it's done:</strong> the Friedman tongue position (FTP), sometimes called the modified Mallampati index in this context, grades how much the tongue base obscures the palate, tonsils, and uvula on oral exam.</p>" +
           "<p>The single most important technical point, and the one that separates it from the classic (anesthesia) Mallampati score: mouth open wide, tongue resting <strong>in</strong> the mouth, <strong>not</strong> protruded, and <strong>not</strong> phonating. Keeping the tongue in its natural resting position mimics how it behaves during sleep, which is the whole point.</p>" +
@@ -368,6 +368,7 @@ window.JEFFENT.register({
   cases: [
     {
       id: "case-cpap-intolerant-severe-osa",
+      preview: "Severe OSA and he cannot tolerate CPAP: what next?",
       ukmla: "Obstructive sleep apnoea",
       source: "AAO-HNSF Position Statement: Hypoglossal Nerve Stimulation for OSA.",
       stem: "A <b>52-year-old man</b>, BMI 29, has severe OSA (AHI 38) confirmed on PSG. He has tried CPAP for 6 months but removes the mask nightly within an hour, citing claustrophobia. He continues to have daytime sleepiness (Epworth 15).",
@@ -379,6 +380,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-commercial-driver-osa",
+      preview: "Truck driver with a high STOP-BANG who dozes at red lights",
       ukmla: "Obstructive sleep apnoea",
       source: "US FMCSA medical guidance on OSA and commercial driving.",
       stem: "A <b>commercial truck driver</b> screens STOP-BANG positive (5/8) at a routine occupational health visit. He reports falling asleep at red lights.",
@@ -390,6 +392,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-bariatric-preop-osa",
+      preview: "Bariatric surgery candidate with a high STOP-BANG and no sleep workup",
       ukmla: "Obstructive sleep apnoea",
       source: "Standard perioperative teaching on OSA and bariatric surgery.",
       stem: "A <b>38-year-old woman</b>, BMI 44, is being worked up for bariatric surgery. STOP-BANG is 6/8; she has never been evaluated for OSA.",
@@ -401,6 +404,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-central-vs-obstructive",
+      preview: "Heart failure patient whose apneas show no breathing effort",
       ukmla: "Obstructive sleep apnoea",
       source: "Standard sleep medicine teaching on central sleep apnea.",
       stem: "A patient with <b>heart failure with reduced ejection fraction</b> is found to have an AHI of 25 on PSG, but the report notes most events show <b>absent respiratory effort</b> during the apneas, with a crescendo-decrescendo breathing pattern.",
@@ -412,6 +416,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-uppp-postop-bleed",
+      preview: "Bright red bleeding from the mouth one week after palate surgery",
       ukmla: "Obstructive sleep apnoea",
       source: "Standard otolaryngology teaching on post-UPPP complications.",
       stem: "One week after UPPP, a patient presents with <b>bright red blood from the mouth</b> and difficulty swallowing.",
@@ -423,6 +428,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-cpap-adherence-troubleshooting",
+      preview: "New CPAP user with a leaky mask, dry mouth, and poor use",
       ukmla: "Obstructive sleep apnoea",
       source: "AASM Clinical Practice Guideline: Treatment of Adult OSA with PAP (2019); CMS PAP adherence coverage criteria.",
       stem: "A <b>46-year-old woman</b> with moderate OSA (AHI 22) was started on CPAP 3 weeks ago. The device download shows average use of <b>2.1 hours/night on 40% of nights</b>. She reports the mask leaks constantly and she wakes with a dry mouth.",
@@ -434,6 +440,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-overlap-syndrome",
+      preview: "Patient with COPD, loud snoring, morning headaches, and leg swelling",
       ukmla: "Obstructive sleep apnoea",
       source: "Standard sleep/pulmonary medicine teaching on overlap syndrome (OSA + COPD).",
       stem: "A <b>63-year-old man</b> with known COPD (FEV1 55% predicted) reports loud snoring, witnessed apneas, morning headaches, and new bilateral leg swelling. STOP-BANG is 5/8.",

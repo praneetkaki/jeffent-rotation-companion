@@ -49,7 +49,7 @@ window.JEFFENT.register({
       },
       {
         title: "Important Clinical/Anatomical Relationships in Ear Surgery",
-        tagline: "Facial nerve · Referred otalgia · Chorda tympani · Surgical landmarks",
+        tagline: "Facial nerve · Referred otalgia · Surgical landmarks",
         html:
           "<figure class='note-fig'><img class='zoomable' src='assets/img/figures/middle_ear_dangerous_relationships.png' alt='Middle ear dangerous relationships' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Middle-ear/mastoid danger zone: facial nerve, tensor tympani/stapedius, chorda tympani, and referred otalgia via CN V/VII/IX/X.</figcaption></figure>" +
           "<table class='tbl-wrap'><thead><tr><th>Structure</th><th>Where it sits</th><th>What goes wrong</th><th>Clinical hook</th></tr></thead><tbody><tr><td><strong>Facial nerve (CN VII)</strong></td><td>Fallopian canal, often dehiscent in the tympanic segment beside the oval window</td><td>Injured by cholesteatoma, infection, or surgery</td><td>Facial weakness with ear disease is a red flag. The tympanic segment is the most common site of iatrogenic injury</td></tr><tr><td><strong>Lateral semicircular canal</strong></td><td>Just above and behind the tympanic segment of CN VII</td><td>Cholesteatoma erodes it, creating a labyrinthine fistula</td><td>Vertigo or nystagmus with pressure on the ear (positive fistula test) or when the ear is suctioned</td></tr><tr><td><strong>Stapes footplate and oval window</strong></td><td>The membrane-covered gateway to the inner ear</td><td>Pushing the footplate into the vestibule</td><td>Sensorineural loss and vertigo. A perilymph fistula presents the same way</td></tr><tr><td><strong>Tegmen, dura, sigmoid sinus</strong></td><td>Tegmen is the thin roof over the middle ear and mastoid. The sigmoid sinus runs in the posterior mastoid</td><td>Erosion or drilling through them</td><td>Chronic ear disease with headache, fever, altered mental status, or neck stiffness needs urgent imaging for meningitis, abscess, or sigmoid sinus thrombosis</td></tr><tr><td><strong>Chorda tympani</strong></td><td>Crosses the middle ear with no bony covering</td><td>Stretched or cut in middle-ear surgery</td><td>Altered taste on the anterior ⅔ of the tongue (same side) and sometimes dry mouth</td></tr><tr><td><strong>CN VII at the stylomastoid foramen</strong></td><td>Exits the temporal bone and enters the parotid, dividing it into superficial and deep lobes</td><td>Parotid mass or parotid surgery</td><td>Links the ear and head and neck halves of the rotation</td></tr></tbody></table>" +
@@ -380,6 +380,7 @@ window.JEFFENT.register({
   cases: [
     {
       id: "case-sudden-snhl",
+      preview: "Muffled ear and new ringing over a day: conductive or sensorineural?",
       ukmla: "Hearing loss",
       source: "AAO-HNSF Clinical Practice Guideline: Sudden Hearing Loss (Update), 2019.",
       stem: "A <b>34-year-old</b> notices her <b>right ear went muffled over a day</b> with new ringing. No wax on exam. <b>Weber lateralizes left; Rinne positive bilaterally.</b>",
@@ -391,6 +392,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-cholesteatoma",
+      preview: "Painless, foul ear drainage and a crusted pocket at the top of the eardrum",
       ukmla: ["Ear and nasal discharge", "Otitis media"],
       source: "Standard otology teaching on cholesteatoma.",
       stem: "A <b>28-year-old</b> has <b>months of painless, foul-smelling drainage</b> from one ear and mild hearing loss. Otoscopy shows a <b>crusted retraction pocket in the attic</b>.",
@@ -402,6 +404,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-bppv",
+      preview: "Brief spinning with head turns: which test confirms it and which maneuver treats it?",
       ukmla: ["Vertigo", "Benign paroxysmal positional vertigo"],
       source: "AAO-HNSF Clinical Practice Guideline: BPPV (Update), 2017.",
       stem: "A <b>62-year-old</b> reports <b>seconds-long spinning</b> each time he rolls over in bed or looks up. Hearing is normal. Neuro exam is normal.",
@@ -413,6 +416,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-noe-progression",
+      preview: "Diabetic with stubborn ear pain, canal granulation, and new cranial nerve deficits",
       ukmla: ["Painful ear", "Otitis externa"],
       source: "Standard otology teaching on necrotizing (malignant) otitis externa.",
       stem: "A <b>68-year-old with poorly controlled diabetes</b> has three weeks of severe, worsening <b>left ear pain and purulent discharge</b> that hasn't responded to two courses of topical antibiotic drops. On exam there is <b>granulation tissue at the bony-cartilaginous junction</b> of the canal. Over the past few days he has also developed <b>drooping of the left side of his face</b> and new <b>hoarseness</b>.",
@@ -424,6 +428,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-otosclerosis",
+      preview: "Pregnant woman with slowly worsening hearing loss and normal eardrums",
       ukmla: "Hearing loss",
       source: "Standard otology teaching on otosclerosis.",
       stem: "A <b>29-year-old woman</b>, now 20 weeks pregnant, reports progressive hearing loss in both ears over two years, worse on the left, and says her mother has worn hearing aids since a young age. Both tympanic membranes look entirely normal. <b>Weber lateralizes to the left; Rinne is negative on the left.</b>",
@@ -435,6 +440,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-meniere",
+      preview: "Hour-long spinning spells with ear fullness, ringing, and muffled hearing",
       ukmla: ["Vertigo", "Ménière's disease"],
       source: "Bárány Society/AAO-HNS diagnostic criteria for Ménière's disease, 2015.",
       stem: "A <b>45-year-old</b> describes recurrent episodes, each lasting about an hour, of spinning vertigo with nausea, accompanied each time by <b>muffled hearing, ringing, and a full sensation</b> in the right ear. Between episodes she feels well. Audiometry obtained during a recent episode confirmed a <b>low- to mid-frequency sensorineural hearing loss</b> on the right.",
@@ -446,6 +452,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-vestibular-schwannoma",
+      preview: "Slowly worsening one-sided hearing loss with ringing and poor word recognition",
       ukmla: ["Hearing loss", "Acoustic neuroma", "Tinnitus"],
       source: "ACR Appropriateness Criteria: Hearing Loss and/or Vertigo; standard otology/neurotology teaching on vestibular schwannoma workup and management.",
       stem: "A <b>52-year-old</b> reports <b>gradually worsening hearing in his right ear over 18 months</b>, with a constant right-sided ringing and a vague sense of unsteadiness, not true spinning vertigo. He denies facial weakness or numbness. <b>Weber lateralizes to the left; Rinne positive bilaterally.</b> Pure-tone audiometry shows an <b>asymmetric sensorineural hearing loss</b>, worse on the right, with poorer-than-expected word recognition for the degree of loss.",

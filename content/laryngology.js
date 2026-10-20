@@ -42,17 +42,17 @@ window.JEFFENT.register({
       },
       {
         title: "Three subsites: supraglottis, glottis, subglottis",
-        tagline: "Laryngeal subsites · Cancer staging · Glottic cancer",
+        tagline: "Laryngeal subsites · Glottic cancer · Cancer staging",
         html: "<figure class='note-fig'><img class='zoomable' src='assets/img/figures/laryngeal_subsites_supraglottis.png' alt='Laryngeal subsites supraglottis' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Coronal division of the larynx into supraglottis, glottis, and subglottis, the basis for cancer staging and airway localization.</figcaption></figure><ul><li>The backbone of laryngeal cancer staging and of localizing airway pathology.</li><li><strong>Supraglottis</strong> (epiglottis, false folds, ventricle): rich lymphatics, so cancers present later with neck nodes.</li><li><strong>Glottis</strong> (true vocal folds): sparse lymphatics, so cancer causes hoarseness <em>early</em> and is often caught before it spreads.</li><li><strong>Subglottis</strong> (begins about 1 cm below the free edge of the true folds and extends to the inferior border of the cricoid): the narrowest part of a child's airway and the site of subglottic stenosis.</li></ul><p><strong>Clinical pearl:</strong> laryngeal cancer is strongly associated with tobacco and alcohol use. Because the glottis has sparse lymphatics, glottic cancers tend to present early with hoarseness and carry the best prognosis, while supraglottic and subglottic cancers, with richer lymphatic drainage or a more silent growth pattern, tend to present later and carry a worse prognosis.</p>"
       },
       {
         title: "Vocal fold layers",
-        tagline: "Vocal fold cover-body model",
+        tagline: "Cover-body model · Lamina propria layers · Reinke's space",
         html: "<figure class='note-fig'><img class='zoomable' src='assets/img/figures/vocal_fold_layers.png' alt='Vocal fold layers' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Layered cover-body microarchitecture of the vocal fold (epithelium, lamina propria, vocalis muscle).</figcaption></figure><ul><li>The fold is layered: <strong>epithelium</strong>, then the <strong>lamina propria</strong> (superficial 'Reinke's space', intermediate, deep), then the <strong>vocalis muscle</strong>.</li><li>Phonation depends on the epithelium and superficial lamina propria vibrating freely over the deeper layers (the 'cover-body' model).</li><li>Scarring or swelling of Reinke's space (smoking, reflux, vocal abuse) stiffens the cover and roughens the voice.</li><li>The <strong>vocalis muscle</strong> is the medial belly of the <strong>thyroarytenoid</strong> muscle: contracting it <strong>tenses and shortens</strong> the vocal fold, fine-tuning pitch and stiffness rather than opening or closing the airway.</li></ul>"
       },
       {
         title: "Laryngeal nerve supply",
-        tagline: "Superior laryngeal nerve · Recurrent laryngeal nerve",
+        tagline: "Superior laryngeal nerve · Recurrent laryngeal nerve · Vocal fold paralysis",
         html: "<figure class='note-fig'><img class='zoomable' src='assets/img/figures/recurrent_laryngeal_nerve_course_2.png' alt='Recurrent laryngeal nerve course' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Superior laryngeal nerve and recurrent laryngeal nerve innervation of the larynx and their courses.</figcaption></figure><ul><li><strong>Superior laryngeal nerve</strong>: external branch to cricothyroid (pitch); internal branch for sensation above the cords.</li><li><strong>Recurrent laryngeal nerve (RLN)</strong>: every other intrinsic muscle (including the only abductor, posterior cricoarytenoid) and sensation below the cords.</li><li>The RLN is long and asymmetric: <strong>left</strong> loops under the aortic arch, <strong>right</strong> under the subclavian artery.</li><li>That is why hoarseness can be the first sign of a lung apex tumor, aortic aneurysm, or thyroid/mediastinal disease, and why the RLN is at risk in thyroid surgery.</li><li>The <strong>cricothyroid</strong> is the <strong>only</strong> intrinsic laryngeal muscle <em>not</em> innervated by the RLN: it's supplied by the <strong>external branch of the superior laryngeal nerve (EBSLN)</strong> instead.</li></ul><div class=\"tbl-scroll\"><table><thead><tr><th>Muscle</th><th>Action</th><th>Effect</th></tr></thead><tbody><tr><td>Posterior cricoarytenoid</td><td><b>Abductor</b> (the only one)</td><td>Opens the airway</td></tr><tr><td>Lateral cricoarytenoid</td><td>Adductor</td><td>Closes the airway</td></tr><tr><td>Interarytenoid (transverse arytenoid)</td><td>Adductor</td><td>Closes the airway</td></tr><tr><td>Thyroarytenoid (vocalis)</td><td>Adductor; relaxes/shortens the fold</td><td>Closes the airway; lowers pitch</td></tr><tr><td>Cricothyroid</td><td>Tenses/lengthens the fold</td><td>Raises pitch</td></tr></tbody></table></div><p>A rare right-sided non-recurrent nerve occurs with an aberrant right subclavian artery and is at higher surgical risk.</p><p><strong>RLN injury vs EBSLN injury:</strong> <strong>RLN injury</strong> causes vocal fold paralysis (usually paramedian), producing a <strong>hoarse, breathy, weak voice</strong> and aspiration risk. <strong>EBSLN injury</strong> is subtler and often under-recognized: cricothyroid weakness causes <strong>loss of high pitch and projection</strong>, vocal fatigue, and difficulty singing or projecting the voice, without frank hoarseness at rest.</p><p><strong>Bilateral RLN injury</strong> leaves both folds near the midline and can cause stridor and airway obstruction, a potential emergency after thyroidectomy. Document vocal fold mobility by laryngoscopy before thyroid or neck surgery and again if the voice changes afterward, because a normal voice does not rule out fold paralysis.</p><p><strong>Emergency airway:</strong> the cricothyroid membrane is the surgical airway site in adults. Cricothyrotomy is avoided in young children.</p>"
       }
     ],
@@ -291,6 +291,7 @@ window.JEFFENT.register({
   cases: [
     {
       id: "case-bilateral-vf-paralysis",
+      preview: "Stridor with a near-normal voice six hours after thyroidectomy",
       ukmla: "Stridor",
       source: "Standard laryngology teaching on post-thyroidectomy recurrent laryngeal nerve injury.",
       stem: "A <b>52-year-old woman</b>, six hours after a total thyroidectomy, develops <b>inspiratory stridor</b> and increasing respiratory distress. Her voice sounds relatively preserved.",
@@ -302,6 +303,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-croup-vs-epiglottitis",
+      preview: "Toddler with a barky cough, comfortable on her mother's lap",
       ukmla: "Stridor",
       source: "Standard pediatric airway teaching.",
       stem: "A <b>2-year-old</b> has one day of a <b>barky, seal-like cough</b>, mild fever, and a hoarse voice, worse at night. She is comfortable, drinking fluids, and sitting on her mother's lap without distress.",
@@ -313,6 +315,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-laryngeal-cancer",
+      preview: "Smoker and daily drinker with 3 months of hoarseness and weight loss",
       ukmla: "Hoarseness and voice change",
       source: "AAO-HNSF Clinical Practice Guideline: Hoarseness (Dysphonia) (Update), 2018.",
       stem: "A <b>67-year-old man with a 45 pack-year smoking history</b> and daily alcohol use presents with <b>progressive hoarseness for 3 months</b> and 15 lb of unintentional weight loss.",
@@ -324,6 +327,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-fb-aspiration",
+      preview: "Toddler choked on peanuts and now wheezes on one side",
       ukmla: "Stridor",
       source: "AAP clinical guidance on pediatric foreign-body aspiration.",
       stem: "A previously well <b>18-month-old</b> suddenly develops coughing and choking while eating peanuts, then seems to settle. Hours later he has persistent coughing and you hear <b>decreased breath sounds and wheeze on the right side only</b>.",
@@ -335,6 +339,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-vcd",
+      preview: "Athlete with noisy breathing during exercise that inhalers do not fix",
       ukmla: "Stridor",
       source: "Standard laryngology teaching on paradoxical vocal fold motion.",
       stem: "A <b>19-year-old competitive athlete</b> has recurrent episodes of sudden shortness of breath and <b>noisy breathing on inspiration</b> during intense exercise. She has been treated for asthma with escalating inhalers without improvement; spirometry between episodes is normal.",
@@ -346,6 +351,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-trach-dislodgement",
+      preview: "Day 3 after tracheostomy: the tube is lying on the dressing",
       ukmla: "Stridor",
       source: "Standard tracheostomy emergency-management teaching.",
       stem: "A nurse calls urgently: a patient who underwent tracheostomy <b>3 days ago</b> for prolonged ventilator weaning has become acutely short of breath, and the tracheostomy tube appears to have come out and is lying on the dressing.",
@@ -357,6 +363,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-idiopathic-subglottic-stenosis",
+      preview: "Never-smoker with a year of \"asthma\" and stridor on deep breathing",
       ukmla: "Stridor",
       source: "Standard airway teaching on idiopathic subglottic stenosis; screening principles for GPA-associated laryngotracheal disease.",
       stem: "A previously healthy <b>38-year-old woman</b>, never a smoker, has had progressively worsening <b>dyspnea on exertion</b> and noisy breathing for a year. She has been treated for asthma with escalating inhalers without improvement. On exam she has <b>biphasic stridor</b> when asked to breathe deeply.",

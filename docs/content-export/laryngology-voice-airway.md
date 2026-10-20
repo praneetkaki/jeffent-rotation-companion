@@ -24,7 +24,7 @@ _Generated 2026-10-20 from content/*.js_
 - The paired arytenoid cartilages sit on the cricoid and rotate/glide to open and close the vocal folds.
 - The epiglottis folds over the laryngeal inlet during swallowing to protect the airway.UnpairedPairedThyroidArytenoidCricoidCorniculateEpiglottisCuneiformThe corniculate and cuneiform cartilages are small paired cartilages within the aryepiglottic folds, above the arytenoids, that add structural support but no independent motion.
 
-**Three subsites: supraglottis, glottis, subglottis** (tags: Laryngeal subsites · Cancer staging · Glottic cancer)
+**Three subsites: supraglottis, glottis, subglottis** (tags: Laryngeal subsites · Glottic cancer · Cancer staging)
 
 [figure: Coronal division of the larynx into supraglottis, glottis, and subglottis, the basis for cancer staging and airway localization.]
 - The backbone of laryngeal cancer staging and of localizing airway pathology.
@@ -32,7 +32,7 @@ _Generated 2026-10-20 from content/*.js_
 - Glottis (true vocal folds): sparse lymphatics, so cancer causes hoarseness early and is often caught before it spreads.
 - Subglottis (begins about 1 cm below the free edge of the true folds and extends to the inferior border of the cricoid): the narrowest part of a child's airway and the site of subglottic stenosis.Clinical pearl: laryngeal cancer is strongly associated with tobacco and alcohol use. Because the glottis has sparse lymphatics, glottic cancers tend to present early with hoarseness and carry the best prognosis, while supraglottic and subglottic cancers, with richer lymphatic drainage or a more silent growth pattern, tend to present later and carry a worse prognosis.
 
-**Vocal fold layers** (tags: Vocal fold cover-body model)
+**Vocal fold layers** (tags: Cover-body model · Lamina propria layers · Reinke's space)
 
 [figure: Layered cover-body microarchitecture of the vocal fold (epithelium, lamina propria, vocalis muscle).]
 - The fold is layered: epithelium, then the lamina propria (superficial 'Reinke's space', intermediate, deep), then the vocalis muscle.
@@ -40,7 +40,7 @@ _Generated 2026-10-20 from content/*.js_
 - Scarring or swelling of Reinke's space (smoking, reflux, vocal abuse) stiffens the cover and roughens the voice.
 - The vocalis muscle is the medial belly of the thyroarytenoid muscle: contracting it tenses and shortens the vocal fold, fine-tuning pitch and stiffness rather than opening or closing the airway.
 
-**Laryngeal nerve supply** (tags: Superior laryngeal nerve · Recurrent laryngeal nerve)
+**Laryngeal nerve supply** (tags: Superior laryngeal nerve · Recurrent laryngeal nerve · Vocal fold paralysis)
 
 [figure: Superior laryngeal nerve and recurrent laryngeal nerve innervation of the larynx and their courses.]
 - Superior laryngeal nerve: external branch to cricothyroid (pitch); internal branch for sensation above the cords.

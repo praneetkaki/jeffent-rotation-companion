@@ -17,7 +17,7 @@ _Generated 2026-10-20 from content/*.js_
 
 ### Anatomy notes
 
-**The lateral nasal wall & the ostiomeatal complex (OMC)** (tags: OMC drainage funnel · Three sinuses · Chronic rhinosinusitis)
+**The lateral nasal wall & the ostiomeatal complex (OMC)** (tags: OMC drainage funnel · Three sinuses drain · Chronic rhinosinusitis)
 
 [figure: Anatomy of the middle meatus/uncinate process/ethmoid bulla forming the ostiomeatal complex, the shared drainage funnel for frontal, anterior ethmoid, and maxillary sinuses.]
 - Three turbinates (inferior, middle, superior) overhang three meatuses; the middle meatus is the key one.
@@ -32,14 +32,14 @@ _Generated 2026-10-20 from content/*.js_
 - Ethmoid: anterior cells → middle meatus, posterior cells → superior meatus; separated from the orbit by the paper-thin lamina papyracea, which is the route for orbital complications.
 - Sphenoid: drains via the sphenoethmoidal recess; borders the optic nerve, carotid artery, cavernous sinus, and pituitary, making it the highest-stakes sinus surgically.
 
-**Blood supply of the nose** (tags: Four-vessel convergence · Anterior nosebleeds · Posterior bleeds)
+**Blood supply of the nose** (tags: Kiesselbach's plexus · Anterior epistaxis · Sphenopalatine (posterior))
 
 [figure: Little's area/Kiesselbach's plexus vascular convergence and anterior vs posterior epistaxis sources.]
 - Little's area (Kiesselbach's plexus) on the anterior septum is where four vessels converge: anterior ethmoidal (internal carotid to ophthalmic), sphenopalatine and greater palatine (external carotid to maxillary), and superior labial (external carotid to facial).
 - About 80-90% of nosebleeds are anterior, from this plexus.
 - Posterior bleeds (about 10-20%) come from terminal branches of the sphenopalatine artery: heavier, harder to see, and more likely in older or anticoagulated patients.
 
-**The nasal septum** (tags: Septal cartilage & bone · Septal hematoma)
+**The nasal septum** (tags: Septal cartilage and bone · Septal hematoma · Septal deviation)
 
 [figure: Septal skeleton (quadrangular cartilage, perpendicular plate of ethmoid, vomer) and septal hematoma risk.]
 - Cartilage anteriorly (quadrangular cartilage); bone posteriorly (perpendicular plate of the ethmoid above, vomer below).

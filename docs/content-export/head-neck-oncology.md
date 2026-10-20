@@ -17,7 +17,7 @@ _Generated 2026-10-20 from content/*.js_
 
 ### Anatomy notes
 
-**Neck levels I-VII** (tags: Nodal levels · Boundaries · Dissections)
+**Neck levels I-VII** (tags: Nodal levels I-VII · Level boundaries · Neck dissection)
 
 The neck levels are a standardized map of the neck's lymph node basins (the Robbins classification). Head & neck cancers spread in fairly predictable nodal patterns depending on the primary site, so the levels give surgeons, radiologists, and pathologists a common language for describing where nodal disease is, staging it (the N in TNM), and planning exactly which basins a neck dissection needs to cover.
 [figure: Cervical lymph node level classification (I-VII, including IIA/IIB and VA/VB) for head & neck cancer staging.]
@@ -30,7 +30,7 @@ LevelSuperiorInferiorAnteriorPosteriorMain nodal contentsPrimary drainageStructu
 - Posterolateral neck dissection (levels II-V): for skin/scalp primaries (e.g., melanoma) or other posteriorly draining primaries.
 - Central (level VI) dissection: for thyroid cancer.
 
-**The salivary glands** (tags: Parotid · Submandibular · Sublingual glands)
+**The salivary glands** (tags: Parotid · Submandibular · Sublingual)
 
 [figure: Major salivary gland anatomy: parotid (Stensen's duct) and submandibular (Wharton's duct).]
 - Parotid: the largest gland; the facial nerve runs through it, dividing it into superficial and deep lobes, so facial-nerve function must be documented before and after any parotid surgery. Duct: Stensen's, opens opposite the upper second molar.
@@ -43,7 +43,7 @@ GlandLocationSecretion typeClinical pearlsParotidOverlies the mandibular ramus, 
 - Mucoepidermoid carcinoma: the most common malignant salivary tumor.
 - Sialolithiasis: far more common in the submandibular gland, because its secretion is thicker/more mucous and its duct runs uphill, against gravity, favoring stasis and stone formation.
 
-**Thyroid & parathyroid anatomy** (tags: Thyroid gland · RLN · Parathyroids)
+**Thyroid & parathyroid anatomy** (tags: Thyroid gland · Recurrent laryngeal nerve · Parathyroids)
 
 [figure: Thyroid lobes/isthmus, parathyroid glands, and recurrent laryngeal nerve relationships relevant to thyroidectomy risk.]The gland itself
 - Butterfly-shaped: two lobes joined by an isthmus, sitting in the anterior neck across roughly C5-T1. The isthmus drapes over the 2nd-4th tracheal rings, just below the cricoid cartilage.
@@ -57,7 +57,7 @@ GlandLocationSecretion typeClinical pearlsParotidOverlies the mandibular ramus, 
 - Consequence of injury: small, tan, and sharing blood supply with the thyroid, they can be inadvertently removed or devascularized -> postoperative hypocalcemia. Watch for perioral numbness and Chvostek/Trousseau signs. Autotransplantation is an option if a gland is devascularized.Embryology explains their behavior, and it crosses over
 Superior glandsInferior glandsOrigin4th pharyngeal pouch3rd pharyngeal pouch (the higher-numbered pouch gives the lower glands)PositionShort descent, so more constant: typically posterior to the RLN near the cricothyroid junction.Descend with the thymus, so far more variable: occasionally trailing into the thymus or mediastinum.
 
-**Oral cavity vs oropharynx** (tags: Tobacco-driven cancer · HPV-driven cancer)
+**Oral cavity vs oropharynx** (tags: Oral cavity (tobacco) · Oropharynx (HPV) · Subsite boundary)
 
 [figure: Anatomic distinction between oral cavity and oropharynx subsites and its oncologic significance (tobacco vs HPV driven cancer).]A single anatomic boundary separates two different cancers. The plane running from the junction of the hard and soft palate to the circumvallate papillae of the tongue (and along the anterior tonsillar pillars) divides the oral cavity in front from the oropharynx behind.
 Everything anterior is classically tobacco- and alcohol-driven disease; everything posterior is increasingly HPV-driven disease with a markedly better prognosis. Knowing which side of that line a lesion sits on reframes the risk factors, staging system, treatment, and expected outcome.

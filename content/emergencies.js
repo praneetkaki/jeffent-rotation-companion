@@ -37,7 +37,7 @@ window.JEFFENT.register({
     notes: [
       {
         title: "Airway triage: look, listen, act",
-        tagline: "Airway assessment · Airway patency",
+        tagline: "Airway assessment · Airway patency · Stridor",
         html: "<figure class='note-fig' data-credit=\"The larynx. OpenStax Anatomy and Physiology, Fig. 23.6, CC BY 4.0.\"><img class='zoomable' src='assets/1024px-2306_The_Larynx.jpg' alt='The larynx' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Landmarks: Cricothyroid membrane surface anatomy for the emergency surgical airway.</figcaption></figure><ul><li>The airway question comes first, before any differential: <strong>is it patent, at risk, or failing right now?</strong></li><li><strong>Signs of impending obstruction</strong>: stridor, drooling or inability to handle secretions, tripod positioning, agitation or lethargy from hypoxia, voice change.</li><li>Securing or protecting the airway (positioning, urgent ENT/anesthesia, sometimes a surgical airway) always comes before definitive diagnosis.</li></ul><figure class='note-fig' data-credit=\"Airway Triage: Signs of Impending Obstruction (Look, Listen, Act). Wikimedia Commons.\"><img class='zoomable' src='assets/img/mc/85_airway_triage_signs_obstruction_wikimedia.png' alt='Airway triage signs' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Airway triage: signs of impending obstruction.</figcaption></figure>" +
           "<p><strong>Stridor localizes the obstruction.</strong> Stridor is turbulent airflow through a narrowed airway, and its timing tells you the level:</p><ul>" +
           "<li><strong>Inspiratory stridor → supraglottic/glottic</strong> (above or at the cords): the extrathoracic airway collapses inward on inspiration (e.g. epiglottitis, laryngomalacia, a supraglottic mass).</li>" +
@@ -60,7 +60,7 @@ window.JEFFENT.register({
       },
       {
         title: "The 'danger triangle' of deep-space infection",
-        tagline: "Tonsil/dental infection · Carotid sheath · Mediastinum",
+        tagline: "Deep neck spaces · Carotid sheath · Mediastinal spread",
         html: "<figure class='note-fig'><img class='zoomable' src='assets/img/figures/cervical_fascia_danger_space.png' alt='Cervical fascia danger space' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Deep cervical fascial spaces communicate (peritonsillar/parapharyngeal/retropharyngeal) and can carry infection down the &#39;danger space&#39; toward the mediastinum.</figcaption></figure><ul><li>Neck and facial infections track along fascial planes into spaces next to the airway, great vessels, and mediastinum.</li><li>The deep neck spaces <strong>communicate</strong> (peritonsillar, parapharyngeal, retropharyngeal, mediastinum).</li><li>This is why a localized infection (quinsy, dental abscess) can escalate to airway compromise, carotid sheath involvement, or descending mediastinitis if not treated promptly.</li><li>Note this is a <strong>different concept</strong> from the \"danger triangle of the face\" (the mid-face region drained by the facial vein, with retrograde spread risking cavernous sinus thrombosis): both are worth knowing, but they are not the same danger triangle.</li></ul>" +
           "<p><strong>The clinically important deep neck spaces</strong>, organized by relationship to the hyoid:</p><div class='tbl-scroll'><table><thead><tr><th>Space</th><th>Key boundaries/location</th><th>Extends to</th><th>Classic source &amp; why it matters</th></tr></thead><tbody>" +
           "<tr><td><strong>Peritonsillar</strong></td><td>Between the tonsillar capsule and the superior constrictor</td><td>Can spread laterally into the parapharyngeal space</td><td>Tonsillitis → quinsy; trismus, uvular deviation, \"hot potato\" voice</td></tr>" +
@@ -87,7 +87,7 @@ window.JEFFENT.register({
       },
       {
         title: "Shared anatomic basis of ENT emergencies",
-        tagline: "Small airways · Orbit/brain vascular connections · Cartilage necrosis",
+        tagline: "Pediatric airway · Orbit and brain spread · Cartilage necrosis",
         html: "<figure class='note-fig' data-credit=\"Head and neck (sagittal). NCI SEER via Wikimedia Commons. Public domain.\"><img class='zoomable' src='assets/1024px-Illu01_head_neck.jpg' alt='Head and neck overview' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Landmarks: Airway bottlenecks and rich vascular and fascial connections.</figcaption></figure><p>Several anatomic facts recur across ENT emergencies:</p><ul>" +
           "<li>Airway lumens are small, so a little swelling causes a lot of obstruction (more so in children; see Pediatric ENT).</li>" +
           "<li>The head and neck have rich vascular and lymphatic connections to the orbit and intracranial space (sinusitis → orbital/intracranial complications; otitis media → intracranial complications).</li>" +
@@ -95,7 +95,7 @@ window.JEFFENT.register({
       },
       {
         title: "Zones of the neck",
-        tagline: "Neck zones I-III · Penetrating trauma",
+        tagline: "Neck zones I-III · Penetrating trauma · Vascular/aerodigestive injury",
         html: "<figure class='note-fig'><img class='zoomable' src='assets/img/figures/neck_zones_trauma.png' alt='Neck zones trauma' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Zones I, II, III of the neck for penetrating trauma and how surgical accessibility differs by zone.</figcaption></figure><p>For <strong>penetrating neck trauma</strong> the neck is divided into three horizontal zones. They exist because <strong>surgical accessibility</strong> changes at each boundary, and access drives the initial management algorithm (see Clinical tab).</p>" +
           "<table class=\"tbl-wrap\"><thead><tr><th>Zone</th><th>Boundaries</th><th>Contains</th><th>Access</th></tr></thead><tbody>" +
           "<tr><td><strong>Zone I</strong></td><td>Cricoid cartilage to the thoracic outlet and clavicles</td><td>Great vessel origins (proximal carotids and subclavian vessels), trachea, esophagus, thoracic duct, lung apex</td><td><strong>Least accessible.</strong> May need a sternotomy or thoracotomy approach.</td></tr>" +
@@ -262,6 +262,7 @@ window.JEFFENT.register({
   cases: [
     {
       id: "case-epiglottitis-adult",
+      preview: "Adult with severe sore throat, drooling, and a deceptively normal throat",
       ukmla: "Stridor",
       source: "Standard emergency otolaryngology teaching on adult epiglottitis.",
       stem: "An <b>adult</b> presents with rapid-onset severe sore throat, muffled voice, and drooling, but a <b>relatively unremarkable-looking oropharynx</b> on cursory inspection. He prefers to sit leaning forward.",
@@ -273,6 +274,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-orbital-cellulitis-complication",
+      preview: "Child with sinusitis now has proptosis and painful eye movements",
       ukmla: "Facial/periorbital swelling",
       source: "Standard rhinology/orbital complications teaching.",
       stem: "A child with several days of sinusitis symptoms develops <b>eyelid swelling, proptosis, and pain with eye movement</b>, plus a low-grade fever.",
@@ -284,6 +286,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-invasive-fungal-sinusitis",
+      preview: "Patient in DKA with facial numbness and a black nasal lesion",
       ukmla: "Facial pain",
       source: "Standard rhinology teaching on acute invasive fungal sinusitis.",
       stem: "A patient with <b>poorly controlled diabetes (in DKA)</b> presents with facial pain, nasal congestion, and a <b>black, necrotic-appearing area</b> on the nasal septum/palate, with facial numbness.",
@@ -295,6 +298,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-post-thyroidectomy-hematoma",
+      preview: "Hours after thyroidectomy: expanding neck swelling and stridor",
       ukmla: "Neck lump",
       source: "Standard head & neck surgery teaching on post-thyroidectomy hematoma.",
       stem: "A few hours after thyroidectomy, a patient develops <b>rapidly expanding neck swelling, difficulty breathing, and stridor</b> at the bedside.",
@@ -306,6 +310,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-ssnhl-window",
+      preview: "Two days of sudden one-sided hearing loss with no obvious cause",
       ukmla: "Hearing loss",
       source: "AAO-HNSF Clinical Practice Guideline: Sudden Hearing Loss (Update), 2019.",
       stem: "A patient reports <b>sudden hearing loss in one ear over the past 2 days</b>, with no preceding trauma, infection, or barotrauma history.",
@@ -317,6 +322,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-ace-inhibitor-angioedema",
+      preview: "Lip and tongue swelling on lisinopril that does not respond to epinephrine",
       ukmla: "Allergies",
       source: "Standard emergency medicine/allergy teaching on ACE-inhibitor-induced angioedema; WAO (World Allergy Organization) hereditary/bradykinin-mediated angioedema guidance for the broader bradykinin-angioedema framework.",
       stem: "A patient on <b>lisinopril for 3 years</b> presents with <b>lip and tongue swelling</b> that developed over an hour, <b>no urticaria, no itch, no wheeze</b>. In the ED she was given IM epinephrine, IV diphenhydramine, and IV steroids, but the swelling has <b>not improved</b> after 45 minutes.",
@@ -328,6 +334,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-penetrating-neck-zone2",
+      preview: "Stable patient with a mid-neck stab wound, expanding hematoma, and bruit",
       ukmla: "Neck lump",
       source: "ATLS (Advanced Trauma Life Support) principles; standard trauma teaching on penetrating neck trauma zones and hard signs.",
       stem: "A patient arrives with a <b>stab wound to the mid-neck (Zone II)</b>. On exam there is a <b>rapidly expanding hematoma</b> and a <b>bruit</b> is audible over the wound. The patient is hemodynamically stable at this moment.",
@@ -339,6 +346,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-ludwigs-angina",
+      preview: "Woody floor-of-mouth swelling and a raised tongue after a bad molar",
       ukmla: "Sore throat",
       source: "Standard deep neck space infection teaching on Ludwig's angina; odontogenic infection management guidance.",
       stem: "A <b>45-year-old man</b> with poor dental hygiene and a known infected lower molar presents with 2 days of rapidly worsening <b>bilateral submandibular swelling</b> that is firm and 'woody' to palpation. His tongue is <b>elevated and pushed posteriorly</b>, his voice is muffled, and he is drooling and leaning forward.",
@@ -352,6 +360,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-orbital-compartment-syndrome",
+      preview: "Tense, bulging eye and falling vision two hours after facial trauma",
       ukmla: "Facial/periorbital swelling",
       source: "Standard ophthalmic/facial trauma emergency teaching on orbital compartment syndrome and retrobulbar hemorrhage.",
       stem: "Two hours after blunt facial trauma, a <b>28-year-old man</b> develops rapidly worsening eye pain, <b>proptosis</b>, and <b>decreasing vision</b> in the affected eye. The globe feels <b>tense and firm</b> to palpation, extraocular movements are restricted, and intraocular pressure is markedly elevated.",
@@ -365,6 +374,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-deep-neck-space-differential",
+      preview: "Three sore throats overnight: a young adult, a preschooler, and a tripoding child",
       ukmla: ["Sore throat", "Epiglottitis"],
       source: "Standard emergency otolaryngology differential teaching on deep neck space infections and epiglottitis.",
       stem: "Three patients present overnight with sore throat and difficulty swallowing. <b>Patient A</b> is 22 years old with trismus and a muffled 'hot potato' voice. <b>Patient B</b> is a 4-year-old with fever, torticollis, and refusal to move his neck. <b>Patient C</b> is a 6-year-old with rapid-onset drooling, a soft inspiratory stridor, and a tripod posture.",
@@ -378,6 +388,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-caustic-ingestion",
+      preview: "Drooling toddler after drain cleaner, with a clean-looking mouth",
       ukmla: "Swallowing problems",
       source: "Standard emergency medicine/clinical toxicology teaching on caustic ingestion.",
       stem: "An <b>18-month-old</b> is found with an open bottle of liquid drain cleaner. She is crying, drooling, and refusing to swallow. There is <b>no visible burn on her lips or mouth</b>.",
@@ -391,6 +402,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-hereditary-angioedema",
+      preview: "Young woman with recurrent non-itchy swelling, abdominal pain, and an affected mother",
       ukmla: "Allergies",
       source: "WAO (World Allergy Organization) hereditary angioedema guidance; standard allergy/immunology teaching on C1-inhibitor deficiency.",
       stem: "A <b>24-year-old woman</b> presents with tongue and facial swelling and new abdominal pain. She describes recurrent, non-itchy swelling episodes of her hands, face, and once her larynx (requiring hospitalization) several times a year since adolescence, and says her mother has 'the same thing.' She is not on any ACE inhibitor. A previous episode was treated with epinephrine, diphenhydramine, and steroids <b>'without much benefit.'</b>",

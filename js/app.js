@@ -2810,7 +2810,7 @@
     if (!rel.length) return;
     var box = h('<div class="topic-related"><div class="topic-related-h">Practice cases on this topic</div><div class="topic-related-list"></div></div>');
     rel.forEach(function (r) {
-      var b = h('<button type="button" class="topic-related-item"><span class="mono">Case ' + (r.i + 1) + '</span><span>' + esc(teaserOf(r.c.stem, 90)) + '</span></button>');
+      var b = h('<button type="button" class="topic-related-item"><span class="mono">Case ' + (r.i + 1) + '</span><span>' + esc(r.c.preview || teaserOf(r.c.stem, 90)) + '</span></button>');
       b.addEventListener("click", function () { openCase(mod.id, r.i); });
       box.querySelector(".topic-related-list").appendChild(b);
     });
@@ -3629,7 +3629,7 @@
       var row = h(
         '<button type="button" class="case-row">' +
           '<div class="case-row-num mono">' + (i + 1) + '</div>' +
-          '<div class="case-row-body"><p>' + esc(teaserOf(c.stem, 140)) + '</p>' +
+          '<div class="case-row-body"><p>' + esc(c.preview || teaserOf(c.stem, 140)) + '</p>' +
           '<span class="case-row-meta mono">' + n + ' question' + (n === 1 ? "" : "s") + '</span>' + topicChips(c.topics) + '</div>' +
         '</button>'
       );

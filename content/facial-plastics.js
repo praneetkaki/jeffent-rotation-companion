@@ -35,22 +35,22 @@ window.JEFFENT.register({
     notes: [
       {
         title: "The facial buttresses",
-        tagline: "Facial buttresses · Bone columns · Fracture reconstruction",
+        tagline: "Facial buttresses · Vertical and horizontal columns · Fracture reconstruction",
         html: "<figure class='note-fig'><img class='zoomable' src='assets/img/figures/facial_buttresses.png' alt='Facial buttresses' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Vertical and horizontal facial buttress columns that absorb/transmit force and that reconstructive plating restores.</figcaption></figure><ul><li><strong>Buttresses</strong> are thickened bone columns that absorb and transmit force: vertical (nasomaxillary, zygomaticomaxillary, pterygomaxillary) and horizontal (frontal bar, infraorbital rim, maxillary alveolus).</li><li>Reconstructive plating re-establishes these buttresses rather than patching individual fracture lines.</li><li>Restoring buttress continuity restores facial height, width, and projection.</li></ul>"
       },
       {
         title: "The parotid gland, facial nerve, and Stensen's duct",
-        tagline: "Facial nerve branches · Parotid gland · Stensen's duct",
+        tagline: "Parotid gland · Facial nerve branches · Stensen's duct",
         html: "<figure class='note-fig'><img class='zoomable' src='assets/img/figures/parotid_facial_nerve.png' alt='Parotid facial nerve' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Facial nerve trunk and its five branches running through the parotid gland, plus Stensen&#39;s duct course.</figcaption></figure><p><strong>Why the parotid is really a &lsquo;facial nerve operation.&rsquo;</strong> The facial nerve (CN VII) runs through the parotid, so the single most important thing documented before and after any parotid surgery is facial nerve function. Every branch drives a muscle (or muscles) of facial expression: injury shows up as a specific, predictable facial deficit.</p><h4>Parotid facial nerve</h4><ul><li>The facial nerve trunk exits the <strong>stylomastoid foramen</strong> and enters the posterior parotid, dividing it (a surgical, not true anatomic, plane) into <strong>superficial (~80%)</strong> and <strong>deep (~20%)</strong> lobes.</li><li>Within the gland it splits at the <strong>pes anserinus</strong> into two divisions, <strong>temporofacial</strong> (upper) and <strong>cervicofacial</strong> (lower), giving the five terminal branches.</li></ul><p>Depth relationships (deep to superficial, key for parotid surgery):</p><ul><li><strong>Facial nerve</strong>: most superficial of the three structures.</li><li><strong>Retromandibular vein</strong>: lies just deep to the nerve (used on imaging to estimate the nerve plane).</li><li><strong>External carotid artery</strong>: deepest.</li></ul><p>Landmarks to find the main trunk intraoperatively:</p><ul><li><strong>Tragal pointer</strong>: trunk lies ~1 cm deep and inferior to its tip.</li><li><strong>Tympanomastoid suture line</strong>: points toward the trunk, a reliable landmark.</li><li><strong>Posterior belly of digastric</strong>: trunk is at the same depth, just superior to its attachment.</li></ul><h4>The five branches, their muscles, and their deficits</h4><p>Mnemonic (superior &rarr; inferior): <strong>&ldquo;To Zanzibar By Motor Car&rdquo;</strong>: Temporal, Zygomatic, Buccal, Marginal mandibular, Cervical.</p><div class=\"tbl-scroll\"><table><thead><tr><th>Branch</th><th>Main muscles</th><th>Function</th><th>Deficit if injured</th></tr></thead><tbody><tr><td><strong>Temporal (frontal)</strong></td><td>Frontalis, orbicularis oculi (upper), corrugator</td><td>Raises eyebrow, wrinkles forehead</td><td>Brow ptosis, can't wrinkle forehead</td></tr><tr><td><strong>Zygomatic</strong></td><td>Orbicularis oculi</td><td>Eye closure</td><td>Incomplete eye closure &rarr; corneal exposure risk</td></tr><tr><td><strong>Buccal</strong></td><td>Buccinator, upper lip elevators, nasalis, orbicularis oris</td><td>Smile, keeps food off cheek, nasal/upper-lip movement</td><td>Drooling, food pocketing, weak smile</td></tr><tr><td><strong>Marginal mandibular</strong></td><td>Depressors of lower lip (depressor anguli oris/labii inferioris), mentalis</td><td>Lower lip depression, symmetric full-denture smile</td><td>Asymmetric smile, lower-lip weakness</td></tr><tr><td><strong>Cervical</strong></td><td>Platysma</td><td>Tenses neck skin</td><td>Minimal functional deficit</td></tr></tbody></table></div><h4>Very high-yield surgical points</h4><ul><li>The two &lsquo;watershed&rsquo; branches, <strong>temporal</strong> and <strong>marginal mandibular</strong>, have the fewest cross-connections with adjacent branches, so injury to either is far more likely to cause a permanent, non-compensated deficit. The richly anastomosing midface branches (zygomatic/buccal) often recover because neighboring branches co-innervate the same muscles.</li><li><strong>Marginal mandibular branch</strong> is the most commonly discussed vulnerable branch: runs deep to platysma near the mandibular border/facial vessels, exposed in submandibular and lower-face surgery.</li><li><strong>Temporal (frontal) branch</strong> runs superficially under the temporoparietal (superficial temporal) fascia, crossing the zygomatic arch: at risk in facelift, temporal, and lateral brow surgery (see Pitanguy's line, below).</li><li>Almost all facial expression muscles are innervated on their <strong>deep</strong> surface: the classic exceptions (innervated on their <strong>superficial</strong> side) are the <strong>buccinator, levator anguli oris, and mentalis</strong>.</li><li>A peripheral (CN VII) lesion involves the forehead; a central/UMN lesion <strong>spares the forehead</strong> because the frontalis receives bilateral cortical input: the single most tested facial-nerve discriminator.</li><li>Extracranially the nerve is <strong>purely motor</strong>; its other functions (taste to the anterior 2/3 tongue via the chorda tympani, stapedius, lacrimation/salivation) branch off within the temporal bone, before the stylomastoid foramen.</li></ul><h4>Stensen's (parotid) duct</h4><ul><li>Runs from the anterior parotid, over masseter, then pierces buccinator to open opposite the upper second molar.</li><li><strong>Surface landmark</strong>: the middle third of a line from the tragus/intertragal notch to the midpoint of the upper lip (philtrum).</li><li>A cheek laceration along this line threatens both Stensen's duct and the buccal branch: assess both before closing; clear fluid expressible from the wound (increased by a sialagogue) suggests duct injury.</li></ul><h4>Frey syndrome (gustatory sweating)</h4><p>After parotidectomy, regenerating parasympathetic secretomotor fibers (originally destined for the gland) misdirect to cutaneous sweat glands, causing sweating/flushing of the cheek with eating. Confirmed with the <strong>Minor starch-iodine test</strong>.</p>"
       },
       {
         title: "The frontal branch of the facial nerve and Pitanguy's line",
-        tagline: "Frontal nerve branch · Brow ptosis",
+        tagline: "Frontal branch · Pitanguy's line · Brow ptosis",
         html: "<figure class='note-fig'><img class='zoomable' src='assets/img/figures/pitanguy_line.png' alt='Pitanguy line' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>The temporal (frontal) branch of the facial nerve and Pitanguy&#39;s surface-marking line that approximates its course.</figcaption></figure><ul><li>The <strong>temporal (frontal) branch</strong> is the most superficial and vulnerable branch, running just under the temporoparietal fascia.</li><li><strong>Pitanguy's line</strong> (0.5 cm below the tragus to 1.5 cm above the lateral eyebrow) approximates its course.</li><li>Lacerations or incisions crossing this line risk brow ptosis from frontal branch injury.</li></ul>"
       },
       {
         title: "Orbital floor and the inferior rectus/orbital fat",
-        tagline: "Orbital floor · Enophthalmos · Diplopia",
+        tagline: "Orbital floor · Inferior rectus entrapment · Enophthalmos/diplopia",
         html: "<figure class='note-fig' data-credit=\"OpenStax, Anatomy and Physiology 2e (Ch. 7). CC BY 4.0.\"><img class='zoomable' src='assets/img/facial-plastics/skull-anterior-openstax.png' alt='Anterior skull showing the bony orbit' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Bony orbit: optic canal, superior and inferior orbital fissures, infraorbital foramen; the floor is formed by the maxilla.</figcaption></figure><p>The thin orbital floor is the classic blow-out site, and entrapment there is what produces the enophthalmos and diplopia seen on exam.</p><h4>Bony anatomy (the basics)</h4><ul><li>The bony orbit is a pyramid with four walls. Key openings: <strong>optic canal</strong> (CN II, ophthalmic artery), <strong>superior orbital fissure</strong> (CN III, IV, V1, VI), <strong>inferior orbital fissure</strong>, and the <strong>infraorbital foramen</strong>.</li><li>The floor is formed mainly by the <strong>maxilla</strong> (orbital plate): which is also the roof of the maxillary sinus.</li><li>The floor is thin and grooved by the <strong>infraorbital canal</strong> (carries the infraorbital nerve, V2): the weakest wall along with the medial wall (lamina papyracea), the two classic blow-out sites.</li></ul><h4>What a blow-out fracture is</h4><p>A fracture of the orbital floor (or medial wall) with an <strong>intact orbital rim</strong>. Two mechanisms:</p><ul><li><strong>Hydraulic</strong>: a blow to the globe raises intraorbital pressure, which &lsquo;blows out&rsquo; the thin floor.</li><li><strong>Buckling</strong>: force on the rim transmits a shock wave that fractures the floor.</li></ul><h4>Common causes</h4><ul><li>Blunt periorbital trauma (assault/fist, sports balls, MVCs, falls).</li><li>Any object <strong>larger than the orbital rim</strong> striking the eye (smaller objects tend to rupture the globe instead).</li></ul><h4>Clinical findings (why they happen)</h4><ul><li><strong>Enophthalmos</strong>: orbital fat/contents herniate into the maxillary sinus, and the globe sinks back.</li><li><strong>Diplopia on upgaze</strong>: herniation or entrapment of orbital fat &plusmn; the inferior rectus tethers vertical eye movement.</li><li><strong>Infraorbital nerve hypesthesia</strong>: numb cheek, upper lip, upper teeth (the nerve runs in the floor).</li><li><strong>Orbital emphysema</strong>: air tracks from the sinus into the orbit, worse with nose-blowing.</li></ul><figure class='note-fig' data-credit=\"Orbital Floor Blowout Fracture and Muscle Entrapment. Wikimedia Commons.\"><img class='zoomable' src='assets/img/mc/81_orbital_floor_blowout_fracture_wikimedia.png' alt='Orbital floor blowout fracture' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Orbital floor blowout fracture and muscle entrapment.</figcaption></figure>"
       },
       {
@@ -65,7 +65,7 @@ window.JEFFENT.register({
       },
       {
         title: "Trigeminal Nerve (CN V) Anatomy",
-        tagline: "Trigeminal divisions · Facial sensation · Foramina",
+        tagline: "Trigeminal divisions · Facial sensation · Skull-base foramina",
         html: "<p>CN V is the main sensory nerve of the face (and motor to the muscles of mastication via V3). It has three divisions, each exiting the skull through its own foramen and each supplying a horizontal band of the face: a sensory deficit in one band points directly to the injured region in facial trauma.</p><h4>Three divisions</h4><ul><li><strong>V1 Ophthalmic</strong> (superior orbital fissure): forehead, upper eyelid, cornea, dorsum of nose; cutaneous branches supraorbital + supratrochlear.</li><li><strong>V2 Maxillary</strong> (foramen rotundum &rarr; infraorbital foramen): midface: lower eyelid, lateral nose, cheek, upper lip, upper teeth, palate; cutaneous branch is the infraorbital nerve.</li><li><strong>V3 Mandibular</strong> (foramen ovale &rarr; mental foramen): lower face: lower lip, chin, lower teeth, anterior two-thirds of tongue (general sensation), plus motor to the muscles of mastication; cutaneous branch is the mental nerve.</li></ul><h4>Highest-yield clinical points</h4><ul><li>The three foramina line up vertically: <strong>supraorbital notch/foramen</strong> (V1), <strong>infraorbital foramen</strong> (V2), <strong>mental foramen</strong> (V3) sit roughly along a vertical line at the mid-pupillary plane: a quick surface landmark and where you test sensation.</li><li><strong>Infraorbital nerve (V2)</strong> hypesthesia is the classic sign of an orbital floor blow-out or ZMC fracture.</li><li><strong>Mental/inferior alveolar nerve (V3)</strong> hypesthesia (numb-chin sign) localizes to a mandibular body/parasymphyseal fracture.</li><li><strong>V1 corneal sensation</strong> matters for eye protection: a numb, poorly-closing eye (combined with facial nerve injury) is at high risk for exposure keratopathy.</li><li>Motor is <strong>V3 only</strong> (masseter, temporalis, medial/lateral pterygoids): the rest of CN V is purely sensory.</li><li><strong>Corneal reflex</strong>: afferent limb V1, efferent limb CN VII (orbicularis oculi).</li></ul><p>Sensory deficit localizes to the division: forehead (V1), cheek (V2), or chin (V3).</p>"
       },
       {
@@ -251,6 +251,7 @@ window.JEFFENT.register({
   cases: [
     {
       id: "case-le-fort-ii",
+      preview: "Car crash with a midface that moves with the nose",
       ukmla: "Facial/periorbital swelling",
       source: "Standard facial trauma teaching on Le Fort fracture patterns.",
       stem: "After a motor vehicle collision, a patient has <b>facial swelling, epistaxis, and a mobile midface</b> that moves as a unit with the nasal bones when the examiner grasps the anterior maxillary teeth and palate.",
@@ -262,6 +263,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-facial-nerve-laceration",
+      preview: "Knife wound in front of the ear with immediate total facial paralysis",
       ukmla: "Facial weakness",
       source: "Standard facial trauma teaching on facial nerve injury timing.",
       stem: "A patient has a <b>deep laceration anterior to the ear</b> from a knife injury, with <b>immediate, complete inability to move the ipsilateral forehead, eye closure, and mouth</b> on that side.",
@@ -273,6 +275,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-orbital-blowout-child",
+      preview: "Child hit by a ball: quiet-looking eye, no upgaze, and vomiting",
       ukmla: "Facial/periorbital swelling",
       source: "Standard pediatric orbital trauma teaching on 'white-eyed' blow-out fractures.",
       stem: "A <b>9-year-old</b> is hit in the eye with a ball. The eye looks relatively unremarkable (no significant bruising or swelling: a 'white eye'), but he has <b>marked restriction of upgaze</b>, nausea, and vomiting.",
@@ -284,6 +287,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-parotid-duct-injury",
+      preview: "Cheek laceration leaking clear fluid that increases at the sight of food",
       ukmla: "Facial weakness",
       source: "Standard facial trauma teaching on Stensen's duct injury.",
       stem: "A patient has a laceration over the cheek along a line from the tragus to the corner of the mouth, with <b>clear, watery fluid</b> draining from the wound that increases when he is shown food.",
@@ -295,6 +299,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-csf-rhinorrhea",
+      preview: "Clear drip from one nostril after a high-energy facial injury",
       ukmla: "Epistaxis",
       source: "Standard skull-base trauma teaching on CSF leak recognition.",
       stem: "After a high-energy facial/skull-base injury, a patient has clear fluid dripping from one nostril that the patient describes as different from typical nasal discharge, worse when leaning forward.",
@@ -306,6 +311,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-guardsman-fracture",
+      preview: "Chin-first fall with a wrong bite, jaw pain, and a numb lip",
       ukmla: "Facial/periorbital swelling",
       source: "Standard oral-maxillofacial trauma teaching on bilateral condylar ('guardsman') mandible fracture patterns.",
       stem: "A patient fell and landed chin-first on the pavement. He reports his <b>bite feels wrong</b>, has bilateral preauricular pain and <b>trismus</b>, and describes numbness of his <b>lower lip and chin</b> bilaterally.",
@@ -317,6 +323,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-noe-fracture",
+      preview: "Nasal bridge impact with widely set inner eye corners and a flat nose",
       ukmla: "Facial/periorbital swelling",
       source: "Standard craniomaxillofacial trauma teaching on naso-orbito-ethmoid (NOE) fracture and medial canthal tendon injury.",
       stem: "After a high-speed motor vehicle collision with direct impact to the nasal bridge, a patient has a <b>widened, rounded appearance to the inner corners of both eyes</b> and a flattened nasal bridge. Pulling gently on the lower eyelid laterally while palpating the inner canthus, the examiner feels the soft tissue move independently of the underlying bone.",
@@ -328,6 +335,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-mandible-fracture-airway",
+      preview: "Intoxicated assault victim, snoring and stridorous, with a mobile front jaw",
       ukmla: "Facial/periorbital swelling",
       source: "Standard oral-maxillofacial trauma teaching on mandible fracture and airway compromise.",
       stem: "An intoxicated patient is brought in after an assault with direct blows to the chin. Lying supine, he is snoring loudly with intermittent stridor. Exam shows bilateral <b>parasymphyseal step-offs</b>, a mobile anterior mandibular segment, malocclusion, and blood pooling in the floor of mouth.",
@@ -341,6 +349,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-auricular-hematoma",
+      preview: "Wrestler with a tense, fluctuant swelling of the outer ear",
       ukmla: "Painful ear",
       source: "Standard auricular trauma teaching on hematoma drainage and cauliflower ear prevention.",
       stem: "A collegiate wrestler presents after a match with a <b>painful, tense, fluctuant swelling of the outer ear</b> that has obliterated the normal cartilaginous contours. There is no overlying skin laceration.",
@@ -354,6 +363,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-frontal-sinus-fracture",
+      preview: "Forehead impact with a frontal sinus fracture: which CT details matter?",
       ukmla: "Epistaxis",
       source: "Standard craniomaxillofacial trauma teaching on frontal sinus fracture management.",
       stem: "After a high-speed motor vehicle collision with direct forehead impact, CT shows a <b>frontal sinus fracture</b>. The report specifically comments on the status of the posterior table and the nasofrontal outflow tract.",
@@ -367,6 +377,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-septal-hematoma",
+      preview: "Child after a bike fall with a boggy, bluish swelling inside the nose",
       ukmla: "Epistaxis",
       source: "Standard nasal trauma teaching on septal hematoma recognition and same-day drainage.",
       stem: "A 7-year-old falls off a bike onto his face. Nasal exam shows a <b>bilateral, boggy, fluctuant, bluish-red swelling</b> of the nasal septum that nearly obstructs both nostrils; there is no active bleeding.",

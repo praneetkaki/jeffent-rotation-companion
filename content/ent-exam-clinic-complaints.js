@@ -46,7 +46,7 @@ window.JEFFENT.register({
       {
         title: "The ENT regions at a glance",
         topics: ["Exam and approach"],
-        tagline: "Five ENT regions",
+        tagline: "Five ENT regions · Ear, nose, throat · Head and neck overview",
         html: "<div class=\"fig-row\"><figure class='note-fig'><img class='zoomable' src='assets/img/figures/ENT_regions_glance.png' alt='ENT regions glance' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Overview map of the five linked ENT anatomical regions (ear, nose/sinuses, oral cavity/pharynx, larynx, neck).</figcaption></figure></div><p>ENT anatomy breaks down into five linked regions.</p>" +
           "<div class='tbl-scroll'><table><thead><tr><th>Region</th><th>Key structures</th><th>High-yield pathologies</th></tr></thead><tbody>" +
           "<tr><td><strong><a class='xref' data-mod='otology-ear' data-tab='anatomy'>Ear</a></strong></td><td>Auricle (pinna) and external auditory canal; tympanic membrane; ossicles (malleus, incus, stapes); Eustachian tube; cochlea, vestibule, semicircular canals; CN VII and CN VIII</td><td>AOM/OME, cholesteatoma, otosclerosis, sudden SNHL, vestibular schwannoma, BPPV</td></tr>" +
@@ -60,7 +60,7 @@ window.JEFFENT.register({
       {
         title: "Cranial nerves",
         topics: ["Cranial nerves"],
-        tagline: "Cranial nerves · Skull base foramina · Cranial nerve function",
+        tagline: "Cranial nerves · Skull base foramina · Nerve function",
         html: "<div class=\"fig-row\"><figure class='note-fig'><img class='zoomable' src='assets/img/figures/cranial-nerves-inferior-view.svg' alt='Cranial nerves inferior view' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>All twelve cranial nerves with their skull-base exit foramen and function.</figcaption></figure></div><p>All twelve cranial nerves, in order, with the skull base foramen or canal each one exits through and why it matters clinically. This is the complete reference; see the diagram below for where each foramen actually sits.</p>" +
           "<div class=\"tbl-scroll\"><table><thead><tr><th>Nerve</th><th>Skull base exit</th><th>Type</th><th>Function</th><th>If injured</th></tr></thead><tbody>" +
           "<tr><td><strong>I</strong> &middot; Olfactory</td><td>Cribriform plate</td><td>Sensory</td><td>Smell</td><td>Anosmia; classic after an anterior skull-base fracture through the cribriform plate</td></tr>" +
@@ -428,6 +428,7 @@ window.JEFFENT.register({
   cases: [
     {
       id: "case-referred-otalgia",
+      preview: "Heavy smoker with ear pain and a completely normal ear exam",
       topics: ["Ear"],
       ukmla: "Painful ear",
       source: "Bailey's Head & Neck Surgery: Otolaryngology, 6th ed., referred otalgia pathways.",
@@ -440,6 +441,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-sudden-snhl",
+      preview: "Ear went muffled overnight: use the tuning forks to localize it",
       topics: ["Ear"],
       ukmla: "Hearing loss",
       source: "AAO-HNSF Clinical Practice Guideline: Sudden Hearing Loss (Update), 2019.",
@@ -452,6 +454,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-button-battery",
+      preview: "Toddler with bloody nasal discharge and a shiny round object",
       topics: ["Emergencies and airway", "Nose and sinuses"],
       ukmla: "Ear and nasal discharge",
       source: "National Capital Poison Center / AAP button-battery ingestion & insertion guidance (2020).",
@@ -464,6 +467,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-airway-pta",
+      preview: "Febrile teen with trismus, a hot potato voice, and drooling",
       topics: ["Throat and larynx", "Emergencies and airway"],
       ukmla: "Sore throat",
       source: "AAO-HNS patient education, peritonsillar abscess recognition & management.",
@@ -476,6 +480,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-neck-mass",
+      preview: "Smoker with a firm, fixed neck lump for 6 weeks",
       topics: ["Neck and thyroid"],
       ukmla: "Neck lump",
       source: "NCCN Clinical Practice Guidelines in Oncology: Head and Neck Cancers, neck mass workup.",
@@ -488,6 +493,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-epistaxis",
+      preview: "Brisk nosebleed in a stable patient on warfarin",
       topics: ["Nose and sinuses"],
       ukmla: "Epistaxis",
       source: "AAO-HNSF Clinical Practice Guideline: Nosebleed (Epistaxis), 2020.",
@@ -500,6 +506,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-bppv",
+      preview: "Seconds of spinning when rolling over in bed",
       topics: ["Ear"],
       ukmla: ["Vertigo", "Dizziness"],
       source: "AAO-HNSF Clinical Practice Guideline: BPPV (Update), 2017; Kattah et al., HINTS exam, Stroke 2009.",
@@ -512,6 +519,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-hoarseness",
+      preview: "Smoker with 6 weeks of hoarseness and no other symptoms",
       topics: ["Throat and larynx"],
       ukmla: "Hoarseness and voice change",
       source: "AAO-HNSF Clinical Practice Guideline: Hoarseness (Dysphonia) (Update), 2018.",
@@ -524,6 +532,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-orbital-cellulitis",
+      preview: "Child after a cold with a red eyelid and a pushed-forward eye",
       topics: ["Nose and sinuses", "Emergencies and airway"],
       ukmla: "Facial/periorbital swelling",
       source: "Chandler et al., orbital complications of sinusitis staging, Laryngoscope 1970; AAO-HNSF Adult Sinusitis CPG, 2015.",
@@ -536,6 +545,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-bells-vs-central",
+      preview: "Woke up with a facial droop: does the forehead tell you where?",
       topics: ["Cranial nerves", "Ear"],
       ukmla: "Facial weakness",
       source: "AAN Practice Guideline: Bell's Palsy, 2012.",
@@ -549,6 +559,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-cerumen-impaction",
+      preview: "Wax-blocked ear in a patient on warfarin",
       topics: ["Ear"],
       ukmla: ["Hearing loss", "Painful ear"],
       source: "AAO-HNSF Clinical Practice Guideline: Cerumen Impaction (Update), 2017.",
@@ -561,6 +572,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-unilateral-effusion",
+      preview: "Adult with new fluid behind one eardrum and bloody nasal mucus",
       topics: ["Ear", "Nose and sinuses"],
       ukmla: "Hearing loss",
       stem: "A <b>46-year-old adult</b> has a <b>new unilateral serous middle-ear effusion</b> and occasional blood-streaked nasal mucus.",
@@ -571,6 +583,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-pediatric-stridor",
+      preview: "Well-growing infant with noisy breathing that is worse on the back",
       topics: ["Throat and larynx", "Emergencies and airway"],
       ukmla: "Stridor",
       stem: "A <b>6-week-old</b> has <b>inspiratory stridor</b> that is worse supine and with feeding and improves prone. Growth is normal.",

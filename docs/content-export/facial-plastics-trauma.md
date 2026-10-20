@@ -17,14 +17,14 @@ _Generated 2026-10-20 from content/*.js_
 
 ### Anatomy notes
 
-**The facial buttresses** (tags: Facial buttresses · Bone columns · Fracture reconstruction)
+**The facial buttresses** (tags: Facial buttresses · Vertical and horizontal columns · Fracture reconstruction)
 
 [figure: Vertical and horizontal facial buttress columns that absorb/transmit force and that reconstructive plating restores.]
 - Buttresses are thickened bone columns that absorb and transmit force: vertical (nasomaxillary, zygomaticomaxillary, pterygomaxillary) and horizontal (frontal bar, infraorbital rim, maxillary alveolus).
 - Reconstructive plating re-establishes these buttresses rather than patching individual fracture lines.
 - Restoring buttress continuity restores facial height, width, and projection.
 
-**The parotid gland, facial nerve, and Stensen's duct** (tags: Facial nerve branches · Parotid gland · Stensen's duct)
+**The parotid gland, facial nerve, and Stensen's duct** (tags: Parotid gland · Facial nerve branches · Stensen's duct)
 
 [figure: Facial nerve trunk and its five branches running through the parotid gland, plus Stensen's duct course.]Why the parotid is really a &lsquo;facial nerve operation.' The facial nerve (CN VII) runs through the parotid, so the single most important thing documented before and after any parotid surgery is facial nerve function. Every branch drives a muscle (or muscles) of facial expression: injury shows up as a specific, predictable facial deficit.
 Parotid facial nerve
@@ -49,14 +49,14 @@ BranchMain musclesFunctionDeficit if injuredTemporal (frontal)Frontalis, orbicul
 - Surface landmark: the middle third of a line from the tragus/intertragal notch to the midpoint of the upper lip (philtrum).
 - A cheek laceration along this line threatens both Stensen's duct and the buccal branch: assess both before closing; clear fluid expressible from the wound (increased by a sialagogue) suggests duct injury.Frey syndrome (gustatory sweating)After parotidectomy, regenerating parasympathetic secretomotor fibers (originally destined for the gland) misdirect to cutaneous sweat glands, causing sweating/flushing of the cheek with eating. Confirmed with the Minor starch-iodine test.
 
-**The frontal branch of the facial nerve and Pitanguy's line** (tags: Frontal nerve branch · Brow ptosis)
+**The frontal branch of the facial nerve and Pitanguy's line** (tags: Frontal branch · Pitanguy's line · Brow ptosis)
 
 [figure: The temporal (frontal) branch of the facial nerve and Pitanguy's surface-marking line that approximates its course.]
 - The temporal (frontal) branch is the most superficial and vulnerable branch, running just under the temporoparietal fascia.
 - Pitanguy's line (0.5 cm below the tragus to 1.5 cm above the lateral eyebrow) approximates its course.
 - Lacerations or incisions crossing this line risk brow ptosis from frontal branch injury.
 
-**Orbital floor and the inferior rectus/orbital fat** (tags: Orbital floor · Enophthalmos · Diplopia)
+**Orbital floor and the inferior rectus/orbital fat** (tags: Orbital floor · Inferior rectus entrapment · Enophthalmos/diplopia)
 
 [figure: Bony orbit: optic canal, superior and inferior orbital fissures, infraorbital foramen; the floor is formed by the maxilla.]The thin orbital floor is the classic blow-out site, and entrapment there is what produces the enophthalmos and diplopia seen on exam.
 Bony anatomy (the basics)
@@ -106,7 +106,7 @@ Highest-yield clinical points
 - &lsquo;Guardsman fracture': chin-first fall -> bilateral condyle fractures &plusmn; symphyseal fracture.Closed-ring biomechanics dictate that a concentrated impact produces paired disruptions; post-traumatic malocclusion confirms an unstable mandibular fracture.
 [figure: Mandible subunits and common fracture sites (condyle, angle, body, parasymphysis).]
 
-**Trigeminal Nerve (CN V) Anatomy** (tags: Trigeminal divisions · Facial sensation · Foramina)
+**Trigeminal Nerve (CN V) Anatomy** (tags: Trigeminal divisions · Facial sensation · Skull-base foramina)
 
 CN V is the main sensory nerve of the face (and motor to the muscles of mastication via V3). It has three divisions, each exiting the skull through its own foramen and each supplying a horizontal band of the face: a sensory deficit in one band points directly to the injured region in facial trauma.
 Three divisions

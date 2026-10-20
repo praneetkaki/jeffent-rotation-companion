@@ -17,7 +17,7 @@ _Generated 2026-10-20 from content/*.js_
 
 ### Anatomy notes
 
-**The temporal bone in four parts** (tags: Petrous part · Mastoid · Jaw joint)
+**The temporal bone in four parts** (tags: Four bony parts (squamous, tympanic, petrous, mastoid) · Petrous part (ear) · Jaw joint (TMJ))
 
 [figure: Overview of the temporal bone's four parts (squamous, tympanic, petrous, mastoid) and the TMJ formed by its squamous portion.]PartRoleSquamousLateral flat portion. Its zygomatic process and glenoid (mandibular) fossa form the temporomandibular joint, the anatomic reason TMJ pathology causes referred otalgia.TympanicForms the anterior, inferior, and part of the posterior wall of the external auditory canal (bony EAC).PetrousDense pyramid that houses the middle and inner ear and the intratemporal facial nerve. Separates the middle from the posterior cranial fossa (the focus of otology and neurotology).MastoidPostauricular air-cell system continuous with the middle ear via the aditus ad antrum. Site of mastoiditis and the surgical corridor for mastoidectomy and cochlear implantation.A fifth part, the small styloid process, is sometimes listed separately: it anchors the stylohyoid, styloglossus, and stylopharyngeus; an elongated styloid causes Eagle syndrome (throat/facial pain on swallowing or neck rotation).
 Petrous Contents: Middle & Inner Ear Structures
@@ -52,7 +52,7 @@ Fascial layerKey structures enclosedBoundaries / featuresClinical relevanceSuper
 SpaceExtends toRetropharyngealSkull base to about C6-T4 (where the alar and buccopharyngeal fascia fuse)DangerSkull base to the diaphragm (posterior mediastinum)PrevertebralAlong the spine, potentially to the coccyxCervical nodal levels (Robbins classification):
 LevelLocation and boundariesMain nodal contentsPrimary drainageIa (submental)Between the anterior bellies of digastric, above the hyoidSubmental nodesChin, lower lip, floor of mouth, tongue tipIb (submandibular)Submandibular triangleSubmandibular gland and nodesOral cavity, anterior faceIIa / IIb (upper jugular)Skull base to hyoid, around the upper internal jugular vein; split by the spinal accessory nerve (CN XI)Upper deep cervical nodesOral cavity, nasopharynx, oropharynx, larynx, parotidIII (mid jugular)Hyoid to cricoidMiddle deep cervical nodesLarynx, hypopharynx, oropharynxIV (lower jugular)Cricoid to clavicleLower deep cervical nodesLarynx, thyroid, hypopharynx, cervical esophagusVa / Vb (posterior triangle)Behind the sternocleidomastoid, in front of trapezius; split by the cricoid planeSpinal accessory and transverse cervical nodesNasopharynx, posterior scalp and neck, thyroidVI (central compartment)Hyoid to sternal notch, between the carotid sheathsPretracheal, paratracheal, prelaryngeal (Delphian) nodesThyroid, glottic and subglottic larynx, hypopharynx, cervical esophagusVII (superior mediastinal)Below the sternal notchSuperior mediastinal nodesThyroid, cervical esophagus
 
-**Cranial nerves of the head & neck** (tags: Cranial nerves · Skull-base exits)
+**Cranial nerves of the head & neck** (tags: Cranial nerves · Skull-base foramina · Nerve function)
 
 [figure: The twelve cranial nerves, with emphasis on the seven relevant to ENT, and their skull-base exits.]Of the twelve cranial nerves, ENT anatomy revolves around several in particular:
 
@@ -85,7 +85,7 @@ ExitNervesCombined palsy suggestsJugular foramenIX, X, XILower-cranial-nerve pal
 - Mastoid (vertical): descends to the stylomastoid foramen, giving off the nerve to stapedius and the chorda tympani.
 - Ramsay Hunt syndrome (herpes zoster oticus): zoster reactivation at the geniculate ganglion; facial palsy with a vesicular ear-canal/pinna rash, usually more severe and slower to recover than Bell's palsy.
 
-**Branchial arch, pouch, and cleft embryology** (tags: Branchial arches · Second branchial cleft anomalies)
+**Branchial arch, pouch, and cleft embryology** (tags: Branchial arches · Pouches and clefts · Neck anomalies)
 
 Branchial arch derivatives:
 ArchCartilageSkeletal derivativesMusclesCranial nerve1st (mandibular)Meckel'sMalleus, incus, mandible, sphenomandibular ligamentMuscles of mastication, mylohyoid, anterior belly of digastric, tensor tympani, tensor veli palatiniCN V2nd (hyoid)Reichert'sStapes, styloid process, lesser horn and upper body of hyoid, stylohyoid ligamentMuscles of facial expression, stapedius, stylohyoid, posterior belly of digastric, platysmaCN VII3rd(none)Greater horn and lower body of hyoidStylopharyngeusCN IX4th/6th(none)Laryngeal cartilages (thyroid, cricoid, arytenoid)Pharyngeal and laryngeal muscles (cricothyroid, levator veli palatini, intrinsic laryngeal muscles)CN X (SLN for 4th, RLN for 6th)Pharyngeal pouches and clefts:

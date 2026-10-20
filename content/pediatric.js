@@ -36,12 +36,12 @@ window.JEFFENT.register({
     notes: [
       {
         title: "The pediatric airway vs the adult airway",
-        tagline: "Funnel-shaped · Cephalad · Floppy airway",
+        tagline: "Funnel-shaped · Cephalad larynx · Narrow/floppy airway",
         html: "<ul><li>Classically <strong>funnel-shaped</strong>, narrowest at the subglottis and cricoid (vs the glottis in adults). Imaging studies suggest the glottis may be the narrowest point in vivo, but the cricoid is the narrowest fixed ring, so choose a tube with a leak or a cuffed tube sized carefully.</li><li>Larynx sits <strong>more cephalad</strong> in children.</li><li>Tongue and tonsils are <strong>relatively larger</strong> for the airway size.</li><li>Epiglottis is <strong>omega-shaped</strong> and floppier.</li><li>So small amounts of edema cause disproportionate obstruction, and airway emergencies escalate faster.</li></ul><figure class='note-fig'><img class='zoomable' src='assets/img/figures/pediatric_adult_airway.png' alt='Pediatric adult airway' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Explains why a child&#39;s funnel-shaped airway (narrowest at the subglottis, cephalad larynx, floppy omega-shaped epiglottis) makes small amounts of edema disproportionately obstructive compared to an adult&#39;s cylindrical airway.</figcaption></figure>"
       },
       {
         title: "Eustachian tube anatomy in children",
-        tagline: "Shorter, horizontal tube · Childhood otitis",
+        tagline: "Short, horizontal tube · Childhood otitis media · Middle-ear drainage",
         html: "<figure class='note-fig'><img class='zoomable' src='assets/img/figures/eustachian_tube_child_adult.png' alt='Eustachian tube child adult' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Contrasts the child&#39;s shorter, more horizontal Eustachian tube with the adult&#39;s steeper tube to explain why otitis media is a childhood disease.</figcaption></figure><ul><li>A child's Eustachian tube is <strong>shorter, more horizontal, and less angled</strong> than an adult's.</li><li>It therefore drains the middle ear less efficiently and lets nasopharyngeal secretions and pathogens reflux more easily.</li><li>This is why otitis media is overwhelmingly a childhood disease, becoming far less common once the tube matures toward its adult angle.</li></ul>"
       },
       {
@@ -51,7 +51,7 @@ window.JEFFENT.register({
       },
       {
         title: "Arch derivatives: cartilage, muscle & nerve",
-        tagline: "Arch nerves · Muscles · Skeleton",
+        tagline: "Arch nerves · Arch muscles · Arch skeleton",
         html: "<p>Each arch is a self-contained package: its skeleton, its muscles, and its own cranial nerve all move together. <strong>The nerve of an arch supplies the muscles of that same arch.</strong></p><ul><li><strong>Arch 1 (mandibular)</strong>: CN <strong>V3</strong> (trigeminal). Muscles: mastication, mylohyoid, anterior belly of digastric, tensor tympani, tensor veli palatini. Skeleton: Meckel's cartilage &rarr; malleus & incus; mandible, maxilla (membranous bone).</li><li><strong>Arch 2 (hyoid)</strong>: CN <strong>VII</strong> (facial). Muscles: facial expression, stapedius, stylohyoid, posterior belly of digastric. Skeleton: Reichert's cartilage &rarr; stapes, styloid process, lesser horn + upper hyoid.</li><li><strong>Arch 3</strong>: CN <strong>IX</strong> (glossopharyngeal). Muscle: stylopharyngeus. Skeleton: greater horn + lower body of hyoid.</li><li><strong>Arch 4</strong>: CN <strong>X</strong>, superior laryngeal branch. Muscles: pharyngeal constrictors, cricothyroid, levator veli palatini. Skeleton: thyroid & most laryngeal cartilages.</li><li><strong>Arch 6</strong>: CN <strong>X</strong>, recurrent laryngeal branch. Muscles: intrinsic laryngeal muscles (except cricothyroid). Skeleton: cricoid, arytenoid, remaining laryngeal cartilages.</li></ul><p>The cranial nerves of the arches run <strong>V, VII, IX, X</strong> in order (arches 1-2-3-4/6): trigeminal, facial, glossopharyngeal, then vagus, the same nerves involved in the gag/swallow reflex arc.</p><p>The cricothyroid is the exception: the one intrinsic laryngeal muscle innervated from arch 4 (superior laryngeal nerve); all other intrinsic laryngeal muscles arise from arch 6 (recurrent laryngeal nerve). This is the anatomic basis for the RLN and the external branch of the SLN being the two nerves at risk in thyroid surgery.</p>"
       },
       {
@@ -61,17 +61,17 @@ window.JEFFENT.register({
       },
       {
         title: "Waldeyer's ring: the foundational picture",
-        tagline: "Adenoids · Tonsils · Lymphoid ring",
+        tagline: "Adenoids · Palatine tonsils · Lymphoid ring",
         html: "<p>A ring of mucosa-associated lymphoid tissue (MALT) encircling the opening of the oral and nasal cavities into the pharynx, first described by Wilhelm von Waldeyer. It is the body's first-line immune \"gatekeeper\" at the crossroads of the respiratory and alimentary tracts, sampling inhaled and ingested antigens.</p><p>The four components, superior to inferior:</p><ul><li><strong>Pharyngeal tonsil (adenoids)</strong>: single, midline, in the roof/posterior wall of the nasopharynx. Not seen on routine oral exam (needs mirror/endoscopy).</li><li><strong>Tubal tonsils</strong>: paired, at the torus tubarius around each Eustachian tube opening. The component students most often forget, and the anatomic link between adenoid disease and middle-ear effusion.</li><li><strong>Palatine tonsils</strong>: paired, in the tonsillar fossa between the palatoglossal (anterior) and palatopharyngeal (posterior) arches. These are \"the tonsils\" seen on oral exam and graded on the Brodsky scale (0-4+, where 4+ = \"kissing\" tonsils).</li><li><strong>Lingual tonsil</strong>: at the base of the tongue.</li></ul><p>Superior to inferior: adenoid (roof) &rarr; tubal (around the tubes) &rarr; palatine (visible on oral exam) &rarr; lingual (tongue base).</p><p>Immunologically: lymphoid tissue with germinal centers activating B cells against nasally/orally encountered pathogens, sampled through deep epithelial crypts (the palatine tonsil has 10-30 branched crypts, massively expanding surface area but also trapping debris and becoming an infection reservoir). Unlike lymph nodes, tonsils have no afferent lymphatics: antigen reaches them directly across the epithelium.</p><figure class='note-fig'><img class='zoomable' src='assets/img/figures/waldeyer_ring.png' alt='Waldeyer ring' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Describes the ring of lymphoid tissue (adenoids, tubal tonsils, palatine tonsils, lingual tonsil) guarding the aerodigestive entrance.</figcaption></figure>"
       },
       {
         title: "The age curve: why this is a childhood problem",
-        tagline: "Peak ages 2-8 · Regression",
+        tagline: "Peak ages 2-8 · Lymphoid hyperplasia · Regression",
         html: "<p>Adenoid and tonsillar tissue is small at birth, grows through early childhood, peaks roughly between <strong>ages 2 and 8</strong> (relative to a still-small pharynx), then regresses through adolescence.</p><p>This growth-then-involution curve, layered on repeated viral/bacterial antigen exposure, is exactly why obstructive and infectious tonsil disease clusters in preschool/early-school-age children and becomes far less common in adults, in whom adenoids are usually vestigial.</p><p>Blood supply pearl (bleeding risk): the palatine tonsil is fed mainly by the <strong>tonsillar branch of the facial artery</strong>, with contributions from the ascending pharyngeal, lingual, and descending palatine arteries: all from the external carotid system.</p>"
       },
       {
         title: "The two clinical endpoints",
-        tagline: "Recurrent tonsillitis · Obstruction",
+        tagline: "Recurrent tonsillitis · Obstruction/OSA · Tonsillectomy indication",
         html: "<table class=\"tbl-wrap\"><thead><tr><th>Endpoint</th><th>Mechanism</th><th>Consequences</th></tr></thead><tbody>" +
           "<tr><td><strong>Recurrent tonsillitis</strong></td><td>Repeated infection and inflammation of the palatine tonsils (histologically fibrosis, reduced follicles, strong inflammatory infiltrate).</td><td>Drives the recurrent-infection indication for tonsillectomy (Paradise-criteria frequency).</td></tr>" +
           "<tr><td><strong>Adenotonsillar hypertrophy with obstruction</strong></td><td>Bulk enlargement narrows the nasopharyngeal and oropharyngeal airway. Adenoid hypertrophy also obstructs the Eustachian tube.</td><td>Mouth breathing, snoring, sleep-disordered breathing, and pediatric OSA (now the leading indication for T&A). Otitis media with effusion. Chronic untreated obstruction can cause adenoid facies and, if severe, cor pulmonale.</td></tr></tbody></table>" +
@@ -313,6 +313,7 @@ window.JEFFENT.register({
   cases: [
     {
       id: "case-choanal-atresia",
+      preview: "Newborn who turns blue at rest and pinks up when crying",
       ukmla: "Nasal obstruction",
       source: "Standard pediatric otolaryngology teaching on choanal atresia.",
       stem: "A newborn has episodes of <b>cyanosis at rest that resolve with crying</b>, and repeated attempts to pass a nasal catheter fail bilaterally.",
@@ -324,6 +325,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-recurrent-aom",
+      preview: "Preschooler with 6 ear infections in a year and fluid between them",
       ukmla: "Painful ear",
       source: "AAO-HNSF Clinical Practice Guideline: Tympanostomy Tubes in Children (Update), 2022.",
       stem: "A <b>4-year-old</b> has had 6 episodes of acute otitis media in the past 12 months, each treated with antibiotics, with persistent effusion noted between episodes.",
@@ -335,6 +337,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-failed-newborn-screen",
+      preview: "Newborn fails the hearing screen and the parents are told not to worry",
       ukmla: "Hearing loss",
       source: "Standard pediatric audiology teaching: the 1-3-6 rule.",
       stem: "A newborn fails the automated ABR hearing screen before hospital discharge. The parents are told 'it's probably just fluid, don't worry about it.'",
@@ -346,6 +349,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-thyroglossal-cyst",
+      preview: "Child with a midline neck lump that rises when he sticks out his tongue",
       ukmla: "Neck lump",
       source: "Standard pediatric otolaryngology teaching on thyroglossal duct cysts.",
       stem: "A <b>3-year-old</b> has a painless midline neck swelling that moves upward when he sticks out his tongue.",
@@ -357,6 +361,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-laryngomalacia-vs-hemangioma",
+      preview: "Infant stridor since week 2: which features would change the plan?",
       ukmla: "Stridor",
       source: "Standard pediatric airway teaching on laryngomalacia and subglottic hemangioma.",
       stem: "A <b>6-week-old</b> has inspiratory stridor, worse when feeding and lying supine, present since 2 weeks of age. He is gaining weight normally.",
@@ -368,6 +373,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-pierre-robin",
+      preview: "Newborn with a tiny jaw, cleft palate, and obstructed breathing",
       ukmla: "Stridor",
       source: "Standard pediatric craniofacial airway teaching on Pierre Robin sequence.",
       stem: "A newborn has a <b>very small, retruded jaw</b>, a <b>U-shaped cleft palate</b> noted on newborn exam, and noisy, obstructed breathing that improves somewhat prone but still shows intermittent desaturations and difficulty completing feeds.",
@@ -379,6 +385,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-rrp-mimic-croup",
+      preview: "Toddler with \"recurrent croup\" and worsening hoarseness between episodes",
       ukmla: "Stridor",
       source: "Standard pediatric laryngology teaching on recurrent respiratory papillomatosis.",
       stem: "A <b>3-year-old</b> has had four episodes of 'croup' over 8 months, each treated with steroids and racemic epinephrine with only partial improvement. Between episodes his voice has become progressively more hoarse, and his parents now notice noisy breathing even when he's calm.",
@@ -390,6 +397,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-pediatric-airway-foreign-body",
+      preview: "Toddler with 2 weeks of cough and wheeze and a normal chest X-ray",
       ukmla: "Stridor",
       source: "Standard pediatric airway teaching on foreign body aspiration; AAP clinical guidance on pediatric foreign-body management.",
       stem: "A <b>20-month-old</b> is brought in with a <b>2-week history</b> of persistent cough and intermittent wheeze that hasn't improved with an albuterol trial. His mother recalls no choking episode, though he was playing near a bowl of popcorn and small toy blocks around when the cough began. He is afebrile and well-grown; a chest X-ray was read as <b>normal</b>.",
@@ -403,6 +411,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-pediatric-retropharyngeal-abscess",
+      preview: "Febrile preschooler after a cold with a stiff neck, muffled voice, and drooling",
       ukmla: "Neck lump",
       source: "Standard pediatric otolaryngology teaching on deep neck space infections; AAP/AAO-HNSF guidance on pediatric retropharyngeal abscess.",
       stem: "A <b>3-year-old</b> has had <b>4 days of fever</b> and reduced oral intake following a recent upper respiratory infection. On exam she holds her neck <b>rigidly extended</b> and cries when you try to flex or rotate it, her voice sounds <b>muffled</b>, and she is <b>drooling</b>.",

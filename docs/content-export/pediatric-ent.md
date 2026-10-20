@@ -17,7 +17,7 @@ _Generated 2026-10-20 from content/*.js_
 
 ### Anatomy notes
 
-**The pediatric airway vs the adult airway** (tags: Funnel-shaped · Cephalad · Floppy airway)
+**The pediatric airway vs the adult airway** (tags: Funnel-shaped · Cephalad larynx · Narrow/floppy airway)
 
 - Classically funnel-shaped, narrowest at the subglottis and cricoid (vs the glottis in adults). Imaging studies suggest the glottis may be the narrowest point in vivo, but the cricoid is the narrowest fixed ring, so choose a tube with a leak or a cuffed tube sized carefully.
 - Larynx sits more cephalad in children.
@@ -25,7 +25,7 @@ _Generated 2026-10-20 from content/*.js_
 - Epiglottis is omega-shaped and floppier.
 - So small amounts of edema cause disproportionate obstruction, and airway emergencies escalate faster.[figure: Explains why a child's funnel-shaped airway (narrowest at the subglottis, cephalad larynx, floppy omega-shaped epiglottis) makes small amounts of edema disproportionately obstructive compared to an adult's cylindrical airway.]
 
-**Eustachian tube anatomy in children** (tags: Shorter, horizontal tube · Childhood otitis)
+**Eustachian tube anatomy in children** (tags: Short, horizontal tube · Childhood otitis media · Middle-ear drainage)
 
 [figure: Contrasts the child's shorter, more horizontal Eustachian tube with the adult's steeper tube to explain why otitis media is a childhood disease.]
 - A child's Eustachian tube is shorter, more horizontal, and less angled than an adult's.
@@ -43,7 +43,7 @@ There are 6 arches, but arch 5 is rudimentary/absent, so clinically you learn ar
 Tissue of origin: a cleft anomaly is lined by ectoderm (skin/squamous), a pouch anomaly by endoderm.
 [figure: Explains second branchial cleft anomalies and the classic tract from a neck pit anterior to the SCM up to the tonsillar fossa.]
 
-**Arch derivatives: cartilage, muscle & nerve** (tags: Arch nerves · Muscles · Skeleton)
+**Arch derivatives: cartilage, muscle & nerve** (tags: Arch nerves · Arch muscles · Arch skeleton)
 
 Each arch is a self-contained package: its skeleton, its muscles, and its own cranial nerve all move together. The nerve of an arch supplies the muscles of that same arch.
 
@@ -64,7 +64,7 @@ The pouches are endodermal and become glands and spaces (thymus, parathyroids, m
 - Pouch 4 -> superior parathyroids (+ ultimobranchial body -> C cells).Parathyroid Origin and Descent: inferior parathyroids arise from pouch 3, superior parathyroids from pouch 4, an inversion of the expected numeric order because pouch 3 also carries the thymus, dragging its parathyroids inferiorly past the pouch-4 pair as the thymus descends. This is also why an ectopic inferior parathyroid can end up in the mediastinum with the thymus.
 DiGeorge syndrome (22q11.2) is failure of pouches 3 and 4, producing absent thymus (T-cell immunodeficiency) and absent parathyroids (hypocalcemia).
 
-**Waldeyer's ring: the foundational picture** (tags: Adenoids · Tonsils · Lymphoid ring)
+**Waldeyer's ring: the foundational picture** (tags: Adenoids · Palatine tonsils · Lymphoid ring)
 
 A ring of mucosa-associated lymphoid tissue (MALT) encircling the opening of the oral and nasal cavities into the pharynx, first described by Wilhelm von Waldeyer. It is the body's first-line immune "gatekeeper" at the crossroads of the respiratory and alimentary tracts, sampling inhaled and ingested antigens.
 The four components, superior to inferior:
@@ -76,13 +76,13 @@ The four components, superior to inferior:
 Immunologically: lymphoid tissue with germinal centers activating B cells against nasally/orally encountered pathogens, sampled through deep epithelial crypts (the palatine tonsil has 10-30 branched crypts, massively expanding surface area but also trapping debris and becoming an infection reservoir). Unlike lymph nodes, tonsils have no afferent lymphatics: antigen reaches them directly across the epithelium.
 [figure: Describes the ring of lymphoid tissue (adenoids, tubal tonsils, palatine tonsils, lingual tonsil) guarding the aerodigestive entrance.]
 
-**The age curve: why this is a childhood problem** (tags: Peak ages 2-8 · Regression)
+**The age curve: why this is a childhood problem** (tags: Peak ages 2-8 · Lymphoid hyperplasia · Regression)
 
 Adenoid and tonsillar tissue is small at birth, grows through early childhood, peaks roughly between ages 2 and 8 (relative to a still-small pharynx), then regresses through adolescence.
 This growth-then-involution curve, layered on repeated viral/bacterial antigen exposure, is exactly why obstructive and infectious tonsil disease clusters in preschool/early-school-age children and becomes far less common in adults, in whom adenoids are usually vestigial.
 Blood supply pearl (bleeding risk): the palatine tonsil is fed mainly by the tonsillar branch of the facial artery, with contributions from the ascending pharyngeal, lingual, and descending palatine arteries: all from the external carotid system.
 
-**The two clinical endpoints** (tags: Recurrent tonsillitis · Obstruction)
+**The two clinical endpoints** (tags: Recurrent tonsillitis · Obstruction/OSA · Tonsillectomy indication)
 
 EndpointMechanismConsequencesRecurrent tonsillitisRepeated infection and inflammation of the palatine tonsils (histologically fibrosis, reduced follicles, strong inflammatory infiltrate).Drives the recurrent-infection indication for tonsillectomy (Paradise-criteria frequency).Adenotonsillar hypertrophy with obstructionBulk enlargement narrows the nasopharyngeal and oropharyngeal airway. Adenoid hypertrophy also obstructs the Eustachian tube.Mouth breathing, snoring, sleep-disordered breathing, and pediatric OSA (now the leading indication for T&A). Otitis media with effusion. Chronic untreated obstruction can cause adenoid facies and, if severe, cor pulmonale.Waldeyer's ring is protective lymphoid tissue that predictably enlarges in early childhood, helpful for immunity, but when it over-enlarges or is chronically infected it becomes the anatomic root of recurrent tonsillitis, middle-ear effusion, and pediatric obstructive sleep apnea.
 

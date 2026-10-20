@@ -136,7 +136,7 @@ _Generated 2026-10-20_
 
 ### Anatomy notes
 
-**The temporal bone in four parts** (tags: Petrous part · Mastoid · Jaw joint)
+**The temporal bone in four parts** (tags: Four bony parts (squamous, tympanic, petrous, mastoid) · Petrous part (ear) · Jaw joint (TMJ))
 
 [figure: Overview of the temporal bone's four parts (squamous, tympanic, petrous, mastoid) and the TMJ formed by its squamous portion.]PartRoleSquamousLateral flat portion. Its zygomatic process and glenoid (mandibular) fossa form the temporomandibular joint, the anatomic reason TMJ pathology causes referred otalgia.TympanicForms the anterior, inferior, and part of the posterior wall of the external auditory canal (bony EAC).PetrousDense pyramid that houses the middle and inner ear and the intratemporal facial nerve. Separates the middle from the posterior cranial fossa (the focus of otology and neurotology).MastoidPostauricular air-cell system continuous with the middle ear via the aditus ad antrum. Site of mastoiditis and the surgical corridor for mastoidectomy and cochlear implantation.A fifth part, the small styloid process, is sometimes listed separately: it anchors the stylohyoid, styloglossus, and stylopharyngeus; an elongated styloid causes Eagle syndrome (throat/facial pain on swallowing or neck rotation).
 Petrous Contents: Middle & Inner Ear Structures
@@ -171,7 +171,7 @@ Fascial layerKey structures enclosedBoundaries / featuresClinical relevanceSuper
 SpaceExtends toRetropharyngealSkull base to about C6-T4 (where the alar and buccopharyngeal fascia fuse)DangerSkull base to the diaphragm (posterior mediastinum)PrevertebralAlong the spine, potentially to the coccyxCervical nodal levels (Robbins classification):
 LevelLocation and boundariesMain nodal contentsPrimary drainageIa (submental)Between the anterior bellies of digastric, above the hyoidSubmental nodesChin, lower lip, floor of mouth, tongue tipIb (submandibular)Submandibular triangleSubmandibular gland and nodesOral cavity, anterior faceIIa / IIb (upper jugular)Skull base to hyoid, around the upper internal jugular vein; split by the spinal accessory nerve (CN XI)Upper deep cervical nodesOral cavity, nasopharynx, oropharynx, larynx, parotidIII (mid jugular)Hyoid to cricoidMiddle deep cervical nodesLarynx, hypopharynx, oropharynxIV (lower jugular)Cricoid to clavicleLower deep cervical nodesLarynx, thyroid, hypopharynx, cervical esophagusVa / Vb (posterior triangle)Behind the sternocleidomastoid, in front of trapezius; split by the cricoid planeSpinal accessory and transverse cervical nodesNasopharynx, posterior scalp and neck, thyroidVI (central compartment)Hyoid to sternal notch, between the carotid sheathsPretracheal, paratracheal, prelaryngeal (Delphian) nodesThyroid, glottic and subglottic larynx, hypopharynx, cervical esophagusVII (superior mediastinal)Below the sternal notchSuperior mediastinal nodesThyroid, cervical esophagus
 
-**Cranial nerves of the head & neck** (tags: Cranial nerves · Skull-base exits)
+**Cranial nerves of the head & neck** (tags: Cranial nerves · Skull-base foramina · Nerve function)
 
 [figure: The twelve cranial nerves, with emphasis on the seven relevant to ENT, and their skull-base exits.]Of the twelve cranial nerves, ENT anatomy revolves around several in particular:
 
@@ -204,7 +204,7 @@ ExitNervesCombined palsy suggestsJugular foramenIX, X, XILower-cranial-nerve pal
 - Mastoid (vertical): descends to the stylomastoid foramen, giving off the nerve to stapedius and the chorda tympani.
 - Ramsay Hunt syndrome (herpes zoster oticus): zoster reactivation at the geniculate ganglion; facial palsy with a vesicular ear-canal/pinna rash, usually more severe and slower to recover than Bell's palsy.
 
-**Branchial arch, pouch, and cleft embryology** (tags: Branchial arches · Second branchial cleft anomalies)
+**Branchial arch, pouch, and cleft embryology** (tags: Branchial arches · Pouches and clefts · Neck anomalies)
 
 Branchial arch derivatives:
 ArchCartilageSkeletal derivativesMusclesCranial nerve1st (mandibular)Meckel'sMalleus, incus, mandible, sphenomandibular ligamentMuscles of mastication, mylohyoid, anterior belly of digastric, tensor tympani, tensor veli palatiniCN V2nd (hyoid)Reichert'sStapes, styloid process, lesser horn and upper body of hyoid, stylohyoid ligamentMuscles of facial expression, stapedius, stylohyoid, posterior belly of digastric, platysmaCN VII3rd(none)Greater horn and lower body of hyoidStylopharyngeusCN IX4th/6th(none)Laryngeal cartilages (thyroid, cricoid, arytenoid)Pharyngeal and laryngeal muscles (cricothyroid, levator veli palatini, intrinsic laryngeal muscles)CN X (SLN for 4th, RLN for 6th)Pharyngeal pouches and clefts:
@@ -399,7 +399,7 @@ _Image source: Fascial Layers and Triangles of the Neck. Scholes & Ramakrishnan 
 
 ### Anatomy notes
 
-**Airway triage: look, listen, act** (tags: Airway assessment · Airway patency)
+**Airway triage: look, listen, act** (tags: Airway assessment · Airway patency · Stridor)
 
 [figure: Landmarks: Cricothyroid membrane surface anatomy for the emergency surgical airway.]
 - The airway question comes first, before any differential: is it patent, at risk, or failing right now?
@@ -423,7 +423,7 @@ Voice/quality clues to the level:
 - Blood, secretions, avulsed teeth, and progressive soft-tissue edema/hematoma narrow the lumen over minutes to hours.
 - An expanding neck hematoma (e.g. post-thyroidectomy, penetrating neck injury) compresses the airway: sit the patient up, and for a post-op neck, open the wound at the bedside.Principle: in trauma, secure the airway early and electively, before swelling makes intubation impossible; keep a surgical airway ready.
 
-**The 'danger triangle' of deep-space infection** (tags: Tonsil/dental infection · Carotid sheath · Mediastinum)
+**The 'danger triangle' of deep-space infection** (tags: Deep neck spaces · Carotid sheath · Mediastinal spread)
 
 [figure: Deep cervical fascial spaces communicate (peritonsillar/parapharyngeal/retropharyngeal) and can carry infection down the 'danger space' toward the mediastinum.]
 - Neck and facial infections track along fascial planes into spaces next to the airway, great vessels, and mediastinum.
@@ -442,7 +442,7 @@ SpaceKey boundaries/locationExtends toClassic source & why it mattersPeritonsill
 - Carotid artery erosion/blowout: carotid sheath involvement; a sentinel bleed precedes catastrophic hemorrhage.
 - Highest-risk sources are odontogenic (lower molars) and pharyngeal/tonsillar; risk factors for descent are diabetes, immunocompromise, older age, and multispace involvement (especially retropharyngeal plus parapharyngeal).Imaging/management anchor: contrast-enhanced CT neck (extended through the chest if descent is suspected) is the key study, distinguishing a drainable abscess (rim-enhancing collection) from phlegmon and screening the mediastinum. Airway first, then IV broad-spectrum antibiotics covering oral flora (Gram-positive, Gram-negative, anaerobes) plus surgical drainage of any organized collection.
 
-**Shared anatomic basis of ENT emergencies** (tags: Small airways · Orbit/brain vascular connections · Cartilage necrosis)
+**Shared anatomic basis of ENT emergencies** (tags: Pediatric airway · Orbit and brain spread · Cartilage necrosis)
 
 [figure: Landmarks: Airway bottlenecks and rich vascular and fascial connections.]Several anatomic facts recur across ENT emergencies:
 
@@ -450,7 +450,7 @@ SpaceKey boundaries/locationExtends toClassic source & why it mattersPeritonsill
 - The head and neck have rich vascular and lymphatic connections to the orbit and intracranial space (sinusitis → orbital/intracranial complications; otitis media → intracranial complications).
 - Cartilage (septum, auricle, larynx) depends on adjacent perichondrium/perichondrium-equivalent for blood supply, so untreated hematoma or infection causes necrosis within days, not weeks.
 
-**Zones of the neck** (tags: Neck zones I-III · Penetrating trauma)
+**Zones of the neck** (tags: Neck zones I-III · Penetrating trauma · Vascular/aerodigestive injury)
 
 [figure: Zones I, II, III of the neck for penetrating trauma and how surgical accessibility differs by zone.]For penetrating neck trauma the neck is divided into three horizontal zones. They exist because surgical accessibility changes at each boundary, and access drives the initial management algorithm (see Clinical tab).
 ZoneBoundariesContainsAccessZone ICricoid cartilage to the thoracic outlet and claviclesGreat vessel origins (proximal carotids and subclavian vessels), trachea, esophagus, thoracic duct, lung apexLeast accessible. May need a sternotomy or thoracotomy approach.Zone IICricoid cartilage to the angle of the mandibleCarotid arteries, jugular veins, larynx, trachea, esophagus, vagus and recurrent laryngeal nervesLargest zone and most accessible. Most penetrating neck injuries occur here.Zone IIIAngle of the mandible to the skull baseDistal carotid and vertebral arteries, distal jugular veins, lower cranial nervesPoorly accessible. Proximal vascular control is difficult, so injuries may need interventional radiology rather than open exploration.The practical point: a Zone II injury is easy to get into and control operatively, so a Zone II patient with hard signs typically goes straight to the OR; Zone I and III injuries are harder to control surgically, so even some hard-sign patients there are worked up with imaging (CT angiography) first to plan the approach, when they are stable enough to allow it. Note on currency: modern trauma practice has shifted to a "no-zone" approach: in the stable patient, hard/soft signs plus CT angiography drive management rather than the zone itself. The zones now mainly describe surgical accessibility, not who is explored.
@@ -910,12 +910,12 @@ Interim mitigation: honey 10 mL every 10 min (child >12 months, able to swallow,
 
 ### Anatomy notes
 
-**The ENT regions at a glance** (tags: Five ENT regions)
+**The ENT regions at a glance** (tags: Five ENT regions · Ear, nose, throat · Head and neck overview)
 
 [figure: Overview map of the five linked ENT anatomical regions (ear, nose/sinuses, oral cavity/pharynx, larynx, neck).]ENT anatomy breaks down into five linked regions.
 RegionKey structuresHigh-yield pathologiesEarAuricle (pinna) and external auditory canal; tympanic membrane; ossicles (malleus, incus, stapes); Eustachian tube; cochlea, vestibule, semicircular canals; CN VII and CN VIIIAOM/OME, cholesteatoma, otosclerosis, sudden SNHL, vestibular schwannoma, BPPVNose & paranasal sinusesSeptum; inferior/middle/superior turbinates and their meatuses; frontal, ethmoid, maxillary, and sphenoid sinuses; ostiomeatal complex; cribriform plateEpistaxis, chronic rhinosinusitis, nasal polyps, CSF leak, sinonasal malignancyOral cavity & pharynxTongue and floor of mouth; palatine, lingual, pharyngeal (adenoid), and tubal tonsils (Waldeyer's ring); soft and hard palate; naso-, oro-, and hypopharynxTonsillitis / peritonsillar abscess, OSA, oropharyngeal (HPV-related) cancer, nasopharyngeal carcinomaLarynxEpiglottis; thyroid and cricoid cartilages; true and false vocal folds; recurrent laryngeal and superior laryngeal nervesLaryngitis, vocal-fold paralysis, laryngeal cancer, epiglottitis, croupNeckAnterior/posterior triangles (sternocleidomastoid); nodal levels I-VII; thyroid, parotid, and submandibular glandsMalignant neck mass, thyroid nodule, sialadenitis/salivary stones, deep neck space infectionThe nasal septum divides the nasal cavity in the midline; the meatuses are the grooves beneath each turbinate that the sinuses drain into. The salivary glands (parotid, submandibular, sublingual, plus hundreds of minor glands) sit at the crossroads of the oral cavity and neck. The epiglottis is the cartilage leaf that folds down to protect the airway on swallowing -- the hinge between the pharynx above and the larynx below.
 
-**Cranial nerves** (tags: Cranial nerves · Skull base foramina · Cranial nerve function)
+**Cranial nerves** (tags: Cranial nerves · Skull base foramina · Nerve function)
 
 [figure: All twelve cranial nerves with their skull-base exit foramen and function.]All twelve cranial nerves, in order, with the skull base foramen or canal each one exits through and why it matters clinically. This is the complete reference; see the diagram below for where each foramen actually sits.
 NerveSkull base exitTypeFunctionIf injuredI &middot; OlfactoryCribriform plateSensorySmellAnosmia; classic after an anterior skull-base fracture through the cribriform plateII &middot; OpticOptic canalSensoryVisionMonocular vision loss, relative afferent pupillary defect (RAPD)III &middot; OculomotorSuperior orbital fissureMotor (+ parasympathetic)Superior, inferior, and medial rectus; inferior oblique; levator palpebrae superioris; parasympathetic to the sphincter pupillae and ciliary musclePtosis, eye deviated "down and out," and a fixed dilated pupil (a "surgical" third-nerve palsy, e.g. from a compressive aneurysm) vs pupil-sparing (a "medical" cause, e.g. microvascular/diabetic)IV &middot; TrochlearSuperior orbital fissureMotorSuperior oblique (eye moves down and in)Vertical diplopia, worse looking down/reading; a compensatory head tilt away from the affected sideV1 &middot; Ophthalmic (trigeminal)Superior orbital fissureSensorySensation: forehead, scalp, corneaLoss of the corneal reflex (afferent limb), forehead/scalp numbnessV2 &middot; Maxillary (trigeminal)Foramen rotundumSensorySensation: midface, upper teeth, palateMidface and upper-teeth numbnessV3 &middot; Mandibular (trigeminal)Foramen ovaleBothSensory: lower face, chin, lower teeth, anterior two-thirds tongue (general sensation only, not taste). Motor: muscles of mastication (masseter, temporalis, medial and lateral pterygoids)Lower-face/tongue numbness; on opening, the jaw deviates toward the weak side (unopposed contralateral pterygoid)VI &middot; AbducensSuperior orbital fissureMotorLateral rectus (eye moves out)Horizontal diplopia; the eye cannot abduct past midlineVII &middot; FacialInternal acoustic meatus (traverses the temporal bone; exits the skull at the stylomastoid foramen)Both (+ parasympathetic)Motor: muscles of facial expression, stapedius, posterior belly of digastric, stylohyoid. Sensory: taste, anterior two-thirds of tongue (via chorda tympani). Parasympathetic: lacrimal, submandibular, and sublingual glandsFacial droop (forehead spared if central/UMN, forehead involved if peripheral/Bell's), hyperacusis (stapedius), dry eye/mouth, taste lossVIII &middot; VestibulocochlearInternal acoustic meatusSensoryHearing (cochlear division) and balance (vestibular division)Sensorineural hearing loss, tinnitus, vertigo/imbalance; a unilateral asymmetric pattern raises concern for vestibular schwannomaIX &middot; GlossopharyngealJugular foramenBoth (+ parasympathetic)Motor: stylopharyngeus. Sensory: pharynx, posterior third of tongue (taste and general sensation), carotid body/sinus. Parasympathetic: parotid glandLoss of the gag reflex (afferent limb), impaired posterior-tongue tasteX &middot; VagusJugular foramenBoth (+ parasympathetic)Motor: pharyngeal and laryngeal muscles (via the pharyngeal and recurrent laryngeal branches), soft palate. Sensory: external ear, larynx, and thoracoabdominal viscera. Parasympathetic: thorax and abdomen to the splenic flexureHoarseness/vocal-fold paralysis (recurrent laryngeal branch), dysphagia, and the soft palate/uvula deviates away from the lesion on "ahh"XI &middot; AccessoryJugular foramenMotorTrapezius and sternocleidomastoidShoulder droop and weak shrug (trapezius); weak head turn to the opposite side (SCM) -- classically injured in posterior triangle/level V neck dissectionXII &middot; HypoglossalHypoglossal canalMotorIntrinsic and most extrinsic tongue musclesOn protrusion, the tongue deviates toward the side of a peripheral (LMN) lesion
@@ -1779,14 +1779,14 @@ Teaching: Flex NPL is the criterion standard for dynamic pediatric airway collap
 
 ### Anatomy notes
 
-**The facial buttresses** (tags: Facial buttresses · Bone columns · Fracture reconstruction)
+**The facial buttresses** (tags: Facial buttresses · Vertical and horizontal columns · Fracture reconstruction)
 
 [figure: Vertical and horizontal facial buttress columns that absorb/transmit force and that reconstructive plating restores.]
 - Buttresses are thickened bone columns that absorb and transmit force: vertical (nasomaxillary, zygomaticomaxillary, pterygomaxillary) and horizontal (frontal bar, infraorbital rim, maxillary alveolus).
 - Reconstructive plating re-establishes these buttresses rather than patching individual fracture lines.
 - Restoring buttress continuity restores facial height, width, and projection.
 
-**The parotid gland, facial nerve, and Stensen's duct** (tags: Facial nerve branches · Parotid gland · Stensen's duct)
+**The parotid gland, facial nerve, and Stensen's duct** (tags: Parotid gland · Facial nerve branches · Stensen's duct)
 
 [figure: Facial nerve trunk and its five branches running through the parotid gland, plus Stensen's duct course.]Why the parotid is really a &lsquo;facial nerve operation.' The facial nerve (CN VII) runs through the parotid, so the single most important thing documented before and after any parotid surgery is facial nerve function. Every branch drives a muscle (or muscles) of facial expression: injury shows up as a specific, predictable facial deficit.
 Parotid facial nerve
@@ -1811,14 +1811,14 @@ BranchMain musclesFunctionDeficit if injuredTemporal (frontal)Frontalis, orbicul
 - Surface landmark: the middle third of a line from the tragus/intertragal notch to the midpoint of the upper lip (philtrum).
 - A cheek laceration along this line threatens both Stensen's duct and the buccal branch: assess both before closing; clear fluid expressible from the wound (increased by a sialagogue) suggests duct injury.Frey syndrome (gustatory sweating)After parotidectomy, regenerating parasympathetic secretomotor fibers (originally destined for the gland) misdirect to cutaneous sweat glands, causing sweating/flushing of the cheek with eating. Confirmed with the Minor starch-iodine test.
 
-**The frontal branch of the facial nerve and Pitanguy's line** (tags: Frontal nerve branch · Brow ptosis)
+**The frontal branch of the facial nerve and Pitanguy's line** (tags: Frontal branch · Pitanguy's line · Brow ptosis)
 
 [figure: The temporal (frontal) branch of the facial nerve and Pitanguy's surface-marking line that approximates its course.]
 - The temporal (frontal) branch is the most superficial and vulnerable branch, running just under the temporoparietal fascia.
 - Pitanguy's line (0.5 cm below the tragus to 1.5 cm above the lateral eyebrow) approximates its course.
 - Lacerations or incisions crossing this line risk brow ptosis from frontal branch injury.
 
-**Orbital floor and the inferior rectus/orbital fat** (tags: Orbital floor · Enophthalmos · Diplopia)
+**Orbital floor and the inferior rectus/orbital fat** (tags: Orbital floor · Inferior rectus entrapment · Enophthalmos/diplopia)
 
 [figure: Bony orbit: optic canal, superior and inferior orbital fissures, infraorbital foramen; the floor is formed by the maxilla.]The thin orbital floor is the classic blow-out site, and entrapment there is what produces the enophthalmos and diplopia seen on exam.
 Bony anatomy (the basics)
@@ -1868,7 +1868,7 @@ Highest-yield clinical points
 - &lsquo;Guardsman fracture': chin-first fall -> bilateral condyle fractures &plusmn; symphyseal fracture.Closed-ring biomechanics dictate that a concentrated impact produces paired disruptions; post-traumatic malocclusion confirms an unstable mandibular fracture.
 [figure: Mandible subunits and common fracture sites (condyle, angle, body, parasymphysis).]
 
-**Trigeminal Nerve (CN V) Anatomy** (tags: Trigeminal divisions · Facial sensation · Foramina)
+**Trigeminal Nerve (CN V) Anatomy** (tags: Trigeminal divisions · Facial sensation · Skull-base foramina)
 
 CN V is the main sensory nerve of the face (and motor to the muscles of mastication via V3). It has three divisions, each exiting the skull through its own foramen and each supplying a horizontal band of the face: a sensory deficit in one band points directly to the injured region in facial trauma.
 Three divisions
@@ -3441,7 +3441,7 @@ Source: ACGME Otolaryngology-Head and Neck Surgery Milestones 2.0 (2021). Scope 
 
 ### Anatomy notes
 
-**Neck levels I-VII** (tags: Nodal levels · Boundaries · Dissections)
+**Neck levels I-VII** (tags: Nodal levels I-VII · Level boundaries · Neck dissection)
 
 The neck levels are a standardized map of the neck's lymph node basins (the Robbins classification). Head & neck cancers spread in fairly predictable nodal patterns depending on the primary site, so the levels give surgeons, radiologists, and pathologists a common language for describing where nodal disease is, staging it (the N in TNM), and planning exactly which basins a neck dissection needs to cover.
 [figure: Cervical lymph node level classification (I-VII, including IIA/IIB and VA/VB) for head & neck cancer staging.]
@@ -3454,7 +3454,7 @@ LevelSuperiorInferiorAnteriorPosteriorMain nodal contentsPrimary drainageStructu
 - Posterolateral neck dissection (levels II-V): for skin/scalp primaries (e.g., melanoma) or other posteriorly draining primaries.
 - Central (level VI) dissection: for thyroid cancer.
 
-**The salivary glands** (tags: Parotid · Submandibular · Sublingual glands)
+**The salivary glands** (tags: Parotid · Submandibular · Sublingual)
 
 [figure: Major salivary gland anatomy: parotid (Stensen's duct) and submandibular (Wharton's duct).]
 - Parotid: the largest gland; the facial nerve runs through it, dividing it into superficial and deep lobes, so facial-nerve function must be documented before and after any parotid surgery. Duct: Stensen's, opens opposite the upper second molar.
@@ -3467,7 +3467,7 @@ GlandLocationSecretion typeClinical pearlsParotidOverlies the mandibular ramus, 
 - Mucoepidermoid carcinoma: the most common malignant salivary tumor.
 - Sialolithiasis: far more common in the submandibular gland, because its secretion is thicker/more mucous and its duct runs uphill, against gravity, favoring stasis and stone formation.
 
-**Thyroid & parathyroid anatomy** (tags: Thyroid gland · RLN · Parathyroids)
+**Thyroid & parathyroid anatomy** (tags: Thyroid gland · Recurrent laryngeal nerve · Parathyroids)
 
 [figure: Thyroid lobes/isthmus, parathyroid glands, and recurrent laryngeal nerve relationships relevant to thyroidectomy risk.]The gland itself
 - Butterfly-shaped: two lobes joined by an isthmus, sitting in the anterior neck across roughly C5-T1. The isthmus drapes over the 2nd-4th tracheal rings, just below the cricoid cartilage.
@@ -3481,7 +3481,7 @@ GlandLocationSecretion typeClinical pearlsParotidOverlies the mandibular ramus, 
 - Consequence of injury: small, tan, and sharing blood supply with the thyroid, they can be inadvertently removed or devascularized -> postoperative hypocalcemia. Watch for perioral numbness and Chvostek/Trousseau signs. Autotransplantation is an option if a gland is devascularized.Embryology explains their behavior, and it crosses over
 Superior glandsInferior glandsOrigin4th pharyngeal pouch3rd pharyngeal pouch (the higher-numbered pouch gives the lower glands)PositionShort descent, so more constant: typically posterior to the RLN near the cricothyroid junction.Descend with the thymus, so far more variable: occasionally trailing into the thymus or mediastinum.
 
-**Oral cavity vs oropharynx** (tags: Tobacco-driven cancer · HPV-driven cancer)
+**Oral cavity vs oropharynx** (tags: Oral cavity (tobacco) · Oropharynx (HPV) · Subsite boundary)
 
 [figure: Anatomic distinction between oral cavity and oropharynx subsites and its oncologic significance (tobacco vs HPV driven cancer).]A single anatomic boundary separates two different cancers. The plane running from the junction of the hard and soft palate to the circumvallate papillae of the tongue (and along the anterior tonsillar pillars) divides the oral cavity in front from the oropharynx behind.
 Everything anterior is classically tobacco- and alcohol-driven disease; everything posterior is increasingly HPV-driven disease with a markedly better prognosis. Knowing which side of that line a lesion sits on reframes the risk factors, staging system, treatment, and expected outcome.
@@ -4102,7 +4102,7 @@ Teaching: Any persistent oral white or red patch in a smoker gets biopsied. Loca
 - The paired arytenoid cartilages sit on the cricoid and rotate/glide to open and close the vocal folds.
 - The epiglottis folds over the laryngeal inlet during swallowing to protect the airway.UnpairedPairedThyroidArytenoidCricoidCorniculateEpiglottisCuneiformThe corniculate and cuneiform cartilages are small paired cartilages within the aryepiglottic folds, above the arytenoids, that add structural support but no independent motion.
 
-**Three subsites: supraglottis, glottis, subglottis** (tags: Laryngeal subsites · Cancer staging · Glottic cancer)
+**Three subsites: supraglottis, glottis, subglottis** (tags: Laryngeal subsites · Glottic cancer · Cancer staging)
 
 [figure: Coronal division of the larynx into supraglottis, glottis, and subglottis, the basis for cancer staging and airway localization.]
 - The backbone of laryngeal cancer staging and of localizing airway pathology.
@@ -4110,7 +4110,7 @@ Teaching: Any persistent oral white or red patch in a smoker gets biopsied. Loca
 - Glottis (true vocal folds): sparse lymphatics, so cancer causes hoarseness early and is often caught before it spreads.
 - Subglottis (begins about 1 cm below the free edge of the true folds and extends to the inferior border of the cricoid): the narrowest part of a child's airway and the site of subglottic stenosis.Clinical pearl: laryngeal cancer is strongly associated with tobacco and alcohol use. Because the glottis has sparse lymphatics, glottic cancers tend to present early with hoarseness and carry the best prognosis, while supraglottic and subglottic cancers, with richer lymphatic drainage or a more silent growth pattern, tend to present later and carry a worse prognosis.
 
-**Vocal fold layers** (tags: Vocal fold cover-body model)
+**Vocal fold layers** (tags: Cover-body model · Lamina propria layers · Reinke's space)
 
 [figure: Layered cover-body microarchitecture of the vocal fold (epithelium, lamina propria, vocalis muscle).]
 - The fold is layered: epithelium, then the lamina propria (superficial 'Reinke's space', intermediate, deep), then the vocalis muscle.
@@ -4118,7 +4118,7 @@ Teaching: Any persistent oral white or red patch in a smoker gets biopsied. Loca
 - Scarring or swelling of Reinke's space (smoking, reflux, vocal abuse) stiffens the cover and roughens the voice.
 - The vocalis muscle is the medial belly of the thyroarytenoid muscle: contracting it tenses and shortens the vocal fold, fine-tuning pitch and stiffness rather than opening or closing the airway.
 
-**Laryngeal nerve supply** (tags: Superior laryngeal nerve · Recurrent laryngeal nerve)
+**Laryngeal nerve supply** (tags: Superior laryngeal nerve · Recurrent laryngeal nerve · Vocal fold paralysis)
 
 [figure: Superior laryngeal nerve and recurrent laryngeal nerve innervation of the larynx and their courses.]
 - Superior laryngeal nerve: external branch to cricothyroid (pitch); internal branch for sensation above the cords.
@@ -4587,7 +4587,7 @@ External earMiddle earInner earStructuresAuricle and external auditory canal (EA
 - Clinical tie-in: cochlear or CN VIII damage (noise, aging, ototoxic drugs such as aminoglycosides and cisplatin, vestibular schwannoma) causes sensorineural hearing loss. Hair cells do not regenerate.Conductive vs sensorineural: the exam synthesis
 Problem inHearing lossWeberRinneExternal or middle earConductiveLateralizes to the affected earBone louder than air (abnormal)Inner ear or CN VIIISensorineuralLateralizes to the better earAir louder than bone (normal pattern)
 
-**Important Clinical/Anatomical Relationships in Ear Surgery** (tags: Facial nerve · Referred otalgia · Chorda tympani · Surgical landmarks)
+**Important Clinical/Anatomical Relationships in Ear Surgery** (tags: Facial nerve · Referred otalgia · Surgical landmarks)
 
 [figure: Middle-ear/mastoid danger zone: facial nerve, tensor tympani/stapedius, chorda tympani, and referred otalgia via CN V/VII/IX/X.]StructureWhere it sitsWhat goes wrongClinical hookFacial nerve (CN VII)Fallopian canal, often dehiscent in the tympanic segment beside the oval windowInjured by cholesteatoma, infection, or surgeryFacial weakness with ear disease is a red flag. The tympanic segment is the most common site of iatrogenic injuryLateral semicircular canalJust above and behind the tympanic segment of CN VIICholesteatoma erodes it, creating a labyrinthine fistulaVertigo or nystagmus with pressure on the ear (positive fistula test) or when the ear is suctionedStapes footplate and oval windowThe membrane-covered gateway to the inner earPushing the footplate into the vestibuleSensorineural loss and vertigo. A perilymph fistula presents the same wayTegmen, dura, sigmoid sinusTegmen is the thin roof over the middle ear and mastoid. The sigmoid sinus runs in the posterior mastoidErosion or drilling through themChronic ear disease with headache, fever, altered mental status, or neck stiffness needs urgent imaging for meningitis, abscess, or sigmoid sinus thrombosisChorda tympaniCrosses the middle ear with no bony coveringStretched or cut in middle-ear surgeryAltered taste on the anterior ⅔ of the tongue (same side) and sometimes dry mouthCN VII at the stylomastoid foramenExits the temporal bone and enters the parotid, dividing it into superficial and deep lobesParotid mass or parotid surgeryLinks the ear and head and neck halves of the rotationFacial nerve (CN VII)
 
@@ -5142,7 +5142,7 @@ Teaching: [figure: Progressive asymmetric SNHL and tinnitus worked up with MRI I
 
 ### Anatomy notes
 
-**The pediatric airway vs the adult airway** (tags: Funnel-shaped · Cephalad · Floppy airway)
+**The pediatric airway vs the adult airway** (tags: Funnel-shaped · Cephalad larynx · Narrow/floppy airway)
 
 - Classically funnel-shaped, narrowest at the subglottis and cricoid (vs the glottis in adults). Imaging studies suggest the glottis may be the narrowest point in vivo, but the cricoid is the narrowest fixed ring, so choose a tube with a leak or a cuffed tube sized carefully.
 - Larynx sits more cephalad in children.
@@ -5150,7 +5150,7 @@ Teaching: [figure: Progressive asymmetric SNHL and tinnitus worked up with MRI I
 - Epiglottis is omega-shaped and floppier.
 - So small amounts of edema cause disproportionate obstruction, and airway emergencies escalate faster.[figure: Explains why a child's funnel-shaped airway (narrowest at the subglottis, cephalad larynx, floppy omega-shaped epiglottis) makes small amounts of edema disproportionately obstructive compared to an adult's cylindrical airway.]
 
-**Eustachian tube anatomy in children** (tags: Shorter, horizontal tube · Childhood otitis)
+**Eustachian tube anatomy in children** (tags: Short, horizontal tube · Childhood otitis media · Middle-ear drainage)
 
 [figure: Contrasts the child's shorter, more horizontal Eustachian tube with the adult's steeper tube to explain why otitis media is a childhood disease.]
 - A child's Eustachian tube is shorter, more horizontal, and less angled than an adult's.
@@ -5168,7 +5168,7 @@ There are 6 arches, but arch 5 is rudimentary/absent, so clinically you learn ar
 Tissue of origin: a cleft anomaly is lined by ectoderm (skin/squamous), a pouch anomaly by endoderm.
 [figure: Explains second branchial cleft anomalies and the classic tract from a neck pit anterior to the SCM up to the tonsillar fossa.]
 
-**Arch derivatives: cartilage, muscle & nerve** (tags: Arch nerves · Muscles · Skeleton)
+**Arch derivatives: cartilage, muscle & nerve** (tags: Arch nerves · Arch muscles · Arch skeleton)
 
 Each arch is a self-contained package: its skeleton, its muscles, and its own cranial nerve all move together. The nerve of an arch supplies the muscles of that same arch.
 
@@ -5189,7 +5189,7 @@ The pouches are endodermal and become glands and spaces (thymus, parathyroids, m
 - Pouch 4 -> superior parathyroids (+ ultimobranchial body -> C cells).Parathyroid Origin and Descent: inferior parathyroids arise from pouch 3, superior parathyroids from pouch 4, an inversion of the expected numeric order because pouch 3 also carries the thymus, dragging its parathyroids inferiorly past the pouch-4 pair as the thymus descends. This is also why an ectopic inferior parathyroid can end up in the mediastinum with the thymus.
 DiGeorge syndrome (22q11.2) is failure of pouches 3 and 4, producing absent thymus (T-cell immunodeficiency) and absent parathyroids (hypocalcemia).
 
-**Waldeyer's ring: the foundational picture** (tags: Adenoids · Tonsils · Lymphoid ring)
+**Waldeyer's ring: the foundational picture** (tags: Adenoids · Palatine tonsils · Lymphoid ring)
 
 A ring of mucosa-associated lymphoid tissue (MALT) encircling the opening of the oral and nasal cavities into the pharynx, first described by Wilhelm von Waldeyer. It is the body's first-line immune "gatekeeper" at the crossroads of the respiratory and alimentary tracts, sampling inhaled and ingested antigens.
 The four components, superior to inferior:
@@ -5201,13 +5201,13 @@ The four components, superior to inferior:
 Immunologically: lymphoid tissue with germinal centers activating B cells against nasally/orally encountered pathogens, sampled through deep epithelial crypts (the palatine tonsil has 10-30 branched crypts, massively expanding surface area but also trapping debris and becoming an infection reservoir). Unlike lymph nodes, tonsils have no afferent lymphatics: antigen reaches them directly across the epithelium.
 [figure: Describes the ring of lymphoid tissue (adenoids, tubal tonsils, palatine tonsils, lingual tonsil) guarding the aerodigestive entrance.]
 
-**The age curve: why this is a childhood problem** (tags: Peak ages 2-8 · Regression)
+**The age curve: why this is a childhood problem** (tags: Peak ages 2-8 · Lymphoid hyperplasia · Regression)
 
 Adenoid and tonsillar tissue is small at birth, grows through early childhood, peaks roughly between ages 2 and 8 (relative to a still-small pharynx), then regresses through adolescence.
 This growth-then-involution curve, layered on repeated viral/bacterial antigen exposure, is exactly why obstructive and infectious tonsil disease clusters in preschool/early-school-age children and becomes far less common in adults, in whom adenoids are usually vestigial.
 Blood supply pearl (bleeding risk): the palatine tonsil is fed mainly by the tonsillar branch of the facial artery, with contributions from the ascending pharyngeal, lingual, and descending palatine arteries: all from the external carotid system.
 
-**The two clinical endpoints** (tags: Recurrent tonsillitis · Obstruction)
+**The two clinical endpoints** (tags: Recurrent tonsillitis · Obstruction/OSA · Tonsillectomy indication)
 
 EndpointMechanismConsequencesRecurrent tonsillitisRepeated infection and inflammation of the palatine tonsils (histologically fibrosis, reduced follicles, strong inflammatory infiltrate).Drives the recurrent-infection indication for tonsillectomy (Paradise-criteria frequency).Adenotonsillar hypertrophy with obstructionBulk enlargement narrows the nasopharyngeal and oropharyngeal airway. Adenoid hypertrophy also obstructs the Eustachian tube.Mouth breathing, snoring, sleep-disordered breathing, and pediatric OSA (now the leading indication for T&A). Otitis media with effusion. Chronic untreated obstruction can cause adenoid facies and, if severe, cor pulmonale.Waldeyer's ring is protective lymphoid tissue that predictably enlarges in early childhood, helpful for immunity, but when it over-enlarges or is chronically infected it becomes the anatomic root of recurrent tonsillitis, middle-ear effusion, and pediatric obstructive sleep apnea.
 
@@ -6608,7 +6608,7 @@ Each brief is a two-minute pre-scrub read: the indication, the key steps, the da
 
 ### Anatomy notes
 
-**The lateral nasal wall & the ostiomeatal complex (OMC)** (tags: OMC drainage funnel · Three sinuses · Chronic rhinosinusitis)
+**The lateral nasal wall & the ostiomeatal complex (OMC)** (tags: OMC drainage funnel · Three sinuses drain · Chronic rhinosinusitis)
 
 [figure: Anatomy of the middle meatus/uncinate process/ethmoid bulla forming the ostiomeatal complex, the shared drainage funnel for frontal, anterior ethmoid, and maxillary sinuses.]
 - Three turbinates (inferior, middle, superior) overhang three meatuses; the middle meatus is the key one.
@@ -6623,14 +6623,14 @@ Each brief is a two-minute pre-scrub read: the indication, the key steps, the da
 - Ethmoid: anterior cells → middle meatus, posterior cells → superior meatus; separated from the orbit by the paper-thin lamina papyracea, which is the route for orbital complications.
 - Sphenoid: drains via the sphenoethmoidal recess; borders the optic nerve, carotid artery, cavernous sinus, and pituitary, making it the highest-stakes sinus surgically.
 
-**Blood supply of the nose** (tags: Four-vessel convergence · Anterior nosebleeds · Posterior bleeds)
+**Blood supply of the nose** (tags: Kiesselbach's plexus · Anterior epistaxis · Sphenopalatine (posterior))
 
 [figure: Little's area/Kiesselbach's plexus vascular convergence and anterior vs posterior epistaxis sources.]
 - Little's area (Kiesselbach's plexus) on the anterior septum is where four vessels converge: anterior ethmoidal (internal carotid to ophthalmic), sphenopalatine and greater palatine (external carotid to maxillary), and superior labial (external carotid to facial).
 - About 80-90% of nosebleeds are anterior, from this plexus.
 - Posterior bleeds (about 10-20%) come from terminal branches of the sphenopalatine artery: heavier, harder to see, and more likely in older or anticoagulated patients.
 
-**The nasal septum** (tags: Septal cartilage & bone · Septal hematoma)
+**The nasal septum** (tags: Septal cartilage and bone · Septal hematoma · Septal deviation)
 
 [figure: Septal skeleton (quadrangular cartilage, perpendicular plate of ethmoid, vomer) and septal hematoma risk.]
 - Cartilage anteriorly (quadrangular cartilage); bone posteriorly (perpendicular plate of the ethmoid above, vomer below).
@@ -7093,7 +7093,7 @@ Common agents: SCIT typically uses individualized mixes of standardized aeroalle
 - The retropalatal region (soft palate, uvula, lateral pharyngeal walls) is the classic UPPP target.
 - The retroglossal/hypopharyngeal region (tongue base, epiglottis) is where tongue-base and hypoglossal nerve procedures work.Identifying where collapse occurs determines which surgery, if any, is appropriate.
 
-**Friedman tongue position and staging** (tags: Tongue base · Oropharynx exam · UPPP response)
+**Friedman tongue position and staging** (tags: Tongue position · Oropharynx exam · UPPP response)
 
 [figure: Friedman tongue position grades I-IV and how they predict UPPP response.]The exam: how it's done: the Friedman tongue position (FTP), sometimes called the modified Mallampati index in this context, grades how much the tongue base obscures the palate, tonsils, and uvula on oral exam.
 The single most important technical point, and the one that separates it from the classic (anesthesia) Mallampati score: mouth open wide, tongue resting in the mouth, not protruded, and not phonating. Keeping the tongue in its natural resting position mimics how it behaves during sleep, which is the whole point.

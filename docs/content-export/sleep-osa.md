@@ -25,7 +25,7 @@ _Generated 2026-10-20 from content/*.js_
 - The retropalatal region (soft palate, uvula, lateral pharyngeal walls) is the classic UPPP target.
 - The retroglossal/hypopharyngeal region (tongue base, epiglottis) is where tongue-base and hypoglossal nerve procedures work.Identifying where collapse occurs determines which surgery, if any, is appropriate.
 
-**Friedman tongue position and staging** (tags: Tongue base · Oropharynx exam · UPPP response)
+**Friedman tongue position and staging** (tags: Tongue position · Oropharynx exam · UPPP response)
 
 [figure: Friedman tongue position grades I-IV and how they predict UPPP response.]The exam: how it's done: the Friedman tongue position (FTP), sometimes called the modified Mallampati index in this context, grades how much the tongue base obscures the palate, tonsils, and uvula on oral exam.
 The single most important technical point, and the one that separates it from the classic (anesthesia) Mallampati score: mouth open wide, tongue resting in the mouth, not protruded, and not phonating. Keeping the tongue in its natural resting position mimics how it behaves during sleep, which is the whole point.

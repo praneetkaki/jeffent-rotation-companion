@@ -38,7 +38,7 @@ window.JEFFENT.register({
     notes: [
       {
         title: "The lateral nasal wall & the ostiomeatal complex (OMC)",
-        tagline: "OMC drainage funnel · Three sinuses · Chronic rhinosinusitis",
+        tagline: "OMC drainage funnel · Three sinuses drain · Chronic rhinosinusitis",
         html: "<figure class='note-fig'><img class='zoomable' src='assets/img/figures/osteomeatal_complex.png' alt='Osteomeatal complex' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Anatomy of the middle meatus/uncinate process/ethmoid bulla forming the ostiomeatal complex, the shared drainage funnel for frontal, anterior ethmoid, and maxillary sinuses.</figcaption></figure><ul><li>Three turbinates (inferior, middle, superior) overhang three meatuses; the <strong>middle meatus</strong> is the key one.</li><li>The <strong>ethmoid infundibulum</strong> is the groove lateral to the <strong>uncinate process</strong>; the maxillary sinus, anterior ethmoid cells, and usually the frontal recess drain through it into the middle meatus via the <strong>hiatus semilunaris</strong> (the cleft between the uncinate and the <strong>ethmoid bulla</strong>). This functional unit is the <strong>ostiomeatal complex</strong>.</li><li>Obstruct the OMC (mucosal edema, deviated septum, concha bullosa) and all three sinuses back up, which is why CRS is usually a disease of the OMC, not of one sinus alone.</li></ul>"
       },
       {
@@ -51,12 +51,12 @@ window.JEFFENT.register({
       },
       {
         title: "Blood supply of the nose",
-        tagline: "Four-vessel convergence · Anterior nosebleeds · Posterior bleeds",
+        tagline: "Kiesselbach's plexus · Anterior epistaxis · Sphenopalatine (posterior)",
         html: "<figure class='note-fig'><img class='zoomable' src='assets/img/figures/kiesselbach_plexus.png' alt='Kiesselbach plexus' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Little&#39;s area/Kiesselbach&#39;s plexus vascular convergence and anterior vs posterior epistaxis sources.</figcaption></figure><ul><li><strong>Little's area (Kiesselbach's plexus)</strong> on the anterior septum is where four vessels converge: <strong>anterior ethmoidal</strong> (internal carotid to ophthalmic), <strong>sphenopalatine</strong> and <strong>greater palatine</strong> (external carotid to maxillary), and <strong>superior labial</strong> (external carotid to facial).</li><li>About 80-90% of nosebleeds are anterior, from this plexus.</li><li>Posterior bleeds (about 10-20%) come from terminal branches of the <strong>sphenopalatine artery</strong>: heavier, harder to see, and more likely in older or anticoagulated patients.</li></ul>"
       },
       {
         title: "The nasal septum",
-        tagline: "Septal cartilage & bone · Septal hematoma",
+        tagline: "Septal cartilage and bone · Septal hematoma · Septal deviation",
         html: "<figure class='note-fig' data-credit='OpenStax, Anatomy and Physiology 2e. CC BY 4.0.'><img class='zoomable' src='assets/img/figures/nasal-septum-openstax.png' alt='Nasal septum openstax' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Septal skeleton (quadrangular cartilage, perpendicular plate of ethmoid, vomer) and septal hematoma risk.</figcaption></figure><ul><li>Cartilage anteriorly (<strong>quadrangular cartilage</strong>); bone posteriorly (<strong>perpendicular plate of the ethmoid</strong> above, <strong>vomer</strong> below).</li><li>Deviation is very common and often asymptomatic.</li><li>A <strong>septal hematoma or abscess</strong> is an emergency: the cartilage has no blood supply of its own and depends entirely on the overlying mucoperichondrium. Treat with urgent incision and drainage plus antistaphylococcal antibiotics; missed hematomas cause cartilage necrosis and saddle-nose.</li></ul>"
       },
       {
@@ -314,6 +314,7 @@ window.JEFFENT.register({
   cases: [
     {
       id: "case-posterior-epistaxis",
+      preview: "Patient on apixaban with blood running down the throat despite pressure",
       ukmla: "Epistaxis",
       source: "AAO-HNSF Clinical Practice Guideline: Nosebleed (Epistaxis), 2020.",
       stem: "An <b>81-year-old on apixaban</b> has a heavy nosebleed with blood visible in the <b>oropharynx</b> despite 20 minutes of firm anterior pressure. No clear anterior bleeding point is seen on exam.",
@@ -325,6 +326,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-aerd",
+      preview: "Patient with asthma and recurrent polyps who flared after ibuprofen",
       ukmla: "Rhinosinusitis",
       source: "AAO-HNSF Clinical Practice Guideline: Adult Sinusitis (Update), 2015.",
       stem: "A <b>38-year-old woman with asthma</b> has recurrent nasal polyps despite three prior polypectomies. She recalls a severe asthma flare and facial flushing after taking ibuprofen for a headache last year.",
@@ -336,6 +338,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-jna",
+      preview: "Teen boy with one-sided nosebleeds and nasal blockage",
       ukmla: "Epistaxis",
       source: "Standard rhinology teaching on juvenile nasopharyngeal angiofibroma.",
       stem: "A <b>14-year-old boy</b> has had three episodes of unilateral nosebleeds over two months and now reports one-sided nasal blockage. Endoscopy shows a smooth, reddish-purple mass in the nasal cavity.",
@@ -347,6 +350,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-orbital-abscess",
+      preview: "Child with sinusitis, worsening proptosis, and a collection on CT",
       ukmla: "Facial/periorbital swelling",
       source: "Chandler et al., Laryngoscope 1970; AAO-HNSF Adult Sinusitis CPG, 2015.",
       stem: "A <b>7-year-old</b> with known sinusitis develops worsening proptosis; eye movements are now painful and limited, and contrast CT shows a rim-enhancing fluid collection medial to the globe.",
@@ -358,6 +362,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-csf-leak",
+      preview: "Clear one-sided nasal drip two weeks after minor facial trauma",
       ukmla: "Ear and nasal discharge",
       source: "Meco et al., β2-transferrin testing for CSF leak, Am J Rhinol 2003.",
       stem: "A <b>29-year-old</b> two weeks after minor facial trauma reports persistent <b>clear, watery drainage from one nostril</b>, worse when leaning forward. He has no other ENT symptoms.",
@@ -369,6 +374,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-rhinitis-medicamentosa",
+      preview: "Two months of nightly decongestant spray and worsening congestion",
       ukmla: "Allergies",
       source: "Standard rhinology teaching on rhinitis medicamentosa; AAO-HNSF Allergic Rhinitis CPG, 2015.",
       stem: "A <b>34-year-old</b> reports severe nasal congestion for the past two months, ever since a cold. She has been using an <b>over-the-counter oxymetazoline spray nightly</b> because \"nothing else touches it,\" and now finds her nose blocks up worse than ever a few hours after each dose.",
@@ -380,6 +386,7 @@ window.JEFFENT.register({
     },
     {
       id: "case-vasomotor-rhinitis",
+      preview: "Runny, stuffy nose triggered by cold air and perfume, with negative allergy tests",
       ukmla: "Allergies",
       source: "ARIA guideline; standard rhinology teaching on non-allergic rhinitis.",
       stem: "A <b>50-year-old</b> describes years of chronic nasal congestion and clear rhinorrhea triggered by <b>cold air, strong perfume, and going from air-conditioning into humid heat</b>. She denies itching, sneezing bouts, or eye symptoms. Skin-prick testing to common aeroallergens is negative.",
