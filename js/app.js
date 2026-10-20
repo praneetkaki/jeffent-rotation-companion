@@ -3819,34 +3819,51 @@
     actions.appendChild(b1); actions.appendChild(b2); actions.appendChild(b3);
     pane.appendChild(hero);
 
-    /* Dynamic deck: a stack you can flip and deal through, cards fanned behind. */
-    var deckCards = mod.cards || [];
-    if (deckCards.length > 1) {
-      var di = 0, flipped = false;
-      var stack = h('<section class="deck-stack-wrap" aria-label="Preview the deck"><div class="deck-stack"><div class="ds-card ds-back2"></div><div class="ds-card ds-back1"></div><button type="button" class="ds-card ds-top" aria-label="Flip card"><span class="ds-n mono"></span><span class="ds-face"></span></button></div><div class="ds-controls"><button type="button" class="btn ghost small ds-prev">Previous</button><span class="ds-count mono"></span><button type="button" class="btn small ds-next">Next card</button></div></section>');
-      var top = stack.querySelector(".ds-top"), face = stack.querySelector(".ds-face"), dn = stack.querySelector(".ds-n"), cnt = stack.querySelector(".ds-count");
+    /* Dynamic deck: the due queue as a stack. Rates through the same SRS as a
+     * full study session, then redraws this tab so counts and progress update. */
+    var queue = window.SRS.dueCards(mod.id, mod.cards || []).slice();
+    var stack = h('<section class="deck-stack-wrap" aria-label="Due cards"></section>');
+    if (queue.length) {
+      var flipped = false, busy = false, hist = [];
+      var hints = rateHintLabels();
+      stack.appendChild(h('<div class="deck-stack"><div class="ds-card ds-back2"></div><div class="ds-card ds-back1"></div><button type="button" class="ds-card ds-top" aria-label="Flip card"><span class="ds-n mono"></span><span class="ds-face"></span><span class="ds-meta mono"></span></button></div>'));
+      var rate = h('<div class="answer-controls ds-rate hidden"><button class="rate again" data-r="again">Again<small>' + esc(hints.again) + '</small></button><button class="rate good" data-r="good">Good<small>' + esc(hints.good) + '</small></button><button class="rate easy" data-r="easy">Easy<small>' + esc(hints.easy) + '</small></button></div>');
+      var reveal = h('<button type="button" class="btn ds-reveal">Show answer</button>');
+      var count = h('<div class="ds-count mono"></div>');
+      stack.appendChild(count); stack.appendChild(reveal); stack.appendChild(rate);
+      var top = stack.querySelector(".ds-top"), face = stack.querySelector(".ds-face"), dn = stack.querySelector(".ds-n"), meta = stack.querySelector(".ds-meta");
       var paintDeck = function () {
-        var c = deckCards[di];
-        var txt = flipped ? effectiveBack(mod.id, c) : effectiveFront(mod.id, c);
-        face.innerHTML = txt;
+        var c = queue[0];
+        face.innerHTML = flipped ? effectiveBack(mod.id, c) : effectiveFront(mod.id, c);
         top.classList.toggle("flipped", flipped);
-        dn.textContent = (flipped ? "Answer" : "Question") + " " + (di + 1);
-        cnt.textContent = (di + 1) + " / " + deckCards.length;
+        dn.textContent = flipped ? "Answer" : "Question";
+        var info = window.SRS.cardInfo(mod.id, c.id);
+        meta.textContent = info.status === "new" ? "New card" : (info.status === "learning" ? "Learning" : "Review") + " \u00b7 seen " + info.seen + "x";
+        count.textContent = queue.length + " left in this queue";
+        reveal.classList.toggle("hidden", flipped);
+        rate.classList.toggle("hidden", !flipped);
       };
-      var deal = function (dir) {
-        top.classList.add(dir > 0 ? "ds-out-l" : "ds-out-r");
-        setTimeout(function () {
-          di = (di + dir + deckCards.length) % deckCards.length; flipped = false; paintDeck();
-          top.classList.remove("ds-out-l", "ds-out-r"); top.classList.add("ds-in");
-          setTimeout(function () { top.classList.remove("ds-in"); }, 220);
-        }, 180);
-      };
-      top.addEventListener("click", function () { flipped = !flipped; paintDeck(); });
-      stack.querySelector(".ds-next").addEventListener("click", function () { deal(1); });
-      stack.querySelector(".ds-prev").addEventListener("click", function () { deal(-1); });
+      var flip = function () { flipped = true; paintDeck(); };
+      top.addEventListener("click", function () { flipped ? (flipped = false, paintDeck()) : flip(); });
+      reveal.addEventListener("click", flip);
+      rate.querySelectorAll(".rate").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          if (busy) return; busy = true;
+          var c = queue[0], r = btn.dataset.r;
+          window.SRS.rate(mod.id, c.id, r);
+          top.classList.add(r === "again" ? "ds-out-r" : "ds-out-l");
+          setTimeout(function () { pane.innerHTML = ""; renderCardsIntro(pane, mod); }, 190);
+        });
+      });
       paintDeck();
-      pane.appendChild(stack);
+    } else {
+      var next = null;
+      (mod.cards || []).forEach(function (c) { var i = window.SRS.cardInfo(mod.id, c.id); if (i.due && (!next || i.due < next)) next = i.due; });
+      var when = "";
+      if (next) { var mins = Math.max(1, Math.round((next - Date.now()) / 60000)); when = mins < 60 ? mins + " min" : (mins < 2880 ? Math.round(mins / 60) + " hr" : Math.round(mins / 1440) + " days"); }
+      stack.appendChild(h('<div class="deck-stack-empty"><b>All caught up.</b>' + (when ? ' Next card due in ' + when + '.' : '') + '</div>'));
     }
+    pane.appendChild(stack);
 
     /* Browse the deck: topic filter, then one tile per card that opens it on its own. */
     var cards = mod.cards || [], topics = [], seen = {};

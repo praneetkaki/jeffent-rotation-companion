@@ -2956,3 +2956,8 @@ mark.user-hl[data-c="orange"] { background: rgba(255, 150, 50, .4); }
 .ds-controls { display: flex; align-items: center; gap: 16px; margin-top: 14px; }
 .ds-count { font-size: 12px; color: var(--ink-faint); }
 @media (prefers-reduced-motion: reduce) { .ds-top, .ds-top.ds-in { transition: none; animation: none; } }
+
+.ds-meta { margin-top: auto; font-size: 11px; color: var(--ink-faint); }
+.ds-rate { width: min(560px, 100%); }
+.deck-stack-empty { padding: 22px 26px; border: 1px dashed var(--line); border-radius: var(--radius-lg, 14px); color: var(--ink-soft); }
+.deck-stack-wrap .ds-count { margin-top: 14px; }
