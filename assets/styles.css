@@ -2791,3 +2791,35 @@ body.on-home main.wrap { padding-top: 20px; }
 
 /* Scroll cue stays on screen at the bottom of the first view, whatever the hero's height. */
 .home-scroll-cue { position: fixed; left: calc(50% + (var(--tb-l, 0px) - var(--tb-r, 0px)) / 2); bottom: 20px; z-index: 7; }
+
+/* Hero panels: last 7 days, today's rings, twelve-week heatmap. */
+.home-hero-sec .bento-panels { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 1100px) { .home-hero-sec .bento-panels { grid-template-columns: repeat(2, minmax(0, 1fr)); } .bp-heatpanel { grid-column: 1 / -1; } }
+@media (max-width: 700px) { .home-hero-sec .bento-panels { grid-template-columns: minmax(0, 1fr); } }
+.bp-ringwrap { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; flex: 1 1 auto; }
+.bp-rings { width: min(100%, 210px); height: auto; }
+.bp-ring { transition: stroke-dashoffset 1.1s var(--ease-out); }
+.bp-ring-n { fill: var(--hero-ink); font-family: "Cormorant Garamond", serif; font-size: 36px; }
+.bp-ring-l { fill: var(--hero-ink-soft); font-size: 12px; }
+.bp-legend { list-style: none; margin: 0; padding: 0; width: 100%; display: grid; gap: 8px; }
+.bp-legend li { display: grid; grid-template-columns: 10px 1fr auto; align-items: center; gap: 10px; font-size: 14px; color: var(--hero-ink); }
+.bp-legend i { width: 9px; height: 9px; border-radius: 50%; }
+.bp-legend b { font-weight: 500; color: var(--hero-ink-soft); font-family: "JetBrains Mono", monospace; font-size: 12.5px; }
+.bp-heat { display: grid; grid-auto-flow: column; grid-template-rows: repeat(7, 1fr); gap: 4px; flex: 1 1 auto; min-height: 150px; }
+.hm-c { display: block; border-radius: 4px; background: rgba(255,255,255,.07); min-width: 0; }
+.hm-pad { background: none; }
+.hm-c.l1 { background: #24582f; } .hm-c.l2 { background: #3a8a49; } .hm-c.l3 { background: #5fb36f; } .hm-c.l4 { background: #9fe0ab; }
+.hm-c.today { outline: 1.5px solid #fff; outline-offset: 1px; }
+.hm-c[data-tip]:hover { outline: 1.5px solid rgba(255,255,255,.7); outline-offset: 1px; }
+.bp-heat-key { display: flex; align-items: center; justify-content: flex-end; gap: 5px; font-size: 11.5px; color: var(--hero-ink-soft); }
+.bp-heat-key .hm-c { width: 12px; height: 12px; }
+@media (prefers-reduced-motion: reduce) { .bp-ring { transition: none; } }
+
+/* Tighter vertical rhythm so the hero fits a laptop screen with the scroll cue clear of the stats row. */
+.home-hero-sec .bento-hero { gap: clamp(12px, 2.4vh, 28px); padding-top: clamp(14px, 2.6vh, 36px); padding-bottom: clamp(14px, 2.6vh, 36px); }
+.home-hero-sec .bento-hero-title { font-size: clamp(1.7rem, 4vw, 2.7rem); }
+.home-hero-sec .bp-rings { width: min(100%, 180px); }
+.home-hero-sec .bp-chart { min-height: 100px; }
+.home-hero-sec .bp-heat { min-height: 120px; }
+.home-hero-sec .bento-panel { padding: clamp(14px, 2vh, 22px) clamp(16px, 1.8vw, 24px); gap: 12px; }
+.home-hero-sec { padding-bottom: 84px; }

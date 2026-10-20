@@ -1643,21 +1643,48 @@
       c.addEventListener("mouseleave", off); c.addEventListener("blur", off);
     });
     panels.appendChild(cp);
-    var masteryRows = TRACKS.map(function (t) {
-      var mods = modulesFor(t.id); if (!mods.length) return null;
-      var st = aggregateStats(mods);
-      return { t: t, pct: st.total ? Math.round((st.mastered / st.total) * 100) : 0, due: st.due };
-    }).filter(Boolean).sort(function (a, b) { return b.due - a.due; }).slice(0, 8);
-    var mp = h('<section class="bento-panel bp-mastery"><header><h3>Mastery by subspecialty</h3><span class="bp-figure">' + reviewedCount + '/' + allMods.length + ' modules reviewed</span></header><div class="bp-rows"></div></section>');
-    masteryRows.forEach(function (r, i) {
-      var row = h('<button type="button" class="bp-row" style="--track-color:' + (r.t.color || "#9fc1ff") + ';--i:' + i + '"><span class="bp-dot"></span><span class="bp-name">' + esc(r.t.name) + '</span><span class="bp-track"><i data-w="' + r.pct + '"></i></span><span class="bp-pct">' + r.pct + '%</span><span class="bp-due">' + r.due + ' due</span></button>');
-      row.addEventListener("click", function () { goTrack(r.t.id); });
-      mp.querySelector(".bp-rows").appendChild(row);
+    /* Rings: done today, mastery, and streak toward a week. Circumference of each ring = 2 * PI * r. */
+    var doneToday = activity7[activity7.length - 1] || 0, goal = doneToday + agg.due;
+    var ringVals = [
+      { r: 96, v: goal ? doneToday / goal : 0, c: "#9fc1ff", label: "Done today", text: doneToday + " of " + goal },
+      { r: 76, v: pct / 100, c: "#6fd08a", label: "Mastery", text: pct + "%" },
+      { r: 56, v: Math.min(1, streak / 7), c: "#ffb020", label: "Streak", text: streak + " of 7 days" }
+    ];
+    var ringSvg = '<svg class="bp-rings" viewBox="0 0 220 220" role="img" aria-label="' + ringVals.map(function (x) { return x.label + " " + x.text; }).join(", ") + '">' +
+      ringVals.map(function (x) {
+        var C = 2 * Math.PI * x.r;
+        return '<circle cx="110" cy="110" r="' + x.r + '" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="12"/>' +
+          '<circle class="bp-ring" cx="110" cy="110" r="' + x.r + '" fill="none" stroke="' + x.c + '" stroke-width="12" stroke-linecap="round" stroke-dasharray="' + C.toFixed(1) + '" stroke-dashoffset="' + C.toFixed(1) + '" data-off="' + (C * (1 - Math.max(0.02, x.v))).toFixed(1) + '" transform="rotate(-90 110 110)"/>';
+      }).join("") +
+      '<text x="110" y="112" text-anchor="middle" class="bp-ring-n">' + agg.due + '</text><text x="110" y="132" text-anchor="middle" class="bp-ring-l">due today</text></svg>';
+    var rp = h(
+      '<section class="bento-panel bp-ringpanel"><header><h3>Today</h3></header><div class="bp-ringwrap">' + ringSvg +
+      '<ul class="bp-legend">' + ringVals.map(function (x) { return '<li><i style="background:' + x.c + '"></i><span>' + x.label + '</span><b>' + x.text + '</b></li>'; }).join("") + '</ul></div></section>'
+    );
+    panels.appendChild(rp);
+
+    /* Twelve-week heatmap: one column per week, one row per weekday. */
+    var act84 = window.SRS.dailyActivity(84), hmMax = Math.max.apply(null, act84.concat([1]));
+    var first = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 83), cells = "";
+    for (var pad = 0; pad < first.getDay(); pad++) cells += '<i class="hm-c hm-pad"></i>';
+    act84.forEach(function (v, i) {
+      var d = new Date(now.getFullYear(), now.getMonth(), now.getDate() - (83 - i)), lvl = v ? Math.min(4, 1 + Math.floor((v / hmMax) * 3.999)) : 0;
+      cells += '<i class="hm-c l' + lvl + (i === 83 ? ' today' : '') + '" data-tip="' + (d.getMonth() + 1) + '/' + d.getDate() + ': ' + v + ' reviewed"></i>';
     });
-    panels.appendChild(mp);
+    var hp = h(
+      '<section class="bento-panel bp-heatpanel"><header><h3>Last 12 weeks</h3><span class="bp-figure">' + act84.reduce(function (a, b) { return a + b; }, 0) + ' reviewed</span></header>' +
+      '<div class="bp-heat" role="img" aria-label="Cards reviewed per day over the last 12 weeks">' + cells + '</div>' +
+      '<div class="bp-heat-key"><span>Less</span><i class="hm-c l0"></i><i class="hm-c l1"></i><i class="hm-c l2"></i><i class="hm-c l3"></i><i class="hm-c l4"></i><span>More</span></div></section>'
+    );
+    var hfig = hp.querySelector(".bp-figure"), hTotal = hfig.textContent;
+    hp.querySelectorAll(".hm-c[data-tip]").forEach(function (c) {
+      c.addEventListener("mouseenter", function () { hfig.textContent = c.getAttribute("data-tip"); });
+      c.addEventListener("mouseleave", function () { hfig.textContent = hTotal; });
+    });
+    panels.appendChild(hp);
     (window.requestAnimationFrame || setTimeout)(function () {
       (window.requestAnimationFrame || setTimeout)(function () {
-        mp.querySelectorAll(".bp-track i").forEach(function (el) { el.style.width = Math.max(2, +el.getAttribute("data-w")) + "%"; });
+        rp.querySelectorAll(".bp-ring").forEach(function (el) { el.style.strokeDashoffset = el.getAttribute("data-off"); });
         cp.classList.add("is-in");
       });
     });
