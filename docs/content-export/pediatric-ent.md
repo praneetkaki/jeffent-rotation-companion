@@ -19,11 +19,8 @@ _Generated 2026-10-20 from content/*.js_
 
 **The pediatric airway vs the adult airway** (tags: Funnel-shaped · Cephalad larynx · Narrow/floppy airway)
 
-- Classically funnel-shaped, narrowest at the subglottis and cricoid (vs the glottis in adults). Imaging studies suggest the glottis may be the narrowest point in vivo, but the cricoid is the narrowest fixed ring, so choose a tube with a leak or a cuffed tube sized carefully.
-- Larynx sits more cephalad in children.
-- Tongue and tonsils are relatively larger for the airway size.
-- Epiglottis is omega-shaped and floppier.
-- So small amounts of edema cause disproportionate obstruction, and airway emergencies escalate faster.[figure: Explains why a child's funnel-shaped airway (narrowest at the subglottis, cephalad larynx, floppy omega-shaped epiglottis) makes small amounts of edema disproportionately obstructive compared to an adult's cylindrical airway.]
+FeatureChild (infant/young child)AdultWhy it matters for airway managementOverall shapeClassically funnel/conical; in vivo imaging suggests more cylindricalCylindricalDrives historical tube choice; see the narrowest-point rowNarrowest pointDebated: cricoid ring by older cadaver work, glottis/subglottis by in vivo imagingGlottis (rima glottidis)Site most prone to edema and post-intubation injury; use a leak test or a carefully sized cuffed tubeLarynx positionMore cephalad (cords ~C3-4 in neonate)Lower (~C5-6)Larynx looks more anterior; a straight blade to lift the epiglottis helpsEpiglottisOmega-shaped, longer, stiffer/floppier, angled ~45&deg; off the pharyngeal wallFlatter, firmer, more parallelHarder to control on laryngoscopy; prone to prolapse and obstructionTongue and tonsilsRelatively large for the airwayProportionateEasier airway obstruction and a more crowded laryngoscopy viewOcciputRelatively large, flexes the neck when supineProportionateA shoulder roll aligns the oral, pharyngeal, and laryngeal axesBottom line: a small amount of edema causes disproportionate obstruction in a child, and airway emergencies escalate faster.
+[figure: Explains why a child's funnel-shaped airway (narrowest at the subglottis, cephalad larynx, floppy omega-shaped epiglottis) makes small amounts of edema disproportionately obstructive compared to an adult's cylindrical airway.]
 
 **Eustachian tube anatomy in children** (tags: Short, horizontal tube · Childhood otitis media · Middle-ear drainage)
 
@@ -32,27 +29,18 @@ _Generated 2026-10-20 from content/*.js_
 - It therefore drains the middle ear less efficiently and lets nasopharyngeal secretions and pathogens reflux more easily.
 - This is why otitis media is overwhelmingly a childhood disease, becoming far less common once the tube matures toward its adult angle.
 
-**The branchial (pharyngeal) apparatus: the framework** (tags: Arches · Clefts · Pouches)
+**The branchial (pharyngeal) apparatus: arches, clefts, and pouches** (tags: Arches · Clefts · Pouches)
 
-The branchial apparatus appears in weeks 4-7 as a series of bulges on the side of the embryonic head that build the face and neck. Learn the three-part vocabulary first, then hang every anomaly off it.
+The frameworkThe branchial apparatus appears in weeks 4 to 7 as paired bulges on the side of the embryonic head that build the face and neck. Three terms carry everything:
 
-- Arches = the bulges themselves. Each has its own cartilage, muscle, artery (aortic arch), and cranial nerve. Mesoderm + neural crest core.
-- Clefts (grooves) = the outside (ectoderm) gaps between arches.
-- Pouches = the inside (endoderm) gaps between arches.Clefts are outside (Cutaneous), pouches are inside (Pharyngeal).
-There are 6 arches, but arch 5 is rudimentary/absent, so clinically you learn arches 1, 2, 3, 4, and 6. Only the first cleft stays as a normal adult structure (the external auditory canal); every other cleft and pouch should obliterate by week 7. Failure to obliterate produces the anomalies covered next.
-Tissue of origin: a cleft anomaly is lined by ectoderm (skin/squamous), a pouch anomaly by endoderm.
+- Arches: the bulges. Each has a core of mesoderm (muscle) plus neural crest (cartilage and bone), and carries its own cartilage, muscle, artery, and cranial nerve.
+- Clefts (grooves): the external gaps, lined by ectoderm. Clefts are outside (Cutaneous).
+- Pouches: the internal gaps, lined by endoderm. Pouches are inside (Pharyngeal).Six arches form, but arch 5 is absent or rudimentary, so you learn arches 1, 2, 3, 4, and 6.
+Arch derivativesEach arch maps to one nerve, and the nerve of an arch supplies the muscles of that same arch.
+ArchCranial nerveSkeleton / cartilageKey muscles1 (mandibular)CN V3 (mastication)Meckel's cartilage: malleus, incus, mandibleMuscles of mastication, mylohyoid, anterior digastric, tensor tympani, tensor veli palatini2 (hyoid)CN VIIReichert's cartilage: stapes, styloid process, stylohyoid ligament, lesser cornu and upper hyoidMuscles of facial expression, stapedius, stylohyoid, posterior digastric3CN IXGreater cornu and lower body of hyoidStylopharyngeus4CN X (superior laryngeal)Thyroid cartilagePharyngeal constrictors, cricothyroid, levator veli palatini6CN X (recurrent laryngeal)Cricoid, arytenoid cartilagesIntrinsic laryngeal muscles (except cricothyroid)Nerve cue: arches 1-2-3 give V-VII-IX, and arches 4 and 6 are both vagus. The cricothyroid (arch 4, superior laryngeal nerve) is the one intrinsic laryngeal muscle not supplied by the recurrent laryngeal nerve, which is why the RLN and the external branch of the SLN are the two nerves at risk in thyroid surgery.
+Arteries: the left arch 4 artery becomes the aortic arch and the left arch 6 artery becomes the ductus arteriosus.
+Clefts vs pouchesClefts (grooves)PouchesPosition and liningExternal, ectoderm (squamous)Internal, endodermFateOnly cleft 1 persists, as the external auditory canal; clefts 2 to 4 obliteratePouch spaces close, but pouch endoderm differentiates into glands and epitheliumIf it failsCyst, sinus, or fistula lined by squamous epitheliumCyst or sinus lined by respiratory or glandular epitheliumPouch derivatives: pouch 1 = middle ear and Eustachian tube; pouch 2 = palatine tonsil; pouch 3 = inferior parathyroid and thymus; pouch 4 = superior parathyroid.
 [figure: Explains second branchial cleft anomalies and the classic tract from a neck pit anterior to the SCM up to the tonsillar fossa.]
-
-**Arch derivatives: cartilage, muscle & nerve** (tags: Arch nerves · Arch muscles · Arch skeleton)
-
-Each arch is a self-contained package: its skeleton, its muscles, and its own cranial nerve all move together. The nerve of an arch supplies the muscles of that same arch.
-
-- Arch 1 (mandibular): CN V3 (trigeminal). Muscles: mastication, mylohyoid, anterior belly of digastric, tensor tympani, tensor veli palatini. Skeleton: Meckel's cartilage -> malleus & incus; mandible, maxilla (membranous bone).
-- Arch 2 (hyoid): CN VII (facial). Muscles: facial expression, stapedius, stylohyoid, posterior belly of digastric. Skeleton: Reichert's cartilage -> stapes, styloid process, lesser horn + upper hyoid.
-- Arch 3: CN IX (glossopharyngeal). Muscle: stylopharyngeus. Skeleton: greater horn + lower body of hyoid.
-- Arch 4: CN X, superior laryngeal branch. Muscles: pharyngeal constrictors, cricothyroid, levator veli palatini. Skeleton: thyroid & most laryngeal cartilages.
-- Arch 6: CN X, recurrent laryngeal branch. Muscles: intrinsic laryngeal muscles (except cricothyroid). Skeleton: cricoid, arytenoid, remaining laryngeal cartilages.The cranial nerves of the arches run V, VII, IX, X in order (arches 1-2-3-4/6): trigeminal, facial, glossopharyngeal, then vagus, the same nerves involved in the gag/swallow reflex arc.
-The cricothyroid is the exception: the one intrinsic laryngeal muscle innervated from arch 4 (superior laryngeal nerve); all other intrinsic laryngeal muscles arise from arch 6 (recurrent laryngeal nerve). This is the anatomic basis for the RLN and the external branch of the SLN being the two nerves at risk in thyroid surgery.
 
 **Pouch derivatives (endoderm): glands & spaces** (tags: Pouch derivatives · Glands · Spaces)
 
