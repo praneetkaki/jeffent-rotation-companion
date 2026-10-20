@@ -68,15 +68,18 @@ LayerWhat it isWhy it mattersOuter: squamous (skin)Continuous with the ear-canal
 
 **Flexible Nasopharyngolaryngoscopy (NPL)** (tags: Nasal cavity · Nasopharynx · Larynx)
 
-Flexible nasolaryngoscopy (flex NPL) passes a thin fiberoptic or distal-chip scope through the nose to see what anterior rhinoscopy and a tongue depressor cannot reach. In sequence it shows:
+[figure: Real scope view: the right lateral nasal wall (arrows mark the maxillary ostium region).][figure: The larynx from above: what the scope sees.]What the scope shows, in order
+RegionLandmarksLook forNasal cavitySeptum, inferior and middle turbinates, meatuses, sphenoethmoidal recessDeviation, mucosa, discharge, polyps, massesNasopharynxAdenoid pad, Eustachian tube openings (torus tubarius), fossa of Rosenm&uuml;llerA mass or asymmetry. The fossa of Rosenm&uuml;ller is the classic nasopharyngeal carcinoma siteOropharynxBase of tongue, lingual tonsils, vallecula, posterior pharyngeal wallAsymmetry, ulcer, massHypopharynxPyriform sinuses, postcricoid regionPooled saliva or a mass. Best seen with &ldquo;eee&rdquo; phonation or a puffed-cheek maneuverLarynxEpiglottis, aryepiglottic folds, false and true vocal folds, anterior commissureFold mobility (judge it dynamically), lesions, symmetrySubglottisJust below the folds. The narrowest adult laryngeal viewNarrowing or lesionsWhy it matters
 
-- Nasal cavity: septum, inferior and middle turbinates, meatuses, mucosa, discharge, polyps, masses.
-- Nasopharynx: adenoid pad, Eustachian tube openings (torus tubarius), and the fossa of Rosenm&uuml;ller, the classic nasopharyngeal carcinoma site.
-- Oropharynx: base of tongue, lingual tonsils, vallecula, posterior pharyngeal wall.
-- Hypopharynx: pyriform sinuses and the postcricoid region (best seen during &ldquo;eee&rdquo; phonation or a puffed-cheek maneuver).
-- Larynx: epiglottis, aryepiglottic folds, false and true vocal folds, anterior commissure; vocal-fold mobility can be judged dynamically.
-- Subglottis: the narrowest adult laryngeal view, seen only just below the folds.Why it matters
-Nasal endoscopy changes the diagnosis in up to about 20% of patients with nasal disease and reaches the middle meatus, sphenoethmoidal recess, and nasopharynx that anterior rhinoscopy cannot. It is also the criterion-standard assessment of the posterior nasal cavity and nasopharynx, especially in children.
+- Nasal endoscopy changes the diagnosis in up to about 20% of patients with nasal disease.
+- It reaches the middle meatus, sphenoethmoidal recess, and nasopharynx that anterior rhinoscopy cannot.
+- It is the criterion-standard assessment of the posterior nasal cavity and nasopharynx, especially in children.Related in the Clinical tab
+
+- When to scope
+- Technique and preparation
+- The systematic examination
+- Scope first, image for selected cases
+- Flex NPL in children
 
 ### Anatomy diagrams (7)
 

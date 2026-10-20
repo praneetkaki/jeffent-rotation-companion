@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-label="Schematic of the larynx as seen through a flexible scope">
+<title>Larynx as seen through a flexible scope (author-drawn schematic)</title>
+<rect width="640" height="400" fill="#ffffff"/>
+<defs><clipPath id="c"><circle cx="200" cy="200" r="182"/></clipPath></defs>
+<circle cx="200" cy="200" r="186" fill="#1b1b1b"/>
+<g clip-path="url(#c)">
+<rect width="400" height="400" fill="#c9786b"/>
+<path d="M0 0H400V92Q200 52 0 92Z" fill="#dc9d92"/>
+<path d="M118 98Q200 70 282 98" fill="none" stroke="#8e4338" stroke-width="6" stroke-linecap="round"/>
+<path d="M96 168Q200 58 304 168Q200 122 96 168Z" fill="#ebb9ad" stroke="#b9786c" stroke-width="2"/>
+<path d="M104 170L150 300M296 170L250 300" fill="none" stroke="#e0a79b" stroke-width="14" stroke-linecap="round"/>
+<ellipse cx="86" cy="262" rx="30" ry="62" fill="#8a4036"/>
+<ellipse cx="314" cy="262" rx="30" ry="62" fill="#8a4036"/>
+<polygon points="200,186 176,286 224,286" fill="#4a211d"/>
+<path d="M200 182L168 288M200 182L232 288" fill="none" stroke="#f2e0d8" stroke-width="15" stroke-linecap="round"/>
+<circle cx="170" cy="304" r="17" fill="#d99a8e" stroke="#b9786c" stroke-width="2"/>
+<circle cx="230" cy="304" r="17" fill="#d99a8e" stroke="#b9786c" stroke-width="2"/>
+</g>
+<g font-family="Work Sans, Arial, sans-serif" font-size="15" fill="#2a2a2a" stroke="#6b6b6b" stroke-width="1">
+<g stroke="none"><text x="420" y="80">Base of tongue</text><text x="420" y="116">Vallecula</text><text x="420" y="152">Epiglottis</text><text x="420" y="188">Aryepiglottic fold</text><text x="420" y="228">Vocal folds (true cords)</text><text x="420" y="264">Glottis (airway opening)</text><text x="420" y="300">Arytenoid</text><text x="420" y="336">Pyriform sinus</text></g>
+<path d="M410 76L300 50" fill="none"/><path d="M410 112L290 92" fill="none"/><path d="M410 148L260 118" fill="none"/><path d="M410 184L286 220" fill="none"/><path d="M410 224L232 238" fill="none"/><path d="M410 260L206 262" fill="none"/><path d="M410 296L238 304" fill="none"/><path d="M410 332L330 280" fill="none"/>
+</g>
+</svg>

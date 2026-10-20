@@ -2322,6 +2322,43 @@
     return pane;
   }
 
+  /* ---- topics: notes, cases, and cards can carry `topics: ["Ear", ...]`, which links them all three ways. ---- */
+  function shareTopic(a, b) {
+    var x = (a && a.topics) || [], y = (b && b.topics) || [], i;
+    for (i = 0; i < x.length; i++) if (y.indexOf(x[i]) !== -1) return true;
+    return false;
+  }
+  function noteMinutes(html) {
+    var words = stripHtml(html || "").split(/\s+/).filter(Boolean).length;
+    return Math.max(1, Math.round(words / 190));
+  }
+  function casesForNote(mod, note) {
+    var out = [];
+    (mod.cases || []).forEach(function (c, i) { if (shareTopic(note, c)) out.push({ c: c, i: i }); });
+    return out;
+  }
+  function notesForCase(mod, c) {
+    var out = [];
+    ((mod.anatomy && mod.anatomy.notes) || []).forEach(function (n, i) { if (shareTopic(c, n)) out.push({ n: n, i: i }); });
+    return out;
+  }
+  function cardsForNote(mod, note) {
+    return (mod.cards || []).filter(function (c) { return shareTopic(note, c); });
+  }
+  function openInModule(modId, tab, setup) {
+    var mod = window.JEFFENT.get(modId); if (!mod) return;
+    pushNav();
+    state.screen = "module"; state.moduleId = modId; state.session = null; state.anatomyTopic = null; state.caseSession = null;
+    state.tab = tab; setup();
+    saveLastTab(modId, tab);
+    renderModule(modId); showScreen("module"); window.scrollTo(0, 0);
+  }
+  function openNote(modId, i) { openInModule(modId, "anatomy", function () { state.anatomyTopic = { kind: "note", index: i }; }); }
+  function openCase(modId, i) { openInModule(modId, "cases", function () { state.caseSession = freshCaseSession(i); }); }
+  function topicChips(list) {
+    return (list && list.length) ? '<span class="topic-chips">' + list.map(function (t) { return '<span class="topic-chip">' + esc(t) + '</span>'; }).join("") + '</span>' : "";
+  }
+
   function renderAnatomyPane(pane, mod) {
     pane.innerHTML = "";
     var a = mod.anatomy || {};
@@ -2339,7 +2376,8 @@
         return h('<div class="anatomy-detail-body" data-anchor="anatomy-note-' + topic.index + '">' + notes[topic.index].html + '</div>');
       }, false, notes[topic.index].tagline);
       enhanceLessonBody(built.main, notes[topic.index]);
-      appendRelatedCardsCta(built.main, mod, noteTitle, topic);
+      appendRelatedCardsCta(built.main, mod, noteTitle, topic, notes[topic.index]);
+      appendRelatedCases(built.main, mod, notes[topic.index]);
       appendLearnedBar(built.main, mod, pane, topic);
       appendNextLessonNav(built.main, mod, pane, notes, diagrams, topic);
       linkGlossaryTerms(built.main);
@@ -2445,7 +2483,7 @@
     var hero = h('<div class="lesson-hero"' + trackStyle + '></div>');
     var heroTop = h('<div class="lesson-hero-top"></div>');
     heroTop.appendChild(h(
-      '<span class="lesson-kicker mono">' + esc(topic.kind === "note" ? "Anatomy note" : "Anatomy diagram") + '</span>'
+      '<span class="lesson-kicker mono">' + esc(topic.kind === "note" ? "Anatomy note" : "Anatomy diagram") + (topic.kind === "note" && notes[topic.index] ? ' \u00b7 ' + noteMinutes(notes[topic.index].html) + ' min read' : '') + '</span>'
     ));
 
     /* Body is built up front (rather than after the hero, as before) so the
@@ -2725,40 +2763,58 @@
    * "Quick reveal" mini flashcard (the first related card, answerable right
    * here without leaving the page) plus a prominent CTA into the full
    * related-cards study session. */
-  function appendRelatedCardsCta(wrap, mod, title, topicRef) {
-    var related = relatedCardsForTopic(title);
+  function appendRelatedCardsCta(wrap, mod, title, topicRef, note) {
+    var fromNote = note && note.topics && note.topics.length ? cardsForNote(mod, note) : [];
+    var related = fromNote.length ? fromNote : relatedCardsForTopic(title);
     if (!related.length) return;
-    var sample = related[0];
-    var sampleOwner = cardOwnerId(sample, mod.id);
+    var samples = related.slice(0, fromNote.length ? 3 : 1);
     var n = related.length;
+    var sub = fromNote.length
+      ? n + ' flashcard' + (n === 1 ? '' : 's') + ' on this note\u2019s topic'
+      : n + ' flashcard' + (n === 1 ? '' : 's') + ' touching on this topic, from across the app';
     var cta = h(
       '<div class="topic-study-cta">' +
         '<div class="tsc-head">' +
           '<span class="tsc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h8l-1 8 10-12h-8l1-8Z"/></svg></span>' +
-          '<div class="tsc-head-copy"><div class="n">Test yourself</div><div class="cta-sub">' + n + ' flashcard' + (n === 1 ? '' : 's') + ' touching on this topic, from across the app</div></div>' +
+          '<div class="tsc-head-copy"><div class="n">Test yourself</div><div class="cta-sub">' + sub + '</div></div>' +
         '</div>' +
-        '<div class="tsc-quick">' +
-          '<div class="tsc-quick-label mono">Quick reveal</div>' +
-          '<div class="tsc-quick-front">' + effectiveFront(sampleOwner, sample) + '</div>' +
-          '<div class="tsc-quick-back hidden">' + effectiveBack(sampleOwner, sample) + '</div>' +
-          '<button type="button" class="tsc-reveal-btn">Reveal answer</button>' +
-        '</div>' +
+        '<div class="tsc-quicks"></div>' +
         '<button type="button" class="btn tsc-launch">Launch ' + n + ' Flashcard' + (n === 1 ? '' : 's') + ' &rarr;</button>' +
       '</div>'
     );
-    var quick = cta.querySelector(".tsc-quick");
-    var back = quick.querySelector(".tsc-quick-back");
-    var revealBtn = quick.querySelector(".tsc-reveal-btn");
-    revealBtn.addEventListener("click", function () {
-      back.classList.remove("hidden");
-      quick.classList.add("revealed");
-      revealBtn.remove();
+    var quicks = cta.querySelector(".tsc-quicks");
+    samples.forEach(function (sample) {
+      var owner = cardOwnerId(sample, mod.id);
+      var quick = h(
+        '<div class="tsc-quick">' +
+          '<div class="tsc-quick-label mono">Quick reveal</div>' +
+          '<div class="tsc-quick-front">' + effectiveFront(owner, sample) + '</div>' +
+          '<div class="tsc-quick-back hidden">' + effectiveBack(owner, sample) + '</div>' +
+          '<button type="button" class="tsc-reveal-btn">Reveal answer</button>' +
+        '</div>'
+      );
+      var back = quick.querySelector(".tsc-quick-back"), revealBtn = quick.querySelector(".tsc-reveal-btn");
+      revealBtn.addEventListener("click", function () { back.classList.remove("hidden"); quick.classList.add("revealed"); revealBtn.remove(); });
+      quicks.appendChild(quick);
     });
     cta.querySelector(".tsc-launch").addEventListener("click", function () {
       startAnatomyTopicSession(mod, related, title, topicRef);
     });
     wrap.appendChild(cta);
-    linkGlossaryTerms(quick);
+    linkGlossaryTerms(quicks);
+  }
+
+  /* Cases that share this note's topic, so a note is never a dead end. */
+  function appendRelatedCases(wrap, mod, note) {
+    var rel = note ? casesForNote(mod, note) : [];
+    if (!rel.length) return;
+    var box = h('<div class="topic-related"><div class="topic-related-h">Practice cases on this topic</div><div class="topic-related-list"></div></div>');
+    rel.forEach(function (r) {
+      var b = h('<button type="button" class="topic-related-item"><span class="mono">Case ' + (r.i + 1) + '</span><span>' + esc(teaserOf(r.c.stem, 90)) + '</span></button>');
+      b.addEventListener("click", function () { openCase(mod.id, r.i); });
+      box.querySelector(".topic-related-list").appendChild(b);
+    });
+    wrap.appendChild(box);
   }
 
   function startAnatomyTopicSession(mod, cards, title, topicRef) {
@@ -2811,6 +2867,14 @@
         (diagrams.length ? '<button type="button" class="tg-filter" data-kind="diagram">Diagrams</button>' : '') +
       '</div>'
     );
+    if (notes.length) {
+      var doneN = notes.filter(function (n, i) { return isLessonLearned(mod.id, { kind: "note", index: i }); }).length;
+      var totalMin = notes.reduce(function (t, n) { return t + noteMinutes(n.html); }, 0);
+      wrap.appendChild(h(
+        '<div class="notes-progress"' + trackStyle + '><div class="np-top"><span><b>' + doneN + ' of ' + notes.length + '</b> notes learned</span><span class="np-min mono">about ' + totalMin + ' min of reading</span></div>' +
+        '<div class="np-bar" role="progressbar" aria-valuemin="0" aria-valuemax="' + notes.length + '" aria-valuenow="' + doneN + '"><i style="width:' + Math.round((doneN / notes.length) * 100) + '%"></i></div></div>'
+      ));
+    }
     wrap.appendChild(filterBar);
 
     /* Notes and diagrams render as two clearly separated sections (each with
@@ -2843,10 +2907,11 @@
           ? '<img src="' + esc(src) + '" alt="" loading="lazy">'
           : trackBadge(modTrack, "tg-placeholder-icon", 26);
         var card = h(
-          '<button type="button" class="tg-card' + (src ? '' : ' no-img') + '" data-kind="note"' + trackStyle + '>' +
+          '<button type="button" class="tg-card' + (src ? '' : ' no-img') + (isLessonLearned(mod.id, { kind: "note", index: i }) ? ' is-learned' : '') + '" data-kind="note"' + trackStyle + '>' +
             '<div class="tg-media">' + media + '</div>' +
             '<div class="tg-body"><h3>' + esc(n.title) + '</h3><p>' + esc(teaserOf(n.html, 110)) + '</p>' +
-            '<span class="tg-chip">Note</span></div>' +
+            '<span class="tg-chip">Note</span><span class="tg-min mono">' + noteMinutes(n.html) + ' min</span>' +
+            '<span class="tg-check" aria-label="Learned"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></div>' +
           '</button>'
         );
         card.addEventListener("click", function () {
@@ -3566,7 +3631,7 @@
         '<button type="button" class="case-row">' +
           '<div class="case-row-num mono">' + (i + 1) + '</div>' +
           '<div class="case-row-body"><p>' + esc(teaserOf(c.stem, 140)) + '</p>' +
-          '<span class="case-row-meta mono">' + n + ' question' + (n === 1 ? "" : "s") + '</span></div>' +
+          '<span class="case-row-meta mono">' + n + ' question' + (n === 1 ? "" : "s") + '</span>' + topicChips(c.topics) + '</div>' +
         '</button>'
       );
       row.addEventListener("click", function () {
@@ -3606,6 +3671,15 @@
     pane.appendChild(nav);
 
     var card = h('<div class="case"></div>');
+    if (c.topics && c.topics.length) {
+      var tline = h('<div class="case-topics">' + topicChips(c.topics) + '</div>');
+      notesForCase(mod, c).forEach(function (r) {
+        var nb = h('<button type="button" class="case-note-link">Read: ' + esc(r.n.title) + ' &rarr;</button>');
+        nb.addEventListener("click", function () { openNote(mod.id, r.i); });
+        tline.appendChild(nb);
+      });
+      card.appendChild(tline);
+    }
     card.appendChild(h('<div class="stem">' + c.stem + '</div>'));
     var stepWrap = h('<div class="case-step"></div>');
     card.appendChild(stepWrap);

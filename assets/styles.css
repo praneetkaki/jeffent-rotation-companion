@@ -2864,3 +2864,29 @@ mark.user-hl[data-c="orange"] { background: rgba(255, 150, 50, .4); }
 /* Two panels: today's rings, then the last seven days. */
 .home-hero-sec .bento-panels { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 @media (max-width: 760px) { .home-hero-sec .bento-panels { grid-template-columns: minmax(0, 1fr); } }
+
+/* Topics, reading time, and progress. */
+.topic-chips { display: inline-flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.topic-chip { font-size: 11.5px; padding: 3px 10px; border-radius: 999px; background: var(--primary-tint); color: var(--primary-deep); border: 1px solid var(--line); }
+.case-topics { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; margin-bottom: 14px; }
+.case-topics .topic-chips { margin-top: 0; }
+.case-note-link { background: none; border: 0; padding: 0; font: inherit; font-size: 13px; color: var(--primary-deep); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.topic-related { margin-top: 18px; padding: 16px 18px; border: 1px solid var(--line); border-radius: var(--radius-lg, 14px); background: var(--surface); }
+.topic-related-h { font-family: var(--display); font-size: 1.25rem; margin-bottom: 10px; }
+.topic-related-list { display: grid; gap: 8px; }
+.topic-related-item { display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: baseline; text-align: left; background: none; border: 0; border-top: 1px solid var(--line); padding: 10px 2px 2px; font: inherit; font-size: 14px; color: var(--ink); cursor: pointer; }
+.topic-related-item:first-child { border-top: 0; padding-top: 2px; }
+.topic-related-item .mono { font-size: 11.5px; color: var(--ink-faint); }
+.topic-related-item:hover span:last-child { color: var(--primary-deep); text-decoration: underline; text-underline-offset: 3px; }
+.tsc-quicks { display: grid; gap: 12px; margin-bottom: 14px; }
+.tsc-quicks .tsc-quick { margin: 0; }
+.notes-progress { margin: 0 0 18px; padding: 14px 18px; border: 1px solid var(--line); border-radius: var(--radius-lg, 14px); background: var(--surface); }
+.np-top { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 14px; color: var(--ink); }
+.np-top b { font-weight: 600; } .np-min { font-size: 12px; color: var(--ink-faint); }
+.np-bar { height: 6px; border-radius: 99px; background: var(--line); margin-top: 10px; overflow: hidden; }
+.np-bar i { display: block; height: 100%; border-radius: 99px; background: var(--track-color, var(--primary)); transition: width .6s var(--ease-out); }
+.tg-min { margin-left: 8px; font-size: 11px; color: var(--ink-faint); }
+.tg-check { display: none; position: absolute; top: 12px; right: 12px; width: 24px; height: 24px; border-radius: 50%; background: var(--track-color, var(--primary)); color: #fff; align-items: center; justify-content: center; }
+.tg-check svg { width: 14px; height: 14px; }
+.tg-card.is-learned { position: relative; }
+.tg-card.is-learned .tg-check { display: inline-flex; }
