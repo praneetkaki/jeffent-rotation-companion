@@ -1,6 +1,6 @@
 # The Ear: Anatomy to the Clinic
 
-_Generated 2026-10-19 from content/*.js_
+_Generated 2026-10-20 from content/*.js_
 
 > **How to use:** paste a module file below (or ALL.md) into OpenEvidence / any reviewer, followed by an instruction such as
 > "Fact-check every claim against current guidelines, flag anything outdated or wrong, and propose exact replacement wording. Keep our style: no em dashes, plain clinical language."
@@ -17,21 +17,42 @@ _Generated 2026-10-19 from content/*.js_
 
 ### Anatomy notes
 
-**Three compartments, one organ** (tags: External ear · Middle ear · Inner ear)
+**3 Compartments of the Ear** (tags: External ear · Middle ear · Inner ear)
 
 [figure: Overview of the ear's three compartments (external/sound-gathering, middle/amplification, inner/transduction) and how CN VIII reads out the inner ear.]Work outside-in: external (sound gathering), middle (sound amplification & transmission), inner (transduction + balance).
+External earMiddle earInner earStructuresAuricle and external auditory canal (EAC)Tympanic membrane, ossicles (malleus, incus, stapes), oval window, Eustachian tubeCochlea (hearing), vestibule and three semicircular canals (balance), CN VIIIJobGather and channel soundMatch impedance and transmit soundTransduce sound into signals and sense balanceIf it failsConductive hearing lossConductive hearing lossSensorineural hearing lossExternal ear: sound gathering
 
-- External: auricle + external auditory canal (EAC): outer ⅓ cartilage, inner ⅔ bone; cerumen glands in the cartilaginous part.
-- Middle: tympanic membrane → ossicles (malleus → incus → stapes) → oval window; connected to the nasopharynx by the Eustachian tube.
-- Inner: cochlea (hearing) and vestibule + semicircular canals (balance), read out by CN VIII.
+- Parts: auricle and EAC. The outer ⅓ is cartilage and the inner ⅔ is bone. Cerumen glands sit in the cartilaginous part.
+- Function: the auricle funnels sound and the EAC channels it to the tympanic membrane. The shape adds a small passive boost of roughly 5 to 15 dB at speech frequencies.
+- Clinical tie-in: any blockage (cerumen impaction, otitis externa, foreign body, canal atresia) causes conductive hearing loss.Middle ear: impedance matching and transmission
 
-**The clinically dangerous relationships** (tags: Facial nerve · Referred otalgia · Chorda tympani)
+- Path: tympanic membrane, then malleus, incus, stapes, then the oval window. The Eustachian tube connects it to the nasopharynx.
+- Function: it overcomes the air-to-fluid impedance mismatch so sound energy is not lost at the cochlea. Net gain is roughly 20 to 30 dB.MechanismHow it worksArea ratioThe large tympanic membrane funnels sound onto the much smaller stapes footplateOssicular leverThe ossicular chain adds mechanical advantageEustachian tubeEqualizes middle-ear pressure with the nasopharynx. Shorter and more horizontal in children, so pediatric otitis media is commonProtective reflexThe stapedius (CN VII) and tensor tympani stiffen the chain to dampen loud sounds
+- Clinical tie-in: middle-ear disease (effusion, acute otitis media, tympanic membrane perforation, ossicular fixation or discontinuity, otosclerosis) causes conductive hearing loss.Inner ear: transduction and balance
 
-[figure: Middle-ear/mastoid danger zone: facial nerve, tensor tympani/stapedius, chorda tympani, and referred otalgia via CN V/VII/IX/X.]
-- Facial nerve (CN VII) runs through the temporal bone next to the middle/inner ear, so facial weakness with ear disease is a red flag.
-- Referred otalgia: the ear is innervated by CN V, VII, IX, X and C2-C3, so a normal-looking ear can hurt because of pathology elsewhere (TMJ, teeth, tonsil, tongue base, larynx).
-- Middle-ear muscles: the stapedius (CN VII) contracts to loud sound (the acoustic reflex); the tensor tympani (CN V3) stiffens the chain in response to touch, startle, and swallowing.
-- Chorda tympani (branch of VII) crosses the middle ear carrying taste from the anterior ⅔ of the tongue.
+- Hearing: the stapes drives the oval window and sets up a fluid wave in the cochlea. The round window bulges to relieve the pressure. Hair cells of the organ of Corti turn the wave into electrical signals carried by CN VIII.
+- Tonotopy (high yield): the cochlear base encodes high frequencies and the apex encodes low frequencies. Hearing spans about 20 to 20,000 Hz, and speech sits around 300 to 3,000 Hz.Balance organSensesSemicircular canals (three)Angular (rotational) accelerationUtricle and saccule (otolith organs)Linear acceleration and gravity (head tilt)
+- Clinical tie-in: cochlear or CN VIII damage (noise, aging, ototoxic drugs such as aminoglycosides and cisplatin, vestibular schwannoma) causes sensorineural hearing loss. Hair cells do not regenerate.Conductive vs sensorineural: the exam synthesis
+Problem inHearing lossWeberRinneExternal or middle earConductiveLateralizes to the affected earBone louder than air (abnormal)Inner ear or CN VIIISensorineuralLateralizes to the better earAir louder than bone (normal pattern)
+
+**Important Clinical/Anatomical Relationships in Ear Surgery** (tags: Facial nerve · Referred otalgia · Chorda tympani · Surgical landmarks)
+
+[figure: Middle-ear/mastoid danger zone: facial nerve, tensor tympani/stapedius, chorda tympani, and referred otalgia via CN V/VII/IX/X.]StructureWhere it sitsWhat goes wrongClinical hookFacial nerve (CN VII)Fallopian canal, often dehiscent in the tympanic segment beside the oval windowInjured by cholesteatoma, infection, or surgeryFacial weakness with ear disease is a red flag. The tympanic segment is the most common site of iatrogenic injuryLateral semicircular canalJust above and behind the tympanic segment of CN VIICholesteatoma erodes it, creating a labyrinthine fistulaVertigo or nystagmus with pressure on the ear (positive fistula test) or when the ear is suctionedStapes footplate and oval windowThe membrane-covered gateway to the inner earPushing the footplate into the vestibuleSensorineural loss and vertigo. A perilymph fistula presents the same wayTegmen, dura, sigmoid sinusTegmen is the thin roof over the middle ear and mastoid. The sigmoid sinus runs in the posterior mastoidErosion or drilling through themChronic ear disease with headache, fever, altered mental status, or neck stiffness needs urgent imaging for meningitis, abscess, or sigmoid sinus thrombosisChorda tympaniCrosses the middle ear with no bony coveringStretched or cut in middle-ear surgeryAltered taste on the anterior ⅔ of the tongue (same side) and sometimes dry mouthCN VII at the stylomastoid foramenExits the temporal bone and enters the parotid, dividing it into superficial and deep lobesParotid mass or parotid surgeryLinks the ear and head and neck halves of the rotationFacial nerve (CN VII)
+
+- It runs in the fallopian (facial) canal, which is frequently dehiscent (bone naturally absent), most often in the tympanic segment next to the oval window.
+- That is why facial weakness can come from cholesteatoma or infection and from surgery.
+- The lateral semicircular canal is the landmark surgeons use to find the nerve in the mastoid.Referred otalgia
+
+- The ear is supplied by CN V, VII, IX, X and C2-C3, so a normal-looking ear can hurt from disease elsewhere.
+- Mnemonic ENT: E = ear (intrinsic). N = neuralgia of CN V, VII, IX, X and upper cervical nerves. T = teeth, TMJ, throat, tonsils, tongue, thyroid, trachea.
+- Teaching point: a normal ear exam with otalgia means look outside the ear. In an adult with persistent unilateral referred otalgia, rule out head and neck cancer.Middle-ear muscles
+
+- Stapedius (CN VII): dampens loud sound. This is the acoustic reflex, with its arc through CN VIII to the facial nerve nuclei on both sides.
+- Clinical hook: losing the stapedius with a proximal CN VII lesion can cause hyperacusis.
+- Tensor tympani (CN V3): stiffens the chain in response to touch, startle, and swallowing.Stapes, labyrinth, and the skull base
+
+- Forceful ear manipulation or a slipped instrument near the stapes is dangerous because the footplate sits in the oval window.
+- Intracranial spread happens when disease or surgery breaches the tegmen or dura, or the sigmoid sinus.
 
 ### Anatomy diagrams (7)
 

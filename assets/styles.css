@@ -2860,3 +2860,7 @@ mark.user-hl[data-c="orange"] { background: rgba(255, 150, 50, .4); }
 .rv-box { position: fixed; z-index: 63; width: 310px; padding: 12px; display: grid; gap: 10px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow-lift, 0 8px 24px rgba(0,0,0,.22)); }
 .rv-quote { font-size: 12.5px; font-style: italic; color: var(--ink-soft); max-height: 4.2em; overflow: hidden; }
 .rv-ta { width: 100%; font: inherit; font-size: 14px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 10px; background: var(--ground); color: var(--ink); resize: vertical; }
+
+/* Two panels: today's rings, then the last seven days. */
+.home-hero-sec .bento-panels { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 760px) { .home-hero-sec .bento-panels { grid-template-columns: minmax(0, 1fr); } }

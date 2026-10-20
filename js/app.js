@@ -1642,7 +1642,6 @@
       c.addEventListener("mouseenter", on); c.addEventListener("focus", on);
       c.addEventListener("mouseleave", off); c.addEventListener("blur", off);
     });
-    panels.appendChild(cp);
     /* Rings: done today, mastery, and streak toward a week. Circumference of each ring = 2 * PI * r. */
     var doneToday = activity7[activity7.length - 1] || 0, goal = doneToday + agg.due;
     var ringVals = [
@@ -1662,26 +1661,8 @@
       '<ul class="bp-legend">' + ringVals.map(function (x) { return '<li><i style="background:' + x.c + '"></i><span>' + x.label + '</span><b>' + x.text + '</b></li>'; }).join("") + '</ul></div></section>'
     );
     panels.appendChild(rp);
+    panels.appendChild(cp);
 
-    /* Twelve-week heatmap: one column per week, one row per weekday. */
-    var act84 = window.SRS.dailyActivity(84), hmMax = Math.max.apply(null, act84.concat([1]));
-    var first = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 83), cells = "";
-    for (var pad = 0; pad < first.getDay(); pad++) cells += '<i class="hm-c hm-pad"></i>';
-    act84.forEach(function (v, i) {
-      var d = new Date(now.getFullYear(), now.getMonth(), now.getDate() - (83 - i)), lvl = v ? Math.min(4, 1 + Math.floor((v / hmMax) * 3.999)) : 0;
-      cells += '<i class="hm-c l' + lvl + (i === 83 ? ' today' : '') + '" data-tip="' + (d.getMonth() + 1) + '/' + d.getDate() + ': ' + v + ' reviewed"></i>';
-    });
-    var hp = h(
-      '<section class="bento-panel bp-heatpanel"><header><h3>Last 12 weeks</h3><span class="bp-figure">' + act84.reduce(function (a, b) { return a + b; }, 0) + ' reviewed</span></header>' +
-      '<div class="bp-heat" role="img" aria-label="Cards reviewed per day over the last 12 weeks">' + cells + '</div>' +
-      '<div class="bp-heat-key"><span>Less</span><i class="hm-c l0"></i><i class="hm-c l1"></i><i class="hm-c l2"></i><i class="hm-c l3"></i><i class="hm-c l4"></i><span>More</span></div></section>'
-    );
-    var hfig = hp.querySelector(".bp-figure"), hTotal = hfig.textContent;
-    hp.querySelectorAll(".hm-c[data-tip]").forEach(function (c) {
-      c.addEventListener("mouseenter", function () { hfig.textContent = c.getAttribute("data-tip"); });
-      c.addEventListener("mouseleave", function () { hfig.textContent = hTotal; });
-    });
-    panels.appendChild(hp);
     (window.requestAnimationFrame || setTimeout)(function () {
       (window.requestAnimationFrame || setTimeout)(function () {
         rp.querySelectorAll(".bp-ring").forEach(function (el) { el.style.strokeDashoffset = el.getAttribute("data-off"); });
@@ -2672,8 +2653,7 @@
     var on = isLessonLearned(mod.id, item);
     var bar = h('<div class="lesson-learned"><button type="button" class="lesson-learned-btn" aria-pressed="' + on + '">' +
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>' +
-      '<span>' + (on ? "Learned" : "Mark as learned") + '</span></button>' +
-      '<button type="button" class="lesson-learned-cards">Review this module\u2019s cards</button></div>');
+      '<span>' + (on ? "Learned" : "Mark as learned") + '</span></button></div>');
     var btn = bar.querySelector(".lesson-learned-btn");
     btn.addEventListener("click", function () {
       var now = btn.getAttribute("aria-pressed") !== "true";
@@ -2683,7 +2663,6 @@
       var navItems = document.querySelectorAll(".lesson-nav-item.active");
       [].forEach.call(navItems, function (n) { n.classList.toggle("learned", now); });
     });
-    bar.querySelector(".lesson-learned-cards").addEventListener("click", function () { goModuleTab(mod.id, "cards"); });
     main.appendChild(bar);
   }
 
