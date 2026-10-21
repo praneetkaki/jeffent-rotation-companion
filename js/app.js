@@ -3398,6 +3398,15 @@
     return Math.max(30, secs);
   }
 
+  /* Procedure briefs carry a short subspecialty label; map it to the track so
+   * it wears the same color as that subspecialty on the home page. */
+  var PROC_TRACK = { "Facial Plastics": "facial-plastics", "Head & Neck": "head-neck", "Laryngology": "laryngology", "Otology": "otology", "Pediatric": "pediatric", "Rhinology & Skull Base": "rhinology", "Sleep/Airway": "sleep", "Cross-Cutting": "foundations" };
+  function procColor(sub) {
+    var t = trackById(PROC_TRACK[sub] || "");
+    return t && t.color ? t.color : "";
+  }
+  function procStyle(sub) { var c = procColor(sub); return c ? ' style="--track-color:' + c + '"' : ""; }
+
   function buildProceduresPane(mod) {
     var pane = h('<div class="tabpane proc-pane" data-pane="clinical"></div>');
     var c = mod.clinical || {};
@@ -3423,13 +3432,13 @@
     var chipAll = h('<button type="button" class="proc-chip active" data-filter="all">All</button>');
     chipRow.appendChild(chipAll);
     groups.forEach(function (g) {
-      chipRow.appendChild(h('<button type="button" class="proc-chip" data-filter="' + esc(g) + '">' + esc(g) + '</button>'));
+      chipRow.appendChild(h('<button type="button" class="proc-chip" data-filter="' + esc(g) + '"' + procStyle(g) + '><i></i>' + esc(g) + '</button>'));
     });
     nav.appendChild(chipRow);
 
     var navList = h('<div class="proc-nav-list"></div>');
     groups.forEach(function (g) {
-      var groupWrap = h('<div class="proc-nav-group open" data-group="' + esc(g) + '"></div>');
+      var groupWrap = h('<div class="proc-nav-group open" data-group="' + esc(g) + '"' + procStyle(g) + '></div>');
       var head = h(
         '<button type="button" class="proc-nav-group-head">' +
           '<svg class="proc-nav-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>' +
@@ -3523,7 +3532,7 @@
 
     blocks.forEach(function (b) {
       var anchor = "clinical-block-" + esc(b.id || "");
-      var card = h('<div class="panel proc-card" data-anchor="' + anchor + '" data-group="' + esc(b.subspecialty || "") + '"></div>');
+      var card = h('<div class="panel proc-card" data-anchor="' + anchor + '" data-group="' + esc(b.subspecialty || "") + '"' + procStyle(b.subspecialty) + '></div>');
 
       var secs = procReadTime(b);
       var mins = secs / 60;
@@ -3674,57 +3683,92 @@
     return { index: index, promptIdx: 0, revealed: false, teachRevealed: false };
   }
 
+  var caseStackPos = {};
+  function caseLabel(c) { return stripHtml(c.preview || teaserOf(c.stem, 70)).replace(/\s+/g, " "); }
+
+  /* Index: a stack of cases you can skip through, with every case reachable
+   * from the numbered strip underneath. */
   function renderCaseIndex(pane, mod, cases) {
-    pane.appendChild(h(
-      '<div class="eyebrow" style="margin-bottom:10px">' + cases.length + ' case' + (cases.length === 1 ? "" : "s") + '</div>'
-    ));
-    var list = h('<div class="case-index"></div>');
+    var pos = Math.min(caseStackPos[mod.id] || 0, cases.length - 1);
+    var wrap = h('<section class="deck-stack-wrap case-stack" aria-label="Cases"></section>');
+    wrap.appendChild(h('<div class="deck-stack"><div class="ds-card ds-back2"></div><div class="ds-card ds-back1"></div><div class="ds-card ds-top case-top" role="button" tabindex="0" aria-label="Open this case"></div></div>'));
+    var controls = h('<div class="ds-controls case-stack-controls"><button type="button" class="btn ghost small cs-prev">Previous</button><button type="button" class="btn cs-open">Open case</button><button type="button" class="btn ghost small cs-skip">Skip</button></div>');
+    wrap.appendChild(controls);
+    var top = wrap.querySelector(".case-top");
+    var strip = h('<div class="case-strip" role="group" aria-label="Switch case"></div>');
     cases.forEach(function (c, i) {
-      var n = (c.prompts || []).length;
-      var row = h(
-        '<button type="button" class="case-row">' +
-          '<div class="case-row-num mono">' + (i + 1) + '</div>' +
-          '<div class="case-row-body"><p>' + esc(c.preview || teaserOf(c.stem, 140)) + '</p>' +
-          '<span class="case-row-meta mono">' + n + ' question' + (n === 1 ? "" : "s") + '</span>' + topicChips(c.topics) + '</div>' +
-        '</button>'
-      );
-      row.addEventListener("click", function () {
-        state.caseSession = freshCaseSession(i);
-        renderCasesPane(pane, mod);
-      });
-      list.appendChild(row);
+      var b = h('<button type="button" class="case-strip-dot mono" aria-label="Case ' + (i + 1) + '">' + (i + 1) + '</button>');
+      b.addEventListener("click", function () { pos = i; paint(); });
+      strip.appendChild(b);
     });
-    pane.appendChild(list);
+    wrap.appendChild(strip);
+    function paint() {
+      caseStackPos[mod.id] = pos;
+      var c = cases[pos], n = (c.prompts || []).length;
+      top.innerHTML = '<span class="ds-n mono">Case ' + (pos + 1) + ' of ' + cases.length + '</span>' +
+        '<span class="ds-face">' + esc(c.preview || teaserOf(c.stem, 160)) + '</span>' +
+        '<span class="ds-meta mono">' + n + ' question' + (n === 1 ? '' : 's') + '</span>' + topicChips(c.topics);
+      [].forEach.call(strip.children, function (d, i) { d.classList.toggle("active", i === pos); });
+    }
+    function go(dir) {
+      top.classList.add(dir > 0 ? "ds-out-l" : "ds-out-r");
+      setTimeout(function () {
+        pos = (pos + dir + cases.length) % cases.length; paint();
+        top.classList.remove("ds-out-l", "ds-out-r"); top.classList.add("ds-in");
+        setTimeout(function () { top.classList.remove("ds-in"); }, 220);
+      }, 170);
+    }
+    function open() { state.caseSession = freshCaseSession(pos); renderCasesPane(pane, mod); }
+    controls.querySelector(".cs-prev").addEventListener("click", function () { go(-1); });
+    controls.querySelector(".cs-skip").addEventListener("click", function () { go(1); });
+    controls.querySelector(".cs-open").addEventListener("click", open);
+    top.addEventListener("click", open);
+    top.addEventListener("keydown", function (e) { if (e.key === "Enter") open(); });
+    paint();
+    pane.appendChild(wrap);
   }
 
+  /* Case view: the case unfolds down the page. Each question unlocks only
+   * after the one above has been answered, a side rail tracks progress, and
+   * the bar on top switches or skips cases at any time. */
   function renderCaseStepper(pane, mod, cases) {
     var cs = state.caseSession;
     var total = cases.length;
     var c = cases[cs.index];
     var prompts = c.prompts || [];
+    cs.rev = cs.rev || [];
 
     function goToCase(i) {
+      if (i !== null) caseStackPos[mod.id] = i;
       state.caseSession = i === null ? null : freshCaseSession(i);
       renderCasesPane(pane, mod);
+      if (window.scrollTo) window.scrollTo(0, 0);
     }
 
-    var nav = h(
-      '<div class="case-nav">' +
+    var bar = h(
+      '<div class="case-nav case-bar">' +
         '<button type="button" class="case-back mono">&larr; All cases</button>' +
-        '<span class="case-count mono">Case ' + (cs.index + 1) + ' of ' + total + '</span>' +
+        '<select class="case-switch" aria-label="Switch case"></select>' +
         '<div class="case-arrows">' +
           '<button type="button" class="case-arrow" data-dir="-1" aria-label="Previous case"' + (cs.index === 0 ? " disabled" : "") + '>&lsaquo;</button>' +
-          '<button type="button" class="case-arrow" data-dir="1" aria-label="Next case"' + (cs.index === total - 1 ? " disabled" : "") + '>&rsaquo;</button>' +
+          '<button type="button" class="case-skip mono">Skip case &rsaquo;</button>' +
         '</div>' +
       '</div>'
     );
-    nav.querySelector(".case-back").addEventListener("click", function () { goToCase(null); });
-    nav.querySelectorAll(".case-arrow").forEach(function (btn) {
-      btn.addEventListener("click", function () { if (!btn.disabled) goToCase(cs.index + Number(btn.dataset.dir)); });
+    var sel = bar.querySelector(".case-switch");
+    cases.forEach(function (cc, i) {
+      var o = document.createElement("option");
+      o.value = i; o.textContent = "Case " + (i + 1) + ": " + caseLabel(cc).slice(0, 60);
+      if (i === cs.index) o.selected = true;
+      sel.appendChild(o);
     });
-    pane.appendChild(nav);
+    sel.addEventListener("change", function () { goToCase(Number(sel.value)); });
+    bar.querySelector(".case-back").addEventListener("click", function () { goToCase(null); });
+    bar.querySelector(".case-arrow").addEventListener("click", function () { if (cs.index > 0) goToCase(cs.index - 1); });
+    bar.querySelector(".case-skip").addEventListener("click", function () { goToCase((cs.index + 1) % total); });
+    pane.appendChild(bar);
 
-    var card = h('<div class="case"></div>');
+    var card = h('<div class="case case-unfold"></div>');
     if (c.topics && c.topics.length) {
       var tline = h('<div class="case-topics">' + topicChips(c.topics) + '</div>');
       notesForCase(mod, c).forEach(function (r) {
@@ -3734,95 +3778,92 @@
       });
       card.appendChild(tline);
     }
-    card.appendChild(h('<div class="stem">' + c.stem + '</div>'));
-    var stepWrap = h('<div class="case-step"></div>');
-    card.appendChild(stepWrap);
 
-    /* Every question already answered stays on screen with its answer, so
-       the case reads as one accumulating record instead of replacing itself
-       each step. Only the current (or not-yet-revealed) question hides its
-       answer behind a button. */
-    var atTeaching = cs.promptIdx >= prompts.length;
-    var historyThrough = atTeaching ? prompts.length - 1 : cs.promptIdx - 1;
-    for (var qi = 0; qi <= historyThrough; qi++) {
-      stepWrap.appendChild(h(
-        '<div class="case-q done">' +
-          '<div class="case-q-meta mono">Question ' + (qi + 1) + ' of ' + prompts.length + '</div>' +
-          '<div class="case-q-text">' + esc(prompts[qi].q) + '</div>' +
-        '</div>'
-      ));
-      stepWrap.appendChild(h('<div class="ans case-a">' + prompts[qi].a + '</div>'));
+    var rail = h('<div class="cu-rail" aria-hidden="true"></div>');
+    var flow = h('<div class="cu-flow"></div>');
+    card.appendChild(h('<div class="cu-wrap"></div>'));
+    var wrapEl = card.querySelector(".cu-wrap");
+    wrapEl.appendChild(rail); wrapEl.appendChild(flow);
+
+    var stages = [];
+    function addStage(kind, node) {
+      node.classList.add("cu-stage"); node.setAttribute("data-kind", kind);
+      flow.appendChild(node);
+      var dot = h('<i class="cu-dot"></i>'); rail.appendChild(dot);
+      stages.push({ node: node, dot: dot });
     }
+    addStage("stem", h('<section><div class="cu-label mono">Presentation</div><div class="stem">' + c.stem + '</div></section>'));
 
-    function stepBack() {
-      cs.promptIdx -= 1; cs.revealed = false; cs.teachRevealed = false;
-      renderCasesPane(pane, mod);
-    }
-    var canStepBack = cs.promptIdx > 0;
+    prompts.forEach(function (p, qi) {
+      var st = h(
+        '<section><div class="cu-label mono">Question ' + (qi + 1) + ' of ' + prompts.length + '</div>' +
+        '<div class="case-q-text">' + esc(p.q) + '</div>' +
+        '<div class="cu-locked-note">Answer the question above to continue.</div>' +
+        '<div class="cu-ans ans case-a" hidden>' + p.a + '</div>' +
+        '<div class="case-controls"></div></section>'
+      );
+      addStage("q", st);
+    });
+    if (c.teaching) addStage("teach", h('<section><div class="cu-label mono">Teaching point</div><div class="cu-locked-note">Finish the questions above to unlock.</div><div class="teach cu-ans" hidden>' + c.teaching + '</div><div class="case-controls"></div></section>'));
+    addStage("end", h('<section class="cu-end"><div class="case-controls"></div></section>'));
 
-    if (!atTeaching) {
-      var p = prompts[cs.promptIdx];
-      var isLast = cs.promptIdx === prompts.length - 1;
-      stepWrap.appendChild(h(
-        '<div class="case-q current">' +
-          '<div class="case-q-meta mono">Question ' + (cs.promptIdx + 1) + ' of ' + prompts.length + '</div>' +
-          '<div class="case-q-text">' + esc(p.q) + '</div>' +
-        '</div>'
-      ));
-      var controls = h('<div class="case-controls"></div>');
-      if (canStepBack) {
-        var backBtn = h('<button type="button" class="case-step-back mono">&larr; Previous question</button>');
-        backBtn.addEventListener("click", stepBack);
-        controls.appendChild(backBtn);
-      }
-      if (!cs.revealed) {
-        var showBtn = h('<button type="button" class="btn ghost case-reveal">Show answer</button>');
-        showBtn.addEventListener("click", function () { cs.revealed = true; renderCasesPane(pane, mod); });
-        controls.appendChild(showBtn);
-      } else {
-        stepWrap.appendChild(h('<div class="ans case-a">' + p.a + '</div>'));
-        var label = !isLast ? "Next question →" : c.teaching ? "Show teaching point →" : cs.index < total - 1 ? "Next case →" : "Back to all cases";
-        var nextBtn = h('<button type="button" class="btn case-next">' + label + '</button>');
-        nextBtn.addEventListener("click", function () {
-          if (!isLast) { cs.promptIdx += 1; cs.revealed = false; renderCasesPane(pane, mod); }
-          else if (c.teaching) { cs.promptIdx += 1; renderCasesPane(pane, mod); }
-          else if (cs.index < total - 1) { goToCase(cs.index + 1); }
-          else { goToCase(null); }
-        });
-        controls.appendChild(nextBtn);
-      }
-      stepWrap.appendChild(controls);
-    } else {
-      var controls2 = h('<div class="case-controls"></div>');
-      if (canStepBack) {
-        var backBtn2 = h('<button type="button" class="case-step-back mono">&larr; Previous question</button>');
-        backBtn2.addEventListener("click", stepBack);
-        controls2.appendChild(backBtn2);
-      }
-      if (c.teaching && !cs.teachRevealed) {
-        var teachBtn = h('<button type="button" class="btn ghost case-reveal">Show teaching point</button>');
-        teachBtn.addEventListener("click", function () { cs.teachRevealed = true; renderCasesPane(pane, mod); });
-        controls2.appendChild(teachBtn);
-        stepWrap.appendChild(controls2);
-      } else {
-        if (c.teaching) stepWrap.appendChild(h('<div class="teach"><strong>Teaching point:</strong> ' + c.teaching + '</div>'));
-        var doneLabel = cs.index < total - 1 ? "Next case →" : "Back to all cases";
-        var doneBtn = h('<button type="button" class="btn case-next">' + doneLabel + '</button>');
-        doneBtn.addEventListener("click", function () {
-          if (cs.index < total - 1) goToCase(cs.index + 1); else goToCase(null);
-        });
-        controls2.appendChild(doneBtn);
-        /* At the end of a case, offer a jump to this module's Clinical tab --
-         * where the topic the case is built around actually gets taught --
-         * rather than leaving the learner to hunt for it manually. */
-        if (availableTabs(mod).indexOf("clinical") !== -1) {
-          var relatedBtn = h('<button type="button" class="btn ghost case-related">Review the Clinical section for this topic &rarr;</button>');
-          relatedBtn.addEventListener("click", function () { goModuleTab(mod.id, "clinical"); });
-          controls2.appendChild(relatedBtn);
+    function qDone(i) { return !!cs.rev[i]; }
+    function firstOpenQ() { for (var i = 0; i < prompts.length; i++) if (!qDone(i)) return i; return prompts.length; }
+    function refresh() {
+      var fq = firstOpenQ();
+      var allDone = fq >= prompts.length;
+      stages.forEach(function (sg, idx) {
+        var kind = sg.node.getAttribute("data-kind");
+        var qi = idx - 1;
+        var locked = false, done = false, reveal = false;
+        if (kind === "q") { locked = qi > fq; done = qDone(qi); reveal = !locked && !done; }
+        else if (kind === "teach") { locked = !allDone; done = !!cs.teachRevealed; reveal = !locked && !done; }
+        else if (kind === "end") { locked = !allDone || (c.teaching && !cs.teachRevealed); done = false; }
+        else { done = true; }
+        sg.node.classList.toggle("locked", locked);
+        sg.node.classList.toggle("done", done);
+        sg.dot.classList.toggle("done", done || (kind === "end" && !locked));
+        sg.dot.classList.toggle("now", reveal);
+        var ans = sg.node.querySelector(".cu-ans");
+        if (ans) ans.hidden = !done;
+        var ctr = sg.node.querySelector(".case-controls");
+        if (ctr) {
+          ctr.innerHTML = "";
+          if (kind === "q" && reveal) {
+            var sb = h('<button type="button" class="btn ghost case-reveal">Show answer</button>');
+            sb.addEventListener("click", function () { cs.rev[qi] = true; refresh(); settle(); });
+            ctr.appendChild(sb);
+          } else if (kind === "teach" && reveal) {
+            var tb = h('<button type="button" class="btn ghost case-reveal">Show teaching point</button>');
+            tb.addEventListener("click", function () { cs.teachRevealed = true; refresh(); settle(); });
+            ctr.appendChild(tb);
+          } else if (kind === "end" && !locked) {
+            var nb2 = h('<button type="button" class="btn case-next">' + (cs.index < total - 1 ? "Next case &rarr;" : "Back to all cases") + '</button>');
+            nb2.addEventListener("click", function () { if (cs.index < total - 1) goToCase(cs.index + 1); else goToCase(null); });
+            ctr.appendChild(nb2);
+            if (availableTabs(mod).indexOf("clinical") !== -1) {
+              var rb = h('<button type="button" class="btn ghost case-related">Review the Clinical section for this topic &rarr;</button>');
+              rb.addEventListener("click", function () { goModuleTab(mod.id, "clinical"); });
+              ctr.appendChild(rb);
+            }
+          }
         }
-        stepWrap.appendChild(controls2);
-      }
+      });
     }
+    /* After an answer opens, glide the next stage into view. */
+    function settle() {
+      var nxt = flow.querySelector(".cu-stage:not(.locked):not(.done)") || flow.querySelector(".cu-end:not(.locked)");
+      var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (nxt && nxt.scrollIntoView) setTimeout(function () { nxt.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "center" }); }, 160);
+    }
+    refresh();
+
+    if ("IntersectionObserver" in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } });
+      }, { threshold: 0.15 });
+      stages.forEach(function (sg) { io.observe(sg.node); });
+    } else { stages.forEach(function (sg) { sg.node.classList.add("in"); }); }
 
     pane.appendChild(card);
     linkGlossaryTerms(card);
