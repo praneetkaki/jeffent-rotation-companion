@@ -1560,7 +1560,7 @@
       '<div class="bento-tile bento-hero bento-hero-unified">' +
         '<div class="bento-hero-top">' +
           '<div class="bento-hero-copy">' +
-            '<h2 class="bento-hero-title">Spaced repetition queue</h2>' +
+            '<h1 class="bento-hero-title">Spaced repetition queue</h1>' +
             '<div class="bento-hero-sub">' + agg.due + ' card' + (agg.due === 1 ? '' : 's') + ' due across ' + allMods.length + ' modules.</div>' +
           '</div>' +
           '<div class="bento-streak-chip" data-dash="streak" role="button" tabindex="0" aria-label="' + streak + (streak === 1 ? ' day' : ' days') + ' study streak. Show daily review activity.">' +
@@ -1619,7 +1619,7 @@
 
     /* Middle of the hero: a week of activity, mastery by subspecialty, and the weakest cards. */
     var panels = h('<div class="bento-panels"></div>');
-    var dayLetters = ["S", "M", "T", "W", "T", "F", "S"], now = new Date(), weekTotal = 0, peak = Math.max.apply(null, activity7.concat([1]));
+    var dayLetters = ["S", "M", "T", "W", "T", "F", "S"], now = new Date(), weekTotal = 0, peak = Math.max.apply(null, activity7.concat([10]));
     activity7.forEach(function (v) { weekTotal += v; });
     var activeDays = activity7.filter(function (v) { return v > 0; }).length, best = Math.max.apply(null, activity7);
     var weekLabel = weekTotal + " reviewed";
@@ -1662,6 +1662,23 @@
     );
     panels.appendChild(rp);
     panels.appendChild(cp);
+
+    /* Count the due number up once, unless motion is reduced. */
+    (function () {
+      var n = rp.querySelector(".bp-ring-n");
+      var target = n ? parseInt(n.textContent, 10) : 0;
+      var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (!n || !target || reduced) return;
+      var t0 = null;
+      function tick(ts) {
+        if (t0 === null) t0 = ts;
+        var k = Math.min(1, (ts - t0) / 900);
+        n.textContent = Math.round(target * (1 - Math.pow(1 - k, 3)));
+        if (k < 1) window.requestAnimationFrame(tick);
+      }
+      n.textContent = "0";
+      window.requestAnimationFrame(tick);
+    })();
 
     (window.requestAnimationFrame || setTimeout)(function () {
       (window.requestAnimationFrame || setTimeout)(function () {
