@@ -1708,7 +1708,7 @@
       '<div class="bento-tile bento-hero bento-hero-unified">' +
         '<div class="bento-hero-top">' +
           '<div class="bento-hero-copy">' +
-            '<h1 class="bento-hero-title">Spaced repetition queue</h1>' +
+            '<h1 class="bento-hero-title">Focus Queue</h1>' +
             '<div class="bento-hero-sub">' + agg.due + ' card' + (agg.due === 1 ? '' : 's') + ' due across ' + allMods.length + ' modules.' + deltaChip + '</div>' +
             (insightLine ? '<div class="bento-hero-insight">' + insightLine + '</div>' : '') +
           '</div>' +
