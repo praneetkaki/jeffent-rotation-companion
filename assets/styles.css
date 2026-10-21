@@ -3232,3 +3232,29 @@ button, a, summary, [role="button"] { touch-action: manipulation; -webkit-tap-hi
 }
 @media (max-width: 700px) { .peek-skip { min-height: 44px; } }
 .hero-light .bp-activity .bp-chart { margin-top: 22px; }
+/* cue only where it helps: desktop; phones and tablets scroll by touch */
+@media (max-width: 899px) { .home-scroll-cue { display: none; } }
+/* phone: mastery and streak already show above, so the ring legend keeps one row */
+@media (max-width: 700px) { .hero-light .hl-side .bp-legend li:nth-child(n+2) { display: none; } }
+
+/* ---- Module pages polish: text floor and touch targets ---- */
+.eyebrow, .tg-chip, .tg-min, .lesson-nav-label, .lesson-kicker, .lesson-tagline-kw, .tsc-quick-label, .lesson-next-label, .cl-kind, .lesson-nav-time,
+.proc-chip, .proc-tag, .proc-readtime, .ds-n, .ds-meta, .deck-n, .gl-do, .gl-dont, .gl-warn, .lo-label, .proc-badge-pill, .cu-label { font-size: 12px; }
+@media (pointer: coarse), (max-width: 700px) {
+  /* text controls get real height */
+  .crumb, .ph-eyebrow, .ph-current, .tab, .tg-filter, .cl-chip, .proc-chip, .tsc-reveal-btn, .proc-check-toggle, .proc-matcher-input, .btn.small, .case-skip {
+    min-height: 44px; display: inline-flex; align-items: center; }
+  .tg-filter { padding-bottom: 2px; }
+  .proc-matcher-input { display: block; padding-top: 0; padding-bottom: 0; }
+  .case-strip-dot { width: 44px; height: 44px; }
+  .case-strip { gap: 2px; }
+  /* small icon buttons keep their look; the hit area grows around them */
+  .pearl-bookmark-btn, .audio-brief-btn, .lesson-split-btn, .proc-audio-btn, .lesson-next-top { position: relative; }
+  .pearl-bookmark-btn::after, .audio-brief-btn::after, .lesson-split-btn::after, .proc-audio-btn::after, .lesson-next-top::after {
+    content: ""; position: absolute; inset: -9px; }
+  .lesson-next-top { position: absolute; }
+}
+[class*="eyebrow"], .proc-section h4, .sk-group h4 { font-size: 12px; }
+@media (pointer: coarse), (max-width: 700px) {
+  .btn, .lesson-learned-btn, .lesson-learned-cards { min-height: 44px; }
+}
