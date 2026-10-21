@@ -6331,9 +6331,12 @@ Each brief is a two-minute pre-scrub read: the indication, the key steps, the da
 | UPPP | Sleep/Airway | Velopharynx, great vessels lateral to fossa |
 | Hypoglossal nerve stimulator | Sleep/Airway | Lateral (retractor) CN XII branch, C1, pleura |
 | Tracheostomy | Cross-Cutting | Thyroid isthmus, innominate a., posterior tracheal wall |
+| Peritonsillar abscess drainage | Head & Neck | Internal carotid (2-2.5 cm posterolateral), airway |
+| Deep neck infection / Ludwig angina | Head & Neck | Airway, carotid sheath, mediastinal descent |
+| Sistrunk procedure | Head & Neck | Hyoid body and tract, hypoglossal and superior laryngeal nerves, thyroid |
 
 
-### Clinical blocks (14)
+### Clinical blocks (17)
 
 **[myringotomy] Myringotomy & tympanostomy tubes** (Otology)
 
@@ -6341,14 +6344,14 @@ Each brief is a two-minute pre-scrub read: the indication, the key steps, the da
 - Decision point: Criteria met: recurrent AOM (3 in 6 months, or 4 in 12 months with one recent) OR bilateral OME for 3 months with a hearing or developmental concern.
 - Decision point: Get an audiogram and tympanometry first to document baseline hearing and effusion.
 - Decision point: Incision goes in the anteroinferior quadrant, away from ossicles, chorda tympani, and jugular bulb.
-- Decision point: Tube choice: short-term (grommet) tubes for typical cases vs. long-term (T-tubes) when prolonged ventilation is needed: long-term tubes carry a much higher persistent perforation rate (~20% vs. ~2%).
+- Decision point: Tube choice: short-term (grommet) tubes for typical cases vs. long-term (T-tubes) when prolonged ventilation is needed: long-term tubes carry a much higher persistent perforation rate (~16–20% vs. ~2%).
 - Key step: Position, place the ear speculum, clear cerumen under the microscope.
 - Key step: Bring the drum into full view; orient to the malleus and light reflex.
 - Key step: Make a small radial incision in the anteroinferior (or inferior) quadrant: radial to spare the drum's circular fibers.
 - Key step: Aspirate the effusion (serous, mucoid, or purulent).
 - Key step: Insert the tube and seat both flanges; instill ototopical drops if indicated.
 - Danger structures: Ossicular chain and chorda tympani (posterosuperior quadrant), a dehiscent or high jugular bulb (posteroinferior floor), and the round window niche.
-- Pearl: The most common postoperative problem is tube otorrhea: occurs in up to ~50% of closely monitored children. Treat with ototopical fluoroquinolone drops, not systemic antibiotics.
+- Pearl: The most common postoperative problem is tube otorrhea, occurring in up to ~50% of closely monitored children. Treat with ototopical fluoroquinolone drops, not systemic antibiotics.
 
 **[chole] Tympanoplasty / mastoidectomy for cholesteatoma** (Otology)
 
@@ -6357,20 +6360,20 @@ Each brief is a two-minute pre-scrub read: the indication, the key steps, the da
 - Decision point: Diagnosis: attic (pars flaccida) cholesteatoma in Prussak's space.
 - Decision point: Urgent because it erodes bone: ossicular destruction, labyrinthine fistula, facial palsy, intracranial spread.
 - Decision point: Intraoperative facial nerve monitoring is routine, directly relevant to the danger structures below.
-- Decision point: Canal-wall-up (CWU) preserves ear-canal anatomy but recurs more (residual/recurrent disease reported up to ~60%, needs a planned second look); canal-wall-down (CWD) recurs less (~0-17%) but leaves a mastoid bowl needing lifelong cleaning.
+- Decision point: Canal-wall-up (CWU) preserves ear-canal anatomy but recurs more (residual/recurrent disease reported ~9–60%, needs a planned second look); canal-wall-down (CWD) recurs less (~0–17%) but leaves a mastoid bowl needing lifelong cleaning.
 - Key step: Postauricular incision; harvest fascia or cartilage graft; elevate a tympanomeatal flap.
 - Key step: Cortical mastoidectomy within tegmen (superior), sigmoid sinus (posterior), and bony canal (anterior); MacEwen's triangle marks the antrum.
 - Key step: Identify the antrum, lateral semicircular canal, and short process of the incus.
 - Key step: Posterior tympanotomy (facial recess) if middle-ear access is needed.
 - Key step: Remove all disease; decide CWU vs. CWD; address the ossicular chain and graft the drum.
 - Danger structures: Facial nerve (tympanic and mastoid segments, facial recess), lateral semicircular canal (fistula), sigmoid sinus, tegmen/dura, and the ossicular chain.
-- Pearl: New vertigo with a positive fistula test signals a labyrinthine fistula, a red flag that changes the surgical plan.
+- Pearl: New vertigo with a positive fistula test signals a labyrinthine fistula: a red flag that changes the surgical plan.
 
 **[ess] Endoscopic sinus surgery (ESS)** (Rhinology & Skull Base)
 
 - Scenario: A 45-year-old with 6 months of congestion, facial pressure, and anosmia after failed medical therapy; CT shows osteomeatal complex (OMC) obstruction and ethmoid opacification.
 - Decision point: Indication: failure of appropriate medical therapy plus objective disease on CT/endoscopy.
-- Decision point: Read the CT for danger zones: Keros classification of skull-base height: Type 1 (1-3 mm), Type 2 (4-7 mm), Type 3 (8-16 mm, the longest lateral lamella and highest skull-base injury risk): plus lamina papyracea integrity, anterior ethmoid artery course, and any dehiscence.
+- Decision point: Read the CT for danger zones, Keros classification of skull-base height: Type 1 (1–3 mm), Type 2 (4–7 mm, most common, ~66%), Type 3 (8–16 mm, the longest lateral lamella and highest skull-base injury risk), plus lamina papyracea integrity, anterior ethmoid artery course, and any dehiscence.
 - Decision point: Most feared complications: CSF leak (cribriform/fovea ethmoidalis), orbital injury (medial rectus, optic nerve), carotid injury near the sphenoid.
 - Decision point: Overall context: ESS has an ~0.5% overall complication rate, with CSF leak and orbital injury each ~0.09%.
 - Key step: Decongest; medialize the middle turbinate; identify the uncinate process.
@@ -6378,7 +6381,7 @@ Each brief is a two-minute pre-scrub read: the indication, the key steps, the da
 - Key step: Maxillary antrostomy incorporating the natural ostium to avoid recirculation.
 - Key step: Anterior then posterior ethmoidectomy through the basal lamella, identifying skull base and lamina papyracea.
 - Key step: Sphenoidotomy (ostium medial to the superior turbinate); frontal recess last as needed.
-- Danger structures: Lamina papyracea/orbit (medial rectus, optic nerve), skull base at the cribriform/fovea (CSF leak), the anterior ethmoid artery: which can run in a mesentery below the skull base rather than always within bone, which is exactly why it retracts into the orbit when transected: and the carotid in the lateral sphenoid wall.
+- Danger structures: Lamina papyracea/orbit (medial rectus, optic nerve), skull base at the cribriform/fovea (CSF leak), the anterior ethmoid artery, which can run in a mesentery below the skull base rather than always within bone, which is exactly why it retracts into the orbit when transected, and the carotid in the lateral sphenoid wall.
 - Pearl: Suspected clear rhinorrhea: send fluid for beta-2 transferrin, the most specific test for CSF.
 
 **[epistaxis] Epistaxis control** (Rhinology & Skull Base)
@@ -6386,7 +6389,7 @@ Each brief is a two-minute pre-scrub read: the indication, the key steps, the da
 - Scenario: A 60-year-old on apixaban with 45 minutes of brisk bleeding, spitting blood, and no anterior source after decongestion.
 - Decision point: Anterior vs. posterior: failure of firm compression plus posterior bleeding or no visible anterior source suggests a posterior (sphenopalatine) bleed.
 - Decision point: Escalate: topical vasoconstrictor, then cautery of a seen source, then anterior/posterior packing, then sphenopalatine artery (SPA) ligation or embolization.
-- Decision point: Transnasal endoscopic sphenopalatine artery ligation (TESPAL) is favored over repeat packing: ~98% success with a low (~3.4%) rebleed rate.
+- Decision point: Transnasal endoscopic sphenopalatine artery ligation (TESPAL) is favored over repeat packing: the AAO-HNS Nosebleed guideline cites up to ~98% success with a low (~3.4%) postoperative hemorrhage rate, though pooled meta-analysis data report rebleed rates as high as ~13%.
 - Decision point: Correct the coagulopathy and check hemodynamics; posterior packs need monitoring for airway compromise and hypoxia.
 - Key step: Firm compression of the lower-third nose for about 15 minutes leaning forward, plus topical oxymetazoline.
 - Key step: Anterior rhinoscopy/endoscopy after decongestion to localize the source.
@@ -6409,14 +6412,14 @@ Each brief is a two-minute pre-scrub read: the indication, the key steps, the da
 - Key step: Open the sellar floor; X-shaped durotomy.
 - Key step: Intradural resection; reconstruct with fat graft and nasoseptal flap.
 - Danger structures: Internal carotid arteries (lateral sphenoid wall), optic nerves/chiasm (superolateral), cavernous sinus contents, and the diaphragma sellae (CSF leak).
-- Pearl: Watch the endocrine course: transient diabetes insipidus (DI) is the most common early problem, delayed hyponatremia (syndrome of inappropriate antidiuretic hormone, SIADH) around days 5 to 9 drives readmissions, and CSF leak is the most common surgical complication.
+- Pearl: Watch the endocrine course: transient diabetes insipidus (DI) is the most common early problem (peaks POD 1–2, usually resolves by ~day 11); delayed hyponatremia (SIADH) classically nadirs around POD 7–10 and is a leading driver of readmission; CSF leak is the most common surgical complication.
 
 **[vocalfold] Flexible laryngoscopy & vocal fold surgery** (Laryngology)
 
 - Scenario: A 30-year-old teacher with 3 months of hoarseness; scope shows symmetric bilateral lesions at the anterior/middle-third junction.
 - Decision point: Diagnosis: vocal fold nodules (bilateral, at the point of maximal contact, from overuse).
 - Decision point: Videostroboscopy is the key office assessment before the OR: it evaluates the mucosal wave and identifies whether a lesion is epithelial vs. involves the deeper lamina propria, which changes the operative plan (microflap vs. simple excision) more than a white-light scope alone.
-- Decision point: Optimize reflux and vocal hygiene first; many nodules and mild lesions improve with voice therapy alone over 6-12 weeks, avoiding surgery entirely.
+- Decision point: Optimize reflux and vocal hygiene first; many nodules and mild lesions improve with voice therapy alone over 6–12 weeks, avoiding surgery entirely.
 - Decision point: Contrast with a paramedian immobile cord (recurrent laryngeal nerve, RLN, injury) or a unilateral polyp/cyst.
 - Key step: Suspension microlaryngoscopy under GA (or awake injection for medialization).
 - Key step: Assess the lesion and vibratory margin with a rigid endoscope and microscope.
@@ -6430,17 +6433,17 @@ Each brief is a two-minute pre-scrub read: the indication, the key steps, the da
 
 - Scenario: A 6-year-old with loud snoring, witnessed apneas, and 3+ obstructing tonsils.
 - Decision point: Two classic indications: obstructive sleep-disordered breathing/OSA, and recurrent infection by Paradise criteria (7 in 1 year, 5/year for 2 years, or 3/year for 3 years).
-- Decision point: For the obstructive/OSA indication, intracapsular tonsillectomy (tonsillotomy) gives comparable obstructive outcomes with less pain and substantially lower post-tonsillectomy hemorrhage, at a small regrowth risk (~2-15%); extracapsular (total) tonsillectomy is preferred when recurrent/chronic infection is the driver.
+- Decision point: For the obstructive/OSA indication, intracapsular tonsillectomy (tonsillotomy) gives comparable obstructive outcomes with less pain and substantially lower post-tonsillectomy hemorrhage, at a small regrowth risk (~2–15%); extracapsular (total) tonsillectomy is preferred when recurrent/chronic infection is the driver.
 - Decision point: Screen for a submucous cleft or bifid uvula before adenoidectomy (velopharyngeal insufficiency risk).
-- Decision point: Perioperative essentials (AAO-HNS): single intraoperative IV dexamethasone (~0.5 mg/kg) reduces nausea/vomiting; no routine prophylactic antibiotics; scheduled acetaminophen &plusmn; ibuprofen; codeine is contraindicated post-T&A.
-- Decision point: Admit high-risk children: age <3, severe OSA, or significant comorbidity -> postoperative overnight monitoring for respiratory compromise.
+- Decision point: Perioperative essentials (AAO-HNS): single intraoperative IV dexamethasone (~0.5 mg/kg) reduces nausea/vomiting; no routine prophylactic antibiotics; scheduled acetaminophen +/- ibuprofen; codeine is contraindicated post-T&A.
+- Decision point: Admit high-risk children: age <3, severe OSA, or significant comorbidity → postoperative overnight monitoring for respiratory compromise.
 - Key step: Oral Ring-Adair-Elwyn (RAE) tube; place the mouth gag; confirm the airway and tongue are not compressed.
 - Key step: Retract the tonsil medially; incise mucosa over the superior pole.
 - Key step: Develop the plane between capsule and pharyngeal muscle (extracapsular), or debride to the capsule (intracapsular).
 - Key step: Dissect superior to inferior; remove at the inferior pole.
 - Key step: Hemostasis in the fossa; adenoidectomy by curettage, suction cautery, or microdebrider.
 - Danger structures: The tonsillar branch of the facial artery and the internal carotid artery (ICA) lateral to the fossa, the pharyngeal muscle, and (during adenoidectomy) the Eustachian tube orifices and velopharynx.
-- Pearl: A post-tonsillectomy bleed can be catastrophic: ABCs, IV access, type and screen, and return to OR for brisk bleeding. Secondary bleeds classically occur days 5-10 (eschar sloughs); overall post-tonsillectomy hemorrhage (PTH) rate is ~4-5%. Any PTH is an ABC/return-to-OR consideration even without active bleeding on exam, since a herald bleed can precede catastrophic hemorrhage.
+- Pearl: A post-tonsillectomy bleed can be catastrophic: ABCs, IV access, type and screen, and return to OR for brisk bleeding. Secondary bleeds classically occur days 5–10 (eschar sloughs); overall post-tonsillectomy hemorrhage (PTH) rate is ~4%. Any PTH is an ABC/return-to-OR consideration even without active bleeding on exam, since a herald bleed can precede catastrophic hemorrhage.
 
 **[thyroid] Thyroidectomy** (Head & Neck)
 
@@ -6463,7 +6466,7 @@ Each brief is a two-minute pre-scrub read: the indication, the key steps, the da
 - Decision point: Most common benign parotid tumor is pleomorphic adenoma (Warthin is second, bilateral, smokers); mucoepidermoid is the most common malignancy.
 - Decision point: Tell anesthesia to avoid muscle relaxants so the facial nerve can be stimulated/monitored throughout.
 - Decision point: Counsel on Frey syndrome (gustatory sweating) as a delayed complication.
-- Key step: Modified Blair incision; raise a thick skin-SMAS (superficial musculoaponeurotic system) flap: and consider SMAS reapproximation: which lowers both skin necrosis and Frey syndrome rates.
+- Key step: Modified Blair incision; raise a thick skin–SMAS (superficial musculoaponeurotic system) flap: and consider SMAS reapproximation, which lowers both skin necrosis and Frey syndrome rates.
 - Key step: Identify the great auricular nerve and external jugular vein; free the parotid tail from the SCM.
 - Key step: Locate the facial nerve main trunk at the standard landmarks (tragal pointer, tympanomastoid suture, posterior belly of digastric): it lies ~1 cm deep and inferior to the tragal pointer, with the retromandibular vein and external carotid artery running deep to the nerve (dissection deep to those vessels, e.g. for deep-lobe tumors, is safe for the nerve).
 - Key step: Dissect the branches anteriorly, separating superficial from deep lobe along the nerve plane.
@@ -6479,7 +6482,7 @@ Each brief is a two-minute pre-scrub read: the indication, the key steps, the da
 - Decision point: Nasal fracture diagnosis is clinical; plain nasal X-rays add little and can mislead. CT only when concomitant facial fractures (orbit, naso-orbito-ethmoid (NOE), midface) or CSF leak are suspected.
 - Decision point: For orbital trauma, check enophthalmos, diplopia on upgaze, and infraorbital hypesthesia (blowout fracture).
 - Key step: Inspect intranasally for septal hematoma; if present, incise, drain, and quilt/pack to prevent reaccumulation.
-- Key step: Time the closed reduction: reduce before swelling sets in, or after swelling subsides: ~3-5 days in children, up to 7-10 days (some say 14) in adults, before fragments fixate.
+- Key step: Time the closed reduction: reduce before swelling sets in, or after swelling subsides: ~3–5 days in children, up to 7–10 days (some say 14) in adults, before fragments fixate.
 - Key step: Anesthetize (local or general).
 - Key step: Reduce the nasal bones with a Boies elevator plus external molding.
 - Key step: Reduce the septum; apply internal and external splints.
@@ -6517,7 +6520,7 @@ Each brief is a two-minute pre-scrub read: the indication, the key steps, the da
 **[hgns] Hypoglossal nerve stimulator (HGNS)** (Sleep/Airway)
 
 - Scenario: The same CPAP-intolerant patient has moderate-to-severe OSA, an eligible BMI, and DISE showing anteroposterior tongue-base collapse without complete concentric palatal collapse.
-- Decision point: Candidacy: moderate-to-severe OSA, CPAP failure, BMI below threshold, and absence of complete concentric palatal collapse (a contraindication).
+- Decision point: Candidacy (STAR trial / FDA labeling): moderate-to-severe OSA with AHI 15–65, CPAP failure/intolerance, BMI ≤32 (some payers allow <35), central/mixed apneas <25% of total events, and absence of complete concentric palatal collapse on DISE (an absolute contraindication).
 - Decision point: Mechanism: inspiration-synchronized stimulation of the protrusor branches of CN XII (hypoglossal nerve) advances the tongue via genioglossus.
 - Decision point: Branch selection is the crux: include the medial (protrusor) division, exclude the lateral (retractor) division and the C1 twig.
 - Key step: Place EMG electrodes in the tongue; map the three incisions.
@@ -6538,9 +6541,57 @@ Each brief is a two-minute pre-scrub read: the indication, the key steps, the da
 - Key step: Divide platysma; separate the straps in the midline.
 - Key step: Retract or divide the thyroid isthmus to expose the trachea.
 - Key step: Identify the cricoid and rings; place a cricoid hook and stay sutures.
-- Key step: Enter between the 2nd-3rd (or 3rd-4th) rings; insert the tube; confirm with capnography; secure.
+- Key step: Enter between the 2nd–3rd (or 3rd–4th) rings; insert the tube; confirm with capnography; secure.
 - Danger structures: The thyroid isthmus, anterior jugular veins, the innominate artery low in the neck (tracheo-innominate fistula), the esophagus/posterior tracheal wall, and the RLNs in the TE grooves.
 - Pearl: A herald sentinel bleed from a trach signals a possible tracheo-innominate fistula: hyperinflate the cuff or apply digital compression (Utley maneuver) and go emergently to OR. The most common cause of acute distress overall is a mucus plug.
+
+**[pta] Peritonsillar abscess (incision & drainage)** (Head & Neck)
+
+- Scenario: A 19-year-old with several days of worsening sore throat, now with a muffled "hot-potato" voice, trismus, drooling, and uvular deviation to the contralateral side.
+- Decision point: Clinical diagnosis: the most common deep head & neck infection in young adults; unilateral bulging soft palate with uvular deviation and trismus.
+- Decision point: Trismus distinguishes PTA from simple tonsillitis and reflects pterygoid irritation.
+- Decision point: Confirm/aspirate: needle aspiration is both diagnostic and therapeutic; intraoral ultrasound (or CT if the exam is limited by trismus) differentiates phlegmon/cellulitis from a drainable collection and maps the carotid.
+- Decision point: Drainage options: needle aspiration, incision & drainage, or quinsy tonsillectomy: plus antibiotics covering Group A Strep and oral anaerobes (e.g., amoxicillin-clavulanate or clindamycin) and a single dose of steroids.
+- Decision point: Admit if unable to tolerate oral intake, airway concern, immunocompromise, or signs of spread.
+- Key step: Topical +/- injected local anesthetic to the soft palate.
+- Key step: Aspirate the point of maximal fluctuance, at or just superior to the superior tonsillar pole.
+- Key step: Guard the needle depth (tape/needle cover) to avoid plunging laterally toward the carotid.
+- Key step: If pus returns, either repeat aspiration or make a stab incision and spread with a clamp.
+- Key step: Start antibiotics and steroids; confirm oral intake before discharge.
+- Danger structures: The internal carotid artery lies ~2–2.5 cm posterolateral to the tonsil: aspirate medially and never deep/lateral; aspiration depth should not exceed ~1 cm. Also the great vessels and the airway in a drooling, trismic patient.
+- Pearl: A patient who cannot tolerate secretions, has stridor, or has rapidly worsening trismus may have spread to the parapharyngeal space: get imaging and escalate, do not just drain at the bedside.
+
+**[dnsi] Deep neck space infection / Ludwig angina** (Head & Neck)
+
+- Scenario: A 48-year-old with poorly controlled diabetes and a recent lower molar infection presents with bilateral submandibular swelling, a firm "woody" floor of mouth, tongue elevation, drooling, and early stridor.
+- Decision point: Airway first, always: Ludwig angina is a rapidly progressive, bilateral cellulitis of the submandibular/sublingual spaces that pushes the tongue up and back: the threat is airway loss, not the abscess.
+- Decision point: Secure the airway early with the most experienced operator; awake fiberoptic intubation or a planned surgical airway (tracheostomy) is often preferred over conventional laryngoscopy, which may fail.
+- Decision point: Identify the source (odontogenic in most Ludwig cases; tonsillar/pharyngeal, salivary, or foreign body for other spaces).
+- Decision point: Contrast-enhanced CT neck defines the space(s) involved, drainable collections, and complications (mediastinitis, internal jugular thrombosis/Lemierre, carotid involvement).
+- Decision point: Broad-spectrum IV antibiotics covering Strep, oral anaerobes, and (in diabetics/immunocompromised) gram-negatives; urgent surgical drainage for a defined collection or clinical deterioration.
+- Key step: Assess and secure the airway; prepare for surgical airway.
+- Key step: Resuscitate; start empiric broad-spectrum IV antibiotics; control glucose.
+- Key step: Obtain contrasted CT once the airway is safe.
+- Key step: Incision & drainage of involved spaces (external cervical approach for submandibular/parapharyngeal), with cultures.
+- Key step: Address the source (e.g., dental extraction); monitor in a high-acuity setting for descent to the mediastinum.
+- Danger structures: The airway (loss from floor-of-mouth/tongue elevation), the carotid sheath (carotid blowout, internal jugular thrombosis), descent via the retropharyngeal/"danger" space to the mediastinum (mediastinitis), and the marginal mandibular nerve during external drainage.
+- Pearl: Do not lie these patients flat or over-sedate them: positional airway collapse can be fatal. Trismus plus floor-of-mouth induration plus a muffled voice is an airway emergency until proven otherwise.
+
+**[tgdc] Thyroglossal duct cyst (Sistrunk procedure)** (Head & Neck)
+
+- Scenario: A 7-year-old with a painless midline anterior neck mass at the level of the hyoid that elevates with tongue protrusion and swallowing, occasionally enlarging after upper respiratory infections.
+- Decision point: Diagnosis: the most common congenital midline neck mass; classically moves with tongue protrusion/swallowing because of its tract to the foramen cecum.
+- Decision point: Confirm a normal, orthotopic thyroid before excision: ultrasound (the cyst can rarely contain the only functioning thyroid tissue; removing it would render the patient hypothyroid).
+- Decision point: Operation of choice is the Sistrunk procedure, not simple cystectomy: excising the central hyoid body and the tract to the tongue base dramatically lowers recurrence.
+- Decision point: Treat any active infection first; operate when quiescent.
+- Decision point: Consider malignancy (papillary thyroid carcinoma) rarely in adults with suspicious features.
+- Key step: Transverse cervical incision over the cyst; raise subplatysmal flaps.
+- Key step: Dissect the cyst free, tracing the tract superiorly toward the hyoid.
+- Key step: Resect the central portion of the hyoid body in continuity with the tract (the defining step of Sistrunk).
+- Key step: Follow a core of suprahyoid muscle up toward the foramen cecum and ligate the tract at the tongue base.
+- Key step: Close in layers over a drain if needed.
+- Danger structures: The hypoglossal and superior laryngeal nerves lateral to the dissection, the larynx/airway, and incomplete tract removal (the cause of recurrence). Preserve a normally positioned thyroid.
+- Pearl: Always image the thyroid before excising a midline cyst: never remove a patient's only functioning thyroid tissue. Simple cystectomy without hyoid resection has a high recurrence rate; the Sistrunk procedure is the standard of care.
 
 ### Flashcards (15)
 
