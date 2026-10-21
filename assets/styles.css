@@ -3106,7 +3106,6 @@ h1.bento-hero-title { margin: 0; font-weight: inherit; }
 .plan-item { display: flex; align-items: flex-start; gap: 10px; }
 .plan-check { flex: none; width: 22px; height: 22px; margin-top: 8px; border-radius: 7px; border: 1.5px solid rgba(255,255,255,.5); background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #0a2c10; }
 .plan-item.done .plan-check { background: #9fe0ab; border-color: #9fe0ab; }
-.plan-item.done .plan-check::after { content: "\2713"; font-size: 13px; }
 .plan-go { flex: 1; min-width: 0; text-align: left; background: none; border: 0; color: #eef4ec; font: inherit; padding: 6px 4px; border-radius: 8px; cursor: pointer; display: flex; flex-direction: column; gap: 1px; }
 .plan-go:hover { background: rgba(255,255,255,.06); }
 .plan-label { font-size: 14px; }
@@ -3184,3 +3183,50 @@ h1.bento-hero-title { margin: 0; font-weight: inherit; }
   .hero-light .bento-hero-metrics { flex-wrap: nowrap; }
   .hero-light .bento-metric-label { font-size: 10px; }
 }
+
+/* ---- Home polish and phone adaptation ---- */
+::selection { background: color-mix(in srgb, var(--primary) 24%, transparent); color: inherit; }
+html { accent-color: var(--primary); scrollbar-color: var(--line) transparent; }
+button, a, summary, [role="button"] { touch-action: manipulation; -webkit-tap-highlight-color: color-mix(in srgb, var(--primary) 16%, transparent); }
+/* checkmark is drawn, not a text glyph */
+.plan-item.done .plan-check { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%230a2c10' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3.5 8.5l3 3 6-7'/%3E%3C/svg%3E"); background-size: 14px 14px; background-position: center; background-repeat: no-repeat; }
+/* dark theme: the green start button would vanish into the ground */
+:root[data-theme="dark"] .hero-light .bento-start-btn { background: #eef4ec; border-color: #eef4ec; color: #0a2c10; }
+:root[data-theme="dark"] .hero-light .bento-start-btn:hover { background: #fff; border-color: #fff; }
+:root[data-theme="dark"] .hero-light .bp-goalline em { color: #f0b43a; }
+:root[data-theme="dark"] .hero-light .bp-goalline { border-top-color: #f0b43a; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .hero-light .bento-start-btn { background: #eef4ec; border-color: #eef4ec; color: #0a2c10; }
+  :root:not([data-theme="light"]) .hero-light .bento-start-btn:hover { background: #fff; border-color: #fff; }
+  :root:not([data-theme="light"]) .hero-light .bp-goalline em { color: #f0b43a; }
+  :root:not([data-theme="light"]) .hero-light .bp-goalline { border-top-color: #f0b43a; }
+}
+/* chip count badge: darker fill so white digits pass 4.5:1 */
+.hero-light .bento-chip-count { background: color-mix(in srgb, var(--track-color, var(--primary)) 78%, #000); font-size: 12px; }
+/* text floor on Home */
+#screen-home .bp-day b, #screen-home .bp-col .bp-day, #screen-home .bento-metric-sub, #screen-home .bento-metric-label, #screen-home .jump-sub, #screen-home .plan-sub, #screen-home .peek-tag, #screen-home .filter-pill-count, #screen-home .bp-figure, #screen-home .bp-stats { font-size: 12px; }
+.bp-goalline em { font-size: 12px; }
+/* phone: 44px targets, compact green panel, safe areas */
+@media (max-width: 700px) {
+  .hero-light .plan-chip { min-height: 44px; padding: 0 16px; display: inline-flex; align-items: center; }
+  .hero-light .plan-item { align-items: center; }
+  .hero-light .plan-check { width: 44px; height: 44px; margin-top: 0; border: 0; background-color: transparent; position: relative; }
+  .hero-light .plan-check::before { content: ""; position: absolute; inset: 11px; border-radius: 7px; border: 1.5px solid rgba(255,255,255,.55); }
+  .hero-light .plan-item.done .plan-check { background-color: transparent; border-color: transparent; }
+  .hero-light .plan-item.done .plan-check::before { background: #9fe0ab; border-color: #9fe0ab; }
+  .hero-light .plan-item.done .plan-check { background-image: none; }
+  .hero-light .plan-item.done .plan-check::after { content: ""; position: absolute; inset: 11px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%230a2c10' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3.5 8.5l3 3 6-7'/%3E%3C/svg%3E") center / 14px 14px no-repeat; }
+  .hero-light .plan-go { min-height: 44px; justify-content: center; }
+  .bp-col { min-height: 44px; }
+  .bp-goal-in { min-height: 44px; width: 72px; font-size: 16px; }
+  .hm-item { min-height: 44px; display: inline-flex; align-items: center; }
+  .hero-light .bento-metric-sub { white-space: normal; }
+  .hero-light .hl-side .bp-rings { width: 96px; }
+  .hero-light .hl-side .bp-ringpanel header { display: none; }
+  .hero-light .hl-side .bp-legend li { font-size: 13px; }
+  .hero-light .bento-hero { gap: 16px; }
+  .hero-light .bento-hero-metrics { padding-top: 10px; }
+  .home-scroll-cue, .home-scroll-cue.is-gone { bottom: max(18px, env(safe-area-inset-bottom)); }
+  .rv-panel { bottom: max(12px, env(safe-area-inset-bottom)); }
+}
+@media (max-width: 700px) { .peek-skip { min-height: 44px; } }
