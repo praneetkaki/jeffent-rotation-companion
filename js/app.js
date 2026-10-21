@@ -3228,6 +3228,12 @@
     }
 
     var main = showNav ? h('<div class="lesson-main"></div>') : pane;
+    var isAbbr = mod.id === "abbreviations";
+    function abbrTrack(title) {
+      var map = [[/otology/i, "otology"], [/rhinology/i, "rhinology"], [/laryngology/i, "laryngology"], [/head & neck/i, "head-neck"], [/pediatric/i, "pediatric"], [/facial/i, "facial-plastics"], [/emergenc/i, "emergencies"]];
+      for (var i = 0; i < map.length; i++) if (map[i][0].test(title)) return trackById(map[i][1]);
+      return trackById("foundations");
+    }
     var kindEntries = [], kindCounts = {}, kindOrder = [];
     blocks.forEach(function (b) {
       var kd = clinicalKind(b.title);
@@ -3235,7 +3241,7 @@
       kindCounts[kd.k]++;
     });
     var filterBar = null;
-    if (kindOrder.length > 1) {
+    if (kindOrder.length > 1 && !isAbbr) {
       filterBar = h('<div class="cl-filter" role="group" aria-label="Filter blocks by type"></div>');
       filterBar.appendChild(h('<button type="button" class="cl-chip active" data-k="all">All<span>' + blocks.length + '</span></button>'));
       ["mgmt", "dx", "ddx", "cx", "core"].forEach(function (k) {
@@ -3246,8 +3252,9 @@
     }
     blocks.forEach(function (b, i) {
       var anchor = "clinical-block-" + esc(b.id || "");
-      var kind = clinicalKind(b.title);
-      var p = h('<div class="panel' + (b.pearl ? ' pearl' : '') + ' cl-' + kind.k + '" data-anchor="' + anchor + '"><div class="cl-kind mono">' + kind.label + '</div><h3>' + esc(b.title) + '</h3></div>');
+      var kind = isAbbr ? { k: "abbr", label: "" } : clinicalKind(b.title);
+      var abTrk = isAbbr ? abbrTrack(b.title) : null;
+      var p = h('<div class="panel' + (b.pearl ? ' pearl' : '') + ' cl-' + kind.k + '" data-anchor="' + anchor + '"' + (abTrk && abTrk.color ? ' style="--cl:' + abTrk.color + '"' : '') + '>' + (kind.label ? '<div class="cl-kind mono">' + kind.label + '</div>' : '') + '<h3>' + esc(b.title) + '</h3></div>');
       var blockText = stripHtml(b.html || "");
       var blockActions = h('<div class="panel-actions"></div>');
       blockActions.appendChild(bookmarkButton({
@@ -3748,21 +3755,32 @@
     var bar = h(
       '<div class="case-nav case-bar">' +
         '<button type="button" class="case-back mono">&larr; All cases</button>' +
-        '<select class="case-switch" aria-label="Switch case"></select>' +
+        '<span class="case-switch"></span>' +
         '<div class="case-arrows">' +
           '<button type="button" class="case-arrow" data-dir="-1" aria-label="Previous case"' + (cs.index === 0 ? " disabled" : "") + '>&lsaquo;</button>' +
           '<button type="button" class="case-skip mono">Skip case &rsaquo;</button>' +
         '</div>' +
       '</div>'
     );
-    var sel = bar.querySelector(".case-switch");
+    var sw = bar.querySelector(".case-switch");
+    var swWrap = h('<div class="case-switch-wrap"><button type="button" class="case-switch-btn" aria-haspopup="listbox" aria-expanded="false"><span></span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><ul class="case-menu" role="listbox" hidden></ul></div>');
+    sw.parentNode.replaceChild(swWrap, sw);
+    var swBtn = swWrap.querySelector(".case-switch-btn"), swMenu = swWrap.querySelector(".case-menu");
+    swBtn.firstChild.textContent = "Case " + (cs.index + 1) + ": " + caseLabel(c);
     cases.forEach(function (cc, i) {
-      var o = document.createElement("option");
-      o.value = i; o.textContent = "Case " + (i + 1) + ": " + caseLabel(cc).slice(0, 60);
-      if (i === cs.index) o.selected = true;
-      sel.appendChild(o);
+      var li = h('<li role="option" aria-selected="' + (i === cs.index) + '"><button type="button" class="case-menu-item' + (i === cs.index ? ' active' : '') + '"><span class="mono">' + (i + 1) + '</span><span>' + esc(caseLabel(cc)) + '</span></button></li>');
+      li.firstChild.addEventListener("click", function () { goToCase(i); });
+      swMenu.appendChild(li);
     });
-    sel.addEventListener("change", function () { goToCase(Number(sel.value)); });
+    function closeMenu() { swMenu.hidden = true; swBtn.setAttribute("aria-expanded", "false"); document.removeEventListener("click", outside, true); document.removeEventListener("keydown", esc2); }
+    function outside(e) { if (!swWrap.contains(e.target)) closeMenu(); }
+    function esc2(e) { if (e.key === "Escape") { closeMenu(); swBtn.focus(); } }
+    swBtn.addEventListener("click", function () {
+      if (!swMenu.hidden) { closeMenu(); return; }
+      swMenu.hidden = false; swBtn.setAttribute("aria-expanded", "true");
+      document.addEventListener("click", outside, true); document.addEventListener("keydown", esc2);
+      var act = swMenu.querySelector(".active"); if (act && act.scrollIntoView) act.scrollIntoView({ block: "nearest" });
+    });
     bar.querySelector(".case-back").addEventListener("click", function () { goToCase(null); });
     bar.querySelector(".case-arrow").addEventListener("click", function () { if (cs.index > 0) goToCase(cs.index - 1); });
     bar.querySelector(".case-skip").addEventListener("click", function () { goToCase((cs.index + 1) % total); });
@@ -4223,7 +4241,8 @@
 
     var _ownerId = cardOwnerId(card, _ownerMod.id);
     var _note = cardNote(_ownerId, card);
-    var fc = h('<div class="flashcard"' + (_trk && _trk.color ? ' style="--track-color:' + _trk.color + '"' : '') + '></div>');
+    var _left = ses.cards.length - ses.i - 1;
+    var fc = h('<div class="flashcard' + (_left >= 2 ? ' fc-stack-2' : _left === 1 ? ' fc-stack-1' : '') + '"' + (_trk && _trk.color ? ' style="--track-color:' + _trk.color + '"' : '') + '></div>');
     fc.appendChild(h('<div class="card-tags">' + tags + (cardIsEdited(_ownerId, card) ? '<span class="pill edited">Edited</span>' : '') + '</div>'));
     fc.appendChild(h('<div class="card-front">' + effectiveFront(_ownerId, card) + '</div>'));
     var back = h('<div class="card-back hidden">' + effectiveBack(_ownerId, card) + '</div>');

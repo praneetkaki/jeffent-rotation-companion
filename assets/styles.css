@@ -3055,3 +3055,20 @@ mark.user-hl[data-c="orange"] { background: rgba(255, 150, 50, .4); }
 .cu-end { padding-bottom: 12px; }
 @media (prefers-reduced-motion: reduce) { .cu-stage { opacity: 1; transform: none; transition: none; } }
 @media (max-width: 640px) { .cu-wrap { grid-template-columns: 14px minmax(0, 1fr); gap: 12px; } }
+
+/* Themed case switcher */
+.case-switch-wrap { position: relative; flex: 1 1 220px; min-width: 0; max-width: 460px; }
+.case-switch-btn { display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; font: inherit; font-size: 13px; text-align: left; padding: 8px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface-2); color: var(--ink); cursor: pointer; }
+.case-switch-btn span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.case-switch-btn:hover, .case-switch-btn[aria-expanded="true"] { border-color: var(--track-color, var(--primary)); }
+.case-menu { position: absolute; z-index: 20; top: calc(100% + 6px); left: 0; width: min(520px, 92vw); max-height: 340px; overflow: auto; margin: 0; padding: 6px; list-style: none; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow-lift, 0 12px 30px rgba(0,0,0,.14)); }
+.case-menu[hidden] { display: none; }
+.case-menu-item { display: flex; gap: 10px; align-items: baseline; width: 100%; text-align: left; font: inherit; font-size: 13.5px; line-height: 1.35; padding: 9px 10px; border: 0; border-radius: 8px; background: none; color: var(--ink-soft); cursor: pointer; }
+.case-menu-item .mono { flex: none; width: 22px; font-size: 11.5px; color: var(--ink-faint); }
+.case-menu-item:hover, .case-menu-item:focus-visible { background: var(--primary-tint); color: var(--ink); }
+.case-menu-item.active { background: color-mix(in srgb, var(--track-color, var(--primary)) 14%, var(--surface)); color: var(--ink); font-weight: 600; }
+/* Flashcard stack: cards waiting underneath. */
+.flashcard.fc-stack-1 { box-shadow: 0 0 0 10px color-mix(in srgb, var(--track-color, var(--primary)) 20%, var(--surface-2)), 0 26px 0 -6px color-mix(in srgb, var(--track-color, var(--primary)) 30%, var(--surface)); }
+.flashcard.fc-stack-2 { box-shadow: 0 0 0 10px color-mix(in srgb, var(--track-color, var(--primary)) 20%, var(--surface-2)), 0 26px 0 -6px color-mix(in srgb, var(--track-color, var(--primary)) 30%, var(--surface)), 0 42px 0 -14px color-mix(in srgb, var(--track-color, var(--primary)) 18%, var(--surface)); }
+.flashcard.fc-stack-1 { margin-bottom: 36px; }
+.flashcard.fc-stack-2 { margin-bottom: 50px; }
