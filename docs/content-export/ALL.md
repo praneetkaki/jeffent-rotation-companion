@@ -3,7 +3,7 @@
 Generated from content/*.js for clinical fact-checking. Every module, card, case, clinical block, table, diagram, glossary entry, and question bank currently in the app is below, in full, with no summarizing or omission. Each item lists its module id and field path so corrections can be traced back to source.
 
 
-_Generated 2026-10-20_
+_Generated 2026-10-21_
 
 > **How to use:** paste a module file below (or ALL.md) into OpenEvidence / any reviewer, followed by an instruction such as
 > "Fact-check every claim against current guidelines, flag anything outdated or wrong, and propose exact replacement wording. Keep our style: no em dashes, plain clinical language."
@@ -1781,10 +1781,14 @@ Teaching: Flex NPL is the criterion standard for dynamic pediatric airway collap
 
 **The facial buttresses** (tags: Facial buttresses · Vertical and horizontal columns · Fracture reconstruction)
 
-[figure: Vertical and horizontal facial buttress columns that absorb/transmit force and that reconstructive plating restores.]
-- Buttresses are thickened bone columns that absorb and transmit force: vertical (nasomaxillary, zygomaticomaxillary, pterygomaxillary) and horizontal (frontal bar, infraorbital rim, maxillary alveolus).
-- Reconstructive plating re-establishes these buttresses rather than patching individual fracture lines.
-- Restoring buttress continuity restores facial height, width, and projection.
+[figure: Vertical and horizontal facial buttress columns that absorb/transmit force and that reconstructive plating restores.]The conceptButtresses are thickened columns of bone that absorb and transmit masticatory and traumatic force through the thin shell bones of the face, and that protect the orbit, airway, and brain. They run in two directions:
+
+- Vertical columns carry bite force up from the teeth to the skull base.
+- Horizontal beams tie the vertical columns together and set facial width.Restoring buttress continuity restores facial height, width, and projection.
+Vertical buttresses (paired)ButtressCourseWhat it supportsNasomaxillary (medial)Anterior maxillary alveolus up along the piriform aperture to the frontal processCentral/medial midface projection and heightZygomaticomaxillary (lateral)Maxillary alveolus up through the zygoma to the frontal boneFacial width and malar (cheek) projectionPterygomaxillary (posterior)Maxillary alveolus to the pterygoid platesPosterior midface height; often disrupted in Le Fort fracturesHorizontal buttressesButtressLocationFrontal barSuperior orbital rims plus glabellaInfraorbital rim (with zygomatic arch)Inferior orbital rims and archMaxillary alveolus (hard palate)Alveolar process of the maxillaReconstruction principles
+- Plate the buttresses, not the cracks. Rigid fixation re-establishes the buttress columns rather than patching every individual fracture line.
+- Sequence restores the frame: establish the mandible and occlusion first, then rebuild outside-to-inside and bottom-to-top through the midface buttresses.
+- Loss of buttress continuity produces the classic deformities: flattened midface projection, abnormal facial widening, and decreased posterior facial height.Clinical linksLe Fort fractures separate the midface along the vertical and pterygomaxillary buttresses. The Le Fort level describes which horizontal beam is crossed.
 
 **The parotid gland, facial nerve, and Stensen's duct** (tags: Parotid gland · Facial nerve branches · Stensen's duct)
 
@@ -1814,7 +1818,7 @@ BranchMain musclesFunctionDeficit if injuredTemporal (frontal)Frontalis, orbicul
 **The frontal branch of the facial nerve and Pitanguy's line** (tags: Frontal branch · Pitanguy's line · Brow ptosis)
 
 [figure: The temporal (frontal) branch of the facial nerve and Pitanguy's surface-marking line that approximates its course.]
-- The temporal (frontal) branch is the most superficial and vulnerable branch, running just under the temporoparietal fascia.
+- The temporal (frontal) branch of the facial nerve is the most superficial and vulnerable branch, running just under the temporoparietal fascia.
 - Pitanguy's line (0.5 cm below the tragus to 1.5 cm above the lateral eyebrow) approximates its course.
 - Lacerations or incisions crossing this line risk brow ptosis from frontal branch injury.
 
@@ -1833,11 +1837,11 @@ Bony anatomy (the basics)
 - Enophthalmos: orbital fat/contents herniate into the maxillary sinus, and the globe sinks back.
 - Diplopia on upgaze: herniation or entrapment of orbital fat &plusmn; the inferior rectus tethers vertical eye movement.
 - Infraorbital nerve hypesthesia: numb cheek, upper lip, upper teeth (the nerve runs in the floor).
-- Orbital emphysema: air tracks from the sinus into the orbit, worse with nose-blowing.[figure: Orbital floor blowout fracture and muscle entrapment.]
+- Orbital emphysema: air tracks from the sinus into the orbit, worse with nose-blowing.
 
 **Zygomaticomaxillary Complex (ZMC) Anatomy** (tags: Zygoma · Four-point articulation · ZMC fracture)
 
-The zygoma is the main lateral buttress of the midface, forming the malar prominence and the lateral/inferior orbital walls; it's the second most common facial fracture after the nasal bones. Because it's a stout bone suspended between four articulations, force displaces the whole complex rather than fracturing it in isolation: why a 'tripod fracture' is better called a quadripod/ZMC fracture.
+[figure: Left zygomatic bone in situ and the bones it articulates with.]The zygoma is the main lateral buttress of the midface, forming the malar prominence and the lateral/inferior orbital walls; it's the second most common facial fracture after the nasal bones. Because it's a stout bone suspended between four articulations, force displaces the whole complex rather than fracturing it in isolation: why a 'tripod fracture' is better called a quadripod/ZMC fracture.
 Four articulations
 - Zygomaticofrontal (ZF) suture: lateral orbital rim, a palpable step-off.
 - Zygomaticomaxillary suture/infraorbital rim: carries the infraorbital nerve (V2).
@@ -1870,7 +1874,7 @@ Highest-yield clinical points
 
 **Trigeminal Nerve (CN V) Anatomy** (tags: Trigeminal divisions · Facial sensation · Skull-base foramina)
 
-CN V is the main sensory nerve of the face (and motor to the muscles of mastication via V3). It has three divisions, each exiting the skull through its own foramen and each supplying a horizontal band of the face: a sensory deficit in one band points directly to the injured region in facial trauma.
+[figure: Trigeminal ganglion with the maxillary and mandibular branches.]CN V is the main sensory nerve of the face (and motor to the muscles of mastication via V3). It has three divisions, each exiting the skull through its own foramen and each supplying a horizontal band of the face: a sensory deficit in one band points directly to the injured region in facial trauma.
 Three divisions
 - V1 Ophthalmic (superior orbital fissure): forehead, upper eyelid, cornea, dorsum of nose; cutaneous branches supraorbital + supratrochlear.
 - V2 Maxillary (foramen rotundum -> infraorbital foramen): midface: lower eyelid, lateral nose, cheek, upper lip, upper teeth, palate; cutaneous branch is the infraorbital nerve.
@@ -2299,7 +2303,7 @@ Teaching: Clinical Pearl: Boggy, fluctuant, bilateral septal swelling after nasa
 
 **[zygoma-fracture-card]** tags: FP, clinical, milestones: MK1, PC9, UKMLA: Facial/periorbital swelling, reviewer: (none)
 - Front: What exam findings suggest a zygomaticomaxillary complex (ZMC) fracture?
-- Back: Cheek flattening, trismus (from impingement on the temporalis/coronoid), infraorbital nerve hypoesthesia, and a palpable step-off at the infraorbital rim or zygomaticofrontal suture. The zygoma articulates at four points: zygomaticofrontal suture, zygomaticomaxillary suture/infraorbital rim, zygomaticotemporal suture (arch), and zygomaticosphenoid suture (lateral orbital wall): so a true fracture usually disrupts more than one.
+- Back: Cheek flattening, trismus (from impingement on the temporalis/coronoid), infraorbital nerve hypoesthesia, and a palpable step-off at the infraorbital rim or zygomaticofrontal suture. The zygoma articulates at four points: zygomaticofrontal suture, zygomaticomaxillary suture/infraorbital rim, zygomaticotemporal suture (arch), and zygomaticosphenoid suture (lateral orbital wall): so a true fracture usually disrupts more than one.[figure: Left zygomatic bone in situ.]
 - Source: Standard facial trauma teaching on zygomaticomaxillary complex fractures.
 
 **[mandible-fracture-airway-card]** tags: FP, clinical, milestones: PC1, UKMLA: Facial/periorbital swelling, RED FLAG, reviewer: (none)
@@ -7116,11 +7120,11 @@ Common agents: SCIT typically uses individualized mixes of standardized aeroalle
 
 **Sites of upper airway obstruction in OSA** (tags: Nasal collapse · Retropalatal collapse · Retroglossal collapse)
 
-[figure: The three anatomic levels where the upper airway can collapse in OSA: nasal, retropalatal, and retroglossal.]Collapse can occur at multiple levels, often more than one at once.
-
-- The nasal cavity (septal deviation, turbinate hypertrophy) raises upstream resistance and drives CPAP intolerance.
-- The retropalatal region (soft palate, uvula, lateral pharyngeal walls) is the classic UPPP target.
-- The retroglossal/hypopharyngeal region (tongue base, epiglottis) is where tongue-base and hypoglossal nerve procedures work.Identifying where collapse occurs determines which surgery, if any, is appropriate.
+[figure: The three anatomic levels where the upper airway can collapse in OSA: nasal, retropalatal, and retroglossal.]OSA is upper airway collapse during sleep, and it usually happens at more than one level at once. CPAP is first-line. Surgery is for CPAP intolerance or failure, so the anatomy answers the question of who might need surgery, and where.
+The three levels of collapseLevelKey structuresWhat raises collapse riskProcedure that targets itNasalSeptum, turbinatesSeptal deviation and turbinate hypertrophy raise upstream resistanceSeptoplasty / turbinate reduction (improves CPAP tolerance, not usually AHI)Retropalatal (velopharynx)Soft palate, uvula, lateral pharyngeal walls, tonsilsMost frequent site of collapse; large tonsils, bulky palateTonsillectomy, UPPP, pharyngoplastyRetroglossal / hypopharyngealTongue base, epiglottisMacroglossia, tongue-base bulk, floppy epiglottisTongue-base reduction, hypoglossal nerve stimulationCollapse is often multi-level, so one site does not exclude another.
+Finding the site
+- The awake exam suggests the level. Drug-induced sleep endoscopy (DISE) directly visualizes dynamic collapse during sedated sleep, and is required before hypoglossal nerve stimulation to exclude complete concentric palatal collapse (a predictor of poor response).
+- VOTE classification describes DISE collapse as Velum, Oropharynx (lateral walls), Tongue base, Epiglottis. It maps onto the three levels above.Where collapse occurs, and whether it is single- or multi-level, determines which surgery (if any) is appropriate. CPAP remains first-line regardless of site.
 
 **Friedman tongue position and staging** (tags: Tongue position · Oropharynx exam · UPPP response)
 
@@ -7335,20 +7339,8 @@ Inclusion vs. exclusion branches: why cuff placement is everything: CN XII is pu
 
 - Medial branches -> protrusors (genioglossus &plusmn; intrinsic protrusive fibers). Stimulating these protrudes/stiffens the tongue -> opens the retrolingual airway. These are the 'inclusion' branches, captured inside the cuff.
 - Lateral branches -> retractors (hyoglossus, styloglossus). Stimulating these retracts the tongue (counterproductive); these are the 'exclusion' branches, deliberately kept out of the cuff.Practical operative points: intraoperative EMG/nerve integrity monitoring confirms genioglossus (protrusion) activation without hyoglossus/styloglossus (retraction) before the cuff is secured: the surgeon looks for the tongue to protrude, not retract. Bipolar (not monopolar) cautery is used near the device to avoid damaging it.
-Indications (FDA, unilateral device):
-
-- Adult (&ge;18y) with moderate-to-severe OSA who has failed or cannot tolerate CPAP
-- AHI in the approved range (originally 15-65, upper limit since expanded: confirm current device labeling)
-- BMI below threshold (originally &le;32, many payers/labels now allow <35, up to <40 in updated criteria: verify against current guidance)
-- <25% central/mixed apneas
-- DISE showing no complete concentric collapse at the palate (the make-or-break selection step)Contraindications:
-
-- Complete concentric collapse of the velum/palate on DISE (the single most important exclusion: the collapse is too circumferential for tongue protrusion to overcome)
-- BMI or AHI above current thresholds, &ge;25% central/mixed apnea
-- Severe obstructive/restrictive lung disease
-- Neurologic conditions limiting upper-airway/tongue control (or prior surgery that does so)
-- Pregnancy (or planned pregnancy)
-- Inability to operate the device, or need for incompatible MRIDISE Findings and HGNS Candidacy: tongue-base/retrolingual (anteroposterior) collapse responds well to hypoglossal nerve stimulation; complete concentric palatal collapse does not, so every candidate undergoes drug-induced sleep endoscopy first.
+Indications and contraindications (FDA, unilateral device)
+CriterionCandidateExcludePatientAdult (&ge;18y) with moderate-to-severe OSA who has failed or cannot tolerate CPAPAHIIn the approved range (originally 15-65, upper limit since expanded: confirm current device labeling)Above current thresholdBMIBelow threshold (originally &le;32, many payers and labels now allow <35, up to <40 in updated criteria: verify against current guidance)Above current thresholdCentral / mixed apneas<25%&ge;25%DISENo complete concentric collapse at the palate (the make-or-break selection step)Complete concentric collapse of the velum/palate, the single most important exclusion: too circumferential for tongue protrusion to overcomeLung diseaseSevere obstructive or restrictive lung diseaseNeurologicConditions limiting upper-airway or tongue control, or prior surgery that does soPregnancyPregnancy or planned pregnancyDevice useInability to operate the device, or need for incompatible MRIDISE Findings and HGNS Candidacy: tongue-base/retrolingual (anteroposterior) collapse responds well to hypoglossal nerve stimulation; complete concentric palatal collapse does not, so every candidate undergoes drug-induced sleep endoscopy first.
 Unilateral vs. bilateral HGNS:
 Unilateral (established approach): cuff on one hypoglossal nerve (typically the right), stimulating the medial/protrusor fibers, synchronized to inspiration via a respiratory sensing lead. The FDA-approved, phase-III-validated design, with STAR/ADHERE data showing ~68-83% AHI reduction.
 Bilateral (newer): stimulates both hypoglossal nerves and, in the current device, is breath-rate-independent (no separate chest sensing lead). Single-arm trials show meaningful AHI reduction but still less mature than unilateral data.

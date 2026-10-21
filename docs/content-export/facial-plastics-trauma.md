@@ -1,6 +1,6 @@
 # Facial Plastics & Trauma
 
-_Generated 2026-10-20 from content/*.js_
+_Generated 2026-10-21 from content/*.js_
 
 > **How to use:** paste a module file below (or ALL.md) into OpenEvidence / any reviewer, followed by an instruction such as
 > "Fact-check every claim against current guidelines, flag anything outdated or wrong, and propose exact replacement wording. Keep our style: no em dashes, plain clinical language."
@@ -19,10 +19,14 @@ _Generated 2026-10-20 from content/*.js_
 
 **The facial buttresses** (tags: Facial buttresses · Vertical and horizontal columns · Fracture reconstruction)
 
-[figure: Vertical and horizontal facial buttress columns that absorb/transmit force and that reconstructive plating restores.]
-- Buttresses are thickened bone columns that absorb and transmit force: vertical (nasomaxillary, zygomaticomaxillary, pterygomaxillary) and horizontal (frontal bar, infraorbital rim, maxillary alveolus).
-- Reconstructive plating re-establishes these buttresses rather than patching individual fracture lines.
-- Restoring buttress continuity restores facial height, width, and projection.
+[figure: Vertical and horizontal facial buttress columns that absorb/transmit force and that reconstructive plating restores.]The conceptButtresses are thickened columns of bone that absorb and transmit masticatory and traumatic force through the thin shell bones of the face, and that protect the orbit, airway, and brain. They run in two directions:
+
+- Vertical columns carry bite force up from the teeth to the skull base.
+- Horizontal beams tie the vertical columns together and set facial width.Restoring buttress continuity restores facial height, width, and projection.
+Vertical buttresses (paired)ButtressCourseWhat it supportsNasomaxillary (medial)Anterior maxillary alveolus up along the piriform aperture to the frontal processCentral/medial midface projection and heightZygomaticomaxillary (lateral)Maxillary alveolus up through the zygoma to the frontal boneFacial width and malar (cheek) projectionPterygomaxillary (posterior)Maxillary alveolus to the pterygoid platesPosterior midface height; often disrupted in Le Fort fracturesHorizontal buttressesButtressLocationFrontal barSuperior orbital rims plus glabellaInfraorbital rim (with zygomatic arch)Inferior orbital rims and archMaxillary alveolus (hard palate)Alveolar process of the maxillaReconstruction principles
+- Plate the buttresses, not the cracks. Rigid fixation re-establishes the buttress columns rather than patching every individual fracture line.
+- Sequence restores the frame: establish the mandible and occlusion first, then rebuild outside-to-inside and bottom-to-top through the midface buttresses.
+- Loss of buttress continuity produces the classic deformities: flattened midface projection, abnormal facial widening, and decreased posterior facial height.Clinical linksLe Fort fractures separate the midface along the vertical and pterygomaxillary buttresses. The Le Fort level describes which horizontal beam is crossed.
 
 **The parotid gland, facial nerve, and Stensen's duct** (tags: Parotid gland · Facial nerve branches · Stensen's duct)
 
@@ -52,7 +56,7 @@ BranchMain musclesFunctionDeficit if injuredTemporal (frontal)Frontalis, orbicul
 **The frontal branch of the facial nerve and Pitanguy's line** (tags: Frontal branch · Pitanguy's line · Brow ptosis)
 
 [figure: The temporal (frontal) branch of the facial nerve and Pitanguy's surface-marking line that approximates its course.]
-- The temporal (frontal) branch is the most superficial and vulnerable branch, running just under the temporoparietal fascia.
+- The temporal (frontal) branch of the facial nerve is the most superficial and vulnerable branch, running just under the temporoparietal fascia.
 - Pitanguy's line (0.5 cm below the tragus to 1.5 cm above the lateral eyebrow) approximates its course.
 - Lacerations or incisions crossing this line risk brow ptosis from frontal branch injury.
 
@@ -71,11 +75,11 @@ Bony anatomy (the basics)
 - Enophthalmos: orbital fat/contents herniate into the maxillary sinus, and the globe sinks back.
 - Diplopia on upgaze: herniation or entrapment of orbital fat &plusmn; the inferior rectus tethers vertical eye movement.
 - Infraorbital nerve hypesthesia: numb cheek, upper lip, upper teeth (the nerve runs in the floor).
-- Orbital emphysema: air tracks from the sinus into the orbit, worse with nose-blowing.[figure: Orbital floor blowout fracture and muscle entrapment.]
+- Orbital emphysema: air tracks from the sinus into the orbit, worse with nose-blowing.
 
 **Zygomaticomaxillary Complex (ZMC) Anatomy** (tags: Zygoma · Four-point articulation · ZMC fracture)
 
-The zygoma is the main lateral buttress of the midface, forming the malar prominence and the lateral/inferior orbital walls; it's the second most common facial fracture after the nasal bones. Because it's a stout bone suspended between four articulations, force displaces the whole complex rather than fracturing it in isolation: why a 'tripod fracture' is better called a quadripod/ZMC fracture.
+[figure: Left zygomatic bone in situ and the bones it articulates with.]The zygoma is the main lateral buttress of the midface, forming the malar prominence and the lateral/inferior orbital walls; it's the second most common facial fracture after the nasal bones. Because it's a stout bone suspended between four articulations, force displaces the whole complex rather than fracturing it in isolation: why a 'tripod fracture' is better called a quadripod/ZMC fracture.
 Four articulations
 - Zygomaticofrontal (ZF) suture: lateral orbital rim, a palpable step-off.
 - Zygomaticomaxillary suture/infraorbital rim: carries the infraorbital nerve (V2).
@@ -108,7 +112,7 @@ Highest-yield clinical points
 
 **Trigeminal Nerve (CN V) Anatomy** (tags: Trigeminal divisions · Facial sensation · Skull-base foramina)
 
-CN V is the main sensory nerve of the face (and motor to the muscles of mastication via V3). It has three divisions, each exiting the skull through its own foramen and each supplying a horizontal band of the face: a sensory deficit in one band points directly to the injured region in facial trauma.
+[figure: Trigeminal ganglion with the maxillary and mandibular branches.]CN V is the main sensory nerve of the face (and motor to the muscles of mastication via V3). It has three divisions, each exiting the skull through its own foramen and each supplying a horizontal band of the face: a sensory deficit in one band points directly to the injured region in facial trauma.
 Three divisions
 - V1 Ophthalmic (superior orbital fissure): forehead, upper eyelid, cornea, dorsum of nose; cutaneous branches supraorbital + supratrochlear.
 - V2 Maxillary (foramen rotundum -> infraorbital foramen): midface: lower eyelid, lateral nose, cheek, upper lip, upper teeth, palate; cutaneous branch is the infraorbital nerve.
@@ -537,7 +541,7 @@ Teaching: Clinical Pearl: Boggy, fluctuant, bilateral septal swelling after nasa
 
 **[zygoma-fracture-card]** tags: FP, clinical, milestones: MK1, PC9, UKMLA: Facial/periorbital swelling, reviewer: (none)
 - Front: What exam findings suggest a zygomaticomaxillary complex (ZMC) fracture?
-- Back: Cheek flattening, trismus (from impingement on the temporalis/coronoid), infraorbital nerve hypoesthesia, and a palpable step-off at the infraorbital rim or zygomaticofrontal suture. The zygoma articulates at four points: zygomaticofrontal suture, zygomaticomaxillary suture/infraorbital rim, zygomaticotemporal suture (arch), and zygomaticosphenoid suture (lateral orbital wall): so a true fracture usually disrupts more than one.
+- Back: Cheek flattening, trismus (from impingement on the temporalis/coronoid), infraorbital nerve hypoesthesia, and a palpable step-off at the infraorbital rim or zygomaticofrontal suture. The zygoma articulates at four points: zygomaticofrontal suture, zygomaticomaxillary suture/infraorbital rim, zygomaticotemporal suture (arch), and zygomaticosphenoid suture (lateral orbital wall): so a true fracture usually disrupts more than one.[figure: Left zygomatic bone in situ.]
 - Source: Standard facial trauma teaching on zygomaticomaxillary complex fractures.
 
 **[mandible-fracture-airway-card]** tags: FP, clinical, milestones: PC1, UKMLA: Facial/periorbital swelling, RED FLAG, reviewer: (none)

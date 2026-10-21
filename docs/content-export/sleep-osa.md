@@ -1,6 +1,6 @@
 # Sleep Surgery & OSA
 
-_Generated 2026-10-20 from content/*.js_
+_Generated 2026-10-21 from content/*.js_
 
 > **How to use:** paste a module file below (or ALL.md) into OpenEvidence / any reviewer, followed by an instruction such as
 > "Fact-check every claim against current guidelines, flag anything outdated or wrong, and propose exact replacement wording. Keep our style: no em dashes, plain clinical language."
@@ -19,11 +19,11 @@ _Generated 2026-10-20 from content/*.js_
 
 **Sites of upper airway obstruction in OSA** (tags: Nasal collapse · Retropalatal collapse · Retroglossal collapse)
 
-[figure: The three anatomic levels where the upper airway can collapse in OSA: nasal, retropalatal, and retroglossal.]Collapse can occur at multiple levels, often more than one at once.
-
-- The nasal cavity (septal deviation, turbinate hypertrophy) raises upstream resistance and drives CPAP intolerance.
-- The retropalatal region (soft palate, uvula, lateral pharyngeal walls) is the classic UPPP target.
-- The retroglossal/hypopharyngeal region (tongue base, epiglottis) is where tongue-base and hypoglossal nerve procedures work.Identifying where collapse occurs determines which surgery, if any, is appropriate.
+[figure: The three anatomic levels where the upper airway can collapse in OSA: nasal, retropalatal, and retroglossal.]OSA is upper airway collapse during sleep, and it usually happens at more than one level at once. CPAP is first-line. Surgery is for CPAP intolerance or failure, so the anatomy answers the question of who might need surgery, and where.
+The three levels of collapseLevelKey structuresWhat raises collapse riskProcedure that targets itNasalSeptum, turbinatesSeptal deviation and turbinate hypertrophy raise upstream resistanceSeptoplasty / turbinate reduction (improves CPAP tolerance, not usually AHI)Retropalatal (velopharynx)Soft palate, uvula, lateral pharyngeal walls, tonsilsMost frequent site of collapse; large tonsils, bulky palateTonsillectomy, UPPP, pharyngoplastyRetroglossal / hypopharyngealTongue base, epiglottisMacroglossia, tongue-base bulk, floppy epiglottisTongue-base reduction, hypoglossal nerve stimulationCollapse is often multi-level, so one site does not exclude another.
+Finding the site
+- The awake exam suggests the level. Drug-induced sleep endoscopy (DISE) directly visualizes dynamic collapse during sedated sleep, and is required before hypoglossal nerve stimulation to exclude complete concentric palatal collapse (a predictor of poor response).
+- VOTE classification describes DISE collapse as Velum, Oropharynx (lateral walls), Tongue base, Epiglottis. It maps onto the three levels above.Where collapse occurs, and whether it is single- or multi-level, determines which surgery (if any) is appropriate. CPAP remains first-line regardless of site.
 
 **Friedman tongue position and staging** (tags: Tongue position · Oropharynx exam · UPPP response)
 
@@ -238,20 +238,8 @@ Inclusion vs. exclusion branches: why cuff placement is everything: CN XII is pu
 
 - Medial branches -> protrusors (genioglossus &plusmn; intrinsic protrusive fibers). Stimulating these protrudes/stiffens the tongue -> opens the retrolingual airway. These are the 'inclusion' branches, captured inside the cuff.
 - Lateral branches -> retractors (hyoglossus, styloglossus). Stimulating these retracts the tongue (counterproductive); these are the 'exclusion' branches, deliberately kept out of the cuff.Practical operative points: intraoperative EMG/nerve integrity monitoring confirms genioglossus (protrusion) activation without hyoglossus/styloglossus (retraction) before the cuff is secured: the surgeon looks for the tongue to protrude, not retract. Bipolar (not monopolar) cautery is used near the device to avoid damaging it.
-Indications (FDA, unilateral device):
-
-- Adult (&ge;18y) with moderate-to-severe OSA who has failed or cannot tolerate CPAP
-- AHI in the approved range (originally 15-65, upper limit since expanded: confirm current device labeling)
-- BMI below threshold (originally &le;32, many payers/labels now allow <35, up to <40 in updated criteria: verify against current guidance)
-- <25% central/mixed apneas
-- DISE showing no complete concentric collapse at the palate (the make-or-break selection step)Contraindications:
-
-- Complete concentric collapse of the velum/palate on DISE (the single most important exclusion: the collapse is too circumferential for tongue protrusion to overcome)
-- BMI or AHI above current thresholds, &ge;25% central/mixed apnea
-- Severe obstructive/restrictive lung disease
-- Neurologic conditions limiting upper-airway/tongue control (or prior surgery that does so)
-- Pregnancy (or planned pregnancy)
-- Inability to operate the device, or need for incompatible MRIDISE Findings and HGNS Candidacy: tongue-base/retrolingual (anteroposterior) collapse responds well to hypoglossal nerve stimulation; complete concentric palatal collapse does not, so every candidate undergoes drug-induced sleep endoscopy first.
+Indications and contraindications (FDA, unilateral device)
+CriterionCandidateExcludePatientAdult (&ge;18y) with moderate-to-severe OSA who has failed or cannot tolerate CPAPAHIIn the approved range (originally 15-65, upper limit since expanded: confirm current device labeling)Above current thresholdBMIBelow threshold (originally &le;32, many payers and labels now allow <35, up to <40 in updated criteria: verify against current guidance)Above current thresholdCentral / mixed apneas<25%&ge;25%DISENo complete concentric collapse at the palate (the make-or-break selection step)Complete concentric collapse of the velum/palate, the single most important exclusion: too circumferential for tongue protrusion to overcomeLung diseaseSevere obstructive or restrictive lung diseaseNeurologicConditions limiting upper-airway or tongue control, or prior surgery that does soPregnancyPregnancy or planned pregnancyDevice useInability to operate the device, or need for incompatible MRIDISE Findings and HGNS Candidacy: tongue-base/retrolingual (anteroposterior) collapse responds well to hypoglossal nerve stimulation; complete concentric palatal collapse does not, so every candidate undergoes drug-induced sleep endoscopy first.
 Unilateral vs. bilateral HGNS:
 Unilateral (established approach): cuff on one hypoglossal nerve (typically the right), stimulating the medial/protrusor fibers, synchronized to inspiration via a respiratory sensing lead. The FDA-approved, phase-III-validated design, with STAR/ADHERE data showing ~68-83% AHI reduction.
 Bilateral (newer): stimulates both hypoglossal nerves and, in the current device, is breath-rate-independent (no separate chest sensing lead). Single-arm trials show meaningful AHI reduction but still less mature than unilateral data.

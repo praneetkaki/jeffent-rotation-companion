@@ -2818,7 +2818,9 @@ body.on-home main.wrap { padding-top: 20px; }
 /* Tighter vertical rhythm so the hero fits a laptop screen with the scroll cue clear of the stats row. */
 .home-hero-sec .bento-hero { gap: clamp(12px, 2.4vh, 28px); padding-top: clamp(14px, 2.6vh, 36px); padding-bottom: clamp(14px, 2.6vh, 36px); }
 .home-hero-sec .bento-hero-title { font-size: clamp(1.7rem, 4vw, 2.7rem); }
-.home-hero-sec .bp-rings { width: min(100%, 180px); }
+.home-hero-sec .bp-rings { width: min(100%, 52vh, 420px); }
+.home-hero-sec .bp-ringwrap { gap: clamp(18px, 3vh, 32px); }
+.home-hero-sec .bp-legend li { font-size: 15px; }
 .home-hero-sec .bp-chart { min-height: 100px; }
 .home-hero-sec .bp-heat { min-height: 120px; }
 .home-hero-sec .bento-panel { padding: clamp(14px, 2vh, 22px) clamp(16px, 1.8vw, 24px); gap: 12px; }

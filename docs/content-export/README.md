@@ -1,4 +1,4 @@
-# Content export (generated 2026-10-20)
+# Content export (generated 2026-10-21)
 
 Every piece of module content, extracted from `content/*.js`. Regenerate with `node scripts/extract-content-for-review.js`.
 
@@ -12,7 +12,7 @@ Every piece of module content, extracted from `content/*.js`. Regenerate with `n
 | [anatomy-atlas.md](anatomy-atlas.md) | Anatomy Atlas | ~38k chars |
 | [emergencies-red-flags.md](emergencies-red-flags.md) | Emergencies & Red Flags | ~67k chars |
 | [ent-exam.md](ent-exam.md) | Foundations: Exam, Approach & Emergencies | ~95k chars |
-| [facial-plastics-trauma.md](facial-plastics-trauma.md) | Facial Plastics & Trauma | ~70k chars |
+| [facial-plastics-trauma.md](facial-plastics-trauma.md) | Facial Plastics & Trauma | ~72k chars |
 | [frameworks.md](frameworks.md) | Curriculum framework registry | ~1k chars |
 | [glossary.md](glossary.md) | Glossary (inline term popovers) | ~89k chars |
 | [head-neck-oncology.md](head-neck-oncology.md) | Head & Neck Oncology | ~77k chars |
@@ -23,5 +23,5 @@ Every piece of module content, extracted from `content/*.js`. Regenerate with `n
 | [pimp-questions.md](pimp-questions.md) | Frequently Asked Questions (rounds/procedures) | ~30k chars |
 | [procedures-2min.md](procedures-2min.md) | 2-Minute Procedure Prep | ~31k chars |
 | [rhinology-sinus.md](rhinology-sinus.md) | Rhinology & Sinus | ~54k chars |
-| [sleep-osa.md](sleep-osa.md) | Sleep Surgery & OSA | ~72k chars |
+| [sleep-osa.md](sleep-osa.md) | Sleep Surgery & OSA | ~73k chars |
 | [ukmla.md](ukmla.md) | UKMLA scope registry | ~1k chars |
