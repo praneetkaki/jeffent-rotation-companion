@@ -4279,14 +4279,8 @@
    * sync. `container` is whatever ancestor still holds the pre-reveal
    * .flashcard at the moment this is called. Skipped under
    * prefers-reduced-motion (reveal happens immediately, no animation). */
-  var flipInPending = false;
-  function flipCardThen(container, reveal) {
-    var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    var fcEl = container && container.querySelector(".flashcard");
-    if (reduced || !fcEl) { reveal(); return; }
-    fcEl.classList.add("card-flip-out");
-    setTimeout(function () { flipInPending = true; reveal(); }, 170);
-  }
+  function flipCardThen(container, reveal) { reveal(); }
+
 
   /* Deck-metaphor grading: once a card is revealed, drag it (mouse, touch,
    * or pen -- Pointer Events unify all three) and fling it off in a
@@ -4440,7 +4434,6 @@
     if (_note) fc.appendChild(h('<div class="card-note"><strong>Your note:</strong> ' + esc(_note) + '</div>'));
     if (card.reviewer) fc.appendChild(h('<div class="card-source"><span class="rev">Reviewed: ' + esc(card.reviewer) + '</span></div>'));
     shell.appendChild(fc);
-    if (flipInPending) { fc.classList.add("card-flip-in"); flipInPending = false; }
     linkGlossaryTerms(fc);
     enhanceReferenceTables(fc);
 
@@ -6381,7 +6374,6 @@
     fc.appendChild(back);
     if (fpNote) fc.appendChild(h('<div class="card-note"><strong>Your note:</strong> ' + esc(fpNote) + '</div>'));
     stage.appendChild(fc);
-    if (flipInPending) { fc.classList.add("card-flip-in"); flipInPending = false; }
     linkGlossaryTerms(fc);
     enhanceReferenceTables(fc);
     if (!fp.revealed) {
