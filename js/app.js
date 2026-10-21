@@ -263,9 +263,26 @@
     state.screen = "module"; state.moduleId = r.m; state.session = null; state.caseSession = null;
     state.tab = r.t || "anatomy"; if (TABS.indexOf(state.tab) === -1) state.tab = "anatomy";
     state.anatomyTopic = r.k ? { kind: r.k, index: r.i } : null;
+    if (state.tab === "cases" && r.c != null) state.caseSession = freshCaseSession(r.c);
     renderModule(r.m);
     showScreen("module");
+    if (r.y) setTimeout(function () { window.scrollTo(0, r.y); }, 120);
   }
+  /* Remember where on the page the student stopped, per module. */
+  (function () {
+    var timer = null;
+    window.addEventListener("scroll", function () {
+      if (state.screen !== "module" || !state.moduleId) return;
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        var list = loadRecents();
+        if (!list.length || list[0].m !== state.moduleId) return;
+        list[0].y = Math.round(window.scrollY || 0);
+        list[0].c = state.tab === "cases" && state.caseSession ? state.caseSession.index : null;
+        try { localStorage.setItem(RECENT_KEY, JSON.stringify(list)); } catch (e) {}
+      }, 350);
+    }, { passive: true });
+  })();
   function buildJumpRow() {
     var recents = loadRecents().filter(function (r) { return window.JEFFENT.get(r.m); }).slice(0, 2);
     var starter = !recents.length;
@@ -1530,12 +1547,143 @@
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(layout);
   }
 
+  /* ---------- progress history, daily goal, today's plan ---------- */
+  function localDayKey(d) {
+    d = d || new Date();
+    return d.getFullYear() + "-" + ("0" + (d.getMonth() + 1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2);
+  }
+  function lsGet(key, fallback) {
+    try { var v = JSON.parse(localStorage.getItem(key)); return v == null ? fallback : v; } catch (e) { return fallback; }
+  }
+  function lsSet(key, val) { try { localStorage.setItem(key, JSON.stringify(val)); } catch (e) {} }
+
+  /* A daily mastery snapshot per track, so the hero can say what moved this week. */
+  function recordMasterySnapshot() {
+    var snap = {};
+    var all = aggregateStats(window.JEFFENT.modules);
+    snap.all = all.total ? Math.round((all.mastered / all.total) * 100) : 0;
+    TRACKS.forEach(function (t) {
+      var mods = modulesFor(t.id);
+      if (!mods.length) return;
+      var a = aggregateStats(mods);
+      snap[t.id] = a.total ? Math.round((a.mastered / a.total) * 100) : 0;
+    });
+    var hist = lsGet("jeffent.masteryHist", {});
+    hist[localDayKey()] = snap;
+    var keys = Object.keys(hist).sort();
+    while (keys.length > 45) delete hist[keys.shift()];
+    lsSet("jeffent.masteryHist", hist);
+    return { hist: hist, today: snap };
+  }
+  /* Change since the oldest snapshot that is 2 to 14 days old. Null until there is history. */
+  function masteryDeltas(info) {
+    var now = Date.now(), best = null, bestAge = -1;
+    Object.keys(info.hist).forEach(function (k) {
+      var age = (now - new Date(k + "T12:00:00").getTime()) / 86400000;
+      if (age >= 1.5 && age <= 14.5 && age > bestAge) { best = info.hist[k]; bestAge = age; }
+    });
+    if (!best) return null;
+    var out = {};
+    Object.keys(info.today).forEach(function (k) { if (best[k] != null) out[k] = info.today[k] - best[k]; });
+    return out;
+  }
+
+  var PLAN_FOCUS_KEY = "jeffent.plan.focus", PLAN_DONE_KEY = "jeffent.plan.done";
+  function planDone() {
+    var d = lsGet(PLAN_DONE_KEY, null);
+    return d && d.day === localDayKey() ? d.items || {} : {};
+  }
+  function planToggle(id) {
+    var items = planDone();
+    if (items[id]) delete items[id]; else items[id] = 1;
+    lsSet(PLAN_DONE_KEY, { day: localDayKey(), items: items });
+  }
+  function planFocusTracks() {
+    return TRACKS.filter(function (t) { return (t.category === "core" || t.category === "subspecialty") && modulesFor(t.id).length; });
+  }
+  /* Today's plan from existing data only: due cards first, then the next unread notes, then one case. */
+  function buildPlanItems(focus) {
+    var mods = focus === "all" ? window.JEFFENT.modules.filter(function (m) { var t = trackById(m.track); return t && (t.category === "core" || t.category === "subspecialty"); }) : modulesFor(focus);
+    var items = [];
+    var due = aggregateStats(mods).due;
+    if (due > 0) {
+      items.push({ id: "due:" + focus, label: "Review " + due + " due card" + (due === 1 ? "" : "s"), sub: focus === "all" ? "Across all modules" : esc((trackById(focus) || {}).name || ""), go: function () { if (focus === "all") goStudyAll(); else goTrack(focus); } });
+    }
+    var notes = 0;
+    mods.forEach(function (m) {
+      var list = (m.anatomy && m.anatomy.notes) || [];
+      for (var i = 0; i < list.length && notes < 2; i++) {
+        if (isLessonLearned(m.id, { kind: "note", index: i })) continue;
+        (function (mod, idx, n) {
+          items.push({ id: "note:" + mod.id + ":" + idx, label: "Read " + n.title, sub: esc(mod.title) + " &middot; ~" + noteMinutes(n.html) + " min read", go: function () { openNote(mod.id, idx); } });
+        })(m, i, list[i]);
+        notes++;
+        break;
+      }
+    });
+    var withCases = mods.filter(function (m) { return (m.cases || []).length; });
+    if (withCases.length) {
+      var day = Math.floor(Date.now() / 86400000);
+      var cm = withCases[day % withCases.length];
+      var ci = day % cm.cases.length;
+      items.push({ id: "case:" + cm.id + ":" + ci, label: "Case " + (ci + 1) + ": " + (cm.cases[ci].preview || teaserOf(cm.cases[ci].stem, 70)), sub: esc(cm.title) + " &middot; " + (cm.cases[ci].prompts || []).length + " questions", go: function () { openCase(cm.id, ci); } });
+    }
+    return items;
+  }
+  function buildPlanPanel() {
+    var panel = h('<section class="bento-panel bp-planpanel"><header><h3>Today\'s plan</h3></header><div class="plan-chips" role="group" aria-label="Focus area"></div><div class="plan-body"></div></section>');
+    var chipsEl = panel.querySelector(".plan-chips"), body = panel.querySelector(".plan-body");
+    var focus = lsGet(PLAN_FOCUS_KEY, null);
+    var options = [{ id: "all", name: "All" }].concat(planFocusTracks().map(function (t) { return { id: t.id, name: t.name.split(",")[0].replace(" & Neurotology", "").replace(" & Sinus", "").replace(" Oncology", "").replace(" & Trauma", "").replace(" Surgery & OSA", "").replace(" & Red Flags", "") }; }));
+    function paint() {
+      chipsEl.innerHTML = "";
+      options.forEach(function (o) {
+        var b = h('<button type="button" class="plan-chip' + (focus === o.id ? ' on' : '') + '" aria-pressed="' + (focus === o.id) + '">' + esc(o.name) + '</button>');
+        b.addEventListener("click", function () { focus = focus === o.id ? null : o.id; lsSet(PLAN_FOCUS_KEY, focus); paint(); });
+        chipsEl.appendChild(b);
+      });
+      body.innerHTML = "";
+      if (!focus) { body.appendChild(h('<p class="plan-prompt">Pick a focus area to build today\'s plan.</p>')); return; }
+      var done = planDone();
+      var items = buildPlanItems(focus);
+      if (!items.length) { body.appendChild(h('<p class="plan-prompt">Nothing queued for this area.</p>')); return; }
+      var left = items.filter(function (it) { return !done[it.id]; }).length;
+      var list = h('<ul class="plan-list"></ul>');
+      items.forEach(function (it) {
+        var li = h('<li class="plan-item' + (done[it.id] ? ' done' : '') + '"><button type="button" class="plan-check" role="checkbox" aria-checked="' + !!done[it.id] + '" aria-label="Mark done"></button><button type="button" class="plan-go"><span class="plan-label">' + esc(it.label) + '</span><span class="plan-sub">' + it.sub + '</span></button></li>');
+        li.querySelector(".plan-check").addEventListener("click", function () { planToggle(it.id); paint(); });
+        li.querySelector(".plan-go").addEventListener("click", it.go);
+        list.appendChild(li);
+      });
+      body.appendChild(list);
+      if (!left) body.appendChild(h('<p class="plan-prompt">Plan complete for today.</p>'));
+    }
+    paint();
+    return panel;
+  }
+
   function renderHome() {
     var allMods = window.JEFFENT.modules;
     var agg = aggregateStats(allMods);
     var pct = agg.total ? Math.round((agg.mastered / agg.total) * 100) : 0;
     var reviewedCount = allMods.filter(isReviewed).length;
     var streak = getStreak();
+    var snapInfo = recordMasterySnapshot();
+    var deltas = masteryDeltas(snapInfo);
+    var deltaChip = "";
+    if (deltas && deltas.all != null && deltas.all !== 0) deltaChip = '<span class="bento-delta ' + (deltas.all > 0 ? "up" : "down") + '">Mastery ' + (deltas.all > 0 ? "up " : "down ") + Math.abs(deltas.all) + '% this week</span>';
+    var insightLine = "";
+    (function () {
+      var bestT = null, bestD = 0;
+      if (deltas) TRACKS.forEach(function (t) { if (deltas[t.id] != null && deltas[t.id] > bestD) { bestD = deltas[t.id]; bestT = t; } });
+      if (bestT) {
+        var due = aggregateStats(modulesFor(bestT.id)).due;
+        insightLine = esc(bestT.name.split(",")[0]) + " up " + bestD + "% this week." + (due ? " " + due + " card" + (due === 1 ? "" : "s") + " due." : "");
+      } else if (agg.due > 0) {
+        var top = TRACKS.map(function (t) { return { t: t, due: aggregateStats(modulesFor(t.id)).due }; }).sort(function (a, b) { return b.due - a.due; })[0];
+        insightLine = top && top.due ? "Most cards are due in " + esc(top.t.name.split(",")[0]) + ": " + top.due + "." : "";
+      } else { insightLine = "Nothing due. Read a note or work a case."; }
+    })();
 
     var root = el("screen-home");
     root.innerHTML = "";
@@ -1561,7 +1709,8 @@
         '<div class="bento-hero-top">' +
           '<div class="bento-hero-copy">' +
             '<h1 class="bento-hero-title">Spaced repetition queue</h1>' +
-            '<div class="bento-hero-sub">' + agg.due + ' card' + (agg.due === 1 ? '' : 's') + ' due across ' + allMods.length + ' modules.</div>' +
+            '<div class="bento-hero-sub">' + agg.due + ' card' + (agg.due === 1 ? '' : 's') + ' due across ' + allMods.length + ' modules.' + deltaChip + '</div>' +
+            (insightLine ? '<div class="bento-hero-insight">' + insightLine + '</div>' : '') +
           '</div>' +
           '<div class="bento-streak-chip" data-dash="streak" role="button" tabindex="0" aria-label="' + streak + (streak === 1 ? ' day' : ' days') + ' study streak. Show daily review activity.">' +
             '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a6 6 0 1 1-12 0c0-1.088.348-2.05.5-2.5"/></svg>' +
@@ -1619,9 +1768,14 @@
 
     /* Middle of the hero: a week of activity, mastery by subspecialty, and the weakest cards. */
     var panels = h('<div class="bento-panels"></div>');
-    var dayLetters = ["S", "M", "T", "W", "T", "F", "S"], now = new Date(), weekTotal = 0, peak = Math.max.apply(null, activity7.concat([10]));
+    var dayLetters = ["S", "M", "T", "W", "T", "F", "S"], now = new Date(), weekTotal = 0, dailyGoal = parseInt(lsGet("jeffent.dailyGoal", 0), 10) || 0, peak = Math.max.apply(null, activity7.concat([10, dailyGoal]));
     activity7.forEach(function (v) { weekTotal += v; });
     var activeDays = activity7.filter(function (v) { return v > 0; }).length, best = Math.max.apply(null, activity7);
+    var peakLabel = "best day";
+    if (best > 0) {
+      var bi = activity7.lastIndexOf(best), bd = new Date(now.getFullYear(), now.getMonth(), now.getDate() - (activity7.length - 1 - bi));
+      peakLabel = "peak, " + ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][bd.getDay()];
+    }
     var weekLabel = weekTotal + " reviewed";
     var bars = activity7.map(function (v, i) {
       var d = new Date(now.getFullYear(), now.getMonth(), now.getDate() - (activity7.length - 1 - i));
@@ -1633,8 +1787,26 @@
     var cp = h(
       '<section class="bento-panel bp-activity"><header><h3>Last 7 days</h3><span class="bp-figure">' + weekLabel + '</span></header>' +
       '<div class="bp-chart" role="group" aria-label="Cards reviewed per day over the last 7 days">' + bars + '</div>' +
-      '<div class="bp-stats"><span><b>' + activeDays + '/7</b> active days</span><span><b>' + best + '</b> best day</span><span><b>' + streak + '</b> day streak</span></div></section>'
+      '<div class="bp-stats"><span><b>' + activeDays + '/7</b> active days</span><span><b>' + best + '</b> ' + peakLabel + '</span><span><b>' + streak + '</b> day streak</span>' +
+      '<label class="bp-goal-wrap">Daily goal <input type="number" class="bp-goal-in" min="0" max="999" inputmode="numeric" value="' + (dailyGoal || "") + '" placeholder="Set" aria-label="Daily review goal"></label></div></section>'
     );
+    var chartEl = cp.querySelector(".bp-chart");
+    function placeGoal() {
+      var g = parseInt(cp.querySelector(".bp-goal-in").value, 10) || 0;
+      var line = chartEl.querySelector(".bp-goalline");
+      if (!g) { if (line) line.remove(); return; }
+      if (!line) { line = h('<i class="bp-goalline" aria-hidden="true"><em></em></i>'); chartEl.appendChild(line); }
+      var pk = Math.max.apply(null, activity7.concat([10, g]));
+      line.style.setProperty("--g", (g / pk).toFixed(3));
+      line.firstChild.textContent = "Goal " + g;
+    }
+    placeGoal();
+    cp.querySelector(".bp-goal-in").addEventListener("change", function () {
+      var g = Math.max(0, Math.min(999, parseInt(this.value, 10) || 0));
+      this.value = g || "";
+      lsSet("jeffent.dailyGoal", g);
+      renderHome();
+    });
     var fig = cp.querySelector(".bp-figure");
     cp.querySelectorAll(".bp-col").forEach(function (c) {
       function on() { fig.textContent = c.getAttribute("data-tip"); cp.classList.add("is-scrubbing"); }
@@ -1662,6 +1834,7 @@
     );
     panels.appendChild(rp);
     panels.appendChild(cp);
+    panels.appendChild(buildPlanPanel());
 
     /* Count the due number up once, unless motion is reduced. */
     (function () {
