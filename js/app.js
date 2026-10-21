@@ -6434,8 +6434,25 @@
    * Content keeps authoring plain <table> HTML per the content model --
    * this is a pure rendering enhancement, so every existing and future
    * table benefits with no content changes. */
+  /* Complications read as warnings: tag the heading, and the table or list
+   * right under it, so CSS can give them a subtle red treatment everywhere. */
+  function markComplications(root) {
+    var re = /^\s*(clinical\s+)?complications?\b/i;
+    [].forEach.call(root.querySelectorAll("h4, p > strong:only-child"), function (el) {
+      var head = el.tagName === "STRONG" ? el.parentNode : el;
+      if (!re.test(el.textContent) || head.classList.contains("cx-head")) return;
+      head.classList.add("cx-head");
+      var nxt = head.nextElementSibling;
+      if (nxt && (nxt.matches("ul, ol, table") || nxt.querySelector("table"))) nxt.classList.add("cx-body");
+    });
+    [].forEach.call(root.querySelectorAll(".panel > h3"), function (h3) {
+      if (/complication/i.test(h3.textContent)) h3.parentNode.classList.add("cx-panel");
+    });
+  }
+
   function enhanceReferenceTables(root) {
     if (!root) return;
+    markComplications(root);
     [].slice.call(root.querySelectorAll(".panel > div")).forEach(titleTables);
     root.querySelectorAll("table").forEach(function (table) {
       /* The 2-Minute Procedure Prep quick-matcher is a live, JS-filtered

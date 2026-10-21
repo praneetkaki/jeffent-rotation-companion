@@ -2976,3 +2976,11 @@ mark.user-hl[data-c="orange"] { background: rgba(255, 150, 50, .4); }
 /* Clinical block titles: stay on one line where they can, balance when they cannot. */
 .panel > h3 { text-wrap: balance; }
 @media (min-width: 900px) { .tabpane[data-pane="clinical"] > .panel > h3, .lesson-main > .panel > h3 { font-size: clamp(1.2rem, 1.6vw, 1.5rem); padding-right: 70px; } }
+
+/* Complications: quiet red cue, present but not loud. */
+.cx-head, .cx-head strong { color: var(--flag) !important; }
+.cx-head::before { content: ""; display: inline-block; vertical-align: middle; margin: -2px 8px 0 0; width: 7px; height: 7px; border-radius: 50%; background: var(--flag); box-shadow: 0 0 0 3px color-mix(in srgb, var(--flag) 22%, transparent); }
+.cx-body { border-left: 3px solid color-mix(in srgb, var(--flag) 70%, transparent); border-radius: 0 8px 8px 0; }
+.cx-body tbody tr { background: color-mix(in srgb, var(--flag) 3%, transparent); }
+.cx-body thead th { color: var(--flag); }
+.cx-panel { border-top: 3px solid color-mix(in srgb, var(--flag) 70%, transparent); }
