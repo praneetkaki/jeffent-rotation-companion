@@ -19,6 +19,7 @@ A dependency-free **static web app** for ENT rotation study (active recall + spa
   redFlags:[ { t /* HTML */ } ],
   diagrams:[ { id, title, note, viewBox, base /* SVG */, labels:[{id,text,px,py,lx,ly}] } ] }
 ```
+Clinical blocks may also carry `key:["..."]` (2 to 4 takeaway lines shown as a strip above the block) and are colored by type (Core, Management, Diagnosis, Differential, Complications) from their title in `js/app.js`.
 `front`/`back`/`html`/`t` may contain trusted HTML (it's local content, rendered via innerHTML).
 
 ## Hard rules for content

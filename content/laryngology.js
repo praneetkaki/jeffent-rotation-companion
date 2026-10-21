@@ -144,6 +144,7 @@ window.JEFFENT.register({
       {
         id: "dysphonia-guideline-principles",
         title: "When to perform laryngoscopy",
+        key: ["Scope if dysphonia has not resolved within 4 weeks.", "Scope sooner if a serious cause is suspected.", "No CT/MRI, antireflux drugs, steroids, or antibiotics before laryngoscopy."],
         html: "<p><strong>Perform or refer for laryngoscopy</strong> (AAO-HNS 2018):</p><ul><li>Dysphonia not improved or resolved within <strong>4 weeks</strong>.</li><li><strong>Expedited</strong>, at any time, if a serious cause is suspected:<ul><li>Recent head, neck, or chest surgery, or intubation</li><li>Neck mass</li><li>Stridor or respiratory distress</li><li>Tobacco use</li><li>Professional voice user</li></ul></li></ul><p><strong>Before laryngoscopy, do not:</strong></p><ul><li>Obtain CT or MRI for a primary voice complaint.</li><li>Routinely prescribe antireflux medication or corticosteroids.</li><li>Routinely prescribe antibiotics (strong recommendation against).</li></ul>"
       },
       {
@@ -224,11 +225,13 @@ window.JEFFENT.register({
       {
         id: "early-glottic-cancer-treatment",
         title: "Early glottic cancer (T1-T2, N0): TLM vs radiotherapy",
+        key: ["TLM and radiotherapy have roughly equivalent survival and larynx preservation.", "TLM preserves radiotherapy for salvage; radiotherapy generally cannot be repeated.", "T3-T4 goes to tumor board."],
         html: "<p>Two standard single-modality options, with roughly equivalent overall and disease-specific survival and high larynx preservation:</p><ul><li><strong>Transoral laser microsurgery (TLM)</strong><ul><li>Single procedure with margin histology</li><li>Spares surrounding tissue</li><li>Preserves radiotherapy for later salvage</li></ul></li><li><strong>Definitive radiotherapy (RT)</strong><ul><li>May give a smoother voice in some cases</li><li>Irradiates the whole larynx</li><li>Generally cannot be repeated</li></ul></li></ul><p><strong>Choice depends on:</strong></p><ul><li>Tumor exposure and extent (e.g., anterior commissure involvement)</li><li>Voice priorities</li><li>Comorbidity</li><li>Team expertise</li></ul><p><strong>Advanced disease (T3-T4):</strong> larynx-preservation chemoradiation or total laryngectomy, decided at tumor board.</p>"
       },
       {
         id: "vcd",
         title: "Vocal cord dysfunction (paradoxical vocal fold motion)",
+        key: ["Episodic inspiratory stridor that does not respond to bronchodilators.", "Gold standard is laryngoscopy with provocation.", "Treat with speech-therapy breathing retraining, not inhaler escalation."],
         html: "<p>Now termed <strong>inducible laryngeal obstruction (ILO)</strong>: paradoxical inspiratory adduction of the vocal folds.</p><ul><li><strong>Presentation</strong><ul><li>Episodic dyspnea and inspiratory stridor</li><li>Mimics asthma; does not respond to bronchodilators</li></ul></li><li><strong>Testing</strong><ul><li>Spirometry between episodes is often normal</li><li>During an episode, the inspiratory flow-volume loop may be truncated or flattened</li><li>Gold standard: <strong>laryngoscopy with provocation</strong>, showing abnormal inspiratory closure (the threshold is not universally standardized)</li></ul></li><li><strong>Coexists with asthma</strong> (reported ~30-50% in difficult asthma), so asthma does not exclude it</li><li><strong>Management</strong><ul><li>Speech-therapy breathing retraining</li><li>Treat triggers: reflux, irritants, exercise, anxiety</li><li>Not inhaler escalation</li></ul></li></ul>"
       },
       {

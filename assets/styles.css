@@ -2984,3 +2984,19 @@ mark.user-hl[data-c="orange"] { background: rgba(255, 150, 50, .4); }
 .cx-body tbody tr { background: color-mix(in srgb, var(--flag) 3%, transparent); }
 .cx-body thead th { color: var(--flag); }
 .cx-panel { border-top: 3px solid color-mix(in srgb, var(--flag) 70%, transparent); }
+
+/* Clinical blocks: colored stripe and kicker by block type. */
+:root { --cl-core: #2f7a4d; --cl-mgmt: #c27a12; --cl-dx: #2f6f9f; --cl-ddx: #7a5aa6; }
+:root[data-theme="dark"] { --cl-core: #6fc08c; --cl-mgmt: #e0a64a; --cl-dx: #6fb0e0; --cl-ddx: #b79be0; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --cl-core: #6fc08c; --cl-mgmt: #e0a64a; --cl-dx: #6fb0e0; --cl-ddx: #b79be0; } }
+.cl-core { --cl: var(--cl-core); } .cl-mgmt { --cl: var(--cl-mgmt); } .cl-dx { --cl: var(--cl-dx); } .cl-ddx { --cl: var(--cl-ddx); } .cl-cx { --cl: var(--flag); }
+.panel[class*="cl-"] { border-left: 4px solid var(--cl); padding-left: clamp(16px, 2vw, 26px); }
+.cl-kind { font-size: 10.5px; letter-spacing: .09em; text-transform: uppercase; color: var(--cl); margin-bottom: 6px; }
+.cl-cx.panel { border-top: 0; }
+.cl-key { list-style: none; margin: 0 0 18px; padding: 12px 16px; border-radius: 10px; background: color-mix(in srgb, var(--cl) 8%, transparent); display: grid; gap: 6px; }
+.cl-key li { position: relative; padding-left: 16px; font-size: 14.5px; line-height: 1.45; }
+.cl-key li::before { content: ""; position: absolute; left: 0; top: .55em; width: 6px; height: 6px; border-radius: 50%; background: var(--cl); }
+/* Breathing room around tables. */
+.panel .tbl-scroll, .panel table.tbl-wrap, .lesson-main table.tbl-wrap { margin-bottom: 20px; }
+.tbl-scroll + p, .tbl-scroll + ul, .tbl-scroll + ol, .tbl-scroll + h4, table + p, table + ul, table + h4, .tbl-scroll + div { margin-top: 20px; }
+.panel h4 { margin-top: 26px; }

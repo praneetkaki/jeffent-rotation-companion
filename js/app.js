@@ -3230,7 +3230,8 @@
     var main = showNav ? h('<div class="lesson-main"></div>') : pane;
     blocks.forEach(function (b, i) {
       var anchor = "clinical-block-" + esc(b.id || "");
-      var p = h('<div class="panel' + (b.pearl ? ' pearl' : '') + '" data-anchor="' + anchor + '"><h3>' + esc(b.title) + '</h3></div>');
+      var kind = clinicalKind(b.title);
+      var p = h('<div class="panel' + (b.pearl ? ' pearl' : '') + ' cl-' + kind.k + '" data-anchor="' + anchor + '"><div class="cl-kind mono">' + kind.label + '</div><h3>' + esc(b.title) + '</h3></div>');
       var blockText = stripHtml(b.html || "");
       var blockActions = h('<div class="panel-actions"></div>');
       blockActions.appendChild(bookmarkButton({
@@ -3240,6 +3241,7 @@
       }));
       if (blockText) blockActions.appendChild(audioBriefButton(function () { return blockText; }, b.title));
       p.appendChild(blockActions);
+      if (b.key && b.key.length) p.appendChild(h('<ul class="cl-key" aria-label="Key points">' + b.key.map(function (k2) { return '<li>' + k2 + '</li>'; }).join("") + '</ul>'));
       if (b.html) p.appendChild(h('<div>' + b.html + '</div>'));
       if (b.table) {
         p.appendChild(h(
@@ -3281,6 +3283,17 @@
     if (mod.id === ACTIVE_RECALL_MODULE_ID && state.activeRecall) applyActiveRecallMask(main);
     if (showNav) initClinicalScrollspy(pane, nav, timeLabel, wordCounts);
     return pane;
+  }
+
+  /* Clinical block type, read from its title, drives the colored stripe and
+   * kicker so a long scroll of blocks is easy to tell apart. */
+  function clinicalKind(title) {
+    var t = String(title || "");
+    if (/complication/i.test(t)) return { k: "cx", label: "Complications" };
+    if (/management|treatment|therap|ladder|surg|indicat|prescrib|laryngoscopy|dissection|reconstruction|tracheostomy|drainage|approach|when to/i.test(t)) return { k: "mgmt", label: "Management" };
+    if (/work-?up|diagnos|testing|imaging|investigation|screen|grading|staging|criteria|scale|classification|scoring|endoscop|exam\b/i.test(t)) return { k: "dx", label: "Diagnosis" };
+    if (/\bvs\b|versus|differential|contrast|compar|mimic/i.test(t)) return { k: "ddx", label: "Differential" };
+    return { k: "core", label: "Core" };
   }
 
   function countWords(text) {

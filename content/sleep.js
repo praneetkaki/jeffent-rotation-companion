@@ -291,6 +291,7 @@ window.JEFFENT.register({
       {
         id: "hgns-how-it-works",
         title: "Hypoglossal nerve stimulation (HGNS): how it works",
+        key: ["HGNS is an active splint: it protrudes the tongue in time with inspiration.", "Medial branches (protrusors) go inside the cuff; lateral branches (retractors) stay out.", "DISE must show no complete concentric collapse at the palate."],
         html: "<p>An implanted device that treats OSA by electrically firing the hypoglossal nerve in time with breathing, contracting the genioglossus so the tongue protrudes and stiffens and the airway stays open: an <strong>active splint</strong>, in contrast to CPAP's <strong>pneumatic splint</strong>.</p>" +
           "<p><strong>Three components (unilateral device):</strong></p>" +
           "<ul><li><strong>Stimulation lead</strong>: a cuff electrode on the hypoglossal nerve (or its medial branch) in the neck.</li>" +
