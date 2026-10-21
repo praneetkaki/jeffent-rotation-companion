@@ -3112,3 +3112,75 @@ h1.bento-hero-title { margin: 0; font-weight: inherit; }
 .plan-label { font-size: 14px; }
 .plan-sub { font-size: 12px; color: rgba(238,244,236,.62); }
 .plan-item.done .plan-label { text-decoration: line-through; color: rgba(238,244,236,.55); }
+
+/* ---- Lighter hero: paper ground, start button first, forest green side panel ---- */
+.home-hero-sec.hero-light { background: none; --hero-ink: var(--ink); --hero-ink-soft: var(--ink-soft); color: var(--ink);
+  min-height: 0; padding-bottom: 80px; padding-top: 8px; }
+.hero-light .bento-hero { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 24px 36px; align-items: start; height: auto; }
+.hero-light .hl-left { display: flex; flex-direction: column; align-items: flex-start; gap: 20px; min-width: 0; }
+.hero-light .bento-hero-top { width: 100%; }
+.hero-light .bento-hero-title { color: var(--ink); }
+.hero-light .bento-hero-sub { color: var(--ink-soft); }
+.hero-light .bento-hero-insight { color: var(--ink-soft); }
+.hero-light .bento-delta { background: color-mix(in srgb, var(--primary) 12%, transparent); color: var(--primary-deep, var(--primary)); }
+.hero-light .bento-delta.down { background: color-mix(in srgb, var(--flag) 12%, transparent); color: var(--flag); }
+.hero-light .bento-streak-chip { background: var(--surface); color: var(--ink); border: 1px solid var(--line); }
+.hero-light .bento-streak-chip:hover, .hero-light .bento-streak-chip:focus-visible { background: var(--surface-2); }
+.hero-light .bento-start-btn { background: var(--home-green); border-color: var(--home-green); color: #fff; box-shadow: none; }
+.hero-light .bento-start-btn:hover { background: var(--home-green-lift); border-color: var(--home-green-lift); }
+.hero-light .bento-hero-scroller { width: 100%; padding-bottom: 6px; }
+.hero-light .bento-chip { background: var(--surface); border: 1px solid var(--line); color: var(--ink); }
+.hero-light .bento-chip:hover, .hero-light .bento-chip:focus-visible { background: var(--surface-2); border-color: var(--track-color, var(--primary)); }
+.hero-light .bento-chip-count { background: var(--track-color, var(--primary)); color: #fff; }
+.hero-light .bento-chip-empty { background: none; color: var(--ink-soft); }
+.hero-light .bento-hero-metrics { width: 100%; padding-top: 14px; border-top: 1px solid var(--line); gap: 8px 20px; }
+.hero-light .bento-metric-due, .hero-light .bento-metric-weak + .bento-metric-divider { display: none; }
+.hero-light .bento-metric:hover, .hero-light .bento-metric:focus-visible { background: rgba(0,0,0,.04); }
+.hero-light .bento-metric-divider { background: var(--line); }
+.hero-light .bento-metric-ring circle:first-child { stroke: var(--line); }
+.hero-light .mastery-ring-fill { stroke: var(--primary); }
+.hero-light .hl-side { grid-column: 2; grid-row: 1; background: var(--home-green); color: #eef4ec; border-radius: 22px; padding: 22px;
+  display: flex; flex-direction: column; gap: 16px; --hero-ink: #fffefc; --hero-ink-soft: #b9dcc0; }
+.hero-light .hl-side .bento-panel { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.12); }
+.hero-light .hl-side .bp-ringwrap { flex-direction: row; align-items: center; justify-content: flex-start; gap: 22px; }
+.hero-light .hl-side .bp-rings { width: 150px; flex: none; }
+.hero-light .hl-side .bp-legend { flex: 1; }
+.hero-light .hl-side :focus-visible { outline-color: #fff; }
+.hero-light :focus-visible { outline-color: var(--primary); }
+.hero-light > .home-bento .bento-hero > .bento-panels, .hero-light .bento-hero > .bento-panels { grid-column: 1 / -1; display: block; }
+.hero-light .bp-activity { background: var(--surface); border: 1px solid var(--line); }
+.hero-light .bp-activity .bp-bar { background: color-mix(in srgb, var(--primary) 28%, var(--surface)); box-shadow: none; }
+.hero-light .bp-activity .bp-col.today .bp-bar { background: var(--primary); box-shadow: none; }
+.hero-light .bp-activity .bp-chart { background-image: repeating-linear-gradient(to bottom, rgba(0,0,0,.07) 0 1px, transparent 1px 33.33%); }
+.hero-light .bp-activity .bp-col.today .bp-day, .hero-light .bp-activity .bp-col.today .bp-day b { color: var(--ink); }
+.hero-light .bp-activity .bp-day b { color: var(--ink-soft); }
+.hero-light .bp-goalline { border-top-color: #b7791f; }
+.hero-light .bp-goalline em { color: #8a5a00; }
+.hero-light .bp-goal-in { border-color: var(--line); background: var(--surface-2); color: var(--ink); }
+.hero-light .home-scroll-cue { border: 1px solid var(--line); background: var(--surface); color: var(--ink-soft); }
+.hero-light .home-scroll-cue:hover, .hero-light .home-scroll-cue:focus-visible { background: var(--surface-2); color: var(--ink); }
+.hl-chart-det { grid-column: 1 / -1; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 4px 12px; }
+.hl-chart-det > summary { cursor: pointer; padding: 12px 0; font-size: 14px; color: var(--ink); list-style: none; }
+.hl-chart-det > summary::after { content: "+"; float: right; color: var(--ink-faint); }
+.hl-chart-det[open] > summary::after { content: "\2212"; }
+.hl-chart-det .bp-activity { border: 0; padding-left: 0; padding-right: 0; }
+@media (max-width: 900px) {
+  .hero-light .bento-hero { grid-template-columns: minmax(0, 1fr); }
+  .hero-light .hl-side { grid-column: 1; grid-row: auto; }
+  .hero-light .hl-side .bp-rings { width: 120px; }
+}
+
+@media (min-width: 700px) {
+  .hl-chart-det { border: 0; padding: 0; background: none; border-radius: 0; }
+  .hl-chart-det > summary { display: none; }
+  .hl-chart-det .bp-activity { border: 1px solid var(--line); padding-left: clamp(18px, 2vw, 28px); padding-right: clamp(18px, 2vw, 28px); }
+}
+@media (max-width: 700px) {
+  .hero-light .plan-chips { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; }
+  .hero-light .plan-chips::-webkit-scrollbar { display: none; }
+  .hero-light .plan-chip { flex: none; }
+  .hero-light .hl-side { padding: 14px; gap: 12px; }
+  .hero-light .hl-side .bp-ringwrap { gap: 14px; }
+  .hero-light .bento-hero-metrics { flex-wrap: nowrap; }
+  .hero-light .bento-metric-label { font-size: 10px; }
+}

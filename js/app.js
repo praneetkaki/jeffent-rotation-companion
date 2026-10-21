@@ -1832,9 +1832,7 @@
       '<section class="bento-panel bp-ringpanel"><header><h3>Today</h3></header><div class="bp-ringwrap">' + ringSvg +
       '<ul class="bp-legend">' + ringVals.map(function (x) { return '<li><i style="background:' + x.c + '"></i><span>' + x.label + '</span><b>' + x.text + '</b></li>'; }).join("") + '</ul></div></section>'
     );
-    panels.appendChild(rp);
-    panels.appendChild(cp);
-    panels.appendChild(buildPlanPanel());
+    var planPanelEl = buildPlanPanel();
 
     /* Count the due number up once, unless motion is reduced. */
     (function () {
@@ -1859,7 +1857,28 @@
         cp.classList.add("is-in");
       });
     });
-    heroTile.insertBefore(panels, heroTile.querySelector(".bento-hero-metrics"));
+    /* Lighter hero: start button first, ring and plan in a green panel, chart below. */
+    heroSec.classList.add("hero-light");
+    var heroLeft = h('<div class="hl-left"></div>');
+    heroLeft.appendChild(heroTile.querySelector(".bento-hero-top"));
+    heroLeft.appendChild(heroTile.querySelector(".bento-start-btn"));
+    heroLeft.appendChild(heroTile.querySelector(".bento-hero-scroller"));
+    heroLeft.appendChild(heroTile.querySelector(".bento-hero-metrics"));
+    var heroSide = h('<div class="hl-side"></div>');
+    heroSide.appendChild(rp);
+    heroSide.appendChild(planPanelEl);
+    var chartDet = h('<details class="hl-chart-det"><summary>Last 7 days</summary></details>');
+    chartDet.appendChild(cp);
+    panels.appendChild(chartDet);
+    if (window.matchMedia) {
+      var wideMq = window.matchMedia("(min-width: 700px)");
+      chartDet.open = wideMq.matches;
+      var onWide = function (e) { chartDet.open = e.matches; };
+      if (wideMq.addEventListener) wideMq.addEventListener("change", onWide); else if (wideMq.addListener) wideMq.addListener(onWide);
+    } else { chartDet.open = true; }
+    heroTile.appendChild(heroLeft);
+    heroTile.appendChild(heroSide);
+    heroTile.appendChild(panels);
 
     heroTile.querySelector(".bento-metric-mastery").addEventListener("click", goRoadmap);
     heroTile.querySelector(".bento-metric-weak").addEventListener("click", goWeakSpots);
