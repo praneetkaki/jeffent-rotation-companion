@@ -10,7 +10,7 @@ Every piece of module content, extracted from `content/*.js`. Regenerate with `n
 |---|---|---|
 | [abbreviations.md](abbreviations.md) | Key Abbreviations | ~4k chars |
 | [anatomy-atlas.md](anatomy-atlas.md) | Anatomy Atlas | ~38k chars |
-| [emergencies-red-flags.md](emergencies-red-flags.md) | Emergencies & Red Flags | ~67k chars |
+| [emergencies-red-flags.md](emergencies-red-flags.md) | Emergencies & Red Flags | ~68k chars |
 | [ent-exam.md](ent-exam.md) | Foundations: Exam, Approach & Emergencies | ~95k chars |
 | [facial-plastics-trauma.md](facial-plastics-trauma.md) | Facial Plastics & Trauma | ~72k chars |
 | [frameworks.md](frameworks.md) | Curriculum framework registry | ~1k chars |

@@ -82,12 +82,9 @@ window.JEFFENT.register({
           "<p><strong>Imaging/management anchor</strong>: contrast-enhanced CT neck (extended through the chest if descent is suspected) is the key study, distinguishing a drainable abscess (rim-enhancing collection) from phlegmon and screening the mediastinum. Airway first, then IV broad-spectrum antibiotics covering oral flora (Gram-positive, Gram-negative, anaerobes) plus surgical drainage of any organized collection.</p>"
       },
       {
-        title: "Shared anatomic basis of ENT emergencies",
+        title: "Three anatomic principles of ENT emergencies",
         tagline: "Pediatric airway · Orbit and brain spread · Cartilage necrosis",
-        html: "<figure class='note-fig' data-credit=\"Head and neck (sagittal). NCI SEER via Wikimedia Commons. Public domain.\"><img class='zoomable' src='assets/1024px-Illu01_head_neck.jpg' alt='Head and neck overview' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Landmarks: Airway bottlenecks and rich vascular and fascial connections.</figcaption></figure><p>Several anatomic facts recur across ENT emergencies:</p><ul>" +
-          "<li>Airway lumens are small, so a little swelling causes a lot of obstruction (more so in children; see Pediatric ENT).</li>" +
-          "<li>The head and neck have rich vascular and lymphatic connections to the orbit and intracranial space (sinusitis → orbital/intracranial complications; otitis media → intracranial complications).</li>" +
-          "<li>Cartilage (septum, auricle, larynx) depends on adjacent perichondrium/perichondrium-equivalent for blood supply, so untreated hematoma or infection causes necrosis within days, not weeks.</li></ul>"
+        html: "<figure class='note-fig' data-credit=\"Head and neck (sagittal). NCI SEER via Wikimedia Commons. Public domain.\"><img class='zoomable' src='assets/1024px-Illu01_head_neck.jpg' alt='Head and neck overview' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Landmarks: Airway bottlenecks and rich vascular and fascial connections.</figcaption></figure><p>Three anatomic facts recur across ENT emergencies. Recognizing which one is in play tells you how fast to move and what the first action is.</p><table class='tbl-wrap'><thead><tr><th>Principle</th><th>Anatomic reason</th><th>Emergencies it explains</th><th>First action</th></tr></thead><tbody><tr><td><strong>Small airway caliber</strong></td><td>Resistance rises with the <strong>4th power of the radius</strong> (Poiseuille), so a little mucosal edema sharply narrows a small lumen. Worse in children: narrower airway, more compliant walls, cephalad larynx.</td><td>Croup, epiglottitis/supraglottitis, angioedema, anaphylaxis, inhalation injury, post-op airway edema</td><td>Assess the airway first and escalate early. Keep the child calm and upright. Prepare for a definitive airway before complete obstruction.</td></tr><tr><td><strong>Rich vascular spread to orbit and brain</strong></td><td>Sinuses sit against the orbit (thin lamina papyracea) and dura. Valveless, flow-directed veins (angular, ophthalmic, pterygoid plexus) connect the face and sinuses to the cavernous sinus. Middle ear and mastoid abut dura and the sigmoid sinus.</td><td>Sinusitis: orbital cellulitis, subperiosteal abscess, cavernous sinus thrombosis, intracranial abscess, meningitis. Otitis media/mastoiditis: intracranial complications.</td><td>Red-flag eye signs (proptosis, painful or limited eye movements, reduced acuity) or neuro signs: contrast CT/MRI, IV antibiotics, urgent ENT &plusmn; ophthalmology/neurosurgery.</td></tr><tr><td><strong>Cartilage depends on perichondrium for blood supply</strong></td><td>Septum, auricle, and larynx are largely avascular and fed by overlying perichondrium/mucosa. A hematoma or infection that strips or compresses that layer starves the cartilage within <strong>days</strong>.</td><td>Septal hematoma: saddle-nose deformity. Auricular hematoma: cauliflower ear. Laryngeal/cricoid chondritis or chondronecrosis.</td><td><strong>Drain</strong> a septal or auricular hematoma urgently (days, not weeks). Treat perichondritis aggressively. Do not just observe.</td></tr></tbody></table><p>In ENT emergencies, anatomy makes small problems escalate fast, so the threshold to image, consult, and secure the airway is low.</p>"
       },
       {
         title: "Zones of the neck",
@@ -97,7 +94,12 @@ window.JEFFENT.register({
           "<tr><td><strong>Zone I</strong></td><td>Cricoid cartilage to the thoracic outlet and clavicles</td><td>Great vessel origins (proximal carotids and subclavian vessels), trachea, esophagus, thoracic duct, lung apex</td><td><strong>Least accessible.</strong> May need a sternotomy or thoracotomy approach.</td></tr>" +
           "<tr><td><strong>Zone II</strong></td><td>Cricoid cartilage to the angle of the mandible</td><td>Carotid arteries, jugular veins, larynx, trachea, esophagus, vagus and recurrent laryngeal nerves</td><td><strong>Largest zone and most accessible.</strong> Most penetrating neck injuries occur here.</td></tr>" +
           "<tr><td><strong>Zone III</strong></td><td>Angle of the mandible to the skull base</td><td>Distal carotid and vertebral arteries, distal jugular veins, lower cranial nerves</td><td><strong>Poorly accessible.</strong> Proximal vascular control is difficult, so injuries may need interventional radiology rather than open exploration.</td></tr></tbody></table>" +
-          "<p>The practical point: a Zone II injury is easy to get into and control operatively, so a Zone II patient with hard signs typically goes straight to the OR; Zone I and III injuries are harder to control surgically, so even some hard-sign patients there are worked up with imaging (CT angiography) first to plan the approach, when they are stable enough to allow it. Note on currency: modern trauma practice has shifted to a \"no-zone\" approach: in the stable patient, hard/soft signs plus CT angiography drive management rather than the zone itself. The zones now mainly describe surgical accessibility, not who is explored.</p>"
+          "<h4>Practical point</h4>" +
+          "<ul><li><strong>Zone II with hard signs:</strong> straight to the OR. It is easy to reach and control.</li>" +
+          "<li><strong>Zone I or III with hard signs:</strong> harder to control surgically, so if the patient is stable enough, CT angiography first to plan the approach.</li></ul>" +
+          "<h4>Current practice: the no-zone approach</h4>" +
+          "<ul><li>In the stable patient, hard and soft signs plus CT angiography drive management, not the zone.</li>" +
+          "<li>Zones now describe surgical accessibility, not who is explored.</li></ul>"
       }
     ],
     diagrams: [
@@ -199,7 +201,7 @@ window.JEFFENT.register({
       },
       {
         id: "penetrating-neck-trauma-management",
-        title: "Penetrating neck trauma: hard signs go to the OR; the modern approach is \"no-zone\"",
+        title: "Penetrating neck trauma: hard signs go to the OR",
         html: "<p>After the ATLS primary survey (airway/breathing/circulation), the first question is \"<strong>hard signs or not?</strong>\", not \"what zone?\". Hard signs (expanding/pulsatile hematoma, active pulsatile bleeding, bruit/thrill, absent distal pulse, air bubbling from the wound, airway compromise, massive hemoptysis/hematemesis) mandate immediate operative exploration.</p><p>For the stable patient without hard signs, current practice uses a <strong>\"no-zone\" approach</strong>: CT angiography plus serial exam guides management, regardless of which zone the wound is in. This has largely replaced the older rule of \"explore all Zone II, image Zone I and III,\" because the entry-wound zone poorly predicts the actual internal injury and mandatory Zone II exploration produced many negative operations.</p><p>The zones (see Anatomy tab) still matter for <strong>how</strong> the operation is done (surgical access differs), but they no longer decide <strong>who</strong> goes to the OR. That decision is driven by hard signs and imaging.</p>",
         table: {
           head: ["", "Hard signs", "Soft signs"],
@@ -213,7 +215,7 @@ window.JEFFENT.register({
       },
       {
         id: "inhalational-thermal-airway-injury",
-        title: "Inhalational/thermal airway injury: the airway that looks fine now, and won't in an hour",
+        title: "Inhalational/thermal airway injury",
         html: "<p>Facial/oropharyngeal burns from flame, steam, or hot gas cause <strong>progressive</strong> supraglottic and glottic edema over hours. The exam at minute one can look deceptively reassuring while the swelling that will obstruct the airway is only just beginning. The management principle is <strong>early, elective intubation before the airway becomes difficult or impossible</strong>, rather than waiting for obvious distress.</p>" +
           "<p><strong>Signs raising concern for inhalational injury (any one is enough to trigger urgent airway evaluation):</strong></p><ul>" +
           "<li>Facial or oropharyngeal burns, <strong>singed nasal/facial hair</strong></li>" +

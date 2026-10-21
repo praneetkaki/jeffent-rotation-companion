@@ -3000,3 +3000,14 @@ mark.user-hl[data-c="orange"] { background: rgba(255, 150, 50, .4); }
 .panel .tbl-scroll, .panel table.tbl-wrap, .lesson-main table.tbl-wrap { margin-bottom: 20px; }
 .tbl-scroll + p, .tbl-scroll + ul, .tbl-scroll + ol, .tbl-scroll + h4, table + p, table + ul, table + h4, .tbl-scroll + div { margin-top: 20px; }
 .panel h4 { margin-top: 26px; }
+
+/* Clinical type filter */
+.cl-filter { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 18px; }
+.cl-chip { display: inline-flex; align-items: center; gap: 7px; padding: 7px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); font: inherit; font-size: 13.5px; color: var(--ink-soft); cursor: pointer; transition: background-color .15s var(--ease-out), color .15s var(--ease-out), border-color .15s var(--ease-out); }
+.cl-chip i { width: 8px; height: 8px; border-radius: 50%; background: var(--cl, var(--ink-faint)); }
+.cl-chip span { font-size: 11.5px; color: var(--ink-faint); font-family: "JetBrains Mono", monospace; }
+.cl-chip:hover { border-color: var(--cl, var(--primary)); color: var(--ink); }
+.cl-chip.active { background: var(--cl, var(--primary-deep, #0a2c10)); border-color: transparent; color: #fff; }
+.cl-chip.active span { color: rgba(255,255,255,.75); }
+.cl-chip.active i { background: #fff; }
+.panel[hidden], .lesson-nav-item[hidden] { display: none !important; }

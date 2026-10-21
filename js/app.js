@@ -3228,6 +3228,22 @@
     }
 
     var main = showNav ? h('<div class="lesson-main"></div>') : pane;
+    var kindEntries = [], kindCounts = {}, kindOrder = [];
+    blocks.forEach(function (b) {
+      var kd = clinicalKind(b.title);
+      if (!kindCounts[kd.k]) { kindCounts[kd.k] = 0; kindOrder.push(kd); }
+      kindCounts[kd.k]++;
+    });
+    var filterBar = null;
+    if (kindOrder.length > 1) {
+      filterBar = h('<div class="cl-filter" role="group" aria-label="Filter blocks by type"></div>');
+      filterBar.appendChild(h('<button type="button" class="cl-chip active" data-k="all">All<span>' + blocks.length + '</span></button>'));
+      ["mgmt", "dx", "ddx", "cx", "core"].forEach(function (k) {
+        var kd = kindOrder.filter(function (x) { return x.k === k; })[0];
+        if (kd) filterBar.appendChild(h('<button type="button" class="cl-chip cl-' + k + '" data-k="' + k + '"><i></i>' + kd.label + '<span>' + kindCounts[k] + '</span></button>'));
+      });
+      pane.appendChild(filterBar);
+    }
     blocks.forEach(function (b, i) {
       var anchor = "clinical-block-" + esc(b.id || "");
       var kind = clinicalKind(b.title);
@@ -3253,6 +3269,8 @@
         ));
       }
       main.appendChild(p);
+      var entry = { p: p, k: kind.k, btn: null };
+      kindEntries.push(entry);
 
       var blockWords = countWords(b.title) + countWords(stripHtml(b.html)) +
         (b.table ? countWords(b.table.head.join(" ")) + countWords(b.table.rows.map(function (r) { return r.join(" "); }).join(" ")) : 0);
@@ -3269,8 +3287,23 @@
           setClinicalNavActive(nav, timeLabel, wordCounts, i);
         });
         navList.appendChild(btn);
+        entry.btn = btn;
       }
     });
+
+    if (filterBar) {
+      filterBar.addEventListener("click", function (e) {
+        var chip = e.target.closest && e.target.closest(".cl-chip");
+        if (!chip) return;
+        var k = chip.getAttribute("data-k");
+        [].forEach.call(filterBar.children, function (c2) { c2.classList.toggle("active", c2 === chip); });
+        kindEntries.forEach(function (en) {
+          var show = k === "all" || en.k === k;
+          en.p.hidden = !show;
+          if (en.btn) en.btn.hidden = !show;
+        });
+      });
+    }
 
     if (showNav) {
       shell.appendChild(main);
