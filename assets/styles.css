@@ -3258,3 +3258,28 @@ button, a, summary, [role="button"] { touch-action: manipulation; -webkit-tap-hi
 @media (pointer: coarse), (max-width: 700px) {
   .btn, .lesson-learned-btn, .lesson-learned-cards { min-height: 44px; }
 }
+
+/* ---- Remaining screens polish: roadmap, library, FAQ, page header ---- */
+.page-head .ph-eyebrow .eyebrow { font-size: 12px; }
+.status-chip, .rm-draft, .lib-group-count, .pill { font-size: 12px; }
+@media (pointer: coarse), (max-width: 700px) {
+  .rm-modchip { min-height: 44px; display: inline-flex; align-items: center; }
+  .lib-search { min-height: 44px; }
+  .filter-pill { min-height: 44px; display: inline-flex; align-items: center; }
+  .pq-shuffle { min-height: 44px; display: inline-flex; align-items: center; gap: 8px; }
+  .pq-shuffle input { width: 22px; height: 22px; }
+}
+
+/* ---- Dark mode contrast fixes ---- */
+:root[data-theme="dark"] .cl-chip.active { color: #0b2a11; }
+:root[data-theme="dark"] .cl-chip.active span { color: rgba(11,42,17,.72); }
+:root[data-theme="dark"] .cl-chip.active i { background: #0b2a11; }
+:root[data-theme="dark"] .proc-nav-group-head, :root[data-theme="dark"] .proc-tag, :root[data-theme="dark"] .proc-badge-pill, :root[data-theme="dark"] .proc-section h4,
+:root[data-theme="dark"] .proc-chip.active { color: color-mix(in srgb, var(--track-color, var(--primary)) 52%, #fff); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .cl-chip.active { color: #0b2a11; }
+  :root:not([data-theme="light"]) .cl-chip.active span { color: rgba(11,42,17,.72); }
+  :root:not([data-theme="light"]) .cl-chip.active i { background: #0b2a11; }
+  :root:not([data-theme="light"]) .proc-nav-group-head, :root:not([data-theme="light"]) .proc-tag, :root:not([data-theme="light"]) .proc-badge-pill, :root:not([data-theme="light"]) .proc-section h4,
+  :root:not([data-theme="light"]) .proc-chip.active { color: color-mix(in srgb, var(--track-color, var(--primary)) 52%, #fff); }
+}
