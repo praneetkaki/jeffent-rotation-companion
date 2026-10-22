@@ -258,8 +258,8 @@
     var cur = getPalette();
     var grid = h('<div class="palette-grid" role="radiogroup" aria-label="Color theme"></div>');
     PALETTES.forEach(function (p) {
-      var b = h('<button type="button" class="palette-opt" role="radio" aria-checked="' + (p.id === cur) + '"><span class="palette-sw">' +
-        p.sw.map(function (c) { return '<i style="background:' + c + '"></i>'; }).join("") + '</span><span>' + esc(p.name) + '</span></button>');
+      var b = h('<button type="button" class="palette-opt" role="radio" aria-label="' + esc(p.name) + '" title="' + esc(p.name) + '" aria-checked="' + (p.id === cur) + '"><span class="palette-sw">' +
+        p.sw.map(function (c) { return '<i style="background:' + c + '"></i>'; }).join("") + '</span></button>');
       b.addEventListener("click", function () {
         applyPalette(p.id);
         grid.querySelectorAll(".palette-opt").forEach(function (o) { o.setAttribute("aria-checked", o === b ? "true" : "false"); });
