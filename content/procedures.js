@@ -10,7 +10,7 @@ window.JEFFENT.register(
  "trackAbbr": "PR",
  "order": 1,
  "title": "2-Minute Procedure Prep",
- "subtitle": "Fast pre-scrub briefs for the OR and bedside: the indication, the key steps, the danger structures, and one pearl, for the operations you will see on the rotation.",
+ "subtitle": "Pre-scrub briefs: indication, key steps, danger structures, and a pearl for each operation.",
  "status": "DRAFT, pending faculty review.",
  "clinical": {
   "intro": "Each brief is a two-minute pre-scrub read: the indication, the key steps, the danger structures, and one pearl. Work the decision points before you look, then lock in the pearl.",

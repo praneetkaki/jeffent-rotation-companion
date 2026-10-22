@@ -16,7 +16,7 @@ window.JEFFENT.register({
   trackAbbr: "RH",
   order: 2,
   title: "Rhinology & Sinus",
-  subtitle: "Nose and paranasal sinus disease in depth: anatomy, chronic rhinosinusitis, allergic/non-allergic rhinitis, epistaxis escalation, and the unilateral masses you must not miss.",
+  subtitle: "Nose and sinus anatomy, chronic rhinosinusitis, rhinitis, epistaxis, and unilateral nasal masses.",
   version: "0.3.0-draft",
   level: ["core", "sub-I"],
   status: "DRAFT, pending faculty review. v0.2.0: added an allergy/rhinitis depth pass, ARIA classification and step-up therapy for allergic rhinitis, the non-allergic rhinitis mimics (vasomotor, hormonal, drug-induced/rhinitis medicamentosa, NARES, gustatory), skin-prick vs serum-specific IgE testing, antihistamine/decongestant pharmacology, and FESS surgical anatomy variants (concha bullosa, Haller cells, Onodi cells), grounded in ARIA, EPOS 2020, and AAO-HNSF Allergic Rhinitis CPG (2015); written fresh from guidelines and standard rhinology teaching, not derived from any single textbook. v0.2.1: OpenEvidence-verified correction pass (user-reviewed, not faculty sign-off): updated sinusitis-antibiotics to the 2025 AAO-HNSF Adult Sinusitis Update (amoxicillin now first-line over amoxicillin-clavulanate, with the IDSA disagreement noted); added an invasive-fungal-sinusitis block, card, and red flag; added resorbable-packing guidance for anticoagulated/bleeding-disorder/pediatric patients to the epistaxis ladder, escalation card, and case-posterior-epistaxis.",
@@ -212,7 +212,7 @@ window.JEFFENT.register({
       },
       {
         id: "ar-classification",
-        title: "Allergic rhinitis: ARIA classification & step-up therapy",
+        title: "Allergic rhinitis: ARIA classification",
         html: "<p>The old \"seasonal vs perennial\" split has been replaced by <strong>ARIA</strong> (Allergic Rhinitis and its Impact on Asthma), which classifies by <strong>duration</strong> and <strong>severity</strong>, and this is what actually drives step-up therapy.</p><figure class='note-fig'><img class='zoomable' src='assets/img/figures/ARIA_allergic_rhinitis_management.png' alt='ARIA allergic rhinitis management' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>ARIA&#39;s duration/severity classification grid for allergic rhinitis.</figcaption></figure>",
         table: {
           head: ["Axis", "Categories"],
@@ -224,7 +224,7 @@ window.JEFFENT.register({
       },
       {
         id: "ar-step-therapy",
-        title: "Allergic rhinitis: the step-up therapy ladder",
+        title: "Allergic rhinitis: step-up therapy",
         html: "<ol><li><strong>Allergen avoidance</strong> + as-needed second-generation oral or intranasal antihistamine for mild/intermittent disease.</li>" +
           "<li><strong>Intranasal corticosteroid (INCS)</strong>, the single most effective agent and first-line for persistent or moderate-severe disease. Regular (not as-needed) dosing works best.</li>" +
           "<li><strong>Combination therapy:</strong> INCS + intranasal antihistamine (e.g., fluticasone-azelastine) for moderate-to-severe symptoms or inadequate response to INCS alone; reserve a <strong>leukotriene receptor antagonist</strong> (boxed FDA warning for neuropsychiatric events, no better than an oral antihistamine) for patients with asthma who cannot use preferred agents; add an intranasal <strong>anticholinergic</strong> (ipratropium) if rhinorrhea is the dominant symptom.</li>" +
@@ -232,7 +232,7 @@ window.JEFFENT.register({
       },
       {
         id: "non-allergic-rhinitis",
-        title: "Non-allergic rhinitis: the mimics of allergic rhinitis",
+        title: "Non-allergic rhinitis",
         html: "<p>Chronic rhinitis with a <strong>negative allergy workup</strong>. The clinical clue: <strong>itch, sneezing bouts, and conjunctivitis point to allergic rhinitis</strong>; non-allergic rhinitis is dominated by congestion and rhinorrhea without them.</p>",
         table: {
           head: ["Subtype", "Trigger / clue", "Basic management"],
@@ -270,14 +270,14 @@ window.JEFFENT.register({
       },
       {
         id: "unilateral-masses",
-        title: "Unilateral nasal masses by age: the pattern to memorize",
+        title: "Unilateral nasal masses by age",
         html: "<ul><li><strong>Adolescent male</strong> + recurrent unilateral epistaxis + nasal mass → <strong>juvenile nasopharyngeal angiofibroma (JNA)</strong>. Highly vascular, so biopsy in clinic is contraindicated.</li>" +
           "<li><strong>Adult</strong> + unilateral polypoid mass → <strong>inverted papilloma</strong> until proven otherwise: locally aggressive, with malignant potential, and needing full excision (not just polypectomy).</li>" +
           "<li><strong>Older adult</strong> + unilateral mass + anosmia/epistaxis → consider <strong>esthesioneuroblastoma</strong> (olfactory groove) or other sinonasal malignancy.</li></ul>" + "<figure class='note-fig'><img class='zoomable' src='assets/img/figures/unilateral_sinonasal_masses.png' alt='Unilateral sinonasal masses' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Age-based pattern for unilateral sinonasal masses: JNA, inverted papilloma, esthesioneuroblastoma/malignancy.</figcaption></figure>"
       },
       {
         id: "fess-complications",
-        title: "FESS: the three complication sites every student should know",
+        title: "FESS complications",
         html: "<figure class='note-fig'><img class='zoomable' src='assets/img/figures/paranasal_sinus_drainage_danger_zones.png' alt='Paranasal sinus drainage danger zones' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Three FESS complication sites: orbit (lamina papyracea), skull base (cribriform plate), and internal carotid artery.</figcaption></figure><p>Endoscopic sinus surgery works through thin bone next to three critical structures:</p><ul>" +
           "<li><strong>Orbit</strong> (via the lamina papyracea): injury causes orbital hematoma, diplopia, or blindness. An expanding orbital hematoma is a sight-threatening emergency needing immediate lateral canthotomy and decompression.</li>" +
           "<li><strong>Skull base</strong> (via the ethmoid roof/cribriform plate): injury causes a <strong>CSF leak</strong>.</li>" +
@@ -286,7 +286,7 @@ window.JEFFENT.register({
       },
       {
         id: "invasive-fungal-sinusitis",
-        title: "Acute invasive fungal rhinosinusitis: the can't-miss emergency",
+        title: "Acute invasive fungal rhinosinusitis",
         html: "<p><strong>Fungal sinus disease spans a spectrum, and host immune status is what separates the emergency from the chronic nuisance:</strong></p><ul>" +
           "<li><strong>Allergic fungal rhinosinusitis (AFRS):</strong> a hypersensitivity reaction to fungi (not true infection) in an <strong>immunocompetent, atopic</strong> patient. Presents as chronic polypoid CRS with thick allergic mucin; not urgent, managed like refractory CRSwNP (steroids, surgery to clear the mucin).</li>" +
           "<li><strong>Fungal ball (mycetoma):</strong> a noninvasive mass of fungal debris colonizing a single sinus (usually maxillary) in an <strong>immunocompetent</strong> patient. Presents as chronic unilateral sinus pressure/discharge, often found incidentally on CT; not urgent, curative with surgical removal alone (no antifungals needed).</li>" +

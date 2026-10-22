@@ -15,7 +15,7 @@ window.JEFFENT.register({
   trackAbbr: "AB",
   order: 1,
   title: "Key Abbreviations",
-  subtitle: "The high-yield abbreviations used across every track on this platform, gathered into one lookup page.",
+  subtitle: "Abbreviations used across the tracks.",
   version: "0.1.0-draft",
   level: ["core", "sub-I"],
   status: "DRAFT, pending faculty review. v0.1.0: compiled from the abbreviations already introduced across every track's content (otology, rhinology, laryngology, head & neck, pediatric, sleep, facial plastics, and emergencies), grounded in standard otolaryngology teaching; not derived from any single textbook.",

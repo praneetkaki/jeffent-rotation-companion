@@ -1,6 +1,6 @@
 # Sleep Surgery & OSA
 
-_Generated 2026-10-21 from content/*.js_
+_Generated 2026-10-22 from content/*.js_
 
 > **How to use:** paste a module file below (or ALL.md) into OpenEvidence / any reviewer, followed by an instruction such as
 > "Fact-check every claim against current guidelines, flag anything outdated or wrong, and propose exact replacement wording. Keep our style: no em dashes, plain clinical language."
@@ -13,7 +13,7 @@ _Generated 2026-10-21 from content/*.js_
 - status: DRAFT, pending faculty review. v0.2.0: added a PAP-therapy depth pass, formal CPAP titration methods (full-night/split-night/APAP) and the AASM/CMS adherence definition, a troubleshooting table for co
 - facultyReviewer: ""
 - curriculum anchors: UKMLA Content Map (GMC), scope anchor; owns Snoring and Obstructive sleep apnoea at adult subspecialty depth (screening tools, PSG interpretation, surgical ladder); ACGME Otolaryngology-HNS Milestones 2.0, primarily PC6/PC9 (airway/surgical management); AASM Clinical Practice Guidelines on OSA diagnosis and management; AAO-HNSF Position Statement on OSA surgery; UK undergraduate Delphi (Lloyd 2014), student-scope depth cap
-- subtitle: Screening tools and polysomnography basics, plus the ladder from CPAP to named surgical options for adult obstructive sleep apnea.
+- subtitle: Screening, polysomnography, and the ladder from CPAP to surgery for adult OSA.
 
 ### Anatomy notes
 
@@ -184,7 +184,7 @@ AHI is the number of apneas + hypopneas per hour of sleep, from polysomnography 
 
 A validated 0-24 self-report questionnaire scoring the likelihood of dozing in 8 everyday situations. ≥10 suggests clinically significant excessive daytime sleepiness. It measures symptom burden, not disease severity: a patient can have severe OSA by AHI with a low Epworth score, or vice versa.
 
-**[management-ladder] The management ladder: CPAP first, surgery second**
+**[management-ladder] OSA management ladder**
 
 Core principle: OSA treatment is a ladder, not a menu. Start with the option that reliably works regardless of where the airway collapses, and escalate only when it fails.
 Because positive airway pressure splints the entire airway at once, it is first-line before the obstruction site is even known. Surgery generally enters only after CPAP has genuinely failed, chosen based on where the airway collapses.

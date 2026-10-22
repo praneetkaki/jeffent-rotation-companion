@@ -14,7 +14,7 @@ window.JEFFENT.register({
   trackAbbr: "FP",
   order: 7,
   title: "Facial Plastics & Trauma",
-  subtitle: "Facial fracture patterns, the ABCs of facial trauma, nerve/duct injuries not to miss, and the reconstructive ladder.",
+  subtitle: "Facial fractures, facial trauma ABCs, nerve and duct injuries, and the reconstructive ladder.",
   version: "0.4.0-draft",
   level: ["core", "sub-I"],
   status: "DRAFT, pending faculty review. v0.2.0: added a depth pass covering genuinely missing trauma-subspecialty topics, mandible fracture patterns and the bimanual/malocclusion exam (including the bilateral condylar 'guardsman' pattern and numb chin sign), naso-orbito-ethmoid (NOE) fracture with medial canthal tendon/nasolacrimal duct injury, frontal sinus fracture (anterior vs posterior table), the House-Brackmann facial nerve grading scale and electrodiagnostic (ENoG/nerve-stimulator) testing, and facial-specific local flap options in the reconstructive ladder, grounded in ATLS/AO facial trauma teaching, House & Brackmann (1985), and standard facial plastic & reconstructive surgery teaching; written fresh from guidelines and standard teaching, not derived from any single textbook. v0.3.0: added 4 red-flag/trauma teaching cases identified by a coverage audit (mandible fracture airway risk, auricular hematoma, frontal sinus fracture, septal hematoma). v0.4.0: OpenEvidence-verified correction pass (user-reviewed, not faculty sign-off): added mandible-fracture antibiotic prophylaxis and facial-bite-wound blocks/cards; added adult/pediatric repair-timing to orbital-blowout-card; added early-open-septoplasty nuance to nasal-bone-fracture-card; softened the ENoG >90% threshold to decision-support rather than an automatic trigger (facial-nerve-electrodiagnostics block and card). v0.5.0: deepened the parotid/facial-nerve anatomy note (nerve depth relationships, intraoperative landmarks, branch-muscle-deficit table, watershed branches, Frey syndrome) and the orbital floor note (bony anatomy, fracture mechanism, causes); added 4 new anatomy notes (ZMC anatomy, mandible anatomy, trigeminal nerve anatomy, layers of the face/SMAS); grouped bilateral facial-buttress diagram labels to reveal together and widened undersized occlusion boxes on the facial-nerve-parotid diagram; added 3 clinical blocks (ZMC fracture, traumatic CSF rhinorrhea, auricular hematoma); expanded the reconstructive-ladder and ZMC fracture cards.",
@@ -152,7 +152,7 @@ window.JEFFENT.register({
     blocks: [
       {
         id: "trauma-primary-survey",
-        title: "Facial trauma: ABCs before the face",
+        title: "Facial trauma ABCs",
         html: "<p>Facial trauma is managed within the <strong>ATLS primary survey</strong>, before detailed facial exam:</p><ul><li><strong>Airway</strong>: facial fractures can compromise the airway directly (posteriorly displaced maxillary segments, loose teeth/blood, associated mandible fractures).</li><li><strong>Breathing</strong></li><li><strong>Circulation</strong>: facial and scalp wounds can bleed briskly.</li></ul><p><strong>Never let a dramatic facial injury distract from a life-threatening airway or C-spine issue.</strong></p>"
       },
       {
@@ -170,7 +170,7 @@ window.JEFFENT.register({
       },
       {
         id: "facial-nerve-injury-timing",
-        title: "Facial nerve injury after trauma: when to explore",
+        title: "Facial nerve injury after trauma",
         html: "<p><strong>Immediate, complete facial weakness after penetrating trauma lateral to the lateral canthus</strong> is the classic indication for <strong>urgent surgical exploration and nerve repair</strong> (nerve stimulation can still identify distal branches within ~72 hours before Wallerian degeneration). <strong>Delayed-onset</strong> or <strong>incomplete</strong> weakness is more often due to edema/neurapraxia and can typically be observed.</p>"
       },
       {
@@ -225,12 +225,12 @@ window.JEFFENT.register({
       },
       {
         id: "house-brackmann-grading",
-        title: "Grading facial nerve function: the House-Brackmann scale",
+        title: "House-Brackmann scale",
         html: "<p>Once the decision to observe (rather than explore) has been made, facial nerve function is tracked over time using the <strong>House-Brackmann scale (grade I-VI)</strong>:</p><ol><li><strong>I</strong>: normal</li><li><strong>II</strong>: mild dysfunction (slight weakness, normal symmetry at rest)</li><li><strong>III</strong>: moderate (obvious but not disfiguring asymmetry, complete eye closure with effort)</li><li><strong>IV</strong>: moderately severe (disfiguring asymmetry, incomplete eye closure)</li><li><strong>V</strong>: severe (barely perceptible motion)</li><li><strong>VI</strong>: total paralysis, no movement</li></ol><p>It's a documentation and follow-up tool, distinct from the explore-vs-observe decision itself. A worsening grade over serial exams is what prompts reconsidering surgical exploration in a case initially chosen for observation.</p>"
       },
       {
         id: "facial-nerve-electrodiagnostics",
-        title: "When exam alone isn't enough: electrodiagnostic testing",
+        title: "Electrodiagnostic testing",
         html: "<p>A cooperative, alert patient's voluntary facial movement is the best test, but when the patient is obtunded, intubated, or the exam is otherwise equivocal, <strong>electrodiagnostic testing</strong> helps decide observation vs exploration. A <strong>nerve stimulator</strong> applied to the distal (peripheral) branches can still evoke a motor response for roughly 72 hours after injury even if the nerve is transected, because the distal segment hasn't yet undergone Wallerian degeneration. A response present at this stage doesn't rule out transection. <strong>Electroneuronography (ENoG)</strong> compares the amplitude of the evoked compound muscle action potential on the injured side to the normal side; a drop of <strong>&gt;90%</strong> is generally taken as a threshold favoring surgical exploration/decompression, most classically used in the analogous setting of temporal-bone facial nerve injury and severe Bell's palsy, but the same electrodiagnostic logic applies to extratemporal trauma when the injury site and timing are uncertain. Note that the &gt;90% ENoG threshold is <strong>decision-support, not an automatic trigger</strong>: prospective data show near-universal recovery to House-Brackmann I-II with steroids alone in complete post-traumatic palsy from undisplaced temporal bone fractures, even at &lt;5% ENoG response. The threshold is most useful in displaced or suspected transecting injuries.</p>"
       }
     ],

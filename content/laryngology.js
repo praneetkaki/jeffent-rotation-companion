@@ -16,7 +16,7 @@ window.JEFFENT.register({
   trackAbbr: "LA",
   order: 3,
   title: "Laryngology, Voice & Airway",
-  subtitle: "The larynx in depth: subsites, vocal-fold pathology, the pediatric-airway differential, and the emergencies that live here.",
+  subtitle: "Larynx subsites, vocal fold disease, pediatric airway differential, and airway emergencies.",
   version: "0.3.0-draft",
   level: ["core", "sub-I"],
   status: "DRAFT, pending faculty review. v0.2.0: added a depth pass covering genuinely missing sub-I topics, the unilateral vocal fold paralysis workup/management ladder (imaging along the RLN course, voice therapy, injection medialization, thyroplasty), tracheostomy in depth (tube types, the first-postoperative-week dislodgement emergency, decannulation), the subglottic stenosis cause differential (iatrogenic vs idiopathic/iSGS vs GPA) and its asthma-mimic presentation, vocal process (contact) granuloma, benign vocal fold lesion management (voice therapy vs surgery), and FEES vs modified barium swallow, grounded in standard laryngology/airway teaching and named guidelines; written fresh from clinical knowledge and named sources, not derived from any single textbook. v0.3.0: OpenEvidence-verified correction pass (user-reviewed, not faculty sign-off): updated VCD to the 2023 ILO/Delphi consensus terminology and &ge;50% closure threshold (vcd block, vcd-card); added RRP's bevacizumab and 2025 FDA-approved HPV immunotherapy (rrp-card); corrected LPR to reflect the AGA's stance against empiric PPI for isolated laryngeal symptoms (lpr-card); added early-glottic-cancer-treatment and subglottic-stenosis-management blocks/cards; added the AAO-HNS 2018 when-to-scope/what-not-to-prescribe block.",
@@ -163,7 +163,7 @@ window.JEFFENT.register({
       },
       {
         id: "vf-paralysis-workup-management",
-        title: "Unilateral vocal fold paralysis: workup and the management ladder",
+        title: "Unilateral vocal fold paralysis",
         html: "<p>Once laryngoscopy confirms an immobile fold, image the <strong>entire recurrent laryngeal nerve course</strong>, from skull base to the aortic arch and mediastinum, because a lesion anywhere along that path (lung apex tumor, thyroid mass, mediastinal node, aortic aneurysm) can be the cause, not just the neck.</p>"
           + "<p><strong>Management ladder</strong> (for a fold unlikely to be from a treatable cause found above):</p>"
           + "<ul><li><strong>Observe + voice therapy</strong> first: a genuine chance of spontaneous recovery persists for up to ~6-12 months, especially after a clear iatrogenic or viral insult.</li>"
@@ -205,7 +205,7 @@ window.JEFFENT.register({
       },
       {
         id: "laryngeal-cancer-approach",
-        title: "Laryngeal cancer: risk and the staging logic",
+        title: "Laryngeal cancer: risk and T staging",
         html: "<figure class='note-fig'><img class='zoomable' src='assets/img/figures/laryngeal_subsites_supraglottis.png' alt='Laryngeal subsites supraglottis' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Laryngeal cancer risk factors (synergistic tobacco/alcohol) and why subsite lymphatic drainage drives presentation timing.</figcaption></figure><p><strong>Risk factors:</strong> tobacco and alcohol act <strong>synergistically</strong> (not just additively). <strong>Glottic Cancer: Early Presentation</strong>: the true vocal folds have sparse lymphatics, so even a small tumor causes hoarseness before it can spread. Persistent hoarseness therefore warrants laryngoscopy rather than being dismissed. <strong>Supraglottic and subglottic</strong> tumors are more lymphatic-rich or silent, so they tend to present later, with a neck mass or airway symptoms.</p><p><strong>Staging, high-yield overview</strong> (a simplified look at T-stage logic, not full AJCC granularity):</p>",
         table: {
           head: ["Stage", "Glottic (rough guide)", "Supraglottic / subglottic (rough guide)"],
@@ -219,7 +219,7 @@ window.JEFFENT.register({
       },
       {
         id: "laryngeal-cancer-n-stage",
-        title: "Laryngeal cancer: nodal staging, general logic",
+        title: "Laryngeal cancer: nodal staging",
         html: "<p><strong>N0</strong> is no regional nodes and <strong>N1</strong> is a single ipsilateral node &le;3 cm. Higher N means larger, multiple, bilateral, or extranodal-extension-positive nodes. Supraglottic tumors node earlier because of rich bilateral lymphatics.</p>"
       },
       {
@@ -236,7 +236,7 @@ window.JEFFENT.register({
       },
       {
         id: "subglottic-stenosis-differential",
-        title: "Subglottic stenosis: iatrogenic vs idiopathic vs GPA, and the other asthma mimic",
+        title: "Subglottic stenosis: causes",
         html: "<p>A second airway condition that gets mistaken for asthma, distinct from VCD above: subglottic stenosis is a <strong>fixed, structural</strong> narrowing that causes <strong>biphasic</strong> stridor and exertional dyspnea that does <em>not</em> respond to bronchodilators or inhaled steroids. Failure of 'asthma' therapy should prompt flexible laryngoscopy.</p>",
         table: {
           head: ["Cause", "Key features"],
@@ -249,7 +249,7 @@ window.JEFFENT.register({
       },
       {
         id: "subglottic-stenosis-management",
-        title: "Subglottic stenosis: the treatment ladder",
+        title: "Subglottic stenosis: treatment",
         html: "<p>Three main approaches, trading durability against morbidity and voice:</p><ul>" +
           "<li><strong>Endoscopic dilation (ED)</strong>: least invasive, most common, but highest recurrence (~50% needing repeat surgery at 5 yr).</li>" +
           "<li><strong>Endoscopic resection with adjuvant medical therapy (ERMT)</strong>: CO&#8322; laser incision + dilation plus adjuvant medical therapy (PPI, inhaled corticosteroid, &plusmn; trimethoprim-sulfamethoxazole); intermediate recurrence (~30% at 5 yr) with minimal voice impact.</li>" +
@@ -258,7 +258,7 @@ window.JEFFENT.register({
       },
       {
         id: "tracheostomy-in-depth",
-        title: "Tracheostomy: tube types, first-week emergencies, and decannulation",
+        title: "Tracheostomy",
         html: "<figure class='note-fig'><img class='zoomable' src='assets/img/figures/tracheostomy_tube.png' alt='Tracheostomy tube' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Tracheostomy tube types, the first-postoperative-week dislodgement emergency, and decannulation pathway.</figcaption></figure><p><strong>Tube variables:</strong></p>"
           + "<ul><li><em>Cuffed</em> (seals the airway, needed for mechanical ventilation or aspiration risk) vs <em>uncuffed</em> (spontaneously breathing patient with an adequate airway/swallow).</li>"
           + "<li><em>Fenestrated</em> (has an opening that lets air pass through the upper airway for voicing once capped, used later in the recovery pathway) vs non-fenestrated.</li>"

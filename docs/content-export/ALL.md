@@ -3,7 +3,7 @@
 Generated from content/*.js for clinical fact-checking. Every module, card, case, clinical block, table, diagram, glossary entry, and question bank currently in the app is below, in full, with no summarizing or omission. Each item lists its module id and field path so corrections can be traced back to source.
 
 
-_Generated 2026-10-21_
+_Generated 2026-10-22_
 
 > **How to use:** paste a module file below (or ALL.md) into OpenEvidence / any reviewer, followed by an instruction such as
 > "Fact-check every claim against current guidelines, flag anything outdated or wrong, and propose exact replacement wording. Keep our style: no em dashes, plain clinical language."
@@ -16,7 +16,7 @@ _Generated 2026-10-21_
 - status: DRAFT, pending faculty review. v0.1.0: compiled from the abbreviations already introduced across every track's content (otology, rhinology, laryngology, head & neck, pediatric, sleep, facial plastics,
 - facultyReviewer: ""
 - curriculum anchors: AAO-HNS Otolaryngology Core Curriculum, terminology and abbreviations used throughout the core curriculum; UKMLA Content Map (GMC), abbreviations cross-cut every presentation/condition this platform covers
-- subtitle: The high-yield abbreviations used across every track on this platform, gathered into one lookup page.
+- subtitle: Abbreviations used across the tracks.
 
 ### Clinical blocks (8)
 
@@ -132,7 +132,7 @@ _Generated 2026-10-21_
 - status: DRAFT, pending faculty review. v0.3.0: added a cross-cutting depth pass covering genuinely missing foundational anatomy not owned by any subspecialty track, the facial nerve's intratemporal segments (
 - facultyReviewer: ""
 - curriculum anchors: AAO-HNS Otolaryngology Core Curriculum, anatomy objectives, mapped per structure as diagrams are added; Delphi priority topic list, map exact items with faculty sponsor; UKMLA Content Map (GMC), pure-anatomy recall cards are cross-tagged to the presentation/condition each structure underlies, for search and coverage purposes only; this track carries no clinical management content
-- subtitle: Labeled diagrams and imaging stacks, cross-cutting every subspecialty. Grows alongside the topic tracks.
+- subtitle: Labeled diagrams and imaging across every subspecialty.
 
 ### Anatomy notes
 
@@ -395,11 +395,11 @@ _Image source: Fascial Layers and Triangles of the Neck. Scholes & Ramakrishnan 
 - status: DRAFT, pending faculty review. v0.2.0: added a depth pass on four genuinely uncovered airway/emergency algorithms, angioedema differential and management (allergic/mast-cell-mediated vs ACE-inhibitor 
 - facultyReviewer: ""
 - curriculum anchors: UKMLA Content Map (GMC), scope anchor; synthesizes the emergency/red-flag rows already owned by Foundations and every subspecialty track at rapid-triage depth; ACGME Otolaryngology-HNS Milestones 2.0, primarily PC1 (emergency recognition/management); ATLS principles; standard US emergency otolaryngology teaching; UK undergraduate Delphi (Lloyd 2014), student-scope depth cap
-- subtitle: The true time-critical ENT presentations, gathered across every subspecialty into one rapid-triage synthesis.
+- subtitle: Time-critical ENT presentations across subspecialties.
 
 ### Anatomy notes
 
-**Airway triage: look, listen, act** (tags: Airway assessment · Airway patency · Stridor)
+**Airway triage** (tags: Airway assessment · Airway patency · Stridor)
 
 [figure: Landmarks: Cricothyroid membrane surface anatomy for the emergency surgical airway.]
 - The airway question comes first, before any differential: is it patent, at risk, or failing right now?
@@ -513,7 +513,7 @@ All three can present with sore throat, drooling, and voice change, but the diff
 
 In suspected epiglottitis (especially in a child with drooling/tripod positioning), do not use a tongue depressor or attempt to visualize the oropharynx outside a controlled setting with airway backup immediately available: manipulation can precipitate complete airway obstruction. Keep the child calm, ideally in a parent's lap, and get anesthesia/ENT to secure the airway in the OR.
 
-**[angioedema-three-diseases] Angioedema: Key Differentials**
+**[angioedema-three-diseases] Angioedema differential**
 
 Sudden lip/tongue/airway swelling without urticaria or itch requires determining whether the mechanism is histamine-mediated at all. Two of the three major causes of angioedema are bradykinin-mediated, not mast-cell/histamine-mediated, and bradykinin-mediated swelling does not reliably respond to epinephrine, antihistamines, or steroids, the standard anaphylaxis triad.
 
@@ -524,7 +524,7 @@ Sudden lip/tongue/airway swelling without urticaria or itch requires determining
 | Responds to epinephrine/antihistamines/steroids? | Yes, first-line | No, reliably: supportive care + stop the drug is the actual treatment | No: needs specific bradykinin-pathway therapy, not standard anaphylaxis treatment |
 | Actual management | IM epinephrine, antihistamines, steroids per anaphylaxis protocol | Stop the ACE inhibitor (and avoid ARBs cautiously; cross-reactivity is low but reported); secure the airway if threatened; icatibant/C1-INH concentrate have been used off-label with inconsistent trial evidence | C1-inhibitor concentrate, icatibant (bradykinin B2-receptor antagonist), or ecallantide (kallikrein inhibitor), not epinephrine/antihistamines as primary treatment |
 
-**[penetrating-neck-trauma-management] Penetrating neck trauma: hard signs go to the OR**
+**[penetrating-neck-trauma-management] Penetrating neck trauma**
 
 After the ATLS primary survey (airway/breathing/circulation), the first question is "hard signs or not?", not "what zone?". Hard signs (expanding/pulsatile hematoma, active pulsatile bleeding, bruit/thrill, absent distal pulse, air bubbling from the wound, airway compromise, massive hemoptysis/hematemesis) mandate immediate operative exploration.
 For the stable patient without hard signs, current practice uses a "no-zone" approach: CT angiography plus serial exam guides management, regardless of which zone the wound is in. This has largely replaced the older rule of "explore all Zone II, image Zone I and III," because the entry-wound zone poorly predicts the actual internal injury and mandatory Zone II exploration produced many negative operations.
@@ -547,7 +547,7 @@ Signs raising concern for inhalational injury (any one is enough to trigger urge
 - New hoarseness or stridor
 - History of a closed-space fire, decreased level of consciousness at the scene, or a fire involving synthetic/chemical materials (higher risk of toxic inhalation/chemical burn on top of thermal injury)The management logic mirrors the airway-first principle above, with one twist: here, the decision to intubate is made before stridor/drooling/tripod positioning appear, because once those late signs are present in a burn patient, the airway may already be too swollen and distorted for a straightforward intubation. This is a case where the emergency intervention deliberately gets ahead of the exam findings.
 
-**[caustic-ingestion-deep] Caustic ingestion, deeper: alkali vs acid injury, endoscopic grading, and stricture risk**
+**[caustic-ingestion-deep] Caustic ingestion: alkali vs acid injury**
 
 Beyond the immediate "don't induce vomiting, don't neutralize" rule, the type of caustic agent shapes what happens next:
 
@@ -897,7 +897,7 @@ Interim mitigation: honey 10 mL every 10 min (child >12 months, able to swallow,
 
 ---
 
-## Module: Foundations: Exam, Approach & Emergencies (`ent-exam`)
+## Module: Foundations (`ent-exam`)
 - version: 0.6.0-draft
 - status: DRAFT, pending faculty review. 100% UKMLA ENT-item coverage reached (see docs/MODULE-BUILD-STANDARD.md coverage matrix); every card carries a UKMLA scope tag, an ACGME Milestone tag, and a named sourc
 - facultyReviewer: ""
@@ -1189,7 +1189,7 @@ Worked example: a patient reports a muffled right ear. On Weber, the tone sounds
 | Sensorineural loss, right | Lateralizes to left (better) | AC > BC (positive) |
 - Pearl: true
 
-**[investigations] Core investigations: what and when**
+**[investigations] Core investigations**
 
 Ear / hearing
 
@@ -1770,7 +1770,7 @@ Teaching: Flex NPL is the criterion standard for dynamic pediatric airway collap
 - status: DRAFT, pending faculty review. v0.2.0: added a depth pass covering genuinely missing trauma-subspecialty topics, mandible fracture patterns and the bimanual/malocclusion exam (including the bilateral 
 - facultyReviewer: ""
 - curriculum anchors: UKMLA Content Map (GMC), scope anchor; owns Facial/periorbital swelling (traumatic), Epistaxis (traumatic), Facial weakness (traumatic) at subspecialty trauma depth; ACGME Otolaryngology-HNS Milestones 2.0, primarily PC1 (emergency/trauma), PC9 (surgical management); ATLS (Advanced Trauma Life Support) principles for the primary survey; standard US facial trauma/reconstructive teaching; UK undergraduate Delphi (Lloyd 2014), student-scope depth cap
-- subtitle: Facial fracture patterns, the ABCs of facial trauma, nerve/duct injuries not to miss, and the reconstructive ladder.
+- subtitle: Facial fractures, facial trauma ABCs, nerve and duct injuries, and the reconstructive ladder.
 
 ### Anatomy notes
 
@@ -1945,7 +1945,7 @@ _Image source: Pitanguy's Line and the Frontal Branch of the Facial Nerve. Jawad
 
 ### Clinical blocks (15)
 
-**[trauma-primary-survey] Facial trauma: ABCs before the face**
+**[trauma-primary-survey] Facial trauma ABCs**
 
 Facial trauma is managed within the ATLS primary survey, before detailed facial exam:
 
@@ -1964,7 +1964,7 @@ Describes patterns of midface fracture through the pterygoid plates, distinguish
 | Le Fort II | Pyramidal, through the nasofrontal suture, medial orbit, and zygomaticomaxillary region | Mobile nasal-maxillary complex; midface mobility on exam |
 | Le Fort III | Craniofacial disjunction, through the frontozygomatic suture and orbits, separating the face from the skull base | Entire midface mobile relative to the skull; 'floating face' |
 
-**[facial-nerve-injury-timing] Facial nerve injury after trauma: when to explore**
+**[facial-nerve-injury-timing] Facial nerve injury after trauma**
 
 Immediate, complete facial weakness after penetrating trauma lateral to the lateral canthus is the classic indication for urgent surgical exploration and nerve repair (nerve stimulation can still identify distal branches within ~72 hours before Wallerian degeneration). Delayed-onset or incomplete weakness is more often due to edema/neurapraxia and can typically be observed.
 
@@ -2040,7 +2040,7 @@ A high-energy fracture of the central midface involving the nasal bones, medial 
 
 Frontal sinus fractures are described by which wall (table) is involved, because it changes both risk and management. Anterior table only: primarily a cosmetic/contour concern and a risk factor for a later mucocele if the sinus outflow tract is obstructed; many can be observed if minimally displaced. Posterior table involvement: the posterior table separates the sinus from the anterior cranial fossa, so a fracture here carries real risk of dural tear, CSF leak, and pneumocephalus (see the CSF rhinorrhea red flag above) and often needs neurosurgical involvement. The nasofrontal outflow tract (drainage pathway) is assessed on CT because an obstructed tract changes management from simple observation/repair toward sinus obliteration or cranialization to prevent a delayed mucocele or mucopyocele.
 
-**[house-brackmann-grading] Grading facial nerve function: the House-Brackmann scale**
+**[house-brackmann-grading] House-Brackmann scale**
 
 Once the decision to observe (rather than explore) has been made, facial nerve function is tracked over time using the House-Brackmann scale (grade I-VI):
 
@@ -2051,7 +2051,7 @@ Once the decision to observe (rather than explore) has been made, facial nerve f
 - V: severe (barely perceptible motion)
 - VI: total paralysis, no movementIt's a documentation and follow-up tool, distinct from the explore-vs-observe decision itself. A worsening grade over serial exams is what prompts reconsidering surgical exploration in a case initially chosen for observation.
 
-**[facial-nerve-electrodiagnostics] When exam alone isn't enough: electrodiagnostic testing**
+**[facial-nerve-electrodiagnostics] Electrodiagnostic testing**
 
 A cooperative, alert patient's voluntary facial movement is the best test, but when the patient is obtunded, intubated, or the exam is otherwise equivocal, electrodiagnostic testing helps decide observation vs exploration. A nerve stimulator applied to the distal (peripheral) branches can still evoke a motor response for roughly 72 hours after injury even if the nerve is transected, because the distal segment hasn't yet undergone Wallerian degeneration. A response present at this stage doesn't rule out transection. Electroneuronography (ENoG) compares the amplitude of the evoked compound muscle action potential on the injured side to the normal side; a drop of >90% is generally taken as a threshold favoring surgical exploration/decompression, most classically used in the analogous setting of temporal-bone facial nerve injury and severe Bell's palsy, but the same electrodiagnostic logic applies to extratemporal trauma when the injury site and timing are uncertain. Note that the >90% ENoG threshold is decision-support, not an automatic trigger: prospective data show near-universal recovery to House-Brackmann I-II with steroids alone in complete post-traumatic palsy from undisplaced temporal bone fractures, even at <5% ENoG response. The threshold is most useful in displaced or suspected transecting injuries.
 
@@ -3436,7 +3436,7 @@ Source: ACGME Otolaryngology-Head and Neck Surgery Milestones 2.0 (2021). Scope 
 - status: DRAFT, pending faculty review. v0.2.0: added a depth pass covering genuinely missing high-yield sub-I topics, nasopharyngeal carcinoma (EBV-associated), the wider salivary gland spectrum (Warthin tumo
 - facultyReviewer: ""
 - curriculum anchors: UKMLA Content Map (GMC), scope anchor; owns Neck lump (oncologic depth), Swallowing problems (oncologic dysphagia), Facial/periorbital swelling (parotid angle), Hearing loss (nasopharyngeal effusion), Infectious mononucleosis (neck-lump differential cross-reference); ACGME Otolaryngology-HNS Milestones 2.0, primarily PC3 Head & Neck Neoplasm, MK1 Anatomy; NCCN Clinical Practice Guidelines in Oncology, Head and Neck Cancers; American Thyroid Association guidelines; AJCC Cancer Staging Manual, 8th ed.; UK undergraduate Delphi (Lloyd 2014), student-scope depth cap
-- subtitle: The neck mass, the salivary gland, and the thyroid nodule worked all the way through, plus the HPV and EBV stories reshaping oropharyngeal and nasopharyngeal cancer.
+- subtitle: Neck mass, salivary gland, thyroid nodule, and HPV and EBV associated cancers.
 
 ### Anatomy notes
 
@@ -3626,7 +3626,7 @@ Classic presentation, driven by the tumor's nasopharyngeal location:
 - With skull-base extension, cranial neuropathies (CN VI most classically, causing diplopia).Workup: nasopharyngoscopy with biopsy of the primary; EBV serology/plasma EBV DNA supports diagnosis and is used to track treatment response and detect recurrence; MRI of the skull base/neck for local extent and nodal disease.
 Treatment: NPC is highly radiosensitive, so primary treatment is radiation (often with concurrent chemotherapy for locoregionally advanced disease), unlike most oral cavity/oropharyngeal SCC, where surgery is typically first-line.
 
-**[thyroid-nodule-workup] Thyroid nodule: the workup order**
+**[thyroid-nodule-workup] Thyroid nodule workup**
 
 - TSH first: if low/suppressed, get a radionuclide scan.
 - Ultrasound: assess size and suspicious features (TI-RADS: microcalcifications, taller-than-wide shape, irregular margins, marked hypoechogenicity) to decide if FNA is warranted.
@@ -3637,7 +3637,7 @@ Treatment: NPC is highly radiosensitive, so primary treatment is radiation (ofte
 Feature categoryFeature (points)CompositionCystic/spongiform (0); mixed cystic-solid (1); solid (2)EchogenicityAnechoic (0); hyper-/isoechoic (1); hypoechoic (2); very hypoechoic (3)ShapeWider-than-tall (0); taller-than-wide (3)MarginSmooth/ill-defined (0); lobulated/irregular (2); extrathyroidal extension (3)Echogenic fociNone/comet-tail (0); macrocalcification (1); peripheral/rim (2); punctate echogenic foci/microcalcifications (3)LevelPointsSuspicionFNA if &ge;Follow-up US if &ge;TR10BenignNo FNANoneTR22Not suspiciousNo FNANoneTR33Mildly suspicious2.5 cm1.5 cmTR44-6Moderately suspicious1.5 cm1.0 cmTR5&ge;7Highly suspicious1.0 cm0.5 cmBethesda System for Reporting Thyroid Cytopathology (2023, 3rd edition):
 CategoryName (2023)ROM (%, NIFTP=ca)Usual managementINondiagnostic13 (5-20)Repeat FNA under ultrasound guidanceIIBenign2-7Clinical + sonographic follow-upIIIAtypia of undetermined significance (AUS)~22 (13-30)Repeat FNA, molecular testing, or diagnostic lobectomy; subclassify AUS-nuclear (higher ROM) vs AUS-other (lower ROM)IVFollicular neoplasm (or oncocytic follicular neoplasm)~30 (23-34)Molecular testing or diagnostic lobectomyVSuspicious for malignancy~74 (67-83)Lobectomy or total thyroidectomyVIMalignant~97 (97-100)Lobectomy or total thyroidectomy (per tumor type)ROMs shown are inclusive of NIFTP counted as malignant; excluding NIFTP lowers the indeterminate-category ROMs.
 
-**[indeterminate-nodule-molecular] Molecular testing for indeterminate thyroid nodules (Bethesda III/IV)**
+**[indeterminate-nodule-molecular] Molecular testing for indeterminate nodules**
 
 Bethesda III and IV are the "indeterminate" categories (ROM ~22% and ~30%), where cytology alone cannot separate benign from malignant follicular-patterned lesions. Rather than sending every one to diagnostic lobectomy, molecular testing on the FNA sample is now standard to refine risk:
 
@@ -3665,7 +3665,7 @@ The historical "total thyroidectomy for any cancer >1 cm" paradigm has shifted t
 
 Roughly 80% of parotid tumors are benign, and 80% of those benign tumors are pleomorphic adenoma (the most common salivary neoplasm overall). The most common malignant parotid tumor is mucoepidermoid carcinoma. The single most important red flag on exam: facial nerve weakness with a parotid mass is a malignant sign until proven otherwise. A benign tumor essentially never causes facial weakness.
 
-**[salivary-gland-spectrum] The salivary gland spectrum: beyond pleomorphic adenoma**
+**[salivary-gland-spectrum] Other salivary gland tumors**
 
 Approximately 80% of parotid tumors are benign, and approximately 80% of those are pleomorphic adenoma, the two most common parotid entities. A well-rounded differential adds:
 
@@ -3674,12 +3674,12 @@ Approximately 80% of parotid tumors are benign, and approximately 80% of those a
 - Acute bacterial sialadenitis: typically the parotid, in a dehydrated, debilitated, or post-operative patient (reduced salivary flow lets bacteria ascend the duct), with painful, tender, unilateral swelling and purulent discharge expressible from the duct; Staph. aureus is the classic organism. Treat with hydration, sialagogues/massage, and antibiotics.
 - Viral parotitis (mumps): typically bilateral, with a viral prodrome, in an unvaccinated or under-vaccinated patient. Self-limited, supportive care only.
 
-**[hypopharyngeal-cancer] Hypopharyngeal cancer: prognostic factors and latent presentation**
+**[hypopharyngeal-cancer] Hypopharyngeal cancer**
 
 Three subsites: the pyriform sinus (the most common site), the postcricoid region, and the posterior pharyngeal wall. Unlike glottic cancer (which causes hoarseness early), the hypopharynx is roomy with sparse early symptoms. Patients often present late with a neck mass, progressive dysphagia, or referred otalgia, by which point disease is frequently locally advanced. This late presentation is the main reason hypopharyngeal cancer carries a worse prognosis than most other head & neck subsites.
 Plummer-Vinson (Paterson-Kelly) syndrome (iron-deficiency anemia, an esophageal web, and dysphagia, classically in middle-aged women) is a rare but classic predisposing condition specifically for postcricoid carcinoma; correcting the anemia and dilating the web don't substitute for excluding malignancy.
 
-**[neck-dissection-classification] Neck dissection: the three classes to know**
+**[neck-dissection-classification] Neck dissection classes**
 
 Named for how much beyond the lymph nodes themselves is sacrificed. Modern head & neck surgery favors the least aggressive dissection that still adequately treats the disease. A selective neck dissection is now standard for many cN0 (clinically node-negative) necks.
 
@@ -3695,7 +3695,7 @@ Head & neck cancers are staged with TNM (tumor size/invasion, nodal spread, dist
 AJCC 8th edition, HPV-mediated (p16+) oropharyngeal SCC:
 ComponentCategoryDefinitionTT0No primary identified (p16+ node)T1&le;2 cmT2>2 cm to &le;4 cmT3>4 cm, or extension to lingual surface of epiglottisT4Invades larynx, extrinsic tongue muscle, medial pterygoid, hard palate, mandible, or beyondClinical N (cN)N0No regional nodesN1&ge;1 ipsilateral node, none >6 cmN2Contralateral or bilateral nodes, none >6 cmN3Any node >6 cmPathological N (pN)N0No positive nodesN1&le;4 positive nodesN2>4 positive nodesMM0 / M1No distant metastasis / distant metastasisClinical stage (RT/chemoRT)IT0-T2, N0-N1, M0IIT0-T2 N2, or T3 N0-N2, M0IIIT0-T3 N3, or T4 N0-N3, M0IVAny T, any N, M1Pathological stage (surgery)IT0-T2, N0-N1, M0IIT0-T2 N2, or T3-T4 N0-N1, M0IIIT3-T4 N2, M0IVAny T, any N, M1
 
-**[cancer-immunotherapy-intro] Cancer immunotherapy: the fundamentals**
+**[cancer-immunotherapy-intro] Cancer immunotherapy**
 
 Normally, PD-1 (on T-cells) binding PD-L1 (on tumor or immune cells) switches the T-cell off, letting the tumor evade immune attack. Checkpoint inhibitors block that interaction so T-cells can recognize and kill tumor cells. This is the relevant immunotherapy class in head & neck cancer, with pembrolizumab and nivolumab (anti-PD-1 antibodies) as the drugs to know.
 This is fundamentally different from traditional cytotoxic chemotherapy: chemotherapy kills rapidly dividing cells directly, while checkpoint inhibitors work by releasing the brakes on the patient's own immune system.
@@ -3722,7 +3722,7 @@ The pivotal trial is KEYNOTE-048. Two category-1 first-line options for recurren
 
 NPC is handled separately from other HNSCC because of its distinct EBV-driven biology and radiosensitivity. First-line systemic therapy for recurrent/metastatic NPC is cisplatin/gemcitabine plus a PD-1 inhibitor (e.g., toripalimab).
 
-**[free-flap-fundamentals] Free flap reconstruction: the fundamentals**
+**[free-flap-fundamentals] Free flap reconstruction**
 
 A free flap (free tissue transfer) is a block of tissue harvested with its own artery and vein from a distant donor site, disconnected completely, then microvascularly re-anastomosed to recipient vessels in the neck. Unlike a graft, a flap brings its own blood supply, so it survives independent of the wound bed's vascularity, critical in irradiated or poorly vascularized fields.
 Three tiers of the reconstructive ladder, in ascending complexity:
@@ -4090,7 +4090,7 @@ Teaching: Any persistent oral white or red patch in a smoker gets biopsied. Loca
 - status: DRAFT, pending faculty review. v0.2.0: added a depth pass covering genuinely missing sub-I topics, the unilateral vocal fold paralysis workup/management ladder (imaging along the RLN course, voice the
 - facultyReviewer: ""
 - curriculum anchors: UKMLA Content Map (GMC), scope anchor; owns Hoarseness and voice change, Stridor, Swallowing problems, Sore throat (laryngeal/airway angle), Cough (laryngeal angle), Epiglottitis, Tonsillitis (airway angle); ACGME Otolaryngology-HNS Milestones 2.0, primarily PC6 Laryngologic Disease, PC1 Airway Emergency & Management; AAO-HNSF Clinical Practice Guideline: Hoarseness (Dysphonia), 2018; UK undergraduate Delphi (Lloyd 2014), student-scope depth cap
-- subtitle: The larynx in depth: subsites, vocal-fold pathology, the pediatric-airway differential, and the emergencies that live here.
+- subtitle: Larynx subsites, vocal fold disease, pediatric airway differential, and airway emergencies.
 
 ### Anatomy notes
 
@@ -4217,7 +4217,7 @@ These are opposite problems: one leaks air, the other blocks it.
 | Aspiration risk | Yes (glottic incompetence) | Less (folds paramedian, close together) |
 | Common causes | Thyroid surgery, lung/mediastinal mass, idiopathic, viral | Bilateral thyroid surgery injury, neurologic disease |
 
-**[vf-paralysis-workup-management] Unilateral vocal fold paralysis: workup and the management ladder**
+**[vf-paralysis-workup-management] Unilateral vocal fold paralysis**
 
 Once laryngoscopy confirms an immobile fold, image the entire recurrent laryngeal nerve course, from skull base to the aortic arch and mediastinum, because a lesion anywhere along that path (lung apex tumor, thyroid mass, mediastinal node, aortic aneurysm) can be the cause, not just the neck.
 Management ladder (for a fold unlikely to be from a treatable cause found above):
@@ -4252,7 +4252,7 @@ Onset speed, fever, and posture separate these quickly.
 | Bacterial tracheitis | Toxic-appearing, high fever, fails to improve with croup treatment, thick purulent secretions. |
 | Foreign body aspiration | Sudden onset in a well child, choking episode, unilateral wheeze/decreased breath sounds. |
 
-**[laryngeal-cancer-approach] Laryngeal cancer: risk and the staging logic**
+**[laryngeal-cancer-approach] Laryngeal cancer: risk and T staging**
 
 [figure: Laryngeal cancer risk factors (synergistic tobacco/alcohol) and why subsite lymphatic drainage drives presentation timing.]Risk factors: tobacco and alcohol act synergistically (not just additively). Glottic Cancer: Early Presentation: the true vocal folds have sparse lymphatics, so even a small tumor causes hoarseness before it can spread. Persistent hoarseness therefore warrants laryngoscopy rather than being dismissed. Supraglottic and subglottic tumors are more lymphatic-rich or silent, so they tend to present later, with a neck mass or airway symptoms.
 Staging, high-yield overview (a simplified look at T-stage logic, not full AJCC granularity):
@@ -4264,7 +4264,7 @@ Staging, high-yield overview (a simplified look at T-stage logic, not full AJCC 
 | T3 | Vocal fold fixation, or invades paraglottic space/inner cartilage cortex | Fixation, or invades postcricoid/paraglottic/pre-epiglottic space |
 | T4 | Invades through cartilage or extends outside the larynx | Invades through cartilage or extends outside the larynx |
 
-**[laryngeal-cancer-n-stage] Laryngeal cancer: nodal staging, general logic**
+**[laryngeal-cancer-n-stage] Laryngeal cancer: nodal staging**
 
 N0 is no regional nodes and N1 is a single ipsilateral node &le;3 cm. Higher N means larger, multiple, bilateral, or extranodal-extension-positive nodes. Supraglottic tumors node earlier because of rich bilateral lymphatics.
 
@@ -4303,7 +4303,7 @@ Now termed inducible laryngeal obstruction (ILO): paradoxical inspiratory adduct
 - Treat triggers: reflux, irritants, exercise, anxiety
 - Not inhaler escalation
 
-**[subglottic-stenosis-differential] Subglottic stenosis: iatrogenic vs idiopathic vs GPA, and the other asthma mimic**
+**[subglottic-stenosis-differential] Subglottic stenosis: causes**
 
 A second airway condition that gets mistaken for asthma, distinct from VCD above: subglottic stenosis is a fixed, structural narrowing that causes biphasic stridor and exertional dyspnea that does not respond to bronchodilators or inhaled steroids. Failure of 'asthma' therapy should prompt flexible laryngoscopy.
 
@@ -4313,7 +4313,7 @@ A second airway condition that gets mistaken for asthma, distinct from VCD above
 | Idiopathic (iSGS) | Classically a healthy woman in her 30s-50s, never a smoker, with no identifiable cause. A diagnosis of exclusion. |
 | Granulomatosis with polyangiitis (GPA) | Can present as isolated subglottic disease before other systemic features; screen with ANCA and ask about sinonasal/renal/pulmonary symptoms; limited disease can be ANCA-negative. |
 
-**[subglottic-stenosis-management] Subglottic stenosis: the treatment ladder**
+**[subglottic-stenosis-management] Subglottic stenosis: treatment**
 
 Three main approaches, trading durability against morbidity and voice:
 
@@ -4321,7 +4321,7 @@ Three main approaches, trading durability against morbidity and voice:
 - Endoscopic resection with adjuvant medical therapy (ERMT): CO&#8322; laser incision + dilation plus adjuvant medical therapy (PPI, inhaled corticosteroid, &plusmn; trimethoprim-sulfamethoxazole); intermediate recurrence (~30% at 5 yr) with minimal voice impact.
 - Cricotracheal resection (CTR): open resection, most durable (~5% recurrence at 5 yr) and best breathing/QoL, but greatest perioperative risk and worst long-term voice.Serial intralesional steroid injection (SILSI) is an increasingly used office-based adjunct, particularly effective in idiopathic disease. Always screen for GPA (ANCA) before labeling stenosis idiopathic, since active vasculitis is treated medically.
 
-**[tracheostomy-in-depth] Tracheostomy: tube types, first-week emergencies, and decannulation**
+**[tracheostomy-in-depth] Tracheostomy**
 
 [figure: Tracheostomy tube types, the first-postoperative-week dislodgement emergency, and decannulation pathway.]Tube variables:
 
@@ -4597,12 +4597,12 @@ Teaching: Fixed, biphasic stridor that fails asthma therapy in a young, non-smok
 
 ---
 
-## Module: The Ear: Anatomy to the Clinic (`otology-ear`)
+## Module: Otology & Neurotology (`otology-ear`)
 - version: 0.3.0-draft
 - status: DRAFT, pending faculty review. v0.2.0: added a subspecialty depth pass beyond the Foundations-level content this module started with, otosclerosis (pathophysiology, Carhart notch, stapedectomy) and th
 - facultyReviewer: ""
 - curriculum anchors: UKMLA Content Map (GMC), scope anchor; owns Hearing loss, Painful ear, Tinnitus, Vertigo/Dizziness, and the ear-related conditions (Otitis externa, Otitis media, BPPV, Ménière's disease, Acoustic neuroma); ACGME Otolaryngology-HNS Milestones 2.0, primarily PC4 Otologic Disease, MK1 Anatomy; AAO-HNSF Clinical Practice Guidelines: Sudden Hearing Loss (2019), BPPV (2017), Otitis Externa (2014), AOM (2013)/OME (2016); Bárány Society/AAO-HNS consensus diagnostic criteria for Ménière's disease (2015); House-Brackmann facial nerve grading system (1985); UK undergraduate Delphi (Lloyd 2014), student-scope depth cap
-- subtitle: External, middle, and inner ear; hearing loss, otalgia, infection, and the vertigo syndromes.
+- subtitle: External, middle, and inner ear; hearing loss, otalgia, infection, and vertigo.
 
 ### Anatomy notes
 
@@ -4744,7 +4744,7 @@ _Image source: The Ear in Cross-Section (External, Middle, Inner). nidcd.nih.gov
 
 **Diagram: Right tympanic membrane: landmarks**
 
-Confirm laterality/orientation with faculty. Name each landmark, then reveal.
+Name each landmark, then reveal.
 
 _Image source: Normal Right Tympanic Membrane Landmarks (Otoscopic View). oxfordmedicaleducation.com._
 - Posterior malleolar fold: runs from the lateral (short) process of the malleus back to the annulus, marking the pars tensa's upper-posterior border.
@@ -4787,7 +4787,7 @@ _Image source: The Middle Ear and Mastoid Danger Zone Anatomic Relationships. Ad
 
 ### Clinical blocks (10)
 
-**[hearing-loss-fork] Hearing loss: the fork in the road**
+**[hearing-loss-fork] Hearing loss**
 
 Conductive (something blocks sound reaching the cochlea) vs sensorineural (cochlea or CN VIII). Localize at the bedside with Weber + Rinne (512 Hz).
 
@@ -4820,7 +4820,7 @@ Conductive (something blocks sound reaching the cochlea) vs sensorineural (cochl
 - Ménière's: episodic vertigo + fluctuating SNHL + tinnitus + aural fullness; see the dedicated block below for the formal diagnostic criteria and management ladder.
 - Central red flags: for a patient with continuous vertigo and spontaneous nystagmus (acute vestibular syndrome), use HINTS: a normal/negative head-impulse test, direction-changing or vertical nystagmus, or skew deviation each indicate a central cause (any single central component overrides the others). HINTS does not apply to brief positional vertigo (BPPV) or to a patient without spontaneous nystagmus; the head-impulse test in those settings is misleading.
 
-**[otosclerosis-chl-differential] Conductive hearing loss with an intact tympanic membrane: the differential**
+**[otosclerosis-chl-differential] Conductive hearing loss, intact tympanic membrane**
 
 When conductive hearing loss is confirmed (Weber lateralizes to the affected ear, Rinne negative) but the tympanic membrane looks completely normal, three diagnoses dominate, and tympanometry usually separates them before imaging is ever needed.
 
@@ -4829,7 +4829,7 @@ When conductive hearing loss is confirmed (Weber lateralizes to the affected ear
 - Ossicular discontinuity: most often the incudostapedial joint, from prior trauma, infection, or cholesteatoma erosion. Tympanogram can show an abnormally high-compliance Type Ad peak (a floppy, hypermobile system), the opposite mechanical picture from otosclerosis.Management follows the diagnosis: OME is watched or ventilated (tubes); otosclerosis and ossicular discontinuity are surgical (stapedectomy/stapedotomy or ossicular reconstruction) or managed with amplification if surgery isn't wanted or appropriate. Stapes surgery for bilateral otosclerosis is typically staged, operating the worse-hearing ear first, given the small risk of a "dead ear": a frequently asked counseling point.
 [figure: Differentiating otosclerosis (Type As), OME (Type B), and ossicular discontinuity (Type Ad) by tympanogram pattern.]
 
-**[cholesteatoma-depth] Cholesteatoma: mechanism, classification, and why it's surgical**
+**[cholesteatoma-depth] Cholesteatoma**
 
 A cholesteatoma is not a tumor. It's a sac of stratified squamous epithelium and trapped keratin debris growing where it doesn't belong, expanding by pressure and by releasing enzymes that resorb adjacent bone.
 
@@ -4843,7 +4843,7 @@ A cholesteatoma is not a tumor. It's a sac of stratified squamous epithelium and
 - The tegmen tympani (intracranial spread: meningitis, brain abscess)Mastoidectomy, surgical removal of the sac and diseased bone, is the definitive treatment; topical/oral antibiotics only quiet secondary infection while the structural problem remains.
 [figure: Cholesteatoma pathophysiology (retraction pocket, keratin accumulation, bone erosion) and why mastoidectomy is required.]
 
-**[vestibular-schwannoma-workup] Vestibular schwannoma: workup and the management ladder**
+**[vestibular-schwannoma-workup] Vestibular schwannoma**
 
 A vestibular schwannoma (acoustic neuroma) is a benign, slow-growing Schwann-cell tumor of the vestibular division of CN VIII, arising in the internal auditory canal. It's the classic explanation for asymmetric/unilateral SNHL or tinnitus, can cause disequilibrium (true vertigo is uncommon; slow growth allows central compensation), and, as it enlarges, can produce trigeminal (facial numbness) or facial nerve symptoms from cerebellopontine-angle/brainstem compression.
 
@@ -4854,7 +4854,7 @@ A vestibular schwannoma (acoustic neuroma) is a benign, slow-growing Schwann-cel
 - Microsurgical resection: for larger or growing tumors, or brainstem compression; the surgical approach (translabyrinthine, retrosigmoid, middle fossa) is chosen partly on whether preserving hearing is realistic.Facial nerve function is tracked before and after any intervention using the House-Brackmann grading scale (Grade I = normal, Grade VI = total paralysis), the standard language for describing facial nerve outcomes in vestibular schwannoma care.
 [figure: Vestibular schwannoma presentation, MRI IAC workup, and the observation/radiosurgery/microsurgery management ladder.]
 
-**[meniere-criteria-management] Ménière's disease: diagnostic criteria and the step-up ladder**
+**[meniere-criteria-management] Ménière's disease**
 
 The Bárány Society/AAO-HNS (2015) consensus criteria formalize the diagnosis beyond the simple tetrad:
 Definite Ménière's disease requires all of the following:
@@ -4871,7 +4871,7 @@ Step-up management (escalate only as needed):
 - Intratympanic gentamicin ('chemical labyrinthectomy') for refractory disease: effective at controlling vertigo but carries a real risk of further hearing loss, since gentamicin is vestibulotoxic and only relatively selective for vestibular over cochlear hair cells.
 - Surgical labyrinthectomy or vestibular nerve section: reserved for disabling, refractory vertigo, typically once hearing in that ear is already poor (labyrinthectomy sacrifices remaining hearing).The ladder trades rising efficacy against rising risk to hearing: reserve the ear-destructive options for disease that has failed the earlier, hearing-preserving steps.
 
-**[noe-depth] Necrotizing (malignant) otitis externa: the progression to watch**
+**[noe-depth] Necrotizing otitis externa**
 
 Pseudomonas aeruginosa is the classic pathogen, invading through the fissures of Santorini and the bony-cartilaginous junction of the canal to cause osteomyelitis of the skull base, almost always in a diabetic (poor glycemic control) or otherwise immunocompromised patient. Fungal necrotizing otitis externa (Aspergillus) occurs, especially when antipseudomonal therapy fails, and changes treatment; deep tissue biopsy for culture also excludes malignancy. Pain is disproportionate to exam findings and often worse at night; granulation tissue at the bony-cartilaginous junction of the canal floor is the classic sign.
 Cranial nerve progression tracks how far the osteomyelitis has spread: CN VII is affected first and most often (it exits nearby via the stylomastoid foramen); further skull-base spread toward the jugular foramen threatens CN IX, X, XI (dysphagia, hoarseness, shoulder weakness), and CN XII (tongue weakness) if it extends to the hypoglossal canal. New cranial neuropathies signal advancing disease, not a new, separate problem.
@@ -5175,7 +5175,7 @@ Teaching: [figure: Progressive asymmetric SNHL and tinnitus worked up with MRI I
 - status: DRAFT, pending faculty review. v0.2.0: added a depth pass covering genuinely missing pediatric-specific topics, congenital aural atresia/microtia and congenital (vs acquired) cholesteatoma, pediatric 
 - facultyReviewer: ""
 - curriculum anchors: UKMLA Content Map (GMC), scope anchor; owns Painful ear, Hearing loss, Stridor, Neck lump, Nasal obstruction, Snoring, Facial/periorbital swelling, all at pediatric-specific depth; ACGME Otolaryngology-HNS Milestones 2.0, primarily PC7 Pediatric Otolaryngology; AAP Clinical Practice Guidelines: Otitis Media, Tonsillectomy, Childhood Obstructive Sleep Apnea Syndrome; AAO-HNSF Clinical Practice Guidelines: Tympanostomy Tubes, Tonsillectomy in Children; UK undergraduate Delphi (Lloyd 2014), student-scope depth cap
-- subtitle: The child is not a small adult: airway anatomy, ear disease, congenital anomalies, and the red flags unique to kids.
+- subtitle: Pediatric airway, ear disease, congenital anomalies, and red flags.
 
 ### Anatomy notes
 
@@ -5191,7 +5191,7 @@ FeatureChild (infant/young child)AdultWhy it matters for airway managementOveral
 - It therefore drains the middle ear less efficiently and lets nasopharyngeal secretions and pathogens reflux more easily.
 - This is why otitis media is overwhelmingly a childhood disease, becoming far less common once the tube matures toward its adult angle.
 
-**The branchial (pharyngeal) apparatus: arches, clefts, and pouches** (tags: Arches · Clefts · Pouches)
+**The branchial apparatus** (tags: Arches · Clefts · Pouches)
 
 The frameworkThe branchial apparatus appears in weeks 4 to 7 as paired bulges on the side of the embryonic head that build the face and neck. Three terms carry everything:
 
@@ -5204,7 +5204,7 @@ Arteries: the left arch 4 artery becomes the aortic arch and the left arch 6 art
 Clefts vs pouchesClefts (grooves)PouchesPosition and liningExternal, ectoderm (squamous)Internal, endodermFateOnly cleft 1 persists, as the external auditory canal; clefts 2 to 4 obliteratePouch spaces close, but pouch endoderm differentiates into glands and epitheliumIf it failsCyst, sinus, or fistula lined by squamous epitheliumCyst or sinus lined by respiratory or glandular epitheliumPouch derivatives: pouch 1 = middle ear and Eustachian tube; pouch 2 = palatine tonsil; pouch 3 = inferior parathyroid and thymus; pouch 4 = superior parathyroid.
 [figure: Explains second branchial cleft anomalies and the classic tract from a neck pit anterior to the SCM up to the tonsillar fossa.]
 
-**Pouch derivatives (endoderm): glands & spaces** (tags: Pouch derivatives · Glands · Spaces)
+**Pouch derivatives** (tags: Pouch derivatives · Glands · Spaces)
 
 The pouches are endodermal and become glands and spaces (thymus, parathyroids, middle ear, tonsil), contrasting with clefts (their external counterpart), which mostly disappear.
 
@@ -5214,7 +5214,7 @@ The pouches are endodermal and become glands and spaces (thymus, parathyroids, m
 - Pouch 4 -> superior parathyroids (+ ultimobranchial body -> C cells).Parathyroid Origin and Descent: inferior parathyroids arise from pouch 3, superior parathyroids from pouch 4, an inversion of the expected numeric order because pouch 3 also carries the thymus, dragging its parathyroids inferiorly past the pouch-4 pair as the thymus descends. This is also why an ectopic inferior parathyroid can end up in the mediastinum with the thymus.
 DiGeorge syndrome (22q11.2) is failure of pouches 3 and 4, producing absent thymus (T-cell immunodeficiency) and absent parathyroids (hypocalcemia).
 
-**Waldeyer's ring: the foundational picture** (tags: Adenoids · Palatine tonsils · Lymphoid ring)
+**Waldeyer's ring** (tags: Adenoids · Palatine tonsils · Lymphoid ring)
 
 A ring of mucosa-associated lymphoid tissue (MALT) encircling the opening of the oral and nasal cavities into the pharynx, first described by Wilhelm von Waldeyer. It is the body's first-line immune "gatekeeper" at the crossroads of the respiratory and alimentary tracts, sampling inhaled and ingested antigens.
 The four components, superior to inferior:
@@ -5226,7 +5226,7 @@ The four components, superior to inferior:
 Immunologically: lymphoid tissue with germinal centers activating B cells against nasally/orally encountered pathogens, sampled through deep epithelial crypts (the palatine tonsil has 10-30 branched crypts, massively expanding surface area but also trapping debris and becoming an infection reservoir). Unlike lymph nodes, tonsils have no afferent lymphatics: antigen reaches them directly across the epithelium.
 [figure: Describes the ring of lymphoid tissue (adenoids, tubal tonsils, palatine tonsils, lingual tonsil) guarding the aerodigestive entrance.]
 
-**The age curve: why this is a childhood problem** (tags: Peak ages 2-8 · Lymphoid hyperplasia · Regression)
+**Adenotonsillar growth by age** (tags: Peak ages 2-8 · Lymphoid hyperplasia · Regression)
 
 Adenoid and tonsillar tissue is small at birth, grows through early childhood, peaks roughly between ages 2 and 8 (relative to a still-small pharynx), then regresses through adolescence.
 This growth-then-involution curve, layered on repeated viral/bacterial antigen exposure, is exactly why obstructive and infectious tonsil disease clusters in preschool/early-school-age children and becomes far less common in adults, in whom adenoids are usually vestigial.
@@ -5341,7 +5341,7 @@ Extracapsular (total) tonsillectomy remains preferred when recurrent/chronic ton
 
 DomainRecommendationDetailsSteroidsGive a single intraoperative dose of IV dexamethasone~0.5 mg/kg, max ~10-16 mg. Halves postoperative nausea/vomiting and speeds return to a normal diet. Emerging and optional, not established guidance: a short postoperative oral course (0.5 mg/kg on postop days 2, 4, 6) as an analgesic adjunct that may reduce opioid prescriptions without increasing bleeding risk.AntibioticsDo not give routine perioperative prophylactic antibioticsThey do not reduce infection, pain, or bleeding.Pain controlUse scheduled acetaminophen &plusmn; ibuprofenIbuprofen is widely used and not clearly shown to raise bleeding risk. Acetaminophen is preferred first-line in some centers.Codeine and tramadolDo not administer or prescribe to any child under 18Ultra-rapid CYP2D6 metabolizers can convert codeine to morphine and suffer fatal respiratory depression. Tramadol shares the CYP2D6 mechanism and is likewise contraindicated under 18.DispositionAdmit high-risk children for postoperative monitoringAge <3, severe OSA, comorbidities. Risk of postoperative respiratory compromise.
 
-**[newborn-hearing-screen] Newborn hearing screening: the 1-3-6 rule**
+**[newborn-hearing-screen] Newborn hearing screening (1-3-6)**
 
 The 1-3-6 rule, in order:
 
@@ -5389,7 +5389,7 @@ Definitive management requires identifying and obliterating the pyriform sinus t
 Rare (~1% of branchial anomalies) but high-stakes: presents around the angle of the mandible/periauricular region, or as recurrent otorrhea with a normal middle ear.
 The tract runs near or through the facial nerve and parotid, so excision risks CN VII injury and belongs to an experienced surgeon.
 
-**[lateral-vs-midline-neck-masses] Lateral vs midline neck masses: the quick contrast**
+**[lateral-vs-midline-neck-masses] Lateral vs midline neck masses**
 
 Midline masses that elevate with tongue protrusion are thyroglossal duct cysts; lateral masses anterior to the SCM are branchial cleft anomalies.
 
@@ -5843,11 +5843,11 @@ Teaching: [figure: Young child with fever, rigid neck extension, muffled voice, 
 - version: 
 - status: DRAFT, pending faculty review. Verify all doses locally before prescribing.
 - facultyReviewer: ""
-- subtitle: Point-of-care antimicrobial and steroid choices for the ENT rotation: otic drops, sudden hearing loss, deep neck infections, and the antibiotic classes worth knowing cold.
+- subtitle: Otic drops, sudden hearing loss steroids, deep neck infections, and antibiotic classes.
 
 ### Clinical blocks (9)
 
-**[otic-drops] Otic drop selection: the open middle ear rule**
+**[otic-drops] Otic drop selection**
 
 The single most important principle in otic pharmacology.
 When the tympanic membrane is perforated or a tube is present, the middle ear is open to the round/oval window, so a drop can reach the inner ear. Choose a non-ototoxic fluoroquinolone and avoid aminoglycosides, alcohol, and acidifying agents (ototoxicity and pain).
@@ -5899,7 +5899,7 @@ These infections are polymicrobial (aerobic gram-positives plus oral anaerobes).
 - Typical course about 7 to 14 days: initial IV, then oral step-down (e.g. amoxicillin-clavulanate) guided by response.
 - Watch for Lemierre syndrome (Fusobacterium septic internal jugular thrombophlebitis) and mediastinal or airway extension.
 
-**[abx-classes] Antimicrobial classes: high-yield reference**
+**[abx-classes] Antimicrobial classes**
 
 What each class covers and where it fits in head and neck infection.
 
@@ -6307,7 +6307,7 @@ Watery diarrhea with leukocytosis (may precede diarrhea); prior antibiotic use i
 - version: 
 - status: DRAFT, pending faculty review.
 - facultyReviewer: ""
-- subtitle: Fast pre-scrub briefs for the OR and bedside: the indication, the key steps, the danger structures, and one pearl, for the operations you will see on the rotation.
+- subtitle: Pre-scrub briefs: indication, key steps, danger structures, and a pearl for each operation.
 
 ### Clinical section intro
 
@@ -6677,7 +6677,7 @@ Each brief is a two-minute pre-scrub read: the indication, the key steps, the da
 - status: DRAFT, pending faculty review. v0.2.0: added an allergy/rhinitis depth pass, ARIA classification and step-up therapy for allergic rhinitis, the non-allergic rhinitis mimics (vasomotor, hormonal, drug-
 - facultyReviewer: ""
 - curriculum anchors: UKMLA Content Map (GMC), scope anchor; owns Nasal obstruction, Epistaxis, Anosmia, Allergies, Facial pain, Ear and nasal discharge (nasal), Rhinosinusitis; ACGME Otolaryngology-HNS Milestones 2.0, primarily PC5 Rhinologic Disease, MK2 Allergy; AAO-HNSF Clinical Practice Guidelines: Adult Sinusitis (2015), Allergic Rhinitis (2015), Nosebleed/Epistaxis (2020); ARIA (Allergic Rhinitis and its Impact on Asthma) guideline; EPOS 2020 (European Position Paper on Rhinosinusitis and Nasal Polyps); UK undergraduate Delphi (Lloyd 2014), student-scope depth cap
-- subtitle: Nose and paranasal sinus disease in depth: anatomy, chronic rhinosinusitis, allergic/non-allergic rhinitis, epistaxis escalation, and the unilateral masses you must not miss.
+- subtitle: Nose and sinus anatomy, chronic rhinosinusitis, rhinitis, epistaxis, and unilateral nasal masses.
 
 ### Anatomy notes
 
@@ -6818,7 +6818,7 @@ _Image source: Key FESS Anatomic Variants (Concha Bullosa, Haller Cells, Onodi C
 | CRS with polyps (CRSwNP) | Bilateral polyps on endoscopy | Intranasal/short oral steroid; biologics or FESS if refractory | Biologic therapy (e.g., anti-IL-4/13 such as dupilumab, or anti-IgE) for refractory type-2 inflammation; revision FESS if polyps recur despite medical therapy |
 | AERD (Samter's triad) | CRSwNP + asthma + ASA/NSAID sensitivity | Steroids, leukotriene modifiers, consider aspirin desensitization | Supervised aspirin desensitization if not already tried; biologics (e.g., dupilumab) or revision FESS for disease refractory to desensitization |
 
-**[ar-classification] Allergic rhinitis: ARIA classification & step-up therapy**
+**[ar-classification] Allergic rhinitis: ARIA classification**
 
 The old "seasonal vs perennial" split has been replaced by ARIA (Allergic Rhinitis and its Impact on Asthma), which classifies by duration and severity, and this is what actually drives step-up therapy.
 [figure: ARIA's duration/severity classification grid for allergic rhinitis.]
@@ -6828,14 +6828,14 @@ The old "seasonal vs perennial" split has been replaced by ARIA (Allergic Rhinit
 | Duration | Intermittent (<4 days/week OR <4 consecutive weeks) vs persistent (≥4 days/week AND ≥4 consecutive weeks) |
 | Severity | Mild (no impact on sleep/daily activity/school/work) vs moderate-severe (one or more of: sleep disturbance, impaired daily activity/sport, impaired school/work, troublesome symptoms) |
 
-**[ar-step-therapy] Allergic rhinitis: the step-up therapy ladder**
+**[ar-step-therapy] Allergic rhinitis: step-up therapy**
 
 - Allergen avoidance + as-needed second-generation oral or intranasal antihistamine for mild/intermittent disease.
 - Intranasal corticosteroid (INCS), the single most effective agent and first-line for persistent or moderate-severe disease. Regular (not as-needed) dosing works best.
 - Combination therapy: INCS + intranasal antihistamine (e.g., fluticasone-azelastine) for moderate-to-severe symptoms or inadequate response to INCS alone; reserve a leukotriene receptor antagonist (boxed FDA warning for neuropsychiatric events, no better than an oral antihistamine) for patients with asthma who cannot use preferred agents; add an intranasal anticholinergic (ipratropium) if rhinorrhea is the dominant symptom.
 - Refractory disease: refer for allergen immunotherapy, either SCIT (subcutaneous immunotherapy) or SLIT (sublingual immunotherapy), the only disease-modifying option.[figure: Stepwise escalation of allergic rhinitis therapy from avoidance through immunotherapy.]
 
-**[non-allergic-rhinitis] Non-allergic rhinitis: the mimics of allergic rhinitis**
+**[non-allergic-rhinitis] Non-allergic rhinitis**
 
 Chronic rhinitis with a negative allergy workup. The clinical clue: itch, sneezing bouts, and conjunctivitis point to allergic rhinitis; non-allergic rhinitis is dominated by congestion and rhinorrhea without them.
 
@@ -6869,13 +6869,13 @@ Pharmacology:
 Posterior packs need inpatient admission to watch for rebleeding and low oxygen (the pack can obstruct the airway, with aspiration risk), especially in older or anticoagulated patients.
 [figure: Stepwise epistaxis management from first aid through cautery, packing, and arterial ligation/embolization.]
 
-**[unilateral-masses] Unilateral nasal masses by age: the pattern to memorize**
+**[unilateral-masses] Unilateral nasal masses by age**
 
 - Adolescent male + recurrent unilateral epistaxis + nasal mass → juvenile nasopharyngeal angiofibroma (JNA). Highly vascular, so biopsy in clinic is contraindicated.
 - Adult + unilateral polypoid mass → inverted papilloma until proven otherwise: locally aggressive, with malignant potential, and needing full excision (not just polypectomy).
 - Older adult + unilateral mass + anosmia/epistaxis → consider esthesioneuroblastoma (olfactory groove) or other sinonasal malignancy.[figure: Age-based pattern for unilateral sinonasal masses: JNA, inverted papilloma, esthesioneuroblastoma/malignancy.]
 
-**[fess-complications] FESS: the three complication sites every student should know**
+**[fess-complications] FESS complications**
 
 [figure: Three FESS complication sites: orbit (lamina papyracea), skull base (cribriform plate), and internal carotid artery.]Endoscopic sinus surgery works through thin bone next to three critical structures:
 
@@ -6883,7 +6883,7 @@ Posterior packs need inpatient admission to watch for rebleeding and low oxygen 
 - Skull base (via the ethmoid roof/cribriform plate): injury causes a CSF leak.
 - Internal carotid artery (in sphenoid surgery): it can run directly under thin or dehiscent bone in the sphenoid sinus wall.See the Anatomy tab for the pneumatization variants (concha bullosa, Haller cells, Onodi cells) that change where these risks sit on an individual patient's CT.
 
-**[invasive-fungal-sinusitis] Acute invasive fungal rhinosinusitis: the can't-miss emergency**
+**[invasive-fungal-sinusitis] Acute invasive fungal rhinosinusitis**
 
 Fungal sinus disease spans a spectrum, and host immune status is what separates the emergency from the chronic nuisance:
 
@@ -7160,7 +7160,7 @@ Common agents: SCIT typically uses individualized mixes of standardized aeroalle
 - status: DRAFT, pending faculty review. v0.2.0: added a PAP-therapy depth pass, formal CPAP titration methods (full-night/split-night/APAP) and the AASM/CMS adherence definition, a troubleshooting table for co
 - facultyReviewer: ""
 - curriculum anchors: UKMLA Content Map (GMC), scope anchor; owns Snoring and Obstructive sleep apnoea at adult subspecialty depth (screening tools, PSG interpretation, surgical ladder); ACGME Otolaryngology-HNS Milestones 2.0, primarily PC6/PC9 (airway/surgical management); AASM Clinical Practice Guidelines on OSA diagnosis and management; AAO-HNSF Position Statement on OSA surgery; UK undergraduate Delphi (Lloyd 2014), student-scope depth cap
-- subtitle: Screening tools and polysomnography basics, plus the ladder from CPAP to named surgical options for adult obstructive sleep apnea.
+- subtitle: Screening, polysomnography, and the ladder from CPAP to surgery for adult OSA.
 
 ### Anatomy notes
 
@@ -7331,7 +7331,7 @@ AHI is the number of apneas + hypopneas per hour of sleep, from polysomnography 
 
 A validated 0-24 self-report questionnaire scoring the likelihood of dozing in 8 everyday situations. ≥10 suggests clinically significant excessive daytime sleepiness. It measures symptom burden, not disease severity: a patient can have severe OSA by AHI with a low Epworth score, or vice versa.
 
-**[management-ladder] The management ladder: CPAP first, surgery second**
+**[management-ladder] OSA management ladder**
 
 Core principle: OSA treatment is a ladder, not a menu. Start with the option that reliably works regardless of where the airway collapses, and escalate only when it fails.
 Because positive airway pressure splints the entire airway at once, it is first-line before the obstruction site is even known. Surgery generally enters only after CPAP has genuinely failed, chosen based on where the airway collapses.

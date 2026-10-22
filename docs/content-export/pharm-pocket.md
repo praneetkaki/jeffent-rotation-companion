@@ -1,6 +1,6 @@
 # Pharmacology Pocket Guide
 
-_Generated 2026-10-21 from content/*.js_
+_Generated 2026-10-22 from content/*.js_
 
 > **How to use:** paste a module file below (or ALL.md) into OpenEvidence / any reviewer, followed by an instruction such as
 > "Fact-check every claim against current guidelines, flag anything outdated or wrong, and propose exact replacement wording. Keep our style: no em dashes, plain clinical language."
@@ -12,11 +12,11 @@ _Generated 2026-10-21 from content/*.js_
 - version: 
 - status: DRAFT, pending faculty review. Verify all doses locally before prescribing.
 - facultyReviewer: ""
-- subtitle: Point-of-care antimicrobial and steroid choices for the ENT rotation: otic drops, sudden hearing loss, deep neck infections, and the antibiotic classes worth knowing cold.
+- subtitle: Otic drops, sudden hearing loss steroids, deep neck infections, and antibiotic classes.
 
 ### Clinical blocks (9)
 
-**[otic-drops] Otic drop selection: the open middle ear rule**
+**[otic-drops] Otic drop selection**
 
 The single most important principle in otic pharmacology.
 When the tympanic membrane is perforated or a tube is present, the middle ear is open to the round/oval window, so a drop can reach the inner ear. Choose a non-ototoxic fluoroquinolone and avoid aminoglycosides, alcohol, and acidifying agents (ototoxicity and pain).
@@ -68,7 +68,7 @@ These infections are polymicrobial (aerobic gram-positives plus oral anaerobes).
 - Typical course about 7 to 14 days: initial IV, then oral step-down (e.g. amoxicillin-clavulanate) guided by response.
 - Watch for Lemierre syndrome (Fusobacterium septic internal jugular thrombophlebitis) and mediastinal or airway extension.
 
-**[abx-classes] Antimicrobial classes: high-yield reference**
+**[abx-classes] Antimicrobial classes**
 
 What each class covers and where it fits in head and neck infection.
 

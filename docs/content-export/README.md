@@ -1,4 +1,4 @@
-# Content export (generated 2026-10-21)
+# Content export (generated 2026-10-22)
 
 Every piece of module content, extracted from `content/*.js`. Regenerate with `node scripts/extract-content-for-review.js`.
 
@@ -10,14 +10,14 @@ Every piece of module content, extracted from `content/*.js`. Regenerate with `n
 |---|---|---|
 | [abbreviations.md](abbreviations.md) | Key Abbreviations | ~4k chars |
 | [anatomy-atlas.md](anatomy-atlas.md) | Anatomy Atlas | ~38k chars |
-| [emergencies-red-flags.md](emergencies-red-flags.md) | Emergencies & Red Flags | ~68k chars |
-| [ent-exam.md](ent-exam.md) | Foundations: Exam, Approach & Emergencies | ~95k chars |
+| [emergencies-red-flags.md](emergencies-red-flags.md) | Emergencies & Red Flags | ~67k chars |
+| [ent-exam.md](ent-exam.md) | Foundations | ~95k chars |
 | [facial-plastics-trauma.md](facial-plastics-trauma.md) | Facial Plastics & Trauma | ~72k chars |
 | [frameworks.md](frameworks.md) | Curriculum framework registry | ~1k chars |
 | [glossary.md](glossary.md) | Glossary (inline term popovers) | ~89k chars |
-| [head-neck-oncology.md](head-neck-oncology.md) | Head & Neck Oncology | ~77k chars |
+| [head-neck-oncology.md](head-neck-oncology.md) | Head & Neck Oncology | ~76k chars |
 | [laryngology-voice-airway.md](laryngology-voice-airway.md) | Laryngology, Voice & Airway | ~51k chars |
-| [otology-ear.md](otology-ear.md) | The Ear: Anatomy to the Clinic | ~74k chars |
+| [otology-ear.md](otology-ear.md) | Otology & Neurotology | ~74k chars |
 | [pediatric-ent.md](pediatric-ent.md) | Pediatric ENT | ~78k chars |
 | [pharm-pocket.md](pharm-pocket.md) | Pharmacology Pocket Guide | ~11k chars |
 | [pimp-questions.md](pimp-questions.md) | Frequently Asked Questions (rounds/procedures) | ~30k chars |

@@ -7,13 +7,13 @@ window.JEFFENT.register(
  "trackAbbr": "RX",
  "order": 1,
  "title": "Pharmacology Pocket Guide",
- "subtitle": "Point-of-care antimicrobial and steroid choices for the ENT rotation: otic drops, sudden hearing loss, deep neck infections, and the antibiotic classes worth knowing cold.",
+ "subtitle": "Otic drops, sudden hearing loss steroids, deep neck infections, and antibiotic classes.",
  "status": "DRAFT, pending faculty review. Verify all doses locally before prescribing.",
  "clinical": {
   "blocks": [
    {
     "id": "otic-drops",
-    "title": "Otic drop selection: the open middle ear rule",
+    "title": "Otic drop selection",
     "html": "<p class='sub'>The single most important principle in otic pharmacology.</p><p>When the tympanic membrane is <strong>perforated</strong> or a <strong>tube</strong> is present, the middle ear is open to the round/oval window, so a drop can reach the inner ear. Choose a <strong>non-ototoxic fluoroquinolone</strong> and avoid aminoglycosides, alcohol, and acidifying agents (ototoxicity and pain).</p>",
     "table": {
      "head": [
@@ -109,7 +109,7 @@ window.JEFFENT.register(
    },
    {
     "id": "abx-classes",
-    "title": "Antimicrobial classes: high-yield reference",
+    "title": "Antimicrobial classes",
     "html": "<p class='sub'>What each class covers and where it fits in head and neck infection.</p>",
     "table": {
      "head": [

@@ -1,6 +1,6 @@
 # Laryngology, Voice & Airway
 
-_Generated 2026-10-21 from content/*.js_
+_Generated 2026-10-22 from content/*.js_
 
 > **How to use:** paste a module file below (or ALL.md) into OpenEvidence / any reviewer, followed by an instruction such as
 > "Fact-check every claim against current guidelines, flag anything outdated or wrong, and propose exact replacement wording. Keep our style: no em dashes, plain clinical language."
@@ -13,7 +13,7 @@ _Generated 2026-10-21 from content/*.js_
 - status: DRAFT, pending faculty review. v0.2.0: added a depth pass covering genuinely missing sub-I topics, the unilateral vocal fold paralysis workup/management ladder (imaging along the RLN course, voice the
 - facultyReviewer: ""
 - curriculum anchors: UKMLA Content Map (GMC), scope anchor; owns Hoarseness and voice change, Stridor, Swallowing problems, Sore throat (laryngeal/airway angle), Cough (laryngeal angle), Epiglottitis, Tonsillitis (airway angle); ACGME Otolaryngology-HNS Milestones 2.0, primarily PC6 Laryngologic Disease, PC1 Airway Emergency & Management; AAO-HNSF Clinical Practice Guideline: Hoarseness (Dysphonia), 2018; UK undergraduate Delphi (Lloyd 2014), student-scope depth cap
-- subtitle: The larynx in depth: subsites, vocal-fold pathology, the pediatric-airway differential, and the emergencies that live here.
+- subtitle: Larynx subsites, vocal fold disease, pediatric airway differential, and airway emergencies.
 
 ### Anatomy notes
 
@@ -140,7 +140,7 @@ These are opposite problems: one leaks air, the other blocks it.
 | Aspiration risk | Yes (glottic incompetence) | Less (folds paramedian, close together) |
 | Common causes | Thyroid surgery, lung/mediastinal mass, idiopathic, viral | Bilateral thyroid surgery injury, neurologic disease |
 
-**[vf-paralysis-workup-management] Unilateral vocal fold paralysis: workup and the management ladder**
+**[vf-paralysis-workup-management] Unilateral vocal fold paralysis**
 
 Once laryngoscopy confirms an immobile fold, image the entire recurrent laryngeal nerve course, from skull base to the aortic arch and mediastinum, because a lesion anywhere along that path (lung apex tumor, thyroid mass, mediastinal node, aortic aneurysm) can be the cause, not just the neck.
 Management ladder (for a fold unlikely to be from a treatable cause found above):
@@ -175,7 +175,7 @@ Onset speed, fever, and posture separate these quickly.
 | Bacterial tracheitis | Toxic-appearing, high fever, fails to improve with croup treatment, thick purulent secretions. |
 | Foreign body aspiration | Sudden onset in a well child, choking episode, unilateral wheeze/decreased breath sounds. |
 
-**[laryngeal-cancer-approach] Laryngeal cancer: risk and the staging logic**
+**[laryngeal-cancer-approach] Laryngeal cancer: risk and T staging**
 
 [figure: Laryngeal cancer risk factors (synergistic tobacco/alcohol) and why subsite lymphatic drainage drives presentation timing.]Risk factors: tobacco and alcohol act synergistically (not just additively). Glottic Cancer: Early Presentation: the true vocal folds have sparse lymphatics, so even a small tumor causes hoarseness before it can spread. Persistent hoarseness therefore warrants laryngoscopy rather than being dismissed. Supraglottic and subglottic tumors are more lymphatic-rich or silent, so they tend to present later, with a neck mass or airway symptoms.
 Staging, high-yield overview (a simplified look at T-stage logic, not full AJCC granularity):
@@ -187,7 +187,7 @@ Staging, high-yield overview (a simplified look at T-stage logic, not full AJCC 
 | T3 | Vocal fold fixation, or invades paraglottic space/inner cartilage cortex | Fixation, or invades postcricoid/paraglottic/pre-epiglottic space |
 | T4 | Invades through cartilage or extends outside the larynx | Invades through cartilage or extends outside the larynx |
 
-**[laryngeal-cancer-n-stage] Laryngeal cancer: nodal staging, general logic**
+**[laryngeal-cancer-n-stage] Laryngeal cancer: nodal staging**
 
 N0 is no regional nodes and N1 is a single ipsilateral node &le;3 cm. Higher N means larger, multiple, bilateral, or extranodal-extension-positive nodes. Supraglottic tumors node earlier because of rich bilateral lymphatics.
 
@@ -226,7 +226,7 @@ Now termed inducible laryngeal obstruction (ILO): paradoxical inspiratory adduct
 - Treat triggers: reflux, irritants, exercise, anxiety
 - Not inhaler escalation
 
-**[subglottic-stenosis-differential] Subglottic stenosis: iatrogenic vs idiopathic vs GPA, and the other asthma mimic**
+**[subglottic-stenosis-differential] Subglottic stenosis: causes**
 
 A second airway condition that gets mistaken for asthma, distinct from VCD above: subglottic stenosis is a fixed, structural narrowing that causes biphasic stridor and exertional dyspnea that does not respond to bronchodilators or inhaled steroids. Failure of 'asthma' therapy should prompt flexible laryngoscopy.
 
@@ -236,7 +236,7 @@ A second airway condition that gets mistaken for asthma, distinct from VCD above
 | Idiopathic (iSGS) | Classically a healthy woman in her 30s-50s, never a smoker, with no identifiable cause. A diagnosis of exclusion. |
 | Granulomatosis with polyangiitis (GPA) | Can present as isolated subglottic disease before other systemic features; screen with ANCA and ask about sinonasal/renal/pulmonary symptoms; limited disease can be ANCA-negative. |
 
-**[subglottic-stenosis-management] Subglottic stenosis: the treatment ladder**
+**[subglottic-stenosis-management] Subglottic stenosis: treatment**
 
 Three main approaches, trading durability against morbidity and voice:
 
@@ -244,7 +244,7 @@ Three main approaches, trading durability against morbidity and voice:
 - Endoscopic resection with adjuvant medical therapy (ERMT): CO&#8322; laser incision + dilation plus adjuvant medical therapy (PPI, inhaled corticosteroid, &plusmn; trimethoprim-sulfamethoxazole); intermediate recurrence (~30% at 5 yr) with minimal voice impact.
 - Cricotracheal resection (CTR): open resection, most durable (~5% recurrence at 5 yr) and best breathing/QoL, but greatest perioperative risk and worst long-term voice.Serial intralesional steroid injection (SILSI) is an increasingly used office-based adjunct, particularly effective in idiopathic disease. Always screen for GPA (ANCA) before labeling stenosis idiopathic, since active vasculitis is treated medically.
 
-**[tracheostomy-in-depth] Tracheostomy: tube types, first-week emergencies, and decannulation**
+**[tracheostomy-in-depth] Tracheostomy**
 
 [figure: Tracheostomy tube types, the first-postoperative-week dislodgement emergency, and decannulation pathway.]Tube variables:
 

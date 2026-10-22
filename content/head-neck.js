@@ -16,7 +16,7 @@ window.JEFFENT.register({
   trackAbbr: "HN",
   order: 4,
   title: "Head & Neck Oncology",
-  subtitle: "The neck mass, the salivary gland, and the thyroid nodule worked all the way through, plus the HPV and EBV stories reshaping oropharyngeal and nasopharyngeal cancer.",
+  subtitle: "Neck mass, salivary gland, thyroid nodule, and HPV and EBV associated cancers.",
   version: "0.3.0-draft",
   level: ["core", "sub-I"],
   status: "DRAFT, pending faculty review. v0.2.0: added a depth pass covering genuinely missing high-yield sub-I topics, nasopharyngeal carcinoma (EBV-associated), the wider salivary gland spectrum (Warthin tumour, adenoid cystic carcinoma/perineural invasion, sialadenitis vs mumps), neck dissection classification, hypopharyngeal cancer subsites, and pre-radiation dental clearance/osteoradionecrosis, grounded in NCCN Head and Neck Cancers guidelines, AJCC staging, and standard head & neck oncology teaching; written fresh from guidelines and standard teaching, not derived from any single textbook. v0.2.1: OpenEvidence-verified correction pass (user-reviewed, not faculty sign-off): updated the Bethesda System table (thyroid-nodule-workup block and bethesda-card) to the 2023 3rd-edition categories/ROMs; added molecular-testing and thyroid-surgery-extent (lobectomy vs total thyroidectomy) blocks/cards per the 2025 ATA guidelines; added an extranodal-extension card and red flag; added an optional systemic-therapy-rm block and tors-deescalation-card.",
@@ -275,7 +275,7 @@ window.JEFFENT.register({
       },
       {
         id: "thyroid-nodule-workup",
-        title: "Thyroid nodule: the workup order",
+        title: "Thyroid nodule workup",
         html: "<ol><li><strong>TSH</strong> first: if low/suppressed, get a radionuclide scan.</li>" +
           "<li><strong>Ultrasound</strong>: assess size and suspicious features (<strong>TI-RADS</strong>: microcalcifications, taller-than-wide shape, irregular margins, marked hypoechogenicity) to decide if FNA is warranted.</li>" +
           "<li><strong>FNA</strong>, reported by the <strong>Bethesda System</strong> (categories I-VI, from non-diagnostic to malignant), guides surgery vs surveillance.</li></ol>" +
@@ -285,7 +285,7 @@ window.JEFFENT.register({
       },
       {
         id: "indeterminate-nodule-molecular",
-        title: "Molecular testing for indeterminate thyroid nodules (Bethesda III/IV)",
+        title: "Molecular testing for indeterminate nodules",
         html: "<p>Bethesda III and IV are the \"indeterminate\" categories (ROM ~22% and ~30%), where cytology alone cannot separate benign from malignant follicular-patterned lesions. Rather than sending every one to diagnostic lobectomy, <strong>molecular testing</strong> on the FNA sample is now standard to refine risk:</p><ul>" +
           "<li><strong>Commercial tests:</strong> ThyroSeq v3 (DNA/RNA next-generation sequencing panel) and Afirma GSC (RNA-based gene sequencing classifier) are the two most used; ThyGeNEXT/ThyraMIR is a third (mutation + microRNA).</li>" +
           "<li><strong>How they're used:</strong> primarily as <strong>rule-out</strong> tests: all have high negative predictive value (~96-97%), so a benign/negative result supports surveillance instead of surgery, avoiding unnecessary operations. A positive result raises malignancy risk and generally prompts surgery.</li>" +
@@ -315,7 +315,7 @@ window.JEFFENT.register({
       },
       {
         id: "salivary-gland-spectrum",
-        title: "The salivary gland spectrum: beyond pleomorphic adenoma",
+        title: "Other salivary gland tumors",
         html: "<p>Approximately 80% of parotid tumors are benign, and approximately 80% of those are pleomorphic adenoma, the two most common parotid entities. A well-rounded differential adds:</p>" +
           "<ul><li><strong>Warthin tumor</strong> (papillary cystadenoma lymphomatosum): the second most common benign parotid tumor; classically an <strong>elderly male smoker</strong>, and unique among salivary tumors for being <strong>bilateral or multifocal in up to ~10%</strong> of cases.</li>" +
           "<li><strong>Adenoid cystic carcinoma:</strong> more often arises in the <strong>minor salivary glands</strong> (classically the palate) than the parotid. The hallmark is <strong>perineural invasion</strong>: pain or numbness disproportionate to the size of the mass. It behaves indolently but relentlessly, with a tendency for <strong>late distant metastasis</strong> (often to lung) even after apparently successful local treatment.</li>" +
@@ -324,13 +324,13 @@ window.JEFFENT.register({
       },
       {
         id: "hypopharyngeal-cancer",
-        title: "Hypopharyngeal cancer: prognostic factors and latent presentation",
+        title: "Hypopharyngeal cancer",
         html: "<p>Three subsites: the <strong>pyriform sinus</strong> (the most common site), the <strong>postcricoid region</strong>, and the <strong>posterior pharyngeal wall</strong>. Unlike glottic cancer (which causes hoarseness early), the hypopharynx is roomy with sparse early symptoms. Patients often present late with a <strong>neck mass</strong>, progressive <strong>dysphagia</strong>, or <strong>referred otalgia</strong>, by which point disease is frequently locally advanced. This late presentation is the main reason hypopharyngeal cancer carries a <strong>worse prognosis</strong> than most other head & neck subsites.</p>" +
           "<p><strong>Plummer-Vinson (Paterson-Kelly) syndrome</strong> (iron-deficiency anemia, an esophageal web, and dysphagia, classically in <strong>middle-aged women</strong>) is a rare but classic predisposing condition specifically for <strong>postcricoid</strong> carcinoma; correcting the anemia and dilating the web don't substitute for excluding malignancy.</p>"
       },
       {
         id: "neck-dissection-classification",
-        title: "Neck dissection: the three classes to know",
+        title: "Neck dissection classes",
         html: "<p>Named for how much beyond the lymph nodes themselves is sacrificed. Modern head & neck surgery favors the least aggressive dissection that still adequately treats the disease. A selective neck dissection is now standard for many cN0 (clinically node-negative) necks.</p>",
         table: {
           head: ["Type", "What's removed", "What's preserved"],
@@ -348,7 +348,7 @@ window.JEFFENT.register({
       },
       {
         id: "cancer-immunotherapy-intro",
-        title: "Cancer immunotherapy: the fundamentals",
+        title: "Cancer immunotherapy",
         html: "<p>Normally, PD-1 (on T-cells) binding PD-L1 (on tumor or immune cells) switches the T-cell off, letting the tumor evade immune attack. <strong>Checkpoint inhibitors</strong> block that interaction so T-cells can recognize and kill tumor cells. This is the relevant immunotherapy class in head & neck cancer, with <strong>pembrolizumab</strong> and <strong>nivolumab</strong> (anti-PD-1 antibodies) as the drugs to know.</p>" +
           "<p>This is fundamentally different from traditional cytotoxic chemotherapy: chemotherapy kills rapidly dividing cells directly, while checkpoint inhibitors work by releasing the brakes on the patient's own immune system.</p>" +
           "<p><strong>PD-L1 CPS (Combined Positive Score)</strong> quantifies how much PD-L1 the tumor expresses, and it directly guides treatment selection (see KEYNOTE-048, below): higher CPS predicts greater benefit from checkpoint inhibitor monotherapy, while lower CPS tumors generally still need chemotherapy on board.</p>" +
@@ -377,7 +377,7 @@ window.JEFFENT.register({
       },
       {
         id: "free-flap-fundamentals",
-        title: "Free flap reconstruction: the fundamentals",
+        title: "Free flap reconstruction",
         html: "<p>A <strong>free flap</strong> (free tissue transfer) is a block of tissue harvested with its own artery and vein from a distant donor site, disconnected completely, then microvascularly re-anastomosed to recipient vessels in the neck. Unlike a graft, a flap brings its own blood supply, so it survives independent of the wound bed's vascularity, critical in irradiated or poorly vascularized fields.</p>" +
           "<p><strong>Three tiers of the reconstructive ladder</strong>, in ascending complexity:</p><ul>" +
           "<li><strong>Local flap</strong>: adjacent tissue repositioned into the defect.</li>" +

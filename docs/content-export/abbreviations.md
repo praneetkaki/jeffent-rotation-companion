@@ -1,6 +1,6 @@
 # Key Abbreviations
 
-_Generated 2026-10-21 from content/*.js_
+_Generated 2026-10-22 from content/*.js_
 
 > **How to use:** paste a module file below (or ALL.md) into OpenEvidence / any reviewer, followed by an instruction such as
 > "Fact-check every claim against current guidelines, flag anything outdated or wrong, and propose exact replacement wording. Keep our style: no em dashes, plain clinical language."
@@ -13,7 +13,7 @@ _Generated 2026-10-21 from content/*.js_
 - status: DRAFT, pending faculty review. v0.1.0: compiled from the abbreviations already introduced across every track's content (otology, rhinology, laryngology, head & neck, pediatric, sleep, facial plastics,
 - facultyReviewer: ""
 - curriculum anchors: AAO-HNS Otolaryngology Core Curriculum, terminology and abbreviations used throughout the core curriculum; UKMLA Content Map (GMC), abbreviations cross-cut every presentation/condition this platform covers
-- subtitle: The high-yield abbreviations used across every track on this platform, gathered into one lookup page.
+- subtitle: Abbreviations used across the tracks.
 
 ### Clinical blocks (8)
 

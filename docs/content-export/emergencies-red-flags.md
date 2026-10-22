@@ -1,6 +1,6 @@
 # Emergencies & Red Flags
 
-_Generated 2026-10-21 from content/*.js_
+_Generated 2026-10-22 from content/*.js_
 
 > **How to use:** paste a module file below (or ALL.md) into OpenEvidence / any reviewer, followed by an instruction such as
 > "Fact-check every claim against current guidelines, flag anything outdated or wrong, and propose exact replacement wording. Keep our style: no em dashes, plain clinical language."
@@ -13,11 +13,11 @@ _Generated 2026-10-21 from content/*.js_
 - status: DRAFT, pending faculty review. v0.2.0: added a depth pass on four genuinely uncovered airway/emergency algorithms, angioedema differential and management (allergic/mast-cell-mediated vs ACE-inhibitor 
 - facultyReviewer: ""
 - curriculum anchors: UKMLA Content Map (GMC), scope anchor; synthesizes the emergency/red-flag rows already owned by Foundations and every subspecialty track at rapid-triage depth; ACGME Otolaryngology-HNS Milestones 2.0, primarily PC1 (emergency recognition/management); ATLS principles; standard US emergency otolaryngology teaching; UK undergraduate Delphi (Lloyd 2014), student-scope depth cap
-- subtitle: The true time-critical ENT presentations, gathered across every subspecialty into one rapid-triage synthesis.
+- subtitle: Time-critical ENT presentations across subspecialties.
 
 ### Anatomy notes
 
-**Airway triage: look, listen, act** (tags: Airway assessment · Airway patency · Stridor)
+**Airway triage** (tags: Airway assessment · Airway patency · Stridor)
 
 [figure: Landmarks: Cricothyroid membrane surface anatomy for the emergency surgical airway.]
 - The airway question comes first, before any differential: is it patent, at risk, or failing right now?
@@ -131,7 +131,7 @@ All three can present with sore throat, drooling, and voice change, but the diff
 
 In suspected epiglottitis (especially in a child with drooling/tripod positioning), do not use a tongue depressor or attempt to visualize the oropharynx outside a controlled setting with airway backup immediately available: manipulation can precipitate complete airway obstruction. Keep the child calm, ideally in a parent's lap, and get anesthesia/ENT to secure the airway in the OR.
 
-**[angioedema-three-diseases] Angioedema: Key Differentials**
+**[angioedema-three-diseases] Angioedema differential**
 
 Sudden lip/tongue/airway swelling without urticaria or itch requires determining whether the mechanism is histamine-mediated at all. Two of the three major causes of angioedema are bradykinin-mediated, not mast-cell/histamine-mediated, and bradykinin-mediated swelling does not reliably respond to epinephrine, antihistamines, or steroids, the standard anaphylaxis triad.
 
@@ -142,7 +142,7 @@ Sudden lip/tongue/airway swelling without urticaria or itch requires determining
 | Responds to epinephrine/antihistamines/steroids? | Yes, first-line | No, reliably: supportive care + stop the drug is the actual treatment | No: needs specific bradykinin-pathway therapy, not standard anaphylaxis treatment |
 | Actual management | IM epinephrine, antihistamines, steroids per anaphylaxis protocol | Stop the ACE inhibitor (and avoid ARBs cautiously; cross-reactivity is low but reported); secure the airway if threatened; icatibant/C1-INH concentrate have been used off-label with inconsistent trial evidence | C1-inhibitor concentrate, icatibant (bradykinin B2-receptor antagonist), or ecallantide (kallikrein inhibitor), not epinephrine/antihistamines as primary treatment |
 
-**[penetrating-neck-trauma-management] Penetrating neck trauma: hard signs go to the OR**
+**[penetrating-neck-trauma-management] Penetrating neck trauma**
 
 After the ATLS primary survey (airway/breathing/circulation), the first question is "hard signs or not?", not "what zone?". Hard signs (expanding/pulsatile hematoma, active pulsatile bleeding, bruit/thrill, absent distal pulse, air bubbling from the wound, airway compromise, massive hemoptysis/hematemesis) mandate immediate operative exploration.
 For the stable patient without hard signs, current practice uses a "no-zone" approach: CT angiography plus serial exam guides management, regardless of which zone the wound is in. This has largely replaced the older rule of "explore all Zone II, image Zone I and III," because the entry-wound zone poorly predicts the actual internal injury and mandatory Zone II exploration produced many negative operations.
@@ -165,7 +165,7 @@ Signs raising concern for inhalational injury (any one is enough to trigger urge
 - New hoarseness or stridor
 - History of a closed-space fire, decreased level of consciousness at the scene, or a fire involving synthetic/chemical materials (higher risk of toxic inhalation/chemical burn on top of thermal injury)The management logic mirrors the airway-first principle above, with one twist: here, the decision to intubate is made before stridor/drooling/tripod positioning appear, because once those late signs are present in a burn patient, the airway may already be too swollen and distorted for a straightforward intubation. This is a case where the emergency intervention deliberately gets ahead of the exam findings.
 
-**[caustic-ingestion-deep] Caustic ingestion, deeper: alkali vs acid injury, endoscopic grading, and stricture risk**
+**[caustic-ingestion-deep] Caustic ingestion: alkali vs acid injury**
 
 Beyond the immediate "don't induce vomiting, don't neutralize" rule, the type of caustic agent shapes what happens next:
 

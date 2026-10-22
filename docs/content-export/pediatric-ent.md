@@ -1,6 +1,6 @@
 # Pediatric ENT
 
-_Generated 2026-10-21 from content/*.js_
+_Generated 2026-10-22 from content/*.js_
 
 > **How to use:** paste a module file below (or ALL.md) into OpenEvidence / any reviewer, followed by an instruction such as
 > "Fact-check every claim against current guidelines, flag anything outdated or wrong, and propose exact replacement wording. Keep our style: no em dashes, plain clinical language."
@@ -13,7 +13,7 @@ _Generated 2026-10-21 from content/*.js_
 - status: DRAFT, pending faculty review. v0.2.0: added a depth pass covering genuinely missing pediatric-specific topics, congenital aural atresia/microtia and congenital (vs acquired) cholesteatoma, pediatric 
 - facultyReviewer: ""
 - curriculum anchors: UKMLA Content Map (GMC), scope anchor; owns Painful ear, Hearing loss, Stridor, Neck lump, Nasal obstruction, Snoring, Facial/periorbital swelling, all at pediatric-specific depth; ACGME Otolaryngology-HNS Milestones 2.0, primarily PC7 Pediatric Otolaryngology; AAP Clinical Practice Guidelines: Otitis Media, Tonsillectomy, Childhood Obstructive Sleep Apnea Syndrome; AAO-HNSF Clinical Practice Guidelines: Tympanostomy Tubes, Tonsillectomy in Children; UK undergraduate Delphi (Lloyd 2014), student-scope depth cap
-- subtitle: The child is not a small adult: airway anatomy, ear disease, congenital anomalies, and the red flags unique to kids.
+- subtitle: Pediatric airway, ear disease, congenital anomalies, and red flags.
 
 ### Anatomy notes
 
@@ -29,7 +29,7 @@ FeatureChild (infant/young child)AdultWhy it matters for airway managementOveral
 - It therefore drains the middle ear less efficiently and lets nasopharyngeal secretions and pathogens reflux more easily.
 - This is why otitis media is overwhelmingly a childhood disease, becoming far less common once the tube matures toward its adult angle.
 
-**The branchial (pharyngeal) apparatus: arches, clefts, and pouches** (tags: Arches · Clefts · Pouches)
+**The branchial apparatus** (tags: Arches · Clefts · Pouches)
 
 The frameworkThe branchial apparatus appears in weeks 4 to 7 as paired bulges on the side of the embryonic head that build the face and neck. Three terms carry everything:
 
@@ -42,7 +42,7 @@ Arteries: the left arch 4 artery becomes the aortic arch and the left arch 6 art
 Clefts vs pouchesClefts (grooves)PouchesPosition and liningExternal, ectoderm (squamous)Internal, endodermFateOnly cleft 1 persists, as the external auditory canal; clefts 2 to 4 obliteratePouch spaces close, but pouch endoderm differentiates into glands and epitheliumIf it failsCyst, sinus, or fistula lined by squamous epitheliumCyst or sinus lined by respiratory or glandular epitheliumPouch derivatives: pouch 1 = middle ear and Eustachian tube; pouch 2 = palatine tonsil; pouch 3 = inferior parathyroid and thymus; pouch 4 = superior parathyroid.
 [figure: Explains second branchial cleft anomalies and the classic tract from a neck pit anterior to the SCM up to the tonsillar fossa.]
 
-**Pouch derivatives (endoderm): glands & spaces** (tags: Pouch derivatives · Glands · Spaces)
+**Pouch derivatives** (tags: Pouch derivatives · Glands · Spaces)
 
 The pouches are endodermal and become glands and spaces (thymus, parathyroids, middle ear, tonsil), contrasting with clefts (their external counterpart), which mostly disappear.
 
@@ -52,7 +52,7 @@ The pouches are endodermal and become glands and spaces (thymus, parathyroids, m
 - Pouch 4 -> superior parathyroids (+ ultimobranchial body -> C cells).Parathyroid Origin and Descent: inferior parathyroids arise from pouch 3, superior parathyroids from pouch 4, an inversion of the expected numeric order because pouch 3 also carries the thymus, dragging its parathyroids inferiorly past the pouch-4 pair as the thymus descends. This is also why an ectopic inferior parathyroid can end up in the mediastinum with the thymus.
 DiGeorge syndrome (22q11.2) is failure of pouches 3 and 4, producing absent thymus (T-cell immunodeficiency) and absent parathyroids (hypocalcemia).
 
-**Waldeyer's ring: the foundational picture** (tags: Adenoids · Palatine tonsils · Lymphoid ring)
+**Waldeyer's ring** (tags: Adenoids · Palatine tonsils · Lymphoid ring)
 
 A ring of mucosa-associated lymphoid tissue (MALT) encircling the opening of the oral and nasal cavities into the pharynx, first described by Wilhelm von Waldeyer. It is the body's first-line immune "gatekeeper" at the crossroads of the respiratory and alimentary tracts, sampling inhaled and ingested antigens.
 The four components, superior to inferior:
@@ -64,7 +64,7 @@ The four components, superior to inferior:
 Immunologically: lymphoid tissue with germinal centers activating B cells against nasally/orally encountered pathogens, sampled through deep epithelial crypts (the palatine tonsil has 10-30 branched crypts, massively expanding surface area but also trapping debris and becoming an infection reservoir). Unlike lymph nodes, tonsils have no afferent lymphatics: antigen reaches them directly across the epithelium.
 [figure: Describes the ring of lymphoid tissue (adenoids, tubal tonsils, palatine tonsils, lingual tonsil) guarding the aerodigestive entrance.]
 
-**The age curve: why this is a childhood problem** (tags: Peak ages 2-8 · Lymphoid hyperplasia · Regression)
+**Adenotonsillar growth by age** (tags: Peak ages 2-8 · Lymphoid hyperplasia · Regression)
 
 Adenoid and tonsillar tissue is small at birth, grows through early childhood, peaks roughly between ages 2 and 8 (relative to a still-small pharynx), then regresses through adolescence.
 This growth-then-involution curve, layered on repeated viral/bacterial antigen exposure, is exactly why obstructive and infectious tonsil disease clusters in preschool/early-school-age children and becomes far less common in adults, in whom adenoids are usually vestigial.
@@ -179,7 +179,7 @@ Extracapsular (total) tonsillectomy remains preferred when recurrent/chronic ton
 
 DomainRecommendationDetailsSteroidsGive a single intraoperative dose of IV dexamethasone~0.5 mg/kg, max ~10-16 mg. Halves postoperative nausea/vomiting and speeds return to a normal diet. Emerging and optional, not established guidance: a short postoperative oral course (0.5 mg/kg on postop days 2, 4, 6) as an analgesic adjunct that may reduce opioid prescriptions without increasing bleeding risk.AntibioticsDo not give routine perioperative prophylactic antibioticsThey do not reduce infection, pain, or bleeding.Pain controlUse scheduled acetaminophen &plusmn; ibuprofenIbuprofen is widely used and not clearly shown to raise bleeding risk. Acetaminophen is preferred first-line in some centers.Codeine and tramadolDo not administer or prescribe to any child under 18Ultra-rapid CYP2D6 metabolizers can convert codeine to morphine and suffer fatal respiratory depression. Tramadol shares the CYP2D6 mechanism and is likewise contraindicated under 18.DispositionAdmit high-risk children for postoperative monitoringAge <3, severe OSA, comorbidities. Risk of postoperative respiratory compromise.
 
-**[newborn-hearing-screen] Newborn hearing screening: the 1-3-6 rule**
+**[newborn-hearing-screen] Newborn hearing screening (1-3-6)**
 
 The 1-3-6 rule, in order:
 
@@ -227,7 +227,7 @@ Definitive management requires identifying and obliterating the pyriform sinus t
 Rare (~1% of branchial anomalies) but high-stakes: presents around the angle of the mandible/periauricular region, or as recurrent otorrhea with a normal middle ear.
 The tract runs near or through the facial nerve and parotid, so excision risks CN VII injury and belongs to an experienced surgeon.
 
-**[lateral-vs-midline-neck-masses] Lateral vs midline neck masses: the quick contrast**
+**[lateral-vs-midline-neck-masses] Lateral vs midline neck masses**
 
 Midline masses that elevate with tongue protrusion are thyroglossal duct cysts; lateral masses anterior to the SCM are branchial cleft anomalies.
 

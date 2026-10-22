@@ -210,12 +210,12 @@
   }
 
   function aggregateStats(mods) {
-    var total = 0, due = 0, mastered = 0;
+    var total = 0, due = 0, mastered = 0, seen = 0;
     mods.forEach(function (m) {
       var s = window.SRS.stats(m.id, m.cards || []);
-      total += s.total; due += s.due; mastered += s.mastered;
+      total += s.total; due += s.due; mastered += s.mastered; seen += s.seen;
     });
-    return { total: total, due: due, mastered: mastered };
+    return { total: total, due: due, mastered: mastered, seen: seen };
   }
 
   /* ---------- theme ---------- */
@@ -231,10 +231,48 @@
     document.documentElement.setAttribute("data-theme", next);
     try { localStorage.setItem("jeffent.theme", next); } catch (e) {}
   }
+  /* Color themes. The default (forest) lives in :root; the rest are
+     :root[data-palette="..."] blocks at the end of styles.css. */
+  var PALETTES = [
+    { id: "forest", name: "Forest and paper", sw: ["#f6f4ec", "#0f3e17", "#3f7d5a"], meta: "#0f3e17" },
+    { id: "navy", name: "Hospital navy", sw: ["#f3f5f8", "#12335c", "#2a9d8f"], meta: "#12335c" },
+    { id: "teal-sand", name: "Teal and sand", sw: ["#f6f2e9", "#0d4a52", "#d98b3a"], meta: "#0d4a52" },
+    { id: "oxblood", name: "Oxblood and bone", sw: ["#f7f2ec", "#5e1f2b", "#4f9a86"], meta: "#5e1f2b" },
+    { id: "graphite", name: "Graphite and sage", sw: ["#f3f4f1", "#232a27", "#6f9e75"], meta: "#232a27" },
+    { id: "ink-coral", name: "Ink blue and coral", sw: ["#f6f5f2", "#1c2a4a", "#e0603c"], meta: "#1c2a4a" },
+    { id: "mint", name: "Scrub mint", sw: ["#eef6f5", "#0a5a5f", "#2f9a8c"], meta: "#0a5a5f" }
+  ];
+  function getPalette() {
+    var id; try { id = localStorage.getItem("jeffent.palette"); } catch (e) {}
+    return PALETTES.some(function (p) { return p.id === id; }) ? id : "forest";
+  }
+  function applyPalette(id) {
+    var root = document.documentElement;
+    if (id === "forest") root.removeAttribute("data-palette"); else root.setAttribute("data-palette", id);
+    var pal = PALETTES.filter(function (p) { return p.id === id; })[0];
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta && pal) meta.setAttribute("content", pal.meta);
+    try { localStorage.setItem("jeffent.palette", id); } catch (e) {}
+  }
+  function buildPaletteGrid() {
+    var cur = getPalette();
+    var grid = h('<div class="palette-grid" role="radiogroup" aria-label="Color theme"></div>');
+    PALETTES.forEach(function (p) {
+      var b = h('<button type="button" class="palette-opt" role="radio" aria-checked="' + (p.id === cur) + '"><span class="palette-sw">' +
+        p.sw.map(function (c) { return '<i style="background:' + c + '"></i>'; }).join("") + '</span><span>' + esc(p.name) + '</span></button>');
+      b.addEventListener("click", function () {
+        applyPalette(p.id);
+        grid.querySelectorAll(".palette-opt").forEach(function (o) { o.setAttribute("aria-checked", o === b ? "true" : "false"); });
+      });
+      grid.appendChild(b);
+    });
+    return grid;
+  }
   function initTheme() {
     var saved;
     try { saved = localStorage.getItem("jeffent.theme"); } catch (e) {}
     if (saved) document.documentElement.setAttribute("data-theme", saved);
+    applyPalette(getPalette());
     el("themeToggle").addEventListener("click", toggleTheme);
   }
 
@@ -557,12 +595,7 @@
     showScreen("pimp");
   }
 
-  function goAbout() {
-    pushNav();
-    state.screen = "about"; state.session = null;
-    renderAbout();
-    showScreen("about");
-  }
+  function goAbout() { goHome(); }
 
   function goRoadmap() {
     pushNav();
@@ -635,7 +668,7 @@
     root.appendChild(crumb);
     root.appendChild(h('<div class="eyebrow">Cross-module review</div>'));
     root.appendChild(h('<h1 class="h-lead">Areas for Improvement</h1>'));
-    root.appendChild(h('<p class="weak-lede">Flashcards you keep rating &ldquo;again,&rdquo; and FAQ questions you keep missing, pulled from every module into one place.</p>'));
+    root.appendChild(h('<p class="weak-lede">Flashcards you keep rating &ldquo;again,&rdquo; and procedure questions you keep missing, pulled from every module into one place.</p>'));
 
     var weakCardEntries = aggregateWeakCards(40);
     var missMap = pqMissLoad();
@@ -644,7 +677,7 @@
     var cardSec = h('<div class="weak-section"></div>');
     cardSec.appendChild(h('<div class="section-head"><h2>Flashcards (' + weakCardEntries.length + ')</h2></div>'));
     if (!weakCardEntries.length) {
-      cardSec.appendChild(h('<p class="empty-note">No struggling flashcards yet, nice work.</p>'));
+      cardSec.appendChild(h('<p class="empty-note">No struggling flashcards yet.</p>'));
     } else {
       var reviewCardsBtn = h('<button type="button" class="btn">Review all (' + weakCardEntries.length + ') &rarr;</button>');
       reviewCardsBtn.addEventListener("click", function () {
@@ -676,9 +709,9 @@
     root.appendChild(cardSec);
 
     var qSec = h('<div class="weak-section"></div>');
-    qSec.appendChild(h('<div class="section-head"><h2>FAQ questions (' + missedQs.length + ')</h2></div>'));
+    qSec.appendChild(h('<div class="section-head"><h2>Procedure questions (' + missedQs.length + ')</h2></div>'));
     if (!missedQs.length) {
-      qSec.appendChild(h('<p class="empty-note">No missed FAQ questions yet.</p>'));
+      qSec.appendChild(h('<p class="empty-note">No missed procedure questions yet.</p>'));
     } else {
       var reviewQBtn = h('<button type="button" class="btn">Review all (' + missedQs.length + ') &rarr;</button>');
       reviewQBtn.addEventListener("click", function () { goPimpWithQuestions(pqMissedQuestions(), "Most missed"); });
@@ -1042,27 +1075,7 @@
     root.appendChild(list);
   }
 
-  function renderAbout() {
-    var root = el("screen-about");
-    root.innerHTML = "";
-    var crumb = h('<button class="crumb">&larr; Home</button>');
-    crumb.addEventListener("click", goHome);
-    root.appendChild(crumb);
-    root.appendChild(h('<div class="eyebrow">About this project</div>'));
-    root.appendChild(h('<h1 class="h-lead">ENT Companion</h1>'));
-    root.appendChild(h(
-      '<div class="about-body">' +
-        '<p>Active-recall flashcards, real clinical cases, and anatomy drills anchored to the UKMLA curriculum and ACGME milestones, for every stop on the ENT rotation.</p>' +
-        '<p>Foundations covers the cross-cutting exam and complaint breadth every rotation touches; each subspecialty track then goes deeper on those same topics rather than repeating them.</p>' +
-        '<h2>How the content was drafted</h2>' +
-        '<p>Every card and case was written from named clinical guidelines, the AAO-HNS Core Curriculum, and standard teaching references, cross-checked against the department\u2019s own Delphi priority list rather than lifted from a single textbook. Each module tracks its curriculum anchors and a per-card reviewer field, and stays labeled draft, pending faculty review, until a supervising attending signs off on it. Diagrams are either drawn from scratch or pending a faculty-provided or openly licensed source; the About screen won\u2019t claim a figure is finished until it has a real citation.</p>' +
-        '<h2>Spaced repetition</h2>' +
-        '<p>Review uses a five-box Leitner system: cards you rate \u201cagain\u201d come back sooner, cards you rate \u201cgood\u201d or \u201ceasy\u201d get pushed further out. The \u2699 settings panel in the header lets you speed that up or slow it down, and cap how many new cards show up per day; both apply across every module at once. The Card Library also lets you suspend a card you\u2019ve already mastered, flag one to revisit, or reset its progress back to new.</p>' +
-      '</div>'
-    ));
-  }
-
-  /* ---------- study streak (consecutive days with the app opened) ----------
+  /* ---------- study streak (consecutive days with at least one card rated) ----------
      A real, if simple, signal: no fabricated number. Stored locally only. */
   function dayStr(d) { return d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(); }
   function bumpStreak() {
@@ -1083,7 +1096,13 @@
     announceStreakMilestone(count);
   }
   function getStreak() {
-    try { return parseInt(localStorage.getItem("jeffent.streak.count"), 10) || 1; } catch (e) { return 1; }
+    try {
+      var last = localStorage.getItem("jeffent.streak.last");
+      var count = parseInt(localStorage.getItem("jeffent.streak.count"), 10) || 0;
+      if (!last || !count) return 0;
+      var today = new Date(), yesterday = new Date(today); yesterday.setDate(today.getDate() - 1);
+      return (last === dayStr(today) || last === dayStr(yesterday)) ? count : 0;
+    } catch (e) { return 0; }
   }
   /* A short celebratory toast the moment a streak crosses a round number --
    * only fires the day it's first reached, since bumpStreak() only reaches
@@ -1679,6 +1698,8 @@
       if (bestT) {
         var due = aggregateStats(modulesFor(bestT.id)).due;
         insightLine = esc(bestT.name.split(",")[0]) + " up " + bestD + "% this week." + (due ? " " + due + " card" + (due === 1 ? "" : "s") + " due." : "");
+      } else if (agg.seen === 0) {
+        insightLine = "";
       } else if (agg.due > 0) {
         var top = TRACKS.map(function (t) { return { t: t, due: aggregateStats(modulesFor(t.id)).due }; }).sort(function (a, b) { return b.due - a.due; })[0];
         insightLine = top && top.due ? "Most cards are due in " + esc(top.t.name.split(",")[0]) + ": " + top.due + "." : "";
@@ -1709,12 +1730,12 @@
         '<div class="bento-hero-top">' +
           '<div class="bento-hero-copy">' +
             '<h1 class="bento-hero-title">Focus Queue</h1>' +
-            '<div class="bento-hero-sub">' + agg.due + ' card' + (agg.due === 1 ? '' : 's') + ' due across ' + allMods.length + ' modules.' + deltaChip + '</div>' +
+            '<div class="bento-hero-sub">' + (agg.seen === 0 ? agg.total + ' cards to learn across ' + allMods.length + ' modules.' : agg.due + ' card' + (agg.due === 1 ? '' : 's') + ' due across ' + allMods.length + ' modules.') + deltaChip + '</div>' +
             (insightLine ? '<div class="bento-hero-insight">' + insightLine + '</div>' : '') +
           '</div>' +
-          '<div class="bento-streak-chip" data-dash="streak" role="button" tabindex="0" aria-label="' + streak + (streak === 1 ? ' day' : ' days') + ' study streak. Show daily review activity.">' +
+          '<div class="bento-streak-chip" data-dash="streak" role="button" tabindex="0" aria-label="' + (streak ? streak + '-day study streak. ' : 'No study streak yet. ') + 'Show daily review activity.">' +
             '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a6 6 0 1 1-12 0c0-1.088.348-2.05.5-2.5"/></svg>' +
-            '<span><span data-count="' + streak + '">0</span>' + (streak === 1 ? " day" : " days") + " streak</span>" +
+            (streak ? '<span><span data-count="' + streak + '">0</span>-day streak</span>' : '<span>No streak yet</span>') +
           "</div>" +
         "</div>" +
         '<div class="bento-hero-scroller" role="list" aria-label="Subspecialties with cards due"></div>' +
@@ -1743,7 +1764,7 @@
             '</span>' +
             '<span class="bento-metric-spark">' + sparklineSvg(activity7, 84, 26) + '</span>' +
           '</button>' +
-          '<button type="button" class="btn bento-start-btn">Start due queue (' + agg.due + ') &rarr;</button>' +
+          '<button type="button" class="btn bento-start-btn">' + (agg.seen === 0 ? 'Start learning' : 'Start due queue') + ' (' + agg.due + ') &rarr;</button>' +
         "</div>" +
       "</div>"
     );
@@ -1787,7 +1808,7 @@
     var cp = h(
       '<section class="bento-panel bp-activity"><header><h3>Last 7 days</h3><span class="bp-figure">' + weekLabel + '</span></header>' +
       '<div class="bp-chart" role="group" aria-label="Cards reviewed per day over the last 7 days">' + bars + '</div>' +
-      '<div class="bp-stats"><span><b>' + activeDays + '/7</b> active days</span><span><b>' + best + '</b> ' + peakLabel + '</span><span><b>' + streak + '</b> day streak</span>' +
+      '<div class="bp-stats"><span><b>' + activeDays + '/7</b> active days</span><span><b>' + best + '</b> ' + peakLabel + '</span><span>' + (streak ? '<b>' + streak + '</b>-day streak' : 'No streak yet') + '</span>' +
       '<label class="bp-goal-wrap">Daily goal <input type="number" class="bp-goal-in" min="0" max="999" inputmode="numeric" value="' + (dailyGoal || "") + '" placeholder="Set" aria-label="Daily review goal"></label></div></section>'
     );
     var chartEl = cp.querySelector(".bp-chart");
@@ -1830,9 +1851,11 @@
       '<text x="110" y="112" text-anchor="middle" class="bp-ring-n">' + agg.due + '</text><text x="110" y="132" text-anchor="middle" class="bp-ring-l">due today</text></svg>';
     var rp = h(
       '<section class="bento-panel bp-ringpanel"><header><h3>Today</h3></header><div class="bp-ringwrap">' + ringSvg +
-      '<ul class="bp-legend">' + ringVals.map(function (x) { return '<li><i style="background:' + x.c + '"></i><span>' + x.label + '</span><b>' + x.text + '</b></li>'; }).join("") + '</ul></div></section>'
+      '<ul class="bp-legend">' + ringVals.map(function (x) { return '<li' + (x.label === "Streak" ? ' class="bp-streak-row" tabindex="0" role="button" aria-label="Streak. Show cards reviewed in the last 30 days."' : '') + '><i style="background:' + x.c + '"></i><span>' + x.label + '</span><b>' + x.text + '</b></li>'; }).join("") + '</ul></div></section>'
     );
     var planPanelEl = buildPlanPanel();
+    var streakRow = rp.querySelector(".bp-streak-row");
+    if (streakRow) wireStreakHeatmap(streakRow);
 
     /* Count the due number up once, unless motion is reduced. */
     (function () {
@@ -2278,12 +2301,19 @@
     crumb.addEventListener("click", mods.length > 1 ? function () { goTrack(mod.track); } : goHome);
     if (mods.length > 1) crumb.textContent = "← " + (mod.trackName || mod.track);
     pageHead.appendChild(crumb);
-    pageHead.appendChild(h('<span class="crumb-sep">&rsaquo;</span>'));
-    var phEyebrow = h('<button type="button" class="ph-eyebrow">' + trackBadge(modTrack, "eyebrow-icon", 11) + '<span class="eyebrow">' + esc(mod.trackName || mod.track) + '</span></button>');
-    phEyebrow.addEventListener("click", function () { goTrack(mod.track); });
-    pageHead.appendChild(phEyebrow);
-    pageHead.appendChild(h('<span class="crumb-sep">&rsaquo;</span>'));
-    var phCurrent = h('<button type="button" class="ph-current" id="phCurrent">' + esc(mod.title) + '</button>');
+    /* The h1 below already names the module, so the breadcrumb only adds the
+       track when it is a different name, and the "current" crumb appears only
+       once a section inside the module is open. */
+    var trackLabel = mod.trackName || mod.track;
+    if (mods.length === 1 && trackLabel !== mod.title) {
+      pageHead.appendChild(h('<span class="crumb-sep">&rsaquo;</span>'));
+      var phEyebrow = h('<button type="button" class="ph-eyebrow">' + trackBadge(modTrack, "eyebrow-icon", 11) + '<span class="eyebrow">' + esc(trackLabel) + '</span></button>');
+      phEyebrow.addEventListener("click", function () { goTrack(mod.track); });
+      pageHead.appendChild(phEyebrow);
+    }
+    var phSep = h('<span class="crumb-sep" id="phCurrentSep" hidden>&rsaquo;</span>');
+    pageHead.appendChild(phSep);
+    var phCurrent = h('<button type="button" class="ph-current" id="phCurrent" data-root="' + esc(mod.title) + '" hidden>' + esc(mod.title) + '</button>');
     phCurrent.addEventListener("click", function () {
       state.anatomyTopic = null;
       renderModule(mod.id);
@@ -2939,8 +2969,12 @@
 
   /* Updates the slim sticky strip's current-section label, when present. */
   function setStickyCurrent(text) {
-    var node = el("phCurrent");
-    if (node) node.textContent = text;
+    var node = el("phCurrent"), sep = el("phCurrentSep");
+    if (!node) return;
+    node.textContent = text;
+    var hide = !text || text === node.getAttribute("data-root");
+    node.hidden = hide;
+    if (sep) sep.hidden = hide;
   }
 
   /* ---- "Test yourself" -- link an anatomy note/diagram to flashcards that
@@ -4643,15 +4677,14 @@
       { type: "action", title: "Go home", snippet: "Your ENT Rotation dashboard", run: goHome },
       { type: "action", title: "Start due queue", snippet: "Study every card due today, across modules", run: goStudyAll },
       { type: "action", title: "Open flashcards", snippet: "Flashcard panel", run: toggleFlash },
-      { type: "action", title: "Open FAQ quiz", snippet: "Frequently asked questions panel", run: togglePimpPanel },
+      { type: "action", title: "Open procedure questions", snippet: "Procedure questions panel", run: togglePimpPanel },
       { type: "action", title: "Open OR Pocket Log", snippet: "Saved pearls and quick case log", run: togglePocketLog },
       { type: "action", title: "Areas for Improvement", snippet: "Your most-missed cards and questions", run: goWeakSpots },
       { type: "action", title: "Curriculum roadmap", snippet: "Full curriculum anchor coverage map", run: goRoadmap },
       { type: "action", title: "Card library", snippet: "Every flashcard across every module", run: goCardLibrary },
       { type: "action", title: "Study settings", snippet: "Again/Good/Easy intervals, new-card cap", run: function () { var b = el("settingsToggle"); if (b) b.click(); } },
       { type: "action", title: "Keyboard shortcuts", snippet: "View every shortcut", run: openShortcutsModal },
-      { type: "action", title: "Toggle theme", snippet: "Switch light / dark", run: toggleTheme },
-      { type: "action", title: "About this project", snippet: "", run: goAbout }
+      { type: "action", title: "Toggle theme", snippet: "Switch light / dark", run: toggleTheme }
     ];
   }
   function initSearch() {
@@ -4936,6 +4969,10 @@
       var lastModuleId = state.moduleId || (window.JEFFENT.modules[0] && window.JEFFENT.modules[0].id) || "";
       panel.innerHTML =
         '<section class="settings-section">' +
+          '<div class="settings-title">Color theme</div>' +
+          '<div id="paletteMount"></div>' +
+        '</section>' +
+        '<section class="settings-section">' +
           '<div class="settings-title">Sync across devices</div>' +
           '<div class="settings-sync" id="settingsSync"></div>' +
         '</section>' +
@@ -4987,6 +5024,7 @@
         }
       });
       el("newCardsSelectMount").appendChild(newCardsSel);
+      el("paletteMount").appendChild(buildPaletteGrid());
 
       var resetModuleSel = buildCustomSelect({
         value: lastModuleId,
@@ -5243,7 +5281,7 @@
     libraryNav.addEventListener("click", function () { goCardLibrary(); closeNav(); });
     nav.appendChild(libraryNav);
     if (pimpBank() && (pimpBank().sets || []).length) {
-      var pimpNav = h('<button type="button" class="sn-item sn-pimp" data-nav="pimp"><span class="sn-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 .9-1 1.7"/><path d="M12 17h.01"/></svg></span><span>Frequently Asked Questions</span></button>');
+      var pimpNav = h('<button type="button" class="sn-item sn-pimp" data-nav="pimp"><span class="sn-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 .9-1 1.7"/><path d="M12 17h.01"/></svg></span><span>Procedure questions</span></button>');
       pimpNav.addEventListener("click", function () { goPimp(); closeNav(); });
       nav.appendChild(pimpNav);
     }
@@ -5406,7 +5444,7 @@
     var crumb = h('<button class="crumb">&larr; ' + esc(crumbLabel) + '</button>');
     crumb.addEventListener("click", crumbFn);
     root.appendChild(crumb);
-    root.appendChild(h('<h1 class="h-lead">Frequently Asked Questions</h1>'));
+    root.appendChild(h('<h1 class="h-lead">Procedure questions</h1>'));
   }
 
   function renderPimpIntro() {
@@ -6108,7 +6146,7 @@
       body: 'Find any topic, card, or reference tool. Try typing something like "quick prep thyroidectomy" to jump straight into 2-Minute Procedure Prep.' },
     { sels: ["#flashToggle"], title: "Flashcards, anywhere",
       body: "Study due cards from a side panel without ever leaving the page you're on." },
-    { sels: ["#pimpToggle"], title: "FAQ quiz",
+    { sels: ["#pimpToggle"], title: "Procedure questions",
       body: "Commonly asked questions from rounds and procedures, with an automatic most-missed list. Press Z any time to undo your last answer." },
     { sels: [".bento-streak-chip"], title: "Your streak",
       body: "Counts consecutive days you've studied. Hover or tap it any time to see a day-by-day activity heatmap." }
@@ -6486,8 +6524,8 @@
   var ppq = null;
   function initPimpPanel() {
     var aside = document.createElement("aside");
-    aside.id = "pimppanel"; aside.className = "pimppanel"; aside.setAttribute("aria-label", "Frequently asked questions");
-    aside.innerHTML = '<div class="pp-resize" data-tip="Drag to resize"></div><div class="pp-head"><div class="pp-title"><span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.9.4-1.5 1-1.5 2"></path><path d="M12 16.2v.01"></path></svg></span>Frequently asked questions</div><button type="button" class="pp-close icon-btn" data-tip="Close" aria-label="Close frequently asked questions">✕</button></div><div class="pp-body"></div>';
+    aside.id = "pimppanel"; aside.className = "pimppanel"; aside.setAttribute("aria-label", "Procedure questions");
+    aside.innerHTML = '<div class="pp-resize" data-tip="Drag to resize"></div><div class="pp-head"><div class="pp-title"><span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.9.4-1.5 1-1.5 2"></path><path d="M12 16.2v.01"></path></svg></span>Procedure questions</div><button type="button" class="pp-close icon-btn" data-tip="Close" aria-label="Close frequently asked questions">✕</button></div><div class="pp-body"></div>';
     document.body.appendChild(aside);
     aside.querySelector(".pp-close").addEventListener("click", closePimpPanel);
     var t = el("pimpToggle"); if (t) t.addEventListener("click", togglePimpPanel);
@@ -7002,7 +7040,6 @@
   function boot() {
     var totalModules = window.JEFFENT.modules.length;
     var activeTracks = TRACKS.filter(function (t) { return modulesFor(t.id).length > 0; }).length;
-    el("moduleStamp").textContent = totalModules + " module" + (totalModules === 1 ? "" : "s") + " loaded across " + activeTracks + " track" + (activeTracks === 1 ? "" : "s");
     initSidebarCollapsedState();
     initTheme();
     initSettings();
@@ -7023,7 +7060,7 @@
     initScrollTint();
     initConnectivityBadge();
     if (ACTIVE_RECALL_ENABLED) initActiveRecall();
-    bumpStreak();
+    (function () { var rate = window.SRS.rate; window.SRS.rate = function () { var out = rate.apply(this, arguments); bumpStreak(); return out; }; })();
     var brand = el("brandHome");
     /* In full-screen flashcards the panel would otherwise stay up over the home page, so leave it first. */
     function brandGoHome() { if (document.body.classList.contains("flash-full")) closeFlash(); goHome(); }

@@ -1,6 +1,6 @@
 # Rhinology & Sinus
 
-_Generated 2026-10-21 from content/*.js_
+_Generated 2026-10-22 from content/*.js_
 
 > **How to use:** paste a module file below (or ALL.md) into OpenEvidence / any reviewer, followed by an instruction such as
 > "Fact-check every claim against current guidelines, flag anything outdated or wrong, and propose exact replacement wording. Keep our style: no em dashes, plain clinical language."
@@ -13,7 +13,7 @@ _Generated 2026-10-21 from content/*.js_
 - status: DRAFT, pending faculty review. v0.2.0: added an allergy/rhinitis depth pass, ARIA classification and step-up therapy for allergic rhinitis, the non-allergic rhinitis mimics (vasomotor, hormonal, drug-
 - facultyReviewer: ""
 - curriculum anchors: UKMLA Content Map (GMC), scope anchor; owns Nasal obstruction, Epistaxis, Anosmia, Allergies, Facial pain, Ear and nasal discharge (nasal), Rhinosinusitis; ACGME Otolaryngology-HNS Milestones 2.0, primarily PC5 Rhinologic Disease, MK2 Allergy; AAO-HNSF Clinical Practice Guidelines: Adult Sinusitis (2015), Allergic Rhinitis (2015), Nosebleed/Epistaxis (2020); ARIA (Allergic Rhinitis and its Impact on Asthma) guideline; EPOS 2020 (European Position Paper on Rhinosinusitis and Nasal Polyps); UK undergraduate Delphi (Lloyd 2014), student-scope depth cap
-- subtitle: Nose and paranasal sinus disease in depth: anatomy, chronic rhinosinusitis, allergic/non-allergic rhinitis, epistaxis escalation, and the unilateral masses you must not miss.
+- subtitle: Nose and sinus anatomy, chronic rhinosinusitis, rhinitis, epistaxis, and unilateral nasal masses.
 
 ### Anatomy notes
 
@@ -154,7 +154,7 @@ _Image source: Key FESS Anatomic Variants (Concha Bullosa, Haller Cells, Onodi C
 | CRS with polyps (CRSwNP) | Bilateral polyps on endoscopy | Intranasal/short oral steroid; biologics or FESS if refractory | Biologic therapy (e.g., anti-IL-4/13 such as dupilumab, or anti-IgE) for refractory type-2 inflammation; revision FESS if polyps recur despite medical therapy |
 | AERD (Samter's triad) | CRSwNP + asthma + ASA/NSAID sensitivity | Steroids, leukotriene modifiers, consider aspirin desensitization | Supervised aspirin desensitization if not already tried; biologics (e.g., dupilumab) or revision FESS for disease refractory to desensitization |
 
-**[ar-classification] Allergic rhinitis: ARIA classification & step-up therapy**
+**[ar-classification] Allergic rhinitis: ARIA classification**
 
 The old "seasonal vs perennial" split has been replaced by ARIA (Allergic Rhinitis and its Impact on Asthma), which classifies by duration and severity, and this is what actually drives step-up therapy.
 [figure: ARIA's duration/severity classification grid for allergic rhinitis.]
@@ -164,14 +164,14 @@ The old "seasonal vs perennial" split has been replaced by ARIA (Allergic Rhinit
 | Duration | Intermittent (<4 days/week OR <4 consecutive weeks) vs persistent (≥4 days/week AND ≥4 consecutive weeks) |
 | Severity | Mild (no impact on sleep/daily activity/school/work) vs moderate-severe (one or more of: sleep disturbance, impaired daily activity/sport, impaired school/work, troublesome symptoms) |
 
-**[ar-step-therapy] Allergic rhinitis: the step-up therapy ladder**
+**[ar-step-therapy] Allergic rhinitis: step-up therapy**
 
 - Allergen avoidance + as-needed second-generation oral or intranasal antihistamine for mild/intermittent disease.
 - Intranasal corticosteroid (INCS), the single most effective agent and first-line for persistent or moderate-severe disease. Regular (not as-needed) dosing works best.
 - Combination therapy: INCS + intranasal antihistamine (e.g., fluticasone-azelastine) for moderate-to-severe symptoms or inadequate response to INCS alone; reserve a leukotriene receptor antagonist (boxed FDA warning for neuropsychiatric events, no better than an oral antihistamine) for patients with asthma who cannot use preferred agents; add an intranasal anticholinergic (ipratropium) if rhinorrhea is the dominant symptom.
 - Refractory disease: refer for allergen immunotherapy, either SCIT (subcutaneous immunotherapy) or SLIT (sublingual immunotherapy), the only disease-modifying option.[figure: Stepwise escalation of allergic rhinitis therapy from avoidance through immunotherapy.]
 
-**[non-allergic-rhinitis] Non-allergic rhinitis: the mimics of allergic rhinitis**
+**[non-allergic-rhinitis] Non-allergic rhinitis**
 
 Chronic rhinitis with a negative allergy workup. The clinical clue: itch, sneezing bouts, and conjunctivitis point to allergic rhinitis; non-allergic rhinitis is dominated by congestion and rhinorrhea without them.
 
@@ -205,13 +205,13 @@ Pharmacology:
 Posterior packs need inpatient admission to watch for rebleeding and low oxygen (the pack can obstruct the airway, with aspiration risk), especially in older or anticoagulated patients.
 [figure: Stepwise epistaxis management from first aid through cautery, packing, and arterial ligation/embolization.]
 
-**[unilateral-masses] Unilateral nasal masses by age: the pattern to memorize**
+**[unilateral-masses] Unilateral nasal masses by age**
 
 - Adolescent male + recurrent unilateral epistaxis + nasal mass → juvenile nasopharyngeal angiofibroma (JNA). Highly vascular, so biopsy in clinic is contraindicated.
 - Adult + unilateral polypoid mass → inverted papilloma until proven otherwise: locally aggressive, with malignant potential, and needing full excision (not just polypectomy).
 - Older adult + unilateral mass + anosmia/epistaxis → consider esthesioneuroblastoma (olfactory groove) or other sinonasal malignancy.[figure: Age-based pattern for unilateral sinonasal masses: JNA, inverted papilloma, esthesioneuroblastoma/malignancy.]
 
-**[fess-complications] FESS: the three complication sites every student should know**
+**[fess-complications] FESS complications**
 
 [figure: Three FESS complication sites: orbit (lamina papyracea), skull base (cribriform plate), and internal carotid artery.]Endoscopic sinus surgery works through thin bone next to three critical structures:
 
@@ -219,7 +219,7 @@ Posterior packs need inpatient admission to watch for rebleeding and low oxygen 
 - Skull base (via the ethmoid roof/cribriform plate): injury causes a CSF leak.
 - Internal carotid artery (in sphenoid surgery): it can run directly under thin or dehiscent bone in the sphenoid sinus wall.See the Anatomy tab for the pneumatization variants (concha bullosa, Haller cells, Onodi cells) that change where these risks sit on an individual patient's CT.
 
-**[invasive-fungal-sinusitis] Acute invasive fungal rhinosinusitis: the can't-miss emergency**
+**[invasive-fungal-sinusitis] Acute invasive fungal rhinosinusitis**
 
 Fungal sinus disease spans a spectrum, and host immune status is what separates the emergency from the chronic nuisance:
 

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Palette previews</title>
+<style>
+body{margin:0;font:15px/1.5 system-ui,sans-serif;background:#ececea;color:#222}
+header{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid #ddd;padding:10px 20px;display:flex;gap:12px;align-items:center}
+header button{font:inherit;padding:6px 14px;border:1px solid #aaa;border-radius:8px;background:#fff;cursor:pointer}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;padding:20px}
+.card{background:#fff;border-radius:12px;padding:12px;border:1px solid #ddd}
+.card h2{font-size:15px;margin:0 0 8px;display:flex;gap:10px;align-items:center}
+.sw{display:inline-flex;border-radius:4px;overflow:hidden;width:44px;height:16px}.sw i{flex:1}
+.vp{width:100%;aspect-ratio:1280/800;overflow:hidden;border-radius:8px;border:1px solid #ddd;position:relative}
+.vp iframe{width:1280px;height:800px;border:0;transform-origin:0 0;position:absolute;left:0;top:0}
+@media(max-width:900px){.grid{grid-template-columns:1fr}}
+</style></head><body>
+<header><strong>ENT Companion palette previews</strong><button id="mode">Switch to dark</button><span style="color:#666;font-size:13px">Live site, theme tokens overridden. Needs http (localhost or GitHub Pages).</span></header>
+<div class="grid" id="grid"></div>
+<script>
+try { localStorage.setItem('jeffent.tourSeen','1'); } catch (e) {}
+var K=['ground','surface','surface-2','ink','ink-soft','ink-faint','line','line-soft','primary','primary-deep','primary-tint','accent','accent-tint','hero-bg','hero-ink-soft','scroll-tint'];
+function T(a){var o={};K.forEach(function(k,i){o[k]=a[i]});return o}
+var P=[
+{n:'Forest and paper (current)',L:null,D:null,sw:['#f6f4ec','#0f3e17','#3f7d5a']},
+{n:'Hospital navy',
+ L:T(['#f3f5f8','#ffffff','#e9eef5','#16202e','#586478','#66728a','#d6dce6','#e1e6ee','#12335c','#0b2442','#e3ebf6','#2a9d8f','#d3ece9','#12335c','#b6cdea','#12335c']),
+ D:T(['#0e141d','#161e2a','#1d2735','#e8edf5','#b0bccd','#8794a8','#263243','#1e2937','#8db8ec','#b6d2f3','#182a42','#5fc9bb','#173432','#0f2744','#9ab6dc','#0f2744'])},
+{n:'Teal and sand',
+ L:T(['#f6f2e9','#fffdf8','#efeadc','#1a2326','#4f5d60','#6a7679','#ddd5c3','#e6dfcf','#0d4a52','#093a41','#dcefee','#d98b3a','#f3e2cc','#0d4a52','#b3d9dc','#0d4a52']),
+ D:T(['#0f1517','#161e20','#1d2829','#e9eeee','#b2bfc0','#879698','#263133','#1e292b','#7fcdd3','#a8dde1','#153035','#e8a560','#3a2d1c','#093a41','#94c4c8','#093a41'])},
+{n:'Oxblood and bone',
+ L:T(['#f7f2ec','#fffcf8','#f1e8df','#241a1a','#5e4f4d','#7a6a68','#e0d4c8','#ebe1d6','#5e1f2b','#471620','#f4e3e3','#4f9a86','#d4e9e3','#5e1f2b','#e3b9bf','#5e1f2b']),
+ D:T(['#150f10','#1e1516','#271b1d','#f0e8e6','#c4b3b0','#9a8886','#33262a','#2a1f22','#e59aa6','#f0bcc4','#3a1d23','#7fc4af','#1a3029','#471620','#d9a6ae','#471620'])},
+{n:'Graphite and sage',
+ L:T(['#f3f4f1','#ffffff','#eaece7','#1d2321','#505a56','#67726d','#d8dbd5','#e3e6df','#232a27','#161b19','#e4e8e3','#6f9e75','#d9e7da','#232a27','#b9c7bd','#232a27']),
+ D:T(['#0f1211','#171b19','#1e2321','#e9ece9','#b3bcb6','#87928b','#262c29','#1e2321','#a9c8ad','#c4dcc7','#1d2a20','#9cc2a1','#1f2d22','#1a201e','#a3b3a8','#1a201e'])},
+{n:'Ink blue and coral',
+ L:T(['#f6f5f2','#ffffff','#ecedf3','#171d2e','#525870','#6a7088','#dcdad3','#e6e4dd','#1c2a4a','#131d36','#e4e8f3','#e0603c','#f8ddd3','#1c2a4a','#b7c3e0','#1c2a4a']),
+ D:T(['#0f1220','#171b2c','#1e2338','#e9ebf4','#b4b9d0','#898fa8','#272c42','#1e2338','#9fb4ec','#c0cef3','#1c2442','#f08a6c','#3a2219','#15203c','#a1b0d6','#15203c'])},
+{n:'Scrub mint',
+ L:T(['#eef6f5','#ffffff','#e2f0ee','#122224','#46595b','#5f7476','#cfe0de','#dbe9e7','#0a5a5f','#073f43','#d6eeeb','#2f9a8c','#cdeae5','#0a5a5f','#aedcd8','#0a5a5f']),
+ D:T(['#0c1515','#132020','#192a2a','#e6f2f0','#aec3c0','#809a97','#223534','#192a29','#7fd3c8','#a8e3da','#153331','#6cc5b6','#153431','#08474b','#8fc7c2','#08474b'])}
+];
+P.forEach(function(p){ if(p.L) p.sw=[p.L.ground,p.L.primary,p.L.accent]; });
+var dark=false, frames=[];
+function css(o,sel,isDark){ if(!o) return ''; var x=Object.assign({},o); x['home-green']=isDark?o['hero-bg']:o['primary-deep']; x['home-green-lift']=isDark?o['surface-2']:o['hero-bg']; return sel+'{'+Object.keys(x).map(function(k){return '--'+k+':'+x[k]+' !important'}).join(';')+'}' }
+function paint(i){
+  var f=frames[i], d; try{ d=f.contentDocument; }catch(e){ return; }
+  if(!d||!d.documentElement) return;
+  var p=P[i], root=d.documentElement;
+  root.setAttribute('data-theme',dark?'dark':'light');
+  var st=d.getElementById('pal'); if(!st){ st=d.createElement('style'); st.id='pal'; d.head.appendChild(st); }
+  st.textContent=css(p.L,':root[data-theme="light"]',false)+css(p.D,':root[data-theme="dark"]',true);
+}
+var grid=document.getElementById('grid');
+P.forEach(function(p,i){
+  var c=document.createElement('div'); c.className='card';
+  c.innerHTML='<h2><span class="sw">'+p.sw.map(function(x){return '<i style="background:'+x+'"></i>'}).join('')+'</span>'+p.n+'</h2><div class="vp"><iframe src="../index.html#/" title="'+p.n+'"></iframe></div>';
+  grid.appendChild(c);
+  var f=c.querySelector('iframe'); frames.push(f);
+  var vp=c.querySelector('.vp');
+  function fit(){ f.style.transform='scale('+(vp.clientWidth/1280)+')'; }
+  fit(); window.addEventListener('resize',fit);
+  f.addEventListener('load',function(){ paint(i); setTimeout(function(){paint(i)},600); });
+});
+document.getElementById('mode').onclick=function(){ dark=!dark; this.textContent=dark?'Switch to light':'Switch to dark'; frames.forEach(function(_,i){paint(i)}); };
+</script></body></html>

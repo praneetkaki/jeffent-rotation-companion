@@ -1,6 +1,6 @@
 # Anatomy Atlas
 
-_Generated 2026-10-21 from content/*.js_
+_Generated 2026-10-22 from content/*.js_
 
 > **How to use:** paste a module file below (or ALL.md) into OpenEvidence / any reviewer, followed by an instruction such as
 > "Fact-check every claim against current guidelines, flag anything outdated or wrong, and propose exact replacement wording. Keep our style: no em dashes, plain clinical language."
@@ -13,7 +13,7 @@ _Generated 2026-10-21 from content/*.js_
 - status: DRAFT, pending faculty review. v0.3.0: added a cross-cutting depth pass covering genuinely missing foundational anatomy not owned by any subspecialty track, the facial nerve's intratemporal segments (
 - facultyReviewer: ""
 - curriculum anchors: AAO-HNS Otolaryngology Core Curriculum, anatomy objectives, mapped per structure as diagrams are added; Delphi priority topic list, map exact items with faculty sponsor; UKMLA Content Map (GMC), pure-anatomy recall cards are cross-tagged to the presentation/condition each structure underlies, for search and coverage purposes only; this track carries no clinical management content
-- subtitle: Labeled diagrams and imaging stacks, cross-cutting every subspecialty. Grows alongside the topic tracks.
+- subtitle: Labeled diagrams and imaging across every subspecialty.
 
 ### Anatomy notes
 

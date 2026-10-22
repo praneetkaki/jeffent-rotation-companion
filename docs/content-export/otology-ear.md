@@ -1,6 +1,6 @@
-# The Ear: Anatomy to the Clinic
+# Otology & Neurotology
 
-_Generated 2026-10-21 from content/*.js_
+_Generated 2026-10-22 from content/*.js_
 
 > **How to use:** paste a module file below (or ALL.md) into OpenEvidence / any reviewer, followed by an instruction such as
 > "Fact-check every claim against current guidelines, flag anything outdated or wrong, and propose exact replacement wording. Keep our style: no em dashes, plain clinical language."
@@ -8,12 +8,12 @@ _Generated 2026-10-21 from content/*.js_
 
 ---
 
-## Module: The Ear: Anatomy to the Clinic (`otology-ear`)
+## Module: Otology & Neurotology (`otology-ear`)
 - version: 0.3.0-draft
 - status: DRAFT, pending faculty review. v0.2.0: added a subspecialty depth pass beyond the Foundations-level content this module started with, otosclerosis (pathophysiology, Carhart notch, stapedectomy) and th
 - facultyReviewer: ""
 - curriculum anchors: UKMLA Content Map (GMC), scope anchor; owns Hearing loss, Painful ear, Tinnitus, Vertigo/Dizziness, and the ear-related conditions (Otitis externa, Otitis media, BPPV, Ménière's disease, Acoustic neuroma); ACGME Otolaryngology-HNS Milestones 2.0, primarily PC4 Otologic Disease, MK1 Anatomy; AAO-HNSF Clinical Practice Guidelines: Sudden Hearing Loss (2019), BPPV (2017), Otitis Externa (2014), AOM (2013)/OME (2016); Bárány Society/AAO-HNS consensus diagnostic criteria for Ménière's disease (2015); House-Brackmann facial nerve grading system (1985); UK undergraduate Delphi (Lloyd 2014), student-scope depth cap
-- subtitle: External, middle, and inner ear; hearing loss, otalgia, infection, and the vertigo syndromes.
+- subtitle: External, middle, and inner ear; hearing loss, otalgia, infection, and vertigo.
 
 ### Anatomy notes
 
@@ -155,7 +155,7 @@ _Image source: The Ear in Cross-Section (External, Middle, Inner). nidcd.nih.gov
 
 **Diagram: Right tympanic membrane: landmarks**
 
-Confirm laterality/orientation with faculty. Name each landmark, then reveal.
+Name each landmark, then reveal.
 
 _Image source: Normal Right Tympanic Membrane Landmarks (Otoscopic View). oxfordmedicaleducation.com._
 - Posterior malleolar fold: runs from the lateral (short) process of the malleus back to the annulus, marking the pars tensa's upper-posterior border.
@@ -198,7 +198,7 @@ _Image source: The Middle Ear and Mastoid Danger Zone Anatomic Relationships. Ad
 
 ### Clinical blocks (10)
 
-**[hearing-loss-fork] Hearing loss: the fork in the road**
+**[hearing-loss-fork] Hearing loss**
 
 Conductive (something blocks sound reaching the cochlea) vs sensorineural (cochlea or CN VIII). Localize at the bedside with Weber + Rinne (512 Hz).
 
@@ -231,7 +231,7 @@ Conductive (something blocks sound reaching the cochlea) vs sensorineural (cochl
 - Ménière's: episodic vertigo + fluctuating SNHL + tinnitus + aural fullness; see the dedicated block below for the formal diagnostic criteria and management ladder.
 - Central red flags: for a patient with continuous vertigo and spontaneous nystagmus (acute vestibular syndrome), use HINTS: a normal/negative head-impulse test, direction-changing or vertical nystagmus, or skew deviation each indicate a central cause (any single central component overrides the others). HINTS does not apply to brief positional vertigo (BPPV) or to a patient without spontaneous nystagmus; the head-impulse test in those settings is misleading.
 
-**[otosclerosis-chl-differential] Conductive hearing loss with an intact tympanic membrane: the differential**
+**[otosclerosis-chl-differential] Conductive hearing loss, intact tympanic membrane**
 
 When conductive hearing loss is confirmed (Weber lateralizes to the affected ear, Rinne negative) but the tympanic membrane looks completely normal, three diagnoses dominate, and tympanometry usually separates them before imaging is ever needed.
 
@@ -240,7 +240,7 @@ When conductive hearing loss is confirmed (Weber lateralizes to the affected ear
 - Ossicular discontinuity: most often the incudostapedial joint, from prior trauma, infection, or cholesteatoma erosion. Tympanogram can show an abnormally high-compliance Type Ad peak (a floppy, hypermobile system), the opposite mechanical picture from otosclerosis.Management follows the diagnosis: OME is watched or ventilated (tubes); otosclerosis and ossicular discontinuity are surgical (stapedectomy/stapedotomy or ossicular reconstruction) or managed with amplification if surgery isn't wanted or appropriate. Stapes surgery for bilateral otosclerosis is typically staged, operating the worse-hearing ear first, given the small risk of a "dead ear": a frequently asked counseling point.
 [figure: Differentiating otosclerosis (Type As), OME (Type B), and ossicular discontinuity (Type Ad) by tympanogram pattern.]
 
-**[cholesteatoma-depth] Cholesteatoma: mechanism, classification, and why it's surgical**
+**[cholesteatoma-depth] Cholesteatoma**
 
 A cholesteatoma is not a tumor. It's a sac of stratified squamous epithelium and trapped keratin debris growing where it doesn't belong, expanding by pressure and by releasing enzymes that resorb adjacent bone.
 
@@ -254,7 +254,7 @@ A cholesteatoma is not a tumor. It's a sac of stratified squamous epithelium and
 - The tegmen tympani (intracranial spread: meningitis, brain abscess)Mastoidectomy, surgical removal of the sac and diseased bone, is the definitive treatment; topical/oral antibiotics only quiet secondary infection while the structural problem remains.
 [figure: Cholesteatoma pathophysiology (retraction pocket, keratin accumulation, bone erosion) and why mastoidectomy is required.]
 
-**[vestibular-schwannoma-workup] Vestibular schwannoma: workup and the management ladder**
+**[vestibular-schwannoma-workup] Vestibular schwannoma**
 
 A vestibular schwannoma (acoustic neuroma) is a benign, slow-growing Schwann-cell tumor of the vestibular division of CN VIII, arising in the internal auditory canal. It's the classic explanation for asymmetric/unilateral SNHL or tinnitus, can cause disequilibrium (true vertigo is uncommon; slow growth allows central compensation), and, as it enlarges, can produce trigeminal (facial numbness) or facial nerve symptoms from cerebellopontine-angle/brainstem compression.
 
@@ -265,7 +265,7 @@ A vestibular schwannoma (acoustic neuroma) is a benign, slow-growing Schwann-cel
 - Microsurgical resection: for larger or growing tumors, or brainstem compression; the surgical approach (translabyrinthine, retrosigmoid, middle fossa) is chosen partly on whether preserving hearing is realistic.Facial nerve function is tracked before and after any intervention using the House-Brackmann grading scale (Grade I = normal, Grade VI = total paralysis), the standard language for describing facial nerve outcomes in vestibular schwannoma care.
 [figure: Vestibular schwannoma presentation, MRI IAC workup, and the observation/radiosurgery/microsurgery management ladder.]
 
-**[meniere-criteria-management] Ménière's disease: diagnostic criteria and the step-up ladder**
+**[meniere-criteria-management] Ménière's disease**
 
 The Bárány Society/AAO-HNS (2015) consensus criteria formalize the diagnosis beyond the simple tetrad:
 Definite Ménière's disease requires all of the following:
@@ -282,7 +282,7 @@ Step-up management (escalate only as needed):
 - Intratympanic gentamicin ('chemical labyrinthectomy') for refractory disease: effective at controlling vertigo but carries a real risk of further hearing loss, since gentamicin is vestibulotoxic and only relatively selective for vestibular over cochlear hair cells.
 - Surgical labyrinthectomy or vestibular nerve section: reserved for disabling, refractory vertigo, typically once hearing in that ear is already poor (labyrinthectomy sacrifices remaining hearing).The ladder trades rising efficacy against rising risk to hearing: reserve the ear-destructive options for disease that has failed the earlier, hearing-preserving steps.
 
-**[noe-depth] Necrotizing (malignant) otitis externa: the progression to watch**
+**[noe-depth] Necrotizing otitis externa**
 
 Pseudomonas aeruginosa is the classic pathogen, invading through the fissures of Santorini and the bony-cartilaginous junction of the canal to cause osteomyelitis of the skull base, almost always in a diabetic (poor glycemic control) or otherwise immunocompromised patient. Fungal necrotizing otitis externa (Aspergillus) occurs, especially when antipseudomonal therapy fails, and changes treatment; deep tissue biopsy for culture also excludes malignancy. Pain is disproportionate to exam findings and often worse at night; granulation tissue at the bony-cartilaginous junction of the canal floor is the classic sign.
 Cranial nerve progression tracks how far the osteomyelitis has spread: CN VII is affected first and most often (it exits nearby via the stylomastoid foramen); further skull-base spread toward the jugular foramen threatens CN IX, X, XI (dysphagia, hoarseness, shoulder weakness), and CN XII (tongue weakness) if it extends to the hypoglossal canal. New cranial neuropathies signal advancing disease, not a new, separate problem.

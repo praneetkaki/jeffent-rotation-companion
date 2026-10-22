@@ -1,6 +1,6 @@
 # Facial Plastics & Trauma
 
-_Generated 2026-10-21 from content/*.js_
+_Generated 2026-10-22 from content/*.js_
 
 > **How to use:** paste a module file below (or ALL.md) into OpenEvidence / any reviewer, followed by an instruction such as
 > "Fact-check every claim against current guidelines, flag anything outdated or wrong, and propose exact replacement wording. Keep our style: no em dashes, plain clinical language."
@@ -13,7 +13,7 @@ _Generated 2026-10-21 from content/*.js_
 - status: DRAFT, pending faculty review. v0.2.0: added a depth pass covering genuinely missing trauma-subspecialty topics, mandible fracture patterns and the bimanual/malocclusion exam (including the bilateral 
 - facultyReviewer: ""
 - curriculum anchors: UKMLA Content Map (GMC), scope anchor; owns Facial/periorbital swelling (traumatic), Epistaxis (traumatic), Facial weakness (traumatic) at subspecialty trauma depth; ACGME Otolaryngology-HNS Milestones 2.0, primarily PC1 (emergency/trauma), PC9 (surgical management); ATLS (Advanced Trauma Life Support) principles for the primary survey; standard US facial trauma/reconstructive teaching; UK undergraduate Delphi (Lloyd 2014), student-scope depth cap
-- subtitle: Facial fracture patterns, the ABCs of facial trauma, nerve/duct injuries not to miss, and the reconstructive ladder.
+- subtitle: Facial fractures, facial trauma ABCs, nerve and duct injuries, and the reconstructive ladder.
 
 ### Anatomy notes
 
@@ -188,7 +188,7 @@ _Image source: Pitanguy's Line and the Frontal Branch of the Facial Nerve. Jawad
 
 ### Clinical blocks (15)
 
-**[trauma-primary-survey] Facial trauma: ABCs before the face**
+**[trauma-primary-survey] Facial trauma ABCs**
 
 Facial trauma is managed within the ATLS primary survey, before detailed facial exam:
 
@@ -207,7 +207,7 @@ Describes patterns of midface fracture through the pterygoid plates, distinguish
 | Le Fort II | Pyramidal, through the nasofrontal suture, medial orbit, and zygomaticomaxillary region | Mobile nasal-maxillary complex; midface mobility on exam |
 | Le Fort III | Craniofacial disjunction, through the frontozygomatic suture and orbits, separating the face from the skull base | Entire midface mobile relative to the skull; 'floating face' |
 
-**[facial-nerve-injury-timing] Facial nerve injury after trauma: when to explore**
+**[facial-nerve-injury-timing] Facial nerve injury after trauma**
 
 Immediate, complete facial weakness after penetrating trauma lateral to the lateral canthus is the classic indication for urgent surgical exploration and nerve repair (nerve stimulation can still identify distal branches within ~72 hours before Wallerian degeneration). Delayed-onset or incomplete weakness is more often due to edema/neurapraxia and can typically be observed.
 
@@ -283,7 +283,7 @@ A high-energy fracture of the central midface involving the nasal bones, medial 
 
 Frontal sinus fractures are described by which wall (table) is involved, because it changes both risk and management. Anterior table only: primarily a cosmetic/contour concern and a risk factor for a later mucocele if the sinus outflow tract is obstructed; many can be observed if minimally displaced. Posterior table involvement: the posterior table separates the sinus from the anterior cranial fossa, so a fracture here carries real risk of dural tear, CSF leak, and pneumocephalus (see the CSF rhinorrhea red flag above) and often needs neurosurgical involvement. The nasofrontal outflow tract (drainage pathway) is assessed on CT because an obstructed tract changes management from simple observation/repair toward sinus obliteration or cranialization to prevent a delayed mucocele or mucopyocele.
 
-**[house-brackmann-grading] Grading facial nerve function: the House-Brackmann scale**
+**[house-brackmann-grading] House-Brackmann scale**
 
 Once the decision to observe (rather than explore) has been made, facial nerve function is tracked over time using the House-Brackmann scale (grade I-VI):
 
@@ -294,7 +294,7 @@ Once the decision to observe (rather than explore) has been made, facial nerve f
 - V: severe (barely perceptible motion)
 - VI: total paralysis, no movementIt's a documentation and follow-up tool, distinct from the explore-vs-observe decision itself. A worsening grade over serial exams is what prompts reconsidering surgical exploration in a case initially chosen for observation.
 
-**[facial-nerve-electrodiagnostics] When exam alone isn't enough: electrodiagnostic testing**
+**[facial-nerve-electrodiagnostics] Electrodiagnostic testing**
 
 A cooperative, alert patient's voluntary facial movement is the best test, but when the patient is obtunded, intubated, or the exam is otherwise equivocal, electrodiagnostic testing helps decide observation vs exploration. A nerve stimulator applied to the distal (peripheral) branches can still evoke a motor response for roughly 72 hours after injury even if the nerve is transected, because the distal segment hasn't yet undergone Wallerian degeneration. A response present at this stage doesn't rule out transection. Electroneuronography (ENoG) compares the amplitude of the evoked compound muscle action potential on the injured side to the normal side; a drop of >90% is generally taken as a threshold favoring surgical exploration/decompression, most classically used in the analogous setting of temporal-bone facial nerve injury and severe Bell's palsy, but the same electrodiagnostic logic applies to extratemporal trauma when the injury site and timing are uncertain. Note that the >90% ENoG threshold is decision-support, not an automatic trigger: prospective data show near-universal recovery to House-Brackmann I-II with steroids alone in complete post-traumatic palsy from undisplaced temporal bone fractures, even at <5% ENoG response. The threshold is most useful in displaced or suspected transecting injuries.
 

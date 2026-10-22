@@ -11,8 +11,8 @@ window.JEFFENT.register({
   trackName: "Otology & Neurotology",
   trackAbbr: "OT",
   order: 1,
-  title: "The Ear: Anatomy to the Clinic",
-  subtitle: "External, middle, and inner ear; hearing loss, otalgia, infection, and the vertigo syndromes.",
+  title: "Otology & Neurotology",
+  subtitle: "External, middle, and inner ear; hearing loss, otalgia, infection, and vertigo.",
   version: "0.3.0-draft",
   level: ["core", "sub-I"],
   status: "DRAFT, pending faculty review. v0.2.0: added a subspecialty depth pass beyond the Foundations-level content this module started with, otosclerosis (pathophysiology, Carhart notch, stapedectomy) and the tympanometry-based differential for conductive loss with an intact TM (otosclerosis vs OME vs ossicular discontinuity), cholesteatoma classification and erosion mechanism (why mastoidectomy, not drops), vestibular schwannoma workup/management ladder with the House-Brackmann facial nerve grading scale, Ménière's disease per the Bárány Society/AAO-HNS 2015 diagnostic criteria plus its step-up management ladder, necrotizing (malignant) otitis externa in depth (pathogen, cranial-nerve progression, imaging, treatment duration), and cochlear implant candidacy, grounded in named guidelines/textbooks (AAO-HNSF CPGs, ACR Appropriateness Criteria, Bárány Society/AAO-HNS consensus, House-Brackmann 1985, Cummings Otolaryngology) and standard neurotology teaching, not derived from any single textbook. Also backfilled ukmla/milestones/source tags on every pre-existing card and case in this module (previously untagged) so the whole file now validates against the Module Build Standard. v0.2.1: added a teaching case for vestibular schwannoma / asymmetric SNHL, identified as a coverage gap by an audit. v0.2.2: OpenEvidence-verified correction pass (user-reviewed, not faculty sign-off): scoped HINTS/head-impulse testing to acute vestibular syndrome only (case-bppv, central-vertigo, dizziness-peripheral-central block); corrected the probable-Meniere's-disease definition to widen the episode window to 20min-24h (meniere-criteria-management, meniere-criteria-card); added an otitis-externa-management block and otitis-externa-topical-card; softened sudden-SNHL corticosteroid framing to 'may be offered' per AAO-HNS 2019 (sudden-snhl card, case-sudden-snhl, red flags); added single-sided-deafness CI candidacy and a betahistine evidence note; added ramsay-hunt card; minor refinements to me-muscles and otosclerosis-chl-differential.",
@@ -188,7 +188,7 @@ window.JEFFENT.register({
         occlude: true,
         id: "tm-right",
         title: "Right tympanic membrane: landmarks",
-        note: "Confirm laterality/orientation with faculty. Name each landmark, then reveal.",
+        note: "Name each landmark, then reveal.",
         src: "assets/img/figures/tympanic_membrane_landmarks.png",
         source: "Normal Right Tympanic Membrane Landmarks (Otoscopic View). oxfordmedicaleducation.com.",
         labels: [
@@ -244,7 +244,7 @@ window.JEFFENT.register({
     blocks: [
       {
         id: "hearing-loss-fork",
-        title: "Hearing loss: the fork in the road",
+        title: "Hearing loss",
         html:
           "<p><strong>Conductive</strong> (something blocks sound reaching the cochlea) vs <strong>sensorineural</strong> (cochlea or CN VIII). Localize at the bedside with <strong>Weber + Rinne (512 Hz)</strong>.</p>" +
           "<ul><li><strong>Conductive causes:</strong> cerumen, middle-ear effusion, TM perforation, otosclerosis, ossicular problems.</li>" +
@@ -289,7 +289,7 @@ window.JEFFENT.register({
       },
       {
         id: "otosclerosis-chl-differential",
-        title: "Conductive hearing loss with an intact tympanic membrane: the differential",
+        title: "Conductive hearing loss, intact tympanic membrane",
         html:
           "<p>When conductive hearing loss is confirmed (Weber lateralizes to the affected ear, Rinne negative) but the tympanic membrane looks completely normal, three diagnoses dominate, and tympanometry usually separates them before imaging is ever needed.</p>" +
           "<ul>" +
@@ -301,7 +301,7 @@ window.JEFFENT.register({
       },
       {
         id: "cholesteatoma-depth",
-        title: "Cholesteatoma: mechanism, classification, and why it's surgical",
+        title: "Cholesteatoma",
         html:
           "<p>A cholesteatoma is not a tumor. It's a sac of stratified squamous epithelium and trapped keratin debris growing where it doesn't belong, expanding by pressure and by releasing enzymes that resorb adjacent bone.</p>" +
           "<ul>" +
@@ -320,7 +320,7 @@ window.JEFFENT.register({
       },
       {
         id: "vestibular-schwannoma-workup",
-        title: "Vestibular schwannoma: workup and the management ladder",
+        title: "Vestibular schwannoma",
         html:
           "<p>A vestibular schwannoma (acoustic neuroma) is a benign, slow-growing Schwann-cell tumor of the vestibular division of CN VIII, arising in the internal auditory canal. It's the classic explanation for <strong>asymmetric/unilateral SNHL or tinnitus</strong>, can cause disequilibrium (true vertigo is uncommon; slow growth allows central compensation), and, as it enlarges, can produce trigeminal (facial numbness) or facial nerve symptoms from cerebellopontine-angle/brainstem compression.</p>" +
           "<ul>" +
@@ -334,7 +334,7 @@ window.JEFFENT.register({
       },
       {
         id: "meniere-criteria-management",
-        title: "Ménière's disease: diagnostic criteria and the step-up ladder",
+        title: "Ménière's disease",
         html:
           "<p>The Bárány Society/AAO-HNS (2015) consensus criteria formalize the diagnosis beyond the simple tetrad:</p>" +
           "<p><strong>Definite Ménière's disease</strong> requires all of the following:</p>" +
@@ -357,7 +357,7 @@ window.JEFFENT.register({
       },
       {
         id: "noe-depth",
-        title: "Necrotizing (malignant) otitis externa: the progression to watch",
+        title: "Necrotizing otitis externa",
         html:
           "<p><strong>Pseudomonas aeruginosa</strong> is the classic pathogen, invading through the fissures of Santorini and the bony-cartilaginous junction of the canal to cause osteomyelitis of the skull base, almost always in a <strong>diabetic</strong> (poor glycemic control) or otherwise <strong>immunocompromised</strong> patient. Fungal necrotizing otitis externa (Aspergillus) occurs, especially when antipseudomonal therapy fails, and changes treatment; deep tissue biopsy for culture also excludes malignancy. Pain is disproportionate to exam findings and often worse at night; granulation tissue at the bony-cartilaginous junction of the canal floor is the classic sign.</p>" +
           "<p><strong>Cranial nerve progression tracks how far the osteomyelitis has spread:</strong> <strong>CN VII</strong> is affected first and most often (it exits nearby via the stylomastoid foramen); further skull-base spread toward the jugular foramen threatens <strong>CN IX, X, XI</strong> (dysphagia, hoarseness, shoulder weakness), and <strong>CN XII</strong> (tongue weakness) if it extends to the hypoglossal canal. New cranial neuropathies signal advancing disease, not a new, separate problem.</p>" +

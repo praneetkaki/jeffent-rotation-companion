@@ -1,6 +1,6 @@
-# Foundations: Exam, Approach & Emergencies
+# Foundations
 
-_Generated 2026-10-21 from content/*.js_
+_Generated 2026-10-22 from content/*.js_
 
 > **How to use:** paste a module file below (or ALL.md) into OpenEvidence / any reviewer, followed by an instruction such as
 > "Fact-check every claim against current guidelines, flag anything outdated or wrong, and propose exact replacement wording. Keep our style: no em dashes, plain clinical language."
@@ -8,7 +8,7 @@ _Generated 2026-10-21 from content/*.js_
 
 ---
 
-## Module: Foundations: Exam, Approach & Emergencies (`ent-exam`)
+## Module: Foundations (`ent-exam`)
 - version: 0.6.0-draft
 - status: DRAFT, pending faculty review. 100% UKMLA ENT-item coverage reached (see docs/MODULE-BUILD-STANDARD.md coverage matrix); every card carries a UKMLA scope tag, an ACGME Milestone tag, and a named sourc
 - facultyReviewer: ""
@@ -300,7 +300,7 @@ Worked example: a patient reports a muffled right ear. On Weber, the tone sounds
 | Sensorineural loss, right | Lateralizes to left (better) | AC > BC (positive) |
 - Pearl: true
 
-**[investigations] Core investigations: what and when**
+**[investigations] Core investigations**
 
 Ear / hearing
 

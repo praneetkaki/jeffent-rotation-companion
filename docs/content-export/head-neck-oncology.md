@@ -1,6 +1,6 @@
 # Head & Neck Oncology
 
-_Generated 2026-10-21 from content/*.js_
+_Generated 2026-10-22 from content/*.js_
 
 > **How to use:** paste a module file below (or ALL.md) into OpenEvidence / any reviewer, followed by an instruction such as
 > "Fact-check every claim against current guidelines, flag anything outdated or wrong, and propose exact replacement wording. Keep our style: no em dashes, plain clinical language."
@@ -13,7 +13,7 @@ _Generated 2026-10-21 from content/*.js_
 - status: DRAFT, pending faculty review. v0.2.0: added a depth pass covering genuinely missing high-yield sub-I topics, nasopharyngeal carcinoma (EBV-associated), the wider salivary gland spectrum (Warthin tumo
 - facultyReviewer: ""
 - curriculum anchors: UKMLA Content Map (GMC), scope anchor; owns Neck lump (oncologic depth), Swallowing problems (oncologic dysphagia), Facial/periorbital swelling (parotid angle), Hearing loss (nasopharyngeal effusion), Infectious mononucleosis (neck-lump differential cross-reference); ACGME Otolaryngology-HNS Milestones 2.0, primarily PC3 Head & Neck Neoplasm, MK1 Anatomy; NCCN Clinical Practice Guidelines in Oncology, Head and Neck Cancers; American Thyroid Association guidelines; AJCC Cancer Staging Manual, 8th ed.; UK undergraduate Delphi (Lloyd 2014), student-scope depth cap
-- subtitle: The neck mass, the salivary gland, and the thyroid nodule worked all the way through, plus the HPV and EBV stories reshaping oropharyngeal and nasopharyngeal cancer.
+- subtitle: Neck mass, salivary gland, thyroid nodule, and HPV and EBV associated cancers.
 
 ### Anatomy notes
 
@@ -203,7 +203,7 @@ Classic presentation, driven by the tumor's nasopharyngeal location:
 - With skull-base extension, cranial neuropathies (CN VI most classically, causing diplopia).Workup: nasopharyngoscopy with biopsy of the primary; EBV serology/plasma EBV DNA supports diagnosis and is used to track treatment response and detect recurrence; MRI of the skull base/neck for local extent and nodal disease.
 Treatment: NPC is highly radiosensitive, so primary treatment is radiation (often with concurrent chemotherapy for locoregionally advanced disease), unlike most oral cavity/oropharyngeal SCC, where surgery is typically first-line.
 
-**[thyroid-nodule-workup] Thyroid nodule: the workup order**
+**[thyroid-nodule-workup] Thyroid nodule workup**
 
 - TSH first: if low/suppressed, get a radionuclide scan.
 - Ultrasound: assess size and suspicious features (TI-RADS: microcalcifications, taller-than-wide shape, irregular margins, marked hypoechogenicity) to decide if FNA is warranted.
@@ -214,7 +214,7 @@ Treatment: NPC is highly radiosensitive, so primary treatment is radiation (ofte
 Feature categoryFeature (points)CompositionCystic/spongiform (0); mixed cystic-solid (1); solid (2)EchogenicityAnechoic (0); hyper-/isoechoic (1); hypoechoic (2); very hypoechoic (3)ShapeWider-than-tall (0); taller-than-wide (3)MarginSmooth/ill-defined (0); lobulated/irregular (2); extrathyroidal extension (3)Echogenic fociNone/comet-tail (0); macrocalcification (1); peripheral/rim (2); punctate echogenic foci/microcalcifications (3)LevelPointsSuspicionFNA if &ge;Follow-up US if &ge;TR10BenignNo FNANoneTR22Not suspiciousNo FNANoneTR33Mildly suspicious2.5 cm1.5 cmTR44-6Moderately suspicious1.5 cm1.0 cmTR5&ge;7Highly suspicious1.0 cm0.5 cmBethesda System for Reporting Thyroid Cytopathology (2023, 3rd edition):
 CategoryName (2023)ROM (%, NIFTP=ca)Usual managementINondiagnostic13 (5-20)Repeat FNA under ultrasound guidanceIIBenign2-7Clinical + sonographic follow-upIIIAtypia of undetermined significance (AUS)~22 (13-30)Repeat FNA, molecular testing, or diagnostic lobectomy; subclassify AUS-nuclear (higher ROM) vs AUS-other (lower ROM)IVFollicular neoplasm (or oncocytic follicular neoplasm)~30 (23-34)Molecular testing or diagnostic lobectomyVSuspicious for malignancy~74 (67-83)Lobectomy or total thyroidectomyVIMalignant~97 (97-100)Lobectomy or total thyroidectomy (per tumor type)ROMs shown are inclusive of NIFTP counted as malignant; excluding NIFTP lowers the indeterminate-category ROMs.
 
-**[indeterminate-nodule-molecular] Molecular testing for indeterminate thyroid nodules (Bethesda III/IV)**
+**[indeterminate-nodule-molecular] Molecular testing for indeterminate nodules**
 
 Bethesda III and IV are the "indeterminate" categories (ROM ~22% and ~30%), where cytology alone cannot separate benign from malignant follicular-patterned lesions. Rather than sending every one to diagnostic lobectomy, molecular testing on the FNA sample is now standard to refine risk:
 
@@ -242,7 +242,7 @@ The historical "total thyroidectomy for any cancer >1 cm" paradigm has shifted t
 
 Roughly 80% of parotid tumors are benign, and 80% of those benign tumors are pleomorphic adenoma (the most common salivary neoplasm overall). The most common malignant parotid tumor is mucoepidermoid carcinoma. The single most important red flag on exam: facial nerve weakness with a parotid mass is a malignant sign until proven otherwise. A benign tumor essentially never causes facial weakness.
 
-**[salivary-gland-spectrum] The salivary gland spectrum: beyond pleomorphic adenoma**
+**[salivary-gland-spectrum] Other salivary gland tumors**
 
 Approximately 80% of parotid tumors are benign, and approximately 80% of those are pleomorphic adenoma, the two most common parotid entities. A well-rounded differential adds:
 
@@ -251,12 +251,12 @@ Approximately 80% of parotid tumors are benign, and approximately 80% of those a
 - Acute bacterial sialadenitis: typically the parotid, in a dehydrated, debilitated, or post-operative patient (reduced salivary flow lets bacteria ascend the duct), with painful, tender, unilateral swelling and purulent discharge expressible from the duct; Staph. aureus is the classic organism. Treat with hydration, sialagogues/massage, and antibiotics.
 - Viral parotitis (mumps): typically bilateral, with a viral prodrome, in an unvaccinated or under-vaccinated patient. Self-limited, supportive care only.
 
-**[hypopharyngeal-cancer] Hypopharyngeal cancer: prognostic factors and latent presentation**
+**[hypopharyngeal-cancer] Hypopharyngeal cancer**
 
 Three subsites: the pyriform sinus (the most common site), the postcricoid region, and the posterior pharyngeal wall. Unlike glottic cancer (which causes hoarseness early), the hypopharynx is roomy with sparse early symptoms. Patients often present late with a neck mass, progressive dysphagia, or referred otalgia, by which point disease is frequently locally advanced. This late presentation is the main reason hypopharyngeal cancer carries a worse prognosis than most other head & neck subsites.
 Plummer-Vinson (Paterson-Kelly) syndrome (iron-deficiency anemia, an esophageal web, and dysphagia, classically in middle-aged women) is a rare but classic predisposing condition specifically for postcricoid carcinoma; correcting the anemia and dilating the web don't substitute for excluding malignancy.
 
-**[neck-dissection-classification] Neck dissection: the three classes to know**
+**[neck-dissection-classification] Neck dissection classes**
 
 Named for how much beyond the lymph nodes themselves is sacrificed. Modern head & neck surgery favors the least aggressive dissection that still adequately treats the disease. A selective neck dissection is now standard for many cN0 (clinically node-negative) necks.
 
@@ -272,7 +272,7 @@ Head & neck cancers are staged with TNM (tumor size/invasion, nodal spread, dist
 AJCC 8th edition, HPV-mediated (p16+) oropharyngeal SCC:
 ComponentCategoryDefinitionTT0No primary identified (p16+ node)T1&le;2 cmT2>2 cm to &le;4 cmT3>4 cm, or extension to lingual surface of epiglottisT4Invades larynx, extrinsic tongue muscle, medial pterygoid, hard palate, mandible, or beyondClinical N (cN)N0No regional nodesN1&ge;1 ipsilateral node, none >6 cmN2Contralateral or bilateral nodes, none >6 cmN3Any node >6 cmPathological N (pN)N0No positive nodesN1&le;4 positive nodesN2>4 positive nodesMM0 / M1No distant metastasis / distant metastasisClinical stage (RT/chemoRT)IT0-T2, N0-N1, M0IIT0-T2 N2, or T3 N0-N2, M0IIIT0-T3 N3, or T4 N0-N3, M0IVAny T, any N, M1Pathological stage (surgery)IT0-T2, N0-N1, M0IIT0-T2 N2, or T3-T4 N0-N1, M0IIIT3-T4 N2, M0IVAny T, any N, M1
 
-**[cancer-immunotherapy-intro] Cancer immunotherapy: the fundamentals**
+**[cancer-immunotherapy-intro] Cancer immunotherapy**
 
 Normally, PD-1 (on T-cells) binding PD-L1 (on tumor or immune cells) switches the T-cell off, letting the tumor evade immune attack. Checkpoint inhibitors block that interaction so T-cells can recognize and kill tumor cells. This is the relevant immunotherapy class in head & neck cancer, with pembrolizumab and nivolumab (anti-PD-1 antibodies) as the drugs to know.
 This is fundamentally different from traditional cytotoxic chemotherapy: chemotherapy kills rapidly dividing cells directly, while checkpoint inhibitors work by releasing the brakes on the patient's own immune system.
@@ -299,7 +299,7 @@ The pivotal trial is KEYNOTE-048. Two category-1 first-line options for recurren
 
 NPC is handled separately from other HNSCC because of its distinct EBV-driven biology and radiosensitivity. First-line systemic therapy for recurrent/metastatic NPC is cisplatin/gemcitabine plus a PD-1 inhibitor (e.g., toripalimab).
 
-**[free-flap-fundamentals] Free flap reconstruction: the fundamentals**
+**[free-flap-fundamentals] Free flap reconstruction**
 
 A free flap (free tissue transfer) is a block of tissue harvested with its own artery and vein from a distant donor site, disconnected completely, then microvascularly re-anastomosed to recipient vessels in the neck. Unlike a graft, a flap brings its own blood supply, so it survives independent of the wound bed's vascularity, critical in irradiated or poorly vascularized fields.
 Three tiers of the reconstructive ladder, in ascending complexity:

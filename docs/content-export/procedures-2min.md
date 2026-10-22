@@ -1,6 +1,6 @@
 # 2-Minute Procedure Prep
 
-_Generated 2026-10-21 from content/*.js_
+_Generated 2026-10-22 from content/*.js_
 
 > **How to use:** paste a module file below (or ALL.md) into OpenEvidence / any reviewer, followed by an instruction such as
 > "Fact-check every claim against current guidelines, flag anything outdated or wrong, and propose exact replacement wording. Keep our style: no em dashes, plain clinical language."
@@ -12,7 +12,7 @@ _Generated 2026-10-21 from content/*.js_
 - version: 
 - status: DRAFT, pending faculty review.
 - facultyReviewer: ""
-- subtitle: Fast pre-scrub briefs for the OR and bedside: the indication, the key steps, the danger structures, and one pearl, for the operations you will see on the rotation.
+- subtitle: Pre-scrub briefs: indication, key steps, danger structures, and a pearl for each operation.
 
 ### Clinical section intro
 

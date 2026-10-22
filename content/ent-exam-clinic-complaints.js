@@ -21,7 +21,7 @@ window.JEFFENT.register({
   trackName: "Foundations",
   trackAbbr: "FN",
   order: 1,
-  title: "Foundations: Exam, Approach & Emergencies",
+  title: "Foundations",
   subtitle: "",
   version: "0.6.0-draft",
   level: ["core", "sub-I"],
@@ -384,7 +384,7 @@ window.JEFFENT.register({
       },
       {
         id: "investigations",
-        title: "Core investigations: what and when",
+        title: "Core investigations",
         html: "<p><strong>Ear / hearing</strong></p><ul>" +
           "<li><strong>Audiogram:</strong> a graph of hearing thresholds (in dB) across frequencies, measured for both air and bone conduction. Normal is &le;25 dB HL. An <strong>air-bone gap</strong> (air conduction worse than bone) = conductive loss; both lines down together = sensorineural.</li>" +
           "<li><strong>Tympanometry:</strong> an objective bedside measure of TM mobility and middle-ear pressure. <strong>Type A</strong> normal &middot; <strong>Type B</strong> flat (effusion if ear-canal volume is normal; perforation or patent tube if high; wax or probe against the canal wall if low) &middot; <strong>Type C</strong> negative pressure (Eustachian-tube dysfunction).</li></ul>" +

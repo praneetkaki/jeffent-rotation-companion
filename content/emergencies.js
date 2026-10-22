@@ -16,7 +16,7 @@ window.JEFFENT.register({
   trackAbbr: "EM",
   order: 8,
   title: "Emergencies & Red Flags",
-  subtitle: "The true time-critical ENT presentations, gathered across every subspecialty into one rapid-triage synthesis.",
+  subtitle: "Time-critical ENT presentations across subspecialties.",
   version: "0.4.0-draft",
   level: ["core", "sub-I"],
   status: "DRAFT, pending faculty review. v0.2.0: added a depth pass on four genuinely uncovered airway/emergency algorithms, angioedema differential and management (allergic/mast-cell-mediated vs ACE-inhibitor bradykinin-mediated vs hereditary C1-inhibitor deficiency, since 'give epinephrine' doesn't work for two of the three), penetrating neck trauma (zones I-III and the hard-signs-vs-stable-workup decision), inhalational/thermal airway injury (why it gets intubated early, before it looks like it needs it), and a deeper caustic-ingestion algorithm (alkali vs acid injury pattern, endoscopic grading, stricture risk), grounded in WAO hereditary angioedema guidance, ATLS/trauma teaching, and standard emergency otolaryngology teaching; written fresh from guidelines and standard teaching, not derived from any single textbook. v0.3.0: added 5 red-flag teaching cases identified by a coverage audit (Ludwig's angina, orbital compartment syndrome, PTA/RPA/epiglottitis differential, caustic ingestion, hereditary angioedema). v0.4.0: OpenEvidence-verified correction pass (user-reviewed, not faculty sign-off): reframed penetrating neck trauma around the modern \"no-zone\" approach (block, zones anatomy note, hard-signs card); updated button-battery-card and its red flag with honey/sucralfate mitigation and the <2h esophageal removal window; named liposomal amphotericin B as first-line in invasive-fungal-sinusitis-card and its case; added deep-neck-abx-card, adult-epiglottitis-airway-card, and retropharyngeal-abscess-imaging-card; sharpened the SSNHL treatment-window case to the within-7-days nuance. v0.4.1: expanded the airway-triage anatomy note with stridor localization (inspiratory/biphasic/expiratory), voice-quality clues, the cricothyroid-membrane/CICO surgical-airway landmark, and why facial/neck trauma airways fail fast; expanded the danger-triangle anatomy note with a full deep-neck-space table, the retropharyngeal-vs-danger-space distinction, and the Ludwig's/DNM/Lemierre's/carotid-blowout clinical endpoints; converted the zones-of-the-neck diagram from a coded SVG to the same raster figure used in this module's own zones-of-the-neck anatomy note, occluding only the zone numbers; trimmed a stray meta-sentence from the triage table, noted CT as an additional PTA workup option, retitled the angioedema block to \"Angioedema: Key Differentials,\" and reformatted three dense flashcard backs (PTA/RPA/epiglottitis, angioedema differentials, button battery) into scannable lists/paragraphs.",
@@ -36,7 +36,7 @@ window.JEFFENT.register({
   anatomy: {
     notes: [
       {
-        title: "Airway triage: look, listen, act",
+        title: "Airway triage",
         tagline: "Airway assessment · Airway patency · Stridor",
         html: "<figure class='note-fig' data-credit=\"The larynx. OpenStax Anatomy and Physiology, Fig. 23.6, CC BY 4.0.\"><img class='zoomable' src='assets/1024px-2306_The_Larynx.jpg' alt='The larynx' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Landmarks: Cricothyroid membrane surface anatomy for the emergency surgical airway.</figcaption></figure><ul><li>The airway question comes first, before any differential: <strong>is it patent, at risk, or failing right now?</strong></li><li><strong>Signs of impending obstruction</strong>: stridor, drooling or inability to handle secretions, tripod positioning, agitation or lethargy from hypoxia, voice change.</li><li>Securing or protecting the airway (positioning, urgent ENT/anesthesia, sometimes a surgical airway) always comes before definitive diagnosis.</li></ul>" +
           "<p><strong>Stridor localizes the obstruction.</strong> Stridor is turbulent airflow through a narrowed airway, and its timing tells you the level:</p><ul>" +
@@ -187,7 +187,7 @@ window.JEFFENT.register({
       },
       {
         id: "angioedema-three-diseases",
-        title: "Angioedema: Key Differentials",
+        title: "Angioedema differential",
         html: "<p>Sudden lip/tongue/airway swelling <strong>without urticaria or itch</strong> requires determining <strong>whether the mechanism is histamine-mediated at all</strong>. Two of the three major causes of angioedema are <strong>bradykinin-mediated</strong>, not mast-cell/histamine-mediated, and bradykinin-mediated swelling does <strong>not</strong> reliably respond to epinephrine, antihistamines, or steroids, the standard anaphylaxis triad.</p>",
         table: {
           head: ["", "Allergic / mast-cell-mediated", "ACE-inhibitor-induced", "Hereditary angioedema (HAE)"],
@@ -201,7 +201,7 @@ window.JEFFENT.register({
       },
       {
         id: "penetrating-neck-trauma-management",
-        title: "Penetrating neck trauma: hard signs go to the OR",
+        title: "Penetrating neck trauma",
         html: "<p>After the ATLS primary survey (airway/breathing/circulation), the first question is \"<strong>hard signs or not?</strong>\", not \"what zone?\". Hard signs (expanding/pulsatile hematoma, active pulsatile bleeding, bruit/thrill, absent distal pulse, air bubbling from the wound, airway compromise, massive hemoptysis/hematemesis) mandate immediate operative exploration.</p><p>For the stable patient without hard signs, current practice uses a <strong>\"no-zone\" approach</strong>: CT angiography plus serial exam guides management, regardless of which zone the wound is in. This has largely replaced the older rule of \"explore all Zone II, image Zone I and III,\" because the entry-wound zone poorly predicts the actual internal injury and mandatory Zone II exploration produced many negative operations.</p><p>The zones (see Anatomy tab) still matter for <strong>how</strong> the operation is done (surgical access differs), but they no longer decide <strong>who</strong> goes to the OR. That decision is driven by hard signs and imaging.</p>",
         table: {
           head: ["", "Hard signs", "Soft signs"],
@@ -226,7 +226,7 @@ window.JEFFENT.register({
       },
       {
         id: "caustic-ingestion-deep",
-        title: "Caustic ingestion, deeper: alkali vs acid injury, endoscopic grading, and stricture risk",
+        title: "Caustic ingestion: alkali vs acid injury",
         html: "<p>Beyond the immediate \"don't induce vomiting, don't neutralize\" rule, the type of caustic agent shapes what happens next:</p>",
         table: {
           head: ["", "Alkali (e.g. drain cleaner, lye)", "Acid (e.g. toilet-bowl cleaner, battery acid)"],
