@@ -271,7 +271,8 @@
   function initTheme() {
     var saved;
     try { saved = localStorage.getItem("jeffent.theme"); } catch (e) {}
-    if (saved) document.documentElement.setAttribute("data-theme", saved);
+    /* New visitors always start in light mode; only an explicit toggle saves dark. */
+    document.documentElement.setAttribute("data-theme", saved === "dark" ? "dark" : "light");
     applyPalette(getPalette());
     el("themeToggle").addEventListener("click", toggleTheme);
   }

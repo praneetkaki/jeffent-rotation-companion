@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>ENT Companion</title>
   <meta name="description" content="An open, active-recall study tool for the Otolaryngology clinical rotation, built by and for JeffENT.">
-  <script>try{var pl=localStorage.getItem("jeffent.palette");if(pl&&/^[a-z-]+$/.test(pl)&&pl!=="forest")document.documentElement.setAttribute("data-palette",pl)}catch(e){}</script>
+  <script>try{document.documentElement.setAttribute("data-theme",localStorage.getItem("jeffent.theme")==="dark"?"dark":"light")}catch(e){document.documentElement.setAttribute("data-theme","light")}try{var pl=localStorage.getItem("jeffent.palette");if(pl&&/^[a-z-]+$/.test(pl)&&pl!=="forest")document.documentElement.setAttribute("data-palette",pl)}catch(e){}</script>
   <link rel="manifest" href="manifest.webmanifest">
   <meta name="theme-color" content="#0f3e17">
   <link rel="icon" type="image/svg+xml" href="assets/icons/icon.svg?v=2">
@@ -125,7 +125,7 @@
   <script src="js/sync.js?v=20261014b"></script>
   <!-- engine + app -->
   <script src="js/srs.js?v=20260923b"></script>
-  <script src="js/app.js?v=20261022d"></script>
+  <script src="js/app.js?v=20261022e"></script>
   <script src="js/annotate.js?v=20261020b"></script>
   <script>
     // Registers the PWA service worker (see sw.js). Silently no-ops on
