@@ -1682,6 +1682,42 @@
     return panel;
   }
 
+  /* ---------- "New in ENT literature" (data/research.json, built weekly by
+     scripts/fetch-research.js from PubMed). Titles and links only. ---------- */
+  function buildResearchFeed(root) {
+    if (!window.fetch) return;
+    var sec = h('<section class="home-sec research-sec" aria-labelledby="researchHead" hidden></section>');
+    root.appendChild(sec);
+    window.fetch("data/research.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) {
+      if (!d || !d.items || !d.items.length || !document.body.contains(sec)) return;
+      var items = d.items, SHOW = 5, expanded = false;
+      var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      function fmt(iso) { var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(iso || ""); return m ? months[+m[2] - 1] + " " + (+m[3]) : ""; }
+      var upd = fmt(d.updated);
+      sec.innerHTML = '<div class="section-head"><h2 id="researchHead">New in ENT literature</h2>' + (upd ? '<span class="research-upd mono">Updated ' + esc(upd) + '</span>' : '') + '</div>' +
+        '<ul class="research-list"></ul><div class="research-foot"><button type="button" class="research-more"></button>' +
+        '<span class="research-src">From PubMed</span></div>';
+      var ul = sec.querySelector(".research-list"), more = sec.querySelector(".research-more");
+      function paint() {
+        ul.innerHTML = "";
+        items.slice(0, expanded ? items.length : SHOW).forEach(function (it, i) {
+          var d = /^(\d{4})-(\d{2})-(\d{2})/.exec(it.date || "");
+          var cite = d ? d[1] + " " + months[+d[2] - 1] + " " + (+d[3]) : "";
+          ul.appendChild(h('<li class="research-item"><span class="research-type">' + esc(it.type) + '</span><div class="research-body">' +
+            '<a class="research-title" href="' + esc(it.url) + '" target="_blank" rel="noopener noreferrer">' + esc(it.title) + '</a>' +
+            (it.authors ? '<div class="research-auth">' + esc(it.authors) + '</div>' : '') +
+            '<div class="research-cit"><span class="research-journal">' + esc(it.journal) + '</span> · ' + esc(cite) + ' · PMID ' + esc(it.pmid) + '</div></div></li>'));
+        });
+        more.textContent = expanded ? "Show fewer" : "Show all " + items.length;
+        more.hidden = items.length <= SHOW;
+        more.setAttribute("aria-expanded", expanded ? "true" : "false");
+      }
+      more.addEventListener("click", function () { expanded = !expanded; paint(); });
+      paint();
+      sec.hidden = false;
+    }).catch(function () {});
+  }
+
   function renderHome() {
     var allMods = window.JEFFENT.modules;
     var agg = aggregateStats(allMods);
@@ -2033,6 +2069,7 @@
     });
     sec2.appendChild(list);
     applyHomeFilter(grid, list);
+    buildResearchFeed(root);
     initHomeScrollspy(list, filterBar);
 
     var viewMode = loadHomeViewMode();

@@ -1,0 +1,125 @@
+{
+ "updated": "2026-10-24",
+ "items": [
+  {
+   "pmid": "42861423",
+   "title": "Clinical Practice Guideline: Tinnitus Update",
+   "authors": "Adams ME, Cramer JD, Tunkel DE et al.",
+   "journal": "Otolaryngol Head Neck Surg",
+   "date": "2026-10-12",
+   "type": "Guideline",
+   "doi": "10.1002/ohn.70417",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/42861423/"
+  },
+  {
+   "pmid": "42658545",
+   "title": "Unilateral and Bilateral Hearing Aids for Age-Related Hearing Loss: A Randomized Clinical Trial",
+   "authors": "Smith SL, Ricketts TA, Kilpatrick KW et al.",
+   "journal": "JAMA Otolaryngol Head Neck Surg",
+   "date": "2026-08-27",
+   "type": "Randomized trial",
+   "doi": "10.1001/jamaoto.2026.2401",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/42658545/"
+  },
+  {
+   "pmid": "42843159",
+   "title": "Short-term nasal decongestant as bridge therapy with intranasal corticosteroids in children with persistent allergic rhinitis: A randomized controlled trial",
+   "authors": "Yüksel NC, Sancaklı Ö, Çelebi Çelik F et al.",
+   "journal": "Int J Pediatr Otorhinolaryngol",
+   "date": "2026-10-07",
+   "type": "Randomized trial",
+   "doi": "10.1016/j.ijporl.2026.113036",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/42843159/"
+  },
+  {
+   "pmid": "42830011",
+   "title": "Automated pure tone audiometry (PTA) in the assessment of hearing loss in pediatric populations: A systematic review and meta-analysis of diagnostic test accuracy studies",
+   "authors": "Alzubaidi RH, Almania A, Alamri SW et al.",
+   "journal": "Int J Pediatr Otorhinolaryngol",
+   "date": "2026-10-04",
+   "type": "Meta-analysis",
+   "doi": "10.1016/j.ijporl.2026.113020",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/42830011/"
+  },
+  {
+   "pmid": "42828822",
+   "title": "Non-usage rates after paediatric cochlear implantation: A systematic review and meta-analysis",
+   "authors": "Au JXY, Tan BKJ, Mandal S et al.",
+   "journal": "Int J Pediatr Otorhinolaryngol",
+   "date": "2026-10-03",
+   "type": "Meta-analysis",
+   "doi": "10.1016/j.ijporl.2026.113033",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/42828822/"
+  },
+  {
+   "pmid": "42772239",
+   "title": "Acoustic rhinometry for the assessment of adenoid hypertrophy: A systematic review",
+   "authors": "Calvo-Henríquez C, Marmolejo MS, García-Lliberós A et al.",
+   "journal": "Int J Pediatr Otorhinolaryngol",
+   "date": "2026-09-22",
+   "type": "Systematic review",
+   "doi": "10.1016/j.ijporl.2026.113019",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/42772239/"
+  },
+  {
+   "pmid": "42762557",
+   "title": "Prenatal maternal stress and the risk of allergic rhinitis in offspring: A systematic review and meta-analysis",
+   "authors": "Liu Z, Zeng Y, Ru Z et al.",
+   "journal": "Int J Pediatr Otorhinolaryngol",
+   "date": "2026-09-19",
+   "type": "Meta-analysis",
+   "doi": "10.1016/j.ijporl.2026.113021",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/42762557/"
+  },
+  {
+   "pmid": "42728885",
+   "title": "Safety and Analgesic Outcomes of Nonsteroidal Anti-Inflammatory Drug-Containing Regimens After Transoral Robotic Surgery: A Systematic Review and Meta-Analysis",
+   "authors": "Patel RD, Dorais CJ, Hofmann T et al.",
+   "journal": "Head Neck",
+   "date": "2026-09-12",
+   "type": "Meta-analysis",
+   "doi": "10.1002/hed.70471",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/42728885/"
+  },
+  {
+   "pmid": "42679771",
+   "title": "Interventions for primary pediatric tracheomalacia: A systematic review of the therapeutic landscape and evidence quality",
+   "authors": "Rakkar J, Mohamed A, Dennett L et al.",
+   "journal": "Int J Pediatr Otorhinolaryngol",
+   "date": "2026-09-01",
+   "type": "Systematic review",
+   "doi": "10.1016/j.ijporl.2026.113000",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/42679771/"
+  },
+  {
+   "pmid": "42673792",
+   "title": "Caregiver-reported short-term effect and quality of life improvements after tympanostomy tube insertion in children with chronic otitis media with effusion",
+   "authors": "Ranneries TN, Heidemann CH, Tingsgaard PK et al.",
+   "journal": "Int J Pediatr Otorhinolaryngol",
+   "date": "2026-08-31",
+   "type": "Randomized trial",
+   "doi": "10.1016/j.ijporl.2026.112987",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/42673792/"
+  },
+  {
+   "pmid": "42664578",
+   "title": "Adjunctive pillar suturing or pharyngoplasty in pediatric adenotonsillectomy for obstructive sleep apnea: A systematic review and meta-analysis",
+   "authors": "Lin CY, Chen PY, Ahuja GS",
+   "journal": "Int J Pediatr Otorhinolaryngol",
+   "date": "2026-08-28",
+   "type": "Meta-analysis",
+   "doi": "10.1016/j.ijporl.2026.112995",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/42664578/"
+  },
+  {
+   "pmid": "42641450",
+   "title": "Intracapsular tonsillectomy/tonsillotomy for severe pediatric obstructive sleep apnea A PRISMA-based systematic review and exploratory meta-analytic synthesis of full-text articles",
+   "authors": "Torretta S, De Lucia G, Cozzi A et al.",
+   "journal": "Int J Pediatr Otorhinolaryngol",
+   "date": "2026-08-25",
+   "type": "Systematic review",
+   "doi": "10.1016/j.ijporl.2026.112991",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/42641450/"
+  }
+ ]
+}
