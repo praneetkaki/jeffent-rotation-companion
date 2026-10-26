@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-24",
+ "updated": "2026-10-26",
  "items": [
   {
    "pmid": "42861423",
@@ -110,16 +110,6 @@
    "type": "Meta-analysis",
    "doi": "10.1016/j.ijporl.2026.112995",
    "url": "https://pubmed.ncbi.nlm.nih.gov/42664578/"
-  },
-  {
-   "pmid": "42641450",
-   "title": "Intracapsular tonsillectomy/tonsillotomy for severe pediatric obstructive sleep apnea A PRISMA-based systematic review and exploratory meta-analytic synthesis of full-text articles",
-   "authors": "Torretta S, De Lucia G, Cozzi A et al.",
-   "journal": "Int J Pediatr Otorhinolaryngol",
-   "date": "2026-08-25",
-   "type": "Systematic review",
-   "doi": "10.1016/j.ijporl.2026.112991",
-   "url": "https://pubmed.ncbi.nlm.nih.gov/42641450/"
   }
  ]
 }
