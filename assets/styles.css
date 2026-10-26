@@ -1582,7 +1582,7 @@ body.panel-dragging, body.panel-dragging .topbar { transition: none !important; 
 .term { border-bottom: 1px dotted color-mix(in srgb, var(--primary) 45%, transparent); cursor: help; transition: border-color .15s var(--ease-out); }
 .term:hover, .term:focus-visible { border-bottom-color: var(--primary); color: var(--primary-deep); }
 .xref-preview { position: absolute; z-index: 200; width: 300px; max-width: 86vw; background: var(--surface);
-  border: 1px solid var(--line); border-radius: 10px; box-shadow: var(--shadow); padding: 12px 14px; pointer-events: none; }
+  border: 1px solid var(--line); border-radius: 10px; box-shadow: var(--shadow); padding: 12px 14px; pointer-events: auto; cursor: pointer; }
 .xref-preview[hidden] { display: none; }
 .xp-title { font-family: "Source Serif 4", serif; font-weight: 600; font-size: 14px; margin-bottom: 4px; color: var(--ink); }
 .xp-sub { font-size: 12.5px; color: var(--ink-soft); line-height: 1.4; }

@@ -1,6 +1,6 @@
 # Foundations
 
-_Generated 2026-10-22 from content/*.js_
+_Generated 2026-10-26 from content/*.js_
 
 > **How to use:** paste a module file below (or ALL.md) into OpenEvidence / any reviewer, followed by an instruction such as
 > "Fact-check every claim against current guidelines, flag anything outdated or wrong, and propose exact replacement wording. Keep our style: no em dashes, plain clinical language."
@@ -571,8 +571,16 @@ Teaching: Flex NPL is the criterion standard for dynamic pediatric airway collap
 - Source: Standard audiology teaching; AAO-HNSF Sudden Hearing Loss CPG (2019) for interpretation context.
 
 **[tympanometry]** tags: FN, clinical, milestones: PC4, UKMLA: Hearing loss, reviewer: (none)
-- Front: What do tympanometry types A, B, and C mean?
-- Back: A = normal middle-ear pressure/compliance. B = flat: effusion if ear-canal volume is normal; perforation or patent tube if high; wax or probe against the canal wall if low. C = negative middle-ear pressure (peak below about -100 daPa), as in Eustachian-tube dysfunction. [figure: Tympanogram types A, B, C and the ear conditions each indicates.]
+- Front: What do tympanometry types A, As, Ad, B, and C mean?
+- Back: Tympanogram types indicate middle-ear status.
+- Type A: normal.
+- Type As: shallow peak, a stiff ossicular chain (otosclerosis or fixation).
+- Type Ad: deep peak, a hypermobile chain (ossicular discontinuity).
+- Type B: flat. Read it with the equivalent ear canal volume (ECV).
+- Type C: negative middle-ear pressure, as in Eustachian tube dysfunction.A flat Type B means nothing until you check the ECV:
+- Normal ECV: effusion.
+- Low ECV: cerumen, or the probe is against the canal wall.
+- High ECV: perforation or a patent tube.[figure: Tympanogram types and the ear conditions each indicates.]
 - Source: Jerger, tympanogram classification, Archives of Otolaryngology 1970.
 
 **[ct-vs-mri]** tags: FN, clinical, milestones: MK1, PC3, UKMLA: Hearing loss, Neck lump, reviewer: (none)

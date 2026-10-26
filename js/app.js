@@ -4417,23 +4417,31 @@
       fc.style.opacity = "0";
       setTimeout(function () { onGrade(rating); }, 260);
     }
+    /* Pointer capture starts only once the pointer has actually dragged, so a plain
+       click or tap still reaches the figure, term, or link underneath it. */
+    var moved = false;
     fc.addEventListener("pointerdown", function (e) {
       if (e.button) return;
-      dragging = true; settled = false; pointerId = e.pointerId;
+      dragging = true; moved = false; settled = false; pointerId = e.pointerId;
       startX = e.clientX; startY = e.clientY;
-      try { fc.setPointerCapture(pointerId); } catch (err) {}
-      fc.style.transition = "none";
-      fc.classList.add("swiping");
     });
     fc.addEventListener("pointermove", function (e) {
       if (!dragging || e.pointerId !== pointerId) return;
       var dx = e.clientX - startX, dy = e.clientY - startY;
+      if (!moved) {
+        if (Math.sqrt(dx * dx + dy * dy) < 8) return;
+        moved = true;
+        try { fc.setPointerCapture(pointerId); } catch (err) {}
+        fc.style.transition = "none";
+        fc.classList.add("swiping");
+      }
       fc.style.transform = "translate(" + dx + "px," + (dy * 0.4) + "px) rotate(" + (dx / 22) + "deg)";
       setStamps(dx, dy);
     });
     function end(e) {
       if (!dragging || e.pointerId !== pointerId) return;
       dragging = false;
+      if (!moved) return;
       fc.classList.remove("swiping");
       var dx = e.clientX - startX, dy = e.clientY - startY;
       if (dx <= -SWIPE_X_THRESHOLD) { flingOut("again", dx, 0); return; }
@@ -6986,7 +6994,22 @@
      * again from the click-opened .glossary-popover) -- without this it sat
      * in the accessibility tree as an unlabeled floating duplicate, so
      * assistive tech announced the same definition twice. */
-    function ensurePrev() { if (prev) return; prev = h('<div class="xref-preview" hidden aria-hidden="true"></div>'); document.body.appendChild(prev); }
+    var prevOwner = null, prevTimer = null;
+    function ensurePrev() {
+      if (prev) return;
+      prev = h('<div class="xref-preview" hidden></div>'); document.body.appendChild(prev);
+      /* The preview stays open while the pointer is over it, so it can be read and its link clicked. */
+      prev.addEventListener("mouseenter", function () { clearTimeout(prevTimer); });
+      prev.addEventListener("mouseleave", function () { schedulePrevHide(); });
+      prev.addEventListener("click", function (e) {
+        if (!prevOwner) return;
+        e.stopPropagation();
+        var o = prevOwner; hidePrev();
+        if (o.classList.contains("xref")) goModuleTab(o.getAttribute("data-mod"), o.getAttribute("data-tab") || "anatomy");
+        else openPop(o);
+      });
+    }
+    function schedulePrevHide() { clearTimeout(prevTimer); prevTimer = setTimeout(hidePrev, 280); }
     function position(el, box) {
       var r = el.getBoundingClientRect();
       box.hidden = false;
@@ -7005,6 +7028,7 @@
       var tab = a.getAttribute("data-tab") || "";
       prev.innerHTML = '<div class="xp-title">' + esc(mod.title) + (tab ? ' · ' + esc(TAB_LABELS[tab] || tab) : "") + '</div>' +
         '<div class="xp-sub">' + esc(mod.subtitle || "") + '</div><div class="xp-go">Open →</div>';
+      prevOwner = a;
       position(a, prev);
     }
     function showHoverTerm(a) {
@@ -7012,9 +7036,10 @@
       ensurePrev();
       prev.innerHTML = '<div class="xp-title">' + esc(entry.term) + '</div><div class="xp-sub">' + esc(entry.def) + '</div>' +
         (entry.more ? '<div class="xp-go">Click for more →</div>' : '');
+      prevOwner = a;
       position(a, prev);
     }
-    function hidePrev() { if (prev) prev.hidden = true; }
+    function hidePrev() { clearTimeout(prevTimer); if (prev) prev.hidden = true; prevOwner = null; }
 
     function ensurePop() {
       if (pop) return;
@@ -7054,10 +7079,11 @@
 
     document.addEventListener("mouseover", function (e) {
       var a = e.target.closest && e.target.closest(".xref, .term"); if (!a) return;
+      clearTimeout(prevTimer);
       if (pop && !pop.hidden) return;
       if (a.classList.contains("xref")) showHoverXref(a); else showHoverTerm(a);
     });
-    document.addEventListener("mouseout", function (e) { var a = e.target.closest && e.target.closest(".xref, .term"); if (a) hidePrev(); });
+    document.addEventListener("mouseout", function (e) { var a = e.target.closest && e.target.closest(".xref, .term"); if (a) schedulePrevHide(); });
     document.addEventListener("click", function (e) {
       var xa = e.target.closest && e.target.closest(".xref");
       if (xa) { e.preventDefault(); hidePrev(); goModuleTab(xa.getAttribute("data-mod"), xa.getAttribute("data-tab") || "anatomy"); return; }
