@@ -396,6 +396,52 @@
     var ov = getCardOverride(moduleId, card.id);
     return (ov && ov.back != null) ? ov.back : card.back;
   }
+  /* Cloze cards: the front has blanks and the back repeats the sentence with the
+     answers marked. On reveal, put the answers into the front itself and show only
+     the extra text underneath. Returns null for cards that do not follow the pattern. */
+  function splitCloze(front, back) {
+    var BLANK = '[...]</span>';
+    var n = (String(front).match(/class="cloze-blank"/g) || []).length;
+    if (!n || String(back).indexOf("cloze-answer") === -1) return null;
+    var marks = [], re = /<mark class="cloze-answer">([\s\S]*?)<\/mark>/g, m;
+    while ((m = re.exec(back)) && marks.length < n) marks.push({ html: m[1], end: re.lastIndex });
+    if (marks.length !== n) return null;
+    var i = 0;
+    var filled = String(front).replace(/<span class="cloze-blank">\[\.\.\.\]<\/span>/g, function () {
+      return '<mark class="cloze-answer">' + marks[i++].html + '</mark>';
+    });
+    if (i !== n) return null;
+    var tail = front.slice(front.lastIndexOf(BLANK) + BLANK.length).trim();
+    var after = back.slice(marks[n - 1].end);
+    var extras = null;
+    function words(h) { return String(h).replace(/<[^>]+>/g, " ").toLowerCase().replace(/[^a-z0-9\s]/g, " ").split(/\s+/).filter(Boolean); }
+    var sm = /^[^<]*?[.?!](?=\s|<|$)/.exec(after);
+    if (tail) {
+      var at = after.trim();
+      if (at.indexOf(tail) === 0) extras = at.slice(tail.length);
+      else if (sm) {
+        /* The back reworded the sentence. If it is still mostly the same words, treat it as the echo. */
+        var tw = words(tail), bw = words(sm[0]), hit = 0;
+        tw.forEach(function (w) { if (bw.indexOf(w) !== -1) hit++; });
+        if (tw.length && hit / tw.length >= 0.6) extras = after.slice(sm[0].length);
+      }
+    } else if (sm) {
+      extras = after.slice(sm[0].length);
+    }
+    if (extras === null) {
+      /* Different wording: keep everything the back says, minus the opening words the front already shows. */
+      var pre = String(front).slice(0, front.indexOf('<span class="cloze-blank">'));
+      extras = back.indexOf(pre) === 0 ? back.slice(pre.length) : back;
+    }
+    extras = extras.replace(/^(\s|<br\s*\/?>)+/, "").trim();
+    return { front: filled, extras: extras };
+  }
+  function cardFaces(ownerId, card, revealed) {
+    var f = effectiveFront(ownerId, card), b = effectiveBack(ownerId, card);
+    var sp = splitCloze(f, b);
+    if (!sp) return { front: f, back: b, hasBack: true };
+    return { front: revealed ? sp.front : f, back: sp.extras, hasBack: !!sp.extras };
+  }
   function cardNote(moduleId, card) {
     var ov = getCardOverride(moduleId, card.id);
     return (ov && ov.note) || "";
@@ -3075,7 +3121,15 @@
         '</div>'
       );
       var back = quick.querySelector(".tsc-quick-back"), revealBtn = quick.querySelector(".tsc-reveal-btn");
-      revealBtn.addEventListener("click", function () { back.classList.remove("hidden"); quick.classList.add("revealed"); revealBtn.remove(); });
+      revealBtn.addEventListener("click", function () {
+        var sp = splitCloze(effectiveFront(owner, sample), effectiveBack(owner, sample));
+        if (sp) {
+          quick.querySelector(".tsc-quick-front").innerHTML = sp.front;
+          back.innerHTML = sp.extras;
+          if (sp.extras) back.classList.remove("hidden");
+        } else back.classList.remove("hidden");
+        quick.classList.add("revealed"); revealBtn.remove();
+      });
       quicks.appendChild(quick);
     });
     cta.querySelector(".tsc-launch").addEventListener("click", function () {
@@ -4527,9 +4581,10 @@
     var _left = ses.cards.length - ses.i - 1;
     var fc = h('<div class="flashcard' + (_left >= 2 ? ' fc-stack-2' : _left === 1 ? ' fc-stack-1' : '') + '"' + (_trk && _trk.color ? ' style="--track-color:' + _trk.color + '"' : '') + '></div>');
     fc.appendChild(h('<div class="card-tags">' + tags + (cardIsEdited(_ownerId, card) ? '<span class="pill edited">Edited</span>' : '') + '</div>'));
-    fc.appendChild(h('<div class="card-front">' + effectiveFront(_ownerId, card) + '</div>'));
-    var back = h('<div class="card-back hidden">' + effectiveBack(_ownerId, card) + '</div>');
-    fc.appendChild(back);
+    var _faces = cardFaces(_ownerId, card, ses.revealed);
+    fc.appendChild(h('<div class="card-front">' + _faces.front + '</div>'));
+    var back = h('<div class="card-back hidden">' + _faces.back + '</div>');
+    if (_faces.hasBack) fc.appendChild(back);
     if (_note) fc.appendChild(h('<div class="card-note"><strong>Your note:</strong> ' + esc(_note) + '</div>'));
     if (card.reviewer) fc.appendChild(h('<div class="card-source"><span class="rev">Reviewed: ' + esc(card.reviewer) + '</span></div>'));
     shell.appendChild(fc);
@@ -6472,9 +6527,10 @@
     var _fpMod = card._owner ? window.JEFFENT.get(card._owner) : null;
     var _fpTrk = (_fpMod && _fpMod.track) ? trackById(_fpMod.track) : null;
     var fc = h('<div class="flashcard fp-card"' + (_fpTrk && _fpTrk.color ? ' style="--track-color:' + _fpTrk.color + '"' : '') + '></div>');
-    fc.appendChild(h('<div class="card-front">' + effectiveFront(cardOwnerModId, card) + '</div>'));
-    var back = h('<div class="card-back' + (fp.revealed ? '' : ' hidden') + '">' + effectiveBack(cardOwnerModId, card) + '</div>');
-    fc.appendChild(back);
+    var _faces = cardFaces(cardOwnerModId, card, fp.revealed);
+    fc.appendChild(h('<div class="card-front">' + _faces.front + '</div>'));
+    var back = h('<div class="card-back' + (fp.revealed ? '' : ' hidden') + '">' + _faces.back + '</div>');
+    if (_faces.hasBack) fc.appendChild(back);
     if (fpNote) fc.appendChild(h('<div class="card-note"><strong>Your note:</strong> ' + esc(fpNote) + '</div>'));
     stage.appendChild(fc);
     linkGlossaryTerms(fc);
