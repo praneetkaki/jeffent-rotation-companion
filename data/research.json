@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-26",
+ "updated": "2026-11-02",
  "items": [
   {
    "pmid": "42861423",
@@ -10,16 +10,6 @@
    "type": "Guideline",
    "doi": "10.1002/ohn.70417",
    "url": "https://pubmed.ncbi.nlm.nih.gov/42861423/"
-  },
-  {
-   "pmid": "42658545",
-   "title": "Unilateral and Bilateral Hearing Aids for Age-Related Hearing Loss: A Randomized Clinical Trial",
-   "authors": "Smith SL, Ricketts TA, Kilpatrick KW et al.",
-   "journal": "JAMA Otolaryngol Head Neck Surg",
-   "date": "2026-08-27",
-   "type": "Randomized trial",
-   "doi": "10.1001/jamaoto.2026.2401",
-   "url": "https://pubmed.ncbi.nlm.nih.gov/42658545/"
   },
   {
    "pmid": "42843159",
@@ -80,36 +70,6 @@
    "type": "Meta-analysis",
    "doi": "10.1002/hed.70471",
    "url": "https://pubmed.ncbi.nlm.nih.gov/42728885/"
-  },
-  {
-   "pmid": "42679771",
-   "title": "Interventions for primary pediatric tracheomalacia: A systematic review of the therapeutic landscape and evidence quality",
-   "authors": "Rakkar J, Mohamed A, Dennett L et al.",
-   "journal": "Int J Pediatr Otorhinolaryngol",
-   "date": "2026-09-01",
-   "type": "Systematic review",
-   "doi": "10.1016/j.ijporl.2026.113000",
-   "url": "https://pubmed.ncbi.nlm.nih.gov/42679771/"
-  },
-  {
-   "pmid": "42673792",
-   "title": "Caregiver-reported short-term effect and quality of life improvements after tympanostomy tube insertion in children with chronic otitis media with effusion",
-   "authors": "Ranneries TN, Heidemann CH, Tingsgaard PK et al.",
-   "journal": "Int J Pediatr Otorhinolaryngol",
-   "date": "2026-08-31",
-   "type": "Randomized trial",
-   "doi": "10.1016/j.ijporl.2026.112987",
-   "url": "https://pubmed.ncbi.nlm.nih.gov/42673792/"
-  },
-  {
-   "pmid": "42664578",
-   "title": "Adjunctive pillar suturing or pharyngoplasty in pediatric adenotonsillectomy for obstructive sleep apnea: A systematic review and meta-analysis",
-   "authors": "Lin CY, Chen PY, Ahuja GS",
-   "journal": "Int J Pediatr Otorhinolaryngol",
-   "date": "2026-08-28",
-   "type": "Meta-analysis",
-   "doi": "10.1016/j.ijporl.2026.112995",
-   "url": "https://pubmed.ncbi.nlm.nih.gov/42664578/"
   }
  ]
 }
