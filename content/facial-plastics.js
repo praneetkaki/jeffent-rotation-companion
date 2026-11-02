@@ -225,6 +225,7 @@ window.JEFFENT.register({
       },
       {
         id: "house-brackmann-grading",
+        tool: "house-brackmann",
         title: "House-Brackmann scale",
         html: "<p>Once the decision to observe (rather than explore) has been made, facial nerve function is tracked over time using the <strong>House-Brackmann scale (grade I-VI)</strong>:</p><ol><li><strong>I</strong>: normal</li><li><strong>II</strong>: mild dysfunction (slight weakness, normal symmetry at rest)</li><li><strong>III</strong>: moderate (obvious but not disfiguring asymmetry, complete eye closure with effort)</li><li><strong>IV</strong>: moderately severe (disfiguring asymmetry, incomplete eye closure)</li><li><strong>V</strong>: severe (barely perceptible motion)</li><li><strong>VI</strong>: total paralysis, no movement</li></ol><p>It's a documentation and follow-up tool, distinct from the explore-vs-observe decision itself. A worsening grade over serial exams is what prompts reconsidering surgical exploration in a case initially chosen for observation.</p>"
       },

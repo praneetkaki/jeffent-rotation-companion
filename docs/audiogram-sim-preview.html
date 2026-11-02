@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Audiogram simulator preview</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Work+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--ground:#f6f4ec;--surface:#fffefc;--ink:#14291a;--soft:#4a6150;--faint:#6b7d70;--line:#e1e6dc;--line2:#edf0e8;--primary:#0f3e17;--tint:#e3f4e0;--R:#b3382c;--L:#2b5f96;--radius:18px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font:15px/1.5 "Work Sans",system-ui,sans-serif}
+.wrap{max-width:1120px;margin:0 auto;padding:28px 20px 60px}
+h1{font:600 34px/1.1 "Cormorant Garamond",serif;margin:0 0 4px}
+.sub{color:var(--soft);margin:0 0 20px}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}
+.pill{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:9px 16px;font:500 14px "Work Sans",sans-serif;cursor:pointer;min-height:40px}
+.pill:hover{border-color:var(--primary)}
+.pill[aria-pressed=true]{background:var(--primary);border-color:var(--primary);color:#fff}
+.grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:18px;align-items:start}
+@media(max-width:900px){.grid{grid-template-columns:minmax(0,1fr)}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+.card h2{font:500 12px/1 "Work Sans",sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin:0 0 14px}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--soft);margin:12px 0 0}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sym{font:600 15px "Work Sans",sans-serif}
+.stack{display:grid;gap:18px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ear{font-size:13px;color:var(--faint);margin:0 0 6px}
+.ear b{font-weight:600}
+.weber{position:relative;height:56px;margin:10px 0 4px}
+.weber .rail{position:absolute;left:0;right:0;top:26px;height:2px;background:var(--line)}
+.weber .mid{position:absolute;left:50%;top:14px;width:2px;height:26px;background:var(--faint)}
+.weber .dot{position:absolute;top:17px;width:20px;height:20px;border-radius:50%;background:var(--primary);transform:translateX(-50%);transition:left .45s cubic-bezier(.23,1,.32,1)}
+.weber .lab{position:absolute;top:36px;font-size:12px;color:var(--faint)}
+.res{font:600 22px/1.2 "Cormorant Garamond",serif}
+.res small{display:block;font:400 13px/1.4 "Work Sans",sans-serif;color:var(--soft);margin-top:2px}
+.rinne{display:grid;gap:8px;margin-top:6px}
+.bar{display:grid;grid-template-columns:34px 1fr;align-items:center;gap:8px;font-size:12px;color:var(--faint)}
+.bar i{display:block;height:8px;border-radius:4px;transition:width .45s cubic-bezier(.23,1,.32,1)}
+.badge{display:inline-block;border-radius:999px;padding:2px 10px;font:600 12px "Work Sans",sans-serif;background:var(--tint);color:var(--primary)}
+.badge.neg{background:#f6e0dc;color:#7e2a21}
+.interp{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:600px){.interp,.two{grid-template-columns:1fr}}
+.interp .e{border:1px solid var(--line2);border-radius:12px;padding:12px 14px}
+.interp .e b{font-weight:600}
+.note{font-size:13.5px;color:var(--soft);margin:14px 0 0}
+.tools{display:flex;gap:10px;align-items:center;justify-content:space-between;margin:0 0 14px;flex-wrap:wrap}
+.btn{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:8px 16px;font:500 13px "Work Sans",sans-serif;cursor:pointer;min-height:40px}
+.btn:hover{border-color:var(--primary)}
+.hidden-block{filter:blur(7px);user-select:none;pointer-events:none}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+svg text{font-family:"Work Sans",sans-serif}
+</style></head>
+<body><div class="wrap">
+<h1>Audiogram simulator</h1>
+<p class="sub">Pick a pattern. The audiogram, tuning fork results, and tympanograms update together.</p>
+<div class="pills" id="pills" role="group" aria-label="Hearing loss pattern"></div>
+<div class="tools"><span class="ear" id="caseTitle"></span>
+<button class="btn" id="quiz" aria-pressed="false">Quiz mode: off</button></div>
+<div class="grid">
+ <div class="card"><h2>Pure tone audiogram</h2>
+  <div id="chart"></div>
+  <div class="legend"><span><span class="sym" style="color:var(--R)">O</span> Right air</span><span><span class="sym" style="color:var(--L)">X</span> Left air</span><span><span class="sym" style="color:var(--R)">[</span> Right bone</span><span><span class="sym" style="color:var(--L)">]</span> Left bone</span></div>
+  <table class="sr" id="sr"></table>
+ </div>
+ <div class="stack">
+  <div class="card"><h2>Tuning fork, 512 Hz</h2>
+   <p class="ear"><b>Weber</b>, fork on the forehead</p>
+   <div class="weber" id="weber"><div class="rail"></div><div class="mid"></div><div class="dot" id="wdot"></div><span class="lab" style="left:0">Right ear</span><span class="lab" style="right:0">Left ear</span></div>
+   <div class="res" id="wres"></div>
+   <p class="ear" style="margin-top:16px"><b>Rinne</b>, air vs bone, each ear</p>
+   <div class="two" id="rinne"></div>
+  </div>
+  <div class="card"><h2>Tympanometry</h2><div class="two" id="tymp"></div></div>
+ </div>
+</div>
+<div class="card" style="margin-top:18px"><h2>Interpretation</h2><div id="interp" class="interp"></div><p class="note" id="teach"></p></div>
+</div>
+<script>
+var F=[250,500,1000,2000,4000,8000];
+var CASES=[
+{id:"normal",n:"Normal",R:{ac:[10,10,5,10,10,15],bc:[5,5,0,5,10,10],t:"A"},L:{ac:[10,5,10,5,10,15],bc:[5,0,5,5,5,10],t:"A"},teach:"All thresholds sit at or below 25 dB HL and air and bone lines overlap. Weber is midline and Rinne is positive in both ears."},
+{id:"ome",n:"Conductive, right",R:{ac:[45,45,40,35,30,30],bc:[5,5,5,10,10,10],t:"B",ecv:"normal"},L:{ac:[10,10,5,10,10,15],bc:[5,5,0,5,10,10],t:"A"},teach:"Bone conduction is normal and air conduction is worse, creating an air-bone gap. Weber lateralizes to the affected ear. A flat Type B with a normal ear canal volume points to middle ear effusion."},
+{id:"presby",n:"Presbycusis",R:{ac:[15,20,30,45,60,70],bc:[10,15,25,40,55,65],t:"A"},L:{ac:[15,20,25,45,65,75],bc:[10,15,20,40,60,70],t:"A"},teach:"Symmetric, high-frequency sensorineural loss with air and bone together and no gap. Weber is midline. This is the typical age-related sloping pattern."},
+{id:"noise",n:"Noise-induced",R:{ac:[10,10,15,25,50,25],bc:[5,5,10,25,45,20],t:"A"},L:{ac:[10,10,10,20,45,25],bc:[5,5,10,20,40,20],t:"A"},teach:"A notch at 3000 to 6000 Hz with recovery at 8000 Hz. Air and bone track together, so it is sensorineural. Both ears are usually affected."},
+{id:"oto",n:"Otosclerosis",R:{ac:[55,50,45,40,40,45],bc:[10,15,20,35,15,10],t:"As"},L:{ac:[25,25,20,25,25,30],bc:[10,10,10,25,10,10],t:"As"},teach:"A low-frequency conductive loss with a stiff, shallow tympanogram (As). The bone curve dips near 2000 Hz, the Carhart notch, which improves after stapes surgery. Weber lateralizes to the worse-hearing ear."},
+{id:"snhl",n:"Unilateral SNHL, left",R:{ac:[10,10,5,10,10,15],bc:[5,5,0,5,10,10],t:"A"},L:{ac:[30,40,55,65,75,80],bc:[25,35,50,60,70,75],t:"A"},teach:"Sensorineural loss in one ear with no air-bone gap. Weber lateralizes to the better ear. Asymmetric sensorineural loss needs MRI to exclude a retrocochlear lesion such as a vestibular schwannoma."},
+{id:"disc",n:"Ossicular discontinuity",R:{ac:[60,60,55,55,60,60],bc:[5,5,5,10,10,10],t:"Ad"},L:{ac:[10,10,5,10,10,15],bc:[5,5,0,5,10,10],t:"A"},teach:"A large air-bone gap, up to about 60 dB, with an intact eardrum and a deep, hypermobile tympanogram (Ad). Think ossicular discontinuity, often after trauma."},
+{id:"mixed",n:"Mixed, right",R:{ac:[65,65,70,75,80,85],bc:[20,25,30,40,45,50],t:"B",ecv:"high"},L:{ac:[10,10,5,10,10,15],bc:[5,5,0,5,10,10],t:"A"},teach:"Both a sensorineural component, with bone thresholds raised, and a conductive component, with a gap. A flat Type B with a high ear canal volume suggests a perforation or patent tube."}
+];
+var cur=null,quiz=false,NS="http://www.w3.org/2000/svg";
+function avg(a,i){var s=0;i.forEach(function(k){s+=a[k]});return s/i.length}
+function analyse(e){var pta=avg(e.ac,[1,2,3]),bta=avg(e.bc,[1,2,3]),gap=pta-bta,sev=pta<=25?"Normal":pta<=40?"Mild":pta<=55?"Moderate":pta<=70?"Moderately severe":pta<=90?"Severe":"Profound";
+ var type=pta<=25?"Normal hearing":gap>=15?(bta<=25?"Conductive":"Mixed"):"Sensorineural";return{pta:Math.round(pta),gap:Math.round(gap),sev:sev,type:type,g500:e.ac[1]-e.bc[1]}}
+function weber(c){var p=function(e){return -avg(e.bc,[1,2,3])+(avg(e.ac,[1,2,3])-avg(e.bc,[1,2,3]))};var d=p(c.R)-p(c.L);return d>5?"R":d<-5?"L":"mid"}
+function el(t,a,p){var e=document.createElementNS(NS,t);for(var k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+function chart(c){
+ var W=640,H=484,m={l:56,r:96,t:48,b:20},iw=W-m.l-m.r,ih=H-m.t-m.b,y=function(v){return m.t+(v+10)/130*ih},x=function(i){return m.l+iw*(i+.5)/F.length};
+ var s=el("svg",{viewBox:"0 0 "+W+" "+H,width:"100%",role:"img","aria-label":"Audiogram for "+c.n});
+ var bands=[[-10,25,"#f2f7ef","Normal"],[25,40,"#eef3e8","Mild"],[40,55,"#f4f0e2","Moderate"],[55,70,"#f6ebdc","Mod. severe"],[70,90,"#f5e3d8","Severe"],[90,120,"#f1dcd6","Profound"]];
+ bands.forEach(function(b){el("rect",{x:m.l,y:y(b[0]),width:iw,height:y(b[1])-y(b[0]),fill:b[2]},s);var t=el("text",{x:W-m.r+10,y:(y(b[0])+y(b[1]))/2+4,"font-size":11.5,fill:"#6b7d70"},s);t.textContent=b[3]});
+ for(var v=-10;v<=120;v+=10){el("line",{x1:m.l,x2:W-m.r,y1:y(v),y2:y(v),stroke:v===25?"#8aa08e":"#d9e0d4","stroke-width":v===25?1.2:.7},s);var t=el("text",{x:m.l-10,y:y(v)+4,"text-anchor":"end","font-size":11.5,fill:"#6b7d70"},s);t.textContent=v}
+ F.forEach(function(f,i){el("line",{x1:x(i),x2:x(i),y1:m.t,y2:H-m.b,stroke:"#d9e0d4","stroke-width":.7},s);var t=el("text",{x:x(i),y:m.t-14,"text-anchor":"middle","font-size":12,fill:"#4a6150"},s);t.textContent=f>=1000?(f/1000)+"k":f});
+ var yl=el("text",{transform:"translate(14,"+(m.t+ih/2)+") rotate(-90)","text-anchor":"middle","font-size":11.5,fill:"#6b7d70"},s);yl.textContent="Hearing level (dB HL)";
+ var xl=el("text",{x:m.l+iw/2,y:12,"text-anchor":"middle","font-size":11.5,fill:"#6b7d70"},s);xl.textContent="Frequency (Hz)";
+ function line(e,col,dash){var d=e.ac.map(function(v,i){return(i?"L":"M")+x(i)+" "+y(v)}).join(" ");el("path",{d:d,fill:"none",stroke:col,"stroke-width":2,"stroke-linejoin":"round","stroke-dasharray":dash||"0",opacity:.9},s)}
+ line(c.R,"#b3382c");line(c.L,"#2b5f96");
+ c.R.ac.forEach(function(v,i){el("circle",{cx:x(i)-0,cy:y(v),r:7,fill:"#fffefc",stroke:"#b3382c","stroke-width":2.2},s)});
+ c.L.ac.forEach(function(v,i){var X=x(i),Y=y(v);el("path",{d:"M"+(X-6)+" "+(Y-6)+"L"+(X+6)+" "+(Y+6)+"M"+(X+6)+" "+(Y-6)+"L"+(X-6)+" "+(Y+6),stroke:"#2b5f96","stroke-width":2.4,"stroke-linecap":"round"},s)});
+ c.R.bc.forEach(function(v,i){var X=x(i)-14,Y=y(v);el("path",{d:"M"+(X+4)+" "+(Y-7)+"L"+X+" "+(Y-7)+"L"+X+" "+(Y+7)+"L"+(X+4)+" "+(Y+7),fill:"none",stroke:"#b3382c","stroke-width":2,"stroke-linecap":"round"},s)});
+ c.L.bc.forEach(function(v,i){var X=x(i)+14,Y=y(v);el("path",{d:"M"+(X-4)+" "+(Y-7)+"L"+X+" "+(Y-7)+"L"+X+" "+(Y+7)+"L"+(X-4)+" "+(Y+7),fill:"none",stroke:"#2b5f96","stroke-width":2,"stroke-linecap":"round"},s)});
+ return s}
+function tymp(t,ecv){
+ var W=220,H=170,m={l:34,r:8,t:10,b:26},iw=W-m.l-m.r,ih=H-m.t-m.b;
+ var p={A:[0,1.0,70],As:[0,.3,70],Ad:[0,2.9,75],C:[-250,.9,70],B:[0,.08,400]}[t];
+ var s=el("svg",{viewBox:"0 0 "+W+" "+H,width:"100%",role:"img","aria-label":"Type "+t+" tympanogram"});
+ var X=function(d){return m.l+(d+400)/500*iw},Y=function(v){return m.t+ih-(v/3.2)*ih};
+ [-400,-300,-200,-100,0,100].forEach(function(d){el("line",{x1:X(d),x2:X(d),y1:m.t,y2:m.t+ih,stroke:"#e1e6dc","stroke-width":.7},s);var q=el("text",{x:X(d),y:H-10,"text-anchor":"middle","font-size":9.5,fill:"#6b7d70"},s);q.textContent=d});
+ [0,1,2,3].forEach(function(v){el("line",{x1:m.l,x2:W-m.r,y1:Y(v),y2:Y(v),stroke:"#e1e6dc","stroke-width":.7},s);var q=el("text",{x:m.l-6,y:Y(v)+3.5,"text-anchor":"end","font-size":9.5,fill:"#6b7d70"},s);q.textContent=v});
+ var d="";for(var i=-400;i<=100;i+=5){var v=t==="B"?.08+ .02*Math.exp(-Math.pow((i+150)/200,2)):p[1]*Math.exp(-Math.pow((i-p[0])/p[2],2));d+=(i===-400?"M":"L")+X(i)+" "+Y(v)}
+ el("path",{d:d,fill:"none",stroke:"#0f3e17","stroke-width":2.2,"stroke-linecap":"round"},s);return s}
+function render(){
+ var c=cur,A={R:analyse(c.R),L:analyse(c.L)},W=weber(c);
+ document.getElementById("caseTitle").textContent=quiz?"Case hidden. Read the audiogram, then reveal.":"Pattern: "+c.n;
+ var ch=document.getElementById("chart");ch.innerHTML="";ch.appendChild(chart(c));
+ document.getElementById("sr").innerHTML="<caption>Thresholds in dB HL</caption><tr><th>Hz</th>"+F.map(function(f){return"<th>"+f+"</th>"}).join("")+"</tr><tr><th>Right air</th>"+c.R.ac.map(function(v){return"<td>"+v+"</td>"}).join("")+"</tr><tr><th>Left air</th>"+c.L.ac.map(function(v){return"<td>"+v+"</td>"}).join("")+"</tr>";
+ var dot=document.getElementById("wdot");dot.style.left=W==="R"?"10%":W==="L"?"90%":"50%";
+ var wr=document.getElementById("wres");wr.innerHTML=(W==="mid"?"Midline":W==="R"?"Lateralizes to the right":"Lateralizes to the left")+"<small>"+(W==="mid"?"Symmetric hearing, or equal loss in both ears.":"Conductive loss lateralizes to the affected ear. Sensorineural loss lateralizes to the better ear.")+"</small>";
+ var rn=document.getElementById("rinne");rn.innerHTML="";
+ [["R","Right"],["L","Left"]].forEach(function(e){var a=A[e[0]],neg=a.g500>=20,col=e[0]==="R"?"#b3382c":"#2b5f96",bcw=neg?100:Math.max(30,100-Math.max(a.g500,0)*3),acw=neg?Math.max(30,100-a.g500*1.4):100;
+  rn.insertAdjacentHTML("beforeend","<div><p class='ear'><b>"+e[1]+" ear</b></p><span class='badge "+(neg?"neg":"")+"'>"+(neg?"Negative":"Positive")+"</span><div class='rinne'><div class='bar'>Air<i style='width:"+acw+"%;background:"+col+"'></i></div><div class='bar'>Bone<i style='width:"+bcw+"%;background:"+col+";opacity:.45'></i></div></div></div>")});
+ var tm=document.getElementById("tymp");tm.innerHTML="";
+ [["R","Right"],["L","Left"]].forEach(function(e){var d=c[e[0]],box=document.createElement("div");box.innerHTML="<p class='ear'><b>"+e[1]+" ear</b>, Type "+d.t.replace("s","<sub>s</sub>").replace(/d$/,function(m){return d.t==="Ad"?"<sub>d</sub>":m})+(d.t==="B"?", ECV "+d.ecv:"")+"</p>";box.appendChild(tymp(d.t,d.ecv));tm.appendChild(box)});
+ var ip=document.getElementById("interp");ip.innerHTML=[["R","Right"],["L","Left"]].map(function(e){var a=A[e[0]];return"<div class='e'><b>"+e[1]+" ear</b><br>"+a.type+(a.type==="Normal hearing"?"":", "+a.sev.toLowerCase())+"<br><span style='color:var(--soft);font-size:13px'>Pure tone average "+a.pta+" dB HL, air-bone gap "+Math.max(a.gap,0)+" dB</span></div>"}).join("");
+ document.getElementById("teach").textContent=c.teach;
+ [document.getElementById("interp"),document.getElementById("teach")].forEach(function(b){b.classList.toggle("hidden-block",quiz)});
+ [document.getElementById("weber"),document.getElementById("wres"),document.getElementById("rinne"),document.getElementById("tymp")].forEach(function(b){b.classList.toggle("hidden-block",quiz)});
+ [].forEach.call(document.querySelectorAll(".pill"),function(b){b.setAttribute("aria-pressed",b.dataset.id===c.id)});
+}
+var pills=document.getElementById("pills");
+CASES.forEach(function(c){var b=document.createElement("button");b.className="pill";b.dataset.id=c.id;b.textContent=c.n;b.onclick=function(){cur=c;render()};pills.appendChild(b)});
+document.getElementById("quiz").onclick=function(){quiz=!quiz;this.textContent="Quiz mode: "+(quiz?"on (click to reveal)":"off");this.setAttribute("aria-pressed",quiz);if(quiz){cur=CASES[Math.floor(Math.random()*CASES.length)]}render()};
+cur=CASES[1];render();
+</script></body></html>

@@ -1,4 +1,4 @@
-# Content export (generated 2026-10-26)
+# Content export (generated 2026-11-02)
 
 Every piece of module content, extracted from `content/*.js`. Regenerate with `node scripts/extract-content-for-review.js`.
 

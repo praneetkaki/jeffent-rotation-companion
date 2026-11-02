@@ -3353,3 +3353,90 @@ button, a, summary, [role="button"] { touch-action: manipulation; -webkit-tap-hi
 
 /* Cloze answer filled into the card front on reveal */
 .card-front .cloze-answer { background: var(--accent-tint); color: var(--accent); border-radius: 6px; padding: 0 8px; margin: 0 1px; font-weight: 700; }
+
+/* ---------- Interactive tools (js/tools.js) ---------- */
+:root { --tk-R: #b3382c; --tk-L: #2b5f96; }
+:root[data-theme="dark"] { --tk-R: #e4796d; --tk-L: #7fb0e6; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --tk-R: #e4796d; --tk-L: #7fb0e6; } }
+.tk-group { margin-top: 28px; }
+.tk-group-h { font: 500 12px/1 "Work Sans", system-ui, sans-serif; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-faint); margin: 0 0 10px; }
+.tk-box { margin: 14px 0 0; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); }
+.tk-box > summary { list-style: none; cursor: pointer; display: grid; gap: 2px; padding: 14px 18px; min-height: 44px; }
+.tk-box > summary::-webkit-details-marker { display: none; }
+.tk-box > summary::after { content: "Open"; justify-self: end; grid-row: 1; grid-column: 2; font: 500 13px/1 "Work Sans", system-ui, sans-serif; color: var(--primary); }
+.tk-box > summary { grid-template-columns: minmax(0, 1fr) auto; }
+.tk-box[open] > summary::after { content: "Close"; }
+.tk-box > summary:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; border-radius: var(--radius-lg); }
+.tk-sum-title { font: 600 16px/1.3 "Work Sans", system-ui, sans-serif; color: var(--ink); grid-column: 1; }
+.tk-sum-blurb { font-size: 13px; color: var(--ink-soft); grid-column: 1; }
+.tk-body { padding: 4px 18px 20px; border-top: 1px solid var(--line-soft); }
+.tk-intro { font-size: 14px; color: var(--ink-soft); margin: 14px 0 12px; }
+.tk-form { display: grid; gap: 12px; margin-top: 4px; }
+.tk-field { display: grid; gap: 4px; border: 0; padding: 0; margin: 0; min-width: 0; }
+.tk-field legend, .tk-lab { font-size: 13px; color: var(--ink-soft); padding: 0; }
+.tk-field select, .tk-num { width: 100%; min-height: 44px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--ink); font: 400 14px "Work Sans", system-ui, sans-serif; }
+.tk-opts { display: flex; gap: 8px; flex-wrap: wrap; }
+.tk-opt, .tk-check { display: flex; align-items: center; gap: 10px; min-height: 44px; font-size: 14px; color: var(--ink); cursor: pointer; }
+.tk-opt { padding: 0 14px; border: 1px solid var(--line); border-radius: 999px; }
+.tk-check input, .tk-opt input { accent-color: var(--primary); width: 18px; height: 18px; flex: none; }
+.tk-result { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line-soft); }
+.tk-big { font: 600 26px/1.25 "Cormorant Garamond", Georgia, serif; color: var(--ink); }
+.tk-tag { display: inline-block; vertical-align: 3px; margin-left: 8px; padding: 2px 10px; border-radius: 999px; font: 600 12px/1.5 "Work Sans", system-ui, sans-serif; background: var(--primary-tint); color: var(--primary); }
+.tk-tag.neg { background: var(--flag-tint); color: var(--flag); }
+.tk-small { font-size: 14px; color: var(--ink-soft); margin-top: 4px; }
+.tk-rows { margin: 12px 0 0; display: grid; gap: 6px; }
+.tk-rows div { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 10px; font-size: 14px; }
+.tk-rows dt { color: var(--ink-faint); } .tk-rows dd { margin: 0; color: var(--ink); }
+.tk-table { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 13.5px; }
+.tk-table caption { text-align: left; font-size: 13px; color: var(--ink-faint); padding-bottom: 6px; }
+.tk-table th { text-align: left; font-weight: 600; color: var(--ink-faint); font-size: 12px; padding: 6px 10px; border-bottom: 1px solid var(--line); }
+.tk-table td { padding: 8px 10px; border-bottom: 1px solid var(--line-soft); vertical-align: top; color: var(--ink-soft); }
+.tk-table tr.on td { background: var(--primary-tint); color: var(--ink); }
+.tk-foot { font-size: 12px; color: var(--ink-faint); margin: 14px 0 0; }
+.tk-pills { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 12px; }
+.tk-pill, .tk-btn { min-height: 44px; padding: 0 16px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--ink); font: 500 14px "Work Sans", system-ui, sans-serif; cursor: pointer; }
+.tk-pill:hover, .tk-btn:hover { border-color: var(--primary); }
+.tk-pill[aria-pressed="true"] { background: var(--primary); border-color: var(--primary); color: var(--surface); }
+.tk-bar { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin: 0 0 12px; font-size: 13px; color: var(--ink-faint); }
+.aud-grid-wrap { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 16px; align-items: start; }
+@media (max-width: 860px) { .aud-grid-wrap { grid-template-columns: minmax(0, 1fr); } }
+.aud-side { display: grid; gap: 16px; }
+.aud-card { border: 1px solid var(--line-soft); border-radius: 14px; padding: 16px; background: var(--surface); }
+.aud-interp-card { margin-top: 16px; }
+.aud-h { font: 500 12px/1 "Work Sans", system-ui, sans-serif; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-faint); margin: 0 0 12px; }
+.aud-sub { font-size: 13px; color: var(--ink-faint); margin: 0 0 6px; }
+.aud-two { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 520px) { .aud-two { grid-template-columns: minmax(0, 1fr); } }
+.aud-legend { display: flex; gap: 16px; flex-wrap: wrap; font-size: 13px; color: var(--ink-soft); margin-top: 10px; }
+.aud-key { font-weight: 600; margin-right: 4px; } .aud-kR { color: var(--tk-R); } .aud-kL { color: var(--tk-L); }
+.aud-svg { display: block; width: 100%; height: auto; }
+.aud-t { fill: var(--ink-faint); } .aud-tf { fill: var(--ink-soft); }
+.aud-grid { stroke: var(--line); stroke-width: .8; } .aud-g25 { stroke: var(--ink-faint); stroke-width: 1.2; }
+.aud-band-0 { fill: color-mix(in srgb, #3f9d5a 9%, var(--surface)); } .aud-band-1 { fill: color-mix(in srgb, #8aa63f 9%, var(--surface)); }
+.aud-band-2 { fill: color-mix(in srgb, #d6b43a 10%, var(--surface)); } .aud-band-3 { fill: color-mix(in srgb, #e08a3c 11%, var(--surface)); }
+.aud-band-4 { fill: color-mix(in srgb, #d65c3a 12%, var(--surface)); } .aud-band-5 { fill: color-mix(in srgb, #b8323a 12%, var(--surface)); }
+.aud-line { fill: none; stroke-width: 2; stroke-linejoin: round; opacity: .9; }
+.aud-R.aud-line, .aud-R.aud-sym-o, .aud-R.aud-sym-b { stroke: var(--tk-R); } .aud-L.aud-line, .aud-L.aud-sym-x, .aud-L.aud-sym-b { stroke: var(--tk-L); }
+.aud-sym-o { fill: var(--surface); stroke-width: 2.2; } .aud-sym-x { fill: none; stroke-width: 2.4; stroke-linecap: round; } .aud-sym-b { fill: none; stroke-width: 2; stroke-linecap: round; }
+.aud-tymp { fill: none; stroke: var(--primary); stroke-width: 2.2; stroke-linecap: round; }
+.aud-weber { position: relative; height: 56px; margin: 8px 0 4px; }
+.aud-rail { position: absolute; left: 0; right: 0; top: 26px; height: 2px; background: var(--line); }
+.aud-mid { position: absolute; left: 50%; top: 14px; width: 2px; height: 26px; background: var(--ink-faint); }
+.aud-dot { position: absolute; top: 17px; left: 50%; width: 20px; height: 20px; border-radius: 50%; background: var(--primary); transform: translateX(-50%); transition: left .45s cubic-bezier(.23, 1, .32, 1); }
+.aud-wl { position: absolute; top: 38px; font-size: 12px; color: var(--ink-faint); }
+.aud-bars { display: grid; gap: 6px; margin-top: 8px; }
+.aud-bar { display: grid; grid-template-columns: 34px 1fr; align-items: center; gap: 8px; font-size: 12px; color: var(--ink-faint); }
+.aud-bar i { display: block; height: 8px; border-radius: 4px; transition: width .45s cubic-bezier(.23, 1, .32, 1); }
+.aud-bR { background: var(--tk-R); } .aud-bL { background: var(--tk-L); } .aud-bbone { opacity: .45; }
+.aud-e { border: 1px solid var(--line-soft); border-radius: 12px; padding: 12px 14px; font-size: 14px; }
+.aud-teach { font-size: 14px; color: var(--ink-soft); margin: 14px 0 0; }
+.aud-card.is-hidden > :not(.aud-h), .aud-interp-card.is-hidden > :not(.aud-h) { filter: blur(8px); user-select: none; pointer-events: none; }
+@media (prefers-reduced-motion: reduce) { .aud-dot, .aud-bar i { transition: none; } }
+
+/* Themed dropdowns inside the tools */
+.tk-field select.tk-native { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.tk-field { position: relative; }
+.tk-field .csel-trigger { min-height: 44px; height: auto; padding: 10px 14px; text-align: left; }
+.tk-field .csel-value { white-space: normal; overflow: visible; text-overflow: clip; line-height: 1.35; }
+.tk-field .csel-list { z-index: 30; max-height: 320px; }
+.tk-field .csel-opt { white-space: normal; line-height: 1.35; align-items: flex-start; }

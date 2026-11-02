@@ -43,6 +43,7 @@ window.JEFFENT.register({
       {
         id: "friedman-tongue-position-note",
         title: "Friedman tongue position and staging",
+        tool: "friedman",
         tagline: "Tongue position · Oropharynx exam · UPPP response",
         html: "<figure class='note-fig'><img class='zoomable' src='assets/img/figures/Friedman_tongue.png' alt='Friedman tongue' loading='lazy' tabindex='0' role='button' aria-label='Enlarge figure'><figcaption>Friedman tongue position grades I-IV and how they predict UPPP response.</figcaption></figure>" +
           "<p><strong>The exam: how it's done:</strong> the Friedman tongue position (FTP), sometimes called the modified Mallampati index in this context, grades how much the tongue base obscures the palate, tonsils, and uvula on oral exam.</p>" +
@@ -212,6 +213,7 @@ window.JEFFENT.register({
     blocks: [
       {
         id: "stop-bang",
+        tool: "stop-bang",
         title: "STOP-BANG: OSA screening",
         html: "<p>A validated 8-item screen. Each item scores one point:</p><ul><li><strong>S</strong>noring loudly (louder than talking, or heard through a closed door)</li><li><strong>T</strong>iredness/fatigue/sleepiness during the day</li><li><strong>O</strong>bserved apnea (someone has witnessed you stop breathing during sleep)</li><li><strong>P</strong>ressure: treated or untreated high blood pressure</li><li><strong>B</strong>MI &gt;35 kg/m&sup2;</li><li><strong>A</strong>ge &gt;50 years</li><li><strong>N</strong>eck circumference &gt;40cm</li><li><strong>G</strong>ender: male</li></ul><p><strong>≥3 positive</strong> is intermediate-to-high risk and should prompt referral for a sleep study (≥5 is high risk, especially for moderate-to-severe OSA); it is a screening tool, not diagnostic. Risk stratifies further beyond the simple ≥3 cutoff, which matters most in the <strong>preoperative</strong> setting.</p>",
         table: {
@@ -239,6 +241,7 @@ window.JEFFENT.register({
       },
       {
         id: "epworth",
+        tool: "epworth",
         title: "Epworth Sleepiness Scale",
         html: "<p>A validated <strong>0-24 self-report</strong> questionnaire scoring the likelihood of dozing in 8 everyday situations. <strong>≥10</strong> suggests clinically significant excessive daytime sleepiness. It measures symptom burden, not disease severity: a patient can have severe OSA by AHI with a low Epworth score, or vice versa.</p>"
       },

@@ -3,7 +3,7 @@
 Generated from content/*.js for clinical fact-checking. Every module, card, case, clinical block, table, diagram, glossary entry, and question bank currently in the app is below, in full, with no summarizing or omission. Each item lists its module id and field path so corrections can be traced back to source.
 
 
-_Generated 2026-10-26_
+_Generated 2026-11-02_
 
 > **How to use:** paste a module file below (or ALL.md) into OpenEvidence / any reviewer, followed by an instruction such as
 > "Fact-check every claim against current guidelines, flag anything outdated or wrong, and propose exact replacement wording. Keep our style: no em dashes, plain clinical language."
@@ -1516,7 +1516,7 @@ Teaching: Flex NPL is the criterion standard for dynamic pediatric airway collap
 
 **[central-vertigo]** tags: FN, clinical, milestones: PC4, UKMLA: Vertigo, RED FLAG, reviewer: (none)
 - Front: What findings suggest a CENTRAL cause of vertigo?
-- Back: HINTS applies only to continuous vertigo with nystagmus, done by a trained examiner. Central pattern: direction-changing or vertical nystagmus, a normal head-impulse test, or skew deviation. Any of these, new hearing loss, severe gait instability, or other neuro signs → MRI for stroke.
+- Back: HINTS applies only to continuous vertigo with nystagmus, done by a trained examiner. Central pattern: direction-changing or vertical nystagmus, a normal head-impulse test, or skew deviation. Any of these, new hearing loss, severe gait instability, or other neuro signs → MRI for stroke.TestCentral originPeripheral originHead impulse testNormal: the patient keeps visual focus with a quick head movementAbnormal: the patient loses focus with a quick head movement, so the VOR is not intactNystagmusBidirectional or verticalNone or unidirectionalTest of skewAbnormal correction (about 98% specific)Normal, no skew
 - Source: Kattah et al., HINTS exam, Stroke 2009.
 
 **[facial-palsy]** tags: FN, clinical, milestones: PC4, MK1, UKMLA: Facial weakness, Bell's palsy, RED FLAG, reviewer: (none)
@@ -5098,7 +5098,7 @@ Teaching: [figure: Progressive asymmetric SNHL and tinnitus worked up with MRI I
 
 **[central-vertigo]** tags: OT, clinical, milestones: PC4, UKMLA: Vertigo, Dizziness, RED FLAG, reviewer: (none)
 - Front: Which dizziness features point CENTRAL rather than peripheral?
-- Back: HINTS applies only to acute vestibular syndrome (continuous vertigo with spontaneous nystagmus), not to positional vertigo. A central pattern = any ONE of: normal/negative head-impulse test, direction-changing or vertical nystagmus, or skew deviation (mnemonic INFARCT). Any single central component overrides the others → image for posterior-circulation stroke. Do not use HINTS for positional or episodic vertigo, or when there is no nystagmus at rest (assess gait instead).
+- Back: HINTS applies only to acute vestibular syndrome (continuous vertigo with spontaneous nystagmus), not to positional vertigo. A central pattern = any ONE of: normal/negative head-impulse test, direction-changing or vertical nystagmus, or skew deviation (mnemonic INFARCT). Any single central component overrides the others → image for posterior-circulation stroke. Do not use HINTS for positional or episodic vertigo, or when there is no nystagmus at rest (assess gait instead).TestCentral originPeripheral originHead impulse testNormal: the patient keeps visual focus with a quick head movementAbnormal: the patient loses focus with a quick head movement, so the VOR is not intactNystagmusBidirectional or verticalNone or unidirectionalTest of skewAbnormal correction (about 98% specific)Normal, no skew
 - Source: Kattah et al., HINTS exam, Stroke 2009.
 
 **[facial-palsy]** tags: OT, clinical, milestones: PC4, MK1, UKMLA: Facial weakness, Bell's palsy, RED FLAG, reviewer: (none)

@@ -275,6 +275,7 @@ window.JEFFENT.register({
       },
       {
         id: "thyroid-nodule-workup",
+        tool: ["ti-rads", "thyroid-staging"],
         title: "Thyroid nodule workup",
         html: "<ol><li><strong>TSH</strong> first: if low/suppressed, get a radionuclide scan.</li>" +
           "<li><strong>Ultrasound</strong>: assess size and suspicious features (<strong>TI-RADS</strong>: microcalcifications, taller-than-wide shape, irregular margins, marked hypoechogenicity) to decide if FNA is warranted.</li>" +
@@ -344,6 +345,7 @@ window.JEFFENT.register({
       {
         id: "tnm-mdt",
         title: "Staging, margins, and the multidisciplinary tumor board",
+        tool: "tnm",
         html: "<p>Head & neck cancers are staged with <strong>TNM</strong> (tumor size/invasion, nodal spread, distant metastasis), which drives treatment choice (surgery vs chemoradiation vs both). Cases are reviewed at a <strong>multidisciplinary tumor board</strong> (surgery, radiation oncology, medical oncology, pathology, radiology) before treatment starts. This is standard of care, not a formality.</p><p><strong>AJCC 8th edition, HPV-mediated (p16+) oropharyngeal SCC:</strong></p><div class=\"tbl-scroll\"><table><thead><tr><th>Component</th><th>Category</th><th>Definition</th></tr></thead><tbody><tr><td rowspan=\"5\"><b>T</b></td><td>T0</td><td>No primary identified (p16+ node)</td></tr><tr><td>T1</td><td>&le;2 cm</td></tr><tr><td>T2</td><td>&gt;2 cm to &le;4 cm</td></tr><tr><td>T3</td><td>&gt;4 cm, or extension to lingual surface of epiglottis</td></tr><tr><td>T4</td><td>Invades larynx, extrinsic tongue muscle, medial pterygoid, hard palate, mandible, or beyond</td></tr><tr><td rowspan=\"4\"><b>Clinical N (cN)</b></td><td>N0</td><td>No regional nodes</td></tr><tr><td>N1</td><td>&ge;1 ipsilateral node, none &gt;6 cm</td></tr><tr><td>N2</td><td>Contralateral or bilateral nodes, none &gt;6 cm</td></tr><tr><td>N3</td><td>Any node &gt;6 cm</td></tr><tr><td rowspan=\"3\"><b>Pathological N (pN)</b></td><td>N0</td><td>No positive nodes</td></tr><tr><td>N1</td><td>&le;4 positive nodes</td></tr><tr><td>N2</td><td>&gt;4 positive nodes</td></tr><tr><td><b>M</b></td><td>M0 / M1</td><td>No distant metastasis / distant metastasis</td></tr><tr><td rowspan=\"4\"><b>Clinical stage (RT/chemoRT)</b></td><td>I</td><td>T0-T2, N0-N1, M0</td></tr><tr><td>II</td><td>T0-T2 N2, or T3 N0-N2, M0</td></tr><tr><td>III</td><td>T0-T3 N3, or T4 N0-N3, M0</td></tr><tr><td>IV</td><td>Any T, any N, M1</td></tr><tr><td rowspan=\"4\"><b>Pathological stage (surgery)</b></td><td>I</td><td>T0-T2, N0-N1, M0</td></tr><tr><td>II</td><td>T0-T2 N2, or T3-T4 N0-N1, M0</td></tr><tr><td>III</td><td>T3-T4 N2, M0</td></tr><tr><td>IV</td><td>Any T, any N, M1</td></tr></tbody></table></div>"
       },
       {

@@ -12,7 +12,7 @@
   var TRACKS = window.JEFFENT.tracks || [];
   var TABS = ["anatomy", "clinical", "cases", "cards"];
   var TAB_LABELS = { anatomy: "Anatomy", clinical: "Clinical", cases: "Cases", cards: "Cards" };
-  var SCREENS = ["welcome", "home", "track", "module", "study", "pimp", "roadmap", "about", "library", "weak"];
+  var SCREENS = ["welcome", "home", "track", "module", "study", "pimp", "roadmap", "about", "tools", "library", "weak"];
 
   /* Active Recall Mode: trial run on Facial Plastics & Trauma only (see
    * initActiveRecall()/applyActiveRecallMask() below) before considering a
@@ -117,6 +117,7 @@
     wrap.setValue = function (v) { current = v; renderLabel(); renderOptions(); };
     return wrap;
   }
+  if (window.JEFFENT_TOOLS) window.JEFFENT_TOOLS.makeSelect = buildCustomSelect;
   function stripHtml(html) { var d = document.createElement("div"); d.innerHTML = html || ""; return (d.textContent || "").trim(); }
   /* Wraps every case-insensitive occurrence of `q` in `text` with a highlight
    * mark, escaping everything else. Used to show the searched phrase inside
@@ -482,6 +483,7 @@
     if (state.screen === "roadmap") return { fn: "roadmap" };
     if (state.screen === "library") return { fn: "library" };
     if (state.screen === "about") return { fn: "about" };
+    if (state.screen === "tools") return { fn: "tools" };
     if (state.screen === "weak") return { fn: "weak" };
     return null;
   }
@@ -507,6 +509,7 @@
     else if (prev.fn === "roadmap") goRoadmap();
     else if (prev.fn === "library") goCardLibrary();
     else if (prev.fn === "about") goAbout();
+    else if (prev.fn === "tools") goTools();
     else if (prev.fn === "weak") goWeakSpots();
     navSuppress = false;
     updateBackButton();
@@ -522,7 +525,7 @@
    * browser's back and forward buttons move between pages. */
   var routing = false;
   var lastHash = "";
-  var HASH_SCREENS = { study: "study", pimp: "faq", roadmap: "roadmap", library: "library", about: "about", weak: "weak" };
+  var HASH_SCREENS = { study: "study", pimp: "faq", roadmap: "roadmap", library: "library", about: "about", tools: "tools", weak: "weak" };
   function hashForState() {
     var sc = state.screen;
     if (sc === "home") return "#/";
@@ -559,6 +562,7 @@
       else if (a === "roadmap") goRoadmap();
       else if (a === "library") goCardLibrary();
       else if (a === "about") goAbout();
+      else if (a === "tools") goTools();
       else if (a === "weak") goWeakSpots();
       else goHome();
     } finally { routing = false; }
@@ -643,6 +647,43 @@
   }
 
   function goAbout() { goHome(); }
+
+  /* ---------- interactive tools (js/tools.js) ---------- */
+  function appendToolBox(parent, ids, opts) {
+    var T = window.JEFFENT_TOOLS; if (!T) return;
+    opts = opts || {};
+    (typeof ids === "string" ? [ids] : ids).forEach(function (id) {
+      var def = T.get(id); if (!def) return;
+      var box = h('<details class="tk-box"' + (opts.open ? " open" : "") + '><summary><span class="tk-sum-title">' + esc(def.title) + '</span><span class="tk-sum-blurb">' + esc(def.blurb || "") + '</span></summary><div class="tk-body"></div></details>');
+      var body = box.querySelector(".tk-body"), done = false;
+      function build() { if (done) return; done = true; try { def.render(body); } catch (e) { body.textContent = "This tool could not load."; } }
+      box.addEventListener("toggle", function () { if (box.open) build(); });
+      if (opts.open) build();
+      parent.appendChild(box);
+    });
+  }
+  function goTools() {
+    pushNav();
+    state.screen = "tools"; state.session = null;
+    renderTools();
+    showScreen("tools");
+  }
+  function renderTools() {
+    var root = el("screen-tools");
+    root.innerHTML = "";
+    var crumb = h('<button class="crumb">&larr; Home</button>');
+    crumb.addEventListener("click", goHome);
+    root.appendChild(crumb);
+    root.appendChild(h('<h1 class="h-lead">Tools</h1>'));
+    var T = window.JEFFENT_TOOLS; if (!T) return;
+    var groups = {}, order = [];
+    T.defs.forEach(function (d) { if (!groups[d.group]) { groups[d.group] = []; order.push(d.group); } groups[d.group].push(d.id); });
+    order.forEach(function (g) {
+      var sec = h('<section class="tk-group"><h2 class="tk-group-h">' + esc(g) + '</h2></section>');
+      appendToolBox(sec, groups[g]);
+      root.appendChild(sec);
+    });
+  }
 
   function goRoadmap() {
     pushNav();
@@ -2699,6 +2740,7 @@
         return h('<div class="anatomy-detail-body" data-anchor="anatomy-note-' + topic.index + '">' + notes[topic.index].html + '</div>');
       }, false, notes[topic.index].tagline);
       enhanceLessonBody(built.main, notes[topic.index]);
+      if (notes[topic.index].tool) appendToolBox(built.main, notes[topic.index].tool);
       appendRelatedCardsCta(built.main, mod, noteTitle, topic, notes[topic.index]);
       appendRelatedCases(built.main, mod, notes[topic.index]);
       appendLearnedBar(built.main, mod, pane, topic);
@@ -3610,6 +3652,7 @@
           '</tbody></table></div>'
         ));
       }
+      if (b.tool) appendToolBox(p, b.tool);
       main.appendChild(p);
       var entry = { p: p, k: kind.k, btn: null };
       kindEntries.push(entry);
@@ -4783,6 +4826,7 @@
       { type: "action", title: "Areas for Improvement", snippet: "Your most-missed cards and questions", run: goWeakSpots },
       { type: "action", title: "Curriculum roadmap", snippet: "Full curriculum anchor coverage map", run: goRoadmap },
       { type: "action", title: "Card library", snippet: "Every flashcard across every module", run: goCardLibrary },
+      { type: "action", title: "Tools", snippet: "Audiogram simulator, scores, and staging", run: goTools },
       { type: "action", title: "Study settings", snippet: "Again/Good/Easy intervals, new-card cap", run: function () { var b = el("settingsToggle"); if (b) b.click(); } },
       { type: "action", title: "Keyboard shortcuts", snippet: "View every shortcut", run: openShortcutsModal },
       { type: "action", title: "Toggle theme", snippet: "Switch light / dark", run: toggleTheme }
@@ -5385,6 +5429,9 @@
       var pimpNav = h('<button type="button" class="sn-item sn-pimp" data-nav="pimp"><span class="sn-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 .9-1 1.7"/><path d="M12 17h.01"/></svg></span><span>Procedure questions</span></button>');
       pimpNav.addEventListener("click", function () { goPimp(); closeNav(); });
       nav.appendChild(pimpNav);
+      var toolsNav = h('<button type="button" class="sn-item sn-tools" data-nav="tools"><span class="sn-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 12h2M12 12h2M16 12h0M8 16h2M12 16h2M16 16h0"/></svg></span><span>Tools</span></button>');
+      toolsNav.addEventListener("click", function () { goTools(); closeNav(); });
+      nav.appendChild(toolsNav);
     }
     nav.appendChild(h('<div class="sn-label">Subspecialties</div>'));
     TRACKS.forEach(function (t) {
@@ -5423,6 +5470,8 @@
     if (homeBtn) homeBtn.classList.toggle("active", state.screen === "home");
     var pimpBtn = nav.querySelector('.sn-pimp');
     if (pimpBtn) pimpBtn.classList.toggle("active", state.screen === "pimp");
+    var toolsBtn = nav.querySelector(".sn-tools");
+    if (toolsBtn) toolsBtn.classList.toggle("active", state.screen === "tools");
     var roadmapBtn = nav.querySelector('.sn-roadmap');
     if (roadmapBtn) roadmapBtn.classList.toggle("active", state.screen === "roadmap");
     var libraryBtn = nav.querySelector('.sn-library');
