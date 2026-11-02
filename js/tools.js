@@ -20,6 +20,7 @@
   function register(def) { TOOLS.defs.push(def); TOOLS.byId[def.id] = def; }
   TOOLS.get = function (id) { return TOOLS.byId[id] || null; };
   window.JEFFENT_TOOLS = TOOLS;
+
   /* Swap each native <select> for the site's themed dropdown (app.js supplies makeSelect).
      The native select stays in the DOM, hidden, so values and change events work as before. */
   function enhanceSelects(scope) {
@@ -36,16 +37,63 @@
     });
   }
 
+  /* ---------- result building blocks ---------- */
+  function res(o) {
+    var h = '<div class="tk-res">';
+    if (o.kicker) h += '<div class="tk-kicker">' + o.kicker + '</div>';
+    h += '<div class="tk-score">' + o.score + (o.of ? '<span class="tk-of"> of ' + o.of + '</span>' : "") + '</div>';
+    if (o.tag) h += '<div class="tk-verdict">' + o.tag + '</div>';
+    if (o.visual) h += o.visual;
+    if (o.text) h += '<p class="tk-text">' + o.text + '</p>';
+    if (o.rows && o.rows.length) h += '<dl class="tk-rows">' + o.rows.map(function (r) { return '<div><dt>' + r[0] + '</dt><dd>' + r[1] + '</dd></div>'; }).join("") + '</dl>';
+    if (o.more) h += o.more;
+    return h + "</div>";
+  }
+  /* Segmented bar over a numeric range. segs: [{label, from, to, tone}], inclusive ends. */
+  function meter(segs, value, caption, activeIdx) {
+    var min = segs[0].from, max = segs[segs.length - 1].to, n = max - min + 1;
+    var v = Math.max(min, Math.min(max, value));
+    function isOn(s, i) { return activeIdx != null ? i === activeIdx : (value >= s.from && value <= s.to); }
+    var h = '<div class="tk-meter" role="img" aria-label="' + esc(caption || "Score position") + '"><div class="tk-meter-bar">';
+    segs.forEach(function (s, i) { h += '<i class="tk-seg tk-t' + s.tone + (isOn(s, i) ? " on" : "") + '" style="width:' + ((s.to - s.from + 1) / n * 100) + '%"></i>'; });
+    h += '<b class="tk-marker" style="left:' + ((v - min + 0.5) / n * 100) + '%"></b></div><div class="tk-meter-labels">';
+    segs.forEach(function (s, i) { h += '<span class="' + (isOn(s, i) ? "on" : "") + '" style="width:' + ((s.to - s.from + 1) / n * 100) + '%">' + s.label + '</span>'; });
+    return h + "</div></div>";
+  }
+  /* Row of stage steps with the current one lit. */
+  function ladder(steps, current, caption) {
+    return '<ol class="tk-ladder" aria-label="' + esc(caption || "Stage") + '">' + steps.map(function (s) {
+      return '<li class="' + (s === current ? "on" : "") + '"' + (s === current ? ' aria-current="step"' : "") + '>' + s + '</li>'; }).join("") + '</ol>';
+  }
+  function sizeLine(size, fu, fna) {
+    var MAX = 3.5, pos = function (x) { return Math.min(MAX, x) / MAX * 100; };
+    var h = '<div class="tk-size" role="img" aria-label="Nodule size against the follow-up and biopsy cutoffs"><div class="tk-size-track">' +
+      '<i class="tk-size-zone" style="left:' + pos(fu) + '%;width:' + (pos(fna) - pos(fu)) + '%"></i><i class="tk-size-zone hi" style="left:' + pos(fna) + '%;right:0"></i>';
+    if (size != null) h += '<b class="tk-size-dot" style="left:' + pos(size) + '%"></b>';
+    h += '</div><div class="tk-size-labels"><span class="tk-sz-fu">Follow-up from ' + fu + ' cm</span><span class="tk-sz-fna">Biopsy from ' + fna + ' cm</span></div></div>';
+    return h;
+  }
+
   /* ---------- generic form: fields in, result html out ---------- */
   function buildForm(root, fields, compute, intro) {
-    var html = (intro ? '<p class="tk-intro">' + intro + '</p>' : "") + '<div class="tk-form">';
+    var html = (intro ? '<p class="tk-intro">' + intro + '</p>' : "") + '<div class="tk-form">', inChips = false;
     fields.forEach(function (f) {
+      if (f.type !== "check" && inChips) { html += "</div>"; inChips = false; }
       if (f.type === "check") {
-        html += '<label class="tk-check"><input type="checkbox" data-f="' + f.id + '"><span>' + f.label + '</span></label>';
+        if (!inChips) { html += '<div class="tk-chipset" role="group">'; inChips = true; }
+        html += '<label class="tk-chip"><input type="checkbox" data-f="' + f.id + '"><span>' + f.label + '</span></label>';
+      } else if (f.type === "heading") {
+        html += '<div class="tk-sub">' + f.label + '</div>';
       } else if (f.type === "radio") {
         html += '<fieldset class="tk-field"><legend>' + f.label + '</legend><div class="tk-opts">';
         f.options.forEach(function (o, i) {
           html += '<label class="tk-opt"><input type="radio" name="' + f.id + '-' + TOOLS._n + '" data-f="' + f.id + '" value="' + esc(o[0]) + '"' + (i === (f.def || 0) ? " checked" : "") + '><span>' + o[1] + '</span></label>';
+        });
+        html += '</div></fieldset>';
+      } else if (f.type === "seg") {
+        html += '<fieldset class="tk-seg-row"><legend>' + f.label + '</legend><div class="tk-segs">';
+        f.options.forEach(function (o, i) {
+          html += '<label><input type="radio" name="' + f.id + '-' + TOOLS._n + '" data-f="' + f.id + '" value="' + esc(o[0]) + '"' + (i === (f.def || 0) ? " checked" : "") + '><span>' + o[1] + '</span></label>';
         });
         html += '</div></fieldset>';
       } else if (f.type === "number") {
@@ -56,6 +104,7 @@
         html += '</select></label>';
       }
     });
+    if (inChips) html += "</div>";
     html += '</div><div class="tk-result" aria-live="polite"></div>';
     root.innerHTML = html;
     enhanceSelects(root);
@@ -64,8 +113,9 @@
     function values() {
       var v = {};
       fields.forEach(function (f) {
+        if (f.type === "heading") return;
         if (f.type === "check") v[f.id] = root.querySelector('[data-f="' + f.id + '"]').checked;
-        else if (f.type === "radio") { var r = root.querySelector('[data-f="' + f.id + '"]:checked'); v[f.id] = r ? r.value : ""; }
+        else if (f.type === "radio" || f.type === "seg") { var r = root.querySelector('[data-f="' + f.id + '"]:checked'); v[f.id] = r ? r.value : ""; }
         else if (f.type === "number") { var n = parseFloat(root.querySelector('[data-f="' + f.id + '"]').value); v[f.id] = isNaN(n) ? null : n; }
         else v[f.id] = root.querySelector('[data-f="' + f.id + '"]').value;
       });
@@ -77,17 +127,12 @@
     update();
   }
   TOOLS._n = 0;
-  function result(big, small, rows) {
-    var h = '<div class="tk-big">' + big + '</div>';
-    if (small) h += '<div class="tk-small">' + small + '</div>';
-    if (rows && rows.length) h += '<dl class="tk-rows">' + rows.map(function (r) { return '<div><dt>' + r[0] + '</dt><dd>' + r[1] + '</dd></div>'; }).join("") + '</dl>';
-    return h;
-  }
-  var DISCLAIMER = '<p class="tk-foot">Teaching aid, not for clinical decisions.</p>';
 
   /* ---------- STOP-BANG ---------- */
   register({
-    id: "stop-bang", title: "STOP-BANG calculator", group: "Sleep", blurb: "Obstructive sleep apnea screening score.",
+    id: "stop-bang", title: "STOP-BANG calculator", short: "STOP-BANG", group: "Sleep", track: "sleep", range: "0 to 8",
+    blurb: "Obstructive sleep apnea screening score.",
+    related: [["Sleep clinical notes", "sleep-osa", "clinical"]],
     render: function (root) {
       var items = [
         ["s", "Snoring: loud enough to be heard through a closed door"], ["t", "Tired: daytime fatigue or sleepiness"],
@@ -98,39 +143,46 @@
         var score = 0; items.forEach(function (i) { if (v[i[0]]) score++; });
         var stop = (v.s ? 1 : 0) + (v.t ? 1 : 0) + (v.o ? 1 : 0) + (v.p ? 1 : 0);
         var risk = score <= 2 ? "Low risk" : score >= 5 ? "High risk" : "Intermediate risk";
-        var note = "0 to 2 is low risk, 3 to 4 is intermediate, and 5 to 8 is high.";
-        if (score >= 3 && score <= 4 && stop >= 2 && (v.g || v.b || v.n)) { risk = "High risk"; note = "Scores of 3 to 4 are reclassified as high risk when at least 2 STOP items are positive together with male gender, BMI over 35, or a large neck."; }
-        return result(score + ' of 8 <span class="tk-tag">' + risk + '</span>', note, [["Next step", score <= 2 ? "OSA is unlikely. Reassess if symptoms change." : "Consider a sleep study (home test or in-lab polysomnography)."]]) + DISCLAIMER;
+        var note = "";
+        if (score >= 3 && score <= 4 && stop >= 2 && (v.g || v.b || v.n)) { risk = "High risk"; note = "Reclassified as high risk: at least 2 STOP items with male gender, BMI over 35, or a large neck. "; }
+        return res({ kicker: "STOP-BANG score", score: score, of: 8, tag: risk,
+          visual: meter([{ label: "Low", from: 0, to: 2, tone: 0 }, { label: "Intermediate", from: 3, to: 4, tone: 1 }, { label: "High", from: 5, to: 8, tone: 3 }], score, "STOP-BANG risk zones", note ? 2 : null),
+          text: note + (score <= 2 ? "Sleep apnea is unlikely. Reassess if symptoms change." : "Consider a sleep study, either a home test or in-lab polysomnography.") });
       });
     }
   });
 
   /* ---------- Epworth ---------- */
   register({
-    id: "epworth", title: "Epworth Sleepiness Scale", group: "Sleep", blurb: "Chance of dozing in eight everyday situations.",
+    id: "epworth", title: "Epworth Sleepiness Scale", short: "Epworth", group: "Sleep", track: "sleep", range: "0 to 24",
+    blurb: "Chance of dozing in eight everyday situations.",
+    related: [["Sleep clinical notes", "sleep-osa", "clinical"]],
     render: function (root) {
-      var q = ["Sitting and reading", "Watching TV", "Sitting inactive in a public place (a theater or a meeting)", "As a passenger in a car for an hour without a break",
+      var q = ["Sitting and reading", "Watching TV", "Sitting inactive in a public place, such as a theater or a meeting", "As a passenger in a car for an hour without a break",
         "Lying down to rest in the afternoon when circumstances permit", "Sitting and talking to someone", "Sitting quietly after a lunch without alcohol", "In a car, while stopped for a few minutes in traffic"];
-      var opts = [["0", "0, would never doze"], ["1", "1, slight chance"], ["2", "2, moderate chance"], ["3", "3, high chance"]];
-      buildForm(root, q.map(function (t, i) { return { id: "q" + i, type: "select", label: t, options: opts }; }), function (v) {
+      buildForm(root, q.map(function (t, i) { return { id: "q" + i, type: "seg", label: t, options: [["0", "0"], ["1", "1"], ["2", "2"], ["3", "3"]] }; }), function (v) {
         var s = 0; q.forEach(function (t, i) { s += parseInt(v["q" + i], 10) || 0; });
         var lab = s <= 10 ? "Normal range" : s <= 12 ? "Mild excessive sleepiness" : s <= 15 ? "Moderate excessive sleepiness" : "Severe excessive sleepiness";
-        return result(s + ' of 24 <span class="tk-tag">' + lab + '</span>', "0 to 10 normal, 11 to 12 mild, 13 to 15 moderate, 16 to 24 severe. It measures sleepiness, not the severity of sleep apnea.") + DISCLAIMER;
-      }, "How likely are you to doze off or fall asleep in each situation, in contrast to just feeling tired?");
+        return res({ kicker: "Epworth score", score: s, of: 24, tag: lab,
+          visual: meter([{ label: "Normal", from: 0, to: 10, tone: 0 }, { label: "Mild", from: 11, to: 12, tone: 1 }, { label: "Moderate", from: 13, to: 15, tone: 2 }, { label: "Severe", from: 16, to: 24, tone: 3 }], s, "Epworth bands"),
+          text: "It measures sleepiness, not the severity of sleep apnea." });
+      }, "How likely are you to doze off in each situation, in contrast to just feeling tired? 0 would never doze, 1 slight chance, 2 moderate chance, 3 high chance.");
     }
   });
 
   /* ---------- House-Brackmann ---------- */
   register({
-    id: "house-brackmann", title: "House-Brackmann grading", group: "Facial nerve", blurb: "Grade facial nerve function I to VI from the exam.",
+    id: "house-brackmann", title: "House-Brackmann grading", short: "House-Brackmann", group: "Facial nerve", track: "facial-plastics", range: "Grade I to VI",
+    blurb: "Grade facial nerve function from the exam.",
+    related: [["Facial nerve notes", "facial-plastics-trauma", "clinical"], ["Otology notes", "otology-ear", "clinical"]],
     render: function (root) {
       var rank = { 0: "I", 2: "II", 3: "III", 4: "IV" };
       var table = [
         ["I", "Normal", "Normal facial function."],
         ["II", "Mild dysfunction", "Slight weakness on close inspection, slight synkinesis. Symmetric at rest. Moderate to good forehead movement, eye closes with minimal effort, slight mouth asymmetry."],
         ["III", "Moderate dysfunction", "Obvious but not disfiguring difference. Noticeable synkinesis, contracture, or spasm. Symmetric at rest. Slight to moderate forehead movement, eye closes with effort, mouth slightly weak with maximum effort."],
-        ["IV", "Moderately severe", "Obvious weakness or disfiguring asymmetry. Symmetric at rest. No forehead movement, incomplete eye closure, mouth asymmetric with maximum effort."],
-        ["V", "Severe", "Barely perceptible motion. Asymmetric at rest. No forehead movement, incomplete eye closure, slight mouth movement."],
+        ["IV", "Moderately severe dysfunction", "Obvious weakness or disfiguring asymmetry. Symmetric at rest. No forehead movement, incomplete eye closure, mouth asymmetric with maximum effort."],
+        ["V", "Severe dysfunction", "Barely perceptible motion. Asymmetric at rest. No forehead movement, incomplete eye closure, slight mouth movement."],
         ["VI", "Total paralysis", "No movement."]
       ];
       buildForm(root, [
@@ -142,44 +194,58 @@
         { id: "sy", type: "select", label: "Synkinesis, contracture, or spasm", options: [["0", "None"], ["2", "Slight"], ["3", "Obvious, not disfiguring"], ["4", "Disfiguring"]] }
       ], function (v) {
         var g;
-        if (v.mov === "no") g = "VI";
-        else if (v.rest === "no") g = "V";
-        else g = rank[Math.max(+v.fh, +v.eye, +v.mo, +v.sy)];
+        if (v.mov === "no") g = "VI"; else if (v.rest === "no") g = "V"; else g = rank[Math.max(+v.fh, +v.eye, +v.mo, +v.sy)];
         var row = table.filter(function (r) { return r[0] === g; })[0];
-        var t = '<table class="tk-table"><thead><tr><th>Grade</th><th>Description</th></tr></thead><tbody>' + table.map(function (r) {
-          return '<tr' + (r[0] === g ? ' class="on"' : "") + '><td><strong>' + r[0] + '</strong></td><td><strong>' + r[1] + '.</strong> ' + r[2] + '</td></tr>'; }).join("") + '</tbody></table>';
-        return result("Grade " + g + ' <span class="tk-tag">' + row[1] + '</span>', "The worst finding sets the grade. Asymmetry at rest or no movement overrides the rest.") + t + DISCLAIMER;
+        var more = '<details class="tk-more"><summary>All six grades</summary><table class="tk-table"><tbody>' + table.map(function (r) {
+          return '<tr' + (r[0] === g ? ' class="on"' : "") + '><td class="tk-gr">' + r[0] + '</td><td><strong>' + r[1] + '.</strong> ' + r[2] + '</td></tr>'; }).join("") + '</tbody></table></details>';
+        return res({ kicker: "House-Brackmann grade", score: g, tag: row[1],
+          visual: ladder(["I", "II", "III", "IV", "V", "VI"], g, "Facial nerve grade"),
+          text: row[2] + " The worst finding sets the grade. No movement, or asymmetry at rest, overrides the rest.", more: more });
       });
     }
   });
 
   /* ---------- Friedman staging ---------- */
   register({
-    id: "friedman", title: "Friedman staging", group: "Sleep", blurb: "Tongue position, tonsil size, and BMI to predict palate surgery success.",
+    id: "friedman", title: "Friedman staging", short: "Friedman staging", group: "Sleep", track: "sleep", range: "Stage I to IV",
+    blurb: "Tongue position, tonsil size, and BMI predict palate surgery success.",
+    related: [["Friedman notes", "sleep-osa", "anatomy"]],
     render: function (root) {
       buildForm(root, [
         { id: "ftp", type: "select", label: "Friedman tongue position", options: [["1", "I, whole uvula and tonsils visible"], ["2", "II, uvula visible, tonsils partly hidden"], ["3", "III, soft palate visible, uvula hidden"], ["4", "IV, hard palate only"]] },
         { id: "ton", type: "select", label: "Tonsil size", options: [["0", "0, absent"], ["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"]], def: 3 },
         { id: "bmi", type: "select", label: "BMI", options: [["lt", "Under 40 kg/m²"], ["ge", "40 kg/m² or more"]] }
       ], function (v) {
-        var ftp = +v.ftp, ton = +v.ton, st, succ, tx;
-        if (v.bmi === "ge") { st = "IV"; succ = "Not a good surgical candidate for palate surgery alone"; tx = "Weight loss and non-surgical therapy come first."; }
+        var ftp = +v.ftp, ton = +v.ton, st, succ, tx, row, col;
+        row = ftp <= 2 ? 0 : 1; col = ton >= 3 ? 1 : 0;
+        if (v.bmi === "ge") { st = "IV"; succ = "Not a good candidate for palate surgery alone"; tx = "Weight loss and non-surgical therapy come first."; }
         else if (ton >= 3 && ftp <= 2) { st = "I"; succ = "About 80%"; tx = "Favorable anatomy for palate surgery such as UPPP."; }
         else if (ton <= 2 && ftp >= 3) { st = "III"; succ = "Under 10%"; tx = "Tongue-base obstruction. Palate surgery alone rarely works. Consider multilevel or tongue-directed treatment."; }
         else { st = "II"; succ = "About 40%"; tx = "Mixed anatomy with intermediate results."; }
-        return result("Stage " + st, tx, [["UPPP success", succ]]) + '<p class="tk-small">Stage I: large tonsils (3 to 4) with tongue position I or II. Stage II: large tonsils with position III or IV, or small tonsils (0 to 2) with position I or II. Stage III: small tonsils with position III or IV. Stage IV: BMI 40 or more.</p>' + DISCLAIMER;
+        var cells = [["II", "III"], ["I", "II"]].map(function (r, i) { return r; });
+        var grid = [[["Stage II", "about 40%"], ["Stage I", "about 80%"]], [["Stage III", "under 10%"], ["Stage II", "about 40%"]]];
+        var m = '<div class="tk-matrix' + (v.bmi === "ge" ? " dim" : "") + '" role="table" aria-label="Friedman stage by tongue position and tonsil size">' +
+          '<span></span><span class="tk-mh">Small tonsils, 0 to 2</span><span class="tk-mh">Large tonsils, 3 to 4</span>';
+        [0, 1].forEach(function (r) {
+          m += '<span class="tk-mh tk-mr">Tongue position ' + (r === 0 ? "I to II" : "III to IV") + '</span>';
+          [0, 1].forEach(function (c) { m += '<span class="tk-mc' + (v.bmi !== "ge" && r === row && c === col ? " on" : "") + '"><b>' + grid[r][c][0] + '</b><small>' + grid[r][c][1] + '</small></span>'; });
+        });
+        m += "</div>" + (v.bmi === "ge" ? '<div class="tk-banner">BMI 40 or more places the patient in stage IV whatever the anatomy.</div>' : "");
+        return res({ kicker: "Friedman stage", score: st, tag: "UPPP success: " + succ, visual: m, text: tx });
       });
     }
   });
 
   /* ---------- Centor / McIsaac ---------- */
   register({
-    id: "centor", title: "Centor (McIsaac) score", group: "Sore throat", blurb: "Likelihood of group A strep pharyngitis.",
+    id: "centor", title: "Centor (McIsaac) score", short: "Centor score", group: "Sore throat", track: "foundations", range: "−1 to 5",
+    blurb: "Likelihood of group A strep pharyngitis.",
+    related: [["Foundations flashcards", "ent-exam", "cards"]],
     render: function (root) {
       buildForm(root, [
         { id: "ex", type: "check", label: "Tonsillar swelling or exudate" },
         { id: "ln", type: "check", label: "Tender anterior cervical lymph nodes" },
-        { id: "fe", type: "check", label: "Fever (temperature over 38 °C or 100.4 °F)" },
+        { id: "fe", type: "check", label: "Fever (over 38 °C or 100.4 °F)" },
         { id: "co", type: "check", label: "No cough" },
         { id: "age", type: "select", label: "Age", options: [["1", "3 to 14 years"], ["0", "15 to 44 years"], ["-1", "45 years or older"]], def: 1 }
       ], function (v) {
@@ -190,24 +256,29 @@
         else if (s === 2) { risk = "about 11 to 17%"; act = "Consider a rapid antigen test or culture. Treat only if positive."; }
         else if (s === 3) { risk = "about 28 to 35%"; act = "Rapid antigen test or culture. Treat if positive."; }
         else { risk = "about 51 to 53%"; act = "Test. Treat if positive. Some clinicians treat empirically when testing is unavailable."; }
-        return result("Score " + s + ' <span class="tk-tag">Strep risk ' + risk + '</span>', act, [["Range", "Score runs from −1 to 5"]]) + DISCLAIMER;
+        return res({ kicker: "Centor score", score: s, tag: "Strep risk " + risk,
+          visual: meter([{ label: "0 or less", from: -1, to: 0, tone: 0 }, { label: "1", from: 1, to: 1, tone: 0 }, { label: "2", from: 2, to: 2, tone: 1 }, { label: "3", from: 3, to: 3, tone: 2 }, { label: "4 or more", from: 4, to: 5, tone: 3 }], s, "Centor score bands"),
+          text: act });
       });
     }
   });
 
   /* ---------- Thyroid nodule: ACR TI-RADS ---------- */
   register({
-    id: "ti-rads", title: "Thyroid nodule risk (TI-RADS)", group: "Thyroid", blurb: "Ultrasound features to a TR level and the size cutoff for biopsy.",
+    id: "ti-rads", title: "Thyroid nodule risk (TI-RADS)", short: "Thyroid nodule risk", group: "Thyroid", track: "head-neck", range: "TR1 to TR5",
+    blurb: "Ultrasound features to a TR level and the size cutoff for biopsy.",
+    related: [["Head and neck notes", "head-neck-oncology", "clinical"]],
     render: function (root) {
       buildForm(root, [
         { id: "comp", type: "select", label: "Composition", options: [["0", "Cystic, almost completely cystic, or spongiform (0)"], ["1", "Mixed cystic and solid (1)"], ["2", "Solid or almost completely solid (2)"]], def: 2 },
         { id: "echo", type: "select", label: "Echogenicity", options: [["0", "Anechoic (0)"], ["1", "Hyperechoic or isoechoic (1)"], ["2", "Hypoechoic (2)"], ["3", "Very hypoechoic (3)"]], def: 1 },
         { id: "shape", type: "select", label: "Shape", options: [["0", "Wider than tall (0)"], ["3", "Taller than wide (3)"]] },
         { id: "marg", type: "select", label: "Margin", options: [["0", "Smooth or ill-defined (0)"], ["2", "Lobulated or irregular (2)"], ["3", "Extra-thyroidal extension (3)"]] },
-        { id: "f1", type: "check", label: "Echogenic foci: large comet-tail artifacts (0)" },
-        { id: "f2", type: "check", label: "Echogenic foci: macrocalcifications (1)" },
-        { id: "f3", type: "check", label: "Echogenic foci: peripheral or rim calcifications (2)" },
-        { id: "f4", type: "check", label: "Echogenic foci: punctate echogenic foci (3)" },
+        { id: "h", type: "heading", label: "Echogenic foci (select all that apply)" },
+        { id: "f1", type: "check", label: "Large comet-tail artifacts (0)" },
+        { id: "f2", type: "check", label: "Macrocalcifications (1)" },
+        { id: "f3", type: "check", label: "Peripheral or rim calcifications (2)" },
+        { id: "f4", type: "check", label: "Punctate echogenic foci (3)" },
         { id: "size", type: "number", label: "Largest dimension (cm)", ph: "for example 1.8" }
       ], function (v) {
         var pts = (+v.comp) + (+v.echo) + (+v.shape) + (+v.marg) + (v.f2 ? 1 : 0) + (v.f3 ? 2 : 0) + (v.f4 ? 3 : 0);
@@ -223,10 +294,12 @@
         else if (v.size >= fna) rec = "Meets the size cutoff for fine-needle aspiration (" + fna + " cm or larger).";
         else if (v.size >= fu) rec = "Below the biopsy cutoff. Ultrasound follow-up is recommended (" + fu + " cm or larger).";
         else rec = "Below the follow-up cutoff. No biopsy or follow-up is recommended.";
-        var bt = '<table class="tk-table"><caption>Bethesda categories (3rd edition, 2023) and risk of malignancy</caption><thead><tr><th>Category</th><th>Risk</th></tr></thead><tbody>' +
+        var bt = '<details class="tk-more"><summary>Bethesda categories and risk of malignancy</summary><table class="tk-table"><thead><tr><th>Category (3rd edition, 2023)</th><th>Risk</th></tr></thead><tbody>' +
           [["I Nondiagnostic", "about 13%"], ["II Benign", "about 4%"], ["III Atypia of undetermined significance", "about 22%"], ["IV Follicular neoplasm", "about 30%"], ["V Suspicious for malignancy", "about 74%"], ["VI Malignant", "about 97%"]]
-            .map(function (r) { return "<tr><td>" + r[0] + "</td><td>" + r[1] + "</td></tr>"; }).join("") + "</tbody></table>";
-        return result(pts + " points, TR" + lvl + ' <span class="tk-tag">' + lab + "</span>", rec) + bt + DISCLAIMER;
+            .map(function (r) { return "<tr><td>" + r[0] + "</td><td>" + r[1] + "</td></tr>"; }).join("") + "</tbody></table></details>";
+        return res({ kicker: "ACR TI-RADS", score: "TR" + lvl, tag: lab + ", " + pts + " points",
+          visual: meter([{ label: "TR1", from: 0, to: 0, tone: 0 }, { label: "TR2", from: 1, to: 2, tone: 0 }, { label: "TR3", from: 3, to: 3, tone: 1 }, { label: "TR4", from: 4, to: 6, tone: 2 }, { label: "TR5", from: 7, to: 12, tone: 3 }], pts, "TI-RADS points") + (fna ? sizeLine(v.size, fu, fna) : ""),
+          text: rec, more: bt });
       });
     }
   });
@@ -284,10 +357,12 @@
     return "I";
   }
   register({
-    id: "tnm", title: "TNM staging", group: "Head and neck", blurb: "Oral cavity, oropharynx, and larynx stage groups (AJCC 8th edition).",
+    id: "tnm", title: "TNM staging", short: "TNM staging", group: "Head and neck", track: "head-neck", range: "Stage 0 to IVC",
+    blurb: "Oral cavity, oropharynx, and larynx stage groups (AJCC 8th edition).",
+    related: [["Head and neck notes", "head-neck-oncology", "clinical"], ["Laryngology notes", "laryngology-voice-airway", "clinical"]],
     render: function (root) {
       var siteOpts = Object.keys(SITES).map(function (k) { return [k, SITES[k].name]; });
-      root.innerHTML = '<p class="tk-intro">Pick the site, then the T, N, and M categories. Clinical staging, AJCC 8th edition.</p><div class="tk-form" id="tnmForm"></div><div class="tk-result" aria-live="polite"></div>';
+      root.innerHTML = '<div class="tk-form" id="tnmForm"></div><div class="tk-result" aria-live="polite"></div>';
       var form = root.querySelector("#tnmForm"), out = root.querySelector(".tk-result");
       var state = { site: "oral", t: 0, n: 0, m: "M0" };
       function sel(id, label, opts, val) {
@@ -305,7 +380,9 @@
         enhanceSelects(form);
         var t = s.T[state.t][0], n = Ns[state.n][0];
         var grp = s.kind === "p16" ? stageP16(t, n, state.m) : stageStd(t, n, state.m);
-        out.innerHTML = result("Stage " + grp, t + " " + n + " " + state.m + (s.note ? ". " + s.note : "")) + DISCLAIMER;
+        out.innerHTML = res({ kicker: "Stage group", score: grp, tag: t + " " + n + " " + state.m,
+          visual: ladder(s.kind === "p16" ? ["I", "II", "III", "IV"] : ["0", "I", "II", "III", "IVA", "IVB", "IVC"], grp, "Stage group"),
+          text: s.note });
       }
       form.addEventListener("change", function (e) {
         var f = e.target.getAttribute("data-f");
@@ -321,7 +398,9 @@
 
   /* ---------- Thyroid cancer staging (differentiated, AJCC 8th edition) ---------- */
   register({
-    id: "thyroid-staging", title: "Thyroid cancer staging", group: "Thyroid", blurb: "Differentiated thyroid cancer stage group (AJCC 8th edition).",
+    id: "thyroid-staging", title: "Thyroid cancer staging", short: "Thyroid staging", group: "Thyroid", track: "head-neck", range: "Stage I to IVB",
+    blurb: "Differentiated thyroid cancer stage group (AJCC 8th edition).",
+    related: [["Head and neck notes", "head-neck-oncology", "clinical"]],
     render: function (root) {
       buildForm(root, [
         { id: "age", type: "radio", label: "Age at diagnosis", options: [["lt", "Under 55"], ["ge", "55 or older"]] },
@@ -337,7 +416,9 @@
         else if (v.t === "T4a") { g = "III"; why = "T4a, any N."; }
         else if (v.t === "T3a" || v.t === "T3b" || v.n !== "N0") { g = "II"; why = "T3 with any N, or T1 to T2 with nodal disease."; }
         else { g = "I"; why = "T1 to T2, N0."; }
-        return result("Stage " + g, why + " Applies to papillary, follicular, and Hürthle cell cancer. Medullary cancer is staged separately, and all anaplastic cancer is stage IV.") + DISCLAIMER;
+        return res({ kicker: "Stage group", score: g, tag: why,
+          visual: ladder(["I", "II", "III", "IVA", "IVB"], g, "Stage group"),
+          text: "Applies to papillary, follicular, and Hürthle cell cancer. Medullary cancer is staged separately, and all anaplastic cancer is stage IV." });
       });
     }
   });
@@ -420,11 +501,12 @@
   }
   function tLabel(e) { return "Type " + e.t.replace(/^A(s|d)$/, 'A<sub>$1</sub>') + (e.t === "B" ? ", ECV " + e.ecv : ""); }
   register({
-    id: "audiogram", title: "Audiogram and tuning-fork simulator", group: "Hearing", blurb: "Pick a pattern and see the audiogram, Weber, Rinne, and tympanogram together.",
+    id: "audiogram", title: "Audiogram and tuning-fork simulator", short: "Audiogram simulator", group: "Hearing", track: "otology", range: "8 patterns", lead: true,
+    blurb: "Pick a pattern and see the audiogram, Weber, Rinne, and tympanogram together.",
+    related: [["Hearing loss notes", "otology-ear", "clinical"], ["Tuning fork exam", "ent-exam", "clinical"]],
     render: function (root) {
       var cur = CASES[1], quiz = false;
       root.innerHTML =
-        '<p class="tk-intro">Pick a pattern. The audiogram, tuning fork results, and tympanograms update together.</p>' +
         '<div class="tk-pills" role="group" aria-label="Hearing loss pattern"></div>' +
         '<div class="tk-bar"><span class="tk-case"></span><button type="button" class="tk-btn tk-quiz" aria-pressed="false">Quiz mode: off</button></div>' +
         '<div class="aud-grid-wrap"><div class="aud-card"><div class="aud-h">Pure tone audiogram</div><div class="aud-chart"></div>' +
@@ -473,4 +555,21 @@
       paint();
     }
   });
+  /* Small static audiogram for the Tools index (no labels, just the shape). */
+  TOOLS.thumb = function () {
+    var W = 240, H = 150, c = CASES[4];
+    var s = svg("svg", { viewBox: "0 0 " + W + " " + H, width: "100%", "aria-hidden": "true", "class": "aud-svg" });
+    [[0, 30, 0], [30, 60, 1], [60, 90, 2], [90, 120, 3], [120, 150, 4]].forEach(function (b) { svg("rect", { x: 0, y: b[0], width: W, height: b[1] - b[0], "class": "aud-band aud-band-" + b[2] }, s); });
+    for (var g = 1; g < 6; g++) { svg("line", { x1: 0, x2: W, y1: g * 25, y2: g * 25, "class": "aud-grid" }, s); }
+    function X(i) { return 22 + i * 39; }
+    function Y(v) { return 8 + v * 1.1; }
+    [["R", c.R.ac], ["L", c.L.ac]].forEach(function (e) {
+      svg("path", { d: e[1].map(function (v, i) { return (i ? "L" : "M") + X(i) + " " + Y(v); }).join(" "), "class": "aud-line aud-" + e[0] }, s);
+      e[1].forEach(function (v, i) {
+        if (e[0] === "R") svg("circle", { cx: X(i), cy: Y(v), r: 4.5, "class": "aud-sym-o aud-R" }, s);
+        else svg("path", { d: "M" + (X(i) - 4) + " " + (Y(v) - 4) + "L" + (X(i) + 4) + " " + (Y(v) + 4) + "M" + (X(i) + 4) + " " + (Y(v) - 4) + "L" + (X(i) - 4) + " " + (Y(v) + 4), "class": "aud-sym-x aud-L" }, s);
+      });
+    });
+    return s;
+  };
 })();

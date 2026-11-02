@@ -483,7 +483,7 @@
     if (state.screen === "roadmap") return { fn: "roadmap" };
     if (state.screen === "library") return { fn: "library" };
     if (state.screen === "about") return { fn: "about" };
-    if (state.screen === "tools") return { fn: "tools" };
+    if (state.screen === "tools") return { fn: "tools", id: state.toolId || null };
     if (state.screen === "weak") return { fn: "weak" };
     return null;
   }
@@ -509,7 +509,7 @@
     else if (prev.fn === "roadmap") goRoadmap();
     else if (prev.fn === "library") goCardLibrary();
     else if (prev.fn === "about") goAbout();
-    else if (prev.fn === "tools") goTools();
+    else if (prev.fn === "tools") goTools(prev.id);
     else if (prev.fn === "weak") goWeakSpots();
     navSuppress = false;
     updateBackButton();
@@ -535,6 +535,7 @@
       if (state.anatomyTopic && state.tab === "anatomy") h += "/" + state.anatomyTopic.kind + "/" + state.anatomyTopic.index;
       return h;
     }
+    if (sc === "tools") return "#/tools" + (state.toolId ? "/" + encodeURIComponent(state.toolId) : "");
     if (HASH_SCREENS[sc]) return "#/" + HASH_SCREENS[sc];
     return null;
   }
@@ -562,7 +563,7 @@
       else if (a === "roadmap") goRoadmap();
       else if (a === "library") goCardLibrary();
       else if (a === "about") goAbout();
-      else if (a === "tools") goTools();
+      else if (a === "tools") goTools(p[1]);
       else if (a === "weak") goWeakSpots();
       else goHome();
     } finally { routing = false; }
@@ -649,6 +650,8 @@
   function goAbout() { goHome(); }
 
   /* ---------- interactive tools (js/tools.js) ---------- */
+  var TOOL_NOTE = "Teaching aid, not for clinical decisions. Verify against the source guideline or staging manual.";
+  /* Embedded in a clinical block or note: a collapsible box that renders on first open. */
   function appendToolBox(parent, ids, opts) {
     var T = window.JEFFENT_TOOLS; if (!T) return;
     opts = opts || {};
@@ -656,33 +659,73 @@
       var def = T.get(id); if (!def) return;
       var box = h('<details class="tk-box"' + (opts.open ? " open" : "") + '><summary><span class="tk-sum-title">' + esc(def.title) + '</span><span class="tk-sum-blurb">' + esc(def.blurb || "") + '</span></summary><div class="tk-body"></div></details>');
       var body = box.querySelector(".tk-body"), done = false;
-      function build() { if (done) return; done = true; try { def.render(body); } catch (e) { body.textContent = "This tool could not load."; } }
+      function build() {
+        if (done) return; done = true;
+        try { def.render(body); body.appendChild(h('<p class="tk-foot">' + TOOL_NOTE + '</p>')); } catch (e) { body.textContent = "This tool could not load."; }
+      }
       box.addEventListener("toggle", function () { if (box.open) build(); });
       if (opts.open) build();
       parent.appendChild(box);
     });
   }
-  function goTools() {
+  function goTools(id) {
     pushNav();
     state.screen = "tools"; state.session = null;
+    state.toolId = (id && window.JEFFENT_TOOLS && window.JEFFENT_TOOLS.get(id)) ? id : null;
     renderTools();
     showScreen("tools");
   }
+  function toolColor(def) { var t = def.track ? trackById(def.track) : null; return t && t.color ? t.color : ""; }
   function renderTools() {
     var root = el("screen-tools");
     root.innerHTML = "";
-    var crumb = h('<button class="crumb">&larr; Home</button>');
-    crumb.addEventListener("click", goHome);
-    root.appendChild(crumb);
-    root.appendChild(h('<h1 class="h-lead">Tools</h1>'));
     var T = window.JEFFENT_TOOLS; if (!T) return;
+    var def = state.toolId ? T.get(state.toolId) : null;
+    var crumb = h('<button class="crumb">&larr; ' + (def ? "Tools" : "Home") + '</button>');
+    crumb.addEventListener("click", def ? function () { goTools(); } : goHome);
+    root.appendChild(crumb);
+    if (def) { renderToolView(root, def); return; }
+
+    root.appendChild(h('<h1 class="h-lead">Tools</h1>'));
+    var lead = T.defs.filter(function (d) { return d.lead; })[0];
+    if (lead) {
+      var lt = h('<button type="button" class="tk-lead"' + (toolColor(lead) ? ' style="--tk-c:' + toolColor(lead) + '"' : "") + '>' +
+        '<span class="tk-lead-copy"><span class="tk-tile-g">' + esc(lead.group) + '</span><span class="tk-lead-t">' + esc(lead.title) + '</span>' +
+        '<span class="tk-lead-b">' + esc(lead.blurb) + '</span><span class="tk-lead-go">Open simulator &rarr;</span></span><span class="tk-lead-art" aria-hidden="true"></span></button>');
+      lt.querySelector(".tk-lead-art").appendChild(T.thumb());
+      lt.addEventListener("click", function () { goTools(lead.id); });
+      root.appendChild(lt);
+    }
     var groups = {}, order = [];
-    T.defs.forEach(function (d) { if (!groups[d.group]) { groups[d.group] = []; order.push(d.group); } groups[d.group].push(d.id); });
+    T.defs.forEach(function (d) { if (d.lead) return; if (!groups[d.group]) { groups[d.group] = []; order.push(d.group); } groups[d.group].push(d); });
+    var grid = h('<div class="tk-tiles"></div>');
     order.forEach(function (g) {
-      var sec = h('<section class="tk-group"><h2 class="tk-group-h">' + esc(g) + '</h2></section>');
-      appendToolBox(sec, groups[g]);
-      root.appendChild(sec);
+      groups[g].forEach(function (d) {
+        var tile = h('<button type="button" class="tk-tile"' + (toolColor(d) ? ' style="--tk-c:' + toolColor(d) + '"' : "") + '>' +
+          '<span class="tk-tile-g">' + esc(d.group) + '</span><span class="tk-tile-t">' + esc(d.short || d.title) + '</span>' +
+          '<span class="tk-tile-b">' + esc(d.blurb) + '</span><span class="tk-tile-r">' + esc(d.range || "") + '</span></button>');
+        tile.addEventListener("click", function () { goTools(d.id); });
+        grid.appendChild(tile);
+      });
     });
+    root.appendChild(grid);
+    root.appendChild(h('<p class="tk-foot tk-foot-page">' + TOOL_NOTE + '</p>'));
+  }
+  function renderToolView(root, def) {
+    var c = toolColor(def);
+    var head = h('<header class="tk-head"' + (c ? ' style="--tk-c:' + c + '"' : "") + '><div class="tk-tile-g">' + esc(def.group) + '</div><h1 class="tk-title">' + esc(def.title) + '</h1><p class="tk-blurb">' + esc(def.blurb) + '</p></header>');
+    root.appendChild(head);
+    var stage = h('<div class="tk-stage"' + (c ? ' style="--tk-c:' + c + '"' : "") + '></div>');
+    root.appendChild(stage);
+    try { def.render(stage); } catch (e) { stage.textContent = "This tool could not load."; }
+    if (def.related && def.related.length) {
+      var rel = h('<div class="tk-related"><span class="tk-related-l">Related</span></div>');
+      def.related.forEach(function (r) {
+        rel.appendChild(h('<a class="xref tk-rel" href="javascript:void(0)" data-mod="' + esc(r[1]) + '" data-tab="' + esc(r[2]) + '">' + esc(r[0]) + ' &rarr;</a>'));
+      });
+      root.appendChild(rel);
+    }
+    root.appendChild(h('<p class="tk-foot tk-foot-page">' + TOOL_NOTE + '</p>'));
   }
 
   function goRoadmap() {
