@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-09",
+ "updated": "2026-11-16",
  "items": [
   {
    "pmid": "42861423",
@@ -12,6 +12,26 @@
    "url": "https://pubmed.ncbi.nlm.nih.gov/42861423/"
   },
   {
+   "pmid": "42886997",
+   "title": "Cochlear Implantation and Cognitive Function in Adults: A Systematic Review and Meta-analysis",
+   "authors": "Joyce CA, Zhang K, Stultiens JJA et al.",
+   "journal": "Otol Neurotol",
+   "date": "2026-10-16",
+   "type": "Meta-analysis",
+   "doi": "10.1097/MAO.0000000000005085",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/42886997/"
+  },
+  {
+   "pmid": "42855971",
+   "title": "Mohs vs. Wide Local Excision for Early-Stage (AJCC 0-II) Cutaneous Head and Neck Melanoma: A Meta-Analysis",
+   "authors": "Ardoin A, Vasudevan SS, Rodrigues KC et al.",
+   "journal": "Head Neck",
+   "date": "2026-10-10",
+   "type": "Meta-analysis",
+   "doi": "10.1002/hed.70511",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/42855971/"
+  },
+  {
    "pmid": "42843159",
    "title": "Short-term nasal decongestant as bridge therapy with intranasal corticosteroids in children with persistent allergic rhinitis: A randomized controlled trial",
    "authors": "Yüksel NC, Sancaklı Ö, Çelebi Çelik F et al.",
@@ -20,6 +40,16 @@
    "type": "Randomized trial",
    "doi": "10.1016/j.ijporl.2026.113036",
    "url": "https://pubmed.ncbi.nlm.nih.gov/42843159/"
+  },
+  {
+   "pmid": "42834346",
+   "title": "Efficacy and Safety of Cisplatin Versus Carboplatin for Patients With Squamous Cell Carcinoma of Head and Neck: A Systematic Review and Meta-Analysis",
+   "authors": "Rahim S, Kumari M, Abid E et al.",
+   "journal": "Head Neck",
+   "date": "2026-10-05",
+   "type": "Meta-analysis",
+   "doi": "10.1002/hed.70485",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/42834346/"
   },
   {
    "pmid": "42830011",
@@ -42,6 +72,26 @@
    "url": "https://pubmed.ncbi.nlm.nih.gov/42828822/"
   },
   {
+   "pmid": "42826367",
+   "title": "Active Middle Ear Implantation for Sensorineural Hearing Loss: A Systematic Review and Meta-Analysis",
+   "authors": "Shapira U, Lifshitz T, Muhanna N et al.",
+   "journal": "Otol Neurotol",
+   "date": "2026-10-02",
+   "type": "Meta-analysis",
+   "doi": "10.1097/MAO.0000000000005081",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/42826367/"
+  },
+  {
+   "pmid": "42802090",
+   "title": "Surgery After Thermal Ablation of Thyroid Nodules: A Systematic Review of Surgical Risk, Strategy and Pathological Findings",
+   "authors": "Brucchi F, Poli F, Sperotto B et al.",
+   "journal": "Head Neck",
+   "date": "2026-09-27",
+   "type": "Systematic review",
+   "doi": "10.1002/hed.70487",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/42802090/"
+  },
+  {
    "pmid": "42772239",
    "title": "Acoustic rhinometry for the assessment of adenoid hypertrophy: A systematic review",
    "authors": "Calvo-Henríquez C, Marmolejo MS, García-Lliberós A et al.",
@@ -60,16 +110,6 @@
    "type": "Meta-analysis",
    "doi": "10.1016/j.ijporl.2026.113021",
    "url": "https://pubmed.ncbi.nlm.nih.gov/42762557/"
-  },
-  {
-   "pmid": "42728885",
-   "title": "Safety and Analgesic Outcomes of Nonsteroidal Anti-Inflammatory Drug-Containing Regimens After Transoral Robotic Surgery: A Systematic Review and Meta-Analysis",
-   "authors": "Patel RD, Dorais CJ, Hofmann T et al.",
-   "journal": "Head Neck",
-   "date": "2026-09-12",
-   "type": "Meta-analysis",
-   "doi": "10.1002/hed.70471",
-   "url": "https://pubmed.ncbi.nlm.nih.gov/42728885/"
   }
  ]
 }
