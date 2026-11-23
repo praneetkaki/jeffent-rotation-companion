@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-16",
+ "updated": "2026-11-23",
  "items": [
   {
    "pmid": "42861423",
@@ -10,6 +10,26 @@
    "type": "Guideline",
    "doi": "10.1002/ohn.70417",
    "url": "https://pubmed.ncbi.nlm.nih.gov/42861423/"
+  },
+  {
+   "pmid": "42981808",
+   "title": "Association between exposure to gaseous air pollutants and the risk of allergic rhinitis in children and adolescents: A meta-analysis",
+   "authors": "Zhu R, Liu Y, Han Y",
+   "journal": "Int J Pediatr Otorhinolaryngol",
+   "date": "2026-11-04",
+   "type": "Meta-analysis",
+   "doi": "10.1016/j.ijporl.2026.113068",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/42981808/"
+  },
+  {
+   "pmid": "42950530",
+   "title": "Evaluating the usefulness and reporting quality of randomized clinical trials for pediatric tonsillectomy pharmacologic interventions: A systematic assessment",
+   "authors": "Lackey M, Calvert N, Forbes C et al.",
+   "journal": "Int J Pediatr Otorhinolaryngol",
+   "date": "2026-10-28",
+   "type": "Systematic review",
+   "doi": "10.1016/j.ijporl.2026.113061",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/42950530/"
   },
   {
    "pmid": "42886997",
@@ -90,26 +110,6 @@
    "type": "Systematic review",
    "doi": "10.1002/hed.70487",
    "url": "https://pubmed.ncbi.nlm.nih.gov/42802090/"
-  },
-  {
-   "pmid": "42772239",
-   "title": "Acoustic rhinometry for the assessment of adenoid hypertrophy: A systematic review",
-   "authors": "Calvo-Henríquez C, Marmolejo MS, García-Lliberós A et al.",
-   "journal": "Int J Pediatr Otorhinolaryngol",
-   "date": "2026-09-22",
-   "type": "Systematic review",
-   "doi": "10.1016/j.ijporl.2026.113019",
-   "url": "https://pubmed.ncbi.nlm.nih.gov/42772239/"
-  },
-  {
-   "pmid": "42762557",
-   "title": "Prenatal maternal stress and the risk of allergic rhinitis in offspring: A systematic review and meta-analysis",
-   "authors": "Liu Z, Zeng Y, Ru Z et al.",
-   "journal": "Int J Pediatr Otorhinolaryngol",
-   "date": "2026-09-19",
-   "type": "Meta-analysis",
-   "doi": "10.1016/j.ijporl.2026.113021",
-   "url": "https://pubmed.ncbi.nlm.nih.gov/42762557/"
   }
  ]
 }
